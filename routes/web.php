@@ -13,4 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', 'WebURLController@spa')->where('any', '.*');
+/*
+/---------------------------------------------------------------------------
+/ All web route handled by WebURLController
+/ use 'spa' method for route that handled by spa
+/
+>*/
+
+// Non SPA Route
+Route::get('/', 'WebURLController@landingPage');
+Route::get('/tentang', 'WebURLController@tentang');
+Route::get('/petunjuk', 'WebURLController@petunjuk');
+
+//SPA Route
+Route::get('/user/{any}', 'WebURLController@spa')->where('any', '.*');

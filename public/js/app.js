@@ -125550,7 +125550,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_window_size__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_window_size__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _moment_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./moment.js */ "./resources/js/moment.js");
+/* harmony import */ var _moment_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./moment.js */ "./resources/js/moment.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
@@ -125572,7 +125572,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_8___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_moment_js__WEBPACK_IMPORTED_MODULE_10__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_moment_js__WEBPACK_IMPORTED_MODULE_7__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuescroll__WEBPACK_IMPORTED_MODULE_6___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_window_size__WEBPACK_IMPORTED_MODULE_5___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -125763,7 +125763,7 @@ function install(Vue) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/store */ "./resources/js/store/store.js");
@@ -125774,17 +125774,16 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
-  path: "/",
+  path: "/test",
   name: "Landing Page",
   component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: "/user/",
   routes: routes
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -125966,15 +125965,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/nonSPA.scss":
+/*!************************************!*\
+  !*** ./resources/sass/nonSPA.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!******************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/nonSPA.scss ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! A:\Programming\Web-Root\template-7-spa\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! A:\Programming\Web-Root\template-7-spa\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\sass\nonSPA.scss */"./resources/sass/nonSPA.scss");
 
 
 /***/ })

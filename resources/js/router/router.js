@@ -6,7 +6,7 @@ import Home from "../views/Home.vue";
 Vue.use(VueRouter);
 const routes = [
     {
-        path: "/",
+        path: "/test",
         name: "Landing Page",
         component: Home
     },
@@ -14,7 +14,7 @@ const routes = [
 
 const router = new VueRouter({
     mode: "history",
-    base: process.env.BASE_URL,
+    base: "/user/",
     routes
 });
 

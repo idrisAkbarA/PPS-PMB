@@ -9,4 +9,7 @@ class WebURLController extends Controller
     public function spa(){
         return view("layouts.app");
     }
+    public function landingPage(){
+        return view("landingPage");
+    }
 }
