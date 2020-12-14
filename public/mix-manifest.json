@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/nonSPA.css": "/css/nonSPA.css",
+    "/css/pendaftaran.css": "/css/pendaftaran.css",
     "/js/nonSPA.js": "/js/nonSPA.js"
 }

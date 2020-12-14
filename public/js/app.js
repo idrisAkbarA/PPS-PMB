@@ -125976,16 +125976,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/pendaftaran.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/pendaftaran.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!******************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/nonSPA.scss ***!
-  \******************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/nonSPA.scss ./resources/sass/pendaftaran.scss ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\sass\nonSPA.scss */"./resources/sass/nonSPA.scss");
+__webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\sass\nonSPA.scss */"./resources/sass/nonSPA.scss");
+module.exports = __webpack_require__(/*! A:\Programming\Web-Root\PPS-PMB\resources\sass\pendaftaran.scss */"./resources/sass/pendaftaran.scss");
 
 
 /***/ })

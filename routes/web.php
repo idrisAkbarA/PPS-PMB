@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 // Non SPA Route
 Route::get('/', 'WebURLController@landingPage');
+Route::get('/pendaftaran', 'WebURLController@pendaftaran');
 Route::get('/tentang', 'WebURLController@tentang');
 Route::get('/petunjuk', 'WebURLController@petunjuk');
 

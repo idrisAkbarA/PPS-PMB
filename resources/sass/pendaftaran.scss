@@ -1,0 +1,25 @@
+.pendaftaran-wrapper{
+    height: 100vh;
+    background: #E8F5E9;
+    // background-image: url('/images/pattern1.svg');
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.social-icon button {
+    font-size: 20px;
+    color: white;
+    height: 50px;
+    width: 50px;
+    background: #45aba6;
+    border-radius: 60%;
+    margin: 0px 10px;
+    border: none;
+    cursor: pointer;
+}
