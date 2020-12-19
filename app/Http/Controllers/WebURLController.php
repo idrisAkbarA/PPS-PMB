@@ -17,4 +17,7 @@ class WebURLController extends Controller
     public function pendaftaran(){
         return view("pendaftaran");
     }
+    public function login(){
+        return view("login");
+    }
 }

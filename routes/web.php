@@ -25,6 +25,7 @@ Route::get('/', 'WebURLController@landingPage');
 Route::get('/pendaftaran', 'WebURLController@pendaftaran');
 Route::get('/tentang', 'WebURLController@tentang');
 Route::get('/petunjuk', 'WebURLController@petunjuk');
+Route::get('/login', 'WebURLController@login');
 
 //SPA Route
 Route::get('/user/{any}', 'WebURLController@spa')->where('any', '.*');

@@ -15,4 +15,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 mix.js('resources/js/nonSPA.js', 'public/js')
     .sass('resources/sass/nonSPA.scss', 'public/css');
+mix.js('resources/js/mhsLogin.js', 'public/js');
 mix.sass('resources/sass/pendaftaran.scss','public/css');

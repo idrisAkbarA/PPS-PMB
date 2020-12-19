@@ -34,9 +34,11 @@
             </h6>
           </div>
           <div>
-            <h6>
-              login
-            </h6>
+            <a href="/login">
+              <h6>
+                login
+              </h6>
+            </a>
           </div>
           <div>
             <h6>
@@ -64,6 +66,7 @@
 
   </div>
   <script src="{{ mix('js/nonSPA.js') }}"></script>
+  @stack('js')
 </body>
 
 </html>
