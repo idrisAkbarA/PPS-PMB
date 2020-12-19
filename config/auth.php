@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'petugas' => [
+            'driver' => 'session',
+            'provider' => 'petugass',
+        ],
+        'cln_mahasiswa' => [
+            'driver' => 'session',
+            'provider' => 'cln_mahasiswas',
+        ],
     ],
 
     /*
@@ -70,6 +78,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'petugass' => [
+            'driver' => 'eloquent',
+            'model' => App\UserPetugas::class,
+        ],
+        'cln_mahasiswas' => [
+            'driver' => 'eloquent',
+            'model' => App\UserClnMhs::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -98,6 +114,16 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'petugass' => [
+            'provider' => 'petugass',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'cln_mahasiswas' => [
+            'provider' => 'cln_mahasiswas',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 
