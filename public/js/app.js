@@ -2153,6 +2153,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     link: function link() {},
@@ -2164,13 +2168,13 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return "70%";
       }
-    },
-    data: function data() {
-      return {
-        item: null,
-        form: {}
-      };
     }
+  },
+  data: function data() {
+    return {
+      item: null,
+      form: {}
+    };
   }
 });
 
@@ -60708,11 +60712,11 @@ var render = function() {
                                       label: "No Whatsapp"
                                     },
                                     model: {
-                                      value: _vm.form.nama,
+                                      value: _vm.form.wa,
                                       callback: function($$v) {
-                                        _vm.$set(_vm.form, "nama", $$v)
+                                        _vm.$set(_vm.form, "wa", $$v)
                                       },
-                                      expression: "form.nama"
+                                      expression: "form.wa"
                                     }
                                   })
                                 ],
@@ -60730,6 +60734,13 @@ var render = function() {
                                       color: "green",
                                       "prepend-inner-icon": "mdi-map-marker",
                                       label: "Alamat Rumah Lengkap"
+                                    },
+                                    model: {
+                                      value: _vm.form.alamat,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "alamat", $$v)
+                                      },
+                                      expression: "form.alamat"
                                     }
                                   })
                                 ],
@@ -60745,6 +60756,13 @@ var render = function() {
                                       color: "green",
                                       "prepend-inner-icon": "mdi-attachment",
                                       label: "Scan Ijazah"
+                                    },
+                                    model: {
+                                      value: _vm.form.ijazah,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "ijazah", $$v)
+                                      },
+                                      expression: "form.ijazah"
                                     }
                                   })
                                 ],
@@ -60757,6 +60775,7 @@ var render = function() {
                                   _c(
                                     "v-col",
                                     {
+                                      staticClass: "mr-1",
                                       staticStyle: { padding: "0 !important" }
                                     },
                                     [
@@ -60767,6 +60786,13 @@ var render = function() {
                                           "prepend-inner-icon":
                                             "mdi-attachment",
                                           label: "Nilai IPK"
+                                        },
+                                        model: {
+                                          value: _vm.form.nilai_ipk,
+                                          callback: function($$v) {
+                                            _vm.$set(_vm.form, "nilai_ipk", $$v)
+                                          },
+                                          expression: "form.nilai_ipk"
                                         }
                                       })
                                     ],
@@ -60786,6 +60812,13 @@ var render = function() {
                                           "prepend-inner-icon":
                                             "mdi-attachment",
                                           label: "Nilai Bahasa"
+                                        },
+                                        model: {
+                                          value: _vm.form.nilai_bhs,
+                                          callback: function($$v) {
+                                            _vm.$set(_vm.form, "nilai_bhs", $$v)
+                                          },
+                                          expression: "form.nilai_bhs"
                                         }
                                       })
                                     ],
