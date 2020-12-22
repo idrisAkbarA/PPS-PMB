@@ -19,6 +19,11 @@ class UserClnMhs extends Authenticatable
         'nama', 'email', 'password',
     ];
 
+    public function ujian()
+    {
+        return $this->hasMany('App\Ujian');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
