@@ -2153,38 +2153,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     link: function link() {},
     width: function width() {
-      // console.log(this.windowWidth)
       if (this.windowWidth <= 600) {
         return "100%";
       } else if (this.windowWidth <= 960) {
@@ -2195,7 +2167,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     data: function data() {
       return {
-        item: null
+        item: null,
+        form: {}
       };
     }
   }
@@ -60747,6 +60720,13 @@ var render = function() {
                                       color: "green",
                                       "prepend-inner-icon": "mdi-account",
                                       label: "Nama Lengkap"
+                                    },
+                                    model: {
+                                      value: _vm.form.nama,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "nama", $$v)
+                                      },
+                                      expression: "form.nama"
                                     }
                                   })
                                 ],
@@ -60762,6 +60742,13 @@ var render = function() {
                                       color: "green",
                                       "prepend-inner-icon": "mdi-phone",
                                       label: "No Telepon"
+                                    },
+                                    model: {
+                                      value: _vm.form.hp,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "hp", $$v)
+                                      },
+                                      expression: "form.hp"
                                     }
                                   })
                                 ],
@@ -60777,6 +60764,13 @@ var render = function() {
                                       color: "green",
                                       "prepend-inner-icon": "mdi-whatsapp",
                                       label: "No Whatsapp"
+                                    },
+                                    model: {
+                                      value: _vm.form.nama,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "nama", $$v)
+                                      },
+                                      expression: "form.nama"
                                     }
                                   })
                                 ],
