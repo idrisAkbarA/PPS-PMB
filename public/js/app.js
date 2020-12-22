@@ -2185,6 +2185,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2283,12 +2290,90 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       tab: null
     };
-  }
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["isTambahSoal"])), {}, {
+    toggleDialogSoal: {
+      get: function get() {
+        return this.isTambahSoal;
+      },
+      set: function set(data) {
+        this.toggleTambahSoal(data);
+      }
+    }
+  }),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["toggleTambahSoal"]))
 });
 
 /***/ }),
@@ -2498,9 +2583,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["toggleOpenBeasiswa"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["toggleOpenBeasiswa", "toggleTambahSoal"])), {}, {
+    setTambahSoalToTrue: function setTambahSoalToTrue() {
+      this.toggleTambahSoal(true);
+    },
     toggleDrawer: function toggleDrawer(bool) {
       if (!bool) {
         this.miniVariant = !this.miniVariant;
@@ -61191,6 +61291,136 @@ var render = function() {
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-bottom-sheet",
+        {
+          attrs: {
+            scrollable: "",
+            width: "60%",
+            inset: "",
+            "overlay-color": "#69F0AE"
+          },
+          model: {
+            value: _vm.toggleDialogSoal,
+            callback: function($$v) {
+              _vm.toggleDialogSoal = $$v
+            },
+            expression: "toggleDialogSoal"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            { attrs: { color: "#ecf0f1" } },
+            [
+              _c(
+                "v-card-title",
+                [
+                  _c("span", [_vm._v("Buat Soal")]),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c("v-btn", { attrs: { text: "" } }, [_vm._v("batal")]),
+                  _vm._v(" "),
+                  _c("v-btn", { attrs: { color: "#2C3E50", dark: "" } }, [
+                    _vm._v("Simpan")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card",
+                {
+                  staticClass: "ma-2",
+                  staticStyle: { "padding-bottom": "0" },
+                  attrs: { color: "rgba(46, 204, 113, 0.25)" }
+                },
+                [
+                  _c(
+                    "v-card-text",
+                    [
+                      _c("v-text-field", {
+                        attrs: { clearable: "", color: "#2C3E50" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "label",
+                            fn: function() {
+                              return [
+                                _c("div", { staticClass: "black--text" }, [
+                                  _vm._v("Pertanyaan")
+                                ])
+                              ]
+                            },
+                            proxy: true
+                          }
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("v-radio", {
+                        attrs: { value: "n", color: "#2C3E50" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "label",
+                            fn: function() {
+                              return [
+                                _c("div", { staticClass: "black--text" }, [
+                                  _vm._v("Definitely Duckduckgo")
+                                ])
+                              ]
+                            },
+                            proxy: true
+                          }
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "mt-2 grey darken-3",
+                          attrs: { fab: "", dark: "", small: "" }
+                        },
+                        [
+                          _c("v-icon", { attrs: { dark: "" } }, [
+                            _vm._v("\n              mdi-plus\n            ")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                { attrs: { justify: "center" } },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "mt-2",
+                      attrs: { fab: "", dark: "", small: "", color: "#2C3E50" }
+                    },
+                    [
+                      _c("v-icon", { attrs: { dark: "" } }, [
+                        _vm._v("\n            mdi-plus\n          ")
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
     ],
     1
@@ -61556,6 +61786,32 @@ var render = function() {
                     [
                       _c("v-icon", [_vm._v("mdi-plus")]),
                       _vm._v("tambah akun petugas\n      ")
+                    ],
+                    1
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-slide-y-transition",
+            [
+              _vm.checkRoute("Kelola Soal")
+                ? _c(
+                    "v-btn",
+                    {
+                      staticClass: "green darken-3",
+                      attrs: { small: "", dark: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setTambahSoalToTrue()
+                        }
+                      }
+                    },
+                    [
+                      _c("v-icon", [_vm._v(" mdi-plus")]),
+                      _vm._v(" tambah soal\n      ")
                     ],
                     1
                   )

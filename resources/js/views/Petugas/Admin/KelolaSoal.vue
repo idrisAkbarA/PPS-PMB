@@ -49,6 +49,7 @@
                       No. 1
                     </v-chip>
                     <v-spacer></v-spacer>
+                    <v-select></v-select>
                     <v-btn
                       small
                       color="#2C3E50"
@@ -93,15 +94,96 @@
         </v-tab-item>
       </v-tabs-items>
     </v-card>
+    <v-bottom-sheet
+      scrollable
+      width="60%"
+      inset
+      overlay-color="#69F0AE"
+      v-model="toggleDialogSoal"
+    >
+      <v-card color="#ecf0f1">
+        <v-card-title> <span>Buat Soal</span>
+          <v-spacer></v-spacer>
+          <v-btn text>batal</v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+          >Simpan</v-btn>
+          <!-- v-model="" -->
+        </v-card-title>
+        <v-card
+          color="rgba(46, 204, 113, 0.25)"
+          class="ma-2"
+          style="padding-bottom:0"
+        >
+          <v-card-text>
+            <v-text-field
+              clearable
+              color="#2C3E50"
+            >
+              <template v-slot:label>
+                <div class="black--text">Pertanyaan</div>
+              </template>
+            </v-text-field>
+            <v-radio
+              value="n"
+              color="#2C3E50"
+            >
+              <template v-slot:label>
+                <div class="black--text">Definitely Duckduckgo</div>
+              </template>
+            </v-radio>
+            <v-btn
+              class="mt-2 grey darken-3"
+              fab
+              dark
+              small
+            >
+              <v-icon dark>
+                mdi-plus
+              </v-icon>
+            </v-btn>
+          </v-card-text>
+        </v-card>
+        <v-row justify="center">
+          <v-btn
+            class="mt-2"
+            fab
+            dark
+            small
+            color="#2C3E50"
+          >
+            <v-icon dark>
+              mdi-plus
+            </v-icon>
+          </v-btn>
+        </v-row>
+      </v-card>
+    </v-bottom-sheet>
   </v-container>
 </template>
 
 <script>
+import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
       tab: null,
     };
+  },
+  computed: {
+    ...mapState(["isTambahSoal"]),
+    toggleDialogSoal: {
+      get: function () {
+        return this.isTambahSoal;
+      },
+      set: function (data) {
+        this.toggleTambahSoal(data);
+      },
+    },
+  },
+  methods: {
+    ...mapMutations(["toggleTambahSoal"]),
   },
 };
 </script>
