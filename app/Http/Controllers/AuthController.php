@@ -49,6 +49,7 @@ class AuthController extends Controller
         return response()->json($result);
         return [$loginIdentity, $credentials[$loginIdentity]];
     }
+
     public function isLogin(Request $request, $role)
     {
         if (Auth::guard($role)->check()) {
@@ -60,6 +61,21 @@ class AuthController extends Controller
         return response()->json([
             'status' => 'Not Authenticated',
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $form = $this->validate($request, [
+            'nama' => 'required|string',
+            'email' => 'required|string|email|unique:user_cln_mhs,email',
+            'password' => 'required|string|same:password2',
+            'password2' => 'required|string',
+        ]);
+
+        $form['password'] = Hash::make($request->password);
+        $user = UserClnMhs::create($form);
+
+        return $this->login($request, 'cln_mahasiswa');
     }
 
     public function logout(Request $request)

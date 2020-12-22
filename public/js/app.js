@@ -128216,9 +128216,41 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   !*** ./resources/js/store/store.js ***!
   \*************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\WebDev\\PPS-PMB\\resources\\js\\store\\store.js: Unexpected token (11:0)\n\n\u001b[0m \u001b[90m  9 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mVuex\u001b[39m\u001b[33m.\u001b[39m\u001b[33mStore\u001b[39m({\u001b[0m\n\u001b[0m \u001b[90m 10 | \u001b[39m    state\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 | \u001b[39m        user\u001b[33m:\u001b[39m \u001b[36mnull\u001b[39m \u001b[90m// user who login\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 | \u001b[39m    mutations\u001b[33m:\u001b[39m {\u001b[0m\n    at Parser._raise (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:799:17)\n    at Parser.raiseWithData (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:792:17)\n    at Parser.raise (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:786:17)\n    at Parser.unexpected (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9089:16)\n    at Parser.parseIdentifierName (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:11231:18)\n    at Parser.parseIdentifier (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:11204:23)\n    at Parser.parseMaybePrivateName (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10497:19)\n    at Parser.parsePropertyName (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10999:155)\n    at Parser.parsePropertyDefinition (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10885:22)\n    at Parser.parseObjectLike (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10802:25)\n    at Parser.parseExprAtom (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10332:23)\n    at Parser.parseExprSubscripts (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9976:23)\n    at Parser.parseUpdate (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9956:21)\n    at Parser.parseMaybeUnary (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9945:17)\n    at Parser.parseExprOps (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9815:23)\n    at Parser.parseMaybeConditional (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9789:23)\n    at Parser.parseMaybeAssign (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9752:21)\n    at D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9718:39\n    at Parser.allowInAnd (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:11448:12)\n    at Parser.parseMaybeAssignAllowIn (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9718:17)\n    at Parser.parseObjectProperty (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10961:101)\n    at Parser.parseObjPropValue (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10986:100)\n    at Parser.parsePropertyDefinition (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10910:10)\n    at Parser.parseObjectLike (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10802:25)\n    at Parser.parseExprAtom (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:10332:23)\n    at Parser.parseExprSubscripts (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9976:23)\n    at Parser.parseUpdate (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9956:21)\n    at Parser.parseMaybeUnary (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9945:17)\n    at Parser.parseExprOps (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9815:23)\n    at Parser.parseMaybeConditional (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9789:23)\n    at Parser.parseMaybeAssign (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9752:21)\n    at D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9718:39\n    at Parser.allowInAnd (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:11448:12)\n    at Parser.parseMaybeAssignAllowIn (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:9718:17)\n    at Parser.parseExprListItem (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:11196:18)\n    at Parser.parseExprList (D:\\WebDev\\PPS-PMB\\node_modules\\@babel\\parser\\lib\\index.js:11166:22)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+var _Vuex$Store;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.withCredentials = true;
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store((_Vuex$Store = {
+  state: {
+    user: null,
+    // user who login
+    isTambahSoal: false
+  },
+  mutations: {
+    mutateUser: function mutateUser(val) {
+      this.user = val;
+    }
+  }
+}, _defineProperty(_Vuex$Store, "mutations", {
+  toggleTambahSoal: function toggleTambahSoal(state, data) {
+    state.isTambahSoal = data; //  console.log(data);
+  }
+}), _defineProperty(_Vuex$Store, "actions", {}), _defineProperty(_Vuex$Store, "modules", {}), _Vuex$Store)));
 
 /***/ }),
 
