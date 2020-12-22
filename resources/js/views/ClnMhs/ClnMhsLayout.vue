@@ -1,0 +1,81 @@
+<template>
+  <v-app>
+    <v-app-bar
+      app
+      flat
+      color="white"
+      hide-on-scroll
+      dense
+    >
+      <v-avatar :tile="true">
+        <img
+          :src="'/images/LogoUIN.png'"
+          alt="logo"
+        >
+      </v-avatar>
+      <div style="width:100%; -webkit-app-region: drag;">
+        <v-toolbar-title>
+          <span class="font-weight-bold ml-4">
+            <router-link
+              :to="'Home'"
+              style="color:black; text-decoration: none; "
+            >
+              Pendaftaran Pasca Sarjana
+            </router-link>
+          </span>
+
+        </v-toolbar-title>
+      </div>
+      <v-btn
+        small
+        text
+        @click="logout()"
+      >
+        <v-icon>mdi-logout-variant</v-icon>keluar
+      </v-btn>
+      <!-- -->
+    </v-app-bar>
+    <div class="ribbon"></div>
+
+    <!-- Sizes your content based upon application components -->
+    <v-main style="z-index:2">
+
+      <!-- Provides the application the proper gutter -->
+      <v-container fluid>
+
+        <!-- If using vue-router -->
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+
+  </v-app>
+</template>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      axios
+        .get("/api/logout")
+        .then((response) => {
+          window.location.replace("/");
+        })
+        .catch(() => {
+          window.location.replace("/");
+          console.log("Couldn't logout");
+          // this.$router.push({ path: "/login" });
+        });
+    },
+  },
+};
+</script>
+
+<style>
+.ribbon {
+  position: absolute;
+  z-index: 1;
+  background: #4caf50;
+  width: 100%;
+  height: 400px;
+}
+</style>

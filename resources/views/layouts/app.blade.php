@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="icon" href="{{asset('/images/LogoUIN.png')}}">
-    <title>Beasiswa</title>
+    <title>Pascasarjana</title>
 </head>
 <body>
     <div id="app">

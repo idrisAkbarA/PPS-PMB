@@ -28,6 +28,8 @@ class CreatePeriodesTable extends Migration
             // $table->integer('id_jadwal_tr');
             $table->integer('jumlah_tka'); //jumlah soal
             $table->integer('jumlah_tkd');
+            $table->integer('min_lulus_tka'); // jumlah minimal soal terjawab benar untuk lulus
+            $table->integer('min lulus_tkd');
             $table->boolean('is_active');
             $table->timestamps();
         });

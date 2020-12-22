@@ -20,4 +20,7 @@ class WebURLController extends Controller
     public function login(){
         return view("login");
     }
+    public function loginPetugas(){
+        return view("login-petugas");
+    }
 }

@@ -31,8 +31,8 @@
                 prepend-inner-icon="mdi-account-circle"
                 hide-details="auto"
                 color="green"
-                label="Email"
-                v-model="email"
+                :label="loginUrl=='login'?'Email':'Username'"
+                v-model="username"
               ></v-text-field>
             </v-col>
           </v-row>
@@ -44,7 +44,7 @@
                 color="green"
                 v-model="password"
                 :type="show1 ? 'text' : 'password'"
-                @keyup.enter="loginServer()"
+                @keyup.enter="login()"
                 label="Password"
                 @click:append="show1 = !show1"
                 :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -66,7 +66,7 @@
               >Login</v-btn>
 
             </v-col>
-            <v-col>
+            <v-col v-if="loginUrl == 'login' ">
               <span>
                 Belum memiliki akun? Daftar <a href="/pendaftaran">disini</a>.
               </span>
@@ -81,38 +81,56 @@
 
 <script>
 export default {
+  created() {
+    var pathArray = window.location.pathname.split("/");
+    this.loginUrl = pathArray[pathArray.length - 1];
+  },
   methods: {
     async login() {
       this.loading = true;
       var isCSRFOkay = await this.getCSRF();
       if (isCSRFOkay) {
-        axios
-          .post("/api/authenticate", {
-            email: this.email,
-            password: this.password,
-          })
-          .then((response) => {
-            console.log(response.data);
-            if (response.data.status != "Authenticated") {
-              this.loading = false;
-              return (this.error = "Maaf kata sandi/email anda salah");
-            }
-
-            console.log("logged in");
-          })
-          .catch((err) => {
-            this.loading = false;
-            this.error =
-              "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
-          });
+        this.loginProcess();
       } else {
         this.loading = false;
         console.log("Couldn't get CSRF Cookie");
         this.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
       }
     },
+    loginProcess() {
+      // set api request url based on window url
+      var url = "";
+      var redirectUrl = "";
+      var payload = {};
+      if (this.loginUrl == "login") {
+        payload = { email: this.username, password: this.password };
+        url = "cln_mahasiswa";
+        redirectUrl = "cln-mhs/home";
+      } else {
+        redirectUrl = "petugas/dashboard";
+        payload = { username: this.username, password: this.password };
+        url = "petugas";
+      }
 
+      axios
+        .post("/api/authenticate/" + url, payload)
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.status != "Authenticated") {
+            this.loading = false;
+            return (this.error = "Maaf kata sandi/email anda salah");
+          }
+          console.log("logged in");
+          // redirect to user page if logged in
+          window.location.replace("user/" + redirectUrl);
+        })
+        .catch((err) => {
+          this.loading = false;
+          this.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
+        });
+    },
     getCSRF() {
+      // return true if retrieved, false if didnt
       return axios
         .get("/sanctum/csrf-cookie")
         .then((response) => {
@@ -125,9 +143,11 @@ export default {
   },
   data() {
     return {
+      loginUrl: "",
       loading: false,
       error: null,
       show1: false,
+      email: "",
       username: "",
       password: "",
       rule: [(v) => !!v || "Field ini wajib diisi"],

@@ -2043,6 +2043,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    var pathArray = window.location.pathname.split("/");
+    this.loginUrl = pathArray[pathArray.length - 1];
+  },
   methods: {
     login: function login() {
       var _this = this;
@@ -2061,22 +2065,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 isCSRFOkay = _context.sent;
 
                 if (isCSRFOkay) {
-                  axios.post("/api/authenticate", {
-                    email: _this.email,
-                    password: _this.password
-                  }).then(function (response) {
-                    console.log(response.data);
-
-                    if (response.data.status != "Authenticated") {
-                      _this.loading = false;
-                      return _this.error = "Maaf kata sandi/email anda salah";
-                    }
-
-                    console.log("logged in");
-                  })["catch"](function (err) {
-                    _this.loading = false;
-                    _this.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
-                  });
+                  _this.loginProcess();
                 } else {
                   _this.loading = false;
                   console.log("Couldn't get CSRF Cookie");
@@ -2091,7 +2080,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    loginProcess: function loginProcess() {
+      var _this2 = this;
+
+      // set api request url based on window url
+      var url = "";
+      var redirectUrl = "";
+      var payload = {};
+
+      if (this.loginUrl == "login") {
+        payload = {
+          email: this.username,
+          password: this.password
+        };
+        url = "cln_mahasiswa";
+        redirectUrl = "cln-mhs/home";
+      } else {
+        redirectUrl = "petugas/dashboard";
+        payload = {
+          username: this.username,
+          password: this.password
+        };
+        url = "petugas";
+      }
+
+      axios.post("/api/authenticate/" + url, payload).then(function (response) {
+        console.log(response.data);
+
+        if (response.data.status != "Authenticated") {
+          _this2.loading = false;
+          return _this2.error = "Maaf kata sandi/email anda salah";
+        }
+
+        console.log("logged in"); // redirect to user page if logged in
+
+        window.location.replace("user/" + redirectUrl);
+      })["catch"](function (err) {
+        _this2.loading = false;
+        _this2.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
+      });
+    },
     getCSRF: function getCSRF() {
+      // return true if retrieved, false if didnt
       return axios.get("/sanctum/csrf-cookie").then(function (response) {
         return true;
       })["catch"](function (err) {
@@ -2101,9 +2131,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      loginUrl: "",
       loading: false,
       error: null,
       show1: false,
+      email: "",
       username: "",
       password: "",
       rule: [function (v) {
@@ -60131,14 +60163,15 @@ var render = function() {
                               "prepend-inner-icon": "mdi-account-circle",
                               "hide-details": "auto",
                               color: "green",
-                              label: "Email"
+                              label:
+                                _vm.loginUrl == "login" ? "Email" : "Username"
                             },
                             model: {
-                              value: _vm.email,
+                              value: _vm.username,
                               callback: function($$v) {
-                                _vm.email = $$v
+                                _vm.username = $$v
                               },
-                              expression: "email"
+                              expression: "username"
                             }
                           })
                         ],
@@ -60180,7 +60213,7 @@ var render = function() {
                                 ) {
                                   return null
                                 }
-                                return _vm.loginServer()
+                                return _vm.login()
                               },
                               "click:append": function($event) {
                                 _vm.show1 = !_vm.show1
@@ -60232,17 +60265,19 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c("v-col", [
-                        _c("span", [
-                          _vm._v(
-                            "\n              Belum memiliki akun? Daftar "
-                          ),
-                          _c("a", { attrs: { href: "/pendaftaran" } }, [
-                            _vm._v("disini")
-                          ]),
-                          _vm._v(".\n            ")
-                        ])
-                      ])
+                      _vm.loginUrl == "login"
+                        ? _c("v-col", [
+                            _c("span", [
+                              _vm._v(
+                                "\n              Belum memiliki akun? Daftar "
+                              ),
+                              _c("a", { attrs: { href: "/pendaftaran" } }, [
+                                _vm._v("disini")
+                              ]),
+                              _vm._v(".\n            ")
+                            ])
+                          ])
+                        : _vm._e()
                     ],
                     1
                   )

@@ -1,15 +1,37 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from '../store/store'
-import Home from "../views/Home.vue";
+import HomeClnMhs from "../views/ClnMhs/Home.vue";
+import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
+import PetugasLayout from "../views/petugas/PetugasLayout.vue";
+import DashboardPetugas from "../views/petugas/dashboard.vue";
 
 Vue.use(VueRouter);
 const routes = [
     {
-        path: "/test",
-        name: "Landing Page",
-        component: Home
+        path: "/cln-mhs",
+        component: ClnMhsLayout,
+        children: [
+            {
+                path: "home",
+                name: "Home Calon Mahasiswa",
+                component: HomeClnMhs
+            },
+        ]
     },
+
+    {
+        path: "/petugas",
+        component: PetugasLayout,
+        children: [
+            {
+                path: "dashboard",
+                name: "Dashboard Petugas",
+                component: DashboardPetugas
+            },
+        ]
+    },
+
 ];
 
 const router = new VueRouter({

@@ -25,11 +25,11 @@ Vue.use(Vuex)
 Vue.use(Vuetify);
 
 const vuetify = new Vuetify(
-    {
-        theme: {
-          dark: true,
-        },
-      }
+  {
+    theme: {
+      dark: false,
+    },
+  }
 );
 /**
  * The following block of code may be used to automatically register your
@@ -51,9 +51,9 @@ import App from './views/App';
  */
 
 const app = new Vue({
-    el: '#app',
-    components:{App},
-    store,
-    router,
-    vuetify
+  el: '#app',
+  components: { App },
+  store,
+  router,
+  vuetify
 });
