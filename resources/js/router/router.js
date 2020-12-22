@@ -4,7 +4,8 @@ import store from '../store/store'
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
-import DashboardPetugas from "../views/petugas/dashboard.vue";
+import DashboardPetugas from "../views/petugas/Dashboard.vue";
+import KelolaSoal from "../views/petugas/Admin/KelolaSoal.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -28,6 +29,11 @@ const routes = [
                 path: "dashboard",
                 name: "Dashboard Petugas",
                 component: DashboardPetugas
+            },
+            {
+                path: "kelola-soal",
+                name: "Kelola Soal",
+                component: KelolaSoal
             },
         ]
     },

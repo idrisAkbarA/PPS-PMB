@@ -256,7 +256,7 @@ export default {
         {
           icon: "mdi-file-document",
           title: "Kelola Soal",
-          to: `/admin/${petugas}/beasiswa`,
+          to: `/admin/${petugas}/kelola-soal`,
         },
         {
           icon: "mdi-school",
