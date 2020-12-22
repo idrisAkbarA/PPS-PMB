@@ -2224,6 +2224,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -60976,7 +61035,138 @@ var render = function() {
                   _c(
                     "v-card",
                     { attrs: { flat: "" } },
-                    [_c("v-card-text", [_vm._v("huy")])],
+                    [
+                      _c(
+                        "v-card-text",
+                        [
+                          _c(
+                            "v-container",
+                            [
+                              _c(
+                                "v-row",
+                                { staticClass: "pl-8 pr-8" },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      "prepend-inner-icon": "mdi-magnify",
+                                      clearable: "",
+                                      label: "Pencarian",
+                                      color: "#2C3E50"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _vm._l(5, function(n) {
+                                return _c(
+                                  "v-card",
+                                  {
+                                    key: n,
+                                    staticClass: "mt-5",
+                                    attrs: { color: "rgba(46, 204, 113, 0.25)" }
+                                  },
+                                  [
+                                    _c(
+                                      "v-card-title",
+                                      [
+                                        _c(
+                                          "v-chip",
+                                          {
+                                            attrs: {
+                                              color: "#2C3E50",
+                                              dark: ""
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                    No. 1\n                  "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-spacer"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            staticClass: "rounded-0",
+                                            attrs: {
+                                              small: "",
+                                              color: "#2C3E50",
+                                              dark: ""
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-icon",
+                                              { attrs: { small: "" } },
+                                              [_vm._v("mdi-pencil")]
+                                            )
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            staticClass: "rounded-0",
+                                            attrs: {
+                                              small: "",
+                                              color: "#2C3E50",
+                                              dark: ""
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-icon",
+                                              { attrs: { small: "" } },
+                                              [_vm._v("mdi-delete")]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      { staticClass: "black--text" },
+                                      [
+                                        _vm._v(
+                                          "\n                  Lorem ipsum dolor sit amet consectetur adipisicing elit.Quam quis temporibus accusantium fuga incidunt. Sequi sed dolorem, adipisci,speriores possimus voluptates et illum aspernatur voluptatum nisi maiores inventore eos dicta.\n                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, iusto maxime. Dicta odit est,\n                  culpa enim saepe ullam? Quidem quis laborum veniam hic incidunt eveniet perspiciatis delectus mollitia eius maxime.\n                  Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                  "
+                                        ),
+                                        _c(
+                                          "v-radio-group",
+                                          { attrs: { "hide-details": "auto" } },
+                                          _vm._l(5, function(n) {
+                                            return _c("v-radio", {
+                                              key: n,
+                                              attrs: {
+                                                value: n,
+                                                label:
+                                                  "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                                                color: "#2C3E50"
+                                              }
+                                            })
+                                          }),
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        ],
+                        1
+                      )
+                    ],
                     1
                   )
                 ],
@@ -127991,8 +128181,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.withCredentials = true;
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  state: {},
-  mutations: {},
+  state: {
+    isTambahSoal: false
+  },
+  mutations: {
+    toggleTambahSoal: function toggleTambahSoal(state, data) {
+      state.isTambahSoal = data; //  console.log(data);
+    }
+  },
   actions: {},
   modules: {}
 }));
