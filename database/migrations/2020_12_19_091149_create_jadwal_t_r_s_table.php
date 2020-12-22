@@ -18,7 +18,7 @@ class CreateJadwalTRSTable extends Migration
             $table->date("tanggal");
             $table->integer("quota");
             $table->string("nama_dosen");
-            $table->integer("id_periode");
+            $table->integer("periode_id");
             $table->json("ids_cln_mhs")->nullable();;
             $table->timestamps();
         });
