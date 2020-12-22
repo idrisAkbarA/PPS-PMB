@@ -254,8 +254,13 @@ export default {
           to: `/admin/${petugas}/dashboard`,
         },
         {
+          icon: "mdi-file-document",
+          title: "Kelola Soal",
+          to: `/admin/${petugas}/beasiswa`,
+        },
+        {
           icon: "mdi-school",
-          title: "Beasiswa",
+          title: "Kelola Soal",
           to: `/admin/${petugas}/beasiswa`,
         },
         {
