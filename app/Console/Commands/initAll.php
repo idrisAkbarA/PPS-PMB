@@ -39,7 +39,8 @@ class initAll extends Command
     {
         $this->call("migrate:fresh");
         $this->call("initAdmin");
-        $this->call("initJurusan");
         $this->call("initClnMhs");
+        $this->call("initJurusan");
+        $this->call("initKategori");
     }
 }
