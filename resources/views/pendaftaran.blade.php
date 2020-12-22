@@ -46,7 +46,7 @@
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
             Daftar
         </button>
-        <span style="margin-top: 1em">Masuk <a href="/">disini</a> jika sudah mendaftar</span>
+        <span style="margin-top: 1em">Masuk <a href="{{ route('login') }}">disini</a> jika sudah mendaftar</span>
         <hr>
         {{-- <span>Daftar dengan metode lain</span>
         <!-- Social login buttons -->

@@ -2158,6 +2158,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.getUser();
+  },
   methods: {
     link: function link() {},
     width: function width() {
@@ -2168,6 +2171,13 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return "70%";
       }
+    },
+    getUser: function getUser() {
+      axios.get("/api/user").then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        return console.error(error);
+      });
     }
   },
   data: function data() {

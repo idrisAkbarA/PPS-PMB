@@ -122,6 +122,9 @@
 
 <script>
 export default {
+  created() {
+    this.getUser();
+  },
   methods: {
     link() {},
     width() {
@@ -132,6 +135,14 @@ export default {
       } else {
         return "70%";
       }
+    },
+    getUser() {
+      axios
+        .get(`/api/user`)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => console.error(error));
     }
   },
   data() {
