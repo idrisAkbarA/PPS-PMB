@@ -2474,8 +2474,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         title: "Dashboard",
         to: "/admin/".concat(petugas, "/dashboard")
       }, {
+        icon: "mdi-file-document",
+        title: "Kelola Soal",
+        to: "/admin/".concat(petugas, "/beasiswa")
+      }, {
         icon: "mdi-school",
-        title: "Beasiswa",
+        title: "Kelola Soal",
         to: "/admin/".concat(petugas, "/beasiswa")
       }, {
         icon: "mdi-clipboard-check-multiple",
@@ -127787,7 +127791,7 @@ var routes = [{
     component: _views_ClnMhs_Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]
 }, {
-  path: "/petugas",
+  path: "/admin/:petugas",
   component: _views_petugas_PetugasLayout_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
   children: [{
     path: "dashboard",

@@ -107,7 +107,7 @@ export default {
         url = "cln_mahasiswa";
         redirectUrl = "cln-mhs/home";
       } else {
-        redirectUrl = "petugas/dashboard";
+        redirectUrl = "";
         payload = { username: this.username, password: this.password };
         url = "petugas";
       }
@@ -122,6 +122,14 @@ export default {
           }
           console.log("logged in");
           // redirect to user page if logged in
+          try {
+            var role = response.data.user.role;
+            var userNamePetugas = response.data.user.username;
+            if (role == 1) {
+              //role == admin
+              redirectUrl += "admin/" + userNamePetugas + "/dashboard";
+            }
+          } catch (error) {}
           window.location.replace("user/" + redirectUrl);
         })
         .catch((err) => {

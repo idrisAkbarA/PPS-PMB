@@ -21,7 +21,7 @@ const routes = [
     },
 
     {
-        path: "/petugas",
+        path: "/admin/:petugas",
         component: PetugasLayout,
         children: [
             {
