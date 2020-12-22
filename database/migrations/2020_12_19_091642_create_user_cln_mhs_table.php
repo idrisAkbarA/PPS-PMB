@@ -20,10 +20,12 @@ class CreateUserClnMhsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('hp')->nullable();
+            $table->string('wa')->nullable();
             $table->string('alamat')->nullable();
             $table->string('ijazah')->nullable();
             $table->string('nilai_ipk')->nullable();
             $table->string('nilai_bhs')->nullable();
+            $table->string('paspoto')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -8,7 +8,13 @@ Axios.defaults.withCredentials = true;
 
 export default new Vuex.Store({
     state: {
+        user: null, // user who login
         isTambahSoal: false,
+    },
+    mutations: {
+        mutateUser(val) {
+            this.user = val;
+        }
     },
     mutations: {
         toggleTambahSoal(state, data) {

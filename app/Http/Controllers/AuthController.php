@@ -14,9 +14,11 @@ class AuthController extends Controller
     public function login(Request $request, $role)
     {
         $role == "cln_mahasiswa" ?
-            $loginIdentity = "email" : $loginIdentity = "username";
+            $loginIdentity = "email"
+            : $loginIdentity = "username";
+
         $credentials = $request->only($loginIdentity, 'password');
-        // return  $credentials;
+
         if (Auth::guard($role)->attempt($credentials)) {
             // Authentication passed...
             return response()->json([
@@ -28,6 +30,7 @@ class AuthController extends Controller
             'status' => 'Not Authenticated',
         ]);
     }
+
     public function loginServer(Request $request, $role)
     {
         $result = UserClnMhs::all();
@@ -58,10 +61,12 @@ class AuthController extends Controller
             'status' => 'Not Authenticated',
         ]);
     }
+
     public function logout(Request $request)
     {
         return Auth::guard('cln_mahasiswa')->logout();
     }
+
     public function logoutPetugas(Request $request)
     {
         Auth::guard('petugas')->logout();

@@ -23,3 +23,10 @@ Route::post('/logout', 'AuthController@logout'); // roles are 'cln_mahasiswa' an
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Calon Mahasiswa Routes
+Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
+    Route::post('/', 'UserClnMhsController@store')->name('store');
+    Route::get('/{user?}', 'UserClnMhsController@show')->name('show');
+});

@@ -31,7 +31,7 @@
                   <v-icon>mdi-pencil</v-icon>
                   <span>Upload Pas Foto</span>
                 </v-btn>
-                <v-file-input hide-input ref="photoProfile" class="d-none"></v-file-input>
+                <v-file-input hide-input ref="photoProfile" class="d-none" v-model="form.paspoto"></v-file-input>
               </v-row>
             </v-col>
             <v-col cols="12" sm="12" md="6" lg="6">
@@ -60,7 +60,7 @@
                     color="green"
                     prepend-inner-icon="mdi-whatsapp"
                     label="No Whatsapp"
-                    v-model="form.nama"
+                    v-model="form.wa"
                   ></v-text-field>
                 </v-row>
                 <v-row>
@@ -71,6 +71,7 @@
                     color="green"
                     prepend-inner-icon="mdi-map-marker"
                     label="Alamat Rumah Lengkap"
+                    v-model="form.alamat"
                   ></v-textarea>
                 </v-row>
                 <v-row>
@@ -79,23 +80,26 @@
                     color="green"
                     prepend-inner-icon="mdi-attachment"
                     label="Scan Ijazah"
+                    v-model="form.ijazah"
                   ></v-text-field>
                 </v-row>
                 <v-row>
-                  <v-col style="padding: 0 !important">
+                  <v-col class="mr-1" style="padding: 0 !important">
                     <v-text-field
                       outlined
                       color="green"
                       prepend-inner-icon="mdi-attachment"
                       label="Nilai IPK"
+                      v-model="form.nilai_ipk"
                     ></v-text-field>
                   </v-col>
-                  <v-col style="padding: 0 !important">
+                  <v-col class="ml-1" style="padding: 0 !important">
                     <v-text-field
                       outlined
                       color="green"
                       prepend-inner-icon="mdi-attachment"
                       label="Nilai Bahasa"
+                      v-model="form.nilai_bhs"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -118,6 +122,9 @@
 
 <script>
 export default {
+  created() {
+    this.getUser();
+  },
   methods: {
     link() {},
     width() {
@@ -129,12 +136,20 @@ export default {
         return "70%";
       }
     },
-    data() {
-      return {
-        item: null,
-        form: {}
-      };
+    getUser() {
+      axios
+        .get(`/api/user`)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => console.error(error));
     }
+  },
+  data() {
+    return {
+      item: null,
+      form: {}
+    };
   }
 };
 </script>
