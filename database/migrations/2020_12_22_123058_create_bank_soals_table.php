@@ -15,6 +15,12 @@ class CreateBankSoalsTable extends Migration
     {
         Schema::create('bank_soals', function (Blueprint $table) {
             $table->id();
+            $table->string('type'); // tka or tkd
+            $table->integer('id_jurusan');
+            $table->integer('id_kategori');
+            $table->text('pertanyaan');
+            $table->json('pilihan_ganda'); // {a:'indonesia',b:'amerika'}
+            $table->string('jawaban');
             $table->timestamps();
         });
     }
