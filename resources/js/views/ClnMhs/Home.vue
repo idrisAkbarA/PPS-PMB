@@ -31,7 +31,7 @@
                   <v-icon>mdi-pencil</v-icon>
                   <span>Upload Pas Foto</span>
                 </v-btn>
-                <v-file-input hide-input ref="photoProfile" class="d-none"></v-file-input>
+                <v-file-input hide-input ref="photoProfile" class="d-none" v-model="form.paspoto"></v-file-input>
               </v-row>
             </v-col>
             <v-col cols="12" sm="12" md="6" lg="6">
@@ -93,7 +93,7 @@
                       v-model="form.nilai_ipk"
                     ></v-text-field>
                   </v-col>
-                  <v-col style="padding: 0 !important">
+                  <v-col class="ml-1" style="padding: 0 !important">
                     <v-text-field
                       outlined
                       color="green"

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\UserClnMhs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserClnMhsController extends Controller
 {
@@ -35,7 +37,19 @@ class UserClnMhsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = $this->validate($request, [
+            'nama' => 'required|string',
+            'email' => 'required|string|email|unique:user_cln_mhs,email',
+            'password' => 'required|string|same:password2',
+            'password2' => 'required|string',
+        ]);
+
+        $form['password'] = Hash::make($request->password);
+        $user = UserClnMhs::create($form);
+
+        Auth::login($user);
+
+        return redirect('/user/cln-mhs/home');
     }
 
     /**
@@ -44,9 +58,13 @@ class UserClnMhsController extends Controller
      * @param  \App\UserClnMhs  $userClnMhs
      * @return \Illuminate\Http\Response
      */
-    public function show(UserClnMhs $userClnMhs)
+    public function show(UserClnMhs $user)
     {
-        //
+        $data = [
+            'user' => $user
+        ];
+
+        return response()->json($data);
     }
 
     /**

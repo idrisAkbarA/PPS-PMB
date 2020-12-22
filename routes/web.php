@@ -28,5 +28,7 @@ Route::get('/petunjuk', 'WebURLController@petunjuk');
 Route::get('/login', 'WebURLController@login');
 Route::get('/login-petugas', 'WebURLController@loginPetugas');
 Route::post('/authenticate/{role}', 'AuthController@login'); // roles are 'cln_mahasiswa' and 'petugas'
+Route::post('/daftar', 'UserClnMhsController@store')->name('register');
+
 //SPA Route
 Route::get('/user/{any}', 'WebURLController@spa')->where('any', '.*');

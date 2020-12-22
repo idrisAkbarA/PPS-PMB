@@ -60641,7 +60641,14 @@ var render = function() {
                               _c("v-file-input", {
                                 ref: "photoProfile",
                                 staticClass: "d-none",
-                                attrs: { "hide-input": "" }
+                                attrs: { "hide-input": "" },
+                                model: {
+                                  value: _vm.form.paspoto,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "paspoto", $$v)
+                                  },
+                                  expression: "form.paspoto"
+                                }
                               })
                             ],
                             1
@@ -60802,6 +60809,7 @@ var render = function() {
                                   _c(
                                     "v-col",
                                     {
+                                      staticClass: "ml-1",
                                       staticStyle: { padding: "0 !important" }
                                     },
                                     [
@@ -127856,8 +127864,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.withCredentials = true;
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  state: {},
-  mutations: {},
+  state: {
+    user: null // user who login
+
+  },
+  mutations: {
+    mutateUser: function mutateUser(val) {
+      this.user = val;
+    }
+  },
   actions: {},
   modules: {}
 }));

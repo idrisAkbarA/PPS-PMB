@@ -7,8 +7,14 @@ Axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 Axios.defaults.withCredentials = true;
 
 export default new Vuex.Store({
- state:{},
- mutations:{},
- actions:{},
- modules:{},
+    state: {
+        user: null // user who login
+    },
+    mutations: {
+        mutateUser(val) {
+            this.user = val;
+        }
+    },
+    actions: {},
+    modules: {},
 })
