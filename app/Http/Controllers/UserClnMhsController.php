@@ -50,6 +50,7 @@ class UserClnMhsController extends Controller
         Auth::guard('cln_mahasiswa')->login($user);
 
         return redirect('/user/cln-mhs/home');
+        //
     }
 
     /**
