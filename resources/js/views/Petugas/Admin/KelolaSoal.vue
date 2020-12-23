@@ -36,8 +36,8 @@
                   ></v-text-field>
                 </v-row>
                 <v-card
-                  v-for="n in 5"
-                  :key="n"
+                  v-for="soal in soalTKA"
+                  :key="soal.id"
                   color="rgba(46, 204, 113, 0.25)"
                   class="mt-5"
                 >
@@ -49,9 +49,13 @@
                       No. 1
                     </v-chip>
                     <v-spacer></v-spacer>
-                    <v-select></v-select>
+                    <v-select
+                      filled
+                      :full-width="false"
+                      dense
+                      hide-details="auto"
+                    ></v-select>
                     <v-btn
-                      small
                       color="#2C3E50"
                       dark
                       class="rounded-0"
@@ -59,7 +63,6 @@
                       <v-icon small>mdi-pencil</v-icon>
                     </v-btn>
                     <v-btn
-                      small
                       color="#2C3E50"
                       dark
                       class="rounded-0"
@@ -68,16 +71,16 @@
                     </v-btn>
                   </v-card-title>
                   <v-card-text class="black--text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Quam quis temporibus accusantium fuga incidunt. Sequi sed dolorem, adipisci,speriores possimus voluptates et illum aspernatur voluptatum nisi maiores inventore eos dicta.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, iusto maxime. Dicta odit est,
-                    culpa enim saepe ullam? Quidem quis laborum veniam hic incidunt eveniet perspiciatis delectus mollitia eius maxime.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    <v-radio-group hide-details="auto">
+                    {{soal.pertanyaan}}
+                    <v-radio-group
+                      hide-details="auto"
+                      v-model="soal.jawaban"
+                    >
                       <v-radio
-                        v-for="n in 5"
-                        :key="n"
-                        :value="n"
-                        label="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+                        v-for="(pilihan) in soal.pilihan_ganda"
+                        :key="pilihan.pilihan"
+                        :value="pilihan.pilihan"
+                        :label="pilihan.text"
                         color="#2C3E50"
                       ></v-radio>
                     </v-radio-group>
@@ -169,6 +172,32 @@ export default {
   data() {
     return {
       tab: null,
+      soalTKA: [
+        {
+          id: 0,
+          pertanyaan: "Ma Rabbuka?",
+          pilihan_ganda: [
+            { pilihan: "A", text: "Allah" },
+            { pilihan: "B", text: "Allah" },
+          ],
+          jawaban: "A",
+          jurusan_id: 0,
+          kategori_id: 0,
+          type: "tka",
+        },
+        {
+          id: 0,
+          pertanyaan: "Ma Rabbukaa?",
+          pilihan_ganda: [
+            { pilihan: "A", text: "Allah" },
+            { pilihan: "B", text: "Allah" },
+          ],
+          jawaban: "A",
+          jurusan_id: 0,
+          kategori_id: 0,
+          type: "tka",
+        },
+      ],
     };
   },
   computed: {

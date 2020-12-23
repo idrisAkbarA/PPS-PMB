@@ -47,7 +47,7 @@ class UserClnMhsController extends Controller
         $form['password'] = Hash::make($request->password);
         $user = UserClnMhs::create($form);
 
-        Auth::login($user);
+        Auth::guard('cln_mahasiswa')->login($user);
 
         return redirect('/user/cln-mhs/home');
     }

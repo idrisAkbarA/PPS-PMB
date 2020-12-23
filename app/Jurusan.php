@@ -8,10 +8,14 @@ class Jurusan extends Model
 {
     public function ujian()
     {
-        $this->hasMany('App\Ujian');
+        return $this->hasMany('App\Ujian');
     }
     public function bank_soal()
     {
-        $this->hasMany('App\BankSoal');
+        return $this->hasMany('App\BankSoal');
+    }
+    public function kategori()
+    {
+        return $this->hasMany('App\Kategori');
     }
 }

@@ -8,6 +8,6 @@ class Soal extends Model
 {
     public function ujian()
     {
-        $this->hasOne('App\Ujian');
+        return $this->hasOne('App\Ujian');
     }
 }
