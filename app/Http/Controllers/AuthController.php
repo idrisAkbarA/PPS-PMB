@@ -75,7 +75,9 @@ class AuthController extends Controller
         $form['password'] = Hash::make($request->password);
         $user = UserClnMhs::create($form);
 
-        return $this->login($request, 'cln_mahasiswa');
+        Auth::guard('cln_mahasiswa')->login($user);
+
+        return redirect('/user/cln-mhs/home');
     }
 
     public function logout(Request $request)
