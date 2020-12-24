@@ -145,6 +145,18 @@
           <v-icon>mdi-plus</v-icon>tambah akun petugas
         </v-btn>
       </v-slide-y-transition>
+      <v-slide-y-transition>
+        <!-- v-if="isTambahSoal" -->
+        <v-btn
+          small
+          class="green darken-3"
+          dark
+          v-if="checkRoute('Kelola Soal')"
+          @click="setTambahSoalToTrue()"
+        >
+          <v-icon> mdi-plus</v-icon> tambah soal
+        </v-btn>
+      </v-slide-y-transition>
       <v-btn
         v-if="windowWidth>=600"
         small
@@ -174,7 +186,10 @@
 import { mapMutations, mapState } from "vuex";
 export default {
   methods: {
-    ...mapMutations(["toggleOpenBeasiswa"]),
+    ...mapMutations(["toggleOpenBeasiswa", "toggleTambahSoal"]),
+    setTambahSoalToTrue() {
+      this.toggleTambahSoal(true);
+    },
     toggleDrawer(bool) {
       if (!bool) {
         this.miniVariant = !this.miniVariant;

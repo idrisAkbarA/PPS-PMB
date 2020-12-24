@@ -37,6 +37,19 @@ class UserClnMhsController extends Controller
      */
     public function store(Request $request)
     {
+        $form = $this->validate($request, [
+            'nama' => 'required|string',
+            'email' => 'required|string|email|unique:user_cln_mhs,email',
+            'password' => 'required|string|same:password2',
+            'password2' => 'required|string',
+        ]);
+
+        $form['password'] = Hash::make($request->password);
+        $user = UserClnMhs::create($form);
+
+        Auth::guard('cln_mahasiswa')->login($user);
+
+        return redirect('/user/cln-mhs/home');
         //
     }
 
