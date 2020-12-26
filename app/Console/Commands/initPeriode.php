@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Jurusan;
 use App\Periode;
+use App\KatJurusanPerPeriode;
 use Faker\Factory as Faker;
 use Illuminate\Support\Carbon;
 
@@ -61,6 +62,17 @@ class initPeriode extends Command
         $periode->min_lulus_tkj = 5;
         $periode->is_Active = true;
         $periode->save();
+
+        $jurusan = Jurusan::all();
+        foreach ($jurusan as $key => $value) {
+            # code...
+            $kategori = new KatJurusanPerPeriode;
+            $kategori->periode_id = $periode->id;
+            $kategori->kat_tka_id = $value->kat_default;
+            $kategori->kat_tkj_id = $value->kat_default;
+            $kategori->jurusan_id = $value->id;
+            $kategori->save();
+        }
         echo "periode stored \n";
     }
 }

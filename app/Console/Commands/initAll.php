@@ -43,5 +43,7 @@ class initAll extends Command
         $this->call("initJurusan");
         $this->call("initKategori");
         $this->call("initPeriode");
+        $this->call("initBankSoal");
+        $this->call("initUjian");
     }
 }

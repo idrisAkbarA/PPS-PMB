@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\UserClnMhs;
 use Illuminate\Support\Facades\Hash;
 use Faker\Factory as Faker;
+
 class initClnMhs extends Command
 {
     /**
@@ -44,6 +45,14 @@ class initClnMhs extends Command
         $user->email = "asd@asd.asd";
         $user->password = Hash::make("123");
         $user->save();
+        for ($i = 0; $i < 10; $i++) {
+            $faker = Faker::create("id_ID");
+            $user = new UserClnMhs;
+            $user->nama = $faker->name();
+            $user->email = $faker->email();
+            $user->password = Hash::make("123");
+            $user->save();
+        }
         echo "user testing created\n";
     }
 }

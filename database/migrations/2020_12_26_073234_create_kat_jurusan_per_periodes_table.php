@@ -17,7 +17,8 @@ class CreateKatJurusanPerPeriodesTable extends Migration
             $table->id();
             $table->bigInteger('periode_id');
             $table->bigInteger('jurusan_id');
-            $table->bigInteger('kategori_id');
+            $table->bigInteger('kat_tka_id');
+            $table->bigInteger('kat_tkj_id');
             $table->timestamps();
         });
     }

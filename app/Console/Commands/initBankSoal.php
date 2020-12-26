@@ -41,11 +41,11 @@ class initBankSoal extends Command
      */
     public function handle()
     {
-        echo "Storing TKA";
+        echo "Storing TKA\n";
         for ($i = 0; $i < 20; $i++) {
             self::store('tka');
         }
-        echo "Storing tkj";
+        echo "Storing TKJ\n";
         for ($i = 0; $i < 20; $i++) {
             self::store('tkj');
         }
