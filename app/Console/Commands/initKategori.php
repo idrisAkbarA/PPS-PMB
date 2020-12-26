@@ -51,7 +51,8 @@ class initKategori extends Command
 
                 if ($valueLevel == 'Menengah') { //set kategori menengah as default kategori for each jurusan
                     $jur = Jurusan::find($value->id);
-                    $jur->kat_default = $kategori->id;
+                    $jur->kat_tka_default = $kategori->id;
+                    $jur->kat_tkj_default = $kategori->id;
                     $jur->save();
                 }
             }

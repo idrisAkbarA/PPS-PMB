@@ -18,8 +18,12 @@ class Jurusan extends Model
     {
         return $this->hasMany('App\Kategori');
     }
-    public function kat_default()
+    public function kat_tkj_default()
     {
-        return $this->hasMany('App\Kategori', 'id', 'kat_default');
+        return $this->hasMany('App\Kategori', 'id', 'kat_tkj_default');
+    }
+    public function kat_tka_default()
+    {
+        return $this->hasMany('App\Kategori', 'id', 'kat_tka_default');
     }
 }

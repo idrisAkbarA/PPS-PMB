@@ -68,8 +68,8 @@ class initPeriode extends Command
             # code...
             $kategori = new KatJurusanPerPeriode;
             $kategori->periode_id = $periode->id;
-            $kategori->kat_tka_id = $value->kat_default;
-            $kategori->kat_tkj_id = $value->kat_default;
+            $kategori->kat_tka_id = $value->kat_tka_default;
+            $kategori->kat_tkj_id = $value->kat_tkj_default;
             $kategori->jurusan_id = $value->id;
             $kategori->save();
         }
