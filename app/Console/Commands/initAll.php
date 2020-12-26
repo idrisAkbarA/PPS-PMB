@@ -45,5 +45,6 @@ class initAll extends Command
         $this->call("initPeriode");
         $this->call("initBankSoal");
         $this->call("initUjian");
+        $this->call("initSoal");
     }
 }
