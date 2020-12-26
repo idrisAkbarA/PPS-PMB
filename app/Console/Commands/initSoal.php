@@ -74,7 +74,7 @@ class initSoal extends Command
             foreach ($soal_id_listed as $key => $value) {
                 if ($value == $randomNumber) { }
             }
-            $tempSoal = $soal[];
+            $tempSoal = $soal;
         }
     }
 }
