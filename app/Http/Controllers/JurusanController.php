@@ -16,6 +16,10 @@ class JurusanController extends Controller
     {
         //
     }
+    public function getAll()
+    {
+        return response()->json(Jurusan::all());
+    }
 
     /**
      * Show the form for creating a new resource.

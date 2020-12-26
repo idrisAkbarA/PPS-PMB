@@ -17,7 +17,6 @@ class CreateUserClnMhsTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('hp')->nullable();
             $table->string('wa')->nullable();
@@ -25,7 +24,8 @@ class CreateUserClnMhsTable extends Migration
             $table->string('ijazah')->nullable();
             $table->string('nilai_ipk')->nullable();
             $table->string('nilai_bhs')->nullable();
-            $table->string('paspoto')->nullable();
+            $table->string('pas_photo')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

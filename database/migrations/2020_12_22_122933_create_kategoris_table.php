@@ -17,7 +17,7 @@ class CreateKategorisTable extends Migration
             $table->id();
             $table->string('nama');
             $table->text('deskripsi');
-            $table->integer('jurusan_id');
+            $table->bigInteger('jurusan_id');
             $table->timestamps();
         });
     }

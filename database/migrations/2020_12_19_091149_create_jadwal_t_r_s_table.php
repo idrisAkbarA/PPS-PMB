@@ -16,9 +16,9 @@ class CreateJadwalTRSTable extends Migration
         Schema::create('jadwal_t_r_s', function (Blueprint $table) {
             $table->id();
             $table->date("tanggal");
-            $table->integer("quota");
+            $table->bigInteger("quota");
             $table->string("nama_dosen");
-            $table->integer("periode_id");
+            $table->bigInteger("periode_id");
             $table->json("ids_cln_mhs")->nullable();;
             $table->timestamps();
         });

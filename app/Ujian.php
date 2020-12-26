@@ -26,8 +26,8 @@ class Ujian extends Model
     {
         return $this->belongsTo('App\Kategori', 'id', 'kat_tka_id');
     }
-    public function ujian_tkd()
+    public function ujian_tkj()
     {
-        return $this->belongsTo('App\Kategori', 'id', 'kat_tkd_id');
+        return $this->belongsTo('App\Kategori', 'id', 'kat_tkj_id');
     }
 }

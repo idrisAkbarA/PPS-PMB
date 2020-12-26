@@ -16,7 +16,7 @@
         </v-tab>
 
         <v-tab href="#tab-2">
-          SOAL TKD
+          SOAL tkj
 
         </v-tab>
       </v-tabs>

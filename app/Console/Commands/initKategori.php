@@ -48,8 +48,14 @@ class initKategori extends Command
                 $kategori->deskripsi = 'Soal dengan tingkat kesulitan ' . $valueLevel;
                 $kategori->jurusan_id = $value->id;
                 $kategori->save();
+
+                if ($valueLevel == 'Menengah') { //set kategori menengah as default kategori for each jurusan
+                    $jur = Jurusan::find($value->id);
+                    $jur->kat_default = $kategori->id;
+                    $jur->save();
+                }
             }
         }
-        echo 'Kategori default stored \n';
+        echo "Kategori default stored \n";
     }
 }

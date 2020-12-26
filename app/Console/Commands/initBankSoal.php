@@ -45,9 +45,9 @@ class initBankSoal extends Command
         for ($i = 0; $i < 20; $i++) {
             self::store('tka');
         }
-        echo "Storing TKD";
+        echo "Storing tkj";
         for ($i = 0; $i < 20; $i++) {
-            self::store('tkd');
+            self::store('tkj');
         }
     }
     public function store($type)

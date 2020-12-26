@@ -15,22 +15,22 @@ class CreateUjiansTable extends Migration
     {
         Schema::create('ujians', function (Blueprint $table) {
             $table->id();
-            $table->integer('periode_id');
-            $table->integer('jurusan_id');
-            $table->integer('user_cln_mhs_id');
-            $table->integer('kat_tka_id');
-            $table->integer('kat_tkd_id');
-            $table->integer('soal_id')->nullable();;
+            $table->bigInteger('periode_id');
+            $table->bigInteger('jurusan_id');
+            $table->bigInteger('user_cln_mhs_id');
+            $table->bigInteger('kat_tka_id');
+            $table->bigInteger('kat_tkj_id');
+            $table->bigInteger('soal_id')->nullable();;
             $table->double('nilai_tka')->nullable();;
-            $table->double('nilai_tkd')->nullable();;
-            $table->date('start_tkd');
+            $table->double('nilai_tkj')->nullable();;
+            $table->date('start_tkj');
             $table->date('start_tka');
-            $table->date('tkd_ended');
+            $table->date('tkj_ended');
             $table->date('tka_ended');
             $table->date('lunas_at')->nullable();;
             $table->date('batas_ujian');
             $table->boolean('is_lulus_tka')->nullable();;
-            $table->boolean('is_lulus_tkd')->nullable();;
+            $table->boolean('is_lulus_tkj')->nullable();;
             $table->date('lulus_at')->nullable();;
             $table->timestamps();
         });

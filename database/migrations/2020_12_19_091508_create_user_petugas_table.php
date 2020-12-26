@@ -18,7 +18,7 @@ class CreateUserPetugasTable extends Migration
             $table->string("username");
             $table->string("nama");
             $table->string("password");
-            $table->integer("role");
+            $table->bigInteger("role");
             $table->string("email");
             $table->timestamps();
         });
