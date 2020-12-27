@@ -25,18 +25,26 @@ class SoalUjian
         ])->get();
 
         // select the questions randomly until it met requested quantity 
-        $tka_selected = self::selectSoal($soalTKA, $jumlah_tka);
-        $tkj_selected = self::selectSoal($soalTKJ, $jumlah_tkj);
+        $tka_selected = self::selectRandomly($soalTKA, $jumlah_tka);
+        $tkj_selected = self::selectRandomly($soalTKJ, $jumlah_tkj);
 
-        $final_soal['tka'] = $tka_selected;
-        $final_soal['tkj'] = $tkj_selected;
+        $final_soal = [
+            ["type" => "tka", "soal" => $tka_selected],
+            ["type" => "tkj", "soal" => $tkj_selected],
+        ];
+
         //store to db
         $soalInstance = new Soal;
-        $soalInstance->set_pertanyaan = json_encode($final_soal);
+        $soalInstance->set_pertanyaan = $final_soal;
         $soalInstance->save();
         // self::$id = $soalInstance->id;
     }
-    private function selectSoal($soal, $jumlah)
+    public function getSoal($type, $id)
+    {
+        $soal = Soal::find($id)->where(['set_pertanyaan->type' => $type])->get();
+        return $soal;
+    }
+    private function selectRandomly($soal, $jumlah)
     {
         $soal_id_listed = []; //  store the id that've randomly selected
         $soal_merged = []; // the questions goes here

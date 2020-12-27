@@ -53,6 +53,6 @@ class initSoal extends Command
             $soalUjian = new SoalUjian;
             $soalUjian->generate($jurusan, $tka_id, $tkj_id, $jum_tka, $jum_tkd);
         }
-        echo "Soal Ujian Stored";
+        echo "Soal Ujian \n";
     }
 }

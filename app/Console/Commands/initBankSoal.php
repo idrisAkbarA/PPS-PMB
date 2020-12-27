@@ -42,11 +42,11 @@ class initBankSoal extends Command
     public function handle()
     {
         echo "Storing TKA\n";
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             self::store('tka');
         }
         echo "Storing TKJ\n";
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             self::store('tkj');
         }
     }
@@ -62,14 +62,14 @@ class initBankSoal extends Command
                 $bankSoal->type = $type;
                 $bankSoal->jurusan_id = $value['id'];
                 $bankSoal->kategori_id = $valueK['id'];
-                $bankSoal->pertanyaan = $faker->text($maxNbChars = 20);
-                $bankSoal->pilihan_ganda = json_encode([
-                    ['pilihan' => 'A', 'text' => $faker->sentence()],
-                    ['pilihan' => 'B', 'text' => $faker->sentence()],
-                    ['pilihan' => 'C', 'text' => $faker->sentence()],
-                    ['pilihan' => 'D', 'text' => $faker->sentence()],
-                    ['pilihan' => 'E', 'text' => $faker->sentence()]
-                ]);
+                $bankSoal->pertanyaan = $faker->sentence();
+                $bankSoal->pilihan_ganda = [
+                    ['pilihan' => 'A', 'text' => $faker->text($maxNbChars = 20)],
+                    ['pilihan' => 'B', 'text' => $faker->text($maxNbChars = 20)],
+                    ['pilihan' => 'C', 'text' => $faker->text($maxNbChars = 20)],
+                    ['pilihan' => 'D', 'text' => $faker->text($maxNbChars = 20)],
+                    ['pilihan' => 'E', 'text' => $faker->text($maxNbChars = 20)]
+                ];
                 $bankSoal->jawaban = ['A', 'B', 'C', 'D', 'E'][rand(0, 4)];
                 $bankSoal->save();
             }
