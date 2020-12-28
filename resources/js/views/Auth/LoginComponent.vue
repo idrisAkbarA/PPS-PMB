@@ -130,7 +130,7 @@ export default {
               redirectUrl += "admin/" + userNamePetugas + "/dashboard";
             }
           } catch (error) {}
-          window.location.replace("user/" + redirectUrl);
+          window.location.replace(redirectUrl);
         })
         .catch((err) => {
           this.loading = false;

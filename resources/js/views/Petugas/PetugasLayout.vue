@@ -206,21 +206,14 @@ export default {
     },
     logout() {
       axios
-        .get("/api/logout-petugas", {
-          params: {
-            user: window.localStorage.getItem("user"),
-          },
-        })
+        .get("/api/logout-petugas")
         .then((response) => {
-          this.$store.state.auth.isAuth = false;
-          console.log(this.$store.state.auth.isAuth);
-
-          this.$router.push({ name: "Login Petugas" });
+          window.location.replace("/");
         })
         .catch(() => {
-          console.log(this.$store.state.auth.isAuth + " dar catch");
-          this.$store.state.auth.isAuth = false;
-          this.$router.push({ path: "/login" });
+          window.location.replace("/");
+          console.log("Couldn't logout");
+          // this.$router.push({ path: "/login" });
         });
     },
   },
@@ -270,7 +263,7 @@ export default {
         },
         {
           icon: "mdi-file-document",
-          title: "Kelola Soal",
+          title: "Kelola Periode",
           to: `/admin/${petugas}/kelola-soal`,
         },
         {
@@ -283,11 +276,6 @@ export default {
           title: "Kelulusan",
           to: `/admin/${petugas}/kelulusan`,
         },
-        // {
-        //   icon: "mdi-clipboard-check-multiple",
-        //   title: "Cek Berkas Permohonan",
-        //   to: `/admin/${petugas}/cek-berkas-permohonan`
-        // },
         {
           icon: "mdi-account-details",
           title: "List Permohonan",

@@ -60,6 +60,7 @@
                 v-model="form.password2"
                 :type="show1 ? 'text' : 'password'"
                 label="Konfirmasi Password"
+                @keyup.enter="submit"
                 @click:append="show1 = !show1"
                 :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
               ></v-text-field>
@@ -112,7 +113,7 @@ export default {
         .post(this.urlPendaftaran, form)
         .then(response => {
           if (response.data.status) {
-            window.location.replace("user/cln-mhs/home");
+            window.location.replace("cln-mhs/home");
           }
         })
         .catch(err => {

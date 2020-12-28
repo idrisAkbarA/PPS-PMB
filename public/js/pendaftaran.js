@@ -2052,6 +2052,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2100,7 +2101,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var form = this.form;
       axios.post(this.urlPendaftaran, form).then(function (response) {
         if (response.data.status) {
-          window.location.replace("user/cln-mhs/home");
+          window.location.replace("cln-mhs/home");
         }
       })["catch"](function (err) {
         _this2.loading = false;
@@ -60258,6 +60259,21 @@ var render = function() {
                                 : "mdi-eye-off"
                             },
                             on: {
+                              keyup: function($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.submit($event)
+                              },
                               "click:append": function($event) {
                                 _vm.show1 = !_vm.show1
                               }

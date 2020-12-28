@@ -2124,7 +2124,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         } catch (error) {}
 
-        window.location.replace("user/" + redirectUrl);
+        window.location.replace(redirectUrl);
       })["catch"](function (err) {
         _this2.loading = false;
         _this2.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
