@@ -12,6 +12,6 @@ class Soal extends Model
     }
     protected $casts = [
         'set_pertanyaan' => 'object',
-        'set_jawaban_mhs' => 'object',
+        'set_jawaban_mhs' => 'array',
     ];
 }

@@ -18,6 +18,15 @@ class SoalController extends Controller
         $soal = new SoalUjian;
         return response()->json($soal->get($type, $id));
     }
+    public function setJawaban(Request $request)
+    {
+        $type = $request->type;
+        $rowID = $request->rowID;
+        $soalID = $request->soalID;
+        $jawaban = $request->jawaban;
+        $soal = new SoalUjian;
+        return response()->json($soal->setJawaban($type, $rowID, $soalID, $jawaban));
+    }
     public function index()
     {
         //
