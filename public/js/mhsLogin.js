@@ -2036,7 +2036,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this.loading = true;
+                _this.isLoading = true;
                 _context.next = 3;
                 return _this.getCSRF();
 
@@ -2046,7 +2046,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (isCSRFOkay) {
                   _this.loginProcess();
                 } else {
-                  _this.loading = false;
+                  _this.isLoading = false;
                   console.log("Couldn't get CSRF Cookie");
                   _this.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
                 }
@@ -2087,7 +2087,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(response.data);
 
         if (response.data.status != "Authenticated") {
-          _this2.loading = false;
+          _this2.isLoading = false;
           return _this2.error = "Maaf kata sandi/email anda salah";
         }
 
@@ -2105,7 +2105,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         window.location.replace("user/" + redirectUrl);
       })["catch"](function (err) {
-        _this2.loading = false;
+        _this2.isLoading = false;
         _this2.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
       });
     },
@@ -2121,7 +2121,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       loginUrl: "",
-      loading: false,
+      isLoading: false,
       error: null,
       show1: false,
       email: "",
@@ -60238,7 +60238,7 @@ var render = function() {
                             "v-btn",
                             {
                               attrs: {
-                                loading: _vm.loading,
+                                loading: _vm.isLoading,
                                 color: "green",
                                 dark: ""
                               },

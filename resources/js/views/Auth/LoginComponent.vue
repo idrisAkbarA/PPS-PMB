@@ -42,7 +42,7 @@
           </v-row>
           <v-row class="mt-3" align="center" dense>
             <v-col cols="3">
-              <v-btn :loading="loading" @click="login()" color="green" dark
+              <v-btn :loading="isLoading" @click="login()" color="green" dark
                 >Login</v-btn
               >
             </v-col>
@@ -66,12 +66,12 @@ export default {
   },
   methods: {
     async login() {
-      this.loading = true;
+      this.isLoading = true;
       var isCSRFOkay = await this.getCSRF();
       if (isCSRFOkay) {
         this.loginProcess();
       } else {
-        this.loading = false;
+        this.isLoading = false;
         console.log("Couldn't get CSRF Cookie");
         this.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
       }
@@ -96,7 +96,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           if (response.data.status != "Authenticated") {
-            this.loading = false;
+            this.isLoading = false;
             return (this.error = "Maaf kata sandi/email anda salah");
           }
           console.log("logged in");
@@ -112,7 +112,7 @@ export default {
           window.location.replace("user/" + redirectUrl);
         })
         .catch((err) => {
-          this.loading = false;
+          this.isLoading = false;
           this.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
         });
     },
@@ -131,7 +131,7 @@ export default {
   data() {
     return {
       loginUrl: "",
-      loading: false,
+      isLoading: false,
       error: null,
       show1: false,
       email: "",

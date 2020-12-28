@@ -33,3 +33,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
     Route::get('/{user?}', 'UserClnMhsController@show')->name('show');
 });
+
+// Periode Routes
+Route::prefix('periode')->name('periode.')->group(function () {
+    Route::get('/', 'PeriodeController@index')->name('index');
+});
