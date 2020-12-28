@@ -39,7 +39,7 @@ const vuetify = new Vuetify(
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-import Login from './views/Auth/LoginComponent';
+import Pendaftaran from './views/Auth/PendaftaranComponent';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -47,7 +47,7 @@ import Login from './views/Auth/LoginComponent';
  */
 
 const app = new Vue({
-    el: '#login-vue-component',
-    components: { Login },
+    el: '#pendaftaran-vue-component',
+    components: { Pendaftaran },
     vuetify
 });

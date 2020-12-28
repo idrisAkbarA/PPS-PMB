@@ -77,7 +77,10 @@ class AuthController extends Controller
 
         Auth::guard('cln_mahasiswa')->login($user);
 
-        return redirect('/user/cln-mhs/home');
+        return response()->json([
+            'status' => true,
+            'data' => $user
+        ]);
     }
 
     public function logout(Request $request)
