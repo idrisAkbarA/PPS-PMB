@@ -10,7 +10,7 @@
           </v-row>
           <v-row dense v-if="error">
             <v-col>
-              <p class="red--text">{{error}}</p>
+              <p class="red--text">{{ error }}</p>
             </v-col>
           </v-row>
           <v-row dense>
@@ -68,7 +68,9 @@
           </v-row>
           <v-row class="mt-3" align="center" dense>
             <v-col cols="3">
-              <v-btn :loading="loading" @click="submit" color="green" dark>Daftar</v-btn>
+              <v-btn :loading="loading" @click="submit" color="green" dark
+                >Daftar</v-btn
+              >
             </v-col>
             <v-col>
               <span>
@@ -88,7 +90,7 @@ import { mapMutations } from "vuex";
 
 export default {
   props: {
-    urlPendaftaran: String
+    urlPendaftaran: String,
   },
   created() {
     var pathArray = window.location.pathname.split("/");
@@ -111,12 +113,12 @@ export default {
       const form = this.form;
       axios
         .post(this.urlPendaftaran, form)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
-            window.location.replace("cln-mhs/home");
+            window.location.replace("user/cln-mhs/home");
           }
         })
-        .catch(err => {
+        .catch((err) => {
           this.loading = false;
           if (err.response.status == 422) {
             this.error = err.response.data.errors;
@@ -129,13 +131,13 @@ export default {
       // return true if retrieved, false if didnt
       return axios
         .get("/sanctum/csrf-cookie")
-        .then(response => {
+        .then((response) => {
           return true;
         })
-        .catch(err => {
+        .catch((err) => {
           return false;
         });
-    }
+    },
   },
   data() {
     return {
@@ -144,9 +146,9 @@ export default {
       error: null,
       show1: false,
       form: {},
-      rule: [v => !!v || "Field ini wajib diisi"]
+      rule: [(v) => !!v || "Field ini wajib diisi"],
     };
-  }
+  },
 };
 </script>
 

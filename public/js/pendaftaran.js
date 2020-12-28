@@ -2053,6 +2053,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2101,7 +2103,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var form = this.form;
       axios.post(this.urlPendaftaran, form).then(function (response) {
         if (response.data.status) {
-          window.location.replace("cln-mhs/home");
+          window.location.replace("user/cln-mhs/home");
         }
       })["catch"](function (err) {
         _this2.loading = false;

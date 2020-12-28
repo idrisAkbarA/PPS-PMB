@@ -263,12 +263,12 @@ export default {
         },
         {
           icon: "mdi-file-document",
-          title: "Kelola Periode",
+          title: "Kelola Soal",
           to: `/admin/${petugas}/kelola-soal`,
         },
         {
           icon: "mdi-school",
-          title: "Kelola Soal",
+          title: "Kelola Periode",
           to: `/admin/${petugas}/beasiswa`,
         },
         {

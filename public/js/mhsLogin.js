@@ -2021,27 +2021,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var pathArray = window.location.pathname.split("/");
@@ -2124,7 +2103,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         } catch (error) {}
 
-        window.location.replace(redirectUrl);
+        window.location.replace("user/" + redirectUrl);
       })["catch"](function (err) {
         _this2.loading = false;
         _this2.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
