@@ -10,4 +10,8 @@ class Soal extends Model
     {
         return $this->hasOne('App\Ujian');
     }
+    protected $casts = [
+        'set_pertanyaan' => 'object',
+        'set_jawaban_mhs' => 'array',
+    ];
 }

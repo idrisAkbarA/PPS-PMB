@@ -56,8 +56,8 @@ class initPeriode extends Command
         $periode->syarat_bhs = 350;
         $periode->awal_temu_ramah = $thisYear . '-5-01';
         $periode->akhir_temu_ramah = $thisYear . '-5-30';
-        $periode->jumlah_tka = 20;
-        $periode->jumlah_tkj = 20;
+        $periode->jumlah_tka = 50;
+        $periode->jumlah_tkj = 50;
         $periode->min_lulus_tka = 5;
         $periode->min_lulus_tkj = 5;
         $periode->is_Active = true;

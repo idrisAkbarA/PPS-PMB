@@ -3,22 +3,23 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Library\SoalUjian;
 
-class initAll extends Command
+class sandBox extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'initAll';
+    protected $signature = 'sandBox';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'initialize All';
+    protected $description = 'method for testing purpose';
 
     /**
      * Create a new command instance.
@@ -37,14 +38,8 @@ class initAll extends Command
      */
     public function handle()
     {
-        $this->call("migrate:fresh");
-        $this->call("initAdmin");
-        $this->call("initClnMhs");
-        $this->call("initJurusan");
-        $this->call("initKategori");
-        $this->call("initPeriode");
-        $this->call("initBankSoal");
-        $this->call("initUjian");
-        $this->call("initSoal");
+        // $soal = SoalUjian::getSoal("tkj", 1);
+        $soal = new SoalUjian;
+        echo $soal->getSoal("tkj", 11);
     }
 }
