@@ -5,13 +5,14 @@ namespace App\Library;
 use App\Soal;
 use App\BankSoal;
 use App\Jurusan;
+use App\Ujian;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 
 class SoalUjian
 {
     public $id = null;
-    public function generate($jurusan_id, $kat_tka_id, $kat_tkj_id, $jumlah_tka, $jumlah_tkj)
+    public function generate($jurusan_id, $kat_tka_id, $kat_tkj_id, $jumlah_tka, $jumlah_tkj, $ujian_id)
     {
         $final_soal = [];
         //get both tka and tkj questions from banksoal
@@ -39,7 +40,10 @@ class SoalUjian
         $soalInstance = new Soal;
         $soalInstance->set_pertanyaan = $final_soal;
         $soalInstance->save();
-        // self::$id = $soalInstance->id;
+
+        $ujianInstance = Ujian::find($ujian_id);
+        $ujianInstance->soal_id = $soalInstance->id;
+        $ujianInstance->save();
     }
     public function get($type, $id)
     {
@@ -77,7 +81,7 @@ class SoalUjian
         $isTypeSet = false;
         $typeIndex = null;
         foreach ($jawabanDB as $key => $value) {
-            if ($value['type'] == $type) {
+            if ($value->type == $type) {
                 $isTypeSet = true;
                 $typeIndex = $key;
             }
@@ -94,10 +98,10 @@ class SoalUjian
         // if it's type is set before then check if it is an
         // update to an already answered question
         if ($isTypeSet) {
-            foreach ($jawabanDB[$typeIndex]['jawaban'] as $key => $value) {
-                if ($value['id'] == $soalID) {
+            foreach ($jawabanDB[$typeIndex]->jawaban as $key => $value) {
+                if ($value->id == $soalID) {
                     //update the answer
-                    $jawabanDB[$typeIndex]['jawaban'][$key]->jawaban = $jawaban;
+                    $jawabanDB[$typeIndex]->jawaban[$key]->jawaban = $jawaban;
                     $soal->set_jawaban_mhs = $jawabanDB;
                     $soal->save();
                     return ['status' => true, 'message' => 'Updated Jawaban received by server'];
@@ -106,7 +110,7 @@ class SoalUjian
         }
 
         // add new answer
-        array_push($jawabanDB[$typeIndex]['jawaban'], $setJawaban);
+        array_push($jawabanDB[$typeIndex]->jawaban, $setJawaban);
         $soal->set_jawaban_mhs = $jawabanDB;
         $soal->save();
         return ['status' => true, 'message' => 'New Jawaban received by server'];
@@ -115,7 +119,7 @@ class SoalUjian
     {
         $score = 0;
         $instance = Soal::find($id);
-        $soalDB =   $instance->set_pertanyaan;
+        $soalDB =  $instance->set_pertanyaan;
         $jawabanDB = $instance->set_jawaban_mhs;
         $soalTypeIndex = null;
         $jawabanTypeIndex = null;
@@ -134,14 +138,19 @@ class SoalUjian
 
         foreach ($jawaban as $key => $value) {
             foreach ($soal as $keyS => $valueS) {
-                if ($value['id'] == $valueS->id) {
-                    if ($value['jawaban'] == $valueS->id)
+                if ($value->id == $valueS->id) {
+                    if ($value->jawaban == $valueS->jawaban)
                         $score += 1;
                     break;
                 }
             }
         }
-        return $soal[0]->jawaban;
+        $objName = 'nilai_' . $type;
+        $ujian = Ujian::where('soal_id', $id)->first();
+        $ujian->$objName = $score;
+        $ujian->save();
+        return $score;
+        return $ujian;
     }
     private function selectRandomly($soal, $jumlah)
     {

@@ -35,6 +35,28 @@ class SoalController extends Controller
         $soal = new SoalUjian;
         return response()->json($soal->calcScore($id, $type));
     }
+    public function test()
+    {
+        $jawabans = ['A', 'B', 'C', 'D', 'E'];
+        $soal = Soal::all();
+        // return $soal;
+        foreach ($soal as $key => $value) {
+            $idSoal = $value->id;
+            foreach ($value->set_pertanyaan[0]->soal as $keyS => $valueS) {
+                $idPertanyaan = $valueS->id;
+                $soalLib = new SoalUjian;
+                $jawaban = $jawabans[rand(0, count($jawabans) - 1)];
+                $soalLib->setJawaban('tka', $idSoal, $idPertanyaan, $jawaban);
+            }
+            foreach ($value->set_pertanyaan[1]->soal as $keyS => $valueS) {
+                $idPertanyaan = $valueS->id;
+                $soalLib = new SoalUjian;
+                $jawaban = $jawabans[rand(0, count($jawabans) - 1)];
+                $soalLib->setJawaban('tkj', $idSoal, $idPertanyaan, $jawaban);
+            }
+        }
+        echo "Jawaban Stored";
+    }
     public function index()
     {
         //

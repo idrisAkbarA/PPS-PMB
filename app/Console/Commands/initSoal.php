@@ -48,10 +48,11 @@ class initSoal extends Command
             $jurusan = $value->jurusan_id;
             $tka_id = $value->kat_tka_id;
             $tkj_id = $value->kat_tka_id;
+            $ujian_id = $value->id;
             $jum_tka = Periode::find($value->periode_id)->jumlah_tka;
             $jum_tkd = Periode::find($value->periode_id)->jumlah_tkj;
             $soalUjian = new SoalUjian;
-            $soalUjian->generate($jurusan, $tka_id, $tkj_id, $jum_tka, $jum_tkd);
+            $soalUjian->generate($jurusan, $tka_id, $tkj_id, $jum_tka, $jum_tkd, $ujian_id);
         }
         echo "Soal Ujian \n";
     }

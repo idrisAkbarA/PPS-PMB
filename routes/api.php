@@ -20,6 +20,7 @@ Route::post('/authenticate/server/{role}', 'AuthController@loginServer'); // rol
 Route::get('/soal/{id}/{type}', 'SoalController@get'); // id = row id of soal, type = tka or tkj
 Route::post('/soal/set-jawaban', 'SoalController@setJawaban');
 Route::post('/soal/calc-score', 'SoalController@calcScore');
+Route::post('/soal/test', 'SoalController@test');
 Route::post('/authenticate/{role}', 'AuthController@login'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/auth-is-login/{role}', 'AuthController@isLogin'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/logout-petugas', 'AuthController@logoutPetugas'); // roles are 'cln_mahasiswa' and 'petugas'

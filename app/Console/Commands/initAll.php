@@ -46,5 +46,6 @@ class initAll extends Command
         $this->call("initBankSoal");
         $this->call("initUjian");
         $this->call("initSoal");
+        $this->call("initJawaban");
     }
 }
