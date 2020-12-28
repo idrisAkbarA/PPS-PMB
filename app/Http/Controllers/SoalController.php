@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Soal;
+use App\Library\SoalUjian;
 use Illuminate\Http\Request;
 
 class SoalController extends Controller
@@ -12,6 +13,11 @@ class SoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function get($id, $type)
+    {
+        $soal = new SoalUjian;
+        return response()->json($soal->get($type, $id));
+    }
     public function index()
     {
         //

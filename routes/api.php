@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/authenticate/server/{role}', 'AuthController@loginServer'); // roles are 'cln_mahasiswa' and 'petugas'
+Route::get('/soal/{id}/{type}', 'SoalController@get'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/authenticate/{role}', 'AuthController@login'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/auth-is-login/{role}', 'AuthController@isLogin'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/logout-petugas', 'AuthController@logoutPetugas'); // roles are 'cln_mahasiswa' and 'petugas'

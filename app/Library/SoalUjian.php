@@ -5,6 +5,8 @@ namespace App\Library;
 use App\Soal;
 use App\BankSoal;
 use App\Jurusan;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 class SoalUjian
 {
@@ -39,10 +41,15 @@ class SoalUjian
         $soalInstance->save();
         // self::$id = $soalInstance->id;
     }
-    public function getSoal($type, $id)
+    public function get($type, $id)
     {
-        $soal = Soal::find($id)->where(['set_pertanyaan->type' => $type])->get();
-        return $soal;
+        $soal = Soal::find($id);
+        $soal_collection = collect($soal->set_pertanyaan);
+        $result = $soal_collection->where('type', $type);
+        foreach ($result[0]->soal as $key => $value) {
+            unset($value->jawaban);
+        }
+        return $result[0]->soal;
     }
     private function selectRandomly($soal, $jumlah)
     {
