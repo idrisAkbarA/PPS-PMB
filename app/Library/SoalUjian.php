@@ -47,11 +47,11 @@ class SoalUjian
         // and prevent 'jawaban' being sent to the client
         $soal = Soal::find($id);
         $soal_collection = collect($soal->set_pertanyaan);
-        $result = $soal_collection->where('type', $type);
-        foreach ($result[0]->soal as $key => $value) {
+        $result = $soal_collection->where('type', $type)->first();
+        foreach ($result->soal as $key => $value) {
             unset($value->jawaban);
         }
-        return $result[0]->soal;
+        return $result->soal;
     }
     public function setJawaban($type, $rowID, $soalID, $jawaban)
     {
@@ -63,15 +63,7 @@ class SoalUjian
         //answer structure to be stored 
         $setJawaban = ['id' => $soalID, 'jawaban' => $jawaban];
 
-        // initialize check value
-        $isTypeSet = false;
-        $typeIndex = null;
-        foreach ($jawabanDB as $key => $value) {
-            if ($value['type'] == $type) {
-                $isTypeSet = true;
-                $typeIndex = $key;
-            }
-        }
+
 
         // return $jawabanDB[0]['type'];
         // check if it is the first answer made by cln mhs or not
@@ -80,6 +72,15 @@ class SoalUjian
             $soal->set_jawaban_mhs = [['type' => $type, 'jawaban' => [$setJawaban]]];
             $soal->save();
             return ['status' => true, 'message' => 'First Jawaban received by server'];
+        }
+        // initialize check value
+        $isTypeSet = false;
+        $typeIndex = null;
+        foreach ($jawabanDB as $key => $value) {
+            if ($value['type'] == $type) {
+                $isTypeSet = true;
+                $typeIndex = $key;
+            }
         }
 
         // if it's type is not set then make one
@@ -96,7 +97,7 @@ class SoalUjian
             foreach ($jawabanDB[$typeIndex]['jawaban'] as $key => $value) {
                 if ($value['id'] == $soalID) {
                     //update the answer
-                    $jawabanDB[$typeIndex]['jawaban'][$key]['jawaban'] = $jawaban;
+                    $jawabanDB[$typeIndex]['jawaban'][$key]->jawaban = $jawaban;
                     $soal->set_jawaban_mhs = $jawabanDB;
                     $soal->save();
                     return ['status' => true, 'message' => 'Updated Jawaban received by server'];
@@ -110,9 +111,37 @@ class SoalUjian
         $soal->save();
         return ['status' => true, 'message' => 'New Jawaban received by server'];
     }
-    public function calcScore(Type $var = null)
+    public function calcScore($id, $type)
     {
-        # code...
+        $score = 0;
+        $instance = Soal::find($id);
+        $soalDB =   $instance->set_pertanyaan;
+        $jawabanDB = $instance->set_jawaban_mhs;
+        $soalTypeIndex = null;
+        $jawabanTypeIndex = null;
+        foreach ($jawabanDB as $key => $value) {
+            if ($value->type == $type) {
+                $jawabanTypeIndex = $key;
+            }
+        }
+        foreach ($soalDB as $key => $value) {
+            if ($value->type == $type) {
+                $soalTypeIndex = $key;
+            }
+        }
+        $jawaban = $jawabanDB[$jawabanTypeIndex]->jawaban;
+        $soal = $soalDB[$soalTypeIndex]->soal;
+
+        foreach ($jawaban as $key => $value) {
+            foreach ($soal as $keyS => $valueS) {
+                if ($value['id'] == $valueS->id) {
+                    if ($value['jawaban'] == $valueS->id)
+                        $score += 1;
+                    break;
+                }
+            }
+        }
+        return $soal[0]->jawaban;
     }
     private function selectRandomly($soal, $jumlah)
     {

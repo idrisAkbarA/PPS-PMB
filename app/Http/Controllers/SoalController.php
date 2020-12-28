@@ -27,6 +27,14 @@ class SoalController extends Controller
         $soal = new SoalUjian;
         return response()->json($soal->setJawaban($type, $rowID, $soalID, $jawaban));
     }
+    public function calcScore(Request $request)
+    {
+        $type = $request->type;
+        $id = $request->id;
+
+        $soal = new SoalUjian;
+        return response()->json($soal->calcScore($id, $type));
+    }
     public function index()
     {
         //
