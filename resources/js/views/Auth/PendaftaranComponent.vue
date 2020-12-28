@@ -111,12 +111,8 @@ export default {
       axios
         .post(this.urlPendaftaran, form)
         .then(response => {
-          console.log(response.data.status);
           if (response.data.status) {
-            console.log(response.data);
-            this.mutateUser(response.data.data);
             window.location.replace("user/cln-mhs/home");
-            return;
           }
         })
         .catch(err => {
