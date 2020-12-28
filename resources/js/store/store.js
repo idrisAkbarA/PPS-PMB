@@ -9,15 +9,14 @@ Axios.defaults.withCredentials = true;
 export default new Vuex.Store({
     state: {
         user: null, // user who logged in
-        isTambahSoal: false,
+        isBottomSheetOpen: false,
     },
     mutations: {
         mutateUser(state, data) {
             state.user = data;
         },
-        toggleTambahSoal(state, data) {
-            state.isTambahSoal = data;
-            //  console.log(data);
+        toggleBottomSheet(state, data) {
+            state.isBottomSheetOpen = data;
         }
     },
     actions: {},

@@ -75,13 +75,13 @@
       width="60%"
       inset
       overlay-color="#69F0AE"
-      v-model="bottomSheet"
+      v-model="toggleDialogSoal"
     >
       <v-card color="#ecf0f1">
         <v-card-title>
           <span>Buat Soal</span>
           <v-spacer></v-spacer>
-          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
+          <v-btn text>batal</v-btn>
           <v-btn color="#2C3E50" dark>Simpan</v-btn>
           <!-- v-model="" -->
         </v-card-title>
@@ -136,7 +136,7 @@ export default {
           type: "tka",
         },
         {
-          id: 1,
+          id: 0,
           pertanyaan: "Ma Rabbukaa?",
           pilihan_ganda: [
             { pilihan: "A", text: "Allah" },
@@ -151,18 +151,18 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen"]),
-    bottomSheet: {
+    ...mapState(["isTambahSoal"]),
+    toggleDialogSoal: {
       get: function () {
-        return this.isBottomSheetOpen;
+        return this.isTambahSoal;
       },
       set: function (data) {
-        this.toggleBottomSheet(data);
+        this.toggleTambahSoal(data);
       },
     },
   },
   methods: {
-    ...mapMutations(["toggleBottomSheet"]),
+    ...mapMutations(["toggleTambahSoal"]),
   },
 };
 </script>

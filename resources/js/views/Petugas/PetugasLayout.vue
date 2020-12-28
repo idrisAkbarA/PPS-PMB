@@ -9,7 +9,7 @@
       :floating="true"
       :permanent="windowWidth <= 600 ? false : permanent"
       :expand-on-hover="windowWidth <= 600 ? false : expandOnHover"
-      :mini-variant="windowWidth <=600 ? false : miniVariant"
+      :mini-variant="windowWidth <= 600 ? false : miniVariant"
       dark
     >
       <!-- :floating="true"
@@ -22,20 +22,17 @@
         flat
         tile
       >
-        <v-img
-          max-width="70"
-          :src="'/images/LogoUIN.png'"
-        ></v-img>
+        <v-img max-width="70" :src="'/images/LogoUIN.png'"></v-img>
         <v-card-text>Aplikasi Beasiswa UIN Suska Riau</v-card-text>
       </v-card>
       <v-card
-        v-if="windowWidth<=600"
+        v-if="windowWidth <= 600"
         class="d-flex justify-center pr-2 pl-2"
         flat
         tile
       >
         <v-card-text>
-          Selamat datang {{$route.params.petugas}}
+          Selamat datang {{ $route.params.petugas }}
           <br />
           <v-btn
             class="mt-2"
@@ -54,97 +51,36 @@
           v-for="(page, i) in pages"
           :key="i"
           :to="page.to"
-          :two-line="(page.subtitle)? true: false"
+          :two-line="page.subtitle ? true : false"
           router
           exact
         >
           <v-list-item-action>
-            <v-icon>{{page.icon}}</v-icon>
+            <v-icon>{{ page.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>{{page.title}}</v-list-item-title>
-            <v-list-item-subtitle v-if="page.subtitle">{{page.subtitle}}</v-list-item-subtitle>
+            <v-list-item-title>{{ page.title }}</v-list-item-title>
+            <v-list-item-subtitle v-if="page.subtitle">{{
+              page.subtitle
+            }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      dense
-      clipped-left
-    >
-      <v-app-bar-nav-icon @click.stop="toggleDrawer(windowWidth<=600)"></v-app-bar-nav-icon>
-      <div style="width:100%; -webkit-app-region: drag;">
+    <v-app-bar app dense clipped-left>
+      <v-app-bar-nav-icon
+        @click.stop="toggleDrawer(windowWidth <= 600)"
+      ></v-app-bar-nav-icon>
+      <div style="width: 100%; -webkit-app-region: drag">
         <v-toolbar-title>
-          <span
-            v-if="!$vuetify.breakpoint.mobile"
-            class="font-weight-bold ml-4"
-          >App Beasiswa</span>
+          <span v-if="!$vuetify.breakpoint.mobile" class="font-weight-bold ml-4"
+            >App Beasiswa</span
+          >
           <!-- Change this automaticly later usig VUEX -->
-          <span>{{$route.name}}</span>
+          <span>{{ $route.name }}</span>
         </v-toolbar-title>
       </div>
-      <v-slide-y-transition>
-        <v-btn
-          v-if="checkRoute('LPJ')"
-          small
-          class="green darken-3"
-          @click="toggleBeasiswa()"
-        >
-          <v-icon>mdi-plus</v-icon>tambah LPJ
-        </v-btn>
-      </v-slide-y-transition>
-      <v-slide-y-transition>
-        <v-btn
-          v-if="checkRoute('List Permohonan')"
-          small
-          class="green darken-3"
-          @click="toggleBeasiswa()"
-        >
-          <v-icon>mdi-plus</v-icon>tambah beasiswa selesai
-        </v-btn>
-      </v-slide-y-transition>
-      <v-slide-y-transition>
-        <v-btn
-          v-if="checkRoute('Beasiswa')"
-          small
-          class="green darken-3"
-          @click="toggleBeasiswa()"
-        >
-          <v-icon>mdi-plus</v-icon>tambah beasiswa
-        </v-btn>
-      </v-slide-y-transition>
-      <v-slide-y-transition>
-        <v-btn
-          v-if="checkRoute('Instansi')"
-          small
-          class="green darken-3"
-          @click="toggleBeasiswa()"
-        >
-          <v-icon>mdi-plus</v-icon>tambah instansi
-        </v-btn>
-      </v-slide-y-transition>
-      <v-slide-y-transition>
-        <v-btn
-          v-if="checkRoute('Kelola Mahasiswa')"
-          small
-          class="green darken-3"
-          @click="toggleBeasiswa()"
-        >
-          <v-icon>mdi-plus</v-icon>tambah mahasiswa
-        </v-btn>
-      </v-slide-y-transition>
-      <v-slide-y-transition>
-        <v-btn
-          v-if="checkRoute('Akun Petugas')"
-          small
-          class="green darken-3"
-          @click="toggleBeasiswa()"
-        >
-          <v-icon>mdi-plus</v-icon>tambah akun petugas
-        </v-btn>
-      </v-slide-y-transition>
       <v-slide-y-transition>
         <!-- v-if="isTambahSoal" -->
         <v-btn
@@ -152,26 +88,18 @@
           class="green darken-3"
           dark
           v-if="checkRoute('Kelola Soal')"
-          @click="setTambahSoalToTrue()"
+          @click="setBottomSheetToTrue"
         >
           <v-icon> mdi-plus</v-icon> tambah soal
         </v-btn>
       </v-slide-y-transition>
-      <v-btn
-        v-if="windowWidth>=600"
-        small
-        text
-        @click="logout"
-      >
+      <v-btn v-if="windowWidth >= 600" small text @click="logout">
         <v-icon>mdi-logout-variant</v-icon>keluar
       </v-btn>
     </v-app-bar>
 
     <v-main class="bg-pattern">
-      <transition
-        name="slide-fade"
-        mode="out-in"
-      >
+      <transition name="slide-fade" mode="out-in">
         <router-view></router-view>
       </transition>
 
@@ -186,9 +114,9 @@
 import { mapMutations, mapState } from "vuex";
 export default {
   methods: {
-    ...mapMutations(["toggleOpenBeasiswa", "toggleTambahSoal"]),
-    setTambahSoalToTrue() {
-      this.toggleTambahSoal(true);
+    ...mapMutations(["toggleBottomSheet"]),
+    setBottomSheetToTrue() {
+      this.toggleBottomSheet(true);
     },
     toggleDrawer(bool) {
       if (!bool) {
@@ -225,34 +153,6 @@ export default {
     nama() {
       return this.$store.state.name;
     },
-    isBeasiswa() {
-      if (this.$route.name == "Beasiswa") {
-        return true;
-      } else {
-        false;
-      }
-    },
-    isInstansi() {
-      if (this.$route.name == "Instansi") {
-        return true;
-      } else {
-        false;
-      }
-    },
-    isKelolaMahasiswa() {
-      if (this.$route.name == "Kelola Mahasiswa") {
-        return true;
-      } else {
-        false;
-      }
-    },
-    isAkunPetugas() {
-      if (this.$route.name == "Akun Petugas") {
-        return true;
-      } else {
-        false;
-      }
-    },
     pages() {
       let petugas = this.$route.params.petugas;
       return [
@@ -269,7 +169,7 @@ export default {
         {
           icon: "mdi-school",
           title: "Kelola Periode",
-          to: `/admin/${petugas}/beasiswa`,
+          to: `/admin/${petugas}/kelola-periode`,
         },
         {
           icon: "mdi-clipboard-check-multiple",
