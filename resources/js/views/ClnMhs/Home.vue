@@ -8,12 +8,55 @@
         <a
           href="#"
           class="font-weight-black text-white"
+          style="text-decoration:none"
         >disini</a>. Silahkan mendaftar!
       </h4>
     </div>
     <div>
       <h4 class="font-weight-light">Pendaftaran anda</h4>
     </div>
+    <v-container style="padding:0px !important">
+      <v-row>
+        <v-col cols="12">
+          <v-card
+            width="100%"
+            flat
+            outlined
+            color="green darken-2"
+          >
+            <v-container>
+              <v-row
+                align="center"
+                justify="center"
+              >
+                <v-col
+                  cols="12"
+                  md="6"
+                  lg="6"
+                >
+                  <div class="ml-10">
+                    <h1 class="text-white">Hmm.. sepertinya anda belum mendaftar</h1>
+                    <v-btn large>Daftar Sekarang</v-btn>
+                  </div>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="6"
+                  lg="6"
+                >
+                  <v-img
+                    class="mx-auto"
+                    max-width="300"
+                    :src="'/images/empty.png'"
+                  ></v-img>
+
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
     <!-- <v-sheet color="transparent">
       <h2 class="mx-auto text-center">Selamat Datang</h2>
     </v-sheet>
