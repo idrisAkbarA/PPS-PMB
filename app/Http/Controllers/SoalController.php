@@ -35,6 +35,14 @@ class SoalController extends Controller
         $soal = new SoalUjian;
         return response()->json($soal->calcScore($id, $type));
     }
+    public function setLulus(Request $request)
+    {
+        $soalUjian = new SoalUjian;
+        $idUjian = $request->idUjian;
+        $type = $request->type;
+
+        return $soalUjian->setLulus($idUjian, $type);
+    }
     public function test()
     {
         $jawabans = ['A', 'B', 'C', 'D', 'E'];

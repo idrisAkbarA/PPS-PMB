@@ -2011,6 +2011,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     logout: function logout() {
@@ -2035,6 +2036,53 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7231,7 +7279,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.ribbon {\r\n  position: absolute;\r\n  z-index: 1;\r\n  background: #4caf50;\r\n  width: 100%;\r\n  height: 400px;\n}\r\n", ""]);
+exports.push([module.i, "\n.ribbon {\r\n  position: absolute;\r\n  z-index: 1;\r\n  background: rgb(0, 36, 15);\r\n  background: linear-gradient(\r\n      0deg,\r\n      rgb(5, 94, 42) 0%,\r\n      rgba(6, 76, 90, 0.377) 100%\r\n    ),\r\n    url(\"/images/bg.jpg\");\r\n  background-size: contain;\r\n  /* background: url(\"/images/bg.jpg\"); */\r\n  /* background: #33691e; */\r\n  width: 100%;\r\n  height: 400px;\n}\r\n", ""]);
 
 // exports
 
@@ -60726,7 +60774,7 @@ var render = function() {
           attrs: {
             app: "",
             flat: "",
-            color: "white",
+            color: "transparent",
             "hide-on-scroll": "",
             dense: ""
           }
@@ -60749,7 +60797,7 @@ var render = function() {
                       "router-link",
                       {
                         staticStyle: {
-                          color: "black",
+                          color: "white",
                           "text-decoration": "none"
                         },
                         attrs: { to: "Home" }
@@ -60771,7 +60819,7 @@ var render = function() {
           _c(
             "v-btn",
             {
-              attrs: { small: "", text: "" },
+              attrs: { small: "", dark: "", text: "" },
               on: {
                 click: function($event) {
                   return _vm.logout()
@@ -60822,328 +60870,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-container",
-    [
-      _c("v-sheet", { attrs: { color: "transparent" } }, [
-        _c("h2", { staticClass: "mx-auto text-center text-white" }, [
-          _vm._v("Selamat Datang")
-        ])
+  return _c("v-container", { attrs: { fluid: "" } }, [
+    _c("div", { staticStyle: { height: "340px" } }, [
+      _c("h1", { staticClass: "text-white mt-6" }, [
+        _vm._v("Selamat Datang "),
+        _c("br"),
+        _vm._v(" di Aplikasi Pendaftaran Pascasarjana\n    ")
       ]),
       _vm._v(" "),
-      _c(
-        "v-card",
-        {
-          staticClass: "mt-5 mx-auto",
-          attrs: { elevation: "10", width: _vm.width() }
-        },
-        [
-          _c("v-card-title", [_vm._v("Isi Biodata")]),
-          _vm._v(" "),
-          _c("v-card-subtitle", [_vm._v("Isilah biodata anda dengan benar")]),
-          _vm._v(" "),
-          _c(
-            "v-card-text",
-            [
-              _c(
-                "v-container",
-                [
-                  _c(
-                    "v-row",
-                    [
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12", sm: "12", md: "6", lg: "6" } },
-                        [
-                          _c(
-                            "v-row",
-                            [
-                              _c("v-img", {
-                                staticClass: "mx-auto",
-                                attrs: {
-                                  width: 300 * 0.7,
-                                  height: 400 * 0.7,
-                                  "max-width": 300 * 0.7,
-                                  "max-height": 400 * 0.7,
-                                  src: "https://picsum.photos/200/300?random=5"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-row",
-                            [
-                              _c(
-                                "v-btn",
-                                {
-                                  staticClass: "mt-2 mx-auto",
-                                  attrs: {
-                                    "max-width": "400",
-                                    dark: "",
-                                    color: "green"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.$refs.photoProfile.$refs.input.click()
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("v-icon", [_vm._v("mdi-pencil")]),
-                                  _vm._v(" "),
-                                  _c("span", [_vm._v("Upload Pas Foto")])
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("v-file-input", {
-                                ref: "photoProfile",
-                                staticClass: "d-none",
-                                attrs: { "hide-input": "" },
-                                model: {
-                                  value: _vm.form.paspoto,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "paspoto", $$v)
-                                  },
-                                  expression: "form.paspoto"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12", sm: "12", md: "6", lg: "6" } },
-                        [
-                          _c(
-                            "v-container",
-                            [
-                              _c(
-                                "v-row",
-                                [
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      outlined: "",
-                                      color: "green",
-                                      "prepend-inner-icon": "mdi-account",
-                                      label: "Nama Lengkap"
-                                    },
-                                    model: {
-                                      value: _vm.form.nama,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.form, "nama", $$v)
-                                      },
-                                      expression: "form.nama"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-row",
-                                [
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      outlined: "",
-                                      color: "green",
-                                      "prepend-inner-icon": "mdi-phone",
-                                      label: "No Telepon"
-                                    },
-                                    model: {
-                                      value: _vm.form.hp,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.form, "hp", $$v)
-                                      },
-                                      expression: "form.hp"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-row",
-                                [
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      outlined: "",
-                                      color: "green",
-                                      "prepend-inner-icon": "mdi-whatsapp",
-                                      label: "No Whatsapp"
-                                    },
-                                    model: {
-                                      value: _vm.form.wa,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.form, "wa", $$v)
-                                      },
-                                      expression: "form.wa"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-row",
-                                [
-                                  _c("v-textarea", {
-                                    attrs: {
-                                      rows: "1",
-                                      "auto-grow": "",
-                                      outlined: "",
-                                      color: "green",
-                                      "prepend-inner-icon": "mdi-map-marker",
-                                      label: "Alamat Rumah Lengkap"
-                                    },
-                                    model: {
-                                      value: _vm.form.alamat,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.form, "alamat", $$v)
-                                      },
-                                      expression: "form.alamat"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-row",
-                                [
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      outlined: "",
-                                      color: "green",
-                                      "prepend-inner-icon": "mdi-attachment",
-                                      label: "Scan Ijazah"
-                                    },
-                                    model: {
-                                      value: _vm.form.ijazah,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.form, "ijazah", $$v)
-                                      },
-                                      expression: "form.ijazah"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-row",
-                                [
-                                  _c(
-                                    "v-col",
-                                    {
-                                      staticClass: "mr-1",
-                                      staticStyle: { padding: "0 !important" }
-                                    },
-                                    [
-                                      _c("v-text-field", {
-                                        attrs: {
-                                          outlined: "",
-                                          color: "green",
-                                          "prepend-inner-icon":
-                                            "mdi-attachment",
-                                          label: "Nilai IPK"
-                                        },
-                                        model: {
-                                          value: _vm.form.nilai_ipk,
-                                          callback: function($$v) {
-                                            _vm.$set(_vm.form, "nilai_ipk", $$v)
-                                          },
-                                          expression: "form.nilai_ipk"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-col",
-                                    {
-                                      staticClass: "ml-1",
-                                      staticStyle: { padding: "0 !important" }
-                                    },
-                                    [
-                                      _c("v-text-field", {
-                                        attrs: {
-                                          outlined: "",
-                                          color: "green",
-                                          "prepend-inner-icon":
-                                            "mdi-attachment",
-                                          label: "Nilai Bahasa"
-                                        },
-                                        model: {
-                                          value: _vm.form.nilai_bhs,
-                                          callback: function($$v) {
-                                            _vm.$set(_vm.form, "nilai_bhs", $$v)
-                                          },
-                                          expression: "form.nilai_bhs"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
+      _c("h4", { staticClass: "text-white font-weight-light" }, [
+        _vm._v("Universitas Islam Negeri Sultan Syarif Kasim Riau")
+      ]),
       _vm._v(" "),
-      _c(
-        "v-card",
-        {
-          staticClass: "mt-5 mx-auto",
-          attrs: { elevation: "10", width: _vm.width() }
-        },
-        [
-          _c("v-card-title", [_vm._v("Pendaftaran Ujian Masuk")]),
-          _vm._v(" "),
-          _c("v-card-subtitle", [_vm._v("Lakukan pendaftaran")])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-card",
-        {
-          staticClass: "mt-5 mx-auto",
-          attrs: { elevation: "10", width: _vm.width() }
-        },
-        [
-          _c("v-card-title", [_vm._v("Tentukan Jadwal Temu Ramah")]),
-          _vm._v(" "),
-          _c("v-card-subtitle", [_vm._v("Pilih Jadwal Temu Ramah")])
-        ],
-        1
-      )
-    ],
-    1
-  )
+      _c("h4", { staticClass: "mt-10 text-white font-weight-light" }, [
+        _vm._v("Lihat panduan pendaftaran\n      "),
+        _c(
+          "a",
+          { staticClass: "font-weight-black text-white", attrs: { href: "#" } },
+          [_vm._v("disini")]
+        ),
+        _vm._v(". Silahkan mendaftar!\n    ")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("h4", { staticClass: "font-weight-light" }, [
+        _vm._v("Pendaftaran anda")
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -129049,10 +128804,10 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\WebDev\PPS-PMB\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\WebDev\PPS-PMB\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! D:\WebDev\PPS-PMB\resources\sass\nonSPA.scss */"./resources/sass/nonSPA.scss");
-module.exports = __webpack_require__(/*! D:\WebDev\PPS-PMB\resources\sass\pendaftaran.scss */"./resources/sass/pendaftaran.scss");
+__webpack_require__(/*! C:\laragon\www\PPS-PMB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\PPS-PMB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\PPS-PMB\resources\sass\nonSPA.scss */"./resources/sass/nonSPA.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\PPS-PMB\resources\sass\pendaftaran.scss */"./resources/sass/pendaftaran.scss");
 
 
 /***/ })

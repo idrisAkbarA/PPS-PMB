@@ -1,15 +1,38 @@
 <template>
-  <v-container>
-    <v-sheet color="transparent">
-      <h2 class="mx-auto text-center text-white">Selamat Datang</h2>
+  <v-container fluid>
+    <div style="height:340px">
+      <h1 class="text-white mt-6">Selamat Datang <br> di Aplikasi Pendaftaran Pascasarjana
+      </h1>
+      <h4 class="text-white font-weight-light">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
+      <h4 class="mt-10 text-white font-weight-light">Lihat panduan pendaftaran
+        <a
+          href="#"
+          class="font-weight-black text-white"
+        >disini</a>. Silahkan mendaftar!
+      </h4>
+    </div>
+    <div>
+      <h4 class="font-weight-light">Pendaftaran anda</h4>
+    </div>
+    <!-- <v-sheet color="transparent">
+      <h2 class="mx-auto text-center">Selamat Datang</h2>
     </v-sheet>
-    <v-card class="mt-5 mx-auto" elevation="10" :width="width()">
+    <v-card
+      class="mt-5 mx-auto"
+      elevation="10"
+      :width="width()"
+    >
       <v-card-title>Isi Biodata</v-card-title>
       <v-card-subtitle>Isilah biodata anda dengan benar</v-card-subtitle>
       <v-card-text>
         <v-container>
           <v-row>
-            <v-col cols="12" sm="12" md="6" lg="6">
+            <v-col
+              cols="12"
+              sm="12"
+              md="6"
+              lg="6"
+            >
               <v-row>
                 <v-img
                   class="mx-auto"
@@ -31,10 +54,20 @@
                   <v-icon>mdi-pencil</v-icon>
                   <span>Upload Pas Foto</span>
                 </v-btn>
-                <v-file-input hide-input ref="photoProfile" class="d-none" v-model="form.paspoto"></v-file-input>
+                <v-file-input
+                  hide-input
+                  ref="photoProfile"
+                  class="d-none"
+                  v-model="form.paspoto"
+                ></v-file-input>
               </v-row>
             </v-col>
-            <v-col cols="12" sm="12" md="6" lg="6">
+            <v-col
+              cols="12"
+              sm="12"
+              md="6"
+              lg="6"
+            >
               <v-container>
                 <v-row>
                   <v-text-field
@@ -84,7 +117,10 @@
                   ></v-text-field>
                 </v-row>
                 <v-row>
-                  <v-col class="mr-1" style="padding: 0 !important">
+                  <v-col
+                    class="mr-1"
+                    style="padding: 0 !important"
+                  >
                     <v-text-field
                       outlined
                       color="green"
@@ -93,7 +129,10 @@
                       v-model="form.nilai_ipk"
                     ></v-text-field>
                   </v-col>
-                  <v-col class="ml-1" style="padding: 0 !important">
+                  <v-col
+                    class="ml-1"
+                    style="padding: 0 !important"
+                  >
                     <v-text-field
                       outlined
                       color="green"
@@ -109,14 +148,22 @@
         </v-container>
       </v-card-text>
     </v-card>
-    <v-card class="mt-5 mx-auto" elevation="10" :width="width()">
+    <v-card
+      class="mt-5 mx-auto"
+      elevation="10"
+      :width="width()"
+    >
       <v-card-title>Pendaftaran Ujian Masuk</v-card-title>
       <v-card-subtitle>Lakukan pendaftaran</v-card-subtitle>
     </v-card>
-    <v-card class="mt-5 mx-auto" elevation="10" :width="width()">
+    <v-card
+      class="mt-5 mx-auto"
+      elevation="10"
+      :width="width()"
+    >
       <v-card-title>Tentukan Jadwal Temu Ramah</v-card-title>
       <v-card-subtitle>Pilih Jadwal Temu Ramah</v-card-subtitle>
-    </v-card>
+    </v-card> -->
   </v-container>
 </template>
 
@@ -139,18 +186,18 @@ export default {
     getUser() {
       axios
         .get(`/api/user`)
-        .then(response => {
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => console.error(error));
-    }
+        .catch((error) => console.error(error));
+    },
   },
   data() {
     return {
       item: null,
-      form: {}
+      form: {},
     };
-  }
+  },
 };
 </script>
 

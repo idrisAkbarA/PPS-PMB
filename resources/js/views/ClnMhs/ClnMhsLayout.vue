@@ -3,7 +3,7 @@
     <v-app-bar
       app
       flat
-      color="white"
+      color="transparent"
       hide-on-scroll
       dense
     >
@@ -18,7 +18,7 @@
           <span class="font-weight-bold ml-4">
             <router-link
               :to="'Home'"
-              style="color:black; text-decoration: none; "
+              style="color:white; text-decoration: none; "
             >
               Pendaftaran Pasca Sarjana
             </router-link>
@@ -28,6 +28,7 @@
       </div>
       <v-btn
         small
+        dark
         text
         @click="logout()"
       >
@@ -74,7 +75,16 @@ export default {
 .ribbon {
   position: absolute;
   z-index: 1;
-  background: #4caf50;
+  background: rgb(0, 36, 15);
+  background: linear-gradient(
+      0deg,
+      rgb(5, 94, 42) 0%,
+      rgba(6, 76, 90, 0.377) 100%
+    ),
+    url("/images/bg.jpg");
+  background-size: contain;
+  /* background: url("/images/bg.jpg"); */
+  /* background: #33691e; */
   width: 100%;
   height: 400px;
 }
