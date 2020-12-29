@@ -10,7 +10,7 @@
           </v-row>
           <v-row dense v-if="error">
             <v-col>
-              <p class="red--text">{{error}}</p>
+              <p class="red--text">{{ error }}</p>
             </v-col>
           </v-row>
           <v-row dense>
@@ -60,6 +60,7 @@
                 v-model="form.password2"
                 :type="show1 ? 'text' : 'password'"
                 label="Konfirmasi Password"
+                @keyup.enter="submit"
                 @click:append="show1 = !show1"
                 :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
               ></v-text-field>
@@ -67,7 +68,9 @@
           </v-row>
           <v-row class="mt-3" align="center" dense>
             <v-col cols="3">
-              <v-btn :loading="loading" @click="submit" color="green" dark>Daftar</v-btn>
+              <v-btn :loading="loading" @click="submit" color="green" dark
+                >Daftar</v-btn
+              >
             </v-col>
             <v-col>
               <span>
@@ -87,7 +90,7 @@ import { mapMutations } from "vuex";
 
 export default {
   props: {
-    urlPendaftaran: String
+    urlPendaftaran: String,
   },
   created() {
     var pathArray = window.location.pathname.split("/");
@@ -110,16 +113,12 @@ export default {
       const form = this.form;
       axios
         .post(this.urlPendaftaran, form)
-        .then(response => {
-          console.log(response.data.status);
+        .then((response) => {
           if (response.data.status) {
-            console.log(response.data);
-            this.mutateUser(response.data.data);
             window.location.replace("user/cln-mhs/home");
-            return;
           }
         })
-        .catch(err => {
+        .catch((err) => {
           this.loading = false;
           if (err.response.status == 422) {
             this.error = err.response.data.errors;
@@ -132,13 +131,13 @@ export default {
       // return true if retrieved, false if didnt
       return axios
         .get("/sanctum/csrf-cookie")
-        .then(response => {
+        .then((response) => {
           return true;
         })
-        .catch(err => {
+        .catch((err) => {
           return false;
         });
-    }
+    },
   },
   data() {
     return {
@@ -147,9 +146,9 @@ export default {
       error: null,
       show1: false,
       form: {},
-      rule: [v => !!v || "Field ini wajib diisi"]
+      rule: [(v) => !!v || "Field ini wajib diisi"],
     };
-  }
+  },
 };
 </script>
 

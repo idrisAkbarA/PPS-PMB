@@ -14,7 +14,9 @@ class PeriodeController extends Controller
      */
     public function index()
     {
-        //
+        $periode = Periode::latest()->get();
+
+        return response()->json($periode, 200);
     }
 
     /**

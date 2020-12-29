@@ -2,23 +2,12 @@
   <v-container>
     Kelola Soal dan hal terkait
     <v-card>
-      <v-tabs
-        v-model="tab"
-        background-color="green"
-        centered
-        dark
-      >
+      <v-tabs v-model="tab" background-color="green" centered dark>
         <v-tabs-slider></v-tabs-slider>
 
-        <v-tab href="#tab-1">
-          SOAL TKA
+        <v-tab href="#tab-1"> SOAL TKA </v-tab>
 
-        </v-tab>
-
-        <v-tab href="#tab-2">
-          SOAL tkj
-
-        </v-tab>
+        <v-tab href="#tab-2"> SOAL tkj </v-tab>
       </v-tabs>
 
       <v-tabs-items v-model="tab">
@@ -42,12 +31,7 @@
                   class="mt-5"
                 >
                   <v-card-title>
-                    <v-chip
-                      color="#2C3E50"
-                      dark
-                    >
-                      No. 1
-                    </v-chip>
+                    <v-chip color="#2C3E50" dark> No. 1 </v-chip>
                     <v-spacer></v-spacer>
                     <v-select
                       filled
@@ -55,29 +39,18 @@
                       dense
                       hide-details="auto"
                     ></v-select>
-                    <v-btn
-                      color="#2C3E50"
-                      dark
-                      class="rounded-0"
-                    >
+                    <v-btn color="#2C3E50" dark class="rounded-0">
                       <v-icon small>mdi-pencil</v-icon>
                     </v-btn>
-                    <v-btn
-                      color="#2C3E50"
-                      dark
-                      class="rounded-0"
-                    >
+                    <v-btn color="#2C3E50" dark class="rounded-0">
                       <v-icon small>mdi-delete</v-icon>
                     </v-btn>
                   </v-card-title>
                   <v-card-text class="black--text">
-                    {{soal.pertanyaan}}
-                    <v-radio-group
-                      hide-details="auto"
-                      v-model="soal.jawaban"
-                    >
+                    {{ soal.pertanyaan }}
+                    <v-radio-group hide-details="auto" v-model="soal.jawaban">
                       <v-radio
-                        v-for="(pilihan) in soal.pilihan_ganda"
+                        v-for="pilihan in soal.pilihan_ganda"
                         :key="pilihan.pilihan"
                         :value="pilihan.pilihan"
                         :label="pilihan.text"
@@ -102,63 +75,40 @@
       width="60%"
       inset
       overlay-color="#69F0AE"
-      v-model="toggleDialogSoal"
+      v-model="bottomSheet"
     >
       <v-card color="#ecf0f1">
-        <v-card-title> <span>Buat Soal</span>
+        <v-card-title>
+          <span>Buat Soal</span>
           <v-spacer></v-spacer>
-          <v-btn text>batal</v-btn>
-          <v-btn
-            color="#2C3E50"
-            dark
-          >Simpan</v-btn>
+          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
+          <v-btn color="#2C3E50" dark>Simpan</v-btn>
           <!-- v-model="" -->
         </v-card-title>
         <v-card
           color="rgba(46, 204, 113, 0.25)"
           class="ma-2"
-          style="padding-bottom:0"
+          style="padding-bottom: 0"
         >
           <v-card-text>
-            <v-text-field
-              clearable
-              color="#2C3E50"
-            >
+            <v-text-field clearable color="#2C3E50">
               <template v-slot:label>
                 <div class="black--text">Pertanyaan</div>
               </template>
             </v-text-field>
-            <v-radio
-              value="n"
-              color="#2C3E50"
-            >
+            <v-radio value="n" color="#2C3E50">
               <template v-slot:label>
                 <div class="black--text">Definitely Duckduckgo</div>
               </template>
             </v-radio>
-            <v-btn
-              class="mt-2 grey darken-3"
-              fab
-              dark
-              small
-            >
-              <v-icon dark>
-                mdi-plus
-              </v-icon>
+            <v-btn class="mt-2 grey darken-3" fab dark small>
+              <v-icon dark> mdi-plus </v-icon>
             </v-btn>
           </v-card-text>
         </v-card>
         <v-row justify="center">
-          <v-btn
-            class="mt-2"
-            fab
-            dark
-            small
-            color="#2C3E50"
-          >
-            <v-icon dark>
-              mdi-plus
-            </v-icon>
+          <v-btn class="mt-2" fab dark small color="#2C3E50">
+            <v-icon dark> mdi-plus </v-icon>
           </v-btn>
         </v-row>
       </v-card>
@@ -186,7 +136,7 @@ export default {
           type: "tka",
         },
         {
-          id: 0,
+          id: 1,
           pertanyaan: "Ma Rabbukaa?",
           pilihan_ganda: [
             { pilihan: "A", text: "Allah" },
@@ -201,18 +151,18 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isTambahSoal"]),
-    toggleDialogSoal: {
+    ...mapState(["isBottomSheetOpen"]),
+    bottomSheet: {
       get: function () {
-        return this.isTambahSoal;
+        return this.isBottomSheetOpen;
       },
       set: function (data) {
-        this.toggleTambahSoal(data);
+        this.toggleBottomSheet(data);
       },
     },
   },
   methods: {
-    ...mapMutations(["toggleTambahSoal"]),
+    ...mapMutations(["toggleBottomSheet"]),
   },
 };
 </script>

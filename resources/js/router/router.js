@@ -1,11 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from '../store/store'
+
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
+
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
 import KelolaSoal from "../views/petugas/Admin/KelolaSoal.vue";
+import KelolaPeriode from "../views/petugas/Admin/KelolaPeriode.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -34,6 +37,11 @@ const routes = [
                 path: "kelola-soal",
                 name: "Kelola Soal",
                 component: KelolaSoal
+            },
+            {
+                path: "kelola-periode",
+                name: "Kelola Periode",
+                component: KelolaPeriode
             },
         ]
     },
