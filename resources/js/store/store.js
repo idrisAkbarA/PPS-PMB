@@ -10,6 +10,9 @@ export default new Vuex.Store({
     state: {
         user: null, // user who logged in
         isBottomSheetOpen: false,
+        jurusan: [],
+        ujian: [],
+        periode: [],
     },
     mutations: {
         mutateUser(state, data) {

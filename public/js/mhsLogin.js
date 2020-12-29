@@ -2021,6 +2021,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var pathArray = window.location.pathname.split("/");
@@ -2101,7 +2118,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             //role == admin
             redirectUrl += "admin/" + userNamePetugas + "/dashboard";
           }
-        } catch (error) {}
+        } catch (error) {
+          console.log(error);
+        }
 
         window.location.replace("user/" + redirectUrl);
       })["catch"](function (err) {

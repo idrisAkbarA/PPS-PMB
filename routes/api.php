@@ -24,11 +24,9 @@ Route::post('/soal/set-lulus', 'SoalController@setLulus');
 Route::post('/soal/test', 'SoalController@test');
 Route::post('/authenticate/{role}', 'AuthController@login'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/auth-is-login/{role}', 'AuthController@isLogin'); // roles are 'cln_mahasiswa' and 'petugas'
-Route::post('/logout-petugas', 'AuthController@logoutPetugas'); // roles are 'cln_mahasiswa' and 'petugas'
-Route::post('/logout', 'AuthController@logout'); // roles are 'cln_mahasiswa' and 'petugas'
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/logout-petugas', 'AuthController@logoutPetugas');
+Route::post('/logout', 'AuthController@logout');
+Route::middleware('auth:petugas,cln_mahasiswa')->get('/user/{role}', 'AuthController@user');
 
 // Calon Mahasiswa Routes
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {

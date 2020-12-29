@@ -19,6 +19,7 @@
       <v-row>
         <v-col cols="12">
           <v-card
+            class="bg-with-overlay"
             width="100%"
             flat
             outlined
@@ -228,7 +229,7 @@ export default {
     },
     getUser() {
       axios
-        .get(`/api/user`)
+        .get(`/api/user/cln_mahasiswa`)
         .then((response) => {
           console.log(response);
         })
@@ -245,4 +246,14 @@ export default {
 </script>
 
 <style>
+.bg-with-overlay {
+  background: rgb(0, 36, 15);
+  background: linear-gradient(
+      0deg,
+      rgb(5, 94, 42) 0%,
+      rgba(6, 76, 90, 0.377) 100%
+    ),
+    url("/images/bg.jpg");
+  background-size: contain;
+}
 </style>
