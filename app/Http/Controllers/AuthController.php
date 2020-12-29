@@ -82,6 +82,10 @@ class AuthController extends Controller
             'data' => $user
         ]);
     }
+    public function user($role)
+    {
+        return response()->json(Auth::guard($role)->user());
+    }
 
     public function logout(Request $request)
     {

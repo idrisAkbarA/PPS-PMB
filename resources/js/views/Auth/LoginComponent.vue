@@ -1,6 +1,13 @@
 <template>
-  <v-container fill-height class="ma-5">
-    <v-card class="mx-auto" flat width="65%">
+  <v-container
+    fill-height
+    class="ma-5"
+  >
+    <v-card
+      class="mx-auto"
+      flat
+      width="65%"
+    >
       <v-card-text>
         <v-container>
           <v-row dense>
@@ -8,7 +15,10 @@
               <h2>Login</h2>
             </v-col>
           </v-row>
-          <v-row dense v-if="error">
+          <v-row
+            dense
+            v-if="error"
+          >
             <v-col>
               <p class="red--text">{{ error }}</p>
             </v-col>
@@ -40,11 +50,18 @@
               ></v-text-field>
             </v-col>
           </v-row>
-          <v-row class="mt-3" align="center" dense>
+          <v-row
+            class="mt-3"
+            align="center"
+            dense
+          >
             <v-col cols="3">
-              <v-btn :loading="isLoading" @click="login()" color="green" dark
-                >Login</v-btn
-              >
+              <v-btn
+                :loading="isLoading"
+                @click="login()"
+                color="green"
+                dark
+              >Login</v-btn>
             </v-col>
             <v-col v-if="loginUrl == 'login'">
               <span>
@@ -108,7 +125,9 @@ export default {
               //role == admin
               redirectUrl += "admin/" + userNamePetugas + "/dashboard";
             }
-          } catch (error) {}
+          } catch (error) {
+            console.log(error);
+          }
           window.location.replace("user/" + redirectUrl);
         })
         .catch((err) => {
