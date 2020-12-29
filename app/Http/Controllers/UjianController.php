@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ujian;
+use App\Periode;
 use Illuminate\Http\Request;
 
 class UjianController extends Controller
@@ -12,9 +13,27 @@ class UjianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $periode_id = $request->periode;
+        $jurusan_id = $request->jurusan;
+        $pembayaran = $request->pembayaran;
+        $status = $request->status;
+
+        $currentPeriode = Periode::getActive();
+        if ($periode_id) {
+            $currentPeriode = Periode::find($periode_id);
+        }
+
+        if (!is_null($currentPeriode)) {
+            $pendaftaran = $currentPeriode->getUjian($jurusan_id, $pembayaran, $status);
+        }
+
+        $reply = [
+            'currentPeriode' => $currentPeriode,
+            'pendaftaran' => $pendaftaran ?? []
+        ];
+        return response()->json($reply, 200);
     }
 
     /**

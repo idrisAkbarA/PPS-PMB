@@ -16,7 +16,9 @@ class UserClnMhsController extends Controller
      */
     public function index()
     {
-        //
+        $mahasiswa = UserClnMhs::latest()->get();
+
+        return response()->json($mahasiswa, 200);
     }
 
     /**

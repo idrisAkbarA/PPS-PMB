@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <p class="text-muted">Mengolola jurusan pada Penerimaan Mahasiswa Baru</p>
+    <p class="text-muted">Mengolola pendaftar pada Penerimaan Mahasiswa Baru</p>
     <v-card>
       <v-card-title>
         <v-text-field
@@ -13,7 +13,7 @@
       </v-card-title>
       <v-data-table
         :headers="headers"
-        :items="jurusan"
+        :items="pendaftar"
         :items-per-page="10"
         :search="search"
         :loading="isLoading"
@@ -57,7 +57,7 @@
     >
       <v-card color="#ecf0f1">
         <v-card-title>
-          <span>Jurusan</span>
+          <span>Pendaftar</span>
           <v-spacer></v-spacer>
           <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
           <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
@@ -111,7 +111,7 @@
 
         <v-card-text>
           <p class="text-center">
-            Apakah anda yakin ingin menghapus jurusan ini ?
+            Apakah anda yakin ingin menghapus pendaftar ini ?
           </p>
         </v-card-text>
 
@@ -152,11 +152,11 @@ export default {
   data() {
     return {
       search: "",
-      jurusan: [],
+      pendaftar: [],
       form: {},
       isLoading: false,
       dialogDelete: false,
-      urlJurusan: "/api/jurusan",
+      urlPendaftar: "/api/pendaftar",
       snackbar: { show: false },
       scrollOps: {
         scrollPanel: {
@@ -176,7 +176,7 @@ export default {
           align: "start",
           value: "nama",
         },
-        { text: "Kategori TKA", value: "kategori_tka" },
+        { text: "Email", value: "email" },
         { text: "Kategori TKJ", value: "kategori_tkj" },
         { text: "Actions", value: "actions" },
       ],
@@ -197,27 +197,27 @@ export default {
     bottomSheet(val) {
       if (!val) {
         this.form = {};
-        this.urlJurusan = "/api/jurusan";
+        this.urlPendaftar = "/api/pendaftar";
       }
     },
     dialogDelete(val) {
       if (!val) {
         this.form = {};
-        this.urlJurusan = "/api/jurusan";
+        this.urlPendaftar = "/api/pendaftar";
       }
     },
   },
   created() {
-    this.getJurusan();
+    this.getPendaftar();
   },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
-    getJurusan() {
+    getPendaftar() {
       this.isLoading = true;
       axios
-        .get(this.urlJurusan)
+        .get(this.urlPendaftar)
         .then((response) => {
-          this.jurusan = response.data;
+          this.pendaftar = response.data;
         })
         .catch((err) => {
           console.error(err);
@@ -239,7 +239,7 @@ export default {
     store() {
       this.isLoading = true;
       axios
-        .post(this.urlJurusan, this.form)
+        .post(this.urlPendaftar, this.form)
         .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;

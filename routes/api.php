@@ -50,3 +50,13 @@ Route::prefix('jurusan')->name('jurusan.')->group(function () {
     Route::put('/{jurusan?}', 'JurusanController@update')->name('update');
     Route::delete('/{jurusan?}', 'JurusanController@destroy')->name('delete');
 });
+
+// Calon Mahasiswa Routes
+Route::prefix('pendaftar')->name('pendaftar.')->group(function () {
+    Route::get('/', 'UserClnMhsController@index')->name('index');
+});
+
+// Ujian Routes
+Route::prefix('ujian')->name('ujian.')->group(function () {
+    Route::get('/', 'UjianController@index')->name('index');
+});

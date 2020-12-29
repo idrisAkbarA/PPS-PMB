@@ -170,7 +170,7 @@ export default {
     source: String,
   },
   computed: {
-    ...mapState(["isOpenBeasiswa"]),
+    ...mapState([""]),
     nama() {
       return this.$store.state.name;
     },
@@ -199,13 +199,13 @@ export default {
         },
         {
           icon: "mdi-account-details",
-          title: "List Permohonan",
-          to: `/admin/${petugas}/permohonan`,
+          title: "Pendaftar",
+          to: `/admin/${petugas}/pendaftar`,
         },
         {
           icon: "mdi-book-multiple",
-          title: "LPJ",
-          to: `/admin/${petugas}/lpj`,
+          title: "Pendaftaran",
+          to: `/admin/${petugas}/kelola-pendaftaran`,
         },
         {
           icon: "mdi-account-group",

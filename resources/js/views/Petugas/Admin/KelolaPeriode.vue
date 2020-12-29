@@ -14,7 +14,7 @@
       <v-data-table
         :headers="headers"
         :items="periode"
-        :items-per-page="15"
+        :items-per-page="10"
         :search="search"
         :loading="isLoading"
         class="elevation-1"
