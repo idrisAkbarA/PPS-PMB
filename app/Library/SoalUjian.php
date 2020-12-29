@@ -6,6 +6,7 @@ use App\Soal;
 use App\BankSoal;
 use App\Jurusan;
 use App\Ujian;
+use App\Periode;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 
@@ -114,6 +115,23 @@ class SoalUjian
         $soal->set_jawaban_mhs = $jawabanDB;
         $soal->save();
         return ['status' => true, 'message' => 'New Jawaban received by server'];
+    }
+    public function setLulus($idUjian, $type)
+    {
+        $periodeObject = 'min_lulus_' . $type;
+        $nilaiObject = 'nilai_' . $type;
+        $isLulusObject = 'is_lulus_' . $type;
+        $ujian = Ujian::find($idUjian);
+        $periode = Periode::find($ujian->periode_id);
+
+        $batasLulus = $periode->$periodeObject;
+        $nilaiUjian = $ujian->$nilaiObject;
+        $isLulus = $nilaiUjian >= $batasLulus;
+
+        $ujian->$isLulusObject = $isLulus;
+        $ujian->save();
+        return ['nilai' => $nilaiUjian, 'batas_lulus' => $batasLulus, 'status_lulus' => $isLulus];
+        return ['status lulus' => $isLulus];
     }
     public function calcScore($id, $type)
     {
