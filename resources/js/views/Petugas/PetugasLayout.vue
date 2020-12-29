@@ -183,8 +183,8 @@ export default {
         },
         {
           icon: "mdi-clipboard-check-multiple",
-          title: "Kelulusan",
-          to: `/admin/${petugas}/kelulusan`,
+          title: "Kelola Jurusan",
+          to: `/admin/${petugas}/kelola-jurusan`,
         },
         {
           icon: "mdi-account-details",

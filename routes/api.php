@@ -37,4 +37,12 @@ Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
 // Periode Routes
 Route::prefix('periode')->name('periode.')->group(function () {
     Route::get('/', 'PeriodeController@index')->name('index');
+    Route::post('/', 'PeriodeController@store')->name('store');
+    Route::put('/{periode?}', 'PeriodeController@update')->name('update');
+    Route::delete('/{periode?}', 'PeriodeController@destroy')->name('delete');
+});
+
+// Jurusan Routes
+Route::prefix('jurusan')->name('jurusan.')->group(function () {
+    Route::get('/', 'JurusanController@index')->name('index');
 });

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jurusan extends Model
 {
+    protected $guarded = ['id'];
+
     public function ujian()
     {
         return $this->hasMany('App\Ujian');

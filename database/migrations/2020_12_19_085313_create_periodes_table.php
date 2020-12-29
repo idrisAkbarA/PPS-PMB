@@ -28,7 +28,7 @@ class CreatePeriodesTable extends Migration
             $table->bigInteger('jumlah_tkj');
             $table->bigInteger('min_lulus_tka'); // jumlah minimal soal terjawab benar untuk lulus
             $table->bigInteger('min_lulus_tkj');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }
