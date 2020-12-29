@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jurusan extends Model
 {
+    protected $guarded = ['id'];
+
     public function ujian()
     {
         return $this->hasMany('App\Ujian');
@@ -18,12 +20,12 @@ class Jurusan extends Model
     {
         return $this->hasMany('App\Kategori');
     }
-    public function kat_tkj_default()
+    public function kat_tkj()
     {
-        return $this->hasMany('App\Kategori', 'id', 'kat_tkj_default');
+        return $this->hasOne('App\Kategori', 'id', 'kat_tkj_default');
     }
-    public function kat_tka_default()
+    public function kat_tka()
     {
-        return $this->hasMany('App\Kategori', 'id', 'kat_tka_default');
+        return $this->hasOne('App\Kategori', 'id', 'kat_tka_default');
     }
 }

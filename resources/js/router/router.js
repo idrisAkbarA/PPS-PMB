@@ -9,6 +9,7 @@ import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
 import KelolaSoal from "../views/petugas/Admin/KelolaSoal.vue";
 import KelolaPeriode from "../views/petugas/Admin/KelolaPeriode.vue";
+import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -42,6 +43,11 @@ const routes = [
                 path: "kelola-periode",
                 name: "Kelola Periode",
                 component: KelolaPeriode
+            },
+            {
+                path: "kelola-jurusan",
+                name: "Kelola Jurusan",
+                component: KelolaJurusan
             },
         ]
     },

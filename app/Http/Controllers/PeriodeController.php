@@ -20,16 +20,6 @@ class PeriodeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,18 +27,24 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        // $this->validate($request, [
+        //     'nama' => 'required|string',
+        //     'awal_periode' => 'required|date',
+        //     'akhir_periode' => 'required|date',
+        //     'range_ujian' => 'required|digits',
+        //     'syarat_ipk' => '',
+        //     'syarat_bhs' => '',
+        //     'awal_temu_ramah' => 'required|date',
+        //     'akhir_temu_ramah' => 'required|date',
+        // ]);
+        $periode = Periode::create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Periode  $periode
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Periode $periode)
-    {
-        //
+        $reply = [
+            'status' => true,
+            'message' => 'Periode Successfully Created!',
+            'data' => $periode
+        ];
+        return response()->json($reply, 201);
     }
 
     /**
@@ -71,7 +67,14 @@ class PeriodeController extends Controller
      */
     public function update(Request $request, Periode $periode)
     {
-        //
+        $periode->update($request->all());
+
+        $reply = [
+            'status' => true,
+            'message' => 'Periode Successfully Updated!',
+            'data' => $periode
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
@@ -82,6 +85,12 @@ class PeriodeController extends Controller
      */
     public function destroy(Periode $periode)
     {
-        //
+        $periode->delete();
+
+        $reply = [
+            'status' => true,
+            'message' => 'Periode Successfully Deleted!',
+        ];
+        return response()->json($reply, 200);
     }
 }

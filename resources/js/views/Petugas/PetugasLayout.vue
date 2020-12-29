@@ -103,6 +103,17 @@
           <v-icon> mdi-plus</v-icon> tambah periode
         </v-btn>
       </v-slide-y-transition>
+      <v-slide-y-transition>
+        <v-btn
+          small
+          class="green darken-3"
+          dark
+          v-if="checkRoute('Kelola Jurusan')"
+          @click="setBottomSheetToTrue"
+        >
+          <v-icon> mdi-plus</v-icon> tambah jurusan
+        </v-btn>
+      </v-slide-y-transition>
       <v-btn v-if="windowWidth >= 600" small text @click="logout">
         <v-icon>mdi-logout-variant</v-icon>keluar
       </v-btn>
@@ -183,8 +194,8 @@ export default {
         },
         {
           icon: "mdi-clipboard-check-multiple",
-          title: "Kelulusan",
-          to: `/admin/${petugas}/kelulusan`,
+          title: "Kelola Jurusan",
+          to: `/admin/${petugas}/kelola-jurusan`,
         },
         {
           icon: "mdi-account-details",
