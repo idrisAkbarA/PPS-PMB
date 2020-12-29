@@ -45,4 +45,7 @@ Route::prefix('periode')->name('periode.')->group(function () {
 // Jurusan Routes
 Route::prefix('jurusan')->name('jurusan.')->group(function () {
     Route::get('/', 'JurusanController@index')->name('index');
+    Route::post('/', 'JurusanController@store')->name('store');
+    Route::put('/{jurusan?}', 'JurusanController@update')->name('update');
+    Route::delete('/{jurusan?}', 'JurusanController@destroy')->name('delete');
 });

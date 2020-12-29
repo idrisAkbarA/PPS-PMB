@@ -14,21 +14,16 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        //
+        $jurusan = Jurusan::with('kategori', 'kat_tkj', 'kat_tka')
+            ->latest()
+            ->get();
+
+        return response()->json($jurusan, 200);
     }
+
     public function getAll()
     {
         return response()->json(Jurusan::all());
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -39,7 +34,14 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jurusan = Jurusan::create($request->all());
+
+        $reply = [
+            'status' => true,
+            'message' => 'Jurusan Successfully Created!',
+            'data' => $jurusan
+        ];
+        return response()->json($reply, 201);
     }
 
     /**
@@ -54,17 +56,6 @@ class JurusanController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Jurusan  $jurusan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Jurusan $jurusan)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -73,7 +64,14 @@ class JurusanController extends Controller
      */
     public function update(Request $request, Jurusan $jurusan)
     {
-        //
+        $jurusan->update($request->all());
+
+        $reply = [
+            'status' => true,
+            'message' => 'Jurusan Successfully Updated!',
+            'data' => $jurusan
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
@@ -84,6 +82,12 @@ class JurusanController extends Controller
      */
     public function destroy(Jurusan $jurusan)
     {
-        //
+        $jurusan->delete();
+
+        $reply = [
+            'status' => true,
+            'message' => 'Jurusan Successfully Deleted!',
+        ];
+        return response()->json($reply, 200);
     }
 }
