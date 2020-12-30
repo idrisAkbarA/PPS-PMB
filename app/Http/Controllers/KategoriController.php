@@ -35,7 +35,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jurusan_id = $request->jurusan_id;
+        $categories = $request->categories;
+
+        Kategori::setKategoriInJurusan($jurusan_id, $categories);
+
+        $reply = [
+            'status' => true,
+            'message' => 'Kategori Successfully Updated!',
+        ];
+        return response()->json($reply, 200);
     }
 
     /**

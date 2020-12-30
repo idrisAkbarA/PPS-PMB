@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <p class="text-muted">Mengolola jurusan pada Penerimaan Mahasiswa Baru</p>
+    <p class="text-muted">
+      Mengolola jurusan dan kategori soal jurusan pada Penerimaan Mahasiswa Baru
+    </p>
     <v-card>
       <v-card-title>
         <v-text-field
@@ -26,8 +28,14 @@
           {{ item.kat_tkj ? item.kat_tkj.nama : "-" }}
         </template>
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn icon x-small class="mr-2" title="Detail">
-            <v-icon>mdi-information</v-icon>
+          <v-btn
+            icon
+            x-small
+            class="mr-2"
+            title="Tambah Kategori"
+            @click="manageCategory(item)"
+          >
+            <v-icon>mdi-bookmark-plus</v-icon>
           </v-btn>
           <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
             <v-icon>mdi-pencil</v-icon>
@@ -102,6 +110,87 @@
         </v-card-text>
       </v-card>
     </v-bottom-sheet>
+    <!-- Dialog Create Category -->
+    <v-dialog v-model="dialogCategory" width="500">
+      <v-card>
+        <v-card-title class="headline bg-white">
+          <h5 class="text-muted">Kategari Soal {{ form.nama }}</h5>
+          <v-spacer></v-spacer>
+          <v-card-actions>
+            <v-btn
+              small
+              color="green darken-3"
+              title="Tambah Kategori"
+              @click="addCategory"
+            >
+              <v-icon color="white">mdi-plus</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card-title>
+
+        <v-card-text class="pb-0">
+          <v-alert dense outlined class="mb-0" style="height: 100px">
+            <v-menu
+              v-model="editCategory[i]"
+              bottom
+              right
+              transition="scale-transition"
+              :close-on-content-click="false"
+              origin="top left"
+              v-for="(category, i) in form.kategori"
+              :key="i"
+            >
+              <template v-slot:activator="{ on }">
+                <v-chip
+                  pill
+                  color="teal"
+                  class="ma-1"
+                  text-color="white"
+                  :title="category.deskripsi"
+                  v-on="on"
+                >
+                  {{ category.nama }}
+                  <v-icon right small>mdi-pencil</v-icon>
+                </v-chip>
+              </template>
+              <v-card width="300">
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-content>
+                      <v-text-field
+                        color="#2C3E50"
+                        class="mb-2"
+                        label="Nama Kategori"
+                        hint="*Contoh : Mudah"
+                        v-model="category.nama"
+                      >
+                      </v-text-field>
+                      <v-textarea
+                        outlined
+                        v-model="category.deskripsi"
+                        label="Deskripsi"
+                      ></v-textarea>
+                      <v-btn color="red" dark @click="removeCategory(i)">
+                        <v-icon class="mr-2">mdi-trash-can</v-icon>
+                        Hapus
+                      </v-btn>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-menu>
+          </v-alert>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-btn text @click="dialogCategory = false"> Batal </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn color="#2C3E50" dark @click="submitCategory"> Simpan </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <!-- Dialog Delete -->
     <v-dialog v-model="dialogDelete" width="500">
       <v-card>
@@ -124,6 +213,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <!-- Snackbar -->
     <v-snackbar
       v-model="snackbar.show"
       timeout="2000"
@@ -153,10 +243,13 @@ export default {
     return {
       search: "",
       jurusan: [],
+      editCategory: [],
       form: {},
       isLoading: false,
+      dialogCategory: false,
       dialogDelete: false,
       urlJurusan: "/api/jurusan",
+      urlKategori: "/api/kategori",
       snackbar: { show: false },
       scrollOps: {
         scrollPanel: {
@@ -202,6 +295,17 @@ export default {
     },
     dialogDelete(val) {
       if (!val) {
+        this.form = {};
+        this.urlJurusan = "/api/jurusan";
+      }
+    },
+    dialogCategory(val) {
+      if (val) {
+        const categories = this.form.kategori;
+        categories.forEach((element, index) => {
+          this.editCategory[index] = false;
+        });
+      } else {
         this.form = {};
         this.urlJurusan = "/api/jurusan";
       }
@@ -297,6 +401,51 @@ export default {
         .then((response) => {
           if (response.data.status) {
             this.dialogDelete = false;
+            this.getJurusan();
+            this.snackbar = {
+              show: true,
+              message: response.data.message,
+            };
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          this.snackbar = {
+            show: true,
+            message: err,
+            color: "danger",
+          };
+        })
+        .then((this.isLoading = false));
+    },
+    manageCategory(item) {
+      this.form = _.cloneDeep(item);
+      this.dialogCategory = true;
+    },
+    addCategory() {
+      let categories = this.form.kategori;
+      categories.push({});
+      this.form.kategori = categories;
+      this.editCategory.push(true);
+    },
+    removeCategory(i) {
+      let categories = this.form.kategori;
+      categories.splice(i, 1);
+      this.form.kategori = categories;
+      this.editCategory[i] = false;
+    },
+    submitCategory() {
+      const form = {
+        jurusan_id: this.form.id,
+        categories: this.form.kategori,
+      };
+
+      this.isLoading = true;
+      axios
+        .post(this.urlKategori, form)
+        .then((response) => {
+          if (response.data.status) {
+            this.dialogCategory = false;
             this.getJurusan();
             this.snackbar = {
               show: true,
