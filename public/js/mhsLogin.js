@@ -123149,6 +123149,16 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.interceptors.response.use(function (response) {
+  return response;
+}, function (error) {
+  console.log('interceptor', error);
+
+  if (error.response.status === 401) {
+    window.location.replace('/login');
+  } // return Promise.reject(error.message); 
+
+});
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

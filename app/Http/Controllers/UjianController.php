@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Ujian;
 use App\Periode;
+use App\Jurusan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UjianController extends Controller
 {
@@ -13,6 +15,14 @@ class UjianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function initAllDataClnMhs()
+    {
+        $user = Auth::guard('cln_mahasiswa')->user();
+        $periode = Periode::latest()->get();
+        $ujian = Ujian::where(['user_cln_mhs_id' => $user->id])->with(['jurusan', 'periode'])->get();
+        $jurusan = Jurusan::all();
+        return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
+    }
     public function index(Request $request)
     {
         $periode_id = $request->periode;
@@ -44,6 +54,17 @@ class UjianController extends Controller
     public function create()
     {
         //
+    }
+    public function initUjian($id)
+    {
+        $periode = Periode::latest()->get();
+        $user = Auth::guard("cln_mahasiswa")->user();
+        $ujian = Ujian::create(["user_cln_mhs_id" => $user->id, "periode_id" => $periode->id]);
+        return response()->json([
+            "status" => true,
+            "message" => "Ujian Succesfully intialized",
+            "periode_id" => $ujian->id
+        ]);
     }
 
     /**
