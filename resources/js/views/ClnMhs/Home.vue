@@ -155,9 +155,7 @@ export default {
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
     link() {},
-    createUjian(){
-      var id m
-    },
+    createUjian() {},
     countdown(date, index) {
       var timerProperty = "timer-" + index;
       this[timerProperty] = 0;
