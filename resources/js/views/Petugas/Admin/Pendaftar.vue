@@ -19,18 +19,21 @@
         :loading="isLoading"
         class="elevation-1"
       >
-        <template v-slot:[`item.kategori_tka`]="{ item }">
-          {{ item.kat_tka ? item.kat_tka.nama : "-" }}
-        </template>
-        <template v-slot:[`item.kategori_tkj`]="{ item }">
-          {{ item.kat_tkj ? item.kat_tkj.nama : "-" }}
+        <template v-slot:[`item.hp_wa`]="{ item }">
+          {{ `${item.hp} / ${item.wa}` }}
         </template>
         <template v-slot:[`item.actions`]="{ item }">
           <v-btn icon x-small class="mr-2" title="Detail">
             <v-icon>mdi-information</v-icon>
           </v-btn>
-          <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
-            <v-icon>mdi-pencil</v-icon>
+          <v-btn
+            icon
+            x-small
+            class="mr-2"
+            title="Ubah Password"
+            @click="edit(item)"
+          >
+            <v-icon>mdi-textbox-password</v-icon>
           </v-btn>
           <v-btn
             icon
@@ -44,7 +47,11 @@
           >
             <v-icon>mdi-delete</v-icon>
           </v-btn>
-        </template>
+        </template></v-data-table
+      ></v-card
+    ></v-container
+  >
+</template>
       </v-data-table>
     </v-card>
     <!-- Bottom Sheet -->
@@ -177,7 +184,7 @@ export default {
           value: "nama",
         },
         { text: "Email", value: "email" },
-        { text: "Kategori TKJ", value: "kategori_tkj" },
+        { text: "No HP/WA", value: "hp_wa" },
         { text: "Actions", value: "actions" },
       ],
     };
