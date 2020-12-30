@@ -1,6 +1,61 @@
 <template>
   <v-container>
-    <p class="text-muted">Mengolola jurusan pada Penerimaan Mahasiswa Baru</p>
+    <p class="text-muted">
+      Mengolola pendaftaran pada Penerimaan Mahasiswa Baru
+    </p>
+    <v-card class="mb-3">
+      <v-expansion-panels>
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            <!-- <i class="mdi mdi-filter"></i> -->
+            Filter
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row>
+              <v-col cols="6">
+                <v-select
+                  :items="periode"
+                  label="Periode"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="filter.periode"
+                  @change="filterPendaftaran"
+                ></v-select>
+              </v-col>
+              <v-col cols="6">
+                <v-select
+                  clearable
+                  :items="jurusan"
+                  label="Jurusan"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="filter.jurusan"
+                  @change="filterPendaftaran"
+                ></v-select>
+              </v-col>
+              <v-col cols="6">
+                <v-select
+                  clearable
+                  :items="['Lunas', 'Belum Lunas']"
+                  label="Pembayaran"
+                  @change="filterPendaftaran"
+                  v-model="filter.pembayaran"
+                ></v-select>
+              </v-col>
+              <v-col cols="6">
+                <v-select
+                  clearable
+                  :items="['Lulus', 'Tidak Lulus', 'Belum Ujian']"
+                  label="Status"
+                  v-model="filter.status"
+                  @change="filterPendaftaran"
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </v-card>
     <v-card>
       <v-card-title>
         <v-text-field
@@ -13,17 +68,41 @@
       </v-card-title>
       <v-data-table
         :headers="headers"
-        :items="jurusan"
+        :items="pendaftaran"
         :items-per-page="10"
         :search="search"
         :loading="isLoading"
         class="elevation-1"
       >
-        <template v-slot:[`item.kategori_tka`]="{ item }">
-          {{ item.kat_tka ? item.kat_tka.nama : "-" }}
+        <template v-slot:[`item.nama`]="{ item }">
+          {{ item.user_cln_mhs.nama }}
         </template>
-        <template v-slot:[`item.kategori_tkj`]="{ item }">
-          {{ item.kat_tkj ? item.kat_tkj.nama : "-" }}
+        <template v-slot:[`item.jurusan`]="{ item }">
+          {{ item.jurusan.nama }}
+        </template>
+        <template v-slot:[`item.pembayaran`]="{ item }">
+          <v-chip
+            outlined
+            class="ma-2"
+            :color="item.lunas_at ? 'success' : 'red'"
+          >
+            {{ item.lunas_at ? "Lunas" : "Belum Lunas" }}
+          </v-chip>
+        </template>
+        <template v-slot:[`item.kelulusan`]="{ item }">
+          <v-chip
+            outlined
+            class="ma-2"
+            :color="
+              item.status_kelulusan == 'Lulus'
+                ? 'success'
+                : item.status_kelulusan == 'Tidak Lulus'
+                ? 'red'
+                : 'warning'
+            "
+          >
+            {{ item.status_kelulusan }}
+          </v-chip>
         </template>
         <template v-slot:[`item.actions`]="{ item }">
           <v-btn icon x-small class="mr-2" title="Detail">
@@ -152,11 +231,16 @@ export default {
   data() {
     return {
       search: "",
+      periode: [],
       jurusan: [],
+      pendaftaran: [],
       form: {},
+      filter: {},
       isLoading: false,
       dialogDelete: false,
+      urlPeriode: "/api/periode",
       urlJurusan: "/api/jurusan",
+      urlPendaftaran: "/api/ujian",
       snackbar: { show: false },
       scrollOps: {
         scrollPanel: {
@@ -174,10 +258,11 @@ export default {
         {
           text: "Nama",
           align: "start",
-          value: "nama",
+          value: "nama_pendaftar",
         },
-        { text: "Kategori TKA", value: "kategori_tka" },
-        { text: "Kategori TKJ", value: "kategori_tkj" },
+        { text: "Jurusan", value: "jurusan" },
+        { text: "Pembayaran", value: "pembayaran" },
+        { text: "Kelulusan", value: "kelulusan" },
         { text: "Actions", value: "actions" },
       ],
     };
@@ -197,21 +282,50 @@ export default {
     bottomSheet(val) {
       if (!val) {
         this.form = {};
-        this.urlJurusan = "/api/jurusan";
+        this.urlPendaftaran = "/api/ujian";
       }
     },
     dialogDelete(val) {
       if (!val) {
         this.form = {};
-        this.urlJurusan = "/api/jurusan";
+        this.urlPendaftaran = "/api/ujian";
       }
     },
   },
   created() {
+    this.getPendaftaran();
+    this.getPeriode();
     this.getJurusan();
   },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    getPendaftaran(params = {}) {
+      this.isLoading = true;
+      axios
+        .get(this.urlPendaftaran, {
+          params: params,
+        })
+        .then((response) => {
+          this.filter.periode = response.data.currentPeriode.id;
+          this.pendaftaran = response.data.pendaftaran;
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .then((this.isLoading = false));
+    },
+    getPeriode() {
+      this.isLoading = true;
+      axios
+        .get(this.urlPeriode)
+        .then((response) => {
+          this.periode = response.data;
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .then((this.isLoading = false));
+    },
     getJurusan() {
       this.isLoading = true;
       axios
@@ -239,7 +353,7 @@ export default {
     store() {
       this.isLoading = true;
       axios
-        .post(this.urlJurusan, this.form)
+        .post(this.urlPendaftaran, this.form)
         .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
@@ -263,10 +377,10 @@ export default {
         });
     },
     update(id) {
-      const urlJurusan = `${this.urlJurusan}/${id}`;
+      const urlPendaftaran = `${this.urlPendaftaran}/${id}`;
       this.isLoading = true;
       axios
-        .put(urlJurusan, this.form)
+        .put(urlPendaftaran, this.form)
         .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
@@ -313,6 +427,10 @@ export default {
           };
         })
         .then((this.isLoading = false));
+    },
+    filterPendaftaran() {
+      const form = this.filter;
+      this.getPendaftaran(form);
     },
   },
 };

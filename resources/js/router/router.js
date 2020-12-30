@@ -11,6 +11,8 @@ import DashboardPetugas from "../views/petugas/Dashboard.vue";
 import KelolaSoal from "../views/petugas/Admin/KelolaSoal.vue";
 import KelolaPeriode from "../views/petugas/Admin/KelolaPeriode.vue";
 import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
+import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
+import KelolaPendaftaran from "../views/petugas/Admin/KelolaPendaftaran.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -54,6 +56,16 @@ const routes = [
                 path: "kelola-jurusan",
                 name: "Kelola Jurusan",
                 component: KelolaJurusan
+            },
+            {
+                path: "pendaftar",
+                name: "Pendaftar",
+                component: Pendaftar
+            },
+            {
+                path: "kelola-pendaftaran",
+                name: "Kelola Pendaftaran",
+                component: KelolaPendaftaran
             },
         ]
     },

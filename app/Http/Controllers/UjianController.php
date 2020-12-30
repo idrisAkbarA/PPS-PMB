@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Ujian;
-use App\Jurusan;
 use App\Periode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +22,27 @@ class UjianController extends Controller
         $jurusan = Jurusan::all();
         return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
     }
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $periode_id = $request->periode;
+        $jurusan_id = $request->jurusan;
+        $pembayaran = $request->pembayaran;
+        $status = $request->status;
+
+        $currentPeriode = Periode::getActive();
+        if ($periode_id) {
+            $currentPeriode = Periode::find($periode_id);
+        }
+
+        if (!is_null($currentPeriode)) {
+            $pendaftaran = $currentPeriode->getUjian($jurusan_id, $pembayaran, $status);
+        }
+
+        $reply = [
+            'currentPeriode' => $currentPeriode,
+            'pendaftaran' => $pendaftaran ?? []
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
