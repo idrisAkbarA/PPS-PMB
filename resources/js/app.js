@@ -16,7 +16,9 @@ import VueWindowSize from 'vue-window-size';
 import vuescroll from 'vuescroll';
 import moment from './moment.js';
 import Vue2Filters from 'vue2-filters'
+import VueCountdownTimer from 'vuejs-countdown-timer';
 
+Vue.use(VueCountdownTimer);
 Vue.use(Vue2Filters)
 Vue.use(moment);
 Vue.use(vuescroll);

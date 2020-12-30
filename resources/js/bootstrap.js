@@ -11,7 +11,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) { }
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -22,6 +22,15 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.interceptors.response.use((response) => {
+    return response;
+}, (error) => {
+    console.log('interceptor', error);
+    if (error.response.status === 401) {
+        window.location.replace('/login');
+    }
+    // return Promise.reject(error.message); 
+});
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

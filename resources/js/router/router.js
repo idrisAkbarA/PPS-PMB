@@ -4,6 +4,7 @@ import store from '../store/store'
 
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
+import Pendaftaran from "../views/ClnMhs/Pendaftaran.vue";
 
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
@@ -21,6 +22,11 @@ const routes = [
                 path: "home",
                 name: "Home Calon Mahasiswa",
                 component: HomeClnMhs
+            },
+            {
+                path: "daftar",
+                name: "Pendaftaran",
+                component: Pendaftaran
             },
         ]
     },
@@ -59,5 +65,11 @@ const router = new VueRouter({
     base: "/user/",
     routes
 });
+router.beforeEach((to, from, next) => {
+    if (from.name == null) {
+        console.log('from null')
+    }
+    next();
+})
 
 export default router;

@@ -48,6 +48,14 @@
         <router-view></router-view>
       </v-container>
     </v-main>
+    <v-footer
+      dark
+      color="green darken-4"
+      app
+      absolute
+    >
+      Univeristas Islam Negeri Sultan Syarif Kasim Riau
+    </v-footer>
 
   </v-app>
 </template>
