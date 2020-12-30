@@ -47,11 +47,7 @@
           >
             <v-icon>mdi-delete</v-icon>
           </v-btn>
-        </template></v-data-table
-      ></v-card
-    ></v-container
-  >
-</template>
+        </template>
       </v-data-table>
     </v-card>
     <!-- Bottom Sheet -->

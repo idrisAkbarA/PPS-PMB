@@ -59,3 +59,8 @@ Route::prefix('pendaftar')->name('pendaftar.')->group(function () {
 Route::prefix('ujian')->name('ujian.')->group(function () {
     Route::get('/', 'UjianController@index')->name('index');
 });
+
+// Kategori Routes
+Route::prefix('kategori')->name('kategori')->group(function () {
+    Route::post('/', 'KategoriController@store')->name('store');
+});
