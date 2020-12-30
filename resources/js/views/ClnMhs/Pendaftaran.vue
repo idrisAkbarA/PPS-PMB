@@ -6,8 +6,10 @@
     v-model="stepper"
   >
     <v-stepper-step
+      color="green"
       editable
       step="1"
+      :complete="jurusanSelected"
     >
       Pilih Jurusan
       <small>Pilihlah Jurusan yang anda inginkan.</small>
@@ -19,6 +21,7 @@
         column
       >
         <v-radio
+          color="green"
           v-for="item in jurusan"
           :key="item.id"
           :label="item.nama"
@@ -26,18 +29,18 @@
         ></v-radio>
       </v-radio-group>
       <v-btn
-        color="primary"
+        class="text-white"
+        color="green darken-3"
+        :disabled="!jurusanSelected"
         @click="stepper = 2"
       >
-        Continue
-      </v-btn>
-      <v-btn text>
-        Cancel
+        Selanjutnya
       </v-btn>
     </v-stepper-content>
 
     <v-stepper-step
-      editable
+      :editable="jurusanSelected"
+      color="green"
       :complete="stepper > 2"
       step="2"
     >
@@ -52,7 +55,7 @@
             filled
             prepend-inner-icon="mdi-account"
             label="Nama Lengkap"
-            v-model="form.nama"
+            v-model="user.nama"
           ></v-text-field>
         </v-row>
         <v-row>
@@ -61,7 +64,7 @@
             filled
             prepend-inner-icon="mdi-phone"
             label="No Telepon"
-            v-model="form.hp"
+            v-model="user.hp"
           ></v-text-field>
         </v-row>
         <v-row>
@@ -70,7 +73,7 @@
             filled
             prepend-inner-icon="mdi-whatsapp"
             label="No Whatsapp"
-            v-model="form.wa"
+            v-model="user.wa"
           ></v-text-field>
         </v-row>
         <v-row>
@@ -81,7 +84,7 @@
             filled
             prepend-inner-icon="mdi-map-marker"
             label="Alamat Rumah Lengkap"
-            v-model="form.alamat"
+            v-model="user.alamat"
           ></v-textarea>
         </v-row>
         <v-row>
@@ -90,7 +93,7 @@
             filled
             prepend-inner-icon="mdi-attachment"
             label="Scan Ijazah"
-            v-model="form.ijazah"
+            v-model="user.ijazah"
           ></v-text-field>
         </v-row>
         <v-row>
@@ -103,7 +106,7 @@
               filled
               prepend-inner-icon="mdi-attachment"
               label="Nilai IPK"
-              v-model="form.nilai_ipk"
+              v-model="user.nilai_ipk"
             ></v-text-field>
           </v-col>
           <v-col
@@ -115,7 +118,7 @@
               filled
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa"
-              v-model="form.nilai_bhs"
+              v-model="user.nilai_bhs"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -125,14 +128,14 @@
             filled
             prepend-inner-icon="mdi-attachment"
             label="Upload Pas Foto"
-            v-model="form.nilai_bhs"
+            v-model="user.nilai_bhs"
             @click="$refs.photoProfile.$refs.input.click()"
           ></v-text-field>
           <v-file-input
             hide-input
             ref="photoProfile"
             class="d-none"
-            v-model="form.paspoto"
+            v-model="user.paspoto"
           ></v-file-input>
         </v-row>
       </v-container>
@@ -149,6 +152,7 @@
 
     <v-stepper-step
       editable
+      color="green"
       :complete="stepper > 3"
       step="3"
     >
@@ -184,6 +188,7 @@
 
     <v-stepper-step
       editable
+      color="green"
       step="4"
     >
       Ujian
@@ -206,6 +211,7 @@
     </v-stepper-content>
     <v-stepper-step
       editable
+      color="green"
       step="5"
     >
       Temu Ramah
@@ -250,7 +256,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["jurusan"]),
+    ...mapState(["jurusan", "user"]),
   },
   data() {
     return {

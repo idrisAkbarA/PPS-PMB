@@ -16,7 +16,7 @@ class CreateUjiansTable extends Migration
         Schema::create('ujians', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('periode_id');
-            $table->bigInteger('jurusan_id');
+            $table->bigInteger('jurusan_id')->nullable();
             $table->bigInteger('user_cln_mhs_id');
             $table->bigInteger('kat_tka_id')->nullable();
             $table->bigInteger('kat_tkj_id')->nullable();

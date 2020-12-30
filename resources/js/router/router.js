@@ -26,7 +26,7 @@ const routes = [
                 component: HomeClnMhs
             },
             {
-                path: "daftar",
+                path: "daftar/:id",
                 name: "Pendaftaran",
                 component: Pendaftaran
             },

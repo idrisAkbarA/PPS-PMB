@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ujian;
 use App\Periode;
+use App\Jurusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,6 +54,17 @@ class UjianController extends Controller
     public function create()
     {
         //
+    }
+    public function initUjian($id)
+    {
+        $periode = Periode::latest()->get();
+        $user = Auth::guard("cln_mahasiswa")->user();
+        $ujian = Ujian::create(["user_cln_mhs_id" => $user->id, "periode_id" => $periode->id]);
+        return response()->json([
+            "status" => true,
+            "message" => "Ujian Succesfully intialized",
+            "periode_id" => $ujian->id
+        ]);
     }
 
     /**
