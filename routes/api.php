@@ -55,6 +55,7 @@ Route::prefix('jurusan')->name('jurusan.')->group(function () {
 // Calon Mahasiswa Routes
 Route::prefix('pendaftar')->name('pendaftar.')->group(function () {
     Route::get('/', 'UserClnMhsController@index')->name('index');
+    Route::get('/{user}', 'UserClnMhsController@show')->name('show');
 });
 
 // Ujian Routes

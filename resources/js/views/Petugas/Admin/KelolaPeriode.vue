@@ -351,8 +351,6 @@
             </template>
           </v-simple-table>
         </v-card-text>
-
-        <v-divider></v-divider>
       </v-card>
     </v-dialog>
     <!-- Dialog Delete -->
