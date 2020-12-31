@@ -49,6 +49,15 @@ class Periode extends Model
         return $currentPeriode;
     }
 
+    public function getKategori($jurusan_id = null)
+    {
+        // Get categories of periode object
+        return $this->kategori()
+            ->when($jurusan_id, function ($q) use ($jurusan_id) {
+                return $q->where('jurusan_id', $jurusan_id);
+            })->get();
+    }
+
     public function getUjian($jurusan_id = null, $pembayaran = null, $status = null)
     {
         return $this->ujian()

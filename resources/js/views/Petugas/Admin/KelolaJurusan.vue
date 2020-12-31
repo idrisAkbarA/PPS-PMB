@@ -22,10 +22,10 @@
         class="elevation-1"
       >
         <template v-slot:[`item.kategori_tka`]="{ item }">
-          {{ item.kat_tka ? item.kat_tka.nama : "-" }}
+          {{ item.tka_default ? item.tka_default.nama : "-" }}
         </template>
         <template v-slot:[`item.kategori_tkj`]="{ item }">
-          {{ item.kat_tkj ? item.kat_tkj.nama : "-" }}
+          {{ item.tkj_default ? item.tkj_default.nama : "-" }}
         </template>
         <template v-slot:[`item.actions`]="{ item }">
           <v-btn
@@ -267,8 +267,8 @@ export default {
           align: "start",
           value: "nama",
         },
-        { text: "Kategori TKA", value: "kategori_tka" },
-        { text: "Kategori TKJ", value: "kategori_tkj" },
+        { text: "TKA Default", value: "kategori_tka" },
+        { text: "TKJ Default", value: "kategori_tkj" },
         { text: "Actions", value: "actions" },
       ],
     };

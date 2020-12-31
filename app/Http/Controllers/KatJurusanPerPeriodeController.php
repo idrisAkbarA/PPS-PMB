@@ -15,13 +15,14 @@ class KatJurusanPerPeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        KatJurusanPerPeriode::updateOrCreate(
+        $kategori = KatJurusanPerPeriode::updateOrCreate(
             ['id' => optional($request)->id],
             $request->all()
         );
 
         $reply = [
             'status' => true,
+            'data' => $kategori,
             'message' => 'Kategori Successfully Updated!',
         ];
         return response()->json($reply, 200);

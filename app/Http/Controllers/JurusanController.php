@@ -14,9 +14,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusan = Jurusan::with('kategori', 'kat_tkj', 'kat_tka')
-            ->latest()
-            ->get();
+        $jurusan = Jurusan::getAll();
 
         return response()->json($jurusan, 200);
     }

@@ -23,8 +23,8 @@
                   label="Kategori TKA"
                   item-text="nama"
                   item-value="id"
-                  v-model="currentPeriode.kategori[row.id].kat_tka_id"
-                  @change="updateKategoriPeriode(row.id)"
+                  v-model="row.kat_per_periode.kat_tka_id"
+                  @change="updateKategoriPeriode(row)"
                 ></v-select>
               </v-col>
               <v-col cols="3">
@@ -33,8 +33,8 @@
                   label="Kategori TKJ"
                   item-text="nama"
                   item-value="id"
-                  v-model="currentPeriode.kategori[row.id].kat_tkj_id"
-                  @change="updateKategoriPeriode(row.id)"
+                  v-model="row.kat_per_periode.kat_tkj_id"
+                  @change="updateKategoriPeriode(row)"
                 ></v-select>
               </v-col>
             </v-row>
@@ -378,13 +378,14 @@ export default {
         })
         .then((this.isLoading = false));
     },
-    updateKategoriPeriode(id) {
-      const form = this.currentPeriode.kategori[id];
+    updateKategoriPeriode(item) {
+      const form = item.kat_per_periode;
       this.isLoading = true;
       axios
         .post(this.urlKategoriPeriode, form)
         .then((response) => {
           if (response.data.status) {
+            item.kat_per_periode.id = response.data.data.id;
             this.snackbar = {
               show: true,
               message: response.data.message,

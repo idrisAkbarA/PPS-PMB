@@ -27,11 +27,11 @@ class Kategori extends Model
 
     public static function getAll($jurusan_id = null)
     {
-        $kategori = self::with('jurusan')
+        $kategori = self::latest()
             ->when($jurusan_id, function ($q) use ($jurusan_id) {
                 return $q->where('jurusan_id', $jurusan_id);
             })
-            ->latest()
+
             ->get();
 
         return $kategori;
