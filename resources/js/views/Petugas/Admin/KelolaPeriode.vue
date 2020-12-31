@@ -232,6 +232,7 @@
                     color="#2C3E50"
                     min="0"
                     label="Range Ujian"
+                    hint="Batas ujian setelah pembayaran, dalam hari"
                     v-model="form.range_ujian"
                   >
                   </v-text-field>
