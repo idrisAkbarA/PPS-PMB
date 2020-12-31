@@ -32,7 +32,16 @@
           {{ `${item.awal_periode} - ${item.akhir_periode}` }}
         </template>
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn icon x-small class="mr-2" title="Detail">
+          <v-btn
+            icon
+            x-small
+            class="mr-2"
+            title="Detail"
+            @click="
+              dialogShow = true;
+              form = item;
+            "
+          >
             <v-icon>mdi-information</v-icon>
           </v-btn>
           <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
@@ -289,6 +298,63 @@
         </v-card-text>
       </v-card>
     </v-bottom-sheet>
+    <!-- Dialog Show -->
+    <v-dialog v-model="dialogShow" width="500">
+      <v-card>
+        <v-card-title class="headline">
+          <v-icon>mdi-trash</v-icon>
+        </v-card-title>
+
+        <v-card-text>
+          <v-simple-table>
+            <template v-slot:default>
+              <tbody>
+                <tr>
+                  <td>Nama</td>
+                  <td>{{ form.nama }}</td>
+                </tr>
+                <tr>
+                  <td>Periode</td>
+                  <td>{{ `${form.awal_periode} - ${form.akhir_periode}` }}</td>
+                </tr>
+                <tr>
+                  <td>Range Ujian</td>
+                  <td>{{ form.range_ujian }} Hari</td>
+                </tr>
+                <tr>
+                  <td>Syarat</td>
+                  <td>
+                    IPK: {{ form.syarat_ipk }}, Bahasa: {{ form.syarat_bhs }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jumlah Soal</td>
+                  <td>
+                    TKA {{ form.jumlah_tka }} Soal / TKJ
+                    {{ form.jumlah_tkj }} Soal
+                  </td>
+                </tr>
+                <tr>
+                  <td>Syarat Lulus</td>
+                  <td>
+                    TKA: {{ form.min_lulus_tka }} Soal Terjawab / TKJ:
+                    {{ form.min_lulus_tkj }} Soal Terjawab
+                  </td>
+                </tr>
+                <tr>
+                  <td>Temu Ramah</td>
+                  <td>
+                    {{ `${form.awal_temu_ramah} - ${form.akhir_temu_ramah}` }}
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </v-card-text>
+
+        <v-divider></v-divider>
+      </v-card>
+    </v-dialog>
     <!-- Dialog Delete -->
     <v-dialog v-model="dialogDelete" width="500">
       <v-card>
@@ -311,6 +377,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <!-- Snackbar -->
     <v-snackbar
       v-model="snackbar.show"
       timeout="2000"
@@ -343,6 +410,7 @@ export default {
       form: {},
       isLoading: false,
       dialogDelete: false,
+      dialogShow: false,
       snackbar: { show: false },
       scrollOps: {
         scrollPanel: {
@@ -386,6 +454,11 @@ export default {
       }
     },
     dialogDelete(val) {
+      if (!val) {
+        this.form = {};
+      }
+    },
+    dialogShow(val) {
       if (!val) {
         this.form = {};
       }
