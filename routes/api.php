@@ -42,7 +42,7 @@ Route::prefix('periode')->name('periode.')->group(function () {
     Route::get('/current', 'PeriodeController@show')->name('current');
     Route::post('/', 'PeriodeController@store')->name('store');
     Route::put('/{periode?}', 'PeriodeController@update')->name('update');
-    Route::delete('/{periode?}', 'PeriodeController@destroy')->name('delete');
+    Route::delete('/{periode?}', 'PeriodeController@destroy')->name('destroy');
 });
 
 // Jurusan Routes
@@ -50,12 +50,13 @@ Route::prefix('jurusan')->name('jurusan.')->group(function () {
     Route::get('/', 'JurusanController@index')->name('index');
     Route::post('/', 'JurusanController@store')->name('store');
     Route::put('/{jurusan?}', 'JurusanController@update')->name('update');
-    Route::delete('/{jurusan?}', 'JurusanController@destroy')->name('delete');
+    Route::delete('/{jurusan?}', 'JurusanController@destroy')->name('destroy');
 });
 
 // Calon Mahasiswa Routes
 Route::prefix('pendaftar')->name('pendaftar.')->group(function () {
     Route::get('/', 'UserClnMhsController@index')->name('index');
+    Route::get('/{user}', 'UserClnMhsController@show')->name('show');
 });
 
 // Ujian Routes
@@ -66,7 +67,10 @@ Route::prefix('ujian')->name('ujian.')->group(function () {
 // Kategori Routes
 Route::prefix('kategori')->name('kategori')->group(function () {
     Route::get('/', 'KategoriController@index')->name('index');
+    Route::post('/', 'KategoriController@store')->name('store');
     Route::post('/{jurusan?}', 'KategoriController@storeInJurusan')->name('store-jurusan');
+    Route::put('/{kategori?}', 'KategoriController@update')->name('update');
+    Route::delete('/{kategori?}', 'KategoriController@destroy')->name('destroy');
 });
 
 // Kategori per Periode Routes

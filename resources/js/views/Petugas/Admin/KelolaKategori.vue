@@ -61,15 +61,6 @@
         class="elevation-1"
       >
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn
-            icon
-            x-small
-            class="mr-2"
-            title="Edit Kategori"
-            @click="manageCategory(item)"
-          >
-            <v-icon>mdi-bookmark-plus</v-icon>
-          </v-btn>
           <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
@@ -98,7 +89,7 @@
     >
       <v-card color="#ecf0f1">
         <v-card-title>
-          <span>Jurusan</span>
+          <span>Kategori</span>
           <v-spacer></v-spacer>
           <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
           <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
@@ -108,33 +99,33 @@
             <!-- <v-card> -->
             <v-card-text>
               <v-row align="center">
-                <v-col cols="12">
+                <v-col cols="6">
                   <v-text-field
                     clearable
                     color="#2C3E50"
-                    label="Nama Jurusan"
-                    hint="*Contoh : Pendidikan Agama Islam S3"
+                    label="Nama Kategori"
+                    hint="*Contoh : Sulit"
                     v-model="form.nama"
                   >
                   </v-text-field>
                 </v-col>
-                <v-col cols="6" v-if="form.id">
+                <v-col cols="6">
                   <v-select
-                    :items="form.kategori"
-                    label="Kategori TKA Default"
+                    :items="jurusan"
+                    label="Jurusan"
                     item-text="nama"
                     item-value="id"
-                    v-model="form.kat_tka_default"
+                    v-model="form.jurusan_id"
                   ></v-select>
                 </v-col>
-                <v-col cols="6" v-if="form.id">
-                  <v-select
-                    :items="form.kategori"
-                    label="Kategori TKJ Default"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.kat_tkj_default"
-                  ></v-select>
+                <v-col cols="12">
+                  <v-textarea
+                    outlined
+                    :items="form.deskripsi"
+                    color="#2C3E50"
+                    label="Deskripsi"
+                    v-model="form.deskripsi"
+                  ></v-textarea>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -152,7 +143,7 @@
 
         <v-card-text>
           <p class="text-center">
-            Apakah anda yakin ingin menghapus jurusan ini ?
+            Apakah anda yakin ingin menghapus kategori ini ?
           </p>
         </v-card-text>
 
@@ -308,7 +299,7 @@ export default {
     store() {
       this.isLoading = true;
       axios
-        .post(this.urlJurusan, this.form)
+        .post(this.urlKategori, this.form)
         .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
@@ -328,23 +319,26 @@ export default {
         })
         .then(() => {
           this.isLoading = false;
+          this.getKategori();
           this.getJurusan();
         });
     },
     update(id) {
-      const urlJurusan = `${this.urlJurusan}/${id}`;
+      console.log(id);
+      const urlKategori = `${this.urlKategori}/${id}`;
       this.isLoading = true;
       axios
-        .put(urlJurusan, this.form)
+        .put(urlKategori, this.form)
         .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.form = {};
+            this.getKategori();
+            this.getJurusan();
             this.snackbar = {
               show: true,
               message: response.data.message,
             };
-            this.getJurusan();
           }
         })
         .catch((err) => {
@@ -359,13 +353,14 @@ export default {
     },
     destroy() {
       const id = this.form.id;
-      const urlJurusan = `${this.urlJurusan}/${id}`;
+      const urlKategori = `${this.urlKategori}/${id}`;
       this.isLoading = true;
       axios
-        .delete(urlJurusan)
+        .delete(urlKategori)
         .then((response) => {
           if (response.data.status) {
             this.dialogDelete = false;
+            this.getKategori();
             this.getJurusan();
             this.snackbar = {
               show: true,

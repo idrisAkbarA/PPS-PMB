@@ -22,40 +22,6 @@ class UserClnMhsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $form = $this->validate($request, [
-            'nama' => 'required|string',
-            'email' => 'required|string|email|unique:user_cln_mhs,email',
-            'password' => 'required|string|same:password2',
-            'password2' => 'required|string',
-        ]);
-
-        $form['password'] = Hash::make($request->password);
-        $user = UserClnMhs::create($form);
-
-        Auth::guard('cln_mahasiswa')->login($user);
-
-        return redirect('/user/cln-mhs/home');
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\UserClnMhs  $userClnMhs
@@ -63,11 +29,13 @@ class UserClnMhsController extends Controller
      */
     public function show(UserClnMhs $user)
     {
-        $data = [
-            'user' => $user
-        ];
+        $user->getUjian();
 
-        return response()->json($data);
+        $reply = [
+            'status' => true,
+            'data' => $user
+        ];
+        return response()->json($reply, 200);
     }
 
     /**

@@ -21,13 +21,20 @@ class KategoriController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Store newly created resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        Kategori::create($request->all());
+
+        $reply = [
+            'status' => true,
+            'message' => 'Kategori Successfully Updated!',
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
@@ -44,20 +51,9 @@ class KategoriController extends Controller
 
         $reply = [
             'status' => true,
-            'message' => 'Kategori Successfully Updated!',
+            'message' => 'Kategori Successfully Created!',
         ];
         return response()->json($reply, 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Kategori  $kategori
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Kategori $kategori)
-    {
-        //
     }
 
     /**
@@ -69,7 +65,13 @@ class KategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
-        //
+        $kategori->update($request->all());
+
+        $reply = [
+            'status' => true,
+            'message' => 'Kategori Successfully Updated!',
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
@@ -80,6 +82,12 @@ class KategoriController extends Controller
      */
     public function destroy(Kategori $kategori)
     {
-        //
+        $kategori->delete();
+
+        $reply = [
+            'status' => true,
+            'message' => 'Kategori Successfully Deleted!',
+        ];
+        return response()->json($reply, 200);
     }
 }

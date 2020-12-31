@@ -22,11 +22,6 @@ class UserClnMhs extends Authenticatable
         'id'
     ];
 
-    public function ujian()
-    {
-        return $this->hasMany('App\Ujian');
-    }
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -44,4 +39,22 @@ class UserClnMhs extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Getters
+    public function getUjian($periode_id = null)
+    {
+        $ujian = $this->ujian()
+            ->with('jurusan')
+            ->when($periode_id, function ($q) use ($periode_id) {
+                return $q->where('periode_id', $periode_id);
+            })->get();
+
+        $this->attributes['ujian'] = $ujian;
+    }
+
+    // Relations
+    public function ujian()
+    {
+        return $this->hasMany('App\Ujian');
+    }
 }

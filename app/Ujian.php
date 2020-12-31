@@ -15,6 +15,7 @@ class Ujian extends Model
      */
     protected $appends = [
         'nama_pendaftar',
+        'nama_periode',
         'status_kelulusan'
     ];
 
@@ -22,6 +23,13 @@ class Ujian extends Model
     public function getNamaPendaftarAttribute()
     {
         return $this->user_cln_mhs()
+            ->first()
+            ->nama;
+    }
+
+    public function getNamaPeriodeAttribute()
+    {
+        return $this->periode()
             ->first()
             ->nama;
     }
