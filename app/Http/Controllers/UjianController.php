@@ -19,8 +19,9 @@ class UjianController extends Controller
     {
         $user = Auth::guard('cln_mahasiswa')->user();
         $periode = Periode::latest()->get();
-        $ujian = Ujian::where(['user_cln_mhs_id' => $user->id])->with(['jurusan', 'periode'])->get();
+        $ujian_temp = Ujian::where(['user_cln_mhs_id' => $user->id])->with(['jurusan', 'periode'])->get();
         $jurusan = Jurusan::all();
+        $ujian = count($ujian_temp) > 0 ? $ujian_temp : null;
         return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
     }
 
@@ -56,15 +57,34 @@ class UjianController extends Controller
     {
         //
     }
-    public function initUjian($id)
+    public function initUjian(Request $request)
     {
-        $periode = Periode::latest()->get();
         $user = Auth::guard("cln_mahasiswa")->user();
-        $ujian = Ujian::create(["user_cln_mhs_id" => $user->id, "periode_id" => $periode->id]);
+        $periode_id = $request->periode_id;
+        $jurusan_id = $request->jurusan_id;
+        $ujian_id = $request->ujian_id ?? null;
+        if (!$ujian_id) {
+            $ujian = Ujian::create(
+                [
+                    "user_cln_mhs_id" => $user->id,
+                    "periode_id" => $periode_id,
+                    "jurusan_id" => $jurusan_id
+                ]
+            );
+            return response()->json([
+                "status" => true,
+                "message" => "Ujian Succesfully intialized",
+                "ujian_id" => $ujian->id
+            ]);
+        }
+        $ujian = ujian::find($ujian_id);
+        $ujian->jurusan_id = $jurusan_id;
+        $ujian->save();
+
         return response()->json([
             "status" => true,
-            "message" => "Ujian Succesfully intialized",
-            "periode_id" => $ujian->id
+            "message" => "Ujian Succesfully updated",
+            "ujian_id" => $ujian->id
         ]);
     }
 

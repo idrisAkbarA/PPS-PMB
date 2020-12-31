@@ -28,6 +28,7 @@ Route::post('/logout-petugas', 'AuthController@logoutPetugas');
 Route::post('/logout', 'AuthController@logout');
 Route::middleware('auth:petugas,cln_mahasiswa')->get('/user/{role}', 'AuthController@user');
 Route::middleware('auth:cln_mahasiswa')->get('/data/init-data-cln-mhs', 'UjianController@initAllDataClnMhs');
+Route::middleware('auth:cln_mahasiswa')->post('/ujian/init', 'UjianController@initUjian');
 
 // Calon Mahasiswa Routes
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {

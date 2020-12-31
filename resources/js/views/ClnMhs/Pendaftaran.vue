@@ -9,7 +9,7 @@
       color="green"
       editable
       step="1"
-      :complete="jurusanSelected"
+      :complete="jurusanSelected?true:false"
     >
       Pilih Jurusan
       <small>Pilihlah Jurusan yang anda inginkan.</small>
@@ -19,6 +19,7 @@
       <v-radio-group
         v-model="jurusanSelected"
         column
+        @change="initUjian()"
       >
         <v-radio
           color="green"
@@ -39,7 +40,7 @@
     </v-stepper-content>
 
     <v-stepper-step
-      :editable="jurusanSelected"
+      :editable="jurusanSelected?true:false"
       color="green"
       :complete="stepper > 2"
       step="2"
@@ -245,6 +246,16 @@ export default {
   },
   methods: {
     ...mapActions(["initAllDataClnMhs"]),
+    initUjian() {
+      var periode_id = this.periode[0].id;
+      var jurusan_id = this.jurusanSelected;
+      var payload = { periode_id, jurusan_id };
+      if (this.ujian_id) payload["ujian_id"] = this.ujian_id;
+      axios.post("/api/ujian/init", payload).then((response) => {
+        this.ujian_id = response.data.ujian_id;
+        console.log(response.data);
+      });
+    },
     width() {
       if (this.windowWidth <= 600) {
         return "100%";
@@ -256,10 +267,11 @@ export default {
     },
   },
   computed: {
-    ...mapState(["jurusan", "user"]),
+    ...mapState(["jurusan", "user", "periode"]),
   },
   data() {
     return {
+      ujian_id: null,
       jurusanSelected: null,
       stepper: 1,
       form: {},

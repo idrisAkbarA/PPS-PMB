@@ -25,7 +25,7 @@
           color="green"
         ></v-progress-circular>
       </v-row>
-      <v-row v-if="!ujian && !isLoading">
+      <v-row v-if="(!ujian && !isLoading)">
         <v-col cols="12">
           <v-card
             class="bg-with-overlay"
@@ -46,7 +46,10 @@
                 >
                   <div class="ml-10">
                     <h1 class="text-white">Hmm.. Sepertinya anda belum mendaftar</h1>
-                    <v-btn large>Daftar Sekarang</v-btn>
+                    <v-btn
+                      large
+                      @click="$router.push({name:'Pendaftaran Baru'})"
+                    >Daftar Sekarang</v-btn>
                   </div>
                 </v-col>
                 <v-col
@@ -68,7 +71,6 @@
       <v-row
         v-if="ujian"
         class="mb-10 mt-5"
-        align="center"
       >
         <v-col
           v-for="(item,index) in ujian"
@@ -119,8 +121,9 @@
               color="green darken-2"
               dark
               class="mx-auto"
-              @click="$router.push({name:'Pendaftaran'})"
+              @click="$router.push({name:'Pendaftaran Baru'})"
             >
+              <!-- @click="createUjian()" -->
               <v-icon>mdi-plus</v-icon>
             </v-btn>
           </v-row>
@@ -155,7 +158,12 @@ export default {
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
     link() {},
-    createUjian() {},
+    createUjian() {
+      var periode_id = this.periode[0].id;
+      axios.get("/api/ujian/init/" + periode_id).then((response) => {
+        console.log(response.data);
+      });
+    },
     countdown(date, index) {
       var timerProperty = "timer-" + index;
       this[timerProperty] = 0;
@@ -182,7 +190,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["user", "ujian", "isLoading", "user"]),
+    ...mapState(["user", "ujian", "isLoading", "periode"]),
     now: function () {
       var today = new Date();
       var date =
