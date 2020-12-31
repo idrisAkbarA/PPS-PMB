@@ -1,6 +1,47 @@
 <template>
   <v-container>
-    <p class="text-muted">Mengolola pendaftar pada Penerimaan Mahasiswa Baru</p>
+    <p class="text-muted">
+      Mengolola kategori soal pada Ujian Penerimaan Mahasiswa Baru
+    </p>
+    <v-card class="mb-3" v-if="!isEmptyObject(currentPeriode)">
+      <v-expansion-panels>
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            <strong>
+              Kategori soal periode ini
+              <span class="text-muted">( {{ currentPeriode.nama }})</span>
+            </strong>
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row v-for="(row, i) in jurusan" :key="i" align="center">
+              <v-col cols="6">
+                {{ row.nama }}
+              </v-col>
+              <v-col cols="3">
+                <v-select
+                  :items="row.kategori"
+                  label="Kategori TKA"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="currentPeriode.kategori[row.id].kat_tka_id"
+                  @change="updateKategoriPeriode(row.id)"
+                ></v-select>
+              </v-col>
+              <v-col cols="3">
+                <v-select
+                  :items="row.kategori"
+                  label="Kategori TKJ"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="currentPeriode.kategori[row.id].kat_tkj_id"
+                  @change="updateKategoriPeriode(row.id)"
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </v-card>
     <v-card>
       <v-card-title>
         <v-text-field
@@ -13,27 +54,24 @@
       </v-card-title>
       <v-data-table
         :headers="headers"
-        :items="pendaftar"
+        :items="kategori"
         :items-per-page="10"
         :search="search"
         :loading="isLoading"
         class="elevation-1"
       >
-        <template v-slot:[`item.hp_wa`]="{ item }">
-          {{ `${item.hp} / ${item.wa}` }}
-        </template>
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn icon x-small class="mr-2" title="Detail">
-            <v-icon>mdi-information</v-icon>
-          </v-btn>
           <v-btn
             icon
             x-small
             class="mr-2"
-            title="Ubah Password"
-            @click="edit(item)"
+            title="Edit Kategori"
+            @click="manageCategory(item)"
           >
-            <v-icon>mdi-textbox-password</v-icon>
+            <v-icon>mdi-bookmark-plus</v-icon>
+          </v-btn>
+          <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
+            <v-icon>mdi-pencil</v-icon>
           </v-btn>
           <v-btn
             icon
@@ -60,7 +98,7 @@
     >
       <v-card color="#ecf0f1">
         <v-card-title>
-          <span>Pendaftar</span>
+          <span>Jurusan</span>
           <v-spacer></v-spacer>
           <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
           <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
@@ -114,7 +152,7 @@
 
         <v-card-text>
           <p class="text-center">
-            Apakah anda yakin ingin menghapus pendaftar ini ?
+            Apakah anda yakin ingin menghapus jurusan ini ?
           </p>
         </v-card-text>
 
@@ -127,6 +165,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <!-- Snackbar -->
     <v-snackbar
       v-model="snackbar.show"
       timeout="2000"
@@ -150,12 +189,13 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
       search: "",
-      pendaftar: [],
+      kategori: [],
+      jurusan: [],
       form: {},
       isLoading: false,
       dialogDelete: false,
@@ -178,14 +218,19 @@ export default {
           align: "start",
           value: "nama",
         },
-        { text: "Email", value: "email" },
-        { text: "No HP/WA", value: "hp_wa" },
+        { text: "Jurusan", value: "nama_jurusan" },
         { text: "Actions", value: "actions" },
       ],
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen", "urlPendaftar"]),
+    ...mapState([
+      "isBottomSheetOpen",
+      "currentPeriode",
+      "urlKategori",
+      "urlKategoriPeriode",
+      "urlJurusan",
+    ]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -206,18 +251,42 @@ export default {
         this.form = {};
       }
     },
+    currentPeriode(val) {
+      if (!this.isEmptyObject(val)) {
+        this.getJurusan();
+        let kategori = [];
+        val.kategori.forEach((element, index) => {
+          kategori[element.jurusan_id] = _.clone(element);
+        });
+        val.kategori = kategori;
+      }
+    },
   },
   created() {
-    this.getPendaftar();
+    this.getKategori();
+    this.getCurrentPeriode();
   },
   methods: {
+    ...mapActions(["getCurrentPeriode"]),
     ...mapMutations(["toggleBottomSheet"]),
-    getPendaftar() {
+    getKategori() {
       this.isLoading = true;
       axios
-        .get(this.urlPendaftar)
+        .get(this.urlKategori)
         .then((response) => {
-          this.pendaftar = response.data;
+          this.kategori = response.data;
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .then((this.isLoading = false));
+    },
+    getJurusan() {
+      this.isLoading = true;
+      axios
+        .get(this.urlJurusan)
+        .then((response) => {
+          this.jurusan = response.data;
         })
         .catch((err) => {
           console.error(err);
@@ -239,7 +308,7 @@ export default {
     store() {
       this.isLoading = true;
       axios
-        .post(this.urlPendaftar, this.form)
+        .post(this.urlJurusan, this.form)
         .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
@@ -313,6 +382,32 @@ export default {
           };
         })
         .then((this.isLoading = false));
+    },
+    updateKategoriPeriode(id) {
+      const form = this.currentPeriode.kategori[id];
+      this.isLoading = true;
+      axios
+        .post(this.urlKategoriPeriode, form)
+        .then((response) => {
+          if (response.data.status) {
+            this.snackbar = {
+              show: true,
+              message: response.data.message,
+            };
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          this.snackbar = {
+            show: true,
+            message: err,
+            color: "danger",
+          };
+        })
+        .then((this.isLoading = false));
+    },
+    isEmptyObject(obj) {
+      return _.isEmpty(obj);
     },
   },
 };

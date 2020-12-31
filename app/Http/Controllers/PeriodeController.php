@@ -27,16 +27,6 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'nama' => 'required|string',
-        //     'awal_periode' => 'required|date',
-        //     'akhir_periode' => 'required|date',
-        //     'range_ujian' => 'required|digits',
-        //     'syarat_ipk' => '',
-        //     'syarat_bhs' => '',
-        //     'awal_temu_ramah' => 'required|date',
-        //     'akhir_temu_ramah' => 'required|date',
-        // ]);
         $periode = Periode::create($request->all());
 
         $reply = [
@@ -48,14 +38,16 @@ class PeriodeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the current active periode.
      *
      * @param  \App\Periode  $periode
      * @return \Illuminate\Http\Response
      */
-    public function edit(Periode $periode)
+    public function show(Periode $periode)
     {
-        //
+        $periode = Periode::getActive();
+
+        return response()->json($periode, 200);
     }
 
     /**

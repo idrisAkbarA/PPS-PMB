@@ -238,9 +238,6 @@ export default {
       filter: {},
       isLoading: false,
       dialogDelete: false,
-      urlPeriode: "/api/periode",
-      urlJurusan: "/api/jurusan",
-      urlPendaftaran: "/api/ujian",
       snackbar: { show: false },
       scrollOps: {
         scrollPanel: {
@@ -268,7 +265,12 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen"]),
+    ...mapState([
+      "isBottomSheetOpen",
+      "urlPeriode",
+      "urlJurusan",
+      "urlPendaftaran",
+    ]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -282,13 +284,11 @@ export default {
     bottomSheet(val) {
       if (!val) {
         this.form = {};
-        this.urlPendaftaran = "/api/ujian";
       }
     },
     dialogDelete(val) {
       if (!val) {
         this.form = {};
-        this.urlPendaftaran = "/api/ujian";
       }
     },
   },

@@ -32,7 +32,7 @@
             icon
             x-small
             class="mr-2"
-            title="Tambah Kategori"
+            title="Edit Kategori"
             @click="manageCategory(item)"
           >
             <v-icon>mdi-bookmark-plus</v-icon>
@@ -248,8 +248,6 @@ export default {
       isLoading: false,
       dialogCategory: false,
       dialogDelete: false,
-      urlJurusan: "/api/jurusan",
-      urlKategori: "/api/kategori",
       snackbar: { show: false },
       scrollOps: {
         scrollPanel: {
@@ -276,7 +274,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen"]),
+    ...mapState(["isBottomSheetOpen", "urlJurusan", "urlKategori"]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -290,13 +288,11 @@ export default {
     bottomSheet(val) {
       if (!val) {
         this.form = {};
-        this.urlJurusan = "/api/jurusan";
       }
     },
     dialogDelete(val) {
       if (!val) {
         this.form = {};
-        this.urlJurusan = "/api/jurusan";
       }
     },
     dialogCategory(val) {
@@ -307,7 +303,6 @@ export default {
         });
       } else {
         this.form = {};
-        this.urlJurusan = "/api/jurusan";
       }
     },
   },
@@ -435,14 +430,14 @@ export default {
       this.editCategory[i] = false;
     },
     submitCategory() {
+      const urlKategori = `${this.urlKategori}/${this.form.id}`;
       const form = {
-        jurusan_id: this.form.id,
         categories: this.form.kategori,
       };
 
       this.isLoading = true;
       axios
-        .post(this.urlKategori, form)
+        .post(urlKategori, form)
         .then((response) => {
           if (response.data.status) {
             this.dialogCategory = false;

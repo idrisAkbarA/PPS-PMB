@@ -14,22 +14,25 @@ class Jurusan extends Model
 
         // Create default categories
         self::created(function ($model) {
-            $model->kategori()->insert([
+            $model->kategori()->createMany([
                 [
-                    'jurusan_id' => $model->id,
                     'nama' => 'Mudah',
                     'deskripsi' => 'Soal dengan tingkat kesulitan Mudah'
                 ],
                 [
-                    'jurusan_id' => $model->id,
                     'nama' => 'Menengah',
                     'deskripsi' => 'Soal dengan tingkat kesulitan Menengah'
                 ],
                 [
-                    'jurusan_id' => $model->id,
                     'nama' => 'Sulit',
                     'deskripsi' => 'Soal dengan tingkat kesulitan Sulit'
                 ]
+            ]);
+
+            $kategori = $model->kategori()->first();
+            $model->update([
+                'kat_tka_default' => $kategori->id,
+                'kat_tkj_default' => $kategori->id
             ]);
         });
 

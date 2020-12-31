@@ -48,8 +48,40 @@
       </v-card>
       <v-list dense>
         <v-list-item
-          v-for="(page, i) in pages"
-          :key="i"
+          :to="`/admin/${$route.params.petugas}/dashboard`"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>mdi-view-dashboard</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Dashboard</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-subheader>PMB</v-subheader>
+        <v-list-item
+          v-for="(page, i) in PMBpages"
+          :key="'PMB-' + i"
+          :to="page.to"
+          :two-line="page.subtitle ? true : false"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ page.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>{{ page.title }}</v-list-item-title>
+            <v-list-item-subtitle v-if="page.subtitle">{{
+              page.subtitle
+            }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-subheader>CAT</v-subheader>
+        <v-list-item
+          v-for="(page, i) in CATpages"
+          :key="'CAT-' + i"
           :to="page.to"
           :two-line="page.subtitle ? true : false"
           router
@@ -174,19 +206,9 @@ export default {
     nama() {
       return this.$store.state.name;
     },
-    pages() {
+    PMBpages() {
       let petugas = this.$route.params.petugas;
       return [
-        {
-          icon: "mdi-view-dashboard",
-          title: "Dashboard",
-          to: `/admin/${petugas}/dashboard`,
-        },
-        {
-          icon: "mdi-file-document",
-          title: "Kelola Soal",
-          to: `/admin/${petugas}/kelola-soal`,
-        },
         {
           icon: "mdi-school",
           title: "Kelola Periode",
@@ -199,7 +221,7 @@ export default {
         },
         {
           icon: "mdi-account-details",
-          title: "Pendaftar",
+          title: "Akun Pendaftar",
           to: `/admin/${petugas}/pendaftar`,
         },
         {
@@ -207,30 +229,40 @@ export default {
           title: "Pendaftaran",
           to: `/admin/${petugas}/kelola-pendaftaran`,
         },
+        // {
+        //   icon: "mdi-office-building",
+        //   title: "Instansi",
+        //   to: `/admin/${petugas}/instansi`,
+        // },
+        // {
+        //   icon: "mdi-account-supervisor-circle",
+        //   title: "Mahasiswa",
+        //   to: `/admin/${petugas}/mahasiswa`,
+        // },
+        // {
+        //   icon: "mdi-file-document",
+        //   title: "Laporan",
+        //   to: `/admin/${petugas}/Laporan`,
+        // },
+        // {
+        //   icon: "mdi-hammer-wrench",
+        //   title: "Pengaturan",
+        //   to: `/admin/${petugas}/pengaturan`,
+        // },
+      ];
+    },
+    CATpages() {
+      let petugas = this.$route.params.petugas;
+      return [
         {
-          icon: "mdi-account-group",
-          title: "Petugas",
-          to: `/admin/${petugas}/petugas`,
-        },
-        {
-          icon: "mdi-office-building",
-          title: "Instansi",
-          to: `/admin/${petugas}/instansi`,
-        },
-        {
-          icon: "mdi-account-supervisor-circle",
-          title: "Mahasiswa",
-          to: `/admin/${petugas}/mahasiswa`,
+          icon: "mdi-file-document",
+          title: "Kelola Soal",
+          to: `/admin/${petugas}/kelola-soal`,
         },
         {
           icon: "mdi-file-document",
-          title: "Laporan",
-          to: `/admin/${petugas}/Laporan`,
-        },
-        {
-          icon: "mdi-hammer-wrench",
-          title: "Pengaturan",
-          to: `/admin/${petugas}/pengaturan`,
+          title: "Kelola Kategori",
+          to: `/admin/${petugas}/kelola-kategori`,
         },
       ];
     },

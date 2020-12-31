@@ -343,7 +343,6 @@ export default {
       form: {},
       isLoading: false,
       dialogDelete: false,
-      urlPeriode: "/api/periode",
       snackbar: { show: false },
       scrollOps: {
         scrollPanel: {
@@ -370,7 +369,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen"]),
+    ...mapState(["isBottomSheetOpen", "urlPeriode"]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -384,13 +383,11 @@ export default {
     bottomSheet(val) {
       if (!val) {
         this.form = {};
-        this.urlPeriode = "/api/periode";
       }
     },
     dialogDelete(val) {
       if (!val) {
         this.form = {};
-        this.urlPeriode = "/api/periode";
       }
     },
   },

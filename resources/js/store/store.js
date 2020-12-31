@@ -9,14 +9,23 @@ Axios.defaults.withCredentials = true;
 export default new Vuex.Store({
     state: {
         user: null, // user who logged in
+        urlPeriode: '/api/periode',
+        urlJurusan: '/api/jurusan',
+        urlPendaftar: '/api/pendaftar',
+        urlPendaftaran: "/api/ujian",
+        urlKategori: "/api/kategori",
+        urlKategoriPeriode: "/api/kategori-periode",
         isBottomSheetOpen: false,
+        currentPeriode: null, // current active periode
         jurusan: null,
         ujian: null,
         periode: null,
-
         isLoading: false,
     },
     mutations: {
+        toggleBottomSheet(state, data) {
+            state.isBottomSheetOpen = data;
+        },
         setUser(state, data) {
             state.user = data;
         },
@@ -29,9 +38,9 @@ export default new Vuex.Store({
         setUjian(state, data) {
             state.ujian = data;
         },
-        toggleBottomSheet(state, data) {
-            state.isBottomSheetOpen = data;
-        }
+        setCurrentPeriode(state, data) {
+            state.currentPeriode = data;
+        },
     },
     actions: {
         initAllDataClnMhs({ commit, dispatch, state }) {
@@ -72,6 +81,14 @@ export default new Vuex.Store({
                 .then((response) => {
                     commit('setUser', response.data);
                     console.log(response);
+                })
+                .catch((error) => console.error(error));
+        },
+        getCurrentPeriode({ commit, dispatch, state }) {
+            axios
+                .get(`${state.urlPeriode}/current`)
+                .then((response) => {
+                    commit('setCurrentPeriode', response.data);
                 })
                 .catch((error) => console.error(error));
         },

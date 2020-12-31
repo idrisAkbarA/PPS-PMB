@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jurusan;
 use App\Kategori;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        $kategori = Kategori::getAll();
+
+        return response()->json($kategori, 200);
     }
 
     /**
@@ -28,34 +31,22 @@ class KategoriController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store categories in jurusan menu.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeInJurusan(Request $request, Jurusan $jurusan)
     {
-        $jurusan_id = $request->jurusan_id;
         $categories = $request->categories;
 
-        Kategori::setKategoriInJurusan($jurusan_id, $categories);
+        Kategori::setKategoriInJurusan($jurusan->id, $categories);
 
         $reply = [
             'status' => true,
             'message' => 'Kategori Successfully Updated!',
         ];
         return response()->json($reply, 200);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Kategori  $kategori
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Kategori $kategori)
-    {
-        //
     }
 
     /**

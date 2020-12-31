@@ -37,6 +37,7 @@ Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
 // Periode Routes
 Route::prefix('periode')->name('periode.')->group(function () {
     Route::get('/', 'PeriodeController@index')->name('index');
+    Route::get('/current', 'PeriodeController@show')->name('current');
     Route::post('/', 'PeriodeController@store')->name('store');
     Route::put('/{periode?}', 'PeriodeController@update')->name('update');
     Route::delete('/{periode?}', 'PeriodeController@destroy')->name('delete');
@@ -62,5 +63,11 @@ Route::prefix('ujian')->name('ujian.')->group(function () {
 
 // Kategori Routes
 Route::prefix('kategori')->name('kategori')->group(function () {
-    Route::post('/', 'KategoriController@store')->name('store');
+    Route::get('/', 'KategoriController@index')->name('index');
+    Route::post('/{jurusan?}', 'KategoriController@storeInJurusan')->name('store-jurusan');
+});
+
+// Kategori per Periode Routes
+Route::prefix('kategori-periode')->name('kategori')->group(function () {
+    Route::post('/', 'KatJurusanPerPeriodeController@store')->name('store');
 });

@@ -35,7 +35,16 @@ class KatJurusanPerPeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        KatJurusanPerPeriode::updateOrCreate(
+            ['id' => optional($request)->id],
+            $request->all()
+        );
+
+        $reply = [
+            'status' => true,
+            'message' => 'Kategori Successfully Updated!',
+        ];
+        return response()->json($reply, 200);
     }
 
     /**

@@ -23,6 +23,7 @@ class UjianController extends Controller
         $jurusan = Jurusan::all();
         return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
     }
+
     public function index(Request $request)
     {
         $periode_id = $request->periode;

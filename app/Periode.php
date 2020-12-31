@@ -12,10 +12,40 @@ class Periode extends Model
         'is_active' => 'boolean',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        // Create category per jurusan
+        self::created(function ($model) {
+            $allJurusan = Jurusan::all();
+
+            foreach ($allJurusan as $jurusan) {
+                if ($jurusan->kat_tka_default && $jurusan->kat_tkj_default) {
+                    $model->kategori()->create([
+                        'jurusan_id' => $jurusan->id,
+                        'kat_tka_id' => $jurusan->kat_tka_default,
+                        'kat_tkj_id' => $jurusan->kat_tkj_default,
+                    ]);
+                }
+            }
+        });
+
+        // Delete category in periode
+        self::deleting(function ($model) {
+            $categories = $model->kategori()->get();
+            foreach ($categories as $category) {
+                $category->delete();
+            }
+        });
+    }
+
     // Getters
     public static function getActive()
     {
-        $currentPeriode = self::where('is_active', 1)->first();
+        $currentPeriode = self::with('kategori')
+            ->where('is_active', 1)
+            ->first();
         return $currentPeriode;
     }
 
@@ -57,5 +87,10 @@ class Periode extends Model
     public function ujian()
     {
         return $this->hasMany('App\Ujian');
+    }
+
+    public function kategori()
+    {
+        return $this->hasMany('App\KatJurusanPerPeriode');
     }
 }

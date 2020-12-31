@@ -8,6 +8,35 @@ class Kategori extends Model
 {
     protected $guarded = ['id'];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'nama_jurusan',
+    ];
+
+    // Getters
+    public function getNamaJurusanAttribute()
+    {
+        return $this->jurusan()
+            ->first()
+            ->nama;
+    }
+
+    public static function getAll($jurusan_id = null)
+    {
+        $kategori = self::with('jurusan')
+            ->when($jurusan_id, function ($q) use ($jurusan_id) {
+                return $q->where('jurusan_id', $jurusan_id);
+            })
+            ->latest()
+            ->get();
+
+        return $kategori;
+    }
+
     // Setters
     public static function setKategoriInJurusan($jurusan_id, $categories)
     {
