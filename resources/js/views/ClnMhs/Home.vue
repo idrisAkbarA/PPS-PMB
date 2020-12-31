@@ -113,6 +113,7 @@
           cols="12"
           md="6"
           lg="3"
+          align-self="center"
         >
 
           <v-row justify="center">
@@ -158,6 +159,7 @@ export default {
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
     link() {},
+
     createUjian() {
       var periode_id = this.periode[0].id;
       axios.get("/api/ujian/init/" + periode_id).then((response) => {
