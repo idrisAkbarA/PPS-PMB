@@ -57,6 +57,17 @@ export default new Vuex.Store({
                 })
                 .catch((error) => { console.error(error); state.isLoading = false; });
         },
+        updateUser({ commit, dispatch, state }, user) {
+            return new Promise((resolve, reject) => {
+                axios.put('/api/user/update', user).then(response => {
+                    console.log(response.data);
+                    commit('setUser', response.data);
+                    resolve(response);
+                }).catch(error => {
+                    reject(error);
+                })
+            })
+        },
         getUser({ commit, dispatch, state }, role) {
             axios
                 .get(`/api/user/${role}`)

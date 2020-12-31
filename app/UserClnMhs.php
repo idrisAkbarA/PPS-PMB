@@ -15,8 +15,11 @@ class UserClnMhs extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'nama', 'email', 'password',
+    // protected $fillable = [
+    //     'nama', 'email', 'password',
+    // ];
+    protected $guarded = [
+        'id'
     ];
 
     /**
