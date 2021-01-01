@@ -106,11 +106,17 @@
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
               prepend-inner-icon="mdi-attachment"
               label="Scan Ijazah Terakhir"
-              v-model="user.ijazah"
+              @click="$refs.ijazah.$refs.input.click()"
             ></v-text-field>
+            <v-file-input
+              @change="setIjazah()"
+              hide-input
+              ref="ijazah"
+              class="d-none"
+              v-model="ijazahFile"
+            ></v-file-input>
           </v-row>
           <v-row>
             <v-col
@@ -295,7 +301,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   created() {
     if (!this.jurusan) {
@@ -303,6 +309,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(["setUser"]),
     ...mapActions(["initAllDataClnMhs", "updateUser"]),
     initUjian() {
       var periode_id = this.periode[0].id;
@@ -312,6 +319,22 @@ export default {
       axios.post("/api/ujian/init", payload).then((response) => {
         this.ujian_id = response.data.ujian_id;
         console.log(response.data);
+      });
+    },
+    setIjazah() {
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload File Ijazah...";
+      var data = new FormData();
+      data.append("file", this.ijazahFile);
+      data.append("methodName", "saveIjazahPath");
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
       });
     },
     setPhoto() {
@@ -324,6 +347,7 @@ export default {
       this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
         setTimeout(() => {
           this.loadingSheet.toggle = false;
         }, 1500);

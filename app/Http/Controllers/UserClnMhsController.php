@@ -51,7 +51,7 @@ class UserClnMhsController extends Controller
             $method = $request->methodName;
             $this->$method($fileName);
         }
-        return response()->json(['success' => 'You have successfully upload file.', 'file_name' => $fileName]);
+        return response()->json(['success' => 'You have successfully upload file.', 'file_name' => $fileName, 'user' => $user]);
     }
     private function savePhotoPath($path)
     {
@@ -59,6 +59,14 @@ class UserClnMhsController extends Controller
         $user_id = Auth::guard("cln_mahasiswa")->user()->id;
         $userInstance = UserClnMhs::find($user_id);
         $userInstance->pas_photo = $path;
+        $userInstance->save();
+    }
+    private function saveIjazahPath($path)
+    {
+        //this function save pas photo path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->ijazah = $path;
         $userInstance->save();
     }
 
