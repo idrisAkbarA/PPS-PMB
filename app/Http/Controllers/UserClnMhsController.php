@@ -6,6 +6,7 @@ use App\UserClnMhs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 class UserClnMhsController extends Controller
 {
@@ -36,6 +37,16 @@ class UserClnMhsController extends Controller
             'data' => $user
         ];
         return response()->json($reply, 200);
+    }
+
+    public function storeFile(Request $request)
+    {
+        $user = Auth::guard("cln_mahasiswa")->user();
+        $namaUser = str_replace(" ", "-", $user['nama']);
+        $fileName = "files/" . $user->id . '-' . $namaUser . '/' . Carbon::now()->format("Y-m-d-H-i-s") . $request->file->getClientOriginalName();
+        $request->file->move(public_path('files/' . $user->id . '-' . $namaUser . '/' . $user['nim']), $fileName);
+
+        return response()->json(['success' => 'You have successfully upload file.', 'file_name' => $fileName]);
     }
 
     /**

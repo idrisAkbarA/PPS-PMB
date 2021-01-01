@@ -144,17 +144,18 @@
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
               prepend-inner-icon="mdi-attachment"
               label="Upload Pas Foto"
-              v-model="user.nilai_bhs"
+              readonly
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
+            <!-- @change="updateUser(user)" -->
             <v-file-input
+              @change="setPhoto()"
               hide-input
               ref="photoProfile"
               class="d-none"
-              v-model="user.pas_photo"
+              v-model="photoFile"
             ></v-file-input>
           </v-row>
         </v-container>
@@ -266,6 +267,30 @@
         </v-btn>
       </v-stepper-content>
     </v-stepper>
+    <v-bottom-sheet
+      eager
+      overlay-color="green darken-4"
+      v-model="loadingSheet.toggle"
+      inset
+    >
+      <v-card tile>
+        <v-progress-linear
+          :value="progress"
+          class="my-0"
+          :height="5"
+        ></v-progress-linear>
+
+        <v-list>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{this.loadingSheet.message}}</v-list-item-title>
+              <v-list-item-subtitle>{{this.progress+"%"}}</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-card>
+    </v-bottom-sheet>
+
   </v-sheet>
 </template>
 
@@ -289,6 +314,33 @@ export default {
         console.log(response.data);
       });
     },
+    setPhoto() {
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload File Photo...";
+      var data = new FormData();
+      data.append("file", this.photoFile);
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    upload: async (data, ini) => {
+      return axios({
+        method: "post",
+        url: "/api/user/store-file",
+        onUploadProgress: (progressEvent) => {
+          var percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          ini.progress = percentCompleted;
+        },
+        data,
+      });
+    },
     width() {
       if (this.windowWidth <= 600) {
         return "100%";
@@ -301,6 +353,7 @@ export default {
   },
   computed: {
     ...mapState(["jurusan", "user", "periode"]),
+    PhotoFileName: function () {},
   },
   watch: {
     user: {
@@ -323,6 +376,10 @@ export default {
   },
   data() {
     return {
+      progress: 0,
+      photoFile: null,
+      ijazahFile: null,
+      loadingSheet: { toggle: false, message: null, loading: 0 },
       isPembayaranLunas: false,
       isLulusUjian: false,
       isBiodataFilled: false,
