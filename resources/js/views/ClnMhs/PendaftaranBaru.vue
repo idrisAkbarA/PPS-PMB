@@ -104,12 +104,40 @@
           </v-row>
           <v-row>
             <v-text-field
+              v-if="!user.ijazah"
               color="green"
               filled
               prepend-inner-icon="mdi-attachment"
               label="Scan Ijazah Terakhir"
               @click="$refs.ijazah.$refs.input.click()"
             ></v-text-field>
+            <template v-else>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah File Ijazah"
+                  readonly
+                  @click="$refs.ijazah.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.ijazah)"
+                  color="green darken-2"
+                >lihat File Anda </v-btn>
+              </v-col>
+            </template>
             <v-file-input
               @change="setIjazah()"
               hide-input
@@ -148,7 +176,7 @@
           </v-row>
           <v-row>
             <v-text-field
-              v-if="user.pas_photo"
+              v-if="!user.pas_photo"
               color="green"
               filled
               prepend-inner-icon="mdi-attachment"
@@ -174,7 +202,13 @@
                 class="ml-1"
                 style="padding: 0 !important"
               >
-                <v-btn block>lihat foto anda </v-btn>
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.pas_photo)"
+                  color="green darken-2"
+                >lihat foto anda </v-btn>
               </v-col>
             </template>
             <!-- @change="updateUser(user)" -->
@@ -387,6 +421,11 @@ export default {
         },
         data,
       });
+    },
+    link(url) {
+      var a = "/" + url;
+      var link = a.replace(" ", "%20");
+      window.open(link, "_blank");
     },
     width() {
       if (this.windowWidth <= 600) {

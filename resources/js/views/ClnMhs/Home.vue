@@ -215,7 +215,7 @@ export default {
 .floating-button {
   position: fixed;
   z-index: 2;
-  bottom: 60px;
+  bottom: 50px;
   right: 40px;
 }
 .bg-with-overlay {
