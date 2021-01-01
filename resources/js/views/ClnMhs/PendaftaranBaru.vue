@@ -148,6 +148,7 @@
           </v-row>
           <v-row>
             <v-text-field
+              v-if="user.pas_photo"
               color="green"
               filled
               prepend-inner-icon="mdi-attachment"
@@ -155,6 +156,27 @@
               readonly
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
+            <template v-else>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ganti Pas Foto"
+                  readonly
+                  @click="$refs.photoProfile.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-btn block>lihat foto anda </v-btn>
+              </v-col>
+            </template>
             <!-- @change="updateUser(user)" -->
             <v-file-input
               @change="setPhoto()"

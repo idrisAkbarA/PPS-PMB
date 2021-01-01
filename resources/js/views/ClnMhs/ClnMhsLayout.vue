@@ -1,12 +1,22 @@
 <template>
-  <v-app>
+  <v-app v-scroll="onScroll">
     <v-app-bar
       app
       flat
-      color="transparent"
+      :color="offsetTop>0?'green darken-4':'transparent'"
       hide-on-scroll
       dense
     >
+      <template
+        v-if="offsetTop>0"
+        v-slot:img="{ props }"
+      >
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(6, 76, 90, 0.377), rgba(5, 94, 42,.8)"
+          :src="'/images/bg.jpg'"
+        ></v-img>
+      </template>
       <v-avatar :tile="true">
         <img
           :src="'/images/LogoUIN.png'"
@@ -43,7 +53,6 @@
 
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
-
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
@@ -63,7 +72,20 @@
 
 <script>
 export default {
+  mounted() {
+    console.log(this.$vuetify);
+  },
+  data() {
+    return {
+      offsetTop: 0,
+    };
+  },
   methods: {
+    onScroll(e) {
+      this.offsetTop = e.target.scrollingElement.scrollTop;
+      // console.log(this.offsetTop);
+      // console.log(e);
+    },
     logout() {
       axios
         .get("/api/logout")
