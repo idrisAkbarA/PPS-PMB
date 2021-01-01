@@ -32,7 +32,7 @@
         text
         @click="logout()"
       >
-        <v-icon>mdi-logout-variant</v-icon>keluar
+        <v-icon left>mdi-logout-variant</v-icon>keluar
       </v-btn>
       <!-- -->
     </v-app-bar>
@@ -47,6 +47,7 @@
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
+
     </v-main>
     <v-footer
       dark

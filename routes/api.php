@@ -30,6 +30,7 @@ Route::middleware('auth:petugas,cln_mahasiswa')->get('/user/{role}', 'AuthContro
 Route::middleware('auth:cln_mahasiswa')->get('/data/init-data-cln-mhs', 'UjianController@initAllDataClnMhs');
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/init', 'UjianController@initUjian');
 Route::middleware('auth:cln_mahasiswa')->put('/user/update', 'UserClnMhsController@update');
+Route::middleware('auth:cln_mahasiswa')->post('/user/store-file', 'UserClnMhsController@storeFile');
 
 // Calon Mahasiswa Routes
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
