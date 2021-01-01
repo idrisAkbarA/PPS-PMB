@@ -8,6 +8,15 @@ class Jurusan extends Model
 {
     protected $guarded = ['id'];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'kat_per_periode',
+    ];
+
     public static function boot()
     {
         parent::boot();
@@ -45,23 +54,55 @@ class Jurusan extends Model
         });
     }
 
+    // Getters
+    public static function getAll()
+    {
+        return self::with('kategori', 'tkj_default', 'tka_default')
+            ->latest()
+            ->get();
+    }
+
+    public function getKatPerPeriodeAttribute()
+    {
+        $currentPeriode = Periode::getActive();
+
+        if ($currentPeriode) {
+            $kategori = $currentPeriode->getKategori($this->id)->first();
+            if (is_null($kategori)) {
+                $kategori = collect([
+                    'periode_id' => $currentPeriode->id,
+                    'jurusan_id' => $this->id,
+                    'kat_tka' => $this->tka_default()->first(),
+                    'kat_tkj' => $this->tkj_default()->first()
+                ]);
+            }
+            return $kategori;
+        }
+        return null;
+    }
+
+    // Relations
     public function ujian()
     {
         return $this->hasMany('App\Ujian');
     }
+
     public function bank_soal()
     {
         return $this->hasMany('App\BankSoal');
     }
+
     public function kategori()
     {
         return $this->hasMany('App\Kategori');
     }
-    public function kat_tkj()
+
+    public function tkj_default()
     {
         return $this->hasOne('App\Kategori', 'id', 'kat_tkj_default');
     }
-    public function kat_tka()
+
+    public function tka_default()
     {
         return $this->hasOne('App\Kategori', 'id', 'kat_tka_default');
     }

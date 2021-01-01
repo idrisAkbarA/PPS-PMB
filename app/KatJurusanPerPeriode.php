@@ -19,6 +19,23 @@ class KatJurusanPerPeriode extends Model
         'nama_kat_tkj',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        // Create category per jurusan
+        self::creating(function ($model) {
+            $jurusan = Jurusan::find($model->jurusan_id);
+
+            if (!$model->kat_tka_id) {
+                $model->attributes['kat_tka_id'] = $jurusan->tka_default->id;
+            }
+            if (!$model->kat_tkj_id) {
+                $model->attributes['kat_tkj_id'] = $jurusan->tkj_default->id;
+            }
+        });
+    }
+
     // Getters
     public function getNamaJurusanAttribute()
     {

@@ -17,6 +17,23 @@ class Kategori extends Model
         'nama_jurusan',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        // Update jurusan if default category deleted
+        self::deleting(function ($model) {
+            $jurusan = $model->jurusan()->first();
+
+            if ($jurusan->kat_tka_default == $model->id) {
+                $jurusan->update(['kat_tka_default' => null]);
+            }
+            if ($jurusan->kat_tkj_default == $model->id) {
+                $jurusan->update(['kat_tkj_default' => null]);
+            }
+        });
+    }
+
     // Getters
     public function getNamaJurusanAttribute()
     {
@@ -27,11 +44,11 @@ class Kategori extends Model
 
     public static function getAll($jurusan_id = null)
     {
-        $kategori = self::with('jurusan')
+        $kategori = self::latest()
             ->when($jurusan_id, function ($q) use ($jurusan_id) {
                 return $q->where('jurusan_id', $jurusan_id);
             })
-            ->latest()
+
             ->get();
 
         return $kategori;
@@ -63,14 +80,17 @@ class Kategori extends Model
         }
     }
 
+    // Relations
     public function ujian_tka()
     {
         return $this->hasMany('App\Ujian', 'kat_tka_id');
     }
+
     public function ujian_tkj()
     {
         return $this->hasMany('App\Ujian', 'kat_tkj_id');
     }
+
     public function jurusan()
     {
         return $this->belongsTo('App\Jurusan');
