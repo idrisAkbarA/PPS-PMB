@@ -320,6 +320,7 @@ export default {
       this.loadingSheet.message = "Mengupload File Photo...";
       var data = new FormData();
       data.append("file", this.photoFile);
+      data.append("methodName", "savePhotoPath");
       this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";

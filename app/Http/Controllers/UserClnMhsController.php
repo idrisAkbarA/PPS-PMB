@@ -46,7 +46,20 @@ class UserClnMhsController extends Controller
         $fileName = "files/" . $user->id . '-' . $namaUser . '/' . Carbon::now()->format("Y-m-d-H-i-s") . $request->file->getClientOriginalName();
         $request->file->move(public_path('files/' . $user->id . '-' . $namaUser . '/' . $user['nim']), $fileName);
 
+        // call to a spesific method requested by user dynamically, such as savePhotoPath
+        if ($request->methodName != null) {
+            $method = $request->methodName;
+            $this->$method($fileName);
+        }
         return response()->json(['success' => 'You have successfully upload file.', 'file_name' => $fileName]);
+    }
+    private function savePhotoPath($path)
+    {
+        //this function save pas photo path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->pas_photo = $path;
+        $userInstance->save();
     }
 
     /**
