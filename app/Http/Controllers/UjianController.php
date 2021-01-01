@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ujian;
 use App\Periode;
 use App\Jurusan;
+use App\Library\Pembayaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -86,6 +87,18 @@ class UjianController extends Controller
             "message" => "Ujian Succesfully updated",
             "ujian_id" => $ujian->id
         ]);
+    }
+    public function generatePembayaran(Request $request)
+    {
+        $ujian_id = $request->ujian_id;
+        $pembayaran = new Pembayaran;
+        $code = $pembayaran->generate($ujian_id);
+
+        $ujian = Ujian::find($ujian_id);
+        $ujian->kode_bayar = $code;
+        $ujian->save();
+
+        return response()->json(['status' => true, 'message' => 'Kode bayar berhasil dibuat', 'code' => $code]);
     }
 
     /**

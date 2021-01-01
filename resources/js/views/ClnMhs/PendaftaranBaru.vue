@@ -12,7 +12,7 @@
     >
       <v-stepper-step
         color="green"
-        editable
+        :editable="isJurusanEditable"
         step="1"
         :complete="jurusanSelected?true:false"
       >
@@ -251,6 +251,7 @@
           class="mb-12 ml-2 mt-2 mr-2"
           elevation="5"
         >
+          <!-- v-if="!ujian.kode_bayar" -->
           <v-card-title>Lakukan Pembayaran</v-card-title>
           <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian masuk</v-card-subtitle>
           <v-card-text>
@@ -259,6 +260,7 @@
               large
               dark
               color="green darken-3"
+              @click="generateCode()"
             >Dapatkan Kode Pembayaran</v-btn>
           </v-card-text>
         </v-card>
@@ -363,10 +365,34 @@ export default {
     if (!this.jurusan) {
       this.initAllDataClnMhs();
     }
+    this.checkBiodata(this.user);
   },
   methods: {
     ...mapMutations(["setUser"]),
     ...mapActions(["initAllDataClnMhs", "updateUser"]),
+    checkBiodata(v) {
+      Object.keys(v).every((element) => {
+        if (element == "email_verified_at") {
+          return true;
+        }
+        if (v[element] == null) {
+          this.isBiodataFilled = false;
+          return false;
+        }
+        this.isBiodataFilled = true;
+        return true;
+      });
+      console.log(this.isBiodataFilled);
+    },
+    generateCode() {
+      var payload = { ujian_id: this.ujian_id };
+      axios
+        .post("/api/ujian/generate-pembayaran", payload)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {});
+    },
     initUjian() {
       var periode_id = this.periode[0].id;
       var jurusan_id = this.jurusanSelected;
@@ -445,18 +471,7 @@ export default {
     user: {
       deep: true,
       handler: function (v) {
-        Object.keys(v).every((element) => {
-          if (element == "email_verified_at") {
-            return true;
-          }
-          if (v[element] == null) {
-            this.isBiodataFilled = false;
-            return false;
-          }
-          this.isBiodataFilled = true;
-          return true;
-        });
-        console.log(this.isBiodataFilled);
+        this.checkBiodata(v);
       },
     },
   },
@@ -466,12 +481,15 @@ export default {
       photoFile: null,
       ijazahFile: null,
       loadingSheet: { toggle: false, message: null, loading: 0 },
+      isJurusanEditable: true,
       isPembayaranLunas: false,
       isLulusUjian: false,
       isBiodataFilled: false,
       ruleTemuRamah: [() => this.isLulusUjian != false],
       ruleUjian: [() => this.isPembayaranLunas != false],
-      rulePembayaran: [() => this.isBiodataFilled != false],
+      rulePembayaran: [
+        () => this.isBiodataFilled != false && this.jurusanSelected != null,
+      ],
       ruleBiodata: [() => this.jurusanSelected != null],
       ujian_id: null,
       jurusanSelected: null,

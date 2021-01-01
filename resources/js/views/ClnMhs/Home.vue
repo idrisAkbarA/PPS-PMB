@@ -130,6 +130,7 @@
       class="floating-button"
       color="green darken-2"
       dark
+      x-large
       elevation="20"
       @click="$router.push({name:'Pendaftaran Baru'})"
     >
