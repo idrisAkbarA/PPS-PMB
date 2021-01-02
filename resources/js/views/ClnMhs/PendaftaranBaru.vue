@@ -260,8 +260,16 @@
               large
               dark
               color="green darken-3"
+              v-if="!kodePembayaran"
               @click="generateCode()"
             >Dapatkan Kode Pembayaran</v-btn>
+            <div v-if="kodePembayaran">
+              <span>
+                Segera membayar dengan kode berikut
+              </span>
+              <h1>{{kodePembayaran}}</h1>
+            </div>
+
           </v-card-text>
         </v-card>
         <v-btn
@@ -390,6 +398,9 @@ export default {
         .post("/api/ujian/generate-pembayaran", payload)
         .then((response) => {
           console.log(response.data);
+          this.kodePembayaran = response.data.code;
+          this.isJurusanEditable = false;
+          this.loopCheckPembayaran();
         })
         .catch((error) => {});
     },
@@ -448,6 +459,39 @@ export default {
         data,
       });
     },
+    async loopCheckPembayaran() {
+      function sleep(ms) {
+        return new Promise((res) => setTimeout(res, ms));
+      }
+      let myAsyncFunc = async function (ini) {
+        console.log("Sleeping");
+        await sleep(3000);
+        console.log("Done");
+        // console.log(ini);
+        ini.checkPembayaran(ini.ujian_id, ini).then((response) => {
+          if (response.data.status) {
+            ini.isPembayaranLunas = true;
+            return 0;
+          }
+          ini.loopCheckPembayaran();
+        });
+      };
+      myAsyncFunc(this);
+    },
+    checkPembayaran: async (ujian_id, ini) => {
+      var payload = { ujian_id };
+      return new Promise((resolve, reject) => {
+        axios
+          .post("/api/ujian/check-pembayaran", payload)
+          .then((response) => {
+            if (response.data.status) ini.isPembayaranLunas = true;
+            resolve(response);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
+    },
     link(url) {
       var a = "/" + url;
       var link = a.replace(" ", "%20");
@@ -477,6 +521,7 @@ export default {
   },
   data() {
     return {
+      kodePembayaran: null,
       progress: 0,
       photoFile: null,
       ijazahFile: null,

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Ujian;
 use App\Periode;
 use App\Jurusan;
+use App\KatJurusanPerPeriode;
 use App\Library\Pembayaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class UjianController extends Controller
@@ -60,16 +62,25 @@ class UjianController extends Controller
     }
     public function initUjian(Request $request)
     {
+        // this function is the called from tambah pendaftaran baru
+        // to init or store the ujian for the first time
         $user = Auth::guard("cln_mahasiswa")->user();
         $periode_id = $request->periode_id;
+
         $jurusan_id = $request->jurusan_id;
+        $kategori = KatJurusanPerPeriode::where([
+            'periode_id' => $periode_id,
+            'jurusan_id' => $jurusan_id
+        ])->first();
         $ujian_id = $request->ujian_id ?? null;
         if (!$ujian_id) {
             $ujian = Ujian::create(
                 [
                     "user_cln_mhs_id" => $user->id,
                     "periode_id" => $periode_id,
-                    "jurusan_id" => $jurusan_id
+                    "jurusan_id" => $jurusan_id,
+                    'kat_tka_id' => $kategori->kat_tka_id,
+                    'kat_tkj_id' => $kategori->kat_tkj_id
                 ]
             );
             return response()->json([
@@ -80,6 +91,8 @@ class UjianController extends Controller
         }
         $ujian = ujian::find($ujian_id);
         $ujian->jurusan_id = $jurusan_id;
+        $ujian->kat_tka_id = $kategori->kat_tka_id;
+        $ujian->kat_tkj_id = $kategori->kat_tkj_id;
         $ujian->save();
 
         return response()->json([
@@ -99,6 +112,43 @@ class UjianController extends Controller
         $ujian->save();
 
         return response()->json(['status' => true, 'message' => 'Kode bayar berhasil dibuat', 'code' => $code]);
+    }
+    public function pay(Request $request)
+    {
+        // try {
+        //code...
+        $kode_bayar = $request->kode_bayar;
+        $ujian = Ujian::where(['kode_bayar' => $kode_bayar])->first();
+        $ujian->lunas_at = Carbon::now();
+        $ujian->save();
+        return response()->json([
+            'status' => true,
+            "message" => 'Pembayaran berhasil',
+        ]);
+        // } catch (\Throwable $th) {
+        //     //throw $th;
+        //     return response()->json([
+        //         'status' => false,
+        //         "message" => 'something went wrong',
+        //         'error' => $th
+        //     ]);
+        // }
+    }
+    public function checkPembayaran(Request $request)
+    {
+        $ujian_id = $request->ujian_id;
+        $ujian = Ujian::find($ujian_id);
+        if ($ujian->lunas_at) {
+            return response()->json([
+                'status' => true,
+                "message" => 'Pembayaran sudah lunas',
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                "message" => 'Pembayaran belum lunas',
+            ]);
+        }
     }
 
     /**

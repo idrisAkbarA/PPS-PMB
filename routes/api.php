@@ -32,6 +32,8 @@ Route::middleware('auth:cln_mahasiswa')->post('/ujian/init', 'UjianController@in
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/generate-pembayaran', 'UjianController@generatePembayaran');
 Route::middleware('auth:cln_mahasiswa')->put('/user/update', 'UserClnMhsController@update');
 Route::middleware('auth:cln_mahasiswa')->post('/user/store-file', 'UserClnMhsController@storeFile');
+Route::post('/ujian/pay', 'UjianController@pay');
+Route::middleware('auth:cln_mahasiswa')->post('/ujian/check-pembayaran', 'UjianController@checkPembayaran');
 
 // Calon Mahasiswa Routes
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
