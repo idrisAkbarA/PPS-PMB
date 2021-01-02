@@ -263,11 +263,15 @@
               v-if="!kodePembayaran"
               @click="generateCode()"
             >Dapatkan Kode Pembayaran</v-btn>
-            <div v-if="kodePembayaran">
+            <div v-if="kodePembayaran && !isPembayaranLunas">
               <span>
                 Segera membayar dengan kode berikut
               </span>
               <h1>{{kodePembayaran}}</h1>
+            </div>
+            <div v-if="isPembayaranLunas">
+              <h1>Pembayaran Berhasil!</h1>
+              <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
             </div>
 
           </v-card-text>
