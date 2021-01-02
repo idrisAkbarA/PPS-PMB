@@ -28,6 +28,11 @@ class UjianController extends Controller
         return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
     }
 
+    public function getUjian(Request $request)
+    {
+        $jurusan_id = $request->id;
+        $ujian = Ujian::find($jurusan_id);
+    }
     public function index(Request $request)
     {
         $periode_id = $request->periode;

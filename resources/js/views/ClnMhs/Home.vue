@@ -156,8 +156,8 @@ export default {
     ...mapMutations(["setUjianSelected"]),
     link() {},
     goToPendaftaran(item) {
-      this.setSelectedUjian(item);
-      this.$router.push({ name: "Pendaftaran" });
+      this.setUjianSelected(item);
+      this.$router.push(`daftar/${item.id}`);
     },
     createUjian() {
       var periode_id = this.periode[0].id;
