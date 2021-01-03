@@ -109,6 +109,34 @@
             ></v-textarea>
           </v-row>
           <v-row>
+            <v-col
+              class="mr-1"
+              style="padding: 0 !important"
+            >
+              <v-text-field
+                color="green"
+                filled
+                @change="updateUser(user)"
+                prepend-inner-icon="mdi-attachment"
+                label="Nilai IPK"
+                v-model="user.nilai_ipk"
+              ></v-text-field>
+            </v-col>
+            <v-col
+              class="ml-1"
+              style="padding: 0 !important"
+            >
+              <v-text-field
+                color="green"
+                filled
+                @change="updateUser(user)"
+                prepend-inner-icon="mdi-attachment"
+                label="Nilai Bahasa"
+                v-model="user.nilai_bhs"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
             <v-text-field
               v-if="!user.ijazah"
               color="green"
@@ -152,34 +180,7 @@
               v-model="ijazahFile"
             ></v-file-input>
           </v-row>
-          <v-row>
-            <v-col
-              class="mr-1"
-              style="padding: 0 !important"
-            >
-              <v-text-field
-                color="green"
-                filled
-                @change="updateUser(user)"
-                prepend-inner-icon="mdi-attachment"
-                label="Nilai IPK"
-                v-model="user.nilai_ipk"
-              ></v-text-field>
-            </v-col>
-            <v-col
-              class="ml-1"
-              style="padding: 0 !important"
-            >
-              <v-text-field
-                color="green"
-                filled
-                @change="updateUser(user)"
-                prepend-inner-icon="mdi-attachment"
-                label="Nilai Bahasa"
-                v-model="user.nilai_bhs"
-              ></v-text-field>
-            </v-col>
-          </v-row>
+
           <v-row>
             <v-text-field
               v-if="!user.pas_photo"
@@ -294,7 +295,7 @@
       </v-stepper-content>
 
       <v-stepper-step
-        :editable="isPembayaranLunas"
+        :editable="isPembayaranLunas?true:false"
         color="green"
         step="4"
         :rules="ruleUjian"
@@ -397,14 +398,32 @@ export default {
   },
   mounted() {
     if (this.user) {
+      var ini = this;
       this.checkBiodata(this.user);
-      this.jurusanSelected = this.ujianSelected.jurusan_id;
-      this.ujian_id = this.ujianSelected.id;
+      this.setData(ini);
     }
   },
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser"]),
+    setData(ini) {
+      ini.jurusanSelected = ini.ujianSelected.jurusan_id;
+      ini.ujian_id = ini.ujianSelected.id;
+      ini.kodePembayaran = ini.ujianSelected.kode_bayar;
+      if (ini.kodePembayaran) {
+        ini.isJurusanEditable = false;
+      }
+      if (ini.ujianSelected.lunas_at)
+        ini.isPembayaranLunas = ini.ujianSelected.lunas_at;
+
+      // set stepper position
+      if (ini.jurusanSelected != null) ini.stepper = 2;
+      if (ini.isBiodataFilled != false && ini.jurusanSelected != null)
+        ini.stepper = 3;
+      if (ini.isPembayaranLunas != false) ini.stepper = 4;
+      if (ini.isLulusUjian != false) ini.stepper = 5;
+      console.log("islulus", ini.isLulusUjian);
+    },
     initPendaftaran(vm) {
       // this method called if the page get reloaded or direct access via url
       // this method initialize the data that this page needed
@@ -419,8 +438,7 @@ export default {
           vm.setUser(response.data.user);
           vm.setJurusan(response.data.jurusan);
           vm.setUjianSelected(response.data.ujian);
-          vm.jurusanSelected = vm.ujianSelected.jurusan_id;
-          vm.ujian_id = vm.ujianSelected.id;
+          vm.setData(vm);
         })
         .catch((error) => {});
     },
