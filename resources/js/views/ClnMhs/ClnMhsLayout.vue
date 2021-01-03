@@ -27,7 +27,7 @@
         <v-toolbar-title>
           <span class="font-weight-bold ml-4">
             <router-link
-              :to="'Home'"
+              :to="{name:'Home Calon Mahasiswa'}"
               style="color:white; text-decoration: none; "
             >
               Pendaftaran Pasca Sarjana

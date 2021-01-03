@@ -3,11 +3,17 @@
   <v-sheet
     class="mx-auto"
     :width="width()"
+    elevation="10"
   >
-
+    <v-card v-if="!ujianSelected">
+      <v-card-text>
+        <v-progress-circular indeterminate></v-progress-circular>
+      </v-card-text>
+    </v-card>
     <v-stepper
       non-linear
       vertical
+      v-else
       v-model="stepper"
     >
       <v-stepper-step
@@ -259,6 +265,7 @@
               block
               large
               dark
+              :loading="isLoading"
               color="green darken-3"
               v-if="!kodePembayaran"
               @click="generateCode()"
@@ -373,15 +380,50 @@
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
 export default {
+  // first check if this page reloaded before or accessed directly via url
+  beforeRouteEnter(to, from, next) {
+    if (from.name == null) {
+      next((vm) => {
+        console.log(vm.initPendaftaran(vm));
+      });
+    } else {
+      next();
+    }
+  },
   created() {
     if (!this.jurusan) {
       this.initAllDataClnMhs();
     }
-    this.checkBiodata(this.user);
+  },
+  mounted() {
+    if (this.user) {
+      this.checkBiodata(this.user);
+      this.jurusanSelected = this.ujianSelected.jurusan_id;
+      this.ujian_id = this.ujianSelected.id;
+    }
   },
   methods: {
-    ...mapMutations(["setUser"]),
+    ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser"]),
+    initPendaftaran(vm) {
+      // this method called if the page get reloaded or direct access via url
+      // this method initialize the data that this page needed
+      console.log(vm);
+      const thePath = window.location.pathname;
+      const getLastItem = (thePath) =>
+        thePath.substring(thePath.lastIndexOf("/") + 1);
+      var payload = { jurusan_id: getLastItem(thePath) };
+      axios
+        .post("/api/ujian/get-pendaftaran", payload)
+        .then((response) => {
+          vm.setUser(response.data.user);
+          vm.setJurusan(response.data.jurusan);
+          vm.setUjianSelected(response.data.ujian);
+          vm.jurusanSelected = vm.ujianSelected.jurusan_id;
+          vm.ujian_id = vm.ujianSelected.id;
+        })
+        .catch((error) => {});
+    },
     checkBiodata(v) {
       Object.keys(v).every((element) => {
         if (element == "email_verified_at") {
@@ -397,11 +439,14 @@ export default {
       console.log(this.isBiodataFilled);
     },
     generateCode() {
+      // this method generate payment code
+      this.isLoading = true;
       var payload = { ujian_id: this.ujian_id };
       axios
         .post("/api/ujian/generate-pembayaran", payload)
         .then((response) => {
           console.log(response.data);
+          this.isLoading = false;
           this.kodePembayaran = response.data.code;
           this.isJurusanEditable = false;
           this.loopCheckPembayaran();
@@ -512,7 +557,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["jurusan", "user", "periode"]),
+    ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
     PhotoFileName: function () {},
   },
   watch: {
@@ -525,6 +570,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       kodePembayaran: null,
       progress: 0,
       photoFile: null,

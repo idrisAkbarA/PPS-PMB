@@ -28,10 +28,18 @@ class UjianController extends Controller
         return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
     }
 
-    public function getUjian(Request $request)
+    public function getPendaftaran(Request $request)
     {
-        $jurusan_id = $request->id;
+        $user = Auth::guard('cln_mahasiswa')->user();
+        $jurusan = Jurusan::all();
+        $jurusan_id = $request->jurusan_id;
         $ujian = Ujian::find($jurusan_id);
+        return response()->json([
+            "user" => $user,
+            "jurusan" => $jurusan,
+            "ujian" => $ujian
+
+        ]);
     }
     public function index(Request $request)
     {

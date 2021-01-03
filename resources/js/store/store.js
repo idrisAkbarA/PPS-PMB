@@ -21,7 +21,7 @@ export default new Vuex.Store({
         ujian: null,
         periode: null,
         isLoading: false,
-        ujianSelected: {},
+        ujianSelected: null,
     },
     mutations: {
         toggleBottomSheet(state, data) {
