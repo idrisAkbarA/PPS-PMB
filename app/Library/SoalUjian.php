@@ -7,6 +7,7 @@ use App\BankSoal;
 use App\Jurusan;
 use App\Ujian;
 use App\Periode;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 
@@ -43,8 +44,36 @@ class SoalUjian
         $soalInstance->save();
 
         $ujianInstance = Ujian::find($ujian_id);
+
+        // calculate ujian deadline
+        $batas_ujian = self::calcDeadline($ujian_id);
+
+        // update ujian
         $ujianInstance->soal_id = $soalInstance->id;
+        $ujianInstance->batas_ujian = $batas_ujian;
         $ujianInstance->save();
+    }
+    public function calcDeadline($ujian_id)
+    {
+        $ujianInstance = Ujian::find($ujian_id);
+
+        $periode_id =  $ujianInstance->periode_id;
+        $periode = Periode::find($periode_id);
+        $range_ujian = $periode->range_ujian;
+        $akhir_periode = Carbon::createFromFormat('Y-m-d', $periode->akhir_periode);
+        $temp_batas_ujian = Carbon::now()->addDays($range_ujian);
+        $selisih = $temp_batas_ujian->diffInDays($akhir_periode, false);
+        // $selisih = $akhir_periode->diffInDays($temp_batas_ujian, false);
+        if ($selisih >= 0) {
+            $batas_ujian = $temp_batas_ujian;
+        } else {
+            $batas_ujian = $akhir_periode;
+        }
+        return $batas_ujian;
+        // return [$akhir_periode, $temp_batas_ujian, $selisih];
+        // return $selisih;
+        // return [$akhir_periode, $temp_batas_ujian];
+        // return $akhir_periode;
     }
     public function get($type, $id)
     {

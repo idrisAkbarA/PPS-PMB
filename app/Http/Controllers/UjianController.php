@@ -9,6 +9,7 @@ use App\KatJurusanPerPeriode;
 use App\Library\Pembayaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use App\Library\SoalUjian;
 use Illuminate\Support\Facades\Auth;
 
 class UjianController extends Controller
@@ -22,8 +23,8 @@ class UjianController extends Controller
     {
         $user = Auth::guard('cln_mahasiswa')->user();
         $periode = Periode::latest()->get();
-        $ujian_temp = Ujian::where(['user_cln_mhs_id' => $user->id])->with(['jurusan', 'periode'])->get();
-        $jurusan = Jurusan::all();
+        $ujian_temp = Ujian::where(['user_cln_mhs_id' => $user->id])->orderBy('id', 'DESC')->with(['jurusan', 'periode'])->get();
+        $jurusan = Jurusan::orderBy('id', 'DESC')->get();
         $ujian = count($ujian_temp) > 0 ? $ujian_temp : null;
         return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
     }
@@ -120,10 +121,26 @@ class UjianController extends Controller
         $pembayaran = new Pembayaran;
         $code = $pembayaran->generate($ujian_id);
 
+        //save kode bayar
         $ujian = Ujian::find($ujian_id);
         $ujian->kode_bayar = $code;
         $ujian->save();
 
+        // generate soal 
+        $jurusan_id = $ujian->jurusan_id;
+        $tka_id = $ujian->kat_tka_id;
+        $tkj_id = $ujian->kat_tkj_id;
+        $jum_tka = Periode::find($ujian->periode_id)->jumlah_tka;
+        $jum_tkd = Periode::find($ujian->periode_id)->jumlah_tkj;
+        $soalUjian = new SoalUjian;
+        $soalUjian->generate(
+            $jurusan_id,
+            $tka_id,
+            $tkj_id,
+            $jum_tka,
+            $jum_tkd,
+            $ujian_id
+        );
         return response()->json(['status' => true, 'message' => 'Kode bayar berhasil dibuat', 'code' => $code]);
     }
     public function pay(Request $request)
@@ -170,6 +187,11 @@ class UjianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function test(Request $request)
+    {
+        $soalUjian = new SoalUjian;
+        return $soalUjian->setDeadline($request->id);
+    }
     public function store(Request $request)
     {
         //

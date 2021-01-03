@@ -494,7 +494,7 @@ export default {
         this.setUser(response.data.user);
         setTimeout(() => {
           this.loadingSheet.toggle = false;
-        }, 1500);
+        }, 1000);
       });
     },
     setPhoto() {
@@ -510,7 +510,7 @@ export default {
         this.setUser(response.data.user);
         setTimeout(() => {
           this.loadingSheet.toggle = false;
-        }, 1500);
+        }, 1000);
       });
     },
     upload: async (data, ini) => {
