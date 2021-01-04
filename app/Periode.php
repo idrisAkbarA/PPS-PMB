@@ -46,6 +46,9 @@ class Periode extends Model
         $currentPeriode = self::with('kategori')
             ->where('is_active', 1)
             ->first();
+        if (empty($currentPeriode)) {
+            $currentPeriode = null;
+        }
         return $currentPeriode;
     }
 

@@ -241,6 +241,11 @@ export default {
           title: "Pendaftaran",
           to: `/admin/${petugas}/kelola-pendaftaran`,
         },
+        {
+          icon: "mdi-book-multiple",
+          title: "Temu Ramah",
+          to: `/admin/${petugas}/kelola-temu-ramah`,
+        },
         // {
         //   icon: "mdi-office-building",
         //   title: "Instansi",
@@ -274,6 +279,11 @@ export default {
         {
           icon: "mdi-file-document",
           title: "Kelola Kategori",
+          to: `/admin/${petugas}/kelola-kategori`,
+        },
+        {
+          icon: "mdi-file-document",
+          title: "Hasil Ujian",
           to: `/admin/${petugas}/kelola-kategori`,
         },
       ];
