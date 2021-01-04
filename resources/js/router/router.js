@@ -5,6 +5,7 @@ import store from '../store/store'
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
 import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
+import PanduanPendaftaran from "../views/ClnMhs/PanduanPendaftaran.vue";
 
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
@@ -33,7 +34,12 @@ const routes = [
                 beforeEnter(to, from, next) {
                     if (from.name == null) { next({ name: "Home Calon Mahasiswa" }); } else next();
                 },
-
+                
+            },
+            {
+                path: "panduan",
+                name: "Panduan Pendaftaran",
+                component: PanduanPendaftaran
             },
         ]
     },
