@@ -15,6 +15,7 @@ import KelolaPeriode from "../views/petugas/Admin/KelolaPeriode.vue";
 import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
 import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
 import KelolaPendaftaran from "../views/petugas/Admin/KelolaPendaftaran.vue";
+import KelolaTemuRamah from "../views/petugas/Admin/KelolaTemuRamah.vue";
 import KelolaKategori from "../views/petugas/Admin/KelolaKategori.vue";
 
 Vue.use(VueRouter);
@@ -40,7 +41,7 @@ const routes = [
                 beforeEnter(to, from, next) {
                     if (from.name == null) { next({ name: "Home Calon Mahasiswa" }); } else next();
                 },
-                
+
             },
             {
                 path: "panduan",
@@ -78,6 +79,11 @@ const routes = [
                 path: "kelola-pendaftaran",
                 name: "Kelola Pendaftaran",
                 component: KelolaPendaftaran
+            },
+            {
+                path: "kelola-temu-ramah",
+                name: "Kelola Temu Ramah",
+                component: KelolaTemuRamah
             },
             {
                 path: "kelola-soal",

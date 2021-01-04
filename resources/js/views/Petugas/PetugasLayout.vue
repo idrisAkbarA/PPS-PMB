@@ -151,6 +151,17 @@
           small
           class="green darken-3"
           dark
+          v-if="checkRoute('Kelola Temu Ramah') && currentPeriode"
+          @click="setBottomSheetToTrue"
+        >
+          <v-icon> mdi-plus</v-icon> tambah jadwal
+        </v-btn>
+      </v-slide-y-transition>
+      <v-slide-y-transition>
+        <v-btn
+          small
+          class="green darken-3"
+          dark
           v-if="checkRoute('Kelola Kategori')"
           @click="setBottomSheetToTrue"
         >
@@ -176,10 +187,11 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    ...mapActions(["getCurrentPeriode"]),
     setBottomSheetToTrue() {
       this.toggleBottomSheet(true);
     },
@@ -214,7 +226,7 @@ export default {
     source: String,
   },
   computed: {
-    ...mapState([""]),
+    ...mapState(["currentPeriode"]),
     nama() {
       return this.$store.state.name;
     },
@@ -298,6 +310,7 @@ export default {
   mounted() {
     console.log(this.$route);
     console.log(this.$route.matched);
+    this.getCurrentPeriode();
     // this.$vuetify.theme.dark = true;
   },
 };

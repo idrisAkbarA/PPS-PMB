@@ -83,3 +83,11 @@ Route::prefix('kategori')->name('kategori')->group(function () {
 Route::prefix('kategori-periode')->name('kategori')->group(function () {
     Route::post('/', 'KatJurusanPerPeriodeController@store')->name('store');
 });
+
+// Temu Ramah Routes
+Route::prefix('temu-ramah')->name('temu-ramah')->group(function () {
+    Route::get('/', 'JadwalTRController@index')->name('index');
+    Route::post('/', 'JadwalTRController@store')->name('store');
+    Route::put('/{jadwal}', 'JadwalTRController@update')->name('update');
+    Route::delete('/{jadwal}', 'JadwalTRController@destroy')->name('destroy');
+});

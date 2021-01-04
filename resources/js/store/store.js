@@ -15,6 +15,7 @@ export default new Vuex.Store({
         urlPendaftaran: "/api/ujian",
         urlKategori: "/api/kategori",
         urlKategoriPeriode: "/api/kategori-periode",
+        urlTemuRamah: "/api/temu-ramah",
         isBottomSheetOpen: false,
         currentPeriode: null, // current active periode
         jurusan: null,
@@ -43,7 +44,7 @@ export default new Vuex.Store({
             state.ujian = data;
         },
         setCurrentPeriode(state, data) {
-            state.currentPeriode = data;
+            state.currentPeriode = data.id ? data : null;
         },
     },
     actions: {
