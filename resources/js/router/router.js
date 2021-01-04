@@ -5,6 +5,8 @@ import store from '../store/store'
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
 import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
+import PanduanPendaftaran from "../views/ClnMhs/PanduanPendaftaran.vue";
+import Pendaftaran from "../views/ClnMhs/Pendaftaran.vue";
 
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
@@ -27,13 +29,23 @@ const routes = [
                 component: HomeClnMhs
             },
             {
+                path: "daftar/:id",
+                name: "Pendaftaran",
+                component: Pendaftaran
+            },
+            {
                 path: "daftar",
                 name: "Pendaftaran Baru",
                 component: PendaftaranBaru,
                 beforeEnter(to, from, next) {
                     if (from.name == null) { next({ name: "Home Calon Mahasiswa" }); } else next();
                 },
-
+                
+            },
+            {
+                path: "panduan",
+                name: "Panduan Pendaftaran",
+                component: PanduanPendaftaran
             },
         ]
     },
@@ -85,6 +97,13 @@ const routes = [
 const router = new VueRouter({
     mode: "history",
     base: "/user/",
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 0 }
+        }
+    },
     routes
 });
 router.beforeEach((to, from, next) => {

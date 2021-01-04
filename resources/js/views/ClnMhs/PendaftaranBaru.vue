@@ -12,7 +12,7 @@
     >
       <v-stepper-step
         color="green"
-        editable
+        :editable="isJurusanEditable"
         step="1"
         :complete="jurusanSelected?true:false"
       >
@@ -104,13 +104,47 @@
           </v-row>
           <v-row>
             <v-text-field
+              v-if="!user.ijazah"
               color="green"
               filled
-              @change="updateUser(user)"
               prepend-inner-icon="mdi-attachment"
               label="Scan Ijazah Terakhir"
-              v-model="user.ijazah"
+              @click="$refs.ijazah.$refs.input.click()"
             ></v-text-field>
+            <template v-else>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah File Ijazah"
+                  readonly
+                  @click="$refs.ijazah.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.ijazah)"
+                  color="green darken-2"
+                >lihat File Anda </v-btn>
+              </v-col>
+            </template>
+            <v-file-input
+              @change="setIjazah()"
+              hide-input
+              ref="ijazah"
+              class="d-none"
+              v-model="ijazahFile"
+            ></v-file-input>
           </v-row>
           <v-row>
             <v-col
@@ -142,19 +176,48 @@
           </v-row>
           <v-row>
             <v-text-field
+              v-if="!user.pas_photo"
               color="green"
               filled
-              @change="updateUser(user)"
               prepend-inner-icon="mdi-attachment"
               label="Upload Pas Foto"
-              v-model="user.nilai_bhs"
+              readonly
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
+            <template v-else>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ganti Pas Foto"
+                  readonly
+                  @click="$refs.photoProfile.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.pas_photo)"
+                  color="green darken-2"
+                >lihat foto anda </v-btn>
+              </v-col>
+            </template>
+            <!-- @change="updateUser(user)" -->
             <v-file-input
+              @change="setPhoto()"
               hide-input
               ref="photoProfile"
               class="d-none"
-              v-model="user.pas_photo"
+              v-model="photoFile"
             ></v-file-input>
           </v-row>
         </v-container>
@@ -188,6 +251,7 @@
           class="mb-12 ml-2 mt-2 mr-2"
           elevation="5"
         >
+          <!-- v-if="!ujian.kode_bayar" -->
           <v-card-title>Lakukan Pembayaran</v-card-title>
           <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian masuk</v-card-subtitle>
           <v-card-text>
@@ -196,7 +260,21 @@
               large
               dark
               color="green darken-3"
+              :loading="isLoading"
+              v-if="!kodePembayaran"
+              @click="generateCode()"
             >Dapatkan Kode Pembayaran</v-btn>
+            <div v-if="kodePembayaran && !isPembayaranLunas">
+              <span>
+                Segera membayar dengan kode berikut
+              </span>
+              <h1>{{kodePembayaran}}</h1>
+            </div>
+            <div v-if="isPembayaranLunas">
+              <h1>Pembayaran Berhasil!</h1>
+              <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
+            </div>
+
           </v-card-text>
         </v-card>
         <v-btn
@@ -266,19 +344,74 @@
         </v-btn>
       </v-stepper-content>
     </v-stepper>
+    <v-bottom-sheet
+      eager
+      overlay-color="green darken-4"
+      v-model="loadingSheet.toggle"
+      inset
+    >
+      <v-card tile>
+        <v-progress-linear
+          :value="progress"
+          class="my-0"
+          :height="5"
+        ></v-progress-linear>
+
+        <v-list>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{this.loadingSheet.message}}</v-list-item-title>
+              <v-list-item-subtitle>{{this.progress+"%"}}</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-card>
+    </v-bottom-sheet>
+
   </v-sheet>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   created() {
     if (!this.jurusan) {
       this.initAllDataClnMhs();
     }
+    this.checkBiodata(this.user);
   },
   methods: {
+    ...mapMutations(["setUser"]),
     ...mapActions(["initAllDataClnMhs", "updateUser"]),
+    checkBiodata(v) {
+      Object.keys(v).every((element) => {
+        if (element == "email_verified_at") {
+          return true;
+        }
+        if (v[element] == null) {
+          this.isBiodataFilled = false;
+          return false;
+        }
+        this.isBiodataFilled = true;
+        return true;
+      });
+      console.log(this.isBiodataFilled);
+    },
+    generateCode() {
+      // this method generate payment code
+      this.isLoading = true;
+      var payload = { ujian_id: this.ujian_id };
+      axios
+        .post("/api/ujian/generate-pembayaran", payload)
+        .then((response) => {
+          console.log(response.data);
+          this.isLoading = false;
+          this.kodePembayaran = response.data.code;
+          this.isJurusanEditable = false;
+          this.loopCheckPembayaran();
+        })
+        .catch((error) => {});
+    },
     initUjian() {
       var periode_id = this.periode[0].id;
       var jurusan_id = this.jurusanSelected;
@@ -288,6 +421,89 @@ export default {
         this.ujian_id = response.data.ujian_id;
         console.log(response.data);
       });
+    },
+    setIjazah() {
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload File Ijazah...";
+      var data = new FormData();
+      data.append("file", this.ijazahFile);
+      data.append("methodName", "saveIjazahPath");
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    setPhoto() {
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload File Photo...";
+      var data = new FormData();
+      data.append("file", this.photoFile);
+      data.append("methodName", "savePhotoPath");
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    upload: async (data, ini) => {
+      return axios({
+        method: "post",
+        url: "/api/user/store-file",
+        onUploadProgress: (progressEvent) => {
+          var percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          ini.progress = percentCompleted;
+        },
+        data,
+      });
+    },
+    async loopCheckPembayaran() {
+      function sleep(ms) {
+        return new Promise((res) => setTimeout(res, ms));
+      }
+      let myAsyncFunc = async function (ini) {
+        console.log("Sleeping");
+        await sleep(3000);
+        console.log("Done");
+        // console.log(ini);
+        ini.checkPembayaran(ini.ujian_id, ini).then((response) => {
+          if (response.data.status) {
+            ini.isPembayaranLunas = true;
+            return 0;
+          }
+          ini.loopCheckPembayaran();
+        });
+      };
+      myAsyncFunc(this);
+    },
+    checkPembayaran: async (ujian_id, ini) => {
+      var payload = { ujian_id };
+      return new Promise((resolve, reject) => {
+        axios
+          .post("/api/ujian/check-pembayaran", payload)
+          .then((response) => {
+            if (response.data.status) ini.isPembayaranLunas = true;
+            resolve(response);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
+    },
+    link(url) {
+      var a = "/" + url;
+      var link = a.replace(" ", "%20");
+      window.open(link, "_blank");
     },
     width() {
       if (this.windowWidth <= 600) {
@@ -301,34 +517,33 @@ export default {
   },
   computed: {
     ...mapState(["jurusan", "user", "periode"]),
+    PhotoFileName: function () {},
   },
   watch: {
     user: {
       deep: true,
       handler: function (v) {
-        Object.keys(v).every((element) => {
-          if (element == "email_verified_at") {
-            return true;
-          }
-          if (v[element] == null) {
-            this.isBiodataFilled = false;
-            return false;
-          }
-          this.isBiodataFilled = true;
-          return true;
-        });
-        console.log(this.isBiodataFilled);
+        this.checkBiodata(v);
       },
     },
   },
   data() {
     return {
+      isLoading: false,
+      kodePembayaran: null,
+      progress: 0,
+      photoFile: null,
+      ijazahFile: null,
+      loadingSheet: { toggle: false, message: null, loading: 0 },
+      isJurusanEditable: true,
       isPembayaranLunas: false,
       isLulusUjian: false,
       isBiodataFilled: false,
       ruleTemuRamah: [() => this.isLulusUjian != false],
       ruleUjian: [() => this.isPembayaranLunas != false],
-      rulePembayaran: [() => this.isBiodataFilled != false],
+      rulePembayaran: [
+        () => this.isBiodataFilled != false && this.jurusanSelected != null,
+      ],
       ruleBiodata: [() => this.jurusanSelected != null],
       ujian_id: null,
       jurusanSelected: null,

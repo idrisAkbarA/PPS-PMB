@@ -9,6 +9,7 @@
           href="#"
           class="font-weight-black text-white"
           style="text-decoration:none"
+          @click="$router.push({name:'Panduan Pendaftaran'})"
         >disini</a>. Silahkan mendaftar!
       </h4>
     </div>
@@ -79,9 +80,12 @@
           md="6"
           lg="3"
         >
-          <v-card elevation="10">
-            <v-card-title class="green darken-2 text-white">{{item.jurusan.nama}}</v-card-title>
-            <v-card-subtitle class="green darken-2 text-white">Periode {{item.periode.nama}}<br>Klik untuk melihat rincian</v-card-subtitle>
+          <v-card
+            elevation="10"
+            @click="goToPendaftaran(item)"
+          >
+            <v-card-title class="green darken-4 text-white">{{item.jurusan.nama}}</v-card-title>
+            <v-card-subtitle class="green darken-4 text-white">Periode {{item.periode.nama}}<br>Klik untuk melihat rincian</v-card-subtitle>
             <v-card-text>
               <v-container class="mt-4">
                 <v-row>
@@ -109,26 +113,6 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col
-          cols="12"
-          md="6"
-          lg="3"
-          align-self="center"
-        >
-
-          <v-row justify="center">
-            <v-btn
-              fab
-              color="green darken-2"
-              dark
-              class="mx-auto"
-              @click="$router.push({name:'Pendaftaran Baru'})"
-            >
-              <!-- @click="createUjian()" -->
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </v-row>
-        </v-col>
       </v-row>
     </v-container>
     <v-dialog
@@ -144,11 +128,23 @@
         </v-card-text>
       </v-card>
     </v-dialog>
+    <v-btn
+      v-if="ujian"
+      rounded
+      class="floating-button"
+      color="green darken-2"
+      dark
+      x-large
+      elevation="20"
+      @click="$router.push({name:'Pendaftaran Baru'})"
+    >
+      <v-icon left>mdi-plus</v-icon>Buat Pendaftaran Baru
+    </v-btn>
   </v-container>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 import DaftarComponent from "../Components/DaftarComponent";
 export default {
   created() {
@@ -158,8 +154,12 @@ export default {
   },
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
+    ...mapMutations(["setUjianSelected"]),
     link() {},
-
+    goToPendaftaran(item) {
+      this.setUjianSelected(item);
+      this.$router.push(`daftar/${item.id}`);
+    },
     createUjian() {
       var periode_id = this.periode[0].id;
       axios.get("/api/ujian/init/" + periode_id).then((response) => {
@@ -221,6 +221,12 @@ export default {
 </script>
 
 <style>
+.floating-button {
+  position: fixed;
+  z-index: 2;
+  bottom: 50px;
+  right: 40px;
+}
 .bg-with-overlay {
   background: rgb(0, 36, 15);
   background: linear-gradient(
