@@ -21,10 +21,14 @@ export default new Vuex.Store({
         ujian: null,
         periode: null,
         isLoading: false,
+        ujianSelected: null,
     },
     mutations: {
         toggleBottomSheet(state, data) {
             state.isBottomSheetOpen = data;
+        },
+        setUjianSelected(state, data) {
+            state.ujianSelected = data;
         },
         setUser(state, data) {
             state.user = data;

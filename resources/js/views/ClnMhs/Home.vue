@@ -80,7 +80,10 @@
           md="6"
           lg="3"
         >
-          <v-card elevation="10">
+          <v-card
+            elevation="10"
+            @click="goToPendaftaran(item)"
+          >
             <v-card-title class="green darken-4 text-white">{{item.jurusan.nama}}</v-card-title>
             <v-card-subtitle class="green darken-4 text-white">Periode {{item.periode.nama}}<br>Klik untuk melihat rincian</v-card-subtitle>
             <v-card-text>
@@ -131,6 +134,7 @@
       class="floating-button"
       color="green darken-2"
       dark
+      x-large
       elevation="20"
       @click="$router.push({name:'Pendaftaran Baru'})"
     >
@@ -140,7 +144,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 import DaftarComponent from "../Components/DaftarComponent";
 export default {
   created() {
@@ -150,8 +154,12 @@ export default {
   },
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
+    ...mapMutations(["setUjianSelected"]),
     link() {},
-
+    goToPendaftaran(item) {
+      this.setUjianSelected(item);
+      this.$router.push(`daftar/${item.id}`);
+    },
     createUjian() {
       var periode_id = this.periode[0].id;
       axios.get("/api/ujian/init/" + periode_id).then((response) => {
@@ -216,7 +224,7 @@ export default {
 .floating-button {
   position: fixed;
   z-index: 2;
-  bottom: 60px;
+  bottom: 50px;
   right: 40px;
 }
 .bg-with-overlay {
