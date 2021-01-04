@@ -5,6 +5,9 @@
     :width="width()"
     elevation="10"
   >
+    <v-card>
+      <v-card-title>Pendaftaran</v-card-title>
+    </v-card>
     <v-card v-if="!ujianSelected">
       <v-card-text>
         <v-progress-circular indeterminate></v-progress-circular>
@@ -254,7 +257,7 @@
 
       <v-stepper-content step="3">
         <v-card
-          color="grey lighten-5"
+          color="grey lighten-4"
           class="mb-12 ml-2 mt-2 mr-2"
           elevation="5"
         >
@@ -308,7 +311,7 @@
       </v-stepper-step>
       <v-stepper-content step="4">
         <v-card
-          color="grey lighten-2"
+          color="grey lighten-4"
           class="mb-12"
           height="200px"
         ></v-card>

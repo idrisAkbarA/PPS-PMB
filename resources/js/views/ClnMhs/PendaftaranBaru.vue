@@ -260,6 +260,7 @@
               large
               dark
               color="green darken-3"
+              :loading="isLoading"
               v-if="!kodePembayaran"
               @click="generateCode()"
             >Dapatkan Kode Pembayaran</v-btn>
@@ -397,11 +398,14 @@ export default {
       console.log(this.isBiodataFilled);
     },
     generateCode() {
+      // this method generate payment code
+      this.isLoading = true;
       var payload = { ujian_id: this.ujian_id };
       axios
         .post("/api/ujian/generate-pembayaran", payload)
         .then((response) => {
           console.log(response.data);
+          this.isLoading = false;
           this.kodePembayaran = response.data.code;
           this.isJurusanEditable = false;
           this.loopCheckPembayaran();
@@ -525,6 +529,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       kodePembayaran: null,
       progress: 0,
       photoFile: null,
