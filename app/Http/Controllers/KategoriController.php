@@ -21,6 +21,19 @@ class KategoriController extends Controller
     }
 
     /**
+     * Display a listing of the resource by jurusan.
+     *
+     * @param  \App\Jurusan  $jurusan
+     * @return \Illuminate\Http\Response
+     */
+    public function getByJurusan(Jurusan $jurusan)
+    {
+        $kategori = $jurusan->kategori;
+
+        return response()->json($kategori, 200);
+    }
+
+    /**
      * Store newly created resource.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -74,6 +74,7 @@ Route::prefix('ujian')->name('ujian.')->group(function () {
 Route::prefix('kategori')->name('kategori')->group(function () {
     Route::get('/', 'KategoriController@index')->name('index');
     Route::post('/', 'KategoriController@store')->name('store');
+    Route::get('/{jurusan?}', 'KategoriController@getByJurusan')->name('get-jurusan');
     Route::post('/{jurusan?}', 'KategoriController@storeInJurusan')->name('store-jurusan');
     Route::put('/{kategori?}', 'KategoriController@update')->name('update');
     Route::delete('/{kategori?}', 'KategoriController@destroy')->name('destroy');
