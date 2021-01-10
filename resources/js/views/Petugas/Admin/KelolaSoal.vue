@@ -115,18 +115,18 @@
                   No data available
                 </p>
                 <v-row align="center" class="mt-3" v-if="soalTKA.data.length">
-                  <v-col cols="3">
-                    Showing {{ soalTKA.from }} - {{ soalTKA.to }} from
-                    {{ soalTKA.total }} data
-                  </v-col>
-                  <v-col cols="6">
+                  <v-col cols="12" class="text-center">
                     <v-pagination
                       color="#2C3E50"
-                      class="text-center mx-auto"
+                      class="mx-auto"
                       :length="soalTKA.lastPage"
                       :total-visible="7"
                       v-model="soalTKA.currentPage"
                     ></v-pagination>
+                    <p class="mb-0 mt-2">
+                      Showing {{ soalTKA.from }} - {{ soalTKA.to }} from
+                      {{ soalTKA.total }} data
+                    </p>
                   </v-col>
                 </v-row>
               </v-container>
