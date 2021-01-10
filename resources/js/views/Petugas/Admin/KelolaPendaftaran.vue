@@ -306,7 +306,7 @@ export default {
           params: params,
         })
         .then((response) => {
-          this.filter.periode = response.data.currentPeriode.id;
+          this.filter.periode = response.data.currentPeriode?.id;
           this.pendaftaran = response.data.pendaftaran;
         })
         .catch((err) => {

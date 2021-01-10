@@ -91,19 +91,37 @@
           style="padding-bottom: 0"
         >
           <v-card-text>
-            <v-text-field clearable color="#2C3E50">
-              <template v-slot:label>
-                <div class="black--text">Pertanyaan</div>
-              </template>
-            </v-text-field>
-            <v-radio value="n" color="#2C3E50">
-              <template v-slot:label>
-                <div class="black--text">Definitely Duckduckgo</div>
-              </template>
-            </v-radio>
-            <v-btn class="mt-2 grey darken-3" fab dark small>
-              <v-icon dark> mdi-plus </v-icon>
-            </v-btn>
+            <v-row>
+              <v-col cols="6">
+                <v-select
+                  :items="jurusan"
+                  label="Jurusan"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="form.jurusan_id"
+                  @change="getKategori(form.jurusan_id)"
+                ></v-select>
+              </v-col>
+              <v-col cols="6">
+                <v-select
+                  :items="kategori"
+                  label="Kategori"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="form.kategori_id"
+                ></v-select>
+              </v-col>
+              <v-col cols="12">
+                <v-textarea
+                  outlined
+                  color="#2C3E50"
+                  class="mb-2"
+                  label="Pertanyaan"
+                  v-model="form.pertanyaan"
+                >
+                </v-textarea>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
         <v-row justify="center">
@@ -122,6 +140,10 @@ export default {
   data() {
     return {
       tab: null,
+      isLoading: false,
+      jurusan: [],
+      kategori: [],
+      form: {},
       soalTKA: [
         {
           id: 0,
@@ -151,7 +173,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen"]),
+    ...mapState(["isBottomSheetOpen", "urlSoal", "urlJurusan", "urlKategori"]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -161,8 +183,40 @@ export default {
       },
     },
   },
+  created() {
+    this.getJurusan();
+  },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    getSoal() {
+      //
+    },
+    getJurusan() {
+      this.isLoading = true;
+      axios
+        .get(this.urlJurusan)
+        .then((response) => {
+          this.jurusan = response.data;
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .then((this.isLoading = false));
+    },
+    getKategori(id) {
+      this.form.kategori_id = null;
+      const urlKategori = `${this.urlKategori}/${id}`;
+      this.isLoading = true;
+      axios
+        .get(urlKategori)
+        .then((response) => {
+          this.kategori = response.data;
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .then((this.isLoading = false));
+    },
   },
 };
 </script>

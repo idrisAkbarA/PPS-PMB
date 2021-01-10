@@ -9,6 +9,7 @@
           href="#"
           class="font-weight-black text-white"
           style="text-decoration:none"
+          @click="$router.push({name:'Panduan Pendaftaran'})"
         >disini</a>. Silahkan mendaftar!
       </h4>
     </div>

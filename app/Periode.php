@@ -46,6 +46,9 @@ class Periode extends Model
         $currentPeriode = self::with('kategori')
             ->where('is_active', 1)
             ->first();
+        if (empty($currentPeriode)) {
+            $currentPeriode = null;
+        }
         return $currentPeriode;
     }
 
@@ -82,6 +85,11 @@ class Periode extends Model
             })->get();
     }
 
+    public function getTemuRamah()
+    {
+        return $this->temu_ramah()->get();
+    }
+
     // Setters
     public function setIsActiveAttribute($value)
     {
@@ -101,5 +109,10 @@ class Periode extends Model
     public function kategori()
     {
         return $this->hasMany('App\KatJurusanPerPeriode');
+    }
+
+    public function temu_ramah()
+    {
+        return $this->hasMany('App\JadwalTR');
     }
 }

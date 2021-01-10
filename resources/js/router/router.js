@@ -5,6 +5,7 @@ import store from '../store/store'
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
 import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
+import PanduanPendaftaran from "../views/ClnMhs/PanduanPendaftaran.vue";
 import Pendaftaran from "../views/ClnMhs/Pendaftaran.vue";
 import Soal from "../views/ClnMhs/Soal.vue";
 
@@ -15,6 +16,7 @@ import KelolaPeriode from "../views/petugas/Admin/KelolaPeriode.vue";
 import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
 import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
 import KelolaPendaftaran from "../views/petugas/Admin/KelolaPendaftaran.vue";
+import KelolaTemuRamah from "../views/petugas/Admin/KelolaTemuRamah.vue";
 import KelolaKategori from "../views/petugas/Admin/KelolaKategori.vue";
 import Setting from "../views/petugas/Admin/Setting.vue";
 
@@ -48,6 +50,11 @@ const routes = [
                 },
 
             },
+            {
+                path: "panduan",
+                name: "Panduan Pendaftaran",
+                component: PanduanPendaftaran
+            },
         ]
     },
 
@@ -79,6 +86,11 @@ const routes = [
                 path: "kelola-pendaftaran",
                 name: "Kelola Pendaftaran",
                 component: KelolaPendaftaran
+            },
+            {
+                path: "kelola-temu-ramah",
+                name: "Kelola Temu Ramah",
+                component: KelolaTemuRamah
             },
             {
                 path: "kelola-soal",

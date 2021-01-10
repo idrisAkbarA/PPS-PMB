@@ -74,6 +74,7 @@ Route::prefix('ujian')->name('ujian.')->group(function () {
 Route::prefix('kategori')->name('kategori')->group(function () {
     Route::get('/', 'KategoriController@index')->name('index');
     Route::post('/', 'KategoriController@store')->name('store');
+    Route::get('/{jurusan?}', 'KategoriController@getByJurusan')->name('get-jurusan');
     Route::post('/{jurusan?}', 'KategoriController@storeInJurusan')->name('store-jurusan');
     Route::put('/{kategori?}', 'KategoriController@update')->name('update');
     Route::delete('/{kategori?}', 'KategoriController@destroy')->name('destroy');
@@ -82,4 +83,12 @@ Route::prefix('kategori')->name('kategori')->group(function () {
 // Kategori per Periode Routes
 Route::prefix('kategori-periode')->name('kategori')->group(function () {
     Route::post('/', 'KatJurusanPerPeriodeController@store')->name('store');
+});
+
+// Temu Ramah Routes
+Route::prefix('temu-ramah')->name('temu-ramah')->group(function () {
+    Route::get('/', 'JadwalTRController@index')->name('index');
+    Route::post('/', 'JadwalTRController@store')->name('store');
+    Route::put('/{jadwal}', 'JadwalTRController@update')->name('update');
+    Route::delete('/{jadwal}', 'JadwalTRController@destroy')->name('destroy');
 });

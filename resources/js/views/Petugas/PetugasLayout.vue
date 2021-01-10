@@ -157,6 +157,17 @@
           small
           class="green darken-3"
           dark
+          v-if="checkRoute('Kelola Temu Ramah') && currentPeriode"
+          @click="setBottomSheetToTrue"
+        >
+          <v-icon> mdi-plus</v-icon> tambah jadwal
+        </v-btn>
+      </v-slide-y-transition>
+      <v-slide-y-transition>
+        <v-btn
+          small
+          class="green darken-3"
+          dark
           v-if="checkRoute('Kelola Kategori')"
           @click="setBottomSheetToTrue"
         >
@@ -190,10 +201,11 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    ...mapActions(["getCurrentPeriode"]),
     setBottomSheetToTrue() {
       this.toggleBottomSheet(true);
     },
@@ -228,7 +240,7 @@ export default {
     source: String,
   },
   computed: {
-    ...mapState([""]),
+    ...mapState(["currentPeriode"]),
     nama() {
       return this.$store.state.name;
     },
@@ -254,6 +266,11 @@ export default {
           icon: "mdi-book-multiple",
           title: "Pendaftaran",
           to: `/admin/${petugas}/kelola-pendaftaran`,
+        },
+        {
+          icon: "mdi-book-multiple",
+          title: "Temu Ramah",
+          to: `/admin/${petugas}/kelola-temu-ramah`,
         },
         // {
         //   icon: "mdi-office-building",
@@ -294,6 +311,9 @@ export default {
           icon: "mdi-cog",
           title: "Setting Ujian",
           to: `/admin/${petugas}/setting-ujian`,
+          icon: "mdi-file-document",
+          title: "Hasil Ujian",
+          to: `/admin/${petugas}/kelola-kategori`,
         },
       ];
     },
@@ -307,6 +327,7 @@ export default {
   mounted() {
     console.log(this.$route);
     console.log(this.$route.matched);
+    this.getCurrentPeriode();
     // this.$vuetify.theme.dark = true;
   },
 };
