@@ -313,17 +313,47 @@
         <v-card
           color="grey lighten-4"
           class="mb-12"
-          height="200px"
-        ></v-card>
-        <v-btn
-          color="primary"
-          @click="stepper = 1"
         >
-          Continue
-        </v-btn>
-        <v-btn text>
-          Cancel
-        </v-btn>
+          <v-card-title>Ujian Masuk</v-card-title>
+          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan Jurusan (TKJ)</v-card-subtitle>
+          <v-card-text>
+
+            <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
+            <span>
+              <!-- :end-label="''" -->
+              <vue-countdown-timer
+                @start_callback="startCallBack('event started')"
+                @end_callback="endCallBack('event ended')"
+                :start-time="now"
+                :end-time="ujianSelected.batas_ujian+' 23:59:59'"
+                :interval="1000"
+                :start-label="'Until start:'"
+                label-position="begin"
+                :end-text="'Event ended!'"
+                :day-txt="'hari'"
+                :hour-txt="'jam'"
+                :minutes-txt="'menit'"
+                :seconds-txt="'detik'"
+              >
+              </vue-countdown-timer>
+            </span>
+            <v-divider></v-divider>
+            <v-btn
+              color="green darken-2"
+              dark
+              block
+              @click="ujian('tka')"
+            >Mulai Ujian TKA</v-btn>
+            <v-divider></v-divider>
+            <v-btn
+              block
+              color="green darken-2"
+              dark
+              @click="ujian('tkj')"
+            >Mulai Ujian TKJ</v-btn>
+
+          </v-card-text>
+        </v-card>
       </v-stepper-content>
       <v-stepper-step
         :editable="isLulusUjian?true:false"
@@ -408,7 +438,15 @@ export default {
   },
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
-    ...mapActions(["initAllDataClnMhs", "updateUser"]),
+    ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    ujian(type) {
+      // console.log("ID", this.ujianSelected.id);
+      var ujian_id = this.ujianSelected.id;
+      var soal_id = this.ujianSelected.soal_id;
+      var payload = { ujian_id, type, soal_id };
+      // console.log(payload);
+      this.getSoal(payload);
+    },
     setData(ini) {
       ini.jurusanSelected = ini.ujianSelected.jurusan_id;
       ini.ujian_id = ini.ujianSelected.id;
@@ -562,6 +600,8 @@ export default {
           });
       });
     },
+    startCallBack(data) {},
+    endCallBack(data) {},
     link(url) {
       var a = "/" + url;
       var link = a.replace(" ", "%20");
@@ -579,6 +619,19 @@ export default {
   },
   computed: {
     ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
+    now: function () {
+      var today = new Date();
+      var date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      var time =
+        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date + " " + time;
+      return dateTime;
+    },
     PhotoFileName: function () {},
   },
   watch: {

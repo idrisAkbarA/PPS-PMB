@@ -42,23 +42,25 @@ class SoalUjian
         $soalInstance = new Soal;
         $soalInstance->set_pertanyaan = $final_soal;
         $soalInstance->save();
-
+        $this->id = $soalInstance->id;
+        // dd($soalInstance->id);
         $ujianInstance = Ujian::find($ujian_id);
-
+        // dd($ujian_id);
         // calculate ujian deadline
-        $batas_ujian = self::calcDeadline($ujian_id);
-
+        // $batas_ujian = self::calcDeadline($ujian_id);
+        // return $batas_ujian;
         // update ujian
         $ujianInstance->soal_id = $soalInstance->id;
-        $ujianInstance->batas_ujian = $batas_ujian;
+        // $ujianInstance->batas_ujian = $batas_ujian;
         $ujianInstance->save();
     }
     public function calcDeadline($ujian_id)
     {
         $ujianInstance = Ujian::find($ujian_id);
 
-        $periode_id =  $ujianInstance->periode_id;
+        $periode_id =  $ujianInstance['periode_id'];
         $periode = Periode::find($periode_id);
+        // return $periode;
         $range_ujian = $periode->range_ujian;
         $akhir_periode = Carbon::createFromFormat('Y-m-d', $periode->akhir_periode);
         $temp_batas_ujian = Carbon::now()->addDays($range_ujian);
@@ -81,11 +83,15 @@ class SoalUjian
         // and prevent 'jawaban' being sent to the client
         $soal = Soal::find($id);
         $soal_collection = collect($soal->set_pertanyaan);
-        $result = $soal_collection->where('type', $type)->first();
-        foreach ($result->soal as $key => $value) {
+        $jawaban_collection = collect($soal->set_jawaban_mhs);
+        $result_jawaban = $jawaban_collection->where('type', $type)->first();
+        $result_soal = $soal_collection->where('type', $type)->first();
+        // dd($type);
+        // dd($soal_collection[1]);
+        foreach ($result_soal->soal as $key => $value) {
             unset($value->jawaban);
         }
-        return $result->soal;
+        return ['soal' => $result_soal->soal, 'jawaban' => $result_jawaban->jawaban ?? null];
     }
     public function setJawaban($type, $rowID, $soalID, $jawaban)
     {

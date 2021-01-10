@@ -16,7 +16,6 @@ export default new Vuex.Store({
         urlKategori: "/api/kategori",
         urlBankSoal: "/api/bank-soal",
         urlKategoriPeriode: "/api/kategori-periode",
-        urlTemuRamah: "/api/temu-ramah",
         isBottomSheetOpen: false,
         currentPeriode: null, // current active periode
         jurusan: null,
@@ -24,6 +23,7 @@ export default new Vuex.Store({
         periode: null,
         isLoading: false,
         ujianSelected: null,
+        soal: null,
     },
     mutations: {
         toggleBottomSheet(state, data) {
@@ -45,8 +45,25 @@ export default new Vuex.Store({
             state.ujian = data;
         },
         setCurrentPeriode(state, data) {
-            state.currentPeriode = data.id ? data : null;
+            state.currentPeriode = data;
         },
+        setSoal(state, data) {
+            if (!data.jawaban) {
+                state.soal = data.soal;
+                return 0;
+            }
+            data.jawaban.forEach(jawaban => {
+                var isFound = false;
+                for (let index = 0; index < data.soal.length; index++) {
+                    const soal = data.soal[index];
+                    if (jawaban.id == soal.id) {
+                        soal['jawaban'] = jawaban.jawaban;
+                        break;
+                    }
+                }
+            });
+            state.soal = data.soal;
+        }
     },
     actions: {
         initAllDataClnMhs({ commit, dispatch, state }) {
@@ -82,6 +99,18 @@ export default new Vuex.Store({
                     console.log(response);
                 })
                 .catch((error) => console.error(error));
+        },
+        getSoal({ commit, dispatch, state }, payload) {
+            // console.log("soal", ujian_id);
+            return new Promise((resolve, reject) => {
+                axios.get(`/api/soal/${payload.ujian_id}/${payload.type}/${payload.soal_id}`).then(response => {
+                    resolve(response)
+                    console.log(response.data);
+                    commit('setSoal', response.data)
+                }).catch(error => {
+                    reject(error)
+                });
+            });
         },
         getUjian({ commit, dispatch, state }, role) {
             axios
