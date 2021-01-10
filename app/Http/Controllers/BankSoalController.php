@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\bank_soal;
+use App\BankSoal;
 use Illuminate\Http\Request;
 
 class BankSoalController extends Controller
@@ -12,19 +12,34 @@ class BankSoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $jurusan_id = $request->jurusan;
+        $kategori_id = $request->kategori;
+
+        $soal = BankSoal::getByKategori($kategori_id, $jurusan_id);
+
+        return response()->json($soal, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getSoalTKA(Request $request)
     {
-        //
+        $jurusan_id = $request->jurusan;
+        $kategori_id = $request->kategori;
+
+        $soal = BankSoal::getTkaByKategori($kategori_id, $jurusan_id);
+
+        return response()->json($soal, 200);
+    }
+
+    public function getSoalTKJ(Request $request)
+    {
+        $jurusan_id = $request->jurusan;
+        $kategori_id = $request->kategori;
+
+        $soal = BankSoal::getTkjByKategori($kategori_id, $jurusan_id);
+
+        return response()->json($soal, 200);
     }
 
     /**
@@ -35,51 +50,49 @@ class BankSoalController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $soal = BankSoal::create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\bank_soal  $bank_soal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(bank_soal $bank_soal)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\bank_soal  $bank_soal
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(bank_soal $bank_soal)
-    {
-        //
+        $reply = [
+            'status' => true,
+            'message' => 'Soal Successfully Created!',
+            'data' => $soal
+        ];
+        return response()->json($reply, 201);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\bank_soal  $bank_soal
+     * @param  \App\BankSoal  $soal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, bank_soal $bank_soal)
+    public function update(Request $request, BankSoal $soal)
     {
-        //
+        $soal->update($request->all());
+
+        $reply = [
+            'status' => true,
+            'message' => 'Soal Successfully Updated!',
+            'data' => $soal
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\bank_soal  $bank_soal
+     * @param  \App\BankSoal  $soal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(bank_soal $bank_soal)
+    public function destroy(BankSoal $soal)
     {
-        //
+        $soal->delete();
+
+        $reply = [
+            'status' => true,
+            'message' => 'Soal Successfully Deleted!',
+        ];
+        return response()->json($reply, 200);
     }
 }

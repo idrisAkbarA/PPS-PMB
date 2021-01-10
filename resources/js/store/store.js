@@ -14,6 +14,7 @@ export default new Vuex.Store({
         urlPendaftar: '/api/pendaftar',
         urlPendaftaran: "/api/ujian",
         urlKategori: "/api/kategori",
+        urlBankSoal: "/api/bank-soal",
         urlKategoriPeriode: "/api/kategori-periode",
         urlTemuRamah: "/api/temu-ramah",
         isBottomSheetOpen: false,

@@ -1,6 +1,37 @@
 <template>
   <v-container>
     Kelola Soal dan hal terkait
+    <v-expansion-panels class="mb-2">
+      <v-expansion-panel>
+        <v-expansion-panel-header>
+          <strong> Filter </strong>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <v-row>
+            <v-col cols="6">
+              <v-select
+                clearable
+                :items="jurusan"
+                label="Jurusan"
+                item-text="nama"
+                item-value="id"
+                v-model="selectedJurusan"
+              ></v-select>
+            </v-col>
+            <v-col cols="6">
+              <v-select
+                clearable
+                :items="kategori"
+                label="Kategori"
+                item-text="nama"
+                item-value="id"
+                v-model="selectedKategori"
+              ></v-select>
+            </v-col>
+          </v-row>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
     <v-card>
       <v-tabs v-model="tab" background-color="green" centered dark>
         <v-tabs-slider></v-tabs-slider>
@@ -16,29 +47,124 @@
           <v-card flat>
             <v-card-text>
               <v-container>
-                <v-row class="pl-8 pr-8">
+                <v-row class="px-8">
                   <v-text-field
                     prepend-inner-icon="mdi-magnify"
                     clearable
                     label="Pencarian"
                     color="#2C3E50"
+                    v-model="search.tka"
                   ></v-text-field>
                 </v-row>
                 <v-card
-                  v-for="soal in soalTKA"
+                  v-for="soal in soalTKA.data"
                   :key="soal.id"
                   color="rgba(46, 204, 113, 0.25)"
                   class="mt-5"
                 >
                   <v-card-title>
-                    <v-chip color="#2C3E50" dark> No. 1 </v-chip>
+                    <v-chip color="#2C3E50" dark>
+                      {{ soal.nama_kategori }}
+                    </v-chip>
                     <v-spacer></v-spacer>
-                    <v-select
+                    <v-text-field
                       filled
-                      :full-width="false"
                       dense
+                      :full-width="false"
                       hide-details="auto"
-                    ></v-select>
+                      readonly
+                      v-model="soal.nama_jurusan"
+                    ></v-text-field>
+                    <v-btn
+                      color="#2C3E50"
+                      dark
+                      class="rounded-0"
+                      @click="edit(soal)"
+                    >
+                      <v-icon small>mdi-pencil</v-icon>
+                    </v-btn>
+                    <v-btn
+                      color="#2C3E50"
+                      dark
+                      class="rounded-0"
+                      @click="
+                        dialogDelete = true;
+                        form = soal;
+                      "
+                    >
+                      <v-icon small>mdi-delete</v-icon>
+                    </v-btn>
+                  </v-card-title>
+                  <v-card-text class="black--text">
+                    {{ soal.pertanyaan }}
+                    <v-col cols="6">
+                      <v-radio-group hide-details="auto" v-model="soal.jawaban">
+                        <v-radio
+                          v-for="pilihan in soal.pilihan_ganda"
+                          :key="pilihan.pilihan"
+                          :value="pilihan.pilihan"
+                          :label="pilihan.text"
+                          readonly
+                          color="#2C3E50"
+                        ></v-radio>
+                      </v-radio-group>
+                    </v-col>
+                  </v-card-text>
+                </v-card>
+                <p class="text-muted text-center" v-if="!soalTKA.data.length">
+                  No data available
+                </p>
+                <v-row align="center" class="mt-3" v-if="soalTKA.data.length">
+                  <v-col cols="3">
+                    Showing {{ soalTKA.from }} - {{ soalTKA.to }} from
+                    {{ soalTKA.total }} data
+                  </v-col>
+                  <v-col cols="6">
+                    <v-pagination
+                      color="#2C3E50"
+                      class="text-center mx-auto"
+                      :length="soalTKA.lastPage"
+                      :total-visible="7"
+                      v-model="soalTKA.currentPage"
+                    ></v-pagination>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <v-tab-item value="tab-2">
+          <v-card flat>
+            <v-card-text>
+              <v-container v-if="soalTKJ.data">
+                <v-row class="px-8">
+                  <v-text-field
+                    prepend-inner-icon="mdi-magnify"
+                    clearable
+                    label="Pencarian"
+                    color="#2C3E50"
+                    v-model="search.tkj"
+                  ></v-text-field>
+                </v-row>
+                <v-card
+                  v-for="soal in soalTKJ.data"
+                  :key="soal.id"
+                  color="rgba(46, 204, 113, 0.25)"
+                  class="mt-5"
+                >
+                  <v-card-title>
+                    <v-chip color="#2C3E50" dark>
+                      {{ soal.nama_kategori }}
+                    </v-chip>
+                    <v-spacer></v-spacer>
+                    <v-text-field
+                      filled
+                      dense
+                      :full-width="false"
+                      hide-details="auto"
+                      readonly
+                      v-model="soal.nama_jurusan"
+                    ></v-text-field>
                     <v-btn color="#2C3E50" dark class="rounded-0">
                       <v-icon small>mdi-pencil</v-icon>
                     </v-btn>
@@ -48,24 +174,40 @@
                   </v-card-title>
                   <v-card-text class="black--text">
                     {{ soal.pertanyaan }}
-                    <v-radio-group hide-details="auto" v-model="soal.jawaban">
-                      <v-radio
-                        v-for="pilihan in soal.pilihan_ganda"
-                        :key="pilihan.pilihan"
-                        :value="pilihan.pilihan"
-                        :label="pilihan.text"
-                        color="#2C3E50"
-                      ></v-radio>
-                    </v-radio-group>
+                    <v-col cols="6">
+                      <v-radio-group hide-details="auto" v-model="soal.jawaban">
+                        <v-radio
+                          v-for="pilihan in soal.pilihan_ganda"
+                          :key="pilihan.pilihan"
+                          :value="pilihan.pilihan"
+                          :label="pilihan.text"
+                          readonly
+                          color="#2C3E50"
+                        ></v-radio>
+                      </v-radio-group>
+                    </v-col>
                   </v-card-text>
                 </v-card>
+                <p class="text-muted text-center" v-if="!soalTKJ.data.length">
+                  No data available
+                </p>
+                <v-row align="center" class="mt-3" v-if="soalTKJ.data.length">
+                  <v-col cols="3">
+                    Showing {{ soalTKJ.from }} - {{ soalTKJ.to }} from
+                    {{ soalTKJ.total }} data
+                  </v-col>
+                  <v-col cols="6">
+                    <v-pagination
+                      color="#2C3E50"
+                      class="text-center mx-auto"
+                      :length="soalTKJ.lastPage"
+                      :total-visible="7"
+                      v-model="soalTKJ.currentPage"
+                    ></v-pagination>
+                  </v-col>
+                </v-row>
               </v-container>
             </v-card-text>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item value="tab-2">
-          <v-card flat>
-            <v-card-text>huy</v-card-text>
           </v-card>
         </v-tab-item>
       </v-tabs-items>
@@ -79,51 +221,86 @@
     >
       <v-card color="#ecf0f1">
         <v-card-title>
-          <span>Buat Soal</span>
+          <span>Soal</span>
           <v-spacer></v-spacer>
           <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
-          <v-btn color="#2C3E50" dark>Simpan</v-btn>
-          <!-- v-model="" -->
+          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
         </v-card-title>
-        <v-card
-          color="rgba(46, 204, 113, 0.25)"
-          class="ma-2"
-          style="padding-bottom: 0"
-        >
-          <v-card-text>
-            <v-row>
-              <v-col cols="6">
-                <v-select
-                  :items="jurusan"
-                  label="Jurusan"
-                  item-text="nama"
-                  item-value="id"
-                  v-model="form.jurusan_id"
-                  @change="getKategori(form.jurusan_id)"
-                ></v-select>
-              </v-col>
-              <v-col cols="6">
-                <v-select
-                  :items="kategori"
-                  label="Kategori"
-                  item-text="nama"
-                  item-value="id"
-                  v-model="form.kategori_id"
-                ></v-select>
-              </v-col>
-              <v-col cols="12">
-                <v-textarea
-                  outlined
-                  color="#2C3E50"
-                  class="mb-2"
-                  label="Pertanyaan"
-                  v-model="form.pertanyaan"
-                >
-                </v-textarea>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
+        <v-card-text>
+          <vue-scroll :ops="scrollOps">
+            <v-card-text>
+              <v-row>
+                <v-col cols="6">
+                  <v-select
+                    :items="jurusan"
+                    label="Jurusan"
+                    item-text="nama"
+                    item-value="id"
+                    v-model="form.jurusan_id"
+                  ></v-select>
+                </v-col>
+                <v-col cols="3">
+                  <v-select
+                    :items="kategori"
+                    label="Kategori"
+                    item-text="nama"
+                    item-value="id"
+                    v-model="form.kategori_id"
+                  ></v-select>
+                </v-col>
+                <v-col cols="3">
+                  <v-select
+                    :items="['TKA', 'TKJ']"
+                    label="Type"
+                    v-model="form.type"
+                  ></v-select>
+                </v-col>
+                <v-col cols="12" class="pb-0">
+                  <v-textarea
+                    outlined
+                    color="#2C3E50"
+                    class="mb-2"
+                    label="Pertanyaan"
+                    v-model="form.pertanyaan"
+                  >
+                  </v-textarea>
+                </v-col>
+                <v-col cols="6">
+                  <p class="overline text-muted mb-0">Pilihan Ganda</p>
+                  <v-radio-group hide-details="auto" v-model="form.jawaban">
+                    <v-radio
+                      v-for="pilihan in form.pilihan_ganda"
+                      :key="pilihan.pilihan"
+                      :value="pilihan.pilihan"
+                      color="#2C3E50"
+                      readonly
+                    >
+                      <template v-slot:label>
+                        <v-row align="center">
+                          <v-text-field
+                            class="ma-2"
+                            color="white"
+                            filled
+                            dense
+                            label="Label"
+                            v-model="pilihan.text"
+                          ></v-text-field>
+                        </v-row>
+                      </template>
+                    </v-radio>
+                  </v-radio-group>
+                </v-col>
+                <v-col cols="6">
+                  <p class="overline text-muted mb-0">Jawaban</p>
+                  <v-select
+                    :items="['A', 'B', 'C', 'D', 'E']"
+                    v-model="form.jawaban"
+                  ></v-select>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </vue-scroll>
+        </v-card-text>
         <v-row justify="center">
           <v-btn class="mt-2" fab dark small color="#2C3E50">
             <v-icon dark> mdi-plus </v-icon>
@@ -131,6 +308,48 @@
         </v-row>
       </v-card>
     </v-bottom-sheet>
+    <!-- Dialog Delete -->
+    <v-dialog v-model="dialogDelete" width="500">
+      <v-card>
+        <v-card-title class="headline">
+          <v-icon>mdi-trash</v-icon>
+        </v-card-title>
+
+        <v-card-text>
+          <p class="text-center">
+            Apakah anda yakin ingin menghapus soal ini ?
+          </p>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <!-- Snackbar -->
+    <v-snackbar
+      v-model="snackbar.show"
+      timeout="2000"
+      :color="snackbar.color ? snackbar.color : 'success'"
+      outlined
+    >
+      {{ snackbar.message }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          :color="snackbar.color ? snackbar.color : 'success'"
+          text
+          v-bind="attrs"
+          @click="snackbar.show = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -140,40 +359,65 @@ export default {
   data() {
     return {
       tab: null,
+      selectedJurusan: null,
+      selectedKategori: null,
       isLoading: false,
+      dialogDelete: false,
       jurusan: [],
       kategori: [],
+      search: {},
       form: {},
-      soalTKA: [
-        {
-          id: 0,
-          pertanyaan: "Ma Rabbuka?",
-          pilihan_ganda: [
-            { pilihan: "A", text: "Allah" },
-            { pilihan: "B", text: "Allah" },
-          ],
-          jawaban: "A",
-          jurusan_id: 0,
-          kategori_id: 0,
-          type: "tka",
+      snackbar: { show: false },
+      soalTKJ: [],
+      soalTKA: {
+        data: [
+          {
+            id: 0,
+            pertanyaan: "Ma Rabbuka?",
+            pilihan_ganda: [
+              { pilihan: "A", text: "Allah" },
+              { pilihan: "B", text: "Allah" },
+            ],
+            jawaban: "A",
+            jurusan_id: 0,
+            kategori_id: 0,
+            type: "tka",
+          },
+          {
+            id: 1,
+            pertanyaan: "Ma Rabbukaa?",
+            pilihan_ganda: [
+              { pilihan: "A", text: "Allah" },
+              { pilihan: "B", text: "Allah" },
+            ],
+            jawaban: "A",
+            jurusan_id: 0,
+            kategori_id: 0,
+            type: "tka",
+          },
+        ],
+      },
+      scrollOps: {
+        scrollPanel: {
+          easing: "easeInQuad",
+          speed: 800,
+          scrollingX: false,
         },
-        {
-          id: 1,
-          pertanyaan: "Ma Rabbukaa?",
-          pilihan_ganda: [
-            { pilihan: "A", text: "Allah" },
-            { pilihan: "B", text: "Allah" },
-          ],
-          jawaban: "A",
-          jurusan_id: 0,
-          kategori_id: 0,
-          type: "tka",
+        vuescroll: {
+          mode: "native",
+          wheelScrollDuration: 0,
+          locking: true,
         },
-      ],
+      },
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen", "urlSoal", "urlJurusan", "urlKategori"]),
+    ...mapState([
+      "isBottomSheetOpen",
+      "urlBankSoal",
+      "urlJurusan",
+      "urlKategori",
+    ]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -183,13 +427,93 @@ export default {
       },
     },
   },
+  watch: {
+    bottomSheet: function (val) {
+      if (val && !this.form.id) {
+        this.setPilihanGanda();
+      } else if (!val) {
+        this.form = {};
+      }
+    },
+    selectedJurusan: function (val) {
+      if (!val) {
+        this.kategori = [];
+      } else {
+        this.getKategori(val);
+      }
+      this.selectedKategori = null;
+      this.getSoal();
+    },
+    selectedKategori: function (val) {
+      this.getSoal();
+    },
+    "soalTKA.currentPage": function (val) {
+      this.getSoal("tka");
+    },
+    "soalTKJ.currentPage": function (val) {
+      this.getSoal("tkj");
+    },
+    "form.jurusan_id": function (val) {
+      if (val) {
+        this.getKategori(val);
+      }
+    },
+  },
   created() {
     this.getJurusan();
+    this.getSoal();
   },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
-    getSoal() {
-      //
+    getSoal(type = null) {
+      let urlBankSoal = this.urlBankSoal;
+      if (type) {
+        urlBankSoal = `${this.urlBankSoal}/${type}`;
+      }
+
+      const form = {
+        jurusan: this.selectedJurusan,
+        kategori: this.selectedKategori,
+        page: type ? this[`soal${type.toUpperCase()}`].currentPage : null,
+      };
+      this.isLoading = true;
+      axios
+        .get(urlBankSoal, {
+          params: form,
+        })
+        .then((response) => {
+          if (type) {
+            this[`soal${type.toUpperCase()}`] = {
+              data: response.data.data,
+              currentPage: response.data.current_page,
+              lastPage: response.data.last_page,
+              from: response.data.from,
+              to: response.data.to,
+              total: response.data.total,
+            };
+            return;
+          }
+          this.soalTKA = {
+            data: response.data.tka.data,
+            currentPage: response.data.tka.current_page,
+            lastPage: response.data.tka.last_page,
+            from: response.data.tka.from,
+            to: response.data.tka.to,
+            total: response.data.tka.total,
+          };
+          this.soalTKJ = {
+            data: response.data.tkj.data,
+            currentPage: response.data.tkj.current_page,
+            lastPage: response.data.tkj.last_page,
+            from: response.data.tkj.from,
+            to: response.data.tkj.to,
+            total: response.data.tkj.total,
+          };
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .then((this.isLoading = false));
     },
     getJurusan() {
       this.isLoading = true;
@@ -204,18 +528,119 @@ export default {
         .then((this.isLoading = false));
     },
     getKategori(id) {
-      this.form.kategori_id = null;
       const urlKategori = `${this.urlKategori}/${id}`;
       this.isLoading = true;
       axios
         .get(urlKategori)
         .then((response) => {
           this.kategori = response.data;
+          if (this.kategori.some((e) => !(e.id == this.form.kategori_id))) {
+            this.form.kategori_id = null;
+          }
         })
         .catch((err) => {
           console.error(err);
         })
         .then((this.isLoading = false));
+    },
+    submit() {
+      const form = this.form;
+      if (!form.id) {
+        this.store();
+        return;
+      }
+      this.update(form.id);
+    },
+    store() {
+      this.isLoading = true;
+      axios
+        .post(this.urlBankSoal, this.form)
+        .then((response) => {
+          if (response.data.status) {
+            this.bottomSheet = false;
+            this.snackbar = {
+              show: true,
+              message: response.data.message,
+            };
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          this.snackbar = {
+            show: true,
+            message: err,
+            color: "danger",
+          };
+        })
+        .then(() => {
+          this.isLoading = false;
+          this.getSoal();
+        });
+    },
+    edit(item) {
+      this.form = _.cloneDeep(item);
+      this.bottomSheet = true;
+    },
+    update(id) {
+      const urlBankSoal = `${this.urlBankSoal}/${id}`;
+      this.isLoading = true;
+      axios
+        .put(urlBankSoal, this.form)
+        .then((response) => {
+          if (response.data.status) {
+            this.bottomSheet = false;
+            this.form = {};
+            this.snackbar = {
+              show: true,
+              message: response.data.message,
+            };
+            this.getSoal();
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          this.snackbar = {
+            show: true,
+            message: err,
+            color: "danger",
+          };
+        })
+        .then((this.isLoading = false));
+    },
+    destroy() {
+      const id = this.form.id;
+      const urlBankSoal = `${this.urlBankSoal}/${id}`;
+      this.isLoading = true;
+      axios
+        .delete(urlBankSoal)
+        .then((response) => {
+          if (response.data.status) {
+            this.dialogDelete = false;
+            this.getSoal();
+            this.snackbar = {
+              show: true,
+              message: response.data.message,
+            };
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          this.snackbar = {
+            show: true,
+            message: err,
+            color: "danger",
+          };
+        })
+        .then((this.isLoading = false));
+    },
+    setPilihanGanda() {
+      this.form.pilihan_ganda = [
+        { pilihan: "A", text: "Pilihan A" },
+        { pilihan: "B", text: "Pilihan B" },
+        { pilihan: "C", text: "Pilihan C" },
+        { pilihan: "D", text: "Pilihan D" },
+        { pilihan: "E", text: "Pilihan E" },
+      ];
     },
   },
 };
