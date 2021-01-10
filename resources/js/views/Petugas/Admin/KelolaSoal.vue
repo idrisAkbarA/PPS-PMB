@@ -165,10 +165,23 @@
                       readonly
                       v-model="soal.nama_jurusan"
                     ></v-text-field>
-                    <v-btn color="#2C3E50" dark class="rounded-0">
+                    <v-btn
+                      color="#2C3E50"
+                      dark
+                      class="rounded-0"
+                      @click="edit(soal)"
+                    >
                       <v-icon small>mdi-pencil</v-icon>
                     </v-btn>
-                    <v-btn color="#2C3E50" dark class="rounded-0">
+                    <v-btn
+                      color="#2C3E50"
+                      dark
+                      class="rounded-0"
+                      @click="
+                        dialogDelete = true;
+                        form = soal;
+                      "
+                    >
                       <v-icon small>mdi-delete</v-icon>
                     </v-btn>
                   </v-card-title>
