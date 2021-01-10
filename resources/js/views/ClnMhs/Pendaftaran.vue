@@ -440,9 +440,12 @@ export default {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
     ujian(type) {
-      let ujian_id = this.ujianSelected.id;
-      let soal_id = this.ujianSelected.soal_id;
-      this.getSoal(type, ujian_id, soal_id);
+      // console.log("ID", this.ujianSelected.id);
+      var ujian_id = this.ujianSelected.id;
+      var soal_id = this.ujianSelected.soal_id;
+      var payload = { ujian_id, type, soal_id };
+      // console.log(payload);
+      this.getSoal(payload);
     },
     setData(ini) {
       ini.jurusanSelected = ini.ujianSelected.jurusan_id;

@@ -15,7 +15,6 @@ export default new Vuex.Store({
         urlPendaftaran: "/api/ujian",
         urlKategori: "/api/kategori",
         urlKategoriPeriode: "/api/kategori-periode",
-        urlTemuRamah: "/api/temu-ramah",
         isBottomSheetOpen: false,
         currentPeriode: null, // current active periode
         jurusan: null,
@@ -45,10 +44,24 @@ export default new Vuex.Store({
             state.ujian = data;
         },
         setCurrentPeriode(state, data) {
-            state.currentPeriode = data.id ? data : null;
+            state.currentPeriode = data;
         },
         setSoal(state, data) {
-            state.soal = data;
+            if (!data.jawaban) {
+                state.soal = data.soal;
+                return 0;
+            }
+            data.jawaban.forEach(jawaban => {
+                var isFound = false;
+                for (let index = 0; index < data.soal.length; index++) {
+                    const soal = data.soal[index];
+                    if (jawaban.id == soal.id) {
+                        soal['jawaban'] = jawaban.jawaban;
+                        break;
+                    }
+                }
+            });
+            state.soal = data.soal;
         }
     },
     actions: {
@@ -86,11 +99,13 @@ export default new Vuex.Store({
                 })
                 .catch((error) => console.error(error));
         },
-        getSoal({ commit, dispatch, state }, type, ujian_id, soal_id = null) {
+        getSoal({ commit, dispatch, state }, payload) {
+            // console.log("soal", ujian_id);
             return new Promise((resolve, reject) => {
-                axios.get(`/api/soal/${ujian_id}/${type}/${soal_id}`).then(response => {
+                axios.get(`/api/soal/${payload.ujian_id}/${payload.type}/${payload.soal_id}`).then(response => {
                     resolve(response)
                     console.log(response.data);
+                    commit('setSoal', response.data)
                 }).catch(error => {
                     reject(error)
                 });

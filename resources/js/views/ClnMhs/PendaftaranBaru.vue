@@ -423,6 +423,11 @@ export default {
   methods: {
     ...mapMutations(["setUser", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser"]),
+    ujian(type) {
+      let ujian_id = this.ujianSelected.id;
+      let soal_id = this.ujianSelected.soal_id;
+      this.getSoal(type, ujian_id, soal_id);
+    },
     checkBiodata(v) {
       Object.keys(v).every((element) => {
         if (element == "email_verified_at") {
