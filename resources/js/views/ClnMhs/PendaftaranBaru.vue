@@ -301,10 +301,50 @@
       </v-stepper-step>
       <v-stepper-content step="4">
         <v-card
-          color="grey lighten-2"
+          v-if="ujianSelected"
+          color="grey lighten-4"
           class="mb-12"
-          height="200px"
-        ></v-card>
+        >
+          <v-card-title>Ujian Masuk</v-card-title>
+          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan Jurusan (TKJ)</v-card-subtitle>
+          <v-card-text>
+
+            <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
+            <span>
+              <!-- :end-label="''" -->
+              <vue-countdown-timer
+                @start_callback="startCallBack('event started')"
+                @end_callback="endCallBack('event ended')"
+                :start-time="now"
+                :end-time="ujianSelected.batas_ujian+' 23:59:59'"
+                :interval="1000"
+                :start-label="'Until start:'"
+                label-position="begin"
+                :end-text="'Event ended!'"
+                :day-txt="'hari'"
+                :hour-txt="'jam'"
+                :minutes-txt="'menit'"
+                :seconds-txt="'detik'"
+              >
+              </vue-countdown-timer>
+            </span>
+            <v-divider></v-divider>
+            <v-btn
+              color="green darken-2"
+              dark
+              block
+              @click="ujian('tka')"
+            >Mulai Ujian TKA</v-btn>
+            <v-divider></v-divider>
+            <v-btn
+              block
+              color="green darken-2"
+              dark
+              @click="ujian('tkj')"
+            >Mulai Ujian TKJ</v-btn>
+
+          </v-card-text>
+        </v-card>
         <v-btn
           color="primary"
           @click="stepper = 1"
@@ -381,7 +421,7 @@ export default {
     this.checkBiodata(this.user);
   },
   methods: {
-    ...mapMutations(["setUser"]),
+    ...mapMutations(["setUser", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser"]),
     checkBiodata(v) {
       Object.keys(v).every((element) => {
@@ -479,6 +519,7 @@ export default {
         ini.checkPembayaran(ini.ujian_id, ini).then((response) => {
           if (response.data.status) {
             ini.isPembayaranLunas = true;
+            ini.setUjianSelected(response.data.ujian);
             return 0;
           }
           ini.loopCheckPembayaran();
@@ -500,6 +541,8 @@ export default {
           });
       });
     },
+    startCallBack(data) {},
+    endCallBack(data) {},
     link(url) {
       var a = "/" + url;
       var link = a.replace(" ", "%20");
@@ -516,8 +559,21 @@ export default {
     },
   },
   computed: {
-    ...mapState(["jurusan", "user", "periode"]),
+    ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
     PhotoFileName: function () {},
+    now: function () {
+      var today = new Date();
+      var date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      var time =
+        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date + " " + time;
+      return dateTime;
+    },
   },
   watch: {
     user: {

@@ -22,7 +22,10 @@
         flat
         tile
       >
-        <v-img max-width="70" :src="'/images/LogoUIN.png'"></v-img>
+        <v-img
+          max-width="70"
+          :src="'/images/LogoUIN.png'"
+        ></v-img>
         <v-card-text>Aplikasi Beasiswa UIN Suska Riau</v-card-text>
       </v-card>
       <v-card
@@ -100,15 +103,18 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app dense clipped-left>
-      <v-app-bar-nav-icon
-        @click.stop="toggleDrawer(windowWidth <= 600)"
-      ></v-app-bar-nav-icon>
+    <v-app-bar
+      app
+      dense
+      clipped-left
+    >
+      <v-app-bar-nav-icon @click.stop="toggleDrawer(windowWidth <= 600)"></v-app-bar-nav-icon>
       <div style="width: 100%; -webkit-app-region: drag">
         <v-toolbar-title>
-          <span v-if="!$vuetify.breakpoint.mobile" class="font-weight-bold ml-4"
-            >App Beasiswa</span
-          >
+          <span
+            v-if="!$vuetify.breakpoint.mobile"
+            class="font-weight-bold ml-4"
+          ></span>
           <!-- Change this automaticly later usig VUEX -->
           <span>{{ $route.name }}</span>
         </v-toolbar-title>
@@ -158,13 +164,21 @@
         </v-btn>
       </v-slide-y-transition>
 
-      <v-btn v-if="windowWidth >= 600" small text @click="logout">
+      <v-btn
+        v-if="windowWidth >= 600"
+        small
+        text
+        @click="logout"
+      >
         <v-icon>mdi-logout-variant</v-icon>keluar
       </v-btn>
     </v-app-bar>
 
     <v-main class="bg-pattern">
-      <transition name="slide-fade" mode="out-in">
+      <transition
+        name="slide-fade"
+        mode="out-in"
+      >
         <router-view></router-view>
       </transition>
 
@@ -275,6 +289,11 @@ export default {
           icon: "mdi-file-document",
           title: "Kelola Kategori",
           to: `/admin/${petugas}/kelola-kategori`,
+        },
+        {
+          icon: "mdi-cog",
+          title: "Setting Ujian",
+          to: `/admin/${petugas}/setting-ujian`,
         },
       ];
     },

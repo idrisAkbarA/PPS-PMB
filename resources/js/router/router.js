@@ -6,6 +6,7 @@ import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
 import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
 import Pendaftaran from "../views/ClnMhs/Pendaftaran.vue";
+import Soal from "../views/ClnMhs/Soal.vue";
 
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
@@ -15,6 +16,7 @@ import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
 import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
 import KelolaPendaftaran from "../views/petugas/Admin/KelolaPendaftaran.vue";
 import KelolaKategori from "../views/petugas/Admin/KelolaKategori.vue";
+import Setting from "../views/petugas/Admin/Setting.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -31,6 +33,11 @@ const routes = [
                 path: "daftar/:id",
                 name: "Pendaftaran",
                 component: Pendaftaran
+            },
+            {
+                path: "ujian/:id",
+                name: "Soal",
+                component: Soal
             },
             {
                 path: "daftar",
@@ -82,6 +89,11 @@ const routes = [
                 path: "kelola-kategori",
                 name: "Kelola Kategori",
                 component: KelolaKategori
+            },
+            {
+                path: "setting-ujian",
+                name: "Setting Ujian",
+                component: Setting
             },
         ]
     },

@@ -22,6 +22,7 @@ export default new Vuex.Store({
         periode: null,
         isLoading: false,
         ujianSelected: null,
+        soal: null,
     },
     mutations: {
         toggleBottomSheet(state, data) {
@@ -45,6 +46,9 @@ export default new Vuex.Store({
         setCurrentPeriode(state, data) {
             state.currentPeriode = data;
         },
+        setSoal(state, data) {
+            state.soal = data;
+        }
     },
     actions: {
         initAllDataClnMhs({ commit, dispatch, state }) {
@@ -80,6 +84,16 @@ export default new Vuex.Store({
                     console.log(response);
                 })
                 .catch((error) => console.error(error));
+        },
+        getSoal({ commit, dispatch, state }, type, ujian_id, soal_id = null) {
+            return new Promise((resolve, reject) => {
+                axios.get(`/api/soal/${ujian_id}/${type}/${soal_id}`).then(response => {
+                    resolve(response)
+                    console.log(response.data);
+                }).catch(error => {
+                    reject(error)
+                });
+            });
         },
         getUjian({ commit, dispatch, state }, role) {
             axios

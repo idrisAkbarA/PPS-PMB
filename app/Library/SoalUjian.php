@@ -42,6 +42,7 @@ class SoalUjian
         $soalInstance = new Soal;
         $soalInstance->set_pertanyaan = $final_soal;
         $soalInstance->save();
+        $this->id = $soalInstance->id;
 
         $ujianInstance = Ujian::find($ujian_id);
 
@@ -50,7 +51,7 @@ class SoalUjian
 
         // update ujian
         $ujianInstance->soal_id = $soalInstance->id;
-        $ujianInstance->batas_ujian = $batas_ujian;
+        // $ujianInstance->batas_ujian = $batas_ujian;
         $ujianInstance->save();
     }
     public function calcDeadline($ujian_id)
