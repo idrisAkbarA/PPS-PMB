@@ -48,22 +48,28 @@ export default new Vuex.Store({
             state.currentPeriode = data;
         },
         setSoal(state, data) {
-            if (!data.jawaban) {
+            if (data.jawaban==null) {
+                data.soal.forEach(soal =>{
+                   soal.jawaban = null
+                })
                 state.soal = data.soal;
                 return 0;
             }
-            // concat each jawaban into each saal array
-            data.jawaban.forEach(jawaban => {
-                var isFound = false;
-                for (let index = 0; index < data.soal.length; index++) {
-                    const soal = data.soal[index];
+            // concat each jawaban into each soal array
+            data.soal.forEach(soal =>{
+                for (let index = 0; index < data.jawaban.length; index++) {
+                    var jawaban = array[index];
                     if (jawaban.id == soal.id) {
-                        soal['jawaban'] = jawaban.jawaban;
+                        soal.jawaban = jawaban.jawaban;
                         break;
+                    }else{
+                        soal.jawaban = null;
                     }
                 }
-            });
+            })
+            console.log("p");
             state.soal = data.soal;
+
         }
     },
     actions: {
