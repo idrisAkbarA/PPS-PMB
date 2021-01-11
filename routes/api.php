@@ -71,7 +71,7 @@ Route::prefix('ujian')->name('ujian.')->group(function () {
 });
 
 // Kategori Routes
-Route::prefix('kategori')->name('kategori')->group(function () {
+Route::prefix('kategori')->name('kategori.')->group(function () {
     Route::get('/', 'KategoriController@index')->name('index');
     Route::post('/', 'KategoriController@store')->name('store');
     Route::get('/{jurusan?}', 'KategoriController@getByJurusan')->name('get-jurusan');
@@ -80,8 +80,18 @@ Route::prefix('kategori')->name('kategori')->group(function () {
     Route::delete('/{kategori?}', 'KategoriController@destroy')->name('destroy');
 });
 
+// Bank Soal Routes
+Route::prefix('bank-soal')->name('bank-soal.')->group(function () {
+    Route::get('/', 'BankSoalController@index')->name('index');
+    Route::get('/tka', 'BankSoalController@getSoalTKA')->name('tka');
+    Route::get('/tkj', 'BankSoalController@getSoalTKJ')->name('tkj');
+    Route::post('/', 'BankSoalController@store')->name('store');
+    Route::put('/{soal?}', 'BankSoalController@update')->name('update');
+    Route::delete('/{soal?}', 'BankSoalController@destroy')->name('destroy');
+});
+
 // Kategori per Periode Routes
-Route::prefix('kategori-periode')->name('kategori')->group(function () {
+Route::prefix('kategori-periode')->name('kategori.')->group(function () {
     Route::post('/', 'KatJurusanPerPeriodeController@store')->name('store');
 });
 
