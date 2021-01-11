@@ -15,6 +15,7 @@ export default new Vuex.Store({
         urlPendaftaran: "/api/ujian",
         urlKategori: "/api/kategori",
         urlBankSoal: "/api/bank-soal",
+        urlTemuRamah: '/api/temu-ramah',
         urlKategoriPeriode: "/api/kategori-periode",
         isBottomSheetOpen: false,
         currentPeriode: null, // current active periode
