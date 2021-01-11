@@ -42,7 +42,7 @@
             {{soal[currentSoal].pertanyaan}}
             <v-radio-group
               column
-              v-model="jawaban"
+              v-model="soal[currentSoal].jawaban"
             >
               <v-radio
                 v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
@@ -156,7 +156,7 @@
             {{soal[currentSoal].pertanyaan}}
             <v-radio-group
               column
-              v-model="jawaban"
+              v-model="soal[currentSoal].jawaban"
             >
               <v-radio
                 v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
@@ -279,7 +279,6 @@ export default {
   },
   data() {
     return {
-      jawaban: null,
       currentSoal: 0
     };
   },
