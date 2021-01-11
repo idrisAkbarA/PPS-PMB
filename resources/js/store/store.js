@@ -51,6 +51,7 @@ export default new Vuex.Store({
                 state.soal = data.soal;
                 return 0;
             }
+            // concat each jawaban into each saal array
             data.jawaban.forEach(jawaban => {
                 var isFound = false;
                 for (let index = 0; index < data.soal.length; index++) {

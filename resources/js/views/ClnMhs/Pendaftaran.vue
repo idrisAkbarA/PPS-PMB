@@ -445,7 +445,12 @@ export default {
       var soal_id = this.ujianSelected.soal_id;
       var payload = { ujian_id, type, soal_id };
       // console.log(payload);
-      this.getSoal(payload);
+      this.getSoal(payload).then((response) => {
+        this.$router.push({
+          name: "Soal",
+          params: { type, ujian_id, soal_id },
+        });
+      });
     },
     setData(ini) {
       ini.jurusanSelected = ini.ujianSelected.jurusan_id;

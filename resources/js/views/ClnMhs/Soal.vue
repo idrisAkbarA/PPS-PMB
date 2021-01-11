@@ -21,7 +21,7 @@
               <v-chip
                 color="green darken-2"
                 text-color="#ecf0f1"
-              >01</v-chip>
+              >{{currentSoal+1}}</v-chip>
               <v-spacer></v-spacer>
               <div>
                 <v-chip
@@ -39,30 +39,17 @@
             class="blue-grey--text text--darken-4"
             style="overflow-y: auto; height: 75%;"
           >
-            Hubungan sosial yang selaras , serasi, seimbang antara individu dan masyarakat dijiwai oleh nilai-nilai Pancasila, yaitu?
+            {{soal[currentSoal].pertanyaan}}
             <v-radio-group
               column
               v-model="radioGroup"
             >
               <v-radio
+                v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
+                :key="index"
                 color="green"
-                label="A. Sila Pertama"
-                value="A"
-              ></v-radio>
-              <v-radio
-                color="green"
-                label="B. Sila kedua"
-                value="B"
-              ></v-radio>
-              <v-radio
-                color="green"
-                label="C. Sila Ketiga"
-                value="C"
-              ></v-radio>
-              <v-radio
-                color="green"
-                label="D. Sila Kelima"
-                value="D"
+                :label="`${pilihan.pilihan}. ${pilihan.text}`"
+                :value="pilihan.pilihan"
               ></v-radio>
             </v-radio-group>
           </v-card-text>
@@ -70,6 +57,7 @@
             <v-btn
               color="green darken-2"
               style="color: #ecf0f1"
+              @click="currentSoal-=1"
             >SOAL SEBELUMNYA</v-btn>
             <v-spacer></v-spacer>
             <v-btn
@@ -80,6 +68,7 @@
             <v-btn
               color="green darken-2"
               style="color: #ecf0f1"
+              @click="currentSoal+=1"
             >SOAL BERIKUTNYA</v-btn>
           </v-card-actions>
         </v-card>
@@ -109,12 +98,13 @@
             <v-btn
               class="ma-1 pa-0"
               tile
-              v-for="item in 500"
-              :key="item"
+              v-for="(soal,index) in soal"
+              :key="index+1"
               small
+              @click="currentSoal=index"
               color="green darken-2"
               style="color: #ecf0f1;"
-            >{{ item }}</v-btn>
+            >{{ index+1 }}</v-btn>
           </v-card-text>
         </v-card>
       </v-col>
@@ -141,7 +131,7 @@
               <v-chip
                 color="green darken-2"
                 text-color="#ecf0f1"
-              >01</v-chip>
+              >{{currentSoal+1}}</v-chip>
             </v-row>
             <v-row
               class="mx-0"
@@ -162,17 +152,7 @@
             class=" blue-grey--text text--darken-4"
             style="overflow-y: auto; height: 50%;"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quam quis temporibus accusantium fuga incidunt. Sequi sed dolorem, adipisci,
-            asperiores possimus voluptates et illum aspernatur voluptatum nisi maiores inventore eos dicta.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, iusto maxime. Dicta odit est,
-            culpa enim saepe ullam? Quidem quis laborum veniam hic incidunt eveniet perspiciatis delectus mollitia eius maxime.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quam quis temporibus accusantium fuga incidunt. Sequi sed dolorem, adipisci,
-            asperiores possimus voluptates et illum aspernatur voluptatum nisi maiores inventore eos dicta.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, iusto maxime. Dicta odit est,
-            culpa enim saepe ullam? Quidem quis laborum veniam hic incidunt eveniet perspiciatis delectus mollitia eius maxime.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
           </v-card-text>
           <v-card-actions style="height: 30%;">
             <v-row
@@ -249,7 +229,17 @@
 </template>
 
 <script>
-export default {};
+import { mapState, mapMutations, mapActions } from "vuex";
+export default {
+  computed: {
+    ...mapState(["soal"]),
+  },
+  data() {
+    return {
+      currentSoal: 0,
+    };
+  },
+};
 </script>
 
 <style>

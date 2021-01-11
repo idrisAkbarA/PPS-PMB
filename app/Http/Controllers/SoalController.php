@@ -34,7 +34,7 @@ class SoalController extends Controller
             return response()->json(["status" => false, "message" => "User id is not belong to the soal id"]);
         }
         $soalUjian = new SoalUjian;
-        return response()->json(['soal' => $soalUjian->get($type, $soal_id)]);
+        return response()->json($soalUjian->get($type, $soal_id));
     }
     public function generate($ujian_id)
     {
