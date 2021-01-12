@@ -87,12 +87,10 @@
             <v-card-title :class="setColor(item) + ' text-white'">{{item.jurusan.nama}}</v-card-title>
             <v-card-subtitle :class="setColor(item) +' text-white'">Periode {{item.periode.nama}}<br>Klik untuk melihat rincian</v-card-subtitle>
             <v-card-text>
-              <v-container
-                class="mt-4"
-              >
+              <v-container class="mt-4">
                 <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
                 <p v-else-if="!isBiodataFilled">Lengkapi biodata diri</p>
-                <p v-else-if="item.lunas_at == null">Selesaikan pembayaran</p>
+                <p v-else-if="item.lunas_at == null">Mohon selesaikan pembayaran</p>
                 <v-row v-else-if="isStillUjian(item)">
                   <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
                   <span>
@@ -114,9 +112,9 @@
                     </vue-countdown-timer>
                   </span>
                 </v-row>
-                <p v-else-if="!item.is_lulus_tkj">Maaf, anda gagal ujian</p>
-                <p v-else-if="!item.is_lulus_tka">Maaf, anda gagal ujian</p>
                 <p v-else-if="item.is_lulus_tka == true && item.is_lulus_tkj == true">Silakan tentukan temu ramah</p>
+                <p v-else>Maaf, anda gagal ujian</p>
+                <!-- <p v-else-if="!item.is_lulus_tka">Maaf, anda gagal ujian</p> -->
               </v-container>
             </v-card-text>
           </v-card>
@@ -158,9 +156,7 @@ export default {
   created() {
     console.log(this.now);
     // this.getUser("cln_mahasiswa");
-    this.initAllDataClnMhs().then(response=>{
-  
-    });
+    this.initAllDataClnMhs().then(response => {});
   },
   watch: {
     user: {
@@ -173,35 +169,49 @@ export default {
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
     ...mapMutations(["setUjianSelected"]),
-    checkPeriode(ujian){
+    checkPeriode(ujian) {
       var today = new Date();
       var batas_ujian = new Date();
       var akhir_periode = new Date(ujian.periode.akhir_periode);
 
       if (today > akhir_periode) {
-        return  false;
+        return false;
         // return false;
       }
       return true;
     },
     // ngecek apakah ada ujian yang belum selesai dan masih dalam rentang uian
-    isStillUjian(item){
+    isStillUjian(item) {
       var today = new Date();
       var batas_ujian = new Date(item.batas_ujian);
-      var isStillUjian = today <= batas_ujian;
-      if((item.is_lulus_tka==null^item.is_lulus_tkj==null) && isStillUjian){
-        return true;
-      }
-      return false;
+      var isUjianInRange = today <= batas_ujian;
+      if (item.is_lulus_tka == false) return false;
+      if (item.is_lulus_tkj == false) return false;
+      if (!isUjianInRange) return false;
+      return true;
+      //   if (item.is_lulus_tka == null || item.is_lulus_tka == true) return true;
+      //   if (item.is_lulus_tkj == null || item.is_lulus_tkj == true) return true;
+
+      //   if (!isStillUjian) return false;
+
+      //   if (
+      //     (item.is_lulus_tka == null) ^ (item.is_lulus_tkj == null) &&
+      //     isStillUjian
+      //   ) {
+      //     return true;
+      //   }
+      //   return false;
     },
     setColor(ujian) {
       // var today = new Date();
       // var akhir_periode = new Date(ujian.periode["akhir_periode"]);
-
+      var today = new Date();
+      var batas_ujian = new Date(ujian.batas_ujian);
+      var isUjianInRange = today <= batas_ujian;
       var isPeriode = this.checkPeriode(ujian);
       // jika sudah lewat periode card warna biru
       if (!isPeriode) {
-        return "blue darken";
+        return "grey darken-1";
       }
       // jika biodata belum lengkap card warna ungu
       if (!this.isBiodataFilled) {
@@ -210,7 +220,7 @@ export default {
       // cek apakah sudah melakukan pembayaran
       // kalo null berarti belom bayar, card warna orange
       if (ujian.lunas_at == null) {
-        return "orange darken-2";
+        return "deep-orange lighten-3";
       }
       // cek apakah lulus ujian tka
       // jika gagal ujian tka, card merah
@@ -225,11 +235,11 @@ export default {
       // jika lulus ujian tka & tkj
       // card warna hijau
       if (ujian.is_lulus_tka == true && ujian.is_lulus_tkj == true) {
-        return "black darken";
-      }
-
-      else{
-        return "green darken"
+        return "green darken-1";
+      } else if (!isUjianInRange) {
+        return "red";
+      } else {
+        return "yellow darken-3";
       }
     },
     // cek biodata sudah terisi apa belum,
