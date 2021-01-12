@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\JadwalTR;
+use App\Periode;
 use Illuminate\Http\Request;
 
 class JadwalTRController extends Controller
@@ -12,19 +13,24 @@ class JadwalTRController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $periode_id = $request->periode;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $currentPeriode = Periode::getActive();
+        if ($periode_id) {
+            $currentPeriode = Periode::find($periode_id);
+        }
+
+        if (!is_null($currentPeriode)) {
+            $temuRamah = $currentPeriode->getTemuRamah();
+        }
+
+        $reply = [
+            'currentPeriode' => $currentPeriode,
+            'temuRamah' => $temuRamah ?? []
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
@@ -35,7 +41,22 @@ class JadwalTRController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reply = [
+            'status' => false,
+            'message' => 'Periode tidak aktif!'
+        ];
+
+        $currentPeriode = Periode::getActive();
+        if ($request->periode_id == $currentPeriode->id) {
+            $jadwal = JadwalTR::create($request->all());
+            $reply = [
+                'status' => true,
+                'message' => 'Jadwal Successfully Created!',
+                'data' => $jadwal
+            ];
+        }
+
+        return response()->json($reply, $reply['status'] ? 201 : 200);
     }
 
     /**
@@ -50,26 +71,22 @@ class JadwalTRController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\JadwalTR  $jadwalTR
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(JadwalTR $jadwalTR)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\JadwalTR  $jadwalTR
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JadwalTR $jadwalTR)
+    public function update(Request $request, JadwalTR $jadwal)
     {
-        //
+        $jadwal->update($request->all());
+
+        $reply = [
+            'status' => true,
+            'message' => 'Jadwal Successfully Created!',
+            'data' => $jadwal
+        ];
+        return response()->json($reply, 200);
     }
 
     /**
@@ -78,8 +95,14 @@ class JadwalTRController extends Controller
      * @param  \App\JadwalTR  $jadwalTR
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JadwalTR $jadwalTR)
+    public function destroy(JadwalTR $jadwal)
     {
-        //
+        $jadwal->delete();
+
+        $reply = [
+            'status' => true,
+            'message' => 'Jadwal Successfully Deleted!'
+        ];
+        return response()->json($reply, 200);
     }
 }

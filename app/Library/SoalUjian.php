@@ -29,7 +29,7 @@ class SoalUjian
             'kategori_id' => $kat_tkj_id
         ])->get();
 
-        // select the questions randomly until it met requested quantity 
+        // select the questions randomly until it met requested quantity
         $tka_selected = self::selectRandomly($soalTKA, $jumlah_tka);
         $tkj_selected = self::selectRandomly($soalTKJ, $jumlah_tkj);
 
@@ -42,23 +42,25 @@ class SoalUjian
         $soalInstance = new Soal;
         $soalInstance->set_pertanyaan = $final_soal;
         $soalInstance->save();
-
+        $this->id = $soalInstance->id;
+        // dd($soalInstance->id);
         $ujianInstance = Ujian::find($ujian_id);
-
+        // dd($ujian_id);
         // calculate ujian deadline
-        $batas_ujian = self::calcDeadline($ujian_id);
-
+        // $batas_ujian = self::calcDeadline($ujian_id);
+        // return $batas_ujian;
         // update ujian
         $ujianInstance->soal_id = $soalInstance->id;
-        $ujianInstance->batas_ujian = $batas_ujian;
+        // $ujianInstance->batas_ujian = $batas_ujian;
         $ujianInstance->save();
     }
     public function calcDeadline($ujian_id)
     {
         $ujianInstance = Ujian::find($ujian_id);
 
-        $periode_id =  $ujianInstance->periode_id;
+        $periode_id =  $ujianInstance['periode_id'];
         $periode = Periode::find($periode_id);
+        // return $periode;
         $range_ujian = $periode->range_ujian;
         $akhir_periode = Carbon::createFromFormat('Y-m-d', $periode->akhir_periode);
         $temp_batas_ujian = Carbon::now()->addDays($range_ujian);
@@ -78,14 +80,16 @@ class SoalUjian
     public function get($type, $id)
     {
         // this function send soal to client according to the requested type (tka or tkj)
-        // and prevent 'jawaban' being sent to the client
+        // and prevent 'kunci jawaban' being sent to the client
         $soal = Soal::find($id);
         $soal_collection = collect($soal->set_pertanyaan);
-        $result = $soal_collection->where('type', $type)->first();
-        foreach ($result->soal as $key => $value) {
+        $jawaban_collection = collect($soal->set_jawaban_mhs);
+        $result_jawaban = $jawaban_collection->where('type', $type)->first();
+        $result_soal = $soal_collection->where('type', $type)->first();
+        foreach ($result_soal->soal as $key => $value) {
             unset($value->jawaban);
         }
-        return $result->soal;
+        return ['soal' => $result_soal->soal, 'jawaban' => $result_jawaban->jawaban ?? null];
     }
     public function setJawaban($type, $rowID, $soalID, $jawaban)
     {
@@ -94,7 +98,7 @@ class SoalUjian
 
         $soal = Soal::find($rowID);
         $jawabanDB = $soal->set_jawaban_mhs;
-        //answer structure to be stored 
+        //answer structure to be stored
         $setJawaban = ['id' => $soalID, 'jawaban' => $jawaban];
 
 

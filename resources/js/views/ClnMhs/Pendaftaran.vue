@@ -313,17 +313,47 @@
         <v-card
           color="grey lighten-4"
           class="mb-12"
-          height="200px"
-        ></v-card>
-        <v-btn
-          color="primary"
-          @click="stepper = 1"
         >
-          Continue
-        </v-btn>
-        <v-btn text>
-          Cancel
-        </v-btn>
+          <v-card-title>Ujian Masuk</v-card-title>
+          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan Jurusan (TKJ)</v-card-subtitle>
+          <v-card-text>
+
+            <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
+            <span>
+              <!-- :end-label="''" -->
+              <vue-countdown-timer
+                @start_callback="startCallBack('event started')"
+                @end_callback="endCallBack('event ended')"
+                :start-time="now"
+                :end-time="ujianSelected.batas_ujian+' 23:59:59'"
+                :interval="1000"
+                :start-label="'Until start:'"
+                label-position="begin"
+                :end-text="'Event ended!'"
+                :day-txt="'hari'"
+                :hour-txt="'jam'"
+                :minutes-txt="'menit'"
+                :seconds-txt="'detik'"
+              >
+              </vue-countdown-timer>
+            </span>
+            <v-divider></v-divider>
+            <v-btn
+              color="green darken-2"
+              dark
+              block
+              @click="ujian('tka')"
+            >Mulai Ujian TKA</v-btn>
+            <v-divider></v-divider>
+            <v-btn
+              block
+              color="green darken-2"
+              dark
+              @click="ujian('tkj')"
+            >Mulai Ujian TKJ</v-btn>
+
+          </v-card-text>
+        </v-card>
       </v-stepper-content>
       <v-stepper-step
         :editable="isLulusUjian?true:false"
@@ -347,10 +377,7 @@
           color="primary"
           @click="stepper = 1"
         >
-          Continue
-        </v-btn>
-        <v-btn text>
-          Cancel
+          Selanjutnya
         </v-btn>
       </v-stepper-content>
     </v-stepper>
@@ -387,7 +414,7 @@ export default {
   // first check if this page reloaded before or accessed directly via url
   beforeRouteEnter(to, from, next) {
     if (from.name == null) {
-      next((vm) => {
+      next(vm => {
         console.log(vm.initPendaftaran(vm));
       });
     } else {
@@ -408,7 +435,20 @@ export default {
   },
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
-    ...mapActions(["initAllDataClnMhs", "updateUser"]),
+    ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    ujian(type) {
+      // console.log("ID", this.ujianSelected.id);
+      var ujian_id = this.ujianSelected.id;
+      var soal_id = this.ujianSelected.soal_id;
+      var payload = { ujian_id, type, soal_id };
+      console.log(payload);
+      this.getSoal(payload).then(response => {
+        this.$router.push({
+          name: "Soal",
+          params: { type, ujian_id, soal_id: this.ujianSelected.soal_id }
+        });
+      });
+    },
     setData(ini) {
       ini.jurusanSelected = ini.ujianSelected.jurusan_id;
       ini.ujian_id = ini.ujianSelected.id;
@@ -432,21 +472,21 @@ export default {
       // this method initialize the data that this page needed
       console.log(vm);
       const thePath = window.location.pathname;
-      const getLastItem = (thePath) =>
+      const getLastItem = thePath =>
         thePath.substring(thePath.lastIndexOf("/") + 1);
       var payload = { jurusan_id: getLastItem(thePath) };
       axios
         .post("/api/ujian/get-pendaftaran", payload)
-        .then((response) => {
+        .then(response => {
           vm.setUser(response.data.user);
           vm.setJurusan(response.data.jurusan);
           vm.setUjianSelected(response.data.ujian);
           vm.setData(vm);
         })
-        .catch((error) => {});
+        .catch(error => {});
     },
     checkBiodata(v) {
-      Object.keys(v).every((element) => {
+      Object.keys(v).every(element => {
         if (element == "email_verified_at") {
           return true;
         }
@@ -465,21 +505,21 @@ export default {
       var payload = { ujian_id: this.ujian_id };
       axios
         .post("/api/ujian/generate-pembayaran", payload)
-        .then((response) => {
+        .then(response => {
           console.log(response.data);
           this.isLoading = false;
           this.kodePembayaran = response.data.code;
           this.isJurusanEditable = false;
           this.loopCheckPembayaran();
         })
-        .catch((error) => {});
+        .catch(error => {});
     },
     initUjian() {
       var periode_id = this.periode[0].id;
       var jurusan_id = this.jurusanSelected;
       var payload = { periode_id, jurusan_id };
       if (this.ujian_id) payload["ujian_id"] = this.ujian_id;
-      axios.post("/api/ujian/init", payload).then((response) => {
+      axios.post("/api/ujian/init", payload).then(response => {
         this.ujian_id = response.data.ujian_id;
         console.log(response.data);
       });
@@ -491,7 +531,7 @@ export default {
       var data = new FormData();
       data.append("file", this.ijazahFile);
       data.append("methodName", "saveIjazahPath");
-      this.upload(data, this).then((response) => {
+      this.upload(data, this).then(response => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -507,7 +547,7 @@ export default {
       var data = new FormData();
       data.append("file", this.photoFile);
       data.append("methodName", "savePhotoPath");
-      this.upload(data, this).then((response) => {
+      this.upload(data, this).then(response => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -520,27 +560,28 @@ export default {
       return axios({
         method: "post",
         url: "/api/user/store-file",
-        onUploadProgress: (progressEvent) => {
+        onUploadProgress: progressEvent => {
           var percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
           );
           ini.progress = percentCompleted;
         },
-        data,
+        data
       });
     },
     async loopCheckPembayaran() {
       function sleep(ms) {
-        return new Promise((res) => setTimeout(res, ms));
+        return new Promise(res => setTimeout(res, ms));
       }
-      let myAsyncFunc = async function (ini) {
+      let myAsyncFunc = async function(ini) {
         console.log("Sleeping");
         await sleep(3000);
         console.log("Done");
         // console.log(ini);
-        ini.checkPembayaran(ini.ujian_id, ini).then((response) => {
+        ini.checkPembayaran(ini.ujian_id, ini).then(response => {
           if (response.data.status) {
             ini.isPembayaranLunas = true;
+            ini.setUjianSelected(response.data.ujian);
             return 0;
           }
           ini.loopCheckPembayaran();
@@ -553,15 +594,17 @@ export default {
       return new Promise((resolve, reject) => {
         axios
           .post("/api/ujian/check-pembayaran", payload)
-          .then((response) => {
+          .then(response => {
             if (response.data.status) ini.isPembayaranLunas = true;
             resolve(response);
           })
-          .catch((error) => {
+          .catch(error => {
             reject(error);
           });
       });
     },
+    startCallBack(data) {},
+    endCallBack(data) {},
     link(url) {
       var a = "/" + url;
       var link = a.replace(" ", "%20");
@@ -575,19 +618,32 @@ export default {
       } else {
         return "50%";
       }
-    },
+    }
   },
   computed: {
     ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
-    PhotoFileName: function () {},
+    now: function() {
+      var today = new Date();
+      var date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      var time =
+        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date + " " + time;
+      return dateTime;
+    },
+    PhotoFileName: function() {}
   },
   watch: {
     user: {
       deep: true,
-      handler: function (v) {
+      handler: function(v) {
         this.checkBiodata(v);
-      },
-    },
+      }
+    }
   },
   data() {
     return {
@@ -604,15 +660,15 @@ export default {
       ruleTemuRamah: [() => this.isLulusUjian != false],
       ruleUjian: [() => this.isPembayaranLunas != false],
       rulePembayaran: [
-        () => this.isBiodataFilled != false && this.jurusanSelected != null,
+        () => this.isBiodataFilled != false && this.jurusanSelected != null
       ],
       ruleBiodata: [() => this.jurusanSelected != null],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,
-      form: {},
+      form: {}
     };
-  },
+  }
 };
 </script>
 

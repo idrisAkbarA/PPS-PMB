@@ -436,7 +436,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen", "urlPeriode"]),
+    ...mapState(["isBottomSheetOpen", "urlPeriode", "currentPeriode"]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -467,7 +467,7 @@ export default {
     this.getPeriode();
   },
   methods: {
-    ...mapMutations(["toggleBottomSheet"]),
+    ...mapMutations(["toggleBottomSheet", "setCurrentPeriode"]),
     getPeriode() {
       this.isLoading = true;
       axios
@@ -478,7 +478,13 @@ export default {
         .catch((err) => {
           console.error(err);
         })
-        .then((this.isLoading = false));
+        .then(() => {
+          this.isLoading = false;
+          const periode = this.periode.filter((value) => {
+            return value.is_active;
+          });
+          this.setCurrentPeriode(periode[0] ?? {});
+        });
     },
     allowedDateAkhirPeriode(val) {
       return val >= this.form.awal_periode;

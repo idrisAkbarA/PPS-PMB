@@ -126,30 +126,21 @@ class UjianController extends Controller
         $ujian->kode_bayar = $code;
         $ujian->save();
 
-        // generate soal 
-        $jurusan_id = $ujian->jurusan_id;
-        $tka_id = $ujian->kat_tka_id;
-        $tkj_id = $ujian->kat_tkj_id;
-        $jum_tka = Periode::find($ujian->periode_id)->jumlah_tka;
-        $jum_tkd = Periode::find($ujian->periode_id)->jumlah_tkj;
-        $soalUjian = new SoalUjian;
-        $soalUjian->generate(
-            $jurusan_id,
-            $tka_id,
-            $tkj_id,
-            $jum_tka,
-            $jum_tkd,
-            $ujian_id
-        );
         return response()->json(['status' => true, 'message' => 'Kode bayar berhasil dibuat', 'code' => $code]);
     }
     public function pay(Request $request)
     {
+        // this function set pembayaran to be 'lunas' by setting the lunas_at date.
+        // and also, set the deadline of the corresponding ujian
+
         // try {
         //code...
         $kode_bayar = $request->kode_bayar;
+        $soalUjian = new SoalUjian;
         $ujian = Ujian::where(['kode_bayar' => $kode_bayar])->first();
+        $batas_ujian = $soalUjian->calcDeadline($ujian->id);
         $ujian->lunas_at = Carbon::now();
+        $ujian->batas_ujian = $batas_ujian;
         $ujian->save();
         return response()->json([
             'status' => true,
@@ -172,6 +163,7 @@ class UjianController extends Controller
             return response()->json([
                 'status' => true,
                 "message" => 'Pembayaran sudah lunas',
+                "ujian" => $ujian
             ]);
         } else {
             return response()->json([

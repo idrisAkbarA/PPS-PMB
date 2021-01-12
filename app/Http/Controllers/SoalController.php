@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Soal;
+use App\Ujian;
+use App\Periode;
 use App\Library\SoalUjian;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SoalController extends Controller
@@ -13,10 +16,52 @@ class SoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function get($id, $type)
+
+    public function get($ujian_id, $type, $soal_id)
     {
-        $soal = new SoalUjian;
-        return response()->json($soal->get($type, $id));
+        //if soal_id is not exist then generate soal
+        $user = Auth::guard('cln_mahasiswa')->user();
+        // if (gettype($soal_id) != "string") {
+        //     $soal_id = $this->generate($ujian_id);
+        // }
+
+        if ($soal_id=="null") {
+            // dd($soal_id);
+            $soal_id = $this->generate($ujian_id);
+        }
+        $soal = Soal::find($soal_id);
+        $ujian = Ujian::find($ujian_id);
+        $isUserValid = $user->id == $ujian->user_cln_mhs_id;
+
+        if (!$isUserValid) {
+            return response()->json(["status" => false, "message" => "User id is not belong to the soal id"]);
+        }
+        $soalUjian = new SoalUjian;
+        $result = $soalUjian->get($type, $soal_id);
+        $result['id'] = $soal_id;
+        return response()->json($result);
+    }
+    public function generate($ujian_id)
+    {
+        $ujian = Ujian::find($ujian_id);
+        // $jurusan_id = $ujian->jurusan_id;
+        // $tka_id = $ujian->kat_tka_id;
+        // $tkj_id = $ujian->kat_tkj_id;
+        $jurusan_id = $ujian['jurusan_id'];
+        $tka_id = $ujian['kat_tka_id'];
+        $tkj_id = $ujian['kat_tkj_id'];
+        $jum_tka = Periode::find($ujian['periode_id'])['jumlah_tka'];
+        $jum_tkd = Periode::find($ujian['periode_id'])['jumlah_tkj'];
+        $soalUjian = new SoalUjian;
+        $soalUjian->generate(
+            $jurusan_id,
+            $tka_id,
+            $tkj_id,
+            $jum_tka,
+            $jum_tkd,
+            $ujian_id
+        );
+        return $soalUjian->id;
     }
     public function setJawaban(Request $request)
     {

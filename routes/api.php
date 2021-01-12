@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/authenticate/server/{role}', 'AuthController@loginServer'); // roles are 'cln_mahasiswa' and 'petugas'
-Route::get('/soal/{id}/{type}', 'SoalController@get'); // id = row id of soal, type = tka or tkj
+Route::middleware('auth:cln_mahasiswa')->get('/soal/{ujian_id}/{type}/{soal_id?}', 'SoalController@get'); // id = row id of soal, type = tka or tkj
 Route::post('/soal/set-jawaban', 'SoalController@setJawaban');
 Route::post('/soal/calc-score', 'SoalController@calcScore');
 Route::post('/soal/set-lulus', 'SoalController@setLulus');
@@ -71,15 +71,34 @@ Route::prefix('ujian')->name('ujian.')->group(function () {
 });
 
 // Kategori Routes
-Route::prefix('kategori')->name('kategori')->group(function () {
+Route::prefix('kategori')->name('kategori.')->group(function () {
     Route::get('/', 'KategoriController@index')->name('index');
     Route::post('/', 'KategoriController@store')->name('store');
+    Route::get('/{jurusan?}', 'KategoriController@getByJurusan')->name('get-jurusan');
     Route::post('/{jurusan?}', 'KategoriController@storeInJurusan')->name('store-jurusan');
     Route::put('/{kategori?}', 'KategoriController@update')->name('update');
     Route::delete('/{kategori?}', 'KategoriController@destroy')->name('destroy');
 });
 
+// Bank Soal Routes
+Route::prefix('bank-soal')->name('bank-soal.')->group(function () {
+    Route::get('/', 'BankSoalController@index')->name('index');
+    Route::get('/tka', 'BankSoalController@getSoalTKA')->name('tka');
+    Route::get('/tkj', 'BankSoalController@getSoalTKJ')->name('tkj');
+    Route::post('/', 'BankSoalController@store')->name('store');
+    Route::put('/{soal?}', 'BankSoalController@update')->name('update');
+    Route::delete('/{soal?}', 'BankSoalController@destroy')->name('destroy');
+});
+
 // Kategori per Periode Routes
-Route::prefix('kategori-periode')->name('kategori')->group(function () {
+Route::prefix('kategori-periode')->name('kategori.')->group(function () {
     Route::post('/', 'KatJurusanPerPeriodeController@store')->name('store');
+});
+
+// Temu Ramah Routes
+Route::prefix('temu-ramah')->name('temu-ramah')->group(function () {
+    Route::get('/', 'JadwalTRController@index')->name('index');
+    Route::post('/', 'JadwalTRController@store')->name('store');
+    Route::put('/{jadwal}', 'JadwalTRController@update')->name('update');
+    Route::delete('/{jadwal}', 'JadwalTRController@destroy')->name('destroy');
 });
