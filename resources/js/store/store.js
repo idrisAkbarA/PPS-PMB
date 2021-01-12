@@ -48,6 +48,13 @@ export default new Vuex.Store({
             state.currentPeriode = data;
         },
         setSoal(state, data) {
+            console.log("ujian",state.ujianSelected)
+            if(!state.ujianSelected){
+                state.ujianSelected = {soal_id:data.id}
+            }else{
+                state.ujianSelected.soal_id = data.id;
+            }
+
             if (data.jawaban==null) {
                 data.soal.forEach(soal =>{
                    soal.jawaban = null
@@ -57,8 +64,10 @@ export default new Vuex.Store({
             }
             // concat each jawaban into each soal array
             data.soal.forEach(soal =>{
+                soal.ragu = false;
+                console.log("A");
                 for (let index = 0; index < data.jawaban.length; index++) {
-                    var jawaban = array[index];
+                    var jawaban = data.jawaban[index];
                     if (jawaban.id == soal.id) {
                         soal.jawaban = jawaban.jawaban;
                         break;
@@ -113,6 +122,7 @@ export default new Vuex.Store({
                 axios.get(`/api/soal/${payload.ujian_id}/${payload.type}/${payload.soal_id}`).then(response => {
                     resolve(response)
                     console.log(response.data);
+                    // state.ujianSelected.soal_id = response.data.id;
                     commit('setSoal', response.data)
                 }).catch(error => {
                     reject(error)

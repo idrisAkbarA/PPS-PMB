@@ -52,6 +52,7 @@ class initPeriode extends Command
         $periode->awal_periode = $thisYear . '-01-01';
         $periode->akhir_periode = $thisYear . '-4-30';
         $periode->range_ujian = 10;
+        $periode->durasi_ujian = 1;
         $periode->syarat_ipk = 3.0;
         $periode->syarat_bhs = 350;
         $periode->awal_temu_ramah = $thisYear . '-5-01';

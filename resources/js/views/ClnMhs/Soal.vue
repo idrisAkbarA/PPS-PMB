@@ -43,6 +43,7 @@
             <v-radio-group
               column
               v-model="soal[currentSoal].jawaban"
+              @change="setJawaban(soal[currentSoal])"
             >
               <v-radio
                 v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
@@ -58,18 +59,35 @@
               color="green darken-2"
               style="color: #ecf0f1"
               @click="currentSoal-=1"
-            >SOAL SEBELUMNYA</v-btn>
+              text
+            >
+              <v-icon>mdi-menu-left</v-icon>SOAL SEBELUMNYA
+            </v-btn>
             <v-spacer></v-spacer>
             <v-btn
+              text
               color="green darken-2"
               style="color: #ecf0f1"
+              @click="soal[currentSoal].ragu = !soal[currentSoal].ragu"
             >RAGU - RAGU</v-btn>
             <v-spacer></v-spacer>
+            <v-btn
+              v-if="currentSoal+1==soal.length"
+              color="green darken-2"
+              style="color: #ecf0f1"
+              @click="dialog=true"
+              elevation="10"
+            >Selesai</v-btn>
+            <v-spacer v-if="currentSoal+1!=soal.length"></v-spacer>
             <v-btn
               color="green darken-2"
               style="color: #ecf0f1"
               @click="currentSoal+=1"
-            >SOAL BERIKUTNYA</v-btn>
+              v-if="currentSoal+1!=soal.length"
+              text
+            >
+              SOAL BERIKUTNYA <v-icon>mdi-menu-right</v-icon>
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -93,17 +111,26 @@
           </v-card-title>
           <v-card-text
             style="overflow-y: auto;height:90%"
-            class="mx-0 pa-0"
+            class="mx-auto pa-0"
           >
-            <v-btn
-              class="ma-1 pa-0"
-              tile
-              v-for="(soal,index) in soal"
-              :key="index+1"
-              small
-              @click="currentSoal=index"
-              color="white"
-            >{{ index+1 }}</v-btn>
+            <v-container>
+              <v-row
+                align="center"
+                justify="center"
+              >
+                <v-btn
+                  class="ma-1 pa-0"
+                  tile
+                  v-for="(soal,index) in soal"
+                  :key="index+1"
+                  small
+                  outlined
+                  @click="currentSoal=index;setNomorColor(soal);"
+                  :class="setNomorColor(soal)"
+                >{{ index+1 }}</v-btn>
+
+              </v-row>
+            </v-container>
           </v-card-text>
           <!-- style="color: #ecf0f1;" -->
         </v-card>
@@ -157,6 +184,7 @@
             <v-radio-group
               column
               v-model="soal[currentSoal].jawaban"
+              @change="setJawaban(soal[currentSoal])"
             >
               <v-radio
                 v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
@@ -179,15 +207,20 @@
                   class="mx-auto ma-1"
                   color="green darken-2"
                   style="color: #ecf0f1"
-                >SOAL SEBELUMNYA</v-btn>
+                  @click="currentSoal-=1"
+                >
+                  <v-icon>mdi-menu-left</v-icon> SOAL SEBELUMNYA
+                </v-btn>
               </v-col>
               <v-col cols="12">
                 <v-btn
                   small
+                  text
                   block
                   class="mx-auto ma-1"
                   color="green darken-2"
                   style="color: #ecf0f1"
+                  @click="soal[currentSoal].ragu = !soal[currentSoal].ragu"
                 >RAGU - RAGU</v-btn>
               </v-col>
               <v-col cols="12">
@@ -197,7 +230,12 @@
                   class="mx-auto ma-1"
                   color="green darken-2"
                   style="color: #ecf0f1"
-                >SOAL BERIKUTNYA</v-btn>
+                  @click="currentSoal+=1"
+                  :disabled="currentSoal==soal.lenght?true:false"
+                >
+
+                  SOAL BERIKUTNYA<v-icon>mdi-menu-right</v-icon>
+                </v-btn>
               </v-col>
             </v-row>
           </v-card-actions>
@@ -232,7 +270,7 @@
               :key="index+1"
               small
               @click="currentSoal=index"
-              color="white"
+              :class="setNomorColor(soal)"
             >{{ index+1 }}</v-btn>
 
           </v-card-text>
@@ -248,6 +286,23 @@
         color="green"
       ></v-progress-circular>
     </v-row>
+    <v-dialog
+      v-model="dialog"
+      :width="windowWidth>600?'30%':'60%'"
+    >
+      <v-card>
+        <v-card-title>
+          Selesai Ujian
+        </v-card-title>
+        <v-card-text>
+          <label>Apakah anda yakin ingin menyelesaikan sesi ujian?</label>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="green">Iya</v-btn>
+          <v-btn text>tidak</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -256,21 +311,46 @@ import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   methods: {
     ...mapActions(["getSoal"]),
-    initSoal(vm) {
-      // this method called if the page get reloaded or direct access via url
-      // this method initialize the data that this page needed
-
+    setNomorColor(soal) {
+      if (soal.ragu) return "yellow";
+      if (soal.jawaban) return "green lighten-1 text-white";
+      return "white";
+    },
+    setJawaban(soal) {
+      console.log(soal);
+      let payload = {
+        type: this.type,
+        rowID: this.soal_id,
+        soalID: soal.id,
+        jawaban: soal.jawaban
+      };
+      axios
+        .post("/api/soal/set-jawaban", payload)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {});
+    },
+    initData(vm) {
       // get paramater from url segments
       const thePath = window.location.pathname;
       const segments = thePath.split("/");
-
       // last segment is soal_id
       // 2nd from last is ujian_id
       // 3rd from last is type
-      const soal_id = segments[segments.length - 1];
-      const ujian_id = segments[segments.length - 2];
-      const type = segments[segments.length - 3];
-      const payload = { soal_id, ujian_id, type };
+      vm.soal_id = segments[segments.length - 1];
+      vm.ujian_id = segments[segments.length - 2];
+      vm.type = segments[segments.length - 3];
+    },
+    initSoal(vm) {
+      // this method called if the page get reloaded or direct access via url
+      // this method initialize the data that this page needed
+      vm.initData(vm);
+      const payload = {
+        soal_id: vm.soal_id,
+        ujian_id: vm.ujian_id,
+        type: vm.type
+      };
       vm.getSoal(payload);
     }
   },
@@ -279,7 +359,11 @@ export default {
   },
   data() {
     return {
-      currentSoal: 0
+      dialog: false,
+      currentSoal: 0,
+      soal_id: null,
+      ujian_id: null,
+      type: null
     };
   },
   beforeRouteEnter(to, from, next) {
@@ -290,6 +374,10 @@ export default {
     } else {
       next();
     }
+  },
+  created() {
+    let vm = this;
+    this.initData(vm);
   }
 };
 </script>
