@@ -49,7 +49,8 @@ export default new Vuex.Store({
     actions: {
         initAllDataClnMhs({ commit, dispatch, state }) {
             state.isLoading = true;
-            axios
+            return new Promise((resolve,reject)=>{
+                axios
                 .get(`/api/data/init-data-cln-mhs`)
                 .then((response) => {
                     console.log(response.data);
@@ -58,9 +59,12 @@ export default new Vuex.Store({
                     commit('setPeriode', response.data.periode);
                     commit('setJurusan', response.data.jurusan);
                     state.isLoading = false;
+                    resolve(response);
                 })
                 .catch((error) => { console.error(error); state.isLoading = false; });
-        },
+
+            })
+                    },
         updateUser({ commit, dispatch, state }, user) {
             return new Promise((resolve, reject) => {
                 axios.put('/api/user/update', user).then(response => {

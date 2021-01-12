@@ -33,12 +33,6 @@
                   <v-card-title>
                     <v-chip color="#2C3E50" dark> No. 1 </v-chip>
                     <v-spacer></v-spacer>
-                    <v-select
-                      filled
-                      :full-width="false"
-                      dense
-                      hide-details="auto"
-                    ></v-select>
                     <v-btn color="#2C3E50" dark class="rounded-0">
                       <v-icon small>mdi-pencil</v-icon>
                     </v-btn>
@@ -125,10 +119,12 @@ export default {
       soalTKA: [
         {
           id: 0,
-          pertanyaan: "Ma Rabbuka?",
+          pertanyaan: "Hubungan sosial yang selaras, serasi, seimbang antara individu dan masyarakat dijiwai oleh nilai-nilai Pancasila, yaitu:?",
           pilihan_ganda: [
-            { pilihan: "A", text: "Allah" },
-            { pilihan: "B", text: "Allah" },
+            { pilihan: "A", text: "Sila kedua" },
+            { pilihan: "B", text: "Sila ketiga" },
+            { pilihan: "C", text: "Sila keempat" },
+            { pilihan: "D", text: "Sila kelima" },
           ],
           jawaban: "A",
           jurusan_id: 0,
@@ -137,10 +133,12 @@ export default {
         },
         {
           id: 1,
-          pertanyaan: "Ma Rabbukaa?",
+          pertanyaan: "Berikut ini merupakan asas pengembangan ketahanan nasional bangsa Indonesia, kecuali …?",
           pilihan_ganda: [
-            { pilihan: "A", text: "Allah" },
-            { pilihan: "B", text: "Allah" },
+            { pilihan: "A", text: "Kesejahteraan dan keamanan" },
+            { pilihan: "B", text: "Memperkuat rasa keadilan" },
+            { pilihan: "C", text: "Kekeluargaan" },
+            { pilihan: "D", text: "Mawas diri" },
           ],
           jawaban: "A",
           jurusan_id: 0,

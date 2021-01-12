@@ -107,7 +107,7 @@
       <div style="width: 100%; -webkit-app-region: drag">
         <v-toolbar-title>
           <span v-if="!$vuetify.breakpoint.mobile" class="font-weight-bold ml-4"
-            >App Beasiswa</span
+            ></span
           >
           <!-- Change this automaticly later usig VUEX -->
           <span>{{ $route.name }}</span>
@@ -275,6 +275,11 @@ export default {
           icon: "mdi-file-document",
           title: "Kelola Kategori",
           to: `/admin/${petugas}/kelola-kategori`,
+        },
+        {
+          icon: "mdi-file-document",
+          title: "Laporan Ujian",
+          to: `/admin/${petugas}/laporan-ujian`,
         },
       ];
     },

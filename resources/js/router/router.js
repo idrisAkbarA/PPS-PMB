@@ -16,6 +16,7 @@ import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
 import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
 import KelolaPendaftaran from "../views/petugas/Admin/KelolaPendaftaran.vue";
 import KelolaKategori from "../views/petugas/Admin/KelolaKategori.vue";
+import LaporanUjian from "../views/petugas/Admin/LaporanUjian.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -88,6 +89,11 @@ const routes = [
                 path: "kelola-kategori",
                 name: "Kelola Kategori",
                 component: KelolaKategori
+            },
+            {
+                path: "laporan-ujian",
+                name: "Laporan Ujian",
+                component: LaporanUjian
             },
         ]
     },
