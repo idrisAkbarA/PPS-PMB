@@ -29,7 +29,7 @@ class SoalUjian
             'kategori_id' => $kat_tkj_id
         ])->get();
 
-        // select the questions randomly until it met requested quantity 
+        // select the questions randomly until it met requested quantity
         $tka_selected = self::selectRandomly($soalTKA, $jumlah_tka);
         $tkj_selected = self::selectRandomly($soalTKJ, $jumlah_tkj);
 
@@ -80,14 +80,12 @@ class SoalUjian
     public function get($type, $id)
     {
         // this function send soal to client according to the requested type (tka or tkj)
-        // and prevent 'jawaban' being sent to the client
+        // and prevent 'kunci jawaban' being sent to the client
         $soal = Soal::find($id);
         $soal_collection = collect($soal->set_pertanyaan);
         $jawaban_collection = collect($soal->set_jawaban_mhs);
         $result_jawaban = $jawaban_collection->where('type', $type)->first();
         $result_soal = $soal_collection->where('type', $type)->first();
-        // dd($type);
-        // dd($soal_collection[1]);
         foreach ($result_soal->soal as $key => $value) {
             unset($value->jawaban);
         }
@@ -100,7 +98,7 @@ class SoalUjian
 
         $soal = Soal::find($rowID);
         $jawabanDB = $soal->set_jawaban_mhs;
-        //answer structure to be stored 
+        //answer structure to be stored
         $setJawaban = ['id' => $soalID, 'jawaban' => $jawaban];
 
 

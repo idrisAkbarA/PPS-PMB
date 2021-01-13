@@ -42,6 +42,7 @@ class UserClnMhsController extends Controller
     public function storeFile(Request $request)
     {
         $user = Auth::guard("cln_mahasiswa")->user();
+        $user_id = $user->id;
         $namaUser = str_replace(" ", "-", $user['nama']);
         $fileName = "files/" . $user->id . '-' . $namaUser . '/' . Carbon::now()->format("Y-m-d-H-i-s") . $request->file->getClientOriginalName();
         $request->file->move(public_path('files/' . $user->id . '-' . $namaUser . '/' . $user['nim']), $fileName);
@@ -51,6 +52,7 @@ class UserClnMhsController extends Controller
             $method = $request->methodName;
             $this->$method($fileName);
         }
+        $user = UserClnMhs::find($user_id);
         return response()->json(['success' => 'You have successfully upload file.', 'file_name' => $fileName, 'user' => $user]);
     }
     private function savePhotoPath($path)

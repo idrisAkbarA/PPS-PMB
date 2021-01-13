@@ -70,7 +70,7 @@
         </v-col>
       </v-row>
       <v-row
-        v-if="ujian"
+        v-if="ujian && user"
         class="mb-10 mt-5"
       >
         <v-col
@@ -84,11 +84,14 @@
             elevation="10"
             @click="goToPendaftaran(item)"
           >
-            <v-card-title class="green darken-4 text-white">{{item.jurusan.nama}}</v-card-title>
-            <v-card-subtitle class="green darken-4 text-white">Periode {{item.periode.nama}}<br>Klik untuk melihat rincian</v-card-subtitle>
+            <v-card-title :class="setColor(item) + ' text-white'">{{item.jurusan.nama}}</v-card-title>
+            <v-card-subtitle :class="setColor(item) +' text-white'">Periode {{item.periode.nama}}<br>Klik untuk melihat rincian</v-card-subtitle>
             <v-card-text>
               <v-container class="mt-4">
-                <v-row>
+                <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
+                <p v-else-if="!isBiodataFilled">Lengkapi biodata diri</p>
+                <p v-else-if="item.lunas_at == null">Mohon selesaikan pembayaran</p>
+                <v-row v-else-if="isStillUjian(item)">
                   <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
                   <span>
                     <!-- :end-label="''" -->
@@ -109,6 +112,9 @@
                     </vue-countdown-timer>
                   </span>
                 </v-row>
+                <p v-else-if="item.is_lulus_tka == true && item.is_lulus_tkj == true">Silakan tentukan temu ramah</p>
+                <p v-else>Maaf, anda gagal ujian</p>
+                <!-- <p v-else-if="!item.is_lulus_tka">Maaf, anda gagal ujian</p> -->
               </v-container>
             </v-card-text>
           </v-card>
@@ -150,11 +156,109 @@ export default {
   created() {
     console.log(this.now);
     // this.getUser("cln_mahasiswa");
-    this.initAllDataClnMhs();
+    this.initAllDataClnMhs().then(response => {});
+  },
+  watch: {
+    user: {
+      deep: true,
+      handler: function(v) {
+        this.checkBiodata(v);
+      }
+    }
   },
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
     ...mapMutations(["setUjianSelected"]),
+    checkPeriode(ujian) {
+      var today = new Date();
+      var batas_ujian = new Date();
+      var akhir_periode = new Date(ujian.periode.akhir_periode);
+
+      if (today > akhir_periode) {
+        return false;
+        // return false;
+      }
+      return true;
+    },
+    // ngecek apakah ada ujian yang belum selesai dan masih dalam rentang uian
+    isStillUjian(item) {
+      var today = new Date();
+      var batas_ujian = new Date(item.batas_ujian);
+      var isUjianInRange = today <= batas_ujian;
+      if (item.is_lulus_tka == false) return false;
+      if (item.is_lulus_tkj == false) return false;
+      if (!isUjianInRange) return false;
+      return true;
+      //   if (item.is_lulus_tka == null || item.is_lulus_tka == true) return true;
+      //   if (item.is_lulus_tkj == null || item.is_lulus_tkj == true) return true;
+
+      //   if (!isStillUjian) return false;
+
+      //   if (
+      //     (item.is_lulus_tka == null) ^ (item.is_lulus_tkj == null) &&
+      //     isStillUjian
+      //   ) {
+      //     return true;
+      //   }
+      //   return false;
+    },
+    setColor(ujian) {
+      // var today = new Date();
+      // var akhir_periode = new Date(ujian.periode["akhir_periode"]);
+      var today = new Date();
+      var batas_ujian = new Date(ujian.batas_ujian);
+      var isUjianInRange = today <= batas_ujian;
+      var isPeriode = this.checkPeriode(ujian);
+      // jika sudah lewat periode card warna biru
+      if (!isPeriode) {
+        return "grey darken-1";
+      }
+      // jika biodata belum lengkap card warna ungu
+      if (!this.isBiodataFilled) {
+        return "purple darken";
+      }
+      // cek apakah sudah melakukan pembayaran
+      // kalo null berarti belom bayar, card warna orange
+      if (ujian.lunas_at == null) {
+        return "deep-orange lighten-3";
+      }
+      // cek apakah lulus ujian tka
+      // jika gagal ujian tka, card merah
+      if (ujian.is_lulus_tka == false) {
+        return "red darken";
+      }
+      // cek apakah lulus ujian tkj
+      // jika gagal ujian tkj, card merah
+      if (ujian.is_lulus_tkj == false) {
+        return "red darken";
+      }
+      // jika lulus ujian tka & tkj
+      // card warna hijau
+      if (ujian.is_lulus_tka == true && ujian.is_lulus_tkj == true) {
+        return "green darken-1";
+      } else if (!isUjianInRange) {
+        return "red";
+      } else {
+        return "yellow darken-3";
+      }
+    },
+    // cek biodata sudah terisi apa belum,
+    // jika sudah terisi bernilai trus,
+    // jika masih ada yg null bernilai false
+    checkBiodata(v) {
+      Object.keys(v).every(element => {
+        if (element == "email_verified_at") {
+          return true;
+        }
+        if (v[element] == null) {
+          this.isBiodataFilled = false;
+          return false;
+        }
+        this.isBiodataFilled = true;
+        return true;
+      });
+      console.log(this.isBiodataFilled);
+    },
     link() {},
     goToPendaftaran(item) {
       this.setUjianSelected(item);
@@ -162,7 +266,7 @@ export default {
     },
     createUjian() {
       var periode_id = this.periode[0].id;
-      axios.get("/api/ujian/init/" + periode_id).then((response) => {
+      axios.get("/api/ujian/init/" + periode_id).then(response => {
         console.log(response.data);
       });
     },
@@ -170,10 +274,10 @@ export default {
       var timerProperty = "timer-" + index;
       this[timerProperty] = 0;
     },
-    startCallBack: function (x) {
+    startCallBack: function(x) {
       console.log(x);
     },
-    endCallBack: function (x) {
+    endCallBack: function(x) {
       console.log(x);
     },
     convertDate(date) {
@@ -189,11 +293,11 @@ export default {
       } else {
         return "40%";
       }
-    },
+    }
   },
   computed: {
     ...mapState(["user", "ujian", "isLoading", "periode"]),
-    now: function () {
+    now: function() {
       var today = new Date();
       var date =
         today.getFullYear() +
@@ -205,18 +309,20 @@ export default {
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dateTime = date + " " + time;
       return dateTime;
-    },
+    }
   },
   data() {
     return {
       dialogTambah: null,
       item: null,
       form: {},
+      isBiodataFilled: false,
+      isPeriode: false
     };
   },
   components: {
-    DaftarComponent,
-  },
+    DaftarComponent
+  }
 };
 </script>
 

@@ -298,6 +298,7 @@
       </v-stepper-content>
 
       <v-stepper-step
+        :complete="stepper>4"
         :editable="isPembayaranLunas?true:false"
         color="green"
         step="4"
@@ -308,6 +309,7 @@
           class="text-red"
           v-if="isPembayaranLunas?false:true"
         >Lakukan pembayaran terlebih dahulu.</strong>
+        <strong v-if="isLulusUjian">Ujian lulus!</strong>
       </v-stepper-step>
       <v-stepper-content step="4">
         <v-card
@@ -368,20 +370,62 @@
         >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan TKJ.</strong>
       </v-stepper-step>
       <v-stepper-content step="5">
-        <v-card
-          color="grey lighten-1"
-          class="mb-12"
-          height="200px"
-        ></v-card>
-        <v-btn
-          color="primary"
-          @click="stepper = 1"
+        <template v-if="jadwalTR!=null">
+          <v-card
+            v-if="jadwalTR.length>0"
+            color="grey lighten-4"
+          >
+            <v-card-title>Pilih Jadwal Temu Ramah</v-card-title>
+            <v-card-text>
+              <v-card
+                class="mb-2"
+                :color="!(jadwalSelected==jadwal.id)?'grey lighten-2':'white' "
+                outlined
+                v-for="(jadwal,index) in jadwalTR"
+                :key="index"
+              >
+                <v-card-title>{{parseDate(jadwal.tanggal)}}</v-card-title>
+                <v-card-subtitle>
+                  Dosen {{jadwal.nama_dosen}} <br>
+                  Kuota {{calcQuota(jadwal)}}
+                </v-card-subtitle>
+                <v-card-text>
+                  <div v-if="jadwalSelected==jadwal.id">
+                    <strong>Tanggal temu ramah anda sudah ditetapkan</strong> Silahkan datang pada waktu yang
+                    ditentukan untuk melakukan temu ramah
+                  </div>
+                  <v-btn
+                    v-if="jadwalSelected!=jadwal.id"
+                    block
+                    color="green"
+                    large
+                    class="text-white"
+                    :disabled="jadwalSelected?true:false"
+                    @click="setJadwal(jadwal)"
+                  >{{jadwalSelected?'Anda telah memiliki jadwal':'Pilih tanggal ini'}}</v-btn>
+                </v-card-text>
+              </v-card>
+            </v-card-text>
+          </v-card>
+          <v-card v-else>
+            <v-card-title>
+              Maaf belum ada jadwal, mohon menunggu atau menghubungi admin
+            </v-card-title>
+          </v-card>
+        </template>
+        <v-card v-else>
+          <v-progress-circular
+            class="mx-auto"
+            indeterminate
+          ></v-progress-circular>
+        </v-card>
+        <!-- class="mb-12" -->
+        <!-- <v-btn
+          color="green"
+
         >
-          Continue
-        </v-btn>
-        <v-btn text>
-          Cancel
-        </v-btn>
+          Selanjutnya
+        </v-btn> -->
       </v-stepper-content>
     </v-stepper>
     <v-bottom-sheet
@@ -396,7 +440,6 @@
           class="my-0"
           :height="5"
         ></v-progress-linear>
-
         <v-list>
           <v-list-item>
             <v-list-item-content>
@@ -407,7 +450,6 @@
         </v-list>
       </v-card>
     </v-bottom-sheet>
-
   </v-sheet>
 </template>
 
@@ -417,7 +459,7 @@ export default {
   // first check if this page reloaded before or accessed directly via url
   beforeRouteEnter(to, from, next) {
     if (from.name == null) {
-      next((vm) => {
+      next(vm => {
         console.log(vm.initPendaftaran(vm));
       });
     } else {
@@ -439,29 +481,43 @@ export default {
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    setJadwal(jadwal) {
+      jadwal.ids_cln_mhs.push(this.user.id);
+      axios
+        .put(`/api/temu-ramah/${jadwal.id}`, jadwal)
+        .then(response => {
+          this.jadwalTR = response.data.temuRamah;
+        })
+        .catch(error => {});
+    },
     ujian(type) {
       // console.log("ID", this.ujianSelected.id);
       var ujian_id = this.ujianSelected.id;
       var soal_id = this.ujianSelected.soal_id;
       var payload = { ujian_id, type, soal_id };
-      // console.log(payload);
-      this.getSoal(payload).then((response) => {
+      console.log(payload);
+      this.getSoal(payload).then(response => {
         this.$router.push({
           name: "Soal",
-          params: { type, ujian_id, soal_id },
+          params: { type, ujian_id, soal_id: this.ujianSelected.soal_id }
         });
       });
     },
+    calcQuota(jadwal) {
+      return jadwal.ids_cln_mhs.length + "/" + jadwal.quota;
+    },
     setData(ini) {
+      // this method set the data after initial data get fetched
       ini.jurusanSelected = ini.ujianSelected.jurusan_id;
       ini.ujian_id = ini.ujianSelected.id;
       ini.kodePembayaran = ini.ujianSelected.kode_bayar;
+      ini.getTemuRamah(ini);
       if (ini.kodePembayaran) {
         ini.isJurusanEditable = false;
       }
       if (ini.ujianSelected.lunas_at)
         ini.isPembayaranLunas = ini.ujianSelected.lunas_at;
-
+      ini.isLulusUjian = ini.ujianSelected.lulus_at ? true : false;
       // set stepper position
       if (ini.jurusanSelected != null) ini.stepper = 2;
       if (ini.isBiodataFilled != false && ini.jurusanSelected != null)
@@ -475,21 +531,42 @@ export default {
       // this method initialize the data that this page needed
       console.log(vm);
       const thePath = window.location.pathname;
-      const getLastItem = (thePath) =>
+      const getLastItem = thePath =>
         thePath.substring(thePath.lastIndexOf("/") + 1);
       var payload = { jurusan_id: getLastItem(thePath) };
       axios
         .post("/api/ujian/get-pendaftaran", payload)
-        .then((response) => {
+        .then(response => {
           vm.setUser(response.data.user);
           vm.setJurusan(response.data.jurusan);
           vm.setUjianSelected(response.data.ujian);
           vm.setData(vm);
         })
-        .catch((error) => {});
+        .catch(error => {});
+    },
+    getTemuRamah(ini) {
+      var payload = { periode: ini.ujianSelected.periode_id };
+      var user_id = ini.ujianSelected.user_cln_mhs_id;
+      axios
+        .get("/api/temu-ramah", payload)
+        .then(response => {
+          // check if is there a date have been booked already
+          response.data.temuRamah.forEach(element => {
+            element.ids_cln_mhs.every(id => {
+              if (id == user_id) {
+                ini.jadwalSelected = element.id;
+                return false;
+              }
+              return true;
+            });
+          });
+          ini.jadwalTR = response.data.temuRamah;
+          console.log("temu ramah", ini.jadwalTR);
+        })
+        .catch(error => {});
     },
     checkBiodata(v) {
-      Object.keys(v).every((element) => {
+      Object.keys(v).every(element => {
         if (element == "email_verified_at") {
           return true;
         }
@@ -508,21 +585,21 @@ export default {
       var payload = { ujian_id: this.ujian_id };
       axios
         .post("/api/ujian/generate-pembayaran", payload)
-        .then((response) => {
+        .then(response => {
           console.log(response.data);
           this.isLoading = false;
           this.kodePembayaran = response.data.code;
           this.isJurusanEditable = false;
           this.loopCheckPembayaran();
         })
-        .catch((error) => {});
+        .catch(error => {});
     },
     initUjian() {
       var periode_id = this.periode[0].id;
       var jurusan_id = this.jurusanSelected;
       var payload = { periode_id, jurusan_id };
       if (this.ujian_id) payload["ujian_id"] = this.ujian_id;
-      axios.post("/api/ujian/init", payload).then((response) => {
+      axios.post("/api/ujian/init", payload).then(response => {
         this.ujian_id = response.data.ujian_id;
         console.log(response.data);
       });
@@ -534,7 +611,7 @@ export default {
       var data = new FormData();
       data.append("file", this.ijazahFile);
       data.append("methodName", "saveIjazahPath");
-      this.upload(data, this).then((response) => {
+      this.upload(data, this).then(response => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -550,7 +627,7 @@ export default {
       var data = new FormData();
       data.append("file", this.photoFile);
       data.append("methodName", "savePhotoPath");
-      this.upload(data, this).then((response) => {
+      this.upload(data, this).then(response => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -563,27 +640,28 @@ export default {
       return axios({
         method: "post",
         url: "/api/user/store-file",
-        onUploadProgress: (progressEvent) => {
+        onUploadProgress: progressEvent => {
           var percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
           );
           ini.progress = percentCompleted;
         },
-        data,
+        data
       });
     },
     async loopCheckPembayaran() {
       function sleep(ms) {
-        return new Promise((res) => setTimeout(res, ms));
+        return new Promise(res => setTimeout(res, ms));
       }
-      let myAsyncFunc = async function (ini) {
+      let myAsyncFunc = async function(ini) {
         console.log("Sleeping");
         await sleep(3000);
         console.log("Done");
         // console.log(ini);
-        ini.checkPembayaran(ini.ujian_id, ini).then((response) => {
+        ini.checkPembayaran(ini.ujian_id, ini).then(response => {
           if (response.data.status) {
             ini.isPembayaranLunas = true;
+            ini.setUjianSelected(response.data.ujian);
             return 0;
           }
           ini.loopCheckPembayaran();
@@ -596,14 +674,17 @@ export default {
       return new Promise((resolve, reject) => {
         axios
           .post("/api/ujian/check-pembayaran", payload)
-          .then((response) => {
+          .then(response => {
             if (response.data.status) ini.isPembayaranLunas = true;
             resolve(response);
           })
-          .catch((error) => {
+          .catch(error => {
             reject(error);
           });
       });
+    },
+    parseDate(date) {
+      return this.$moment(date, "YYYY-MM-DD").format("Do MMMM YYYY");
     },
     startCallBack(data) {},
     endCallBack(data) {},
@@ -620,11 +701,11 @@ export default {
       } else {
         return "50%";
       }
-    },
+    }
   },
   computed: {
     ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
-    now: function () {
+    now: function() {
       var today = new Date();
       var date =
         today.getFullYear() +
@@ -637,18 +718,20 @@ export default {
       var dateTime = date + " " + time;
       return dateTime;
     },
-    PhotoFileName: function () {},
+    PhotoFileName: function() {}
   },
   watch: {
     user: {
       deep: true,
-      handler: function (v) {
+      handler: function(v) {
         this.checkBiodata(v);
-      },
-    },
+      }
+    }
   },
   data() {
     return {
+      jadwalSelected: null,
+      jadwalTR: null,
       isLoading: false,
       kodePembayaran: null,
       progress: 0,
@@ -662,15 +745,15 @@ export default {
       ruleTemuRamah: [() => this.isLulusUjian != false],
       ruleUjian: [() => this.isPembayaranLunas != false],
       rulePembayaran: [
-        () => this.isBiodataFilled != false && this.jurusanSelected != null,
+        () => this.isBiodataFilled != false && this.jurusanSelected != null
       ],
       ruleBiodata: [() => this.jurusanSelected != null],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,
-      form: {},
+      form: {}
     };
-  },
+  }
 };
 </script>
 

@@ -96,7 +96,7 @@ Route::prefix('kategori-periode')->name('kategori.')->group(function () {
 });
 
 // Temu Ramah Routes
-Route::prefix('temu-ramah')->name('temu-ramah')->group(function () {
+Route::middleware('auth:petugas,cln_mahasiswa')->prefix('temu-ramah')->name('temu-ramah')->group(function () {
     Route::get('/', 'JadwalTRController@index')->name('index');
     Route::post('/', 'JadwalTRController@store')->name('store');
     Route::put('/{jadwal}', 'JadwalTRController@update')->name('update');

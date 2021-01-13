@@ -18,6 +18,7 @@ import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
 import KelolaPendaftaran from "../views/petugas/Admin/KelolaPendaftaran.vue";
 import KelolaTemuRamah from "../views/petugas/Admin/KelolaTemuRamah.vue";
 import KelolaKategori from "../views/petugas/Admin/KelolaKategori.vue";
+import LaporanUjian from "../views/petugas/Admin/LaporanUjian.vue";
 import Setting from "../views/petugas/Admin/Setting.vue";
 
 Vue.use(VueRouter);
@@ -103,6 +104,9 @@ const routes = [
                 component: KelolaKategori
             },
             {
+                path: "laporan-ujian",
+                name: "Laporan Ujian",
+                component: LaporanUjian},{
                 path: "setting-ujian",
                 name: "Setting Ujian",
                 component: Setting

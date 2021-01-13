@@ -23,17 +23,17 @@ class CreateUjiansTable extends Migration
             $table->bigInteger('soal_id')->nullable();
             $table->double('nilai_tka')->nullable();
             $table->double('nilai_tkj')->nullable();
-            $table->date('start_tkj')->nullable();
-            $table->date('start_tka')->nullable();
-            $table->date('tkj_ended')->nullable();
-            $table->date('tka_ended')->nullable();
+            $table->timestamp('start_tkj')->nullable();
+            $table->timestamp('start_tka')->nullable();
+            $table->timestamp('tkj_ended')->nullable();
+            $table->timestamp('tka_ended')->nullable();
             $table->string('kode_bayar')->nullable();
             $table->date('batas_bayar')->nullable();
             $table->date('lunas_at')->nullable();
             $table->date('batas_ujian')->nullable();
             $table->boolean('is_lulus_tka')->nullable();
             $table->boolean('is_lulus_tkj')->nullable();
-            $table->date('lulus_at')->nullable();
+            $table->dateTime('lulus_at')->nullable();
             $table->timestamps();
         });
     }
