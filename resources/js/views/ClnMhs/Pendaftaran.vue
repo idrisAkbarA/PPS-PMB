@@ -509,7 +509,9 @@ export default {
       axios
         .put(`/api/temu-ramah/${jadwal.id}`, jadwal)
         .then(response => {
+          var ini = this;
           this.jadwalTR = response.data.temuRamah;
+          this.getTemuRamah(ini);
         })
         .catch(error => {});
     },
