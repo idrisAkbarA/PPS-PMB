@@ -31,7 +31,23 @@
                 <v-chip
                   color="green darken-2"
                   text-color="#ecf0f1"
-                >01:00:00</v-chip>
+                >
+                  <vue-countdown-timer
+                    @start_callback="startCallBack('event started')"
+                    @end_callback="endCallBack('event ended')"
+                    :start-time="startTime"
+                    :end-time="endTime"
+                    :interval="1000"
+                    :start-label="'Until start:'"
+                    label-position="begin"
+                    :end-text="'Ujian selesai!'"
+                    :day-txt="''"
+                    :hour-txt="'Jam'"
+                    :minutes-txt="'Menit'"
+                    :seconds-txt="'Detik'"
+                  >
+                  </vue-countdown-timer>
+                </v-chip>
               </div>
             </v-row>
           </v-card-title>
@@ -325,6 +341,7 @@ export default {
       if (this.currentSoal == index) return "grey text-white";
       return "white";
     },
+    setDuration() {},
     setJawaban(soal) {
       console.log(soal);
       let payload = {
@@ -361,10 +378,12 @@ export default {
         type: vm.type
       };
       vm.getSoal(payload);
-    }
+    },
+    startCallBack(data) {},
+    endCallBack(data) {}
   },
   computed: {
-    ...mapState(["soal"])
+    ...mapState(["soal", "durasi", "startTime", "endTime"])
   },
   data() {
     return {

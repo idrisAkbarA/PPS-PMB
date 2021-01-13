@@ -30,18 +30,28 @@ class SoalController extends Controller
         $ujian = Ujian::find($ujian_id);
         $isUserValid = $user->id == $ujian->user_cln_mhs_id;
 
+        // get periode instance to get the soal duration later
         $periode = Periode::find($ujian->periode_id);
 
+        // set start soal time if not exist
         $start_soal = 'start_'.$type;
         if(!$ujian->$start_soal){
             $ujian->$start_soal = Carbon::now();
             $ujian->save();
         }
+
+        // check if the user id from request is
+        // the real owner of the soal
         if (!$isUserValid) {
             return response()->json(["status" => false, "message" => "User id is not belong to the soal id"]);
         }
+
+        $ujian = Ujian::find($ujian_id);
+        // finally get the soal
         $soalUjian = new SoalUjian;
         $result = $soalUjian->get($type, $soal_id);
+
+        // append other atribute
         $result['id'] = $soal_id;
         $result['start_time'] = $ujian->$start_soal;
         $result['durasi'] = $periode->durasi_ujian;
