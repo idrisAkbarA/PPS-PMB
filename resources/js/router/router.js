@@ -12,6 +12,7 @@ import Soal from "../views/ClnMhs/Soal.vue";
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
 import KelolaSoal from "../views/petugas/Admin/KelolaSoal.vue";
+import KelolaPetugas from "../views/petugas/Admin/KelolaPetugas.vue";
 import KelolaPeriode from "../views/petugas/Admin/KelolaPeriode.vue";
 import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
 import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
@@ -20,6 +21,8 @@ import KelolaTemuRamah from "../views/petugas/Admin/KelolaTemuRamah.vue";
 import KelolaKategori from "../views/petugas/Admin/KelolaKategori.vue";
 import LaporanUjian from "../views/petugas/Admin/LaporanUjian.vue";
 import Setting from "../views/petugas/Admin/Setting.vue";
+
+import HomeTemuRamah from "../views/petugas/TemuRamah/Home.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -69,6 +72,11 @@ const routes = [
                 component: DashboardPetugas
             },
             {
+                path: "kelola-petugas",
+                name: "Kelola Petugas",
+                component: KelolaPetugas
+            },
+            {
                 path: "kelola-periode",
                 name: "Kelola Periode",
                 component: KelolaPeriode
@@ -106,7 +114,8 @@ const routes = [
             {
                 path: "laporan-ujian",
                 name: "Laporan Ujian",
-                component: LaporanUjian},{
+                component: LaporanUjian
+            }, {
                 path: "setting-ujian",
                 name: "Setting Ujian",
                 component: Setting
@@ -114,6 +123,17 @@ const routes = [
         ]
     },
 
+    {
+        path: "/temu-ramah/:petugas",
+        component: ClnMhsLayout,
+        children: [
+            {
+                path: "home",
+                name: "Home Petugas Temu Ramah",
+                component: HomeTemuRamah
+            },
+        ]
+    },
 ];
 
 const router = new VueRouter({

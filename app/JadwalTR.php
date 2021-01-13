@@ -12,10 +12,24 @@ class JadwalTR extends Model
         'ids_cln_mhs' => '[]'
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'calon_mahasiswa',
+    ];
+
     // Getters
     public function getIdsClnMhsAttribute($value)
     {
         return json_decode($value);
+    }
+
+    public function getCalonMahasiswaAttribute()
+    {
+        return UserClnMhs::with('ujian')->find($this->ids_cln_mhs);
     }
 
     // Setters

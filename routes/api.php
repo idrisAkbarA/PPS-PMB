@@ -37,6 +37,14 @@ Route::middleware('auth:cln_mahasiswa')->post('/ujian/check-pembayaran', 'UjianC
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/get-pendaftaran', 'UjianController@getPendaftaran');
 Route::post('/ujian/test', 'UjianController@test');
 
+// Petugas Routes
+Route::prefix('petugas')->name('petugas.')->group(function () {
+    Route::get('/', 'UserPetugasController@index')->name('index');
+    Route::post('/', 'UserPetugasController@store')->name('store');
+    Route::put('/{petugas?}', 'UserPetugasController@update')->name('update');
+    Route::delete('/{petugas?}', 'UserPetugasController@destroy')->name('destroy');
+});
+
 // Calon Mahasiswa Routes
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
     Route::get('/{user?}', 'UserClnMhsController@show')->name('show');
