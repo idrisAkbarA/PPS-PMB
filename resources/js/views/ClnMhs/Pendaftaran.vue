@@ -379,7 +379,7 @@
             <v-card-text>
               <v-card
                 class="mb-2"
-                flat
+                :color="!(jadwalSelected==jadwal.id)?'grey lighten-2':'white' "
                 outlined
                 v-for="(jadwal,index) in jadwalTR"
                 :key="index"
@@ -390,12 +390,19 @@
                   Kuota {{calcQuota(jadwal)}}
                 </v-card-subtitle>
                 <v-card-text>
+                  <div v-if="jadwalSelected==jadwal.id">
+                    <strong>Tanggal temu ramah anda sudah ditetapkan</strong> Silahkan datang pada waktu yang
+                    ditentukan untuk melakukan temu ramah
+                  </div>
                   <v-btn
+                    v-if="jadwalSelected!=jadwal.id"
                     block
                     color="green"
                     large
                     class="text-white"
-                  >Pilih tanggal ini</v-btn>
+                    :disabled="jadwalSelected?true:false"
+                    @click="setJadwal(jadwal)"
+                  >{{jadwalSelected?'Anda telah memiliki jadwal':'Pilih tanggal ini'}}</v-btn>
                 </v-card-text>
               </v-card>
             </v-card-text>
@@ -474,6 +481,15 @@ export default {
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    setJadwal(jadwal) {
+      jadwal.ids_cln_mhs.push(this.user.id);
+      axios
+        .put(`/api/temu-ramah/${jadwal.id}`, jadwal)
+        .then(response => {
+          this.jadwalTR = response.data.temuRamah;
+        })
+        .catch(error => {});
+    },
     ujian(type) {
       // console.log("ID", this.ujianSelected.id);
       var ujian_id = this.ujianSelected.id;
@@ -530,9 +546,20 @@ export default {
     },
     getTemuRamah(ini) {
       var payload = { periode: ini.ujianSelected.periode_id };
+      var user_id = ini.ujianSelected.user_cln_mhs_id;
       axios
         .get("/api/temu-ramah", payload)
         .then(response => {
+          // check if is there a date have been booked already
+          response.data.temuRamah.forEach(element => {
+            element.ids_cln_mhs.every(id => {
+              if (id == user_id) {
+                ini.jadwalSelected = element.id;
+                return false;
+              }
+              return true;
+            });
+          });
           ini.jadwalTR = response.data.temuRamah;
           console.log("temu ramah", ini.jadwalTR);
         })
@@ -703,6 +730,7 @@ export default {
   },
   data() {
     return {
+      jadwalSelected: null,
       jadwalTR: null,
       isLoading: false,
       kodePembayaran: null,

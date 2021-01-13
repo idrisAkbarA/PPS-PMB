@@ -6,6 +6,7 @@ use App\Soal;
 use App\Ujian;
 use App\Periode;
 use App\Library\SoalUjian;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -21,10 +22,6 @@ class SoalController extends Controller
     {
         //if soal_id is not exist then generate soal
         $user = Auth::guard('cln_mahasiswa')->user();
-        // if (gettype($soal_id) != "string") {
-        //     $soal_id = $this->generate($ujian_id);
-        // }
-
         if ($soal_id=="null") {
             // dd($soal_id);
             $soal_id = $this->generate($ujian_id);
@@ -33,12 +30,21 @@ class SoalController extends Controller
         $ujian = Ujian::find($ujian_id);
         $isUserValid = $user->id == $ujian->user_cln_mhs_id;
 
+        $periode = Periode::find($ujian->periode_id);
+
+        $start_soal = 'start_'.$type;
+        if(!$ujian->$start_soal){
+            $ujian->$start_soal = Carbon::now();
+            $ujian->save();
+        }
         if (!$isUserValid) {
             return response()->json(["status" => false, "message" => "User id is not belong to the soal id"]);
         }
         $soalUjian = new SoalUjian;
         $result = $soalUjian->get($type, $soal_id);
         $result['id'] = $soal_id;
+        $result['start_time'] = $ujian->$start_soal;
+        $result['durasi'] = $periode->durasi_ujian;
         return response()->json($result);
     }
     public function generate($ujian_id)

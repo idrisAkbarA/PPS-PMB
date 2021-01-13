@@ -23,10 +23,10 @@ class CreateUjiansTable extends Migration
             $table->bigInteger('soal_id')->nullable();
             $table->double('nilai_tka')->nullable();
             $table->double('nilai_tkj')->nullable();
-            $table->dateTime('start_tkj')->nullable();
-            $table->dateTime('start_tka')->nullable();
-            $table->dateTime('tkj_ended')->nullable();
-            $table->dateTime('tka_ended')->nullable();
+            $table->timestamp('start_tkj')->nullable();
+            $table->timestamp('start_tka')->nullable();
+            $table->timestamp('tkj_ended')->nullable();
+            $table->timestamp('tka_ended')->nullable();
             $table->string('kode_bayar')->nullable();
             $table->date('batas_bayar')->nullable();
             $table->date('lunas_at')->nullable();

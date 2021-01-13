@@ -44,7 +44,13 @@
           >
             <v-icon>mdi-information</v-icon>
           </v-btn>
-          <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
+          <v-btn
+            icon
+            x-small
+            class="mr-2"
+            title="Edit"
+            @click="edit(item)"
+          >
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
           <v-btn
@@ -74,8 +80,16 @@
         <v-card-title>
           <span>Periode</span>
           <v-spacer></v-spacer>
-          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
-          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
+          <v-btn
+            text
+            class="mr-2"
+            @click="bottomSheet = false"
+          >batal</v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="submit"
+          >Simpan</v-btn>
         </v-card-title>
         <v-card-text>
           <vue-scroll :ops="scrollOps">
@@ -147,7 +161,10 @@
                     </v-date-picker>
                   </v-menu>
                 </v-col>
-                <v-col cols="12" class="pb-0">
+                <v-col
+                  cols="12"
+                  class="pb-0"
+                >
                   <p class="overline text-muted mb-0">Setting Ujian</p>
                 </v-col>
                 <v-col cols="6">
@@ -238,6 +255,20 @@
                   </v-text-field>
                 </v-col>
                 <v-col cols="6">
+                  <label class="text-dark">Durasi Ujian</label>
+                </v-col>
+                <v-col cols="6">
+                  <v-text-field
+                    type="number"
+                    color="#2C3E50"
+                    min="0"
+                    label="Durasi Ujian"
+                    hint="Durasi ujian, dalam menit"
+                    v-model="form.durasi_ujian"
+                  >
+                  </v-text-field>
+                </v-col>
+                <v-col cols="6">
                   <v-menu
                     :nudge-right="40"
                     transition="scale-transition"
@@ -300,7 +331,10 @@
       </v-card>
     </v-bottom-sheet>
     <!-- Dialog Show -->
-    <v-dialog v-model="dialogShow" width="500">
+    <v-dialog
+      v-model="dialogShow"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -355,7 +389,10 @@
       </v-card>
     </v-dialog>
     <!-- Dialog Delete -->
-    <v-dialog v-model="dialogDelete" width="500">
+    <v-dialog
+      v-model="dialogDelete"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -370,9 +407,16 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
+          <v-btn
+            text
+            @click="dialogDelete = false"
+          > Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="destroy"
+          > Ya </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -415,36 +459,36 @@ export default {
         scrollPanel: {
           easing: "easeInQuad",
           speed: 800,
-          scrollingX: false,
+          scrollingX: false
         },
         vuescroll: {
           mode: "native",
           wheelScrollDuration: 0,
-          locking: true,
-        },
+          locking: true
+        }
       },
       headers: [
         {
           text: "Nama",
           align: "start",
-          value: "nama",
+          value: "nama"
         },
         { text: "Periode", value: "periode" },
         { text: "Status", value: "is_active" },
-        { text: "Actions", value: "actions" },
-      ],
+        { text: "Actions", value: "actions" }
+      ]
     };
   },
   computed: {
     ...mapState(["isBottomSheetOpen", "urlPeriode", "currentPeriode"]),
     bottomSheet: {
-      get: function () {
+      get: function() {
         return this.isBottomSheetOpen;
       },
-      set: function (data) {
+      set: function(data) {
         this.toggleBottomSheet(data);
-      },
-    },
+      }
+    }
   },
   watch: {
     bottomSheet(val) {
@@ -461,7 +505,7 @@ export default {
       if (!val) {
         this.form = {};
       }
-    },
+    }
   },
   created() {
     this.getPeriode();
@@ -472,15 +516,15 @@ export default {
       this.isLoading = true;
       axios
         .get(this.urlPeriode)
-        .then((response) => {
+        .then(response => {
           this.periode = response.data;
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         })
         .then(() => {
           this.isLoading = false;
-          const periode = this.periode.filter((value) => {
+          const periode = this.periode.filter(value => {
             return value.is_active;
           });
           this.setCurrentPeriode(periode[0] ?? {});
@@ -512,21 +556,21 @@ export default {
       this.isLoading = true;
       axios
         .post(this.urlPeriode, this.form)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then(() => {
@@ -539,23 +583,23 @@ export default {
       this.isLoading = true;
       axios
         .put(urlPeriode, this.form)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.form = {};
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
             this.getPeriode();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then((this.isLoading = false));
@@ -566,27 +610,27 @@ export default {
       this.isLoading = true;
       axios
         .delete(urlPeriode)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.dialogDelete = false;
             this.getPeriode();
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then((this.isLoading = false));
-    },
-  },
+    }
+  }
 };
 </script>
 
