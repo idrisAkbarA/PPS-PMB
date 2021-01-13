@@ -241,8 +241,9 @@
         </v-btn>
       </v-stepper-content>
 
+      <!-- :editable="isBiodataFilled?true:false" -->
       <v-stepper-step
-        :editable="isBiodataFilled?true:false"
+        :editable="!isPembayaranLunas"
         color="green"
         :complete="stepper > 3"
         step="3"
@@ -297,9 +298,10 @@
         </v-btn>
       </v-stepper-content>
 
+      <!-- :editable="isPembayaranLunas?true:false" -->
       <v-stepper-step
         :complete="stepper>4"
-        :editable="isPembayaranLunas?true:false"
+        :editable="!isLulusUjian"
         color="green"
         step="4"
         :rules="ruleUjian"
@@ -342,18 +344,35 @@
             <v-divider></v-divider>
             <v-btn
               color="green darken-2"
-              dark
               block
+              class="text-white"
+              :disabled="checkButtonMulaiUjian('tka')"
               @click="ujian('tka')"
             >Mulai Ujian TKA</v-btn>
+            <div
+              v-if="ujianSelected.is_lulus_tka"
+              class="text-center"
+            ><strong> Status Ujian TKA lulus.</strong></div>
+            <div
+              v-if="ujianSelected.is_lulus_tka==false"
+              class="text-center"
+            ><strong> Status Ujian TKA gagal.</strong></div>
             <v-divider></v-divider>
             <v-btn
               block
               color="green darken-2"
-              dark
+              class="text-white"
+              :disabled="checkButtonMulaiUjian('tkj')"
               @click="ujian('tkj')"
             >Mulai Ujian TKJ</v-btn>
-
+            <div
+              v-if="ujianSelected.is_lulus_tkj"
+              class="text-center"
+            ><strong> Status Ujian TKJ lulus.</strong></div>
+            <div
+              v-if="ujianSelected.is_lulus_tkj==false"
+              class="text-center"
+            ><strong> Status Ujian TKJ gagal.</strong></div>
           </v-card-text>
         </v-card>
       </v-stepper-content>
@@ -481,6 +500,10 @@ export default {
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    checkButtonMulaiUjian(type) {
+      if (this.ujianSelected["is_lulus_" + type] == false) return true;
+      if (this.ujianSelected["is_lulus_" + type] == true) return true;
+    },
     setJadwal(jadwal) {
       jadwal.ids_cln_mhs.push(this.user.id);
       axios
@@ -738,6 +761,7 @@ export default {
       photoFile: null,
       ijazahFile: null,
       loadingSheet: { toggle: false, message: null, loading: 0 },
+      isPembayaranEditable: true,
       isJurusanEditable: true,
       isPembayaranLunas: false,
       isLulusUjian: false,

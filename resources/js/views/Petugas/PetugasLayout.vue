@@ -17,7 +17,10 @@
         flat
         tile
       >
-        <v-img max-width="70" :src="'/images/LogoUIN.png'"></v-img>
+        <v-img
+          max-width="70"
+          :src="'/images/LogoUIN.png'"
+        ></v-img>
         <v-card-text>Aplikasi Beasiswa UIN Suska Riau</v-card-text>
       </v-card>
       <v-card
@@ -107,10 +110,12 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app dense clipped-left>
-      <v-app-bar-nav-icon
-        @click.stop="toggleDrawer(windowWidth <= 600)"
-      ></v-app-bar-nav-icon>
+    <v-app-bar
+      app
+      dense
+      clipped-left
+    >
+      <v-app-bar-nav-icon @click.stop="toggleDrawer(windowWidth <= 600)"></v-app-bar-nav-icon>
       <div style="width: 100%; -webkit-app-region: drag">
         <v-toolbar-title>
           <span
@@ -188,13 +193,21 @@
         </v-btn>
       </v-slide-y-transition>
 
-      <v-btn v-if="windowWidth >= 600" small text @click="logout">
+      <v-btn
+        v-if="windowWidth >= 600"
+        small
+        text
+        @click="logout"
+      >
         <v-icon>mdi-logout-variant</v-icon>keluar
       </v-btn>
     </v-app-bar>
 
     <v-main class="bg-pattern">
-      <transition name="slide-fade" mode="out-in">
+      <transition
+        name="slide-fade"
+        mode="out-in"
+      >
         <router-view></router-view>
       </transition>
 
@@ -231,7 +244,7 @@ export default {
     logout() {
       axios
         .get("/api/logout-petugas")
-        .then((response) => {
+        .then(response => {
           window.location.replace("/");
         })
         .catch(() => {
@@ -239,10 +252,10 @@ export default {
           console.log("Couldn't logout");
           // this.$router.push({ path: "/login" });
         });
-    },
+    }
   },
   props: {
-    source: String,
+    source: String
   },
   computed: {
     ...mapState(["currentPeriode"]),
@@ -255,28 +268,28 @@ export default {
         {
           icon: "mdi-school",
           title: "Kelola Periode",
-          to: `/admin/${petugas}/kelola-periode`,
+          to: `/admin/${petugas}/kelola-periode`
         },
         {
           icon: "mdi-clipboard-check-multiple",
           title: "Kelola Jurusan",
-          to: `/admin/${petugas}/kelola-jurusan`,
+          to: `/admin/${petugas}/kelola-jurusan`
         },
         {
           icon: "mdi-account-details",
           title: "Akun Pendaftar",
-          to: `/admin/${petugas}/pendaftar`,
+          to: `/admin/${petugas}/pendaftar`
         },
         {
           icon: "mdi-book-multiple",
           title: "Pendaftaran",
-          to: `/admin/${petugas}/kelola-pendaftaran`,
+          to: `/admin/${petugas}/kelola-pendaftaran`
         },
         {
-          icon: "mdi-book-multiple",
+          icon: "mdi-book-plus",
           title: "Temu Ramah",
-          to: `/admin/${petugas}/kelola-temu-ramah`,
-        },
+          to: `/admin/${petugas}/kelola-temu-ramah`
+        }
       ];
     },
     CATpages() {
@@ -285,43 +298,43 @@ export default {
         {
           icon: "mdi-file-document",
           title: "Kelola Soal",
-          to: `/admin/${petugas}/kelola-soal`,
+          to: `/admin/${petugas}/kelola-soal`
         },
         {
-          icon: "mdi-file-document",
+          icon: "mdi-file-compare",
           title: "Kelola Kategori",
-          to: `/admin/${petugas}/kelola-kategori`,
+          to: `/admin/${petugas}/kelola-kategori`
         },
         {
           icon: "mdi-file-document",
           title: "Laporan Ujian",
-          to: `/admin/${petugas}/laporan-ujian`,
+          to: `/admin/${petugas}/laporan-ujian`
         },
         {
-          icon: "mdi-cog",
+          icon: "mdi-tools",
           title: "Setting Ujian",
-          to: `/admin/${petugas}/setting-ujian`,
-        },
-        {
-          icon: "mdi-file-document",
-          title: "Hasil Ujian",
-          to: `/admin/${petugas}/kelola-kategori`,
-        },
+          to: `/admin/${petugas}/setting-ujian`
+        }
+        // {
+        //   icon: "mdi-file-document",
+        //   title: "Hasil Ujian",
+        //   to: `/admin/${petugas}/kelola-kategori`
+        // }
       ];
-    },
+    }
   },
   data: () => ({
     drawer: false,
     permanent: true,
     miniVariant: true,
-    expandOnHover: true,
+    expandOnHover: true
   }),
   mounted() {
     console.log(this.$route);
     console.log(this.$route.matched);
     this.getCurrentPeriode();
     // this.$vuetify.theme.dark = true;
-  },
+  }
 };
 </script>
 
