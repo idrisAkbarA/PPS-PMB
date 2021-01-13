@@ -16,7 +16,7 @@ class CreateUserClnMhsTable extends Migration
         Schema::create('user_cln_mhs', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('password');
             $table->string('hp')->nullable();
             $table->string('wa')->nullable();

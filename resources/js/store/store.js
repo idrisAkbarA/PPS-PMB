@@ -1,13 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+// import moment from '../moment.js';
 import Axios from "axios";
 Vue.use(Vuex);
+import moment from 'moment';
+// Vue.use(moment)
 Axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 Axios.defaults.withCredentials = true;
 
 export default new Vuex.Store({
     state: {
+        startTime:null,
+        endTime:null,
+        durasi:null,
         user: null, // user who logged in
         urlPetugas: '/api/petugas',
         urlPeriode: '/api/periode',
@@ -50,10 +55,21 @@ export default new Vuex.Store({
             state.currentPeriode = data;
         },
         setSoal(state, data) {
-            console.log("ujian", state.ujianSelected)
-            if (!state.ujianSelected) {
-                state.ujianSelected = { soal_id: data.id }
-            } else {
+            // console.log("ujian",state.ujianSelected)
+
+            // set End Time
+            var endTime = moment(data.start_time,"YYYY-MM-DD HH:mm:ss").add(data.durasi,'minutes').format("YYYY-MM-DD HH:mm:ss");
+            // var endTime = moment(data.start_time).format("YYYY-MM-DD HH:mm:ss");
+            console.log('end',endTime);
+
+
+            state.startTime = data.start_time;
+            state.durasi = data.durasi;
+            state.endTime = endTime;
+
+            if(!state.ujianSelected){
+                state.ujianSelected = {soal_id:data.id}
+            }else{
                 state.ujianSelected.soal_id = data.id;
             }
 
@@ -78,7 +94,8 @@ export default new Vuex.Store({
                     }
                 }
             })
-            console.log("p");
+            console.log("end",endTime);
+
             state.soal = data.soal;
 
         }

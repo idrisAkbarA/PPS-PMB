@@ -101,9 +101,6 @@ class SoalUjian
         //answer structure to be stored
         $setJawaban = ['id' => $soalID, 'jawaban' => $jawaban];
 
-
-
-        // return $jawabanDB[0]['type'];
         // check if it is the first answer made by cln mhs or not
         if (!$jawabanDB) {
             //set answer for the first time
@@ -168,6 +165,8 @@ class SoalUjian
     }
     public function calcScore($id, $type)
     {
+        // kalkulasi nilai
+        // mencocokkan antara kunci jawaban di set_pertanyaan dengan set_jawaban_mhs
         $score = 0;
         $instance = Soal::find($id);
         $soalDB =  $instance->set_pertanyaan;

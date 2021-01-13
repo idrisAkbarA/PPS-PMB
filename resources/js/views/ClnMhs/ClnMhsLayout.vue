@@ -7,7 +7,10 @@
       hide-on-scroll
       dense
     >
-      <template v-if="offsetTop > 0" v-slot:img="{ props }">
+      <template
+        v-if="offsetTop > 0"
+        v-slot:img="{ props }"
+      >
         <v-img
           v-bind="props"
           gradient="to top right, rgba(6, 76, 90, 0.377), rgba(5, 94, 42,.8)"
@@ -15,7 +18,10 @@
         ></v-img>
       </template>
       <v-avatar :tile="true">
-        <img :src="'/images/LogoUIN.png'" alt="logo" />
+        <img
+          :src="'/images/LogoUIN.png'"
+          alt="logo"
+        />
       </v-avatar>
       <div style="width: 100%; -webkit-app-region: drag">
         <v-toolbar-title>
@@ -29,7 +35,12 @@
           </span>
         </v-toolbar-title>
       </div>
-      <v-btn small dark text @click="logout()">
+      <v-btn
+        small
+        dark
+        text
+        @click="logout()"
+      >
         <v-icon left>mdi-logout-variant</v-icon>keluar
       </v-btn>
       <!-- -->
@@ -44,7 +55,12 @@
         <router-view></router-view>
       </v-container>
     </v-main>
-    <v-footer dark color="green darken-4" app absolute>
+    <v-footer
+      dark
+      color="green darken-4"
+      app
+      absolute
+    >
       Universitas Islam Negeri Sultan Syarif Kasim Riau
     </v-footer>
   </v-app>
@@ -57,7 +73,7 @@ export default {
   },
   data() {
     return {
-      offsetTop: 0,
+      offsetTop: 0
     };
   },
   methods: {
@@ -69,7 +85,7 @@ export default {
     logout() {
       axios
         .get("/api/logout")
-        .then((response) => {
+        .then(response => {
           window.location.replace("/");
         })
         .catch(() => {
@@ -77,8 +93,8 @@ export default {
           console.log("Couldn't logout");
           // this.$router.push({ path: "/login" });
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

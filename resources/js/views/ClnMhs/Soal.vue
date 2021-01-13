@@ -31,7 +31,23 @@
                 <v-chip
                   color="green darken-2"
                   text-color="#ecf0f1"
-                >01:00:00</v-chip>
+                >
+                  <vue-countdown-timer
+                    @start_callback="startCallBack('event started')"
+                    @end_callback="endCallBack('event ended')"
+                    :start-time="startTime"
+                    :end-time="endTime"
+                    :interval="1000"
+                    :start-label="'Until start:'"
+                    label-position="begin"
+                    :end-text="'Ujian selesai!'"
+                    :day-txt="''"
+                    :hour-txt="'Jam'"
+                    :minutes-txt="'Menit'"
+                    :seconds-txt="'Detik'"
+                  >
+                  </vue-countdown-timer>
+                </v-chip>
               </div>
             </v-row>
           </v-card-title>
@@ -75,7 +91,7 @@
               v-if="currentSoal+1==soal.length"
               color="green darken-2"
               style="color: #ecf0f1"
-              @click="dialog=true"
+              @click="dialog=true;calcSoalRemaining()"
               elevation="10"
             >Selesai Ujian</v-btn>
             <v-spacer v-if="currentSoal+1!=soal.length"></v-spacer>
@@ -227,7 +243,7 @@
                   v-if="currentSoal+1==soal.length"
                   color="green darken-2"
                   style="color: #ecf0f1"
-                  @click="dialog=true"
+                  @click="dialog=true;calcSoalRemaining()"
                   elevation="10"
                   block
                 >Selesai Ujian</v-btn>
@@ -301,10 +317,45 @@
         </v-card-title>
         <v-card-text>
           <label>Apakah anda yakin ingin menyelesaikan sesi ujian?</label>
+          <strong v-if="belum_terjawab!=0">
+            {{belum_terjawab}} belum dijawab.
+          </strong>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="green">Iya</v-btn>
-          <v-btn text>tidak</v-btn>
+          <v-btn
+            @click="getHasil()"
+            class="text-white"
+            color="green"
+          >Iya</v-btn>
+          <v-btn
+            text
+            @click="dialog=false"
+          >tidak</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      persistent
+      v-model="dialogHasil"
+      :width="windowWidth>600?'40%':'70%'"
+    >
+      <v-card>
+        <v-card-title>
+          Hasil Ujian
+        </v-card-title>
+        <v-card-text>
+          <label>Soal terjawab benar: {{this.nilai}}</label><br>
+          <strong v-if="isLulus">Selamat anda lulus ujian!</strong>
+          <strong v-if="!isLulus">Mohon maaf, anda tidak lulus ujian!</strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            block
+            class="text-white mb-2"
+            color="green"
+            @click="goToPendaftaran()"
+          >Kembali ke Halaman Pendaftaran</v-btn>
+
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -316,6 +367,34 @@ import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   methods: {
     ...mapActions(["getSoal"]),
+    getHasil() {
+      var payload = {
+        type: this.type,
+        id: this.soal_id,
+        idUjian: this.ujian_id
+      };
+      axios
+        .post("/api/soal/calc-score", payload)
+        .then(response => {
+          this.nilai = response.data.nilai;
+          this.isLulus = response.data.status_lulus;
+          this.dialogHasil = true;
+          this.dialog = false;
+
+          console.log(response.data);
+        })
+        .catch(error => {});
+    },
+    calcSoalRemaining() {
+      var jumlah_soal = this.soal.length;
+      var terjawab = 0;
+      this.soal.forEach(element => {
+        if (element.jawaban) {
+          terjawab += 1;
+        }
+      });
+      this.belum_terjawab = jumlah_soal - terjawab;
+    },
     setNomorColor(soal, index) {
       if (soal.ragu && this.currentSoal == index) return "yellow darken-2";
       if (soal.ragu) return "yellow";
@@ -325,6 +404,7 @@ export default {
       if (this.currentSoal == index) return "grey text-white";
       return "white";
     },
+    setDuration() {},
     setJawaban(soal) {
       console.log(soal);
       let payload = {
@@ -361,13 +441,24 @@ export default {
         type: vm.type
       };
       vm.getSoal(payload);
+    },
+    goToPendaftaran() {
+      this.$router.push({ name: "Pendaftaran", params: { id: this.ujian_id } });
+    },
+    startCallBack(data) {},
+    endCallBack(data) {
+      this.getHasil();
     }
   },
   computed: {
-    ...mapState(["soal"])
+    ...mapState(["soal", "durasi", "startTime", "endTime"])
   },
   data() {
     return {
+      isLulus: false,
+      nilai: 0,
+      dialogHasil: false,
+      belum_terjawab: null,
       dialog: false,
       currentSoal: 0,
       soal_id: null,
