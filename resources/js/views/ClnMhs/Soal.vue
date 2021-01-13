@@ -77,7 +77,7 @@
               style="color: #ecf0f1"
               @click="dialog=true"
               elevation="10"
-            >Selesai</v-btn>
+            >Selesai Ujian</v-btn>
             <v-spacer v-if="currentSoal+1!=soal.length"></v-spacer>
             <v-btn
               color="green darken-2"
@@ -120,13 +120,12 @@
               >
                 <v-btn
                   class="ma-1 pa-0"
-                  tile
                   v-for="(soal,index) in soal"
                   :key="index+1"
                   small
-                  outlined
-                  @click="currentSoal=index;setNomorColor(soal);"
-                  :class="setNomorColor(soal)"
+                  :outlined="true"
+                  @click="currentSoal=index;setNomorColor(soal,index);"
+                  :class="setNomorColor(soal,index)"
                 >{{ index+1 }}</v-btn>
 
               </v-row>
@@ -225,16 +224,22 @@
               </v-col>
               <v-col cols="12">
                 <v-btn
-                  small
+                  v-if="currentSoal+1==soal.length"
+                  color="green darken-2"
+                  style="color: #ecf0f1"
+                  @click="dialog=true"
+                  elevation="10"
                   block
-                  class="mx-auto ma-1"
+                >Selesai Ujian</v-btn>
+                <v-spacer v-if="currentSoal+1!=soal.length"></v-spacer>
+                <v-btn
                   color="green darken-2"
                   style="color: #ecf0f1"
                   @click="currentSoal+=1"
-                  :disabled="currentSoal==soal.lenght?true:false"
+                  v-if="currentSoal+1!=soal.length"
+                  text
                 >
-
-                  SOAL BERIKUTNYA<v-icon>mdi-menu-right</v-icon>
+                  SOAL BERIKUTNYA <v-icon>mdi-menu-right</v-icon>
                 </v-btn>
               </v-col>
             </v-row>
@@ -270,7 +275,7 @@
               :key="index+1"
               small
               @click="currentSoal=index"
-              :class="setNomorColor(soal)"
+              :class="setNomorColor(soal,index)"
             >{{ index+1 }}</v-btn>
 
           </v-card-text>
@@ -311,9 +316,13 @@ import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   methods: {
     ...mapActions(["getSoal"]),
-    setNomorColor(soal) {
+    setNomorColor(soal, index) {
+      if (soal.ragu && this.currentSoal == index) return "yellow darken-2";
       if (soal.ragu) return "yellow";
+      if (soal.jawaban && this.currentSoal == index)
+        return "green darken-2 text-white";
       if (soal.jawaban) return "green lighten-1 text-white";
+      if (this.currentSoal == index) return "grey text-white";
       return "white";
     },
     setJawaban(soal) {

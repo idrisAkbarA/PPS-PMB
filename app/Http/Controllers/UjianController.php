@@ -182,7 +182,7 @@ class UjianController extends Controller
     public function test(Request $request)
     {
         $soalUjian = new SoalUjian;
-        return $soalUjian->setDeadline($request->id);
+        // return $soalUjian->setDeadline($request->id);
     }
     public function store(Request $request)
     {

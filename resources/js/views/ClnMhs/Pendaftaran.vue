@@ -298,6 +298,7 @@
       </v-stepper-content>
 
       <v-stepper-step
+        :complete="stepper>4"
         :editable="isPembayaranLunas?true:false"
         color="green"
         step="4"
@@ -308,6 +309,7 @@
           class="text-red"
           v-if="isPembayaranLunas?false:true"
         >Lakukan pembayaran terlebih dahulu.</strong>
+        <strong v-if="isLulusUjian">Ujian lulus!</strong>
       </v-stepper-step>
       <v-stepper-content step="4">
         <v-card
@@ -368,17 +370,55 @@
         >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan TKJ.</strong>
       </v-stepper-step>
       <v-stepper-content step="5">
-        <v-card
-          color="grey lighten-1"
-          class="mb-12"
-          height="200px"
-        ></v-card>
-        <v-btn
-          color="primary"
-          @click="stepper = 1"
+        <template v-if="jadwalTR!=null">
+          <v-card
+            v-if="jadwalTR.length>0"
+            color="grey lighten-4"
+          >
+            <v-card-title>Pilih Jadwal Temu Ramah</v-card-title>
+            <v-card-text>
+              <v-card
+                class="mb-2"
+                flat
+                outlined
+                v-for="(jadwal,index) in jadwalTR"
+                :key="index"
+              >
+                <v-card-title>{{parseDate(jadwal.tanggal)}}</v-card-title>
+                <v-card-subtitle>
+                  Dosen {{jadwal.nama_dosen}} <br>
+                  Kuota {{calcQuota(jadwal)}}
+                </v-card-subtitle>
+                <v-card-text>
+                  <v-btn
+                    block
+                    color="green"
+                    large
+                    class="text-white"
+                  >Pilih tanggal ini</v-btn>
+                </v-card-text>
+              </v-card>
+            </v-card-text>
+          </v-card>
+          <v-card v-else>
+            <v-card-title>
+              Maaf belum ada jadwal, mohon menunggu atau menghubungi admin
+            </v-card-title>
+          </v-card>
+        </template>
+        <v-card v-else>
+          <v-progress-circular
+            class="mx-auto"
+            indeterminate
+          ></v-progress-circular>
+        </v-card>
+        <!-- class="mb-12" -->
+        <!-- <v-btn
+          color="green"
+
         >
           Selanjutnya
-        </v-btn>
+        </v-btn> -->
       </v-stepper-content>
     </v-stepper>
     <v-bottom-sheet
@@ -393,7 +433,6 @@
           class="my-0"
           :height="5"
         ></v-progress-linear>
-
         <v-list>
           <v-list-item>
             <v-list-item-content>
@@ -404,7 +443,6 @@
         </v-list>
       </v-card>
     </v-bottom-sheet>
-
   </v-sheet>
 </template>
 
@@ -449,16 +487,21 @@ export default {
         });
       });
     },
+    calcQuota(jadwal) {
+      return jadwal.ids_cln_mhs.length + "/" + jadwal.quota;
+    },
     setData(ini) {
+      // this method set the data after initial data get fetched
       ini.jurusanSelected = ini.ujianSelected.jurusan_id;
       ini.ujian_id = ini.ujianSelected.id;
       ini.kodePembayaran = ini.ujianSelected.kode_bayar;
+      ini.getTemuRamah(ini);
       if (ini.kodePembayaran) {
         ini.isJurusanEditable = false;
       }
       if (ini.ujianSelected.lunas_at)
         ini.isPembayaranLunas = ini.ujianSelected.lunas_at;
-
+      ini.isLulusUjian = ini.ujianSelected.lulus_at ? true : false;
       // set stepper position
       if (ini.jurusanSelected != null) ini.stepper = 2;
       if (ini.isBiodataFilled != false && ini.jurusanSelected != null)
@@ -482,6 +525,16 @@ export default {
           vm.setJurusan(response.data.jurusan);
           vm.setUjianSelected(response.data.ujian);
           vm.setData(vm);
+        })
+        .catch(error => {});
+    },
+    getTemuRamah(ini) {
+      var payload = { periode: ini.ujianSelected.periode_id };
+      axios
+        .get("/api/temu-ramah", payload)
+        .then(response => {
+          ini.jadwalTR = response.data.temuRamah;
+          console.log("temu ramah", ini.jadwalTR);
         })
         .catch(error => {});
     },
@@ -603,6 +656,9 @@ export default {
           });
       });
     },
+    parseDate(date) {
+      return this.$moment(date, "YYYY-MM-DD").format("Do MMMM YYYY");
+    },
     startCallBack(data) {},
     endCallBack(data) {},
     link(url) {
@@ -647,6 +703,7 @@ export default {
   },
   data() {
     return {
+      jadwalTR: null,
       isLoading: false,
       kodePembayaran: null,
       progress: 0,
