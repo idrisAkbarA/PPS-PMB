@@ -36,6 +36,7 @@ Route::post('/ujian/pay', 'UjianController@pay');
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/check-pembayaran', 'UjianController@checkPembayaran');
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/get-pendaftaran', 'UjianController@getPendaftaran');
 Route::post('/ujian/test', 'UjianController@test');
+Route::get('/ujian/laporan', 'UjianController@laporan');
 
 // Petugas Routes
 Route::prefix('petugas')->name('petugas.')->group(function () {
