@@ -68,7 +68,7 @@
                   max-width="150"
                   :src="
                     selectedCalonMahasiswa.pas_photo
-                      ? selectedCalonMahasiswa.pas_photo
+                      ? `/${selectedCalonMahasiswa.pas_photo}`
                       : '/images/empty.png'
                   "
                 ></v-img>
@@ -114,6 +114,16 @@
                         ? selectedCalonMahasiswa.alamat
                         : "-"
                     }}
+                  </v-col>
+                  <v-col cols="6" class="mb-0">
+                    <v-btn
+                      small
+                      dark
+                      outlined
+                      color="#2C3E50"
+                      @click="filePath(selectedCalonMahasiswa.ijazah)"
+                      >Ijazah</v-btn
+                    >
                   </v-col>
                 </v-row>
               </v-col>
@@ -311,6 +321,11 @@ export default {
           };
         })
         .then((this.isLoading = false));
+    },
+    filePath(file) {
+      var a = "/" + file;
+      var link = a.replace(" ", "%20");
+      window.open(link, "_blank");
     },
   },
 };
