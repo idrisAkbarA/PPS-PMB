@@ -1,6 +1,5 @@
 <template>
   <v-app id="inspire">
-    <!-- :src="require('../drawer-bg.jpg')" -->
     <v-navigation-drawer
       :src="'/images/drawer-bg.jpg'"
       v-model="drawer"
@@ -12,20 +11,13 @@
       :mini-variant="windowWidth <= 600 ? false : miniVariant"
       dark
     >
-      <!-- :floating="true"
-      :permanent="permanent"
-      :expand-on-hover="expandOnHover"
-      :mini-variant="miniVariant"-->
       <v-card
         v-if="windowWidth <= 600"
         class="d-flex justify-center pt-4 pr-2 pl-2"
         flat
         tile
       >
-        <v-img
-          max-width="70"
-          :src="'/images/LogoUIN.png'"
-        ></v-img>
+        <v-img max-width="70" :src="'/images/LogoUIN.png'"></v-img>
         <v-card-text>Aplikasi Beasiswa UIN Suska Riau</v-card-text>
       </v-card>
       <v-card
@@ -60,6 +52,18 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Dashboard</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          :to="`/admin/${$route.params.petugas}/kelola-petugas`"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>mdi-account-multiple</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Petugas</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-subheader>PMB</v-subheader>
@@ -103,12 +107,10 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      dense
-      clipped-left
-    >
-      <v-app-bar-nav-icon @click.stop="toggleDrawer(windowWidth <= 600)"></v-app-bar-nav-icon>
+    <v-app-bar app dense clipped-left>
+      <v-app-bar-nav-icon
+        @click.stop="toggleDrawer(windowWidth <= 600)"
+      ></v-app-bar-nav-icon>
       <div style="width: 100%; -webkit-app-region: drag">
         <v-toolbar-title>
           <span
@@ -119,6 +121,17 @@
           <span>{{ $route.name }}</span>
         </v-toolbar-title>
       </div>
+      <v-slide-y-transition>
+        <v-btn
+          small
+          class="green darken-3"
+          dark
+          v-if="checkRoute('Kelola Petugas')"
+          @click="setBottomSheetToTrue"
+        >
+          <v-icon> mdi-plus</v-icon> tambah petugas
+        </v-btn>
+      </v-slide-y-transition>
       <v-slide-y-transition>
         <v-btn
           small
@@ -175,21 +188,13 @@
         </v-btn>
       </v-slide-y-transition>
 
-      <v-btn
-        v-if="windowWidth >= 600"
-        small
-        text
-        @click="logout"
-      >
+      <v-btn v-if="windowWidth >= 600" small text @click="logout">
         <v-icon>mdi-logout-variant</v-icon>keluar
       </v-btn>
     </v-app-bar>
 
     <v-main class="bg-pattern">
-      <transition
-        name="slide-fade"
-        mode="out-in"
-      >
+      <transition name="slide-fade" mode="out-in">
         <router-view></router-view>
       </transition>
 
@@ -226,7 +231,7 @@ export default {
     logout() {
       axios
         .get("/api/logout-petugas")
-        .then(response => {
+        .then((response) => {
           window.location.replace("/");
         })
         .catch(() => {
@@ -234,10 +239,10 @@ export default {
           console.log("Couldn't logout");
           // this.$router.push({ path: "/login" });
         });
-    }
+    },
   },
   props: {
-    source: String
+    source: String,
   },
   computed: {
     ...mapState(["currentPeriode"]),
@@ -250,48 +255,28 @@ export default {
         {
           icon: "mdi-school",
           title: "Kelola Periode",
-          to: `/admin/${petugas}/kelola-periode`
+          to: `/admin/${petugas}/kelola-periode`,
         },
         {
           icon: "mdi-clipboard-check-multiple",
           title: "Kelola Jurusan",
-          to: `/admin/${petugas}/kelola-jurusan`
+          to: `/admin/${petugas}/kelola-jurusan`,
         },
         {
           icon: "mdi-account-details",
           title: "Akun Pendaftar",
-          to: `/admin/${petugas}/pendaftar`
+          to: `/admin/${petugas}/pendaftar`,
         },
         {
           icon: "mdi-book-multiple",
           title: "Pendaftaran",
-          to: `/admin/${petugas}/kelola-pendaftaran`
+          to: `/admin/${petugas}/kelola-pendaftaran`,
         },
         {
           icon: "mdi-book-multiple",
           title: "Temu Ramah",
-          to: `/admin/${petugas}/kelola-temu-ramah`
-        }
-        // {
-        //   icon: "mdi-office-building",
-        //   title: "Instansi",
-        //   to: `/admin/${petugas}/instansi`,
-        // },
-        // {
-        //   icon: "mdi-account-supervisor-circle",
-        //   title: "Mahasiswa",
-        //   to: `/admin/${petugas}/mahasiswa`,
-        // },
-        // {
-        //   icon: "mdi-file-document",
-        //   title: "Laporan",
-        //   to: `/admin/${petugas}/Laporan`,
-        // },
-        // {
-        //   icon: "mdi-hammer-wrench",
-        //   title: "Pengaturan",
-        //   to: `/admin/${petugas}/pengaturan`,
-        // },
+          to: `/admin/${petugas}/kelola-temu-ramah`,
+        },
       ];
     },
     CATpages() {
@@ -300,17 +285,17 @@ export default {
         {
           icon: "mdi-file-document",
           title: "Kelola Soal",
-          to: `/admin/${petugas}/kelola-soal`
+          to: `/admin/${petugas}/kelola-soal`,
         },
         {
           icon: "mdi-file-document",
           title: "Kelola Kategori",
-          to: `/admin/${petugas}/kelola-kategori`
+          to: `/admin/${petugas}/kelola-kategori`,
         },
         {
           icon: "mdi-file-document",
           title: "Laporan Ujian",
-          to: `/admin/${petugas}/laporan-ujian`
+          to: `/admin/${petugas}/laporan-ujian`,
         },
         {
           icon: "mdi-cog",
@@ -320,23 +305,23 @@ export default {
         {
           icon: "mdi-file-document",
           title: "Hasil Ujian",
-          to: `/admin/${petugas}/kelola-kategori`
-        }
+          to: `/admin/${petugas}/kelola-kategori`,
+        },
       ];
-    }
+    },
   },
   data: () => ({
     drawer: false,
     permanent: true,
     miniVariant: true,
-    expandOnHover: true
+    expandOnHover: true,
   }),
   mounted() {
     console.log(this.$route);
     console.log(this.$route.matched);
     this.getCurrentPeriode();
     // this.$vuetify.theme.dark = true;
-  }
+  },
 };
 </script>
 

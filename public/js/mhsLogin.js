@@ -2021,23 +2021,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var pathArray = window.location.pathname.split("/");
@@ -2117,6 +2100,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           if (role == 1) {
             //role == admin
             redirectUrl += "admin/" + userNamePetugas + "/dashboard";
+          } else if (role == 2) {
+            redirectUrl += "temu-ramah/" + userNamePetugas + "/home";
           }
         } catch (error) {
           console.log(error);

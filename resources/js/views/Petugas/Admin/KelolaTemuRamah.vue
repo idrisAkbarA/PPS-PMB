@@ -62,7 +62,7 @@
           {{ `${item.ids_cln_mhs.length} / ${item.quota}` }}
         </template>
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn icon x-small class="mr-2" title="Detail">
+          <v-btn icon x-small class="mr-2" title="Detail" @click="show(item)">
             <v-icon>mdi-information</v-icon>
           </v-btn>
           <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
@@ -156,6 +156,55 @@
         </v-card-text>
       </v-card>
     </v-bottom-sheet>
+    <!-- Dialog Info -->
+    <v-dialog v-model="dialogShow" width="500" v-if="dialogShow">
+      <v-card>
+        <v-card-title class="headline">
+          <v-icon>mdi-trash</v-icon>
+        </v-card-title>
+
+        <v-card-text>
+          <v-row>
+            <v-col cols="6">Periode </v-col>
+            <v-col cols="6">{{ currentPeriode.nama }}</v-col>
+            <v-col cols="6">Waktu Tamu Ramah </v-col>
+            <v-col cols="6">
+              {{
+                `${currentPeriode.awal_temu_ramah} - ${currentPeriode.akhir_temu_ramah}`
+              }}
+            </v-col>
+            <v-col cols="12">
+              <v-subheader>Calon Mahasiswa</v-subheader>
+              <v-divider class="my-0"></v-divider>
+              <v-list
+                subheader
+                v-if="selectedTamuRamah.calon_mahasiswa.length > 0"
+              >
+                <template
+                  v-for="(row, index) in selectedTamuRamah.calon_mahasiswa"
+                >
+                  <v-list-item two-line :key="index">
+                    <v-list-item-content>
+                      <v-list-item-title>{{ row.nama }}</v-list-item-title>
+                      <v-list-item-subtitle> Jurusan </v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-divider
+                    v-if="index < selectedTamuRamah.calon_mahasiswa.length - 1"
+                    :key="'divider-' + index"
+                    class="my-0"
+                  ></v-divider>
+                </template>
+                <v-divider class="mt-0"></v-divider>
+              </v-list>
+              <p class="text-center mt-2" v-else>
+                Belum ada peserta temu ramah
+              </p>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <!-- Dialog Delete -->
     <v-dialog v-model="dialogDelete" width="500">
       <v-card>
@@ -212,7 +261,9 @@ export default {
       form: {},
       filter: {},
       currentPeriode: null,
+      selectedTamuRamah: null,
       isLoading: false,
+      dialogShow: false,
       dialogDelete: false,
       snackbar: { show: false },
       scrollOps: {
@@ -306,6 +357,10 @@ export default {
           console.error(err);
         })
         .then((this.isLoading = false));
+    },
+    show(item) {
+      this.selectedTamuRamah = item;
+      this.dialogShow = true;
     },
     edit(item) {
       this.form = _.clone(item);

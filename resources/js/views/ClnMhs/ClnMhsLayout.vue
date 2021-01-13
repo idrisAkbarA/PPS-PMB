@@ -3,14 +3,11 @@
     <v-app-bar
       app
       flat
-      :color="offsetTop>0?'green darken-4':'transparent'"
+      :color="offsetTop > 0 ? 'green darken-4' : 'transparent'"
       hide-on-scroll
       dense
     >
-      <template
-        v-if="offsetTop>0"
-        v-slot:img="{ props }"
-      >
+      <template v-if="offsetTop > 0" v-slot:img="{ props }">
         <v-img
           v-bind="props"
           gradient="to top right, rgba(6, 76, 90, 0.377), rgba(5, 94, 42,.8)"
@@ -18,30 +15,21 @@
         ></v-img>
       </template>
       <v-avatar :tile="true">
-        <img
-          :src="'/images/LogoUIN.png'"
-          alt="logo"
-        >
+        <img :src="'/images/LogoUIN.png'" alt="logo" />
       </v-avatar>
-      <div style="width:100%; -webkit-app-region: drag;">
+      <div style="width: 100%; -webkit-app-region: drag">
         <v-toolbar-title>
           <span class="font-weight-bold ml-4">
             <router-link
-              :to="{name:'Home Calon Mahasiswa'}"
-              style="color:white; text-decoration: none; "
+              :to="{ name: 'Home Calon Mahasiswa' }"
+              style="color: white; text-decoration: none"
             >
               Pendaftaran Pasca Sarjana
             </router-link>
           </span>
-
         </v-toolbar-title>
       </div>
-      <v-btn
-        small
-        dark
-        text
-        @click="logout()"
-      >
+      <v-btn small dark text @click="logout()">
         <v-icon left>mdi-logout-variant</v-icon>keluar
       </v-btn>
       <!-- -->
@@ -49,24 +37,16 @@
     <div class="ribbon"></div>
 
     <!-- Sizes your content based upon application components -->
-    <v-main style="z-index:2">
-
+    <v-main style="z-index: 2">
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
-
     </v-main>
-    <v-footer
-      dark
-      color="green darken-4"
-      app
-      absolute
-    >
-      Univeristas Islam Negeri Sultan Syarif Kasim Riau
+    <v-footer dark color="green darken-4" app absolute>
+      Universitas Islam Negeri Sultan Syarif Kasim Riau
     </v-footer>
-
   </v-app>
 </template>
 

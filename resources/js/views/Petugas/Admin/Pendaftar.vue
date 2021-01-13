@@ -56,140 +56,87 @@
         </template>
       </v-data-table>
     </v-card>
-    <!-- Bottom Sheet -->
-    <v-bottom-sheet
-      scrollable
-      inset
-      width="60%"
-      overlay-color="#69F0AE"
-      v-model="bottomSheet"
-    >
-      <v-card color="#ecf0f1">
-        <v-card-title>
-          <span>Pendaftar</span>
-          <v-spacer></v-spacer>
-          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
-          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
-        </v-card-title>
-        <v-card-text>
-          <vue-scroll :ops="scrollOps">
-            <!-- <v-card> -->
-            <v-card-text>
-              <v-row align="center">
-                <v-col cols="12">
-                  <v-text-field
-                    clearable
-                    color="#2C3E50"
-                    label="Nama Jurusan"
-                    hint="*Contoh : Pendidikan Agama Islam S3"
-                    v-model="form.nama"
-                  >
-                  </v-text-field>
-                </v-col>
-                <v-col cols="6" v-if="form.id">
-                  <v-select
-                    :items="form.kategori"
-                    label="Kategori TKA Default"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.kat_tka_default"
-                  ></v-select>
-                </v-col>
-                <v-col cols="6" v-if="form.id">
-                  <v-select
-                    :items="form.kategori"
-                    label="Kategori TKJ Default"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.kat_tkj_default"
-                  ></v-select>
-                </v-col>
-              </v-row>
-            </v-card-text>
-            <!-- </v-card> -->
-          </vue-scroll>
-        </v-card-text>
-      </v-card>
-    </v-bottom-sheet>
     <!-- Dialog Show -->
-    <v-dialog v-model="dialogShow" width="500">
+    <v-dialog v-model="dialogShow" width="500" scrollable>
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
         </v-card-title>
 
         <v-card-text>
-          <v-row>
-            <v-col cols="6">
-              <v-img
-                class="mx-auto"
-                max-width="150"
-                :src="form.pas_poto ? form.pas_poto : '/images/empty.png'"
-              ></v-img>
-            </v-col>
-            <v-col cols="6">
-              <h5>{{ form.nama }}</h5>
-              <p class="text-muted">{{ form.email }}</p>
-              <v-row class="mt-3">
-                <v-col cols="6" class="mb-0">HP / WA</v-col>
-                <v-col cols="6" class="mb-0"
-                  >{{ form.hp ? form.hp : "-" }} /
-                  {{ form.wa ? form.wa : "-" }}</v-col
-                >
-                <v-col cols="6" class="mb-0">IPK</v-col>
-                <v-col cols="6" class="mb-0"
-                  >{{ form.nilai_ipk ? form.nilai_ipk : "-" }}
-                </v-col>
-                <v-col cols="6" class="mb-0">Bahasa</v-col>
-                <v-col cols="6" class="mb-0"
-                  >{{ form.nilai_bhs ? form.nilai_bhs : "-" }}
-                </v-col>
-                <v-col cols="6" class="mb-0">Alamat</v-col>
-                <v-col cols="6" class="mb-0"
-                  >{{ form.alamat ? form.alamat : "-" }}
-                </v-col>
-              </v-row>
-            </v-col>
-            <v-col cols="12">
-              <v-list subheader>
-                <v-subheader>Pendaftaran</v-subheader>
-                <v-divider class="mt-0"></v-divider>
-                <template v-for="(ujian, index) in form.ujian">
-                  <v-list-item three-line :key="index">
-                    <v-list-item-content>
-                      <v-list-item-title>{{
-                        ujian.jurusan.nama
-                      }}</v-list-item-title>
-                      <v-list-item-subtitle>
-                        Periode {{ ujian.nama_periode }}
-                      </v-list-item-subtitle>
-                      <v-list-item-subtitle>
-                        <span
-                          :class="
-                            ujian.lulus_at ? 'text-success' : 'text-danger'
-                          "
-                        >
-                          {{ ujian.lulus_at ? "Lulus" : "Tidak Lulus" }}
-                          <v-icon
-                            small
-                            :color="ujian.lulus_at ? 'success' : 'red'"
-                            >{{
-                              ujian.lulus_at ? "mdi-check" : "mdi-close"
-                            }}</v-icon
+          <vue-scroll :ops="scrollOps">
+            <v-row>
+              <v-col cols="6">
+                <v-img
+                  class="mx-auto"
+                  max-width="150"
+                  :src="form.pas_photo ? form.pas_photo : '/images/empty.png'"
+                ></v-img>
+              </v-col>
+              <v-col cols="6">
+                <h5>{{ form.nama }}</h5>
+                <p class="text-muted">{{ form.email }}</p>
+                <v-row class="mt-3">
+                  <v-col cols="6" class="mb-0">HP / WA</v-col>
+                  <v-col cols="6" class="mb-0"
+                    >{{ form.hp ? form.hp : "-" }} /
+                    {{ form.wa ? form.wa : "-" }}</v-col
+                  >
+                  <v-col cols="6" class="mb-0">IPK</v-col>
+                  <v-col cols="6" class="mb-0"
+                    >{{ form.nilai_ipk ? form.nilai_ipk : "-" }}
+                  </v-col>
+                  <v-col cols="6" class="mb-0">Bahasa</v-col>
+                  <v-col cols="6" class="mb-0"
+                    >{{ form.nilai_bhs ? form.nilai_bhs : "-" }}
+                  </v-col>
+                  <v-col cols="6" class="mb-0">Alamat</v-col>
+                  <v-col cols="6" class="mb-0"
+                    >{{ form.alamat ? form.alamat : "-" }}
+                  </v-col>
+                </v-row>
+              </v-col>
+              <v-col cols="12">
+                <v-list subheader>
+                  <v-subheader>Pendaftaran</v-subheader>
+                  <v-divider class="mt-0"></v-divider>
+                  <template v-for="(ujian, index) in form.ujian">
+                    <v-list-item three-line :key="index">
+                      <v-list-item-content>
+                        <v-list-item-title>{{
+                          ujian.jurusan.nama
+                        }}</v-list-item-title>
+                        <v-list-item-subtitle>
+                          Periode {{ ujian.nama_periode }}
+                        </v-list-item-subtitle>
+                        <v-list-item-subtitle>
+                          <span
+                            :class="
+                              ujian.lulus_at ? 'text-success' : 'text-danger'
+                            "
                           >
-                        </span>
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-divider
-                    v-if="index < form.ujian.length - 1"
-                    :key="'devider-' + index"
-                  ></v-divider>
-                </template>
-                <v-divider></v-divider>
-              </v-list>
-            </v-col>
-          </v-row>
+                            {{ ujian.lulus_at ? "Lulus" : "Tidak Lulus" }}
+                            <v-icon
+                              small
+                              :color="ujian.lulus_at ? 'success' : 'red'"
+                              >{{
+                                ujian.lulus_at ? "mdi-check" : "mdi-close"
+                              }}</v-icon
+                            >
+                          </span>
+                        </v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    <v-divider
+                      v-if="index < form.ujian.length - 1"
+                      :key="'divider-' + index"
+                    ></v-divider>
+                  </template>
+                  <v-divider></v-divider>
+                </v-list>
+              </v-col>
+            </v-row>
+          </vue-scroll>
         </v-card-text>
       </v-card>
     </v-dialog>

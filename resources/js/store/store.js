@@ -9,6 +9,7 @@ Axios.defaults.withCredentials = true;
 export default new Vuex.Store({
     state: {
         user: null, // user who logged in
+        urlPetugas: '/api/petugas',
         urlPeriode: '/api/periode',
         urlJurusan: '/api/jurusan',
         urlPendaftar: '/api/pendaftar',

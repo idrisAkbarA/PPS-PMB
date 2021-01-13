@@ -87,7 +87,8 @@ class Periode extends Model
 
     public function getTemuRamah()
     {
-        return $this->temu_ramah()->get();
+        return $this->temu_ramah()
+            ->get();
     }
 
     // Setters
