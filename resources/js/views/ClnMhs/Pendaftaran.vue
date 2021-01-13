@@ -327,7 +327,7 @@
                 @start_callback="startCallBack('event started')"
                 @end_callback="endCallBack('event ended')"
                 :start-time="now"
-                :end-time="ujianSelected.batas_ujian+' 23:59:59'"
+                :end-time="ujianSelected.batas_ujian+' 00:00:00'"
                 :interval="1000"
                 :start-label="'Until start:'"
                 label-position="begin"
@@ -458,7 +458,7 @@ import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   // first check if this page reloaded before or accessed directly via url
   beforeRouteEnter(to, from, next) {
-    if (from.name == null) {
+    if (from.name == null || from.name == "Soal") {
       next(vm => {
         console.log(vm.initPendaftaran(vm));
       });

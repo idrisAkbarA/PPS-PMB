@@ -64,7 +64,7 @@
       app
       absolute
     >
-      Univeristas Islam Negeri Sultan Syarif Kasim Riau
+      Universitas Islam Negeri Sultan Syarif Kasim Riau
     </v-footer>
 
   </v-app>
@@ -77,7 +77,7 @@ export default {
   },
   data() {
     return {
-      offsetTop: 0,
+      offsetTop: 0
     };
   },
   methods: {
@@ -89,7 +89,7 @@ export default {
     logout() {
       axios
         .get("/api/logout")
-        .then((response) => {
+        .then(response => {
           window.location.replace("/");
         })
         .catch(() => {
@@ -97,8 +97,8 @@ export default {
           console.log("Couldn't logout");
           // this.$router.push({ path: "/login" });
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

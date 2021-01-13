@@ -94,7 +94,15 @@ class SoalController extends Controller
         $id = $request->id;
 
         $soal = new SoalUjian;
-        return response()->json($soal->calcScore($id, $type));
+        $soal->calcScore($id, $type);
+        $setLulus = $this->setLulus($request);
+
+        $ujian = Ujian::find($request->idUjian);
+        if($ujian['is_lulus_tka']==true && $ujian['is_lulus_tkj']==true){
+            $ujian->lulus_at = Carbon::now();
+            $ujian->save();
+        }
+        return response()->json($setLulus);
     }
     public function setLulus(Request $request)
     {
