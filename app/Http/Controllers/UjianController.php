@@ -42,6 +42,7 @@ class UjianController extends Controller
 
         ]);
     }
+
     public function index(Request $request)
     {
         $periode_id = $request->periode;
