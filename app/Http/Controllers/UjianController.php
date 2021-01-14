@@ -19,6 +19,18 @@ class UjianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dashboard(){
+      $periode = Periode::latest()->first();
+      $periode_id = $periode->id;
+      $ujian = Ujian::where(['periode_id'=>$periode_id])->get();
+      $total_pendaftaran = count($ujian);
+      $total_lulus = count(Ujian::where(['periode_id'=>$periode_id])->where("lulus_at","!=",null)->get());
+      return response()->json(
+          ["periode"=>$periode,
+            "total_pendaftaran"=>$total_pendaftaran,
+            "total_lulus"=>$total_lulus
+      ]);
+    }
     public function initAllDataClnMhs()
     {
         $user = Auth::guard('cln_mahasiswa')->user();
