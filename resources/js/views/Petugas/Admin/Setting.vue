@@ -179,7 +179,20 @@
                   >
                   </v-text-field>
                 </v-col>
-
+                <v-col cols="6">
+                  <label class="text-dark">Durasi Ujian</label>
+                </v-col>
+                <v-col cols="6">
+                  <v-text-field
+                    type="number"
+                    color="#2C3E50"
+                    min="0"
+                    label="Durasi Ujian"
+                    hint="Durasi ujian, dalam menit"
+                    v-model="form.durasi_ujian"
+                  >
+                  </v-text-field>
+                </v-col>
               </v-row>
             </v-card-text>
             <!-- </v-card> -->
@@ -316,36 +329,36 @@ export default {
         scrollPanel: {
           easing: "easeInQuad",
           speed: 800,
-          scrollingX: false,
+          scrollingX: false
         },
         vuescroll: {
           mode: "native",
           wheelScrollDuration: 0,
-          locking: true,
-        },
+          locking: true
+        }
       },
       headers: [
         {
           text: "Nama",
           align: "start",
-          value: "nama",
+          value: "nama"
         },
         { text: "Periode", value: "periode" },
         { text: "Status", value: "is_active" },
-        { text: "Actions", value: "actions" },
-      ],
+        { text: "Actions", value: "actions" }
+      ]
     };
   },
   computed: {
     ...mapState(["isBottomSheetOpen", "urlPeriode"]),
     bottomSheet: {
-      get: function () {
+      get: function() {
         return this.isBottomSheetOpen;
       },
-      set: function (data) {
+      set: function(data) {
         this.toggleBottomSheet(data);
-      },
-    },
+      }
+    }
   },
   watch: {
     bottomSheet(val) {
@@ -362,7 +375,7 @@ export default {
       if (!val) {
         this.form = {};
       }
-    },
+    }
   },
   created() {
     this.getPeriode();
@@ -373,10 +386,10 @@ export default {
       this.isLoading = true;
       axios
         .get(this.urlPeriode)
-        .then((response) => {
+        .then(response => {
           this.periode = response.data;
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -407,21 +420,21 @@ export default {
       this.isLoading = true;
       axios
         .post(this.urlPeriode, this.form)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then(() => {
@@ -434,23 +447,23 @@ export default {
       this.isLoading = true;
       axios
         .put(urlPeriode, this.form)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.form = {};
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
             this.getPeriode();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then((this.isLoading = false));
@@ -461,27 +474,27 @@ export default {
       this.isLoading = true;
       axios
         .delete(urlPeriode)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.dialogDelete = false;
             this.getPeriode();
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then((this.isLoading = false));
-    },
-  },
+    }
+  }
 };
 </script>
 
