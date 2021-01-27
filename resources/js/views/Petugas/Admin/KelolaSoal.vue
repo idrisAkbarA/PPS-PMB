@@ -3,8 +3,11 @@
     Kelola Soal dan hal terkait
     <v-expansion-panels class="mb-2">
       <v-expansion-panel>
-        <v-expansion-panel-header>
-          <strong> Filter </strong>
+        <v-expansion-panel-header color="green">
+          <div>
+            <v-icon dark>mdi-filter</v-icon>
+            <strong class="text-white"> Filter </strong>
+          </div>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-row>
@@ -33,7 +36,11 @@
       </v-expansion-panel>
     </v-expansion-panels>
     <v-card>
-      <v-tabs v-model="tab" background-color="green" centered dark>
+      <v-tabs
+        v-model="tab"
+        centered
+      >
+        <!-- background-color="green" -->
         <v-tabs-slider></v-tabs-slider>
 
         <v-tab href="#tab-1"> SOAL TKA </v-tab>
@@ -57,18 +64,22 @@
                   ></v-text-field>
                 </v-row>
                 <v-card
+                  outlined
                   v-for="soal in soalTKA.data"
                   :key="soal.id"
                   color="rgba(46, 204, 113, 0.25)"
                   class="mt-5"
                 >
                   <v-card-title>
-                    <v-chip color="#2C3E50" dark>
+                    <v-chip
+                      color="#2C3E50"
+                      dark
+                    >
                       {{ soal.nama_kategori }}
                     </v-chip>
                     <v-spacer></v-spacer>
                     <v-text-field
-                      filled
+                      label="Jurusan"
                       dense
                       :full-width="false"
                       hide-details="auto"
@@ -98,7 +109,10 @@
                   <v-card-text class="black--text">
                     {{ soal.pertanyaan }}
                     <v-col cols="6">
-                      <v-radio-group hide-details="auto" v-model="soal.jawaban">
+                      <v-radio-group
+                        hide-details
+                        v-model="soal.jawaban"
+                      >
                         <v-radio
                           v-for="pilihan in soal.pilihan_ganda"
                           :key="pilihan.pilihan"
@@ -111,11 +125,21 @@
                     </v-col>
                   </v-card-text>
                 </v-card>
-                <p class="text-muted text-center" v-if="!soalTKA.data.length">
+                <p
+                  class="text-muted text-center"
+                  v-if="!soalTKA.data.length"
+                >
                   No data available
                 </p>
-                <v-row align="center" class="mt-3" v-if="soalTKA.data.length">
-                  <v-col cols="12" class="text-center">
+                <v-row
+                  align="center"
+                  class="mt-3"
+                  v-if="soalTKA.data.length"
+                >
+                  <v-col
+                    cols="12"
+                    class="text-center"
+                  >
                     <v-pagination
                       color="#2C3E50"
                       class="mx-auto"
@@ -153,7 +177,10 @@
                   class="mt-5"
                 >
                   <v-card-title>
-                    <v-chip color="#2C3E50" dark>
+                    <v-chip
+                      color="#2C3E50"
+                      dark
+                    >
                       {{ soal.nama_kategori }}
                     </v-chip>
                     <v-spacer></v-spacer>
@@ -188,7 +215,10 @@
                   <v-card-text class="black--text">
                     {{ soal.pertanyaan }}
                     <v-col cols="6">
-                      <v-radio-group hide-details="auto" v-model="soal.jawaban">
+                      <v-radio-group
+                        hide-details="auto"
+                        v-model="soal.jawaban"
+                      >
                         <v-radio
                           v-for="pilihan in soal.pilihan_ganda"
                           :key="pilihan.pilihan"
@@ -201,10 +231,17 @@
                     </v-col>
                   </v-card-text>
                 </v-card>
-                <p class="text-muted text-center" v-if="!soalTKJ.data.length">
+                <p
+                  class="text-muted text-center"
+                  v-if="!soalTKJ.data.length"
+                >
                   No data available
                 </p>
-                <v-row align="center" class="mt-3" v-if="soalTKJ.data.length">
+                <v-row
+                  align="center"
+                  class="mt-3"
+                  v-if="soalTKJ.data.length"
+                >
                   <v-col cols="3">
                     Showing {{ soalTKJ.from }} - {{ soalTKJ.to }} from
                     {{ soalTKJ.total }} data
@@ -236,8 +273,16 @@
         <v-card-title>
           <span>Soal</span>
           <v-spacer></v-spacer>
-          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
-          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
+          <v-btn
+            text
+            class="mr-2"
+            @click="bottomSheet = false"
+          >batal</v-btn>
+          <!-- <v-btn
+            color="#2C3E50"
+            dark
+            @click="submit"
+          >Simpan</v-btn> -->
         </v-card-title>
         <v-card-text>
           <vue-scroll :ops="scrollOps">
@@ -268,61 +313,112 @@
                     v-model="form.type"
                   ></v-select>
                 </v-col>
-                <v-col cols="12" class="pb-0">
-                  <v-textarea
+                <v-col>
+                  <v-card
                     outlined
-                    color="#2C3E50"
-                    class="mb-2"
-                    label="Pertanyaan"
-                    v-model="form.pertanyaan"
+                    v-if="cardSoal"
+                    class="pa-2"
                   >
-                  </v-textarea>
-                </v-col>
-                <v-col cols="6">
-                  <p class="overline text-muted mb-0">Pilihan Ganda</p>
-                  <v-radio-group hide-details="auto" v-model="form.jawaban">
-                    <v-radio
-                      v-for="pilihan in form.pilihan_ganda"
-                      :key="pilihan.pilihan"
-                      :value="pilihan.pilihan"
-                      color="#2C3E50"
-                      readonly
-                    >
-                      <template v-slot:label>
-                        <v-row align="center">
-                          <v-text-field
-                            class="ma-2"
-                            color="white"
-                            filled
-                            dense
-                            label="Label"
-                            v-model="pilihan.text"
-                          ></v-text-field>
-                        </v-row>
-                      </template>
-                    </v-radio>
-                  </v-radio-group>
-                </v-col>
-                <v-col cols="6">
-                  <p class="overline text-muted mb-0">Jawaban</p>
-                  <v-select
-                    :items="['A', 'B', 'C', 'D', 'E']"
-                    v-model="form.jawaban"
-                  ></v-select>
+                    <v-container>
+                      <v-row>
+                        <v-col
+                          cols="12"
+                          class="pb-0"
+                        >
+                          <p class="overline text-muted mb-0">Pertanyaan</p>
+                          <v-textarea
+                            hide-details="auto"
+                            outlined
+                            color="#2C3E50"
+                            :row-height="2"
+                            auto-grow
+                            label="Pertanyaan"
+                            v-model="form.pertanyaan"
+                          >
+                          </v-textarea>
+                        </v-col>
+                        <v-col cols="12">
+                          <p class="overline text-muted mb-0">Pilihan Ganda</p>
+                          <v-radio-group
+                            hide-details="auto"
+                            v-model="form.jawaban"
+                          >
+                            <v-radio
+                              v-for="pilihan in form.pilihan_ganda"
+                              :key="pilihan.pilihan"
+                              :value="pilihan.pilihan"
+                              color="green darken-2"
+                              readonly
+                            >
+                              <template v-slot:label>
+                                <v-row align="center">
+                                  <v-text-field
+                                    hide-details
+                                    class="ma-2"
+                                    color="green"
+                                    filled
+                                    dense
+                                    :label="pilihan.label"
+                                    v-model="pilihan.text"
+                                  ></v-text-field>
+                                </v-row>
+                              </template>
+                            </v-radio>
+                          </v-radio-group>
+                        </v-col>
+                        <v-col cols="12">
+                          <p class="overline text-muted mb-0">Jawaban</p>
+                          <v-select
+                            label="Pilihan Jawaban"
+                            :items="['A', 'B', 'C', 'D', 'E']"
+                            v-model="form.jawaban"
+                          ></v-select>
+                        </v-col>
+                        <v-col>
+                          <v-btn
+                            :loading="buttonLoading"
+                            color="#2C3E50"
+                            dark
+                            @click="submit"
+                            class="green darken-2 text-white"
+                          >
+                            Simpan
+                          </v-btn>
+                        </v-col>
+
+                      </v-row>
+                    </v-container>
+                  </v-card>
+                  <v-card
+                    v-else
+                    outlined
+                    class="mb-10"
+                  >
+                    <v-card-title>Soal Berhasil Disimpan!</v-card-title>
+                  </v-card>
                 </v-col>
               </v-row>
             </v-card-text>
           </vue-scroll>
         </v-card-text>
         <v-row justify="center">
-          <v-btn class="mt-2" fab dark small color="#2C3E50">
+          <!-- <v-btn
+            class="mt-2"
+            fab
+            dark
+            small
+            color="#2C3E50"
+          >
             <v-icon dark> mdi-plus </v-icon>
-          </v-btn>
+          </v-btn> -->
         </v-row>
       </v-card>
     </v-bottom-sheet>
     <!-- Dialog Delete -->
-    <v-dialog v-model="dialogDelete" width="500">
+    <v-dialog
+      v-model="dialogDelete"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -337,9 +433,16 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
+          <v-btn
+            text
+            @click="dialogDelete = false"
+          > Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="destroy"
+          > Ya </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -371,6 +474,8 @@ import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      buttonLoading: false,
+      cardSoal: true,
       tab: null,
       selectedJurusan: null,
       selectedKategori: null,
@@ -389,39 +494,39 @@ export default {
             pertanyaan: "Ma Rabbuka?",
             pilihan_ganda: [
               { pilihan: "A", text: "Allah" },
-              { pilihan: "B", text: "Allah" },
+              { pilihan: "B", text: "Allah" }
             ],
             jawaban: "A",
             jurusan_id: 0,
             kategori_id: 0,
-            type: "tka",
+            type: "tka"
           },
           {
             id: 1,
             pertanyaan: "Ma Rabbukaa?",
             pilihan_ganda: [
               { pilihan: "A", text: "Allah" },
-              { pilihan: "B", text: "Allah" },
+              { pilihan: "B", text: "Allah" }
             ],
             jawaban: "A",
             jurusan_id: 0,
             kategori_id: 0,
-            type: "tka",
-          },
-        ],
+            type: "tka"
+          }
+        ]
       },
       scrollOps: {
         scrollPanel: {
           easing: "easeInQuad",
           speed: 800,
-          scrollingX: false,
+          scrollingX: false
         },
         vuescroll: {
           mode: "native",
           wheelScrollDuration: 0,
-          locking: true,
-        },
-      },
+          locking: true
+        }
+      }
     };
   },
   computed: {
@@ -429,26 +534,26 @@ export default {
       "isBottomSheetOpen",
       "urlBankSoal",
       "urlJurusan",
-      "urlKategori",
+      "urlKategori"
     ]),
     bottomSheet: {
-      get: function () {
+      get: function() {
         return this.isBottomSheetOpen;
       },
-      set: function (data) {
+      set: function(data) {
         this.toggleBottomSheet(data);
-      },
-    },
+      }
+    }
   },
   watch: {
-    bottomSheet: function (val) {
+    bottomSheet: function(val) {
       if (val && !this.form.id) {
         this.setPilihanGanda();
       } else if (!val) {
         this.form = {};
       }
     },
-    selectedJurusan: function (val) {
+    selectedJurusan: function(val) {
       if (!val) {
         this.kategori = [];
       } else {
@@ -457,20 +562,20 @@ export default {
       this.selectedKategori = null;
       this.getSoal();
     },
-    selectedKategori: function (val) {
+    selectedKategori: function(val) {
       this.getSoal();
     },
-    "soalTKA.currentPage": function (val) {
+    "soalTKA.currentPage": function(val) {
       this.getSoal("tka");
     },
-    "soalTKJ.currentPage": function (val) {
+    "soalTKJ.currentPage": function(val) {
       this.getSoal("tkj");
     },
-    "form.jurusan_id": function (val) {
+    "form.jurusan_id": function(val) {
       if (val) {
         this.getKategori(val);
       }
-    },
+    }
   },
   created() {
     this.getJurusan();
@@ -487,14 +592,14 @@ export default {
       const form = {
         jurusan: this.selectedJurusan,
         kategori: this.selectedKategori,
-        page: type ? this[`soal${type.toUpperCase()}`].currentPage : null,
+        page: type ? this[`soal${type.toUpperCase()}`].currentPage : null
       };
       this.isLoading = true;
       axios
         .get(urlBankSoal, {
-          params: form,
+          params: form
         })
-        .then((response) => {
+        .then(response => {
           if (type) {
             this[`soal${type.toUpperCase()}`] = {
               data: response.data.data,
@@ -502,7 +607,7 @@ export default {
               lastPage: response.data.last_page,
               from: response.data.from,
               to: response.data.to,
-              total: response.data.total,
+              total: response.data.total
             };
             return;
           }
@@ -512,7 +617,7 @@ export default {
             lastPage: response.data.tka.last_page,
             from: response.data.tka.from,
             to: response.data.tka.to,
-            total: response.data.tka.total,
+            total: response.data.tka.total
           };
           this.soalTKJ = {
             data: response.data.tkj.data,
@@ -520,10 +625,10 @@ export default {
             lastPage: response.data.tkj.last_page,
             from: response.data.tkj.from,
             to: response.data.tkj.to,
-            total: response.data.tkj.total,
+            total: response.data.tkj.total
           };
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -532,10 +637,10 @@ export default {
       this.isLoading = true;
       axios
         .get(this.urlJurusan)
-        .then((response) => {
+        .then(response => {
           this.jurusan = response.data;
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -545,18 +650,19 @@ export default {
       this.isLoading = true;
       axios
         .get(urlKategori)
-        .then((response) => {
+        .then(response => {
           this.kategori = response.data;
-          if (this.kategori.some((e) => !(e.id == this.form.kategori_id))) {
+          if (this.kategori.some(e => !(e.id == this.form.kategori_id))) {
             this.form.kategori_id = null;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         })
         .then((this.isLoading = false));
     },
     submit() {
+      this.buttonLoading = true;
       const form = this.form;
       if (!form.id) {
         this.store();
@@ -568,21 +674,30 @@ export default {
       this.isLoading = true;
       axios
         .post(this.urlBankSoal, this.form)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
-            this.bottomSheet = false;
+            this.buttonLoading = false;
+            this.cardSoal = false;
+            this.form.pilihan_ganda = {};
+            this.form.jawaban = null;
+            this.form.pertanyaan = null;
+            this.setPilihanGanda();
+            setInterval(() => {
+              this.cardSoal = true;
+            }, 2000);
+            // this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then(() => {
@@ -599,23 +714,22 @@ export default {
       this.isLoading = true;
       axios
         .put(urlBankSoal, this.form)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.bottomSheet = false;
-            this.form = {};
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
             this.getSoal();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then((this.isLoading = false));
@@ -626,36 +740,36 @@ export default {
       this.isLoading = true;
       axios
         .delete(urlBankSoal)
-        .then((response) => {
+        .then(response => {
           if (response.data.status) {
             this.dialogDelete = false;
             this.getSoal();
             this.snackbar = {
               show: true,
-              message: response.data.message,
+              message: response.data.message
             };
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger",
+            color: "danger"
           };
         })
         .then((this.isLoading = false));
     },
     setPilihanGanda() {
       this.form.pilihan_ganda = [
-        { pilihan: "A", text: "Pilihan A" },
-        { pilihan: "B", text: "Pilihan B" },
-        { pilihan: "C", text: "Pilihan C" },
-        { pilihan: "D", text: "Pilihan D" },
-        { pilihan: "E", text: "Pilihan E" },
+        { pilihan: "A", label: "Pilihan A", text: "" },
+        { pilihan: "B", label: "Pilihan B", text: "" },
+        { pilihan: "C", label: "Pilihan C", text: "" },
+        { pilihan: "D", label: "Pilihan D", text: "" },
+        { pilihan: "E", label: "Pilihan E", text: "" }
       ];
-    },
-  },
+    }
+  }
 };
 </script>
 

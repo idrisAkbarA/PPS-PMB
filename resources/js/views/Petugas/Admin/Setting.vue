@@ -103,21 +103,6 @@
                   <p class="overline text-muted mb-0">Setting Ujian</p>
                 </v-col>
                 <v-col cols="6">
-                  <label class="text-dark">Waktu Ujian (menit)</label>
-                </v-col>
-                <v-col cols="6">
-                  <v-text-field
-                    type="number"
-                    color="#2C3E50"
-                    min="0"
-                    max="4"
-                    label="Waktu Ujian"
-                    hint="Dalam menit"
-                    v-model="form.syarat_ipk"
-                  >
-                  </v-text-field>
-                </v-col>
-                <v-col cols="6">
                   <label class="text-dark">Jumlah Soal</label>
                 </v-col>
                 <v-col cols="3">

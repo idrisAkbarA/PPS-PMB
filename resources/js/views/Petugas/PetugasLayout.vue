@@ -11,103 +11,106 @@
       :mini-variant="windowWidth <= 600 ? false : miniVariant"
       dark
     >
-      <v-card
-        v-if="windowWidth <= 600"
-        class="d-flex justify-center pt-4 pr-2 pl-2"
-        flat
-        tile
-      >
-        <v-img
-          max-width="70"
-          :src="'/images/LogoUIN.png'"
-        ></v-img>
-        <v-card-text>Aplikasi Beasiswa UIN Suska Riau</v-card-text>
-      </v-card>
-      <v-card
-        v-if="windowWidth <= 600"
-        class="d-flex justify-center pr-2 pl-2"
-        flat
-        tile
-      >
-        <v-card-text>
-          Selamat datang {{ $route.params.petugas }}
-          <br />
-          <v-btn
-            class="mt-2"
-            outlined
-            color="green darken-2"
-            small
-            block
-            @click="logout"
+      <vue-scroll :ops="scrollOps">
+
+        <v-card
+          v-if="windowWidth <= 600"
+          class="d-flex justify-center pt-4 pr-2 pl-2"
+          flat
+          tile
+        >
+          <v-img
+            max-width="70"
+            :src="'/images/LogoUIN.png'"
+          ></v-img>
+          <v-card-text>Aplikasi Beasiswa UIN Suska Riau</v-card-text>
+        </v-card>
+        <v-card
+          v-if="windowWidth <= 600"
+          class="d-flex justify-center pr-2 pl-2"
+          flat
+          tile
+        >
+          <v-card-text>
+            Selamat datang {{ $route.params.petugas }}
+            <br />
+            <v-btn
+              class="mt-2"
+              outlined
+              color="green darken-2"
+              small
+              block
+              @click="logout"
+            >
+              <v-icon>mdi-logout-variant</v-icon>keluar
+            </v-btn>
+          </v-card-text>
+        </v-card>
+        <v-list dense>
+          <v-list-item
+            :to="`/admin/${$route.params.petugas}/dashboard`"
+            router
+            exact
           >
-            <v-icon>mdi-logout-variant</v-icon>keluar
-          </v-btn>
-        </v-card-text>
-      </v-card>
-      <v-list dense>
-        <v-list-item
-          :to="`/admin/${$route.params.petugas}/dashboard`"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item
-          :to="`/admin/${$route.params.petugas}/kelola-petugas`"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>mdi-account-multiple</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Petugas</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-subheader>PMB</v-subheader>
-        <v-list-item
-          v-for="(page, i) in PMBpages"
-          :key="'PMB-' + i"
-          :to="page.to"
-          :two-line="page.subtitle ? true : false"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ page.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>{{ page.title }}</v-list-item-title>
-            <v-list-item-subtitle v-if="page.subtitle">{{
+            <v-list-item-action>
+              <v-icon>mdi-view-dashboard</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Dashboard</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            :to="`/admin/${$route.params.petugas}/kelola-petugas`"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>mdi-account-multiple</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Petugas</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-subheader class="ml-2">PMB</v-subheader>
+          <v-list-item
+            v-for="(page, i) in PMBpages"
+            :key="'PMB-' + i"
+            :to="page.to"
+            :two-line="page.subtitle ? true : false"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ page.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>{{ page.title }}</v-list-item-title>
+              <v-list-item-subtitle v-if="page.subtitle">{{
               page.subtitle
             }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-subheader>CAT</v-subheader>
-        <v-list-item
-          v-for="(page, i) in CATpages"
-          :key="'CAT-' + i"
-          :to="page.to"
-          :two-line="page.subtitle ? true : false"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ page.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>{{ page.title }}</v-list-item-title>
-            <v-list-item-subtitle v-if="page.subtitle">{{
+            </v-list-item-content>
+          </v-list-item>
+          <v-subheader class="ml-2">CAT</v-subheader>
+          <v-list-item
+            v-for="(page, i) in CATpages"
+            :key="'CAT-' + i"
+            :to="page.to"
+            :two-line="page.subtitle ? true : false"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ page.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>{{ page.title }}</v-list-item-title>
+              <v-list-item-subtitle v-if="page.subtitle">{{
               page.subtitle
             }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </vue-scroll>
     </v-navigation-drawer>
 
     <v-app-bar
@@ -327,7 +330,22 @@ export default {
     drawer: false,
     permanent: true,
     miniVariant: true,
-    expandOnHover: true
+    expandOnHover: true,
+    scrollOps: {
+      scrollPanel: {
+        easing: "easeInQuad",
+        speed: 800,
+        scrollingX: false
+      },
+      bar: {
+        background: "#FFEBEE"
+      },
+      vuescroll: {
+        mode: "native",
+        wheelScrollDuration: 0,
+        locking: true
+      }
+    }
   }),
   mounted() {
     console.log(this.$route);

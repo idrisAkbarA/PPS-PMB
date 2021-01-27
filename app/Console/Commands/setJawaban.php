@@ -1,26 +1,24 @@
 <?php
 
 namespace App\Console\Commands;
-
+use App\BankSoal;
 use Illuminate\Console\Command;
-use App\UserPetugas;
-use Illuminate\Support\Facades\Hash;
-use Faker\Factory as Faker;
-class initAdmin extends Command
+
+class setJawaban extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'initAdmin';
+    protected $signature = 'setJawaban';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'initialize admin Account';
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.
@@ -39,13 +37,11 @@ class initAdmin extends Command
      */
     public function handle()
     {
-        $user = new UserPetugas;
-        $user->username = "admin";
-        $user->nama = "Idris Akbar Adyusman";
-        $user->email = "asd@asd.asd";
-        $user->role = 1;
-        $user->password = "admin123";
-        $user->save();
-        echo "user admin created\n";
+        $bank_soal = BankSoal::where(["jurusan_id"=>1])->get();
+        foreach ($bank_soal as $key => $value) {
+            $nb = BankSoal::find($value["id"]);
+            $nb->jawaban = "A";
+            $nb->save();
+        }
     }
 }

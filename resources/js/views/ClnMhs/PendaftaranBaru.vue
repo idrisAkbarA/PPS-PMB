@@ -77,6 +77,7 @@
               @change="updateUser(user)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
+              type="number"
               v-model="user.hp"
             ></v-text-field>
           </v-row>
@@ -87,6 +88,7 @@
               @change="updateUser(user)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
+              type="number"
               v-model="user.wa"
             ></v-text-field>
           </v-row>
@@ -157,6 +159,7 @@
                 @change="updateUser(user)"
                 prepend-inner-icon="mdi-attachment"
                 label="Nilai IPK"
+                type="number"
                 v-model="user.nilai_ipk"
               ></v-text-field>
             </v-col>
@@ -219,6 +222,9 @@
               class="d-none"
               v-model="photoFile"
             ></v-file-input>
+          </v-row>
+          <v-row v-if="isSyaratLulus">
+            <h4>Maaf Nilai IPK/Bahasa anda tidak mencukupi syarat pendaftaran</h4>
           </v-row>
         </v-container>
         <v-btn
@@ -569,6 +575,13 @@ export default {
   computed: {
     ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
     PhotoFileName: function() {},
+    isSyaratLulus: function() {
+      if (!this.user && !this.ujianSelected) {
+        return false;
+      }
+      if (this.user.nilai_ipk > this.periode.syarat_ipk) {
+      }
+    },
     now: function() {
       var today = new Date();
       var date =

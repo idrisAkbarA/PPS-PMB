@@ -86,6 +86,7 @@
               @change="updateUser(user)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
+              type="number"
               v-model="user.hp"
             ></v-text-field>
           </v-row>
@@ -96,6 +97,7 @@
               @change="updateUser(user)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
+              type="number"
               v-model="user.wa"
             ></v-text-field>
           </v-row>
@@ -122,6 +124,7 @@
                 @change="updateUser(user)"
                 prepend-inner-icon="mdi-attachment"
                 label="Nilai IPK"
+                type="number"
                 v-model="user.nilai_ipk"
               ></v-text-field>
             </v-col>
@@ -321,26 +324,32 @@
           <v-card-title>Ujian Masuk</v-card-title>
           <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan Jurusan (TKJ)</v-card-subtitle>
           <v-card-text>
+            <template v-if="ujianSelected.is_lulus_tkj!=false&&ujianSelected.is_lulus_tka!=false">
+              <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
+              <span>
+                <!-- :end-label="''" -->
+                <vue-countdown-timer
+                  @start_callback="startCallBack('event started')"
+                  @end_callback="endCallBack('event ended')"
+                  :start-time="now"
+                  :end-time="ujianSelected.batas_ujian+' 00:00:00'"
+                  :interval="1000"
+                  :start-label="'Until start:'"
+                  label-position="begin"
+                  :end-text="'Event ended!'"
+                  :day-txt="'hari'"
+                  :hour-txt="'jam'"
+                  :minutes-txt="'menit'"
+                  :seconds-txt="'detik'"
+                >
+                </vue-countdown-timer>
+              </span>
 
-            <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
-            <span>
-              <!-- :end-label="''" -->
-              <vue-countdown-timer
-                @start_callback="startCallBack('event started')"
-                @end_callback="endCallBack('event ended')"
-                :start-time="now"
-                :end-time="ujianSelected.batas_ujian+' 00:00:00'"
-                :interval="1000"
-                :start-label="'Until start:'"
-                label-position="begin"
-                :end-text="'Event ended!'"
-                :day-txt="'hari'"
-                :hour-txt="'jam'"
-                :minutes-txt="'menit'"
-                :seconds-txt="'detik'"
-              >
-              </vue-countdown-timer>
-            </span>
+            </template>
+            <template v-else>
+              <h4 class="text-red">Maaf anda tidak lulus ujian masuk</h4>
+              <label>Silahkan mengulangi pendaftaran</label>
+            </template>
             <v-divider></v-divider>
             <v-btn
               color="green darken-2"
@@ -501,6 +510,12 @@ export default {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
     checkButtonMulaiUjian(type) {
+      if (type == "tka") {
+        if (this.ujianSelected.is_lulus_tkj == false) return true;
+      }
+      if (type == "tkj") {
+        if (this.ujianSelected.is_lulus_tka == false) return true;
+      }
       if (this.ujianSelected["is_lulus_" + type] == false) return true;
       if (this.ujianSelected["is_lulus_" + type] == true) return true;
     },

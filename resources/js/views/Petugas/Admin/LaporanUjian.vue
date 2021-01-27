@@ -24,7 +24,12 @@
               :search="search"
               class="elevation-1"
             >
-
+              <template v-slot:item.start_tka="{ item }">
+                {{ parseDate(item.start_tka) }}
+              </template>
+              <template v-slot:item.start_tkj="{ item }">
+                {{ parseDate(item.start_tkj) }}
+              </template>
             </v-data-table>
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -54,6 +59,9 @@ export default {
     this.getData();
   },
   methods: {
+    parseDate(date) {
+      return this.$moment(date, "YYYY-MM-DD").format("Do MMMM YYYY");
+    },
     getData() {
       axios
         .get("/api/ujian/laporan")
@@ -81,6 +89,14 @@ export default {
         {
           text: "Nilai TKJ",
           value: "nilai_tkj"
+        },
+        {
+          text: "Tanggal Ujian TKA",
+          value: "start_tka"
+        },
+        {
+          text: "Tanggal Ujian TKJ",
+          value: "start_tkj"
         },
         {
           text: "Status Kelulusan",
