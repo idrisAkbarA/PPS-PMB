@@ -59,12 +59,14 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   created() {
     var pathArray = window.location.pathname.split("/");
     this.loginUrl = pathArray[pathArray.length - 1];
   },
   methods: {
+    ...mapMutations(["setUser"]),
     async login() {
       this.isLoading = true;
       var isCSRFOkay = await this.getCSRF();
