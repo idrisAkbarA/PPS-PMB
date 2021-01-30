@@ -8,6 +8,7 @@ import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
 import PanduanPendaftaran from "../views/ClnMhs/PanduanPendaftaran.vue";
 import Pendaftaran from "../views/ClnMhs/Pendaftaran.vue";
 import Soal from "../views/ClnMhs/Soal.vue";
+import SoalWithTimer from "../views/ClnMhs/SoalWithTimer.vue";
 
 import PetugasLayout from "../views/petugas/PetugasLayout.vue";
 import DashboardPetugas from "../views/petugas/Dashboard.vue";
@@ -40,10 +41,21 @@ const routes = [
                 name: "Pendaftaran",
                 component: Pendaftaran
             },
+            // {
+            //     path: "ujian/:type/:ujian_id/:soal_id",
+            //     name: "Soal",
+            //     component: Soal
+            // },
             {
                 path: "ujian/:type/:ujian_id/:soal_id",
                 name: "Soal",
-                component: Soal
+                component: SoalWithTimer
+            },
+            // timer test
+            {
+                path: "ujian/soal-timer",
+                name: "Soal",
+                component: SoalWithTimer
             },
             {
                 path: "daftar",
