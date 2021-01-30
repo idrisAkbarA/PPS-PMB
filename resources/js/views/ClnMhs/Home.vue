@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <div style="height:340px">
-      <h1 class="text-white mt-6">Selamat Datang,<br> <span v-if="user">{{user.nama}}</span> <br> di Aplikasi Pendaftaran Pascasarjana
+      <h1 class="text-white mt-6">Selamat Datang, <span v-if="user">{{user.nama}}</span> <br> di Aplikasi Pendaftaran Pascasarjana
       </h1>
       <h4 class="text-white font-weight-light">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
       <h4 class="mt-10 text-white font-weight-light">Lihat panduan pendaftaran
