@@ -76,7 +76,7 @@
               :value="pilihan.pilihan"
             ></v-radio>
           </v-radio-group>
-          <v-btn @click="shortCountDown()">test</v-btn>
+          <!-- <v-btn @click="shortCountDown()">test</v-btn> -->
         </v-card-text>
       </v-card>
     </v-row>
@@ -216,11 +216,15 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     if (from.name == null) {
+      console.log("anjing");
       next((vm) => {
         vm.initSoal(vm);
       });
     } else {
-      next();
+      console.log("abjing");
+      next((vm) => {
+        vm.shortCountDown(vm);
+      });
     }
   },
   created() {
