@@ -26,7 +26,7 @@
         :complete="jurusanSelected?true:false"
       >
         Pilih Jurusan
-        <strong>Pilihlah Jurusan yang anda inginkan.</strong>
+        <strong>Pilihlah program studi/konsentrasi yang anda inginkan.</strong>
       </v-stepper-step>
 
       <v-stepper-content step="1">
@@ -61,10 +61,10 @@
         :rules="ruleBiodata"
       >
         Isi Biodata
-        <strong
+        <!-- <strong
           class="text-red"
           v-if="jurusanSelected?false:true"
-        >Isi jurusan terlebih dahulu.</strong>
+        >Isi jurusan terlebih dahulu.</strong> -->
       </v-stepper-step>
 
       <v-stepper-content step="2">
@@ -255,10 +255,10 @@
         :rules="rulePembayaran"
       >
         Pembayaran
-        <strong
+        <!-- <strong
           class="text-red"
           v-if="isBiodataFilled?false:true"
-        >Lengkapi biodata terlebih dahulu.</strong>
+        >Lengkapi biodata terlebih dahulu.</strong> -->
       </v-stepper-step>
 
       <v-stepper-content step="3">
@@ -312,10 +312,10 @@
         :rules="ruleUjian"
       >
         Ujian
-        <strong
+        <!-- <strong
           class="text-red"
           v-if="isPembayaranLunas?false:true"
-        >Lakukan pembayaran terlebih dahulu.</strong>
+        >Lakukan pembayaran terlebih dahulu.</strong> -->
         <strong v-if="isLulusUjian">Ujian lulus!</strong>
       </v-stepper-step>
       <v-stepper-content step="4">
@@ -394,10 +394,10 @@
         :rules="ruleTemuRamah"
       >
         Temu Ramah
-        <strong
+        <!-- <strong
           class="text-red"
           v-if="isLulusUjian?false:true"
-        >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan TKJ.</strong>
+        >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan TKJ.</strong> -->
       </v-stepper-step>
       <v-stepper-content step="5">
         <template v-if="jadwalTR!=null">
