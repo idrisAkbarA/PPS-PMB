@@ -26,6 +26,7 @@ class CreateUserClnMhsTable extends Migration
             $table->string('nilai_bhs_inggris')->nullable();
             $table->string('nilai_bhs_arab')->nullable();
             $table->string('pas_photo')->nullable();
+            $table->timestamp('is_verified')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

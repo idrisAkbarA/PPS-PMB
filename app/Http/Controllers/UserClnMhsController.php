@@ -90,12 +90,25 @@ class UserClnMhsController extends Controller
      * @param  \App\UserClnMhs  $userClnMhs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, UserClnMhs $user)
+    {
+        $user->update($request->all());
+        $reply = [
+            'message' => 'Berhasil mengubah',
+            'status' => true,
+            'data' => $user
+        ];
+        return response()->json($reply, 200);
+    }
+
+    public function selfUpdate(Request $request)
     {
         $user = Auth::guard("cln_mahasiswa")->user();
-        $userClnMhs = UserClnMhs::find($user->id);
-        $userClnMhs->update($request->all());
-        return response()->json($userClnMhs);
+        if (is_null($user)) {
+            return;
+        }
+        $reply = $this->update($request, $user);
+        return response()->json($reply->data);
     }
 
     /**
