@@ -107,8 +107,7 @@ class UserClnMhsController extends Controller
         if (is_null($user)) {
             return;
         }
-        $reply = $this->update($request, $user);
-        return response()->json($reply->data);
+        return $this->update($request, $user);
     }
 
     /**

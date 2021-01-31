@@ -127,8 +127,8 @@ export default new Vuex.Store({
         updateUser({ commit, dispatch, state }, user) {
             return new Promise((resolve, reject) => {
                 axios.put('/api/user/update', user).then(response => {
-                    console.log(response.data);
-                    commit('setUser', response.data);
+                    console.log(response.data.data);
+                    commit('setUser', response.data.data);
                     resolve(response);
                 }).catch(error => {
                     reject(error);
