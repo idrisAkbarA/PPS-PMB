@@ -111,7 +111,7 @@ export default {
           clearInterval(soalTimer);
           this.shortCountDownColor = "blue";
           this.shortCountDownValue = 100;
-          this.shortCountDownSeconds = 15;
+          this.shortCountDownSeconds = this.durasiSoal;
           this.shortCountDown();
         } else {
           this.shortCountDownValue -= 100 / interval;
@@ -159,6 +159,7 @@ export default {
     },
     setDuration() {},
     setJawaban(soal) {
+      this.currentSoal += 1;
       console.log(soal);
       let payload = {
         type: this.type,
@@ -194,14 +195,16 @@ export default {
         type: vm.type,
       };
       vm.getSoal(payload).then((response) => {
-        vm.shortCountDown();
+        console.log(response.data.durasi_soal);
         vm.shortCountDownSeconds = response.data.durasi_soal;
+        vm.shortCountDown();
       });
     },
     skipSoal() {
       this.shortCountDownValue = 100;
       this.shortCountDownSeconds = this.durasiSoal;
       this.currentSoal += 1;
+      console.log(this.soal[this.currentSoal].jawaban);
     },
     goToPendaftaran() {
       this.$router.push({ name: "Pendaftaran", params: { id: this.ujian_id } });
@@ -216,7 +219,7 @@ export default {
     return {
       isStillCounting: true,
       shortCountDownValue: 100,
-      shortCountDownSeconds: 15,
+      shortCountDownSeconds: null,
       shortCountDownColor: "blue",
       currentSoal: 0,
       isLulus: false,
@@ -232,13 +235,12 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     if (from.name == null) {
-      console.log("anjing");
       next((vm) => {
         vm.initSoal(vm);
       });
     } else {
-      console.log("abjing");
       next((vm) => {
+        vm.shortCountDownSeconds = vm.durasiSoal;
         vm.shortCountDown(vm);
       });
     }
