@@ -57,6 +57,7 @@
                       </v-list-item-content>
                       <v-list-item-action v-if="!isEdit">
                         <v-chip
+                          outlined
                           :color="
                             row.is_verified !== null
                               ? row.is_verified
@@ -92,6 +93,7 @@
                         >
                         <v-chip
                           close
+                          outlined
                           close-icon="mdi-close"
                           :color="row.is_verified ? 'success' : 'red'"
                           v-if="row.is_verified !== null"
