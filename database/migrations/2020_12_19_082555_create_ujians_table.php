@@ -18,8 +18,8 @@ class CreateUjiansTable extends Migration
             $table->bigInteger('periode_id');
             $table->bigInteger('jurusan_id')->nullable();
             $table->bigInteger('user_cln_mhs_id');
-            $table->bigInteger('kat_tka_id')->nullable();
-            $table->bigInteger('kat_tkj_id')->nullable();
+            $table->json('komposisi_tka')->nullable();
+            $table->json('komposisi_tkj')->nullable();
             $table->bigInteger('soal_id')->nullable();
             $table->double('nilai_tka')->nullable();
             $table->double('nilai_tkj')->nullable();

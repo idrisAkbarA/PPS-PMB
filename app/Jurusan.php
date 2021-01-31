@@ -16,6 +16,10 @@ class Jurusan extends Model
     protected $appends = [
         'kat_per_periode',
     ];
+    protected $casts = [
+        'komposisi_tka_default' => 'object',
+        'komposisi_tkj_default' => 'object',
+    ];
 
     public static function boot()
     {
@@ -37,11 +41,13 @@ class Jurusan extends Model
                     'deskripsi' => 'Soal dengan tingkat kesulitan Sulit'
                 ]
             ]);
-
             $kategori = $model->kategori()->first();
+            $komposisi = [
+                ['kategori_id' => $kategori->id, 'nama_kategori' => $kategori->nama, 'jumlah' => 10,],
+            ];
             $model->update([
-                'kat_tka_default' => $kategori->id,
-                'kat_tkj_default' => $kategori->id
+                'komposisi_tka_default' => $komposisi,
+                'komposisi_tkj_default' => $komposisi
             ]);
         });
 

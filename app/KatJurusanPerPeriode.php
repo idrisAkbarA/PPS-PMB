@@ -15,26 +15,31 @@ class KatJurusanPerPeriode extends Model
      */
     protected $appends = [
         'nama_jurusan',
-        'nama_kat_tka',
-        'nama_kat_tkj',
+        // 'nama_kat_tka',
+        // 'nama_kat_tkj',
     ];
 
-    public static function boot()
-    {
-        parent::boot();
+    protected $casts = [
+        'komposisi_tka' => 'object',
+        'komposisi_tkj' => 'object',
+    ];
 
-        // Create category per jurusan
-        self::creating(function ($model) {
-            $jurusan = Jurusan::find($model->jurusan_id);
+    // public static function boot()
+    // {
+    //     parent::boot();
 
-            if (!$model->kat_tka_id) {
-                $model->attributes['kat_tka_id'] = $jurusan->tka_default->id;
-            }
-            if (!$model->kat_tkj_id) {
-                $model->attributes['kat_tkj_id'] = $jurusan->tkj_default->id;
-            }
-        });
-    }
+    //     // Create category per jurusan
+    //     self::creating(function ($model) {
+    //         $jurusan = Jurusan::find($model->jurusan_id);
+
+    //         if (!$model->komposisi_tka) {
+    //             $model->attributes['komposisi_tka'] = $jurusan->komposisi_tka_default;
+    //         }
+    //         if (!$model->komposisi_tkj) {
+    //             $model->attributes['komposisi_tkj'] = $jurusan->komposisi_tkj_default;
+    //         }
+    //     });
+    // }
 
     // Getters
     public function getNamaJurusanAttribute()
@@ -63,13 +68,13 @@ class KatJurusanPerPeriode extends Model
         return $this->belongsTo('App\Jurusan');
     }
 
-    public function kat_tka()
-    {
-        return $this->belongsTo('App\Kategori', 'kat_tka_id');
-    }
+    // public function kat_tka()
+    // {
+    //     return $this->belongsTo('App\Kategori', 'kat_tka_id');
+    // }
 
-    public function kat_tkj()
-    {
-        return $this->belongsTo('App\Kategori', 'kat_tkj_id');
-    }
+    // public function kat_tkj()
+    // {
+    //     return $this->belongsTo('App\Kategori', 'kat_tkj_id');
+    // }
 }
