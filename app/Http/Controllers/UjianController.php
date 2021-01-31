@@ -19,17 +19,20 @@ class UjianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function dashboard(){
-      $periode = Periode::latest()->first();
-      $periode_id = $periode->id;
-      $ujian = Ujian::where(['periode_id'=>$periode_id])->get();
-      $total_pendaftaran = count($ujian);
-      $total_lulus = count(Ujian::where(['periode_id'=>$periode_id])->where("lulus_at","!=",null)->get());
-      return response()->json(
-          ["periode"=>$periode,
-            "total_pendaftaran"=>$total_pendaftaran,
-            "total_lulus"=>$total_lulus
-      ]);
+    public function dashboard()
+    {
+        $periode = Periode::latest()->first();
+        $periode_id = $periode->id;
+        $ujian = Ujian::where(['periode_id' => $periode_id])->get();
+        $total_pendaftaran = count($ujian);
+        $total_lulus = count(Ujian::where(['periode_id' => $periode_id])->where("lulus_at", "!=", null)->get());
+        return response()->json(
+            [
+                "periode" => $periode,
+                "total_pendaftaran" => $total_pendaftaran,
+                "total_lulus" => $total_lulus
+            ]
+        );
     }
     public function initAllDataClnMhs()
     {
@@ -112,8 +115,8 @@ class UjianController extends Controller
                     "user_cln_mhs_id" => $user->id,
                     "periode_id" => $periode_id,
                     "jurusan_id" => $jurusan_id,
-                    'kat_tka_id' => $kategori->kat_tka_id,
-                    'kat_tkj_id' => $kategori->kat_tkj_id
+                    'komposisi_tka' => $kategori->komposisi_tka,
+                    'komposisi_tkj' => $kategori->komposisi_tkj
                 ]
             );
             return response()->json([

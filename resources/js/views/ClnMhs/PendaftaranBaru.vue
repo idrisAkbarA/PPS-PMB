@@ -1,7 +1,14 @@
 <template>
   <!-- v-model="stepper" -->
-  <v-sheet class="mx-auto" :width="width()">
-    <v-stepper non-linear vertical v-model="stepper">
+  <v-sheet
+    class="mx-auto"
+    :width="width()"
+  >
+    <v-stepper
+      non-linear
+      vertical
+      v-model="stepper"
+    >
       <v-stepper-step
         color="green"
         :editable="isJurusanEditable"
@@ -14,7 +21,11 @@
       </v-stepper-step>
 
       <v-stepper-content step="1">
-        <v-radio-group v-model="jurusanSelected" column @change="initUjian()">
+        <v-radio-group
+          v-model="jurusanSelected"
+          column
+          @change="initUjian()"
+        >
           <v-radio
             color="green"
             v-for="item in jurusan"
@@ -42,9 +53,10 @@
         v-if="stepper == 2"
       >
         Isi Biodata
-        <strong class="text-red" v-if="jurusanSelected ? false : true"
-          >Isi jurusan terlebih dahulu.</strong
-        >
+        <strong
+          class="text-red"
+          v-if="jurusanSelected ? false : true"
+        >Isi jurusan terlebih dahulu.</strong>
       </v-stepper-step>
 
       <v-stepper-content step="2">
@@ -103,7 +115,10 @@
               @click="$refs.ijazah.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -113,14 +128,17 @@
                   @click="$refs.ijazah.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.ijazah)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -174,7 +192,10 @@
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -184,14 +205,17 @@
                   @click="$refs.photoProfile.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.pas_photo)"
                   color="green darken-2"
-                  >lihat foto anda
+                >lihat foto anda
                 </v-btn>
               </v-col>
             </template>
@@ -229,9 +253,10 @@
         v-if="stepper == 3"
       >
         Pembayaran
-        <strong class="text-red" v-if="isBiodataFilled ? false : true"
-          >Lengkapi biodata terlebih dahulu.</strong
-        >
+        <strong
+          class="text-red"
+          v-if="isBiodataFilled ? false : true"
+        >Lengkapi biodata terlebih dahulu.</strong>
       </v-stepper-step>
 
       <v-stepper-content step="3">
@@ -242,10 +267,8 @@
         >
           <!-- v-if="!ujian.kode_bayar" -->
           <v-card-title>Lakukan Pembayaran</v-card-title>
-          <v-card-subtitle
-            >Lakukan pembayaran untuk dapat mengikuti ujian
-            masuk</v-card-subtitle
-          >
+          <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
+            masuk</v-card-subtitle>
           <v-card-text>
             <v-btn
               block
@@ -255,8 +278,7 @@
               :loading="isLoading"
               v-if="!kodePembayaran"
               @click="generateCode()"
-              >Dapatkan Kode Pembayaran</v-btn
-            >
+            >Dapatkan Kode Pembayaran</v-btn>
             <div v-if="kodePembayaran && !isPembayaranLunas">
               <span> Segera membayar dengan kode berikut </span>
               <h1>{{ kodePembayaran }}</h1>
@@ -285,17 +307,20 @@
         v-if="stepper == 4"
       >
         Ujian
-        <strong class="text-red" v-if="isPembayaranLunas ? false : true"
-          >Lakukan pembayaran terlebih dahulu.</strong
-        >
+        <strong
+          class="text-red"
+          v-if="isPembayaranLunas ? false : true"
+        >Lakukan pembayaran terlebih dahulu.</strong>
       </v-stepper-step>
       <v-stepper-content step="4">
-        <v-card v-if="ujianSelected" color="grey lighten-4" class="mb-12">
+        <v-card
+          v-if="ujianSelected"
+          color="grey lighten-4"
+          class="mb-12"
+        >
           <v-card-title>Ujian Masuk</v-card-title>
-          <v-card-subtitle
-            >Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
-            Jurusan (TKJ)</v-card-subtitle
-          >
+          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
+            Jurusan (TKJ)</v-card-subtitle>
           <v-card-text>
             <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
             <span>
@@ -317,13 +342,19 @@
               </vue-countdown-timer>
             </span>
             <v-divider></v-divider>
-            <v-btn color="green darken-2" dark block @click="ujian('tka')"
-              >Mulai Ujian TKA</v-btn
-            >
+            <v-btn
+              color="green darken-2"
+              dark
+              block
+              @click="ujian('tka')"
+            >Mulai Ujian TKA</v-btn>
             <v-divider></v-divider>
-            <v-btn block color="green darken-2" dark @click="ujian('tkj')"
-              >Mulai Ujian TKJ</v-btn
-            >
+            <v-btn
+              block
+              color="green darken-2"
+              dark
+              @click="ujian('tkj')"
+            >Mulai Ujian TKJ</v-btn>
           </v-card-text>
         </v-card>
       </v-stepper-content>
@@ -335,14 +366,22 @@
         v-if="stepper == 5"
       >
         Temu Ramah
-        <strong class="text-red" v-if="isLulusUjian ? false : true"
-          >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan
-          TKJ.</strong
-        >
+        <strong
+          class="text-red"
+          v-if="isLulusUjian ? false : true"
+        >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan
+          TKJ.</strong>
       </v-stepper-step>
       <v-stepper-content step="5">
-        <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-        <v-btn color="primary" @click="stepper = 1"> Selanjutnya </v-btn>
+        <v-card
+          color="grey lighten-1"
+          class="mb-12"
+          height="200px"
+        ></v-card>
+        <v-btn
+          color="primary"
+          @click="stepper = 1"
+        > Selanjutnya </v-btn>
       </v-stepper-content>
     </v-stepper>
     <v-bottom-sheet
@@ -403,6 +442,9 @@ export default {
     checkBiodata(v) {
       Object.keys(v).every((element) => {
         if (element == "email_verified_at") {
+          return true;
+        }
+        if (element == "is_verified") {
           return true;
         }
         if (v[element] == null) {

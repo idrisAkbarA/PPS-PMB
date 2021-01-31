@@ -47,13 +47,13 @@
             <v-chip
               color="green darken-2"
               text-color="#ecf0f1"
-            >0/{{
+            >{{soalTerjawab}}/{{
             jumlahSoal
           }}</v-chip>
             <v-spacer></v-spacer>
             <div v-if="isStillCounting">
               <span class="overline text-muted mb-0">
-                Jawab soal ini dalam:
+                Mohon jawab soal berikut dalam:
 
               </span>
               <v-chip
@@ -98,6 +98,63 @@
         </v-card-text>
       </v-card>
     </v-row>
+    <v-dialog
+      v-model="dialogReview"
+      :width="windowWidth>600?'30%':'60%'"
+    >
+      <v-card>
+        <v-card-title>
+          <span v-if="isSoalTerjawabSemua">
+            Semua soal telah dikerjakan!
+          </span><span v-else>Waktu mengerjakan soal sudah habis!</span>
+        </v-card-title>
+
+        <v-card-text>
+          <label>anda masih memiliki waktu ... + 1 menit untuk melakukan revisi</label>
+          <strong v-if="belum_terjawab!=0">
+            {{belum_terjawab}} belum dijawab.
+          </strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            @click="getHasil()"
+            class="text-white"
+            color="green"
+          >Iya</v-btn>
+          <v-btn
+            text
+            @click="dialog=false"
+          >tidak</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      v-model="dialog"
+      :width="windowWidth>600?'30%':'60%'"
+    >
+      <v-card>
+        <v-card-title>
+          Selesai Ujian
+        </v-card-title>
+        <v-card-text>
+          <label>Apakah anda yakin ingin menyelesaikan sesi ujian?</label>
+          <strong v-if="belum_terjawab!=0">
+            {{belum_terjawab}} belum dijawab.
+          </strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            @click="getHasil()"
+            class="text-white"
+            color="green"
+          >Iya</v-btn>
+          <v-btn
+            text
+            @click="dialog=false"
+          >tidak</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -235,6 +292,7 @@ export default {
   },
   data() {
     return {
+      isSemuaSoalTerjawab: false,
       isNotSkipped: true,
       isNewlySelected: true,
       isStillCounting: true,
@@ -278,6 +336,17 @@ export default {
       "startTime",
       "endTime",
     ]),
+    soalTerjawab() {
+      var jumlah = 0;
+      this.soal.forEach((element) => {
+        if (element.jawaban != null) jumlah += 1;
+      });
+      if (jumlah == this.jumlahSoal) {
+        this.isSemuaSoalTerjawab = true;
+        this.dialog = true;
+      }
+      return jumlah;
+    },
     checkPresence() {
       return this.isNewlySelected && this.isNotSkipped;
     },
