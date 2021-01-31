@@ -149,33 +149,35 @@
             ></v-file-input>
           </v-row>
           <v-row>
-            <v-col
-              class="mr-1"
-              style="padding: 0 !important"
-            >
-              <v-text-field
-                color="green"
-                filled
-                @change="updateUser(user)"
-                prepend-inner-icon="mdi-attachment"
-                label="Nilai IPK"
-                type="number"
-                v-model="user.nilai_ipk"
-              ></v-text-field>
-            </v-col>
-            <v-col
-              class="ml-1"
-              style="padding: 0 !important"
-            >
-              <v-text-field
-                color="green"
-                filled
-                @change="updateUser(user)"
-                prepend-inner-icon="mdi-attachment"
-                label="Nilai Bahasa"
-                v-model="user.nilai_bhs"
-              ></v-text-field>
-            </v-col>
+            <v-text-field
+              color="green"
+              filled
+              @change="updateUser(user)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai Bahasa Inggris"
+              v-model="user.nilai_bhs_inggris"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
+              @change="updateUser(user)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai Bahasa Arab"
+              v-model="user.nilai_bhs_arab"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
+              @change="updateUser(user)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai IPK"
+              type="number"
+              v-model="user.nilai_ipk"
+            ></v-text-field>
           </v-row>
           <v-row>
             <v-text-field
@@ -430,15 +432,15 @@ export default {
       var soal_id = this.ujianSelected.soal_id;
       var payload = { ujian_id, type, soal_id };
       // console.log(payload);
-      this.getSoal(payload).then(response => {
+      this.getSoal(payload).then((response) => {
         this.$router.push({
           name: "Soal",
-          params: { type, ujian_id, soal_id: this.ujianSelected.soal_id }
+          params: { type, ujian_id, soal_id: this.ujianSelected.soal_id },
         });
       });
     },
     checkBiodata(v) {
-      Object.keys(v).every(element => {
+      Object.keys(v).every((element) => {
         if (element == "email_verified_at") {
           return true;
         }
@@ -457,21 +459,21 @@ export default {
       var payload = { ujian_id: this.ujian_id };
       axios
         .post("/api/ujian/generate-pembayaran", payload)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
           this.isLoading = false;
           this.kodePembayaran = response.data.code;
           this.isJurusanEditable = false;
           this.loopCheckPembayaran();
         })
-        .catch(error => {});
+        .catch((error) => {});
     },
     initUjian() {
       var periode_id = this.periode[0].id;
       var jurusan_id = this.jurusanSelected;
       var payload = { periode_id, jurusan_id };
       if (this.ujian_id) payload["ujian_id"] = this.ujian_id;
-      axios.post("/api/ujian/init", payload).then(response => {
+      axios.post("/api/ujian/init", payload).then((response) => {
         this.ujian_id = response.data.ujian_id;
         console.log(response.data);
       });
@@ -483,7 +485,7 @@ export default {
       var data = new FormData();
       data.append("file", this.ijazahFile);
       data.append("methodName", "saveIjazahPath");
-      this.upload(data, this).then(response => {
+      this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -499,7 +501,7 @@ export default {
       var data = new FormData();
       data.append("file", this.photoFile);
       data.append("methodName", "savePhotoPath");
-      this.upload(data, this).then(response => {
+      this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -512,25 +514,25 @@ export default {
       return axios({
         method: "post",
         url: "/api/user/store-file",
-        onUploadProgress: progressEvent => {
+        onUploadProgress: (progressEvent) => {
           var percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
           );
           ini.progress = percentCompleted;
         },
-        data
+        data,
       });
     },
     async loopCheckPembayaran() {
       function sleep(ms) {
-        return new Promise(res => setTimeout(res, ms));
+        return new Promise((res) => setTimeout(res, ms));
       }
-      let myAsyncFunc = async function(ini) {
+      let myAsyncFunc = async function (ini) {
         console.log("Sleeping");
         await sleep(3000);
         console.log("Done");
         // console.log(ini);
-        ini.checkPembayaran(ini.ujian_id, ini).then(response => {
+        ini.checkPembayaran(ini.ujian_id, ini).then((response) => {
           if (response.data.status) {
             ini.isPembayaranLunas = true;
             ini.setUjianSelected(response.data.ujian);
@@ -546,11 +548,11 @@ export default {
       return new Promise((resolve, reject) => {
         axios
           .post("/api/ujian/check-pembayaran", payload)
-          .then(response => {
+          .then((response) => {
             if (response.data.status) ini.isPembayaranLunas = true;
             resolve(response);
           })
-          .catch(error => {
+          .catch((error) => {
             reject(error);
           });
       });
@@ -570,19 +572,19 @@ export default {
       } else {
         return "50%";
       }
-    }
+    },
   },
   computed: {
     ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
-    PhotoFileName: function() {},
-    isSyaratLulus: function() {
+    PhotoFileName: function () {},
+    isSyaratLulus: function () {
       if (!this.user && !this.ujianSelected) {
         return false;
       }
       if (this.user.nilai_ipk > this.periode.syarat_ipk) {
       }
     },
-    now: function() {
+    now: function () {
       var today = new Date();
       var date =
         today.getFullYear() +
@@ -594,15 +596,15 @@ export default {
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dateTime = date + " " + time;
       return dateTime;
-    }
+    },
   },
   watch: {
     user: {
       deep: true,
-      handler: function(v) {
+      handler: function (v) {
         this.checkBiodata(v);
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -619,15 +621,15 @@ export default {
       ruleTemuRamah: [() => this.isLulusUjian != false],
       ruleUjian: [() => this.isPembayaranLunas != false],
       rulePembayaran: [
-        () => this.isBiodataFilled != false && this.jurusanSelected != null
+        () => this.isBiodataFilled != false && this.jurusanSelected != null,
       ],
       ruleBiodata: [() => this.jurusanSelected != null],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,
-      form: {}
+      form: {},
     };
-  }
+  },
 };
 </script>
 
