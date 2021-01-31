@@ -29,7 +29,6 @@
             >
             </vue-countdown-timer>
           </v-chip>
-
         </v-chip>
       </div>
     </v-row>
@@ -67,25 +66,34 @@
           </v-row>
         </v-card-title>
         <v-card-text v-if="soal">
-          {{soal[currentSoal].pertanyaan}}
-          <v-radio-group
-            column
-            v-model="soal[currentSoal].jawaban"
-            @change="setJawaban(soal[currentSoal])"
-          >
-            <v-radio
-              v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
-              :key="index"
-              color="green"
-              :label="`${pilihan.pilihan}. ${pilihan.text}`"
-              :value="pilihan.pilihan"
-            ></v-radio>
-          </v-radio-group>
-          <v-btn
-            text
-            @click="skipSoal()"
-          >Lewati Soal Ini <v-icon>mdi-menu-right</v-icon>
-          </v-btn>
+          <v-expand-transition>
+            <div v-show="checkPresence">
+              {{soal[currentSoal].pertanyaan}}
+              <v-radio-group
+                column
+                v-model="soal[currentSoal].jawaban"
+                @change="setJawaban(soal[currentSoal])"
+              >
+                <v-radio
+                  v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
+                  :key="index"
+                  color="green"
+                  :label="`${pilihan.pilihan}. ${pilihan.text}`"
+                  :value="pilihan.pilihan"
+                ></v-radio>
+              </v-radio-group>
+              <v-btn
+                text
+                @click="skipSoal()"
+              >Lewati Soal Ini <v-icon>mdi-menu-right</v-icon>
+              </v-btn>
+            </div>
+          </v-expand-transition>
+          <v-expand-transition>
+            <div v-show="!isNewlySelected">
+              <h1 class="text-center mb-5 mt-5">Jawaban anda {{soal[currentSoal].jawaban}}</h1>
+            </div>
+          </v-expand-transition>
           <!-- <v-btn @click="shortCountDown()">test</v-btn> -->
         </v-card-text>
       </v-card>
@@ -159,7 +167,7 @@ export default {
     },
     setDuration() {},
     setJawaban(soal) {
-      this.currentSoal += 1;
+      this.isNewlySelected = false;
       console.log(soal);
       let payload = {
         type: this.type,
@@ -173,6 +181,12 @@ export default {
           console.log(response.data);
         })
         .catch((error) => {});
+      setTimeout(() => {
+        this.isNewlySelected = true;
+        this.shortCountDownValue = 100;
+        this.shortCountDownSeconds = this.durasiSoal;
+        this.currentSoal += 1;
+      }, 1000);
     },
     initData(vm) {
       // get paramater from url segments
@@ -201,9 +215,13 @@ export default {
       });
     },
     skipSoal() {
-      this.shortCountDownValue = 100;
-      this.shortCountDownSeconds = this.durasiSoal;
-      this.currentSoal += 1;
+      this.isNotSkipped = false;
+      setTimeout(() => {
+        this.isNotSkipped = true;
+        this.shortCountDownValue = 100;
+        this.shortCountDownSeconds = this.durasiSoal;
+        this.currentSoal += 1;
+      }, 500);
       console.log(this.soal[this.currentSoal].jawaban);
     },
     goToPendaftaran() {
@@ -217,6 +235,8 @@ export default {
   },
   data() {
     return {
+      isNotSkipped: true,
+      isNewlySelected: true,
       isStillCounting: true,
       shortCountDownValue: 100,
       shortCountDownSeconds: null,
@@ -258,6 +278,9 @@ export default {
       "startTime",
       "endTime",
     ]),
+    checkPresence() {
+      return this.isNewlySelected && this.isNotSkipped;
+    },
   },
 };
 </script>
