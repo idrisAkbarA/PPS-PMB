@@ -4,26 +4,31 @@
       <v-spacer></v-spacer>
       <div class="mb-5">
         <v-chip
+          style="padding-right:0px !important"
           color="green darken-2"
           text-color="#ecf0f1"
         >
-          Sisa waktu ujian:
-          <vue-countdown-timer
-            v-if="soal"
-            @start_callback="startCallBack('event started')"
-            @end_callback="endCallBack('event ended')"
-            :start-time="startTime"
-            :end-time="endTime"
-            :interval="1000"
-            :start-label="'Until start:'"
-            label-position="begin"
-            :end-text="'Ujian selesai!'"
-            :day-txt="''"
-            :hour-txt="'Jam'"
-            :minutes-txt="'Menit'"
-            :seconds-txt="'Detik'"
-          >
-          </vue-countdown-timer>
+          <span class="mr-2">
+            Sisa waktu ujian:
+          </span>
+          <v-chip>
+            <vue-countdown-timer
+              v-if="soal"
+              @start_callback="startCallBack('event started')"
+              @end_callback="endCallBack('event ended')"
+              :start-time="startTime"
+              :end-time="endTime"
+              :interval="1000"
+              :start-label="'Until start:'"
+              label-position="begin"
+              :end-text="'Ujian selesai!'"
+              :day-txt="''"
+              :hour-txt="'Jam'"
+              :minutes-txt="'Menit'"
+              :seconds-txt="'Detik'"
+            >
+            </vue-countdown-timer>
+          </v-chip>
 
         </v-chip>
       </div>
@@ -39,12 +44,12 @@
         <v-card-title>
 
           <v-row class="mx-0">
-            <span class="mr-2">Soal No.</span>
+            <span class="mr-2">Jumlah soal terjawab </span>
             <v-chip
               color="green darken-2"
               text-color="#ecf0f1"
-            >{{
-            currentSoal + 1
+            >0/{{
+            jumlahSoal
           }}</v-chip>
             <v-spacer></v-spacer>
             <div v-if="isStillCounting">
@@ -243,7 +248,14 @@ export default {
     this.initData(vm);
   },
   computed: {
-    ...mapState(["soal", "durasi", "durasiSoal", "startTime", "endTime"]),
+    ...mapState([
+      "soal",
+      "durasi",
+      "jumlahSoal",
+      "durasiSoal",
+      "startTime",
+      "endTime",
+    ]),
   },
 };
 </script>

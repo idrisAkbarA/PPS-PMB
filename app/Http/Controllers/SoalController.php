@@ -51,10 +51,12 @@ class SoalController extends Controller
         $soalUjian = new SoalUjian;
         $result = $soalUjian->get($type, $soal_id);
 
+        $jumlahSoal = "jumlah_" . $type;
         // append other atribute
         $result['id'] = $soal_id;
         $result['start_time'] = $ujian->$start_soal;
         $result['durasi'] = $periode->durasi_ujian;
+        $result['jumlah_soal'] = $periode->$jumlahSoal;
         $result['durasi_soal'] = $periode->durasi_soal;
         return response()->json($result);
     }
