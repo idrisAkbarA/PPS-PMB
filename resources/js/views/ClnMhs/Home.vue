@@ -6,20 +6,24 @@
         <br>
         di Aplikasi Pendaftaran Pascasarjana
       </h1>
-      <h4 class="text-white font-weight-light">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
-      <h4 class="mt-10 text-white font-weight-light">Lihat panduan pendaftaran
+      <h4 class="text-white font-weight-light">
+        Universitas Islam Negeri Sultan Syarif Kasim Riau
+      </h4>
+      <h4 class="mt-10 text-white font-weight-light">
+        Lihat panduan pendaftaran
         <a
           href="#"
           class="font-weight-black text-white"
-          style="text-decoration:none"
-          @click="$router.push({name:'Panduan Pendaftaran'})"
-        >di sini</a>.
+          style="text-decoration: none"
+          @click="$router.push({ name: 'Panduan Pendaftaran' })"
+          >disini</a
+        >. Silahkan mendaftar!
       </h4>
     </div>
     <div>
       <h4 class="font-weight-light">Pendaftaran anda</h4>
     </div>
-    <v-container style="padding:0px !important">
+    <v-container style="padding: 0px !important">
       <v-row v-if="isLoading">
         <v-progress-circular
           class="mx-auto mt-10"
@@ -29,7 +33,7 @@
           color="green"
         ></v-progress-circular>
       </v-row>
-      <v-row v-if="(!ujian && !isLoading)">
+      <v-row v-if="!ujian && !isLoading">
         <v-col cols="12">
           <v-card
             class="bg-with-overlay"
@@ -39,28 +43,19 @@
             color="green darken-2"
           >
             <v-container>
-              <v-row
-                align="center"
-                justify="center"
-              >
-                <v-col
-                  cols="12"
-                  md="6"
-                  lg="6"
-                >
+              <v-row align="center" justify="center">
+                <v-col cols="12" md="6" lg="6">
                   <div class="ml-10">
-                    <h1 class="text-white">Hmm.. Sepertinya anda belum mendaftar</h1>
+                    <h1 class="text-white">
+                      Hmm.. Sepertinya anda belum mendaftar
+                    </h1>
                     <v-btn
                       large
                       @click="$router.push({name:'Pendaftaran Baru'})"
                     >Silahkan Lakukan Pendaftaran</v-btn>
                   </div>
                 </v-col>
-                <v-col
-                  cols="12"
-                  md="6"
-                  lg="6"
-                >
+                <v-col cols="12" md="6" lg="6">
                   <v-img
                     class="mx-auto"
                     max-width="300"
@@ -72,28 +67,29 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row
-        v-if="ujian && user"
-        class="mb-10 mt-5"
-      >
+      <v-row v-if="ujian && user" class="mb-10 mt-5">
         <v-col
-          v-for="(item,index) in ujian"
+          v-for="(item, index) in ujian"
           :key="index"
           cols="12"
           md="6"
           lg="3"
         >
-          <v-card
-            elevation="10"
-            @click="goToPendaftaran(item)"
-          >
-            <v-card-title :class="setColor(item) + ' text-white'">{{item.jurusan.nama}}</v-card-title>
-            <v-card-subtitle :class="setColor(item) +' text-white'">Periode {{item.periode.nama}}<br>Klik untuk melihat rincian</v-card-subtitle>
+          <v-card elevation="10" @click="goToPendaftaran(item)">
+            <v-card-title :class="setColor(item) + ' text-white'">{{
+              item.jurusan.nama
+            }}</v-card-title>
+            <v-card-subtitle :class="setColor(item) + ' text-white'"
+              >Periode {{ item.periode.nama }}<br />Klik untuk melihat
+              rincian</v-card-subtitle
+            >
             <v-card-text>
               <v-container class="mt-4">
                 <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
                 <p v-else-if="!isBiodataFilled">Lengkapi biodata diri</p>
-                <p v-else-if="item.lunas_at == null">Mohon selesaikan pembayaran</p>
+                <p v-else-if="item.lunas_at == null">
+                  Mohon selesaikan pembayaran
+                </p>
                 <v-row v-else-if="isStillUjian(item)">
                   <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
                   <span>
@@ -102,7 +98,7 @@
                       @start_callback="startCallBack('event started')"
                       @end_callback="endCallBack('event ended')"
                       :start-time="now"
-                      :end-time="item.batas_ujian+' 23:59:59'"
+                      :end-time="item.batas_ujian + ' 23:59:59'"
                       :interval="1000"
                       :start-label="'Until start:'"
                       label-position="begin"
@@ -115,7 +111,13 @@
                     </vue-countdown-timer>
                   </span>
                 </v-row>
-                <p v-else-if="item.is_lulus_tka == true && item.is_lulus_tkj == true">Silakan tentukan temu ramah</p>
+                <p
+                  v-else-if="
+                    item.is_lulus_tka == true && item.is_lulus_tkj == true
+                  "
+                >
+                  Silakan tentukan temu ramah
+                </p>
                 <p v-else>Maaf, anda gagal ujian</p>
                 <!-- <p v-else-if="!item.is_lulus_tka">Maaf, anda gagal ujian</p> -->
               </v-container>
@@ -124,16 +126,11 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-dialog
-      scrollable
-      v-model="dialogTambah"
-      :width="width()"
-    >
+    <v-dialog scrollable v-model="dialogTambah" :width="width()">
       <v-card color="grey lighten-5">
         <v-card-title>Pendaftaran Anda</v-card-title>
         <v-card-text>
           <daftar-component></daftar-component>
-
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -145,7 +142,7 @@
       dark
       x-large
       elevation="20"
-      @click="$router.push({name:'Pendaftaran Baru'})"
+      @click="$router.push({ name: 'Pendaftaran Baru' })"
     >
       <v-icon left>mdi-plus</v-icon>Buat Pendaftaran Baru
     </v-btn>
@@ -159,15 +156,15 @@ export default {
   created() {
     console.log(this.now);
     // this.getUser("cln_mahasiswa");
-    this.initAllDataClnMhs().then(response => {});
+    this.initAllDataClnMhs().then((response) => {});
   },
   watch: {
     user: {
       deep: true,
-      handler: function(v) {
+      handler: function (v) {
         this.checkBiodata(v);
-      }
-    }
+      },
+    },
   },
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
@@ -249,7 +246,7 @@ export default {
     // jika sudah terisi bernilai trus,
     // jika masih ada yg null bernilai false
     checkBiodata(v) {
-      Object.keys(v).every(element => {
+      Object.keys(v).every((element) => {
         if (element == "email_verified_at") {
           return true;
         }
@@ -269,7 +266,7 @@ export default {
     },
     createUjian() {
       var periode_id = this.periode[0].id;
-      axios.get("/api/ujian/init/" + periode_id).then(response => {
+      axios.get("/api/ujian/init/" + periode_id).then((response) => {
         console.log(response.data);
       });
     },
@@ -277,10 +274,10 @@ export default {
       var timerProperty = "timer-" + index;
       this[timerProperty] = 0;
     },
-    startCallBack: function(x) {
+    startCallBack: function (x) {
       console.log(x);
     },
-    endCallBack: function(x) {
+    endCallBack: function (x) {
       console.log(x);
     },
     convertDate(date) {
@@ -296,11 +293,11 @@ export default {
       } else {
         return "40%";
       }
-    }
+    },
   },
   computed: {
     ...mapState(["user", "ujian", "isLoading", "periode"]),
-    now: function() {
+    now: function () {
       var today = new Date();
       var date =
         today.getFullYear() +
@@ -312,7 +309,7 @@ export default {
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dateTime = date + " " + time;
       return dateTime;
-    }
+    },
   },
   data() {
     return {
@@ -320,12 +317,12 @@ export default {
       item: null,
       form: {},
       isBiodataFilled: false,
-      isPeriode: false
+      isPeriode: false,
     };
   },
   components: {
-    DaftarComponent
-  }
+    DaftarComponent,
+  },
 };
 </script>
 
