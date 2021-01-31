@@ -30,7 +30,7 @@
               :to="{ name: 'Home Calon Mahasiswa' }"
               style="color: white; text-decoration: none"
             >
-              Pendaftaran Pasca Sarjana
+              Pendaftaran Pascasarjana
             </router-link>
           </span>
         </v-toolbar-title>

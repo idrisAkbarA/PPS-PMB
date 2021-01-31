@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="{{asset('css/nonSPA.css')}}">
   @stack('styles')
-  <title>Pasca Sarjana UIN Suska Riau</title>
+  <title>Pascasarjana UIN Suska Riau</title>
 </head>
 
 <body>
@@ -24,31 +24,31 @@
           <div>
             <a href="/">
               <h6>
-                home
+                Home
               </h6>
             </a>
           </div>
           <div>
             <h6>
-              blog
+              Blog
             </h6>
           </div>
           <div>
             <a href="/login">
               <h6>
-                login
+                Login
               </h6>
             </a>
           </div>
           <div>
             <h6>
-              tentang
+              Tentang
             </h6>
           </div>
           <div>
             <a href="/pendaftaran">
               <h6>
-                pendaftaran
+                Pendaftaran
               </h6>
             </a>
           </div>

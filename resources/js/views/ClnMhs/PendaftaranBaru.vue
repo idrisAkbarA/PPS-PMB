@@ -17,7 +17,7 @@
         :complete="jurusanSelected?true:false"
       >
         Pilih Jurusan
-        <strong>Pilihlah Jurusan yang anda inginkan.</strong>
+        <strong>Pilihlah program studi/konsentrasi yang anda inginkan.</strong>
       </v-stepper-step>
 
       <v-stepper-content step="1">

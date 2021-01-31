@@ -1,7 +1,10 @@
 <template>
   <v-container fluid>
     <div style="height:340px">
-      <h1 class="text-white mt-6">Selamat Datang,<br> <span v-if="user">{{user.nama}}</span> <br> di Aplikasi Pendaftaran Pascasarjana
+      <h1 class="text-white mt-6">
+        Selamat Datang, <span v-if="user">{{ user.nama}}</span>
+        <br>
+        di Aplikasi Pendaftaran Pascasarjana
       </h1>
       <h4 class="text-white font-weight-light">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
       <h4 class="mt-10 text-white font-weight-light">Lihat panduan pendaftaran
@@ -10,7 +13,7 @@
           class="font-weight-black text-white"
           style="text-decoration:none"
           @click="$router.push({name:'Panduan Pendaftaran'})"
-        >disini</a>. Silahkan mendaftar!
+        >di sini</a>.
       </h4>
     </div>
     <div>
@@ -50,7 +53,7 @@
                     <v-btn
                       large
                       @click="$router.push({name:'Pendaftaran Baru'})"
-                    >Daftar Sekarang</v-btn>
+                    >Silahkan Lakukan Pendaftaran</v-btn>
                   </div>
                 </v-col>
                 <v-col
