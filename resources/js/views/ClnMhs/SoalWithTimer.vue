@@ -76,6 +76,11 @@
               :value="pilihan.pilihan"
             ></v-radio>
           </v-radio-group>
+          <v-btn
+            text
+            @click="skipSoal()"
+          >Lewati Soal Ini <v-icon>mdi-menu-right</v-icon>
+          </v-btn>
           <!-- <v-btn @click="shortCountDown()">test</v-btn> -->
         </v-card-text>
       </v-card>
@@ -89,7 +94,7 @@ export default {
   methods: {
     shortCountDown() {
       let milliseconds = 1000;
-      let interval = 15; // in seconds
+      let interval = this.durasiSoal; // in seconds
       let soalTimer = setInterval(() => {
         if (this.shortCountDownValue <= 30) {
           this.shortCountDownColor = "red";
@@ -185,7 +190,13 @@ export default {
       };
       vm.getSoal(payload).then((response) => {
         vm.shortCountDown();
+        vm.shortCountDownSeconds = response.data.durasi_soal;
       });
+    },
+    skipSoal() {
+      this.shortCountDownValue = 100;
+      this.shortCountDownSeconds = this.durasiSoal;
+      this.currentSoal += 1;
     },
     goToPendaftaran() {
       this.$router.push({ name: "Pendaftaran", params: { id: this.ujian_id } });
@@ -232,7 +243,7 @@ export default {
     this.initData(vm);
   },
   computed: {
-    ...mapState(["soal", "durasi", "startTime", "endTime"]),
+    ...mapState(["soal", "durasi", "durasiSoal", "startTime", "endTime"]),
   },
 };
 </script>

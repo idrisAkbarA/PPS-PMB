@@ -22,7 +22,7 @@ class SoalController extends Controller
     {
         //if soal_id is not exist then generate soal
         $user = Auth::guard('cln_mahasiswa')->user();
-        if ($soal_id=="null") {
+        if ($soal_id == "null") {
             // dd($soal_id);
             $soal_id = $this->generate($ujian_id);
         }
@@ -34,8 +34,8 @@ class SoalController extends Controller
         $periode = Periode::find($ujian->periode_id);
 
         // set start soal time if not exist
-        $start_soal = 'start_'.$type;
-        if(!$ujian->$start_soal){
+        $start_soal = 'start_' . $type;
+        if (!$ujian->$start_soal) {
             $ujian->$start_soal = Carbon::now();
             $ujian->save();
         }
@@ -55,6 +55,7 @@ class SoalController extends Controller
         $result['id'] = $soal_id;
         $result['start_time'] = $ujian->$start_soal;
         $result['durasi'] = $periode->durasi_ujian;
+        $result['durasi_soal'] = $periode->durasi_soal;
         return response()->json($result);
     }
     public function generate($ujian_id)
@@ -98,7 +99,7 @@ class SoalController extends Controller
         $setLulus = $this->setLulus($request);
 
         $ujian = Ujian::find($request->idUjian);
-        if($ujian['is_lulus_tka']==true && $ujian['is_lulus_tkj']==true){
+        if ($ujian['is_lulus_tka'] == true && $ujian['is_lulus_tkj'] == true) {
             $ujian->lulus_at = Carbon::now();
             $ujian->save();
         }
