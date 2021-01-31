@@ -67,15 +67,15 @@ class SoalController extends Controller
         // $tka_id = $ujian->kat_tka_id;
         // $tkj_id = $ujian->kat_tkj_id;
         $jurusan_id = $ujian['jurusan_id'];
-        $tka_id = $ujian['kat_tka_id'];
-        $tkj_id = $ujian['kat_tkj_id'];
+        $komposisi_tka = $ujian['komposisi_tka'];
+        $komposisi_tkj = $ujian['komposisi_tkj'];
         $jum_tka = Periode::find($ujian['periode_id'])['jumlah_tka'];
         $jum_tkd = Periode::find($ujian['periode_id'])['jumlah_tkj'];
         $soalUjian = new SoalUjian;
         $soalUjian->generate(
             $jurusan_id,
-            $tka_id,
-            $tkj_id,
+            $komposisi_tka,
+            $komposisi_tkj,
             $jum_tka,
             $jum_tkd,
             $ujian_id

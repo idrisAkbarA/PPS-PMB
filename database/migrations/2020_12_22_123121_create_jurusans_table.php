@@ -16,8 +16,8 @@ class CreateJurusansTable extends Migration
         Schema::create('jurusans', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->bigInteger('kat_tka_default')->nullable();
-            $table->bigInteger('kat_tkj_default')->nullable();
+            $table->json('komposisi_tka_default')->nullable();
+            $table->json('komposisi_tkj_default')->nullable();
             $table->timestamps();
         });
     }

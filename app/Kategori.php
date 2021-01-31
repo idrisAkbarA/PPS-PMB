@@ -22,16 +22,16 @@ class Kategori extends Model
         parent::boot();
 
         // Update jurusan if default category deleted
-        self::deleting(function ($model) {
-            $jurusan = $model->jurusan()->first();
+        // self::deleting(function ($model) {
+        //     $jurusan = $model->jurusan()->first();
 
-            if ($jurusan->kat_tka_default == $model->id) {
-                $jurusan->update(['kat_tka_default' => null]);
-            }
-            if ($jurusan->kat_tkj_default == $model->id) {
-                $jurusan->update(['kat_tkj_default' => null]);
-            }
-        });
+        //     if ($jurusan->kat_tka_default == $model->id) {
+        //         $jurusan->update(['kat_tka_default' => null]);
+        //     }
+        //     if ($jurusan->kat_tkj_default == $model->id) {
+        //         $jurusan->update(['kat_tkj_default' => null]);
+        //     }
+        // });
     }
 
     // Getters

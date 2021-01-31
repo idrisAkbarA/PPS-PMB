@@ -19,6 +19,10 @@ class Ujian extends Model
         'nama_periode',
         'status_kelulusan'
     ];
+    protected $casts = [
+        'komposisi_tka' => 'object',
+        'komposisi_tkj' => 'object',
+    ];
 
     // Getters
     public function getNamaPendaftarAttribute()
