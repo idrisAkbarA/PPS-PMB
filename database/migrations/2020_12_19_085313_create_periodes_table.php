@@ -22,7 +22,7 @@ class CreatePeriodesTable extends Migration
             $table->bigInteger('durasi_ujian'); // in minutes
             $table->bigInteger('durasi_soal'); // in seconds
             $table->double('syarat_ipk');
-            $table->double('syarat_bhs_ingris');
+            $table->double('syarat_bhs_inggris');
             $table->double('syarat_bhs_arab');
             $table->date('awal_temu_ramah');
             $table->date('akhir_temu_ramah');
