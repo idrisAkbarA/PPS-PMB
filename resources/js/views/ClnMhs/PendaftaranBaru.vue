@@ -1,31 +1,20 @@
 <template>
   <!-- v-model="stepper" -->
-  <v-sheet
-    class="mx-auto"
-    :width="width()"
-  >
-
-    <v-stepper
-      non-linear
-      vertical
-      v-model="stepper"
-    >
+  <v-sheet class="mx-auto" :width="width()">
+    <v-stepper non-linear vertical v-model="stepper">
       <v-stepper-step
         color="green"
         :editable="isJurusanEditable"
         step="1"
-        :complete="jurusanSelected?true:false"
+        :complete="jurusanSelected ? true : false"
+        v-if="stepper == 1"
       >
         Pilih Jurusan
         <strong>Pilihlah program studi/konsentrasi yang anda inginkan.</strong>
       </v-stepper-step>
 
       <v-stepper-content step="1">
-        <v-radio-group
-          v-model="jurusanSelected"
-          column
-          @change="initUjian()"
-        >
+        <v-radio-group v-model="jurusanSelected" column @change="initUjian()">
           <v-radio
             color="green"
             v-for="item in jurusan"
@@ -45,17 +34,17 @@
       </v-stepper-content>
 
       <v-stepper-step
-        :editable="jurusanSelected?true:false"
+        :editable="jurusanSelected ? true : false"
         color="green"
         :complete="stepper > 2"
         step="2"
         :rules="ruleBiodata"
+        v-if="stepper == 2"
       >
         Isi Biodata
-        <strong
-          class="text-red"
-          v-if="jurusanSelected?false:true"
-        >Isi jurusan terlebih dahulu.</strong>
+        <strong class="text-red" v-if="jurusanSelected ? false : true"
+          >Isi jurusan terlebih dahulu.</strong
+        >
       </v-stepper-step>
 
       <v-stepper-content step="2">
@@ -114,10 +103,7 @@
               @click="$refs.ijazah.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-text-field
                   color="green"
                   filled
@@ -127,17 +113,15 @@
                   @click="$refs.ijazah.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.ijazah)"
                   color="green darken-2"
-                >lihat File Anda </v-btn>
+                  >lihat File Anda
+                </v-btn>
               </v-col>
             </template>
             <v-file-input
@@ -190,10 +174,7 @@
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-text-field
                   color="green"
                   filled
@@ -203,17 +184,15 @@
                   @click="$refs.photoProfile.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.pas_photo)"
                   color="green darken-2"
-                >lihat foto anda </v-btn>
+                  >lihat foto anda
+                </v-btn>
               </v-col>
             </template>
             <!-- @change="updateUser(user)" -->
@@ -226,11 +205,13 @@
             ></v-file-input>
           </v-row>
           <v-row v-if="isSyaratLulus">
-            <h4>Maaf Nilai IPK/Bahasa anda tidak mencukupi syarat pendaftaran</h4>
+            <h4>
+              Maaf Nilai IPK/Bahasa anda tidak mencukupi syarat pendaftaran
+            </h4>
           </v-row>
         </v-container>
         <v-btn
-          :disabled="isBiodataFilled?false:true"
+          :disabled="isBiodataFilled ? false : true"
           color="green darken-2"
           class="text-white"
           @click="stepper = 3"
@@ -240,17 +221,17 @@
       </v-stepper-content>
 
       <v-stepper-step
-        :editable="isBiodataFilled?true:false"
+        :editable="isBiodataFilled ? true : false"
         color="green"
         :complete="stepper > 3"
         step="3"
         :rules="rulePembayaran"
+        v-if="stepper == 3"
       >
         Pembayaran
-        <strong
-          class="text-red"
-          v-if="isBiodataFilled?false:true"
-        >Lengkapi biodata terlebih dahulu.</strong>
+        <strong class="text-red" v-if="isBiodataFilled ? false : true"
+          >Lengkapi biodata terlebih dahulu.</strong
+        >
       </v-stepper-step>
 
       <v-stepper-content step="3">
@@ -261,7 +242,10 @@
         >
           <!-- v-if="!ujian.kode_bayar" -->
           <v-card-title>Lakukan Pembayaran</v-card-title>
-          <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian masuk</v-card-subtitle>
+          <v-card-subtitle
+            >Lakukan pembayaran untuk dapat mengikuti ujian
+            masuk</v-card-subtitle
+          >
           <v-card-text>
             <v-btn
               block
@@ -271,22 +255,20 @@
               :loading="isLoading"
               v-if="!kodePembayaran"
               @click="generateCode()"
-            >Dapatkan Kode Pembayaran</v-btn>
+              >Dapatkan Kode Pembayaran</v-btn
+            >
             <div v-if="kodePembayaran && !isPembayaranLunas">
-              <span>
-                Segera membayar dengan kode berikut
-              </span>
-              <h1>{{kodePembayaran}}</h1>
+              <span> Segera membayar dengan kode berikut </span>
+              <h1>{{ kodePembayaran }}</h1>
             </div>
             <div v-if="isPembayaranLunas">
               <h1>Pembayaran Berhasil!</h1>
               <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
             </div>
-
           </v-card-text>
         </v-card>
         <v-btn
-          :disabled="isPembayaranLunas?false:true"
+          :disabled="isPembayaranLunas ? false : true"
           color="green darken-2"
           class="text-white"
           @click="stepper = 4"
@@ -300,23 +282,21 @@
         color="green"
         step="4"
         :rules="ruleUjian"
+        v-if="stepper == 4"
       >
         Ujian
-        <strong
-          class="text-red"
-          v-if="isPembayaranLunas?false:true"
-        >Lakukan pembayaran terlebih dahulu.</strong>
+        <strong class="text-red" v-if="isPembayaranLunas ? false : true"
+          >Lakukan pembayaran terlebih dahulu.</strong
+        >
       </v-stepper-step>
       <v-stepper-content step="4">
-        <v-card
-          v-if="ujianSelected"
-          color="grey lighten-4"
-          class="mb-12"
-        >
+        <v-card v-if="ujianSelected" color="grey lighten-4" class="mb-12">
           <v-card-title>Ujian Masuk</v-card-title>
-          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan Jurusan (TKJ)</v-card-subtitle>
+          <v-card-subtitle
+            >Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
+            Jurusan (TKJ)</v-card-subtitle
+          >
           <v-card-text>
-
             <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
             <span>
               <!-- :end-label="''" -->
@@ -324,7 +304,7 @@
                 @start_callback="startCallBack('event started')"
                 @end_callback="endCallBack('event ended')"
                 :start-time="now"
-                :end-time="ujianSelected.batas_ujian+' 23:59:59'"
+                :end-time="ujianSelected.batas_ujian + ' 23:59:59'"
                 :interval="1000"
                 :start-label="'Until start:'"
                 label-position="begin"
@@ -337,54 +317,32 @@
               </vue-countdown-timer>
             </span>
             <v-divider></v-divider>
-            <v-btn
-              color="green darken-2"
-              dark
-              block
-              @click="ujian('tka')"
-            >Mulai Ujian TKA</v-btn>
+            <v-btn color="green darken-2" dark block @click="ujian('tka')"
+              >Mulai Ujian TKA</v-btn
+            >
             <v-divider></v-divider>
-            <v-btn
-              block
-              color="green darken-2"
-              dark
-              @click="ujian('tkj')"
-            >Mulai Ujian TKJ</v-btn>
-
+            <v-btn block color="green darken-2" dark @click="ujian('tkj')"
+              >Mulai Ujian TKJ</v-btn
+            >
           </v-card-text>
         </v-card>
-        <v-btn
-          color="primary"
-          @click="stepper = 1"
-        >
-          selanjutnya
-        </v-btn>
-
       </v-stepper-content>
       <v-stepper-step
-        :editable="isLulusUjian?true:false"
+        :editable="isLulusUjian ? true : false"
         color="green"
         step="5"
         :rules="ruleTemuRamah"
+        v-if="stepper == 5"
       >
         Temu Ramah
-        <strong
-          class="text-red"
-          v-if="isLulusUjian?false:true"
-        >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan TKJ.</strong>
+        <strong class="text-red" v-if="isLulusUjian ? false : true"
+          >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan
+          TKJ.</strong
+        >
       </v-stepper-step>
       <v-stepper-content step="5">
-        <v-card
-          color="grey lighten-1"
-          class="mb-12"
-          height="200px"
-        ></v-card>
-        <v-btn
-          color="primary"
-          @click="stepper = 1"
-        >
-          Selanjutnya
-        </v-btn>
+        <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
+        <v-btn color="primary" @click="stepper = 1"> Selanjutnya </v-btn>
       </v-stepper-content>
     </v-stepper>
     <v-bottom-sheet
@@ -403,14 +361,17 @@
         <v-list>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>{{this.loadingSheet.message}}</v-list-item-title>
-              <v-list-item-subtitle>{{this.progress+"%"}}</v-list-item-subtitle>
+              <v-list-item-title>{{
+                this.loadingSheet.message
+              }}</v-list-item-title>
+              <v-list-item-subtitle>{{
+                this.progress + "%"
+              }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list>
       </v-card>
     </v-bottom-sheet>
-
   </v-sheet>
 </template>
 
