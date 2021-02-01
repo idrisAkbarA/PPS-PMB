@@ -48,7 +48,7 @@
             </v-col>
             <v-col v-if="loginUrl == 'login'">
               <span>
-                Belum memiliki akun? Daftar <a href="/pendaftaran">disini</a>.
+                Belum memiliki akun? Daftar <a href="/pendaftaran">di sini</a>.
               </span>
             </v-col>
           </v-row>

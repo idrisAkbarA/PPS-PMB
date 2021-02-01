@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div class="left-content">
+      <div class="{{($is_login ?? '') == 1? 'left-image' : 'left-content'}}">
         @yield('content-left')
       </div>
     </div>

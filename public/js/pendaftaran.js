@@ -60393,7 +60393,7 @@ var render = function() {
                             "\n              Sudah memiliki akun? Login\n              "
                           ),
                           _c("a", { attrs: { href: "/login" } }, [
-                            _vm._v("disini")
+                            _vm._v("di sini")
                           ]),
                           _vm._v(".\n            ")
                         ])

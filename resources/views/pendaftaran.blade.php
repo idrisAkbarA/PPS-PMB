@@ -9,7 +9,7 @@
 @endpush
 @section('content-left')
 <div>
-    <h4 style="margin-top:0px !important; color: white">Silahkan mendaftar!</h4>
+    {{-- <h4 style="margin-top:0px !important; color: white">Silahkan mendaftar!</h4> --}}
     <p style="font-weight: bold; color: white">
     </p>
     <div>

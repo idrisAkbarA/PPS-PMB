@@ -60320,7 +60320,7 @@ var render = function() {
                                 "\n              Belum memiliki akun? Daftar "
                               ),
                               _c("a", { attrs: { href: "/pendaftaran" } }, [
-                                _vm._v("disini")
+                                _vm._v("di sini")
                               ]),
                               _vm._v(".\n            ")
                             ])

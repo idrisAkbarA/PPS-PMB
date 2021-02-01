@@ -14,7 +14,7 @@
         <v-img
           v-bind="props"
           gradient="to top right, rgba(6, 76, 90, 0.377), rgba(5, 94, 42,.8)"
-          :src="'/images/bg.jpg'"
+          :src="'/images/pasca1.jpg'"
         ></v-img>
       </template>
       <v-avatar :tile="true">
@@ -103,12 +103,13 @@ export default {
   position: absolute;
   z-index: 1;
   background: rgb(0, 36, 15);
-  background: linear-gradient(
+  background: 
+  linear-gradient(
       0deg,
       rgb(5, 94, 42) 0%,
       rgba(6, 76, 90, 0.377) 100%
     ),
-    url("/images/bg.jpg");
+    url("/images/pasca1.jpg") no-repeat;
   background-size: contain;
   /* background: url("/images/bg.jpg"); */
   /* background: #33691e; */
