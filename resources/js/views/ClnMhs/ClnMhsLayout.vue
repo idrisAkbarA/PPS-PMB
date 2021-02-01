@@ -107,10 +107,12 @@ export default {
   linear-gradient(
       0deg,
       rgb(5, 94, 42) 0%,
-      rgba(6, 76, 90, 0.377) 100%
+      rgba(6, 90, 13, 0.377) 30%
     ),
     url("/images/pasca1.jpg") no-repeat;
-  background-size: contain;
+    background-size: cover;
+    background-position: center;
+  /* background-size: contain; */
   /* background: url("/images/bg.jpg"); */
   /* background: #33691e; */
   width: 100%;
