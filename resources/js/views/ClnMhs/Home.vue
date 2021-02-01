@@ -17,6 +17,7 @@
           style="text-decoration: none"
           @click="$router.push({ name: 'Panduan Pendaftaran' })"
         >disini</a>. Silahkan mendaftar!
+
       </h4>
     </div>
     <div>
@@ -92,9 +93,14 @@
             elevation="10"
             @click="goToPendaftaran(item)"
           >
-            <v-card-title :class="setColor(item) + ' text-white'">{{
-              item.jurusan.nama
-            }}</v-card-title>
+            <v-card-subtitle
+              class="pb-0"
+              :class="setColor(item) + ' text-white'"
+            >
+              <h3 class="mb-0">
+                {{item.jurusan.nama}}
+              </h3>
+            </v-card-subtitle>
             <v-card-subtitle :class="setColor(item) + ' text-white'">Periode {{ item.periode.nama }}<br />Klik untuk melihat
               rincian</v-card-subtitle>
             <v-card-text>
@@ -354,12 +360,13 @@ export default {
 }
 .bg-with-overlay {
   background: rgb(0, 36, 15);
-  background: linear-gradient(
+  background: 
+  /* linear-gradient(
       0deg,
       rgb(5, 94, 42) 0%,
       rgba(6, 76, 90, 0.377) 100%
-    ),
-    url("/images/bg.jpg");
+    ), */ url("/images/pasca1.jpg")
+    no-repeat;
   background-size: contain;
 }
 </style>
