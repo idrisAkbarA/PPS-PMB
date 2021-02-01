@@ -16,8 +16,7 @@
           class="font-weight-black text-white"
           style="text-decoration: none"
           @click="$router.push({ name: 'Panduan Pendaftaran' })"
-          >disini</a
-        >. Silahkan mendaftar!
+        >disini</a>. Silahkan mendaftar!
       </h4>
     </div>
     <div>
@@ -43,8 +42,15 @@
             color="green darken-2"
           >
             <v-container>
-              <v-row align="center" justify="center">
-                <v-col cols="12" md="6" lg="6">
+              <v-row
+                align="center"
+                justify="center"
+              >
+                <v-col
+                  cols="12"
+                  md="6"
+                  lg="6"
+                >
                   <div class="ml-10">
                     <h1 class="text-white">
                       Hmm.. Sepertinya anda belum mendaftar
@@ -55,7 +61,11 @@
                     >Silahkan Lakukan Pendaftaran</v-btn>
                   </div>
                 </v-col>
-                <v-col cols="12" md="6" lg="6">
+                <v-col
+                  cols="12"
+                  md="6"
+                  lg="6"
+                >
                   <v-img
                     class="mx-auto"
                     max-width="300"
@@ -67,7 +77,10 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row v-if="ujian && user" class="mb-10 mt-5">
+      <v-row
+        v-if="ujian && user"
+        class="mb-10 mt-5"
+      >
         <v-col
           v-for="(item, index) in ujian"
           :key="index"
@@ -75,14 +88,15 @@
           md="6"
           lg="3"
         >
-          <v-card elevation="10" @click="goToPendaftaran(item)">
+          <v-card
+            elevation="10"
+            @click="goToPendaftaran(item)"
+          >
             <v-card-title :class="setColor(item) + ' text-white'">{{
               item.jurusan.nama
             }}</v-card-title>
-            <v-card-subtitle :class="setColor(item) + ' text-white'"
-              >Periode {{ item.periode.nama }}<br />Klik untuk melihat
-              rincian</v-card-subtitle
-            >
+            <v-card-subtitle :class="setColor(item) + ' text-white'">Periode {{ item.periode.nama }}<br />Klik untuk melihat
+              rincian</v-card-subtitle>
             <v-card-text>
               <v-container class="mt-4">
                 <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
@@ -111,11 +125,9 @@
                     </vue-countdown-timer>
                   </span>
                 </v-row>
-                <p
-                  v-else-if="
+                <p v-else-if="
                     item.is_lulus_tka == true && item.is_lulus_tkj == true
-                  "
-                >
+                  ">
                   Silakan tentukan temu ramah
                 </p>
                 <p v-else>Maaf, anda gagal ujian</p>
@@ -126,7 +138,11 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-dialog scrollable v-model="dialogTambah" :width="width()">
+    <v-dialog
+      scrollable
+      v-model="dialogTambah"
+      :width="width()"
+    >
       <v-card color="grey lighten-5">
         <v-card-title>Pendaftaran Anda</v-card-title>
         <v-card-text>
@@ -248,6 +264,9 @@ export default {
     checkBiodata(v) {
       Object.keys(v).every((element) => {
         if (element == "email_verified_at") {
+          return true;
+        }
+        if (element == "is_verified") {
           return true;
         }
         if (v[element] == null) {

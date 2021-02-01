@@ -99,32 +99,138 @@
       </v-card>
     </v-row>
     <v-dialog
-      v-model="dialogReview"
-      :width="windowWidth>600?'30%':'60%'"
+      persistent
+      v-model="dialogHasil"
+      :width="windowWidth>600?'40%':'70%'"
     >
       <v-card>
         <v-card-title>
-          <span v-if="isSoalTerjawabSemua">
+          Hasil Ujian
+        </v-card-title>
+        <v-card-text>
+          <label>Soal terjawab benar: {{this.nilai}}</label><br>
+          <strong v-if="isLulus">Selamat anda lulus ujian!</strong>
+          <strong v-if="!isLulus">Mohon maaf, anda tidak lulus ujian!</strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            block
+            class="text-white mb-2"
+            color="green"
+            @click="goToPendaftaran()"
+          >Kembali ke Halaman Pendaftaran</v-btn>
+
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      persistent
+      v-model="dialogReview"
+      :width="windowWidth>600?'50%':'80%'"
+    >
+      <v-card>
+        <v-card-title>
+          <span v-if="isSemuaSoalTerjawab">
             Semua soal telah dikerjakan!
           </span><span v-else>Waktu mengerjakan soal sudah habis!</span>
         </v-card-title>
 
-        <v-card-text>
-          <label>anda masih memiliki waktu ... + 1 menit untuk melakukan revisi</label>
-          <strong v-if="belum_terjawab!=0">
-            {{belum_terjawab}} belum dijawab.
-          </strong>
+        <v-card-text v-if="soalReview">
+
+          <label v-if="isSemuaSoalTerjawab">Anda masih memiliki waktu <v-chip>
+
+              <vue-countdown-timer
+                v-if="soal"
+                @start_callback="startCallBack('event started')"
+                @end_callback="endCallBackRevisi('event ended')"
+                :start-time="startTime"
+                :end-time="endTimeRevisi"
+                :interval="1000"
+                :start-label="'Until start:'"
+                label-position="begin"
+                :end-text="'Ujian selesai!'"
+                :day-txt="''"
+                :hour-txt="'Jam'"
+                :minutes-txt="'Menit'"
+                :seconds-txt="'Detik'"
+              >
+              </vue-countdown-timer>
+            </v-chip>
+            (Sisa waktu ujian + waktu revisi), silahkan melakukan revisi atau klik "Selesai" untuk menyelesaikan sesi ujian.</label>
+          <label v-else>Anda masih memiliki waktu revisi selama <v-chip>
+              <vue-countdown-timer
+                v-if="soal"
+                @start_callback="startCallBack('event started')"
+                @end_callback="endCallBackRevisi('event ended')"
+                :start-time="startTime"
+                :end-time="endTimeRevisi"
+                :interval="1000"
+                :start-label="'Until start:'"
+                label-position="begin"
+                :end-text="'Ujian selesai!'"
+                :day-txt="''"
+                :hour-txt="'Jam'"
+                :minutes-txt="'Menit'"
+                :seconds-txt="'Detik'"
+              >
+              </vue-countdown-timer>
+            </v-chip>
+            silahkan melakukan revisi atau klik "Selesai" untuk menyelesaikan sesi ujian.</label>
+          <v-card
+            outlined
+            color="rgba(46, 204, 113, 0.25)"
+            class="blue-grey--text text--darken-4 pa-1"
+            style="height: 100%;"
+          >
+            <v-card-title
+              dense
+              style="height:25%"
+              class="pa-0 ml-1 mb-1"
+            >
+              Nomor
+            </v-card-title>
+            <v-card-text
+              style="overflow-y: auto;height:75%"
+              class="mx-0 pa-0"
+            >
+              <v-btn
+                class="ma-1 pa-0"
+                tile
+                v-for="(soal,index) in soalReview"
+                :key="index+1"
+                small
+                @click="currentSoal=index"
+                :class="setNomorColor(soal,index)"
+              >{{ index+1 }}</v-btn>
+
+            </v-card-text>
+          </v-card>
+          <v-card outlined>
+            <v-card-text>
+              {{soalReview[currentSoal].pertanyaan}}
+              <v-radio-group
+                column
+                v-model="soalReview[currentSoal].jawaban"
+                @change="setJawaban(soalReview[currentSoal])"
+              >
+                <v-radio
+                  v-for="(pilihan,index) in soalReview[currentSoal].pilihan_ganda"
+                  :key="index"
+                  color="green"
+                  :label="`${pilihan.pilihan}. ${pilihan.text}`"
+                  :value="pilihan.pilihan"
+                ></v-radio>
+              </v-radio-group>
+            </v-card-text>
+          </v-card>
         </v-card-text>
         <v-card-actions>
           <v-btn
-            @click="getHasil()"
+            @click="dialog=true"
             class="text-white"
             color="green"
-          >Iya</v-btn>
-          <v-btn
-            text
-            @click="dialog=false"
-          >tidak</v-btn>
+          >Selesai</v-btn>
+
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -138,9 +244,6 @@
         </v-card-title>
         <v-card-text>
           <label>Apakah anda yakin ingin menyelesaikan sesi ujian?</label>
-          <strong v-if="belum_terjawab!=0">
-            {{belum_terjawab}} belum dijawab.
-          </strong>
         </v-card-text>
         <v-card-actions>
           <v-btn
@@ -242,7 +345,7 @@ export default {
         this.isNewlySelected = true;
         this.shortCountDownValue = 100;
         this.shortCountDownSeconds = this.durasiSoal;
-        this.currentSoal += 1;
+        if (soal.length != this.currentSoal + 1) this.currentSoal += 1;
       }, 1000);
     },
     initData(vm) {
@@ -282,11 +385,24 @@ export default {
       console.log(this.soal[this.currentSoal].jawaban);
     },
     goToPendaftaran() {
-      this.$router.push({ name: "Pendaftaran", params: { id: this.ujian_id } });
+      this.$router.replace({
+        name: "Pendaftaran",
+        params: { id: this.ujian_id },
+      });
     },
     startCallBack(data) {},
     endCallBack(data) {
+      this.currentSoal = 0;
       this.isStillCounting = false;
+      this.endTimeRevisi = this.$moment(this.endTime, "YYYY-MM-DD HH:mm:ss")
+        .add(1, "minutes")
+        .format("YYYY-MM-DD HH:mm:ss");
+      var temp = this.soal.filter((item) => item.jawaban != null);
+      this.soalReview = temp.length > 0 ? temp : null;
+      this.dialogReview = true;
+      // this.getHasil();
+    },
+    endCallBackRevisi(data) {
       this.getHasil();
     },
   },
@@ -302,13 +418,16 @@ export default {
       currentSoal: 0,
       isLulus: false,
       nilai: 0,
-      dialogHasil: false,
+      endTimeRevisi: null,
       belum_terjawab: null,
+      dialogHasil: false,
+      dialogReview: false,
       dialog: false,
       currentSoal: 0,
       soal_id: null,
       ujian_id: null,
       type: null,
+      soalReview: null,
     };
   },
   beforeRouteEnter(to, from, next) {
@@ -341,9 +460,16 @@ export default {
       this.soal.forEach((element) => {
         if (element.jawaban != null) jumlah += 1;
       });
+      this.endTimeRevisi = this.$moment(this.endTime, "YYYY-MM-DD HH:mm:ss")
+        .add(1, "minutes")
+        .format("YYYY-MM-DD HH:mm:ss");
       if (jumlah == this.jumlahSoal) {
+        this.currentSoal = 0;
+        this.isStillCounting = false;
+        var temp = this.soal.filter((item) => item.jawaban != null);
+        this.soalReview = temp.length > 0 ? temp : null;
         this.isSemuaSoalTerjawab = true;
-        this.dialog = true;
+        this.dialogReview = true;
       }
       return jumlah;
     },
