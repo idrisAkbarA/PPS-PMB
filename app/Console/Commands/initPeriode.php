@@ -55,11 +55,12 @@ class initPeriode extends Command
         $periode->durasi_ujian = 5;
         $periode->durasi_soal = 15;
         $periode->syarat_ipk = 3.0;
-        $periode->syarat_bhs = 350;
+        $periode->syarat_bhs_arab = 350;
+        $periode->syarat_bhs_inggris = 350;
         $periode->awal_temu_ramah = $thisYear . '-5-01';
         $periode->akhir_temu_ramah = $thisYear . '-5-30';
-        $periode->jumlah_tka = 50;
-        $periode->jumlah_tkj = 50;
+        $periode->jumlah_tka = 10;
+        $periode->jumlah_tkj = 10;
         $periode->min_lulus_tka = 5;
         $periode->min_lulus_tkj = 5;
         $periode->is_Active = true;
@@ -70,8 +71,8 @@ class initPeriode extends Command
             # code...
             $kategori = new KatJurusanPerPeriode;
             $kategori->periode_id = $periode->id;
-            $kategori->kat_tka_id = $value->kat_tka_default;
-            $kategori->kat_tkj_id = $value->kat_tkj_default;
+            $kategori->komposisi_tka = $value->komposisi_tka_default;
+            $kategori->komposisi_tkj = $value->komposisi_tkj_default;
             $kategori->jurusan_id = $value->id;
             $kategori->save();
         }

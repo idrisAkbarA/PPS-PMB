@@ -14,24 +14,78 @@ use Illuminate\Support\Collection;
 class SoalUjian
 {
     public $id = null;
-    public function generate($jurusan_id, $kat_tka_id, $kat_tkj_id, $jumlah_tka, $jumlah_tkj, $ujian_id)
+    public function generate($jurusan_id, $komposisi_tka, $komposisi_tkj, $jumlah_tka, $jumlah_tkj, $ujian_id)
     {
         $final_soal = [];
         //get both tka and tkj questions from banksoal
-        $soalTKA = BankSoal::where([
-            'type' => 'tka',
-            'jurusan_id' => $jurusan_id,
-            'kategori_id' => $kat_tka_id
-        ])->get();
-        $soalTKJ = BankSoal::where([
-            'type' => 'tkj',
-            'jurusan_id' => $jurusan_id,
-            'kategori_id' => $kat_tkj_id
-        ])->get();
+        $soalTKA = null;
+        foreach ($komposisi_tka as $key => $value) {
+            if ($soalTKA == null) {
+                $soalTKA = BankSoal::where([
+                    'type' => 'tka',
+                    'jurusan_id' => $jurusan_id,
+                    'kategori_id' => $value->kategori_id
+                ])->get();
+            } else {
+                $temp = BankSoal::where([
+                    'type' => 'tka',
+                    'jurusan_id' => $jurusan_id,
+                    'kategori_id' => $value->kategori_id
+                ])->get();
+                $soalTKA->merge($temp);
+            }
+        }
+        $soalTKJ = null;
+        foreach ($komposisi_tkj as $key => $value) {
+            if ($soalTKJ == null) {
+                $soalTKJ = BankSoal::where([
+                    'type' => 'tkj',
+                    'jurusan_id' => $jurusan_id,
+                    'kategori_id' => $value->kategori_id
+                ])->get();
+            } else {
+                $temp = BankSoal::where([
+                    'type' => 'tkj',
+                    'jurusan_id' => $jurusan_id,
+                    'kategori_id' => $value->kategori_id
+                ])->get();
+                $soalTKA->merge($temp);
+            }
+        }
+        //old code
+
+        // $soalTKA = BankSoal::where([
+        //     'type' => 'tka',
+        //     'jurusan_id' => $jurusan_id,
+        //     'kategori_id' => $kat_tka_id
+        // ])->get();
+        // $soalTKJ = BankSoal::where([
+        //     'type' => 'tkj',
+        //     'jurusan_id' => $jurusan_id,
+        //     'kategori_id' => $kat_tkj_id
+        // ])->get();
 
         // select the questions randomly until it met requested quantity
-        $tka_selected = self::selectRandomly($soalTKA, $jumlah_tka);
-        $tkj_selected = self::selectRandomly($soalTKJ, $jumlah_tkj);
+        $tka_selected = null;
+        foreach ($komposisi_tka as $key => $value) {
+            if ($tka_selected == null) {
+                $tka_selected = self::selectRandomly($soalTKA, $value->jumlah);
+            } else {
+                $temp = self::selectRandomly($soalTKA, $value->jumlah);
+                array_merge($tka_selected, $temp);
+            }
+        }
+        $tkj_selected = null;
+        foreach ($komposisi_tkj as $key => $value) {
+            if ($tkj_selected == null) {
+                $tkj_selected = self::selectRandomly($soalTKJ, $value->jumlah);
+            } else {
+                $temp = self::selectRandomly($soalTKJ, $value->jumlah);
+                array_merge($tkj_selected, $temp);
+            }
+        }
+        // $tka_selected = self::selectRandomly($soalTKA, $jumlah_tka);
+        // $tkj_selected = self::selectRandomly($soalTKJ, $jumlah_tkj);
 
         $final_soal = [
             ["type" => "tka", "soal" => $tka_selected],

@@ -27,15 +27,80 @@
           <v-expansion-panel-content>
             <v-row>
               <v-col cols="12">
+                <v-btn-toggle
+                  v-model="isEdit"
+                  mandatory
+                  rounded
+                  class="float-right"
+                >
+                  <v-btn small>
+                    <v-icon small class="mr-2">mdi-eye</v-icon>
+                    View Mode
+                  </v-btn>
+                  <v-btn small>
+                    <v-icon small class="mr-2">mdi-pencil</v-icon>
+                    Edit Mode
+                  </v-btn>
+                </v-btn-toggle>
                 <v-subheader>Calon Mahasiswa</v-subheader>
                 <v-divider class="my-0"></v-divider>
                 <v-list subheader>
                   <template v-for="(row, index) in row.calon_mahasiswa">
-                    <v-list-item two-line :key="index" @click="show(row)">
+                    <v-list-item
+                      two-line
+                      :key="index"
+                      v-on="isEdit ? {} : { click: () => show(row) }"
+                    >
                       <v-list-item-content>
                         <v-list-item-title>{{ row.nama }}</v-list-item-title>
                         <v-list-item-subtitle> Jurusan </v-list-item-subtitle>
                       </v-list-item-content>
+                      <v-list-item-action v-if="!isEdit">
+                        <v-chip
+                          outlined
+                          :color="
+                            row.is_verified !== null
+                              ? row.is_verified
+                                ? 'success'
+                                : 'red'
+                              : 'warning'
+                          "
+                          >{{
+                            row.is_verified !== null
+                              ? row.is_verified
+                                ? "Lulus"
+                                : "Tidak Lulus"
+                              : "Belum Diverifikasi"
+                          }}</v-chip
+                        >
+                      </v-list-item-action>
+                      <v-list-item-action v-else class="d-inline">
+                        <v-btn
+                          small
+                          outlined
+                          color="red"
+                          v-if="row.is_verified == null"
+                          @click="update(row.id, false)"
+                          >Tdk Lulus</v-btn
+                        >
+                        <v-btn
+                          small
+                          outlined
+                          color="success"
+                          v-if="row.is_verified == null"
+                          @click="update(row.id, true)"
+                          >Lulus</v-btn
+                        >
+                        <v-chip
+                          close
+                          outlined
+                          close-icon="mdi-close"
+                          :color="row.is_verified ? 'success' : 'red'"
+                          v-if="row.is_verified !== null"
+                          @click:close="update(row.id, null)"
+                          >{{ row.is_verified ? "Lulus" : "Tdk Lulus" }}</v-chip
+                        >
+                      </v-list-item-action>
                     </v-list-item>
                     <v-divider
                       class="my-0"
@@ -118,9 +183,9 @@
                   <v-col cols="6" class="mb-0">
                     <v-btn
                       small
-                      dark
                       outlined
                       color="#2C3E50"
+                      :disabled="selectedCalonMahasiswa.ijazah === null"
                       @click="filePath(selectedCalonMahasiswa.ijazah)"
                       >Ijazah</v-btn
                     >
@@ -206,6 +271,7 @@ export default {
       currentPeriode: null,
       selectedCalonMahasiswa: null,
       isLoading: false,
+      isEdit: false,
       dialogShow: false,
       snackbar: { show: false },
       scrollOps: {
@@ -233,7 +299,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen", "urlTemuRamah"]),
+    ...mapState(["isBottomSheetOpen", "urlTemuRamah", "urlPendaftar"]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -288,19 +354,14 @@ export default {
       this.form = _.clone(item);
       this.bottomSheet = true;
     },
-    submit() {
-      const form = this.form;
-      if (!form.id) {
-        this.store();
-        return;
-      }
-      this.update(form.id);
-    },
-    update(id) {
-      const urlTemuRamah = `${this.urlTemuRamah}/${id}`;
+    update(id, val) {
+      const urlPendaftar = `${this.urlPendaftar}/${id}`;
+      const form = {
+        is_verified: val,
+      };
       this.isLoading = true;
       axios
-        .put(urlTemuRamah, this.form)
+        .put(urlPendaftar, form)
         .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;

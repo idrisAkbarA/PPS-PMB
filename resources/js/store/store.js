@@ -14,6 +14,7 @@ export default new Vuex.Store({
         endTime: null,
         durasi: null,
         durasiSoal: null,
+        jumlahSoal: null,
         user: null, // user who logged in
         urlPetugas: '/api/petugas',
         urlPeriode: '/api/periode',
@@ -68,6 +69,7 @@ export default new Vuex.Store({
             state.startTime = data.start_time;
             state.durasi = data.durasi;
             state.durasiSoal = data.durasi_soal;
+            state.jumlahSoal = data.jumlah_soal;
             state.endTime = endTime;
 
             if (!state.ujianSelected) {
@@ -125,8 +127,8 @@ export default new Vuex.Store({
         updateUser({ commit, dispatch, state }, user) {
             return new Promise((resolve, reject) => {
                 axios.put('/api/user/update', user).then(response => {
-                    console.log(response.data);
-                    commit('setUser', response.data);
+                    console.log(response.data.data);
+                    commit('setUser', response.data.data);
                     resolve(response);
                 }).catch(error => {
                     reject(error);

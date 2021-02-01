@@ -4,27 +4,31 @@
       <v-spacer></v-spacer>
       <div class="mb-5">
         <v-chip
+          style="padding-right:0px !important"
           color="green darken-2"
           text-color="#ecf0f1"
         >
-          Sisa waktu ujian:
-          <vue-countdown-timer
-            v-if="soal"
-            @start_callback="startCallBack('event started')"
-            @end_callback="endCallBack('event ended')"
-            :start-time="startTime"
-            :end-time="endTime"
-            :interval="1000"
-            :start-label="'Until start:'"
-            label-position="begin"
-            :end-text="'Ujian selesai!'"
-            :day-txt="''"
-            :hour-txt="'Jam'"
-            :minutes-txt="'Menit'"
-            :seconds-txt="'Detik'"
-          >
-          </vue-countdown-timer>
-
+          <span class="mr-2">
+            Sisa waktu ujian:
+          </span>
+          <v-chip>
+            <vue-countdown-timer
+              v-if="soal"
+              @start_callback="startCallBack('event started')"
+              @end_callback="endCallBack('event ended')"
+              :start-time="startTime"
+              :end-time="endTime"
+              :interval="1000"
+              :start-label="'Until start:'"
+              label-position="begin"
+              :end-text="'Ujian selesai!'"
+              :day-txt="''"
+              :hour-txt="'Jam'"
+              :minutes-txt="'Menit'"
+              :seconds-txt="'Detik'"
+            >
+            </vue-countdown-timer>
+          </v-chip>
         </v-chip>
       </div>
     </v-row>
@@ -39,17 +43,17 @@
         <v-card-title>
 
           <v-row class="mx-0">
-            <span class="mr-2">Soal No.</span>
+            <span class="mr-2">Jumlah soal terjawab </span>
             <v-chip
               color="green darken-2"
               text-color="#ecf0f1"
-            >{{
-            currentSoal + 1
+            >{{soalTerjawab}}/{{
+            jumlahSoal
           }}</v-chip>
             <v-spacer></v-spacer>
             <div v-if="isStillCounting">
               <span class="overline text-muted mb-0">
-                Jawab soal ini dalam:
+                Mohon jawab soal berikut dalam:
 
               </span>
               <v-chip
@@ -62,29 +66,95 @@
           </v-row>
         </v-card-title>
         <v-card-text v-if="soal">
-          {{soal[currentSoal].pertanyaan}}
-          <v-radio-group
-            column
-            v-model="soal[currentSoal].jawaban"
-            @change="setJawaban(soal[currentSoal])"
-          >
-            <v-radio
-              v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
-              :key="index"
-              color="green"
-              :label="`${pilihan.pilihan}. ${pilihan.text}`"
-              :value="pilihan.pilihan"
-            ></v-radio>
-          </v-radio-group>
-          <v-btn
-            text
-            @click="skipSoal()"
-          >Lewati Soal Ini <v-icon>mdi-menu-right</v-icon>
-          </v-btn>
+          <v-expand-transition>
+            <div v-show="checkPresence">
+              {{soal[currentSoal].pertanyaan}}
+              <v-radio-group
+                column
+                v-model="soal[currentSoal].jawaban"
+                @change="setJawaban(soal[currentSoal])"
+              >
+                <v-radio
+                  v-for="(pilihan,index) in soal[currentSoal].pilihan_ganda"
+                  :key="index"
+                  color="green"
+                  :label="`${pilihan.pilihan}. ${pilihan.text}`"
+                  :value="pilihan.pilihan"
+                ></v-radio>
+              </v-radio-group>
+              <v-btn
+                text
+                @click="skipSoal()"
+              >Lewati Soal Ini <v-icon>mdi-menu-right</v-icon>
+              </v-btn>
+            </div>
+          </v-expand-transition>
+          <v-expand-transition>
+            <div v-show="!isNewlySelected">
+              <h1 class="text-center mb-5 mt-5">Jawaban anda {{soal[currentSoal].jawaban}}</h1>
+            </div>
+          </v-expand-transition>
           <!-- <v-btn @click="shortCountDown()">test</v-btn> -->
         </v-card-text>
       </v-card>
     </v-row>
+    <v-dialog
+      v-model="dialogReview"
+      :width="windowWidth>600?'30%':'60%'"
+    >
+      <v-card>
+        <v-card-title>
+          <span v-if="isSoalTerjawabSemua">
+            Semua soal telah dikerjakan!
+          </span><span v-else>Waktu mengerjakan soal sudah habis!</span>
+        </v-card-title>
+
+        <v-card-text>
+          <label>anda masih memiliki waktu ... + 1 menit untuk melakukan revisi</label>
+          <strong v-if="belum_terjawab!=0">
+            {{belum_terjawab}} belum dijawab.
+          </strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            @click="getHasil()"
+            class="text-white"
+            color="green"
+          >Iya</v-btn>
+          <v-btn
+            text
+            @click="dialog=false"
+          >tidak</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      v-model="dialog"
+      :width="windowWidth>600?'30%':'60%'"
+    >
+      <v-card>
+        <v-card-title>
+          Selesai Ujian
+        </v-card-title>
+        <v-card-text>
+          <label>Apakah anda yakin ingin menyelesaikan sesi ujian?</label>
+          <strong v-if="belum_terjawab!=0">
+            {{belum_terjawab}} belum dijawab.
+          </strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            @click="getHasil()"
+            class="text-white"
+            color="green"
+          >Iya</v-btn>
+          <v-btn
+            text
+            @click="dialog=false"
+          >tidak</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -106,7 +176,7 @@ export default {
           clearInterval(soalTimer);
           this.shortCountDownColor = "blue";
           this.shortCountDownValue = 100;
-          this.shortCountDownSeconds = 15;
+          this.shortCountDownSeconds = this.durasiSoal;
           this.shortCountDown();
         } else {
           this.shortCountDownValue -= 100 / interval;
@@ -154,6 +224,7 @@ export default {
     },
     setDuration() {},
     setJawaban(soal) {
+      this.isNewlySelected = false;
       console.log(soal);
       let payload = {
         type: this.type,
@@ -167,6 +238,12 @@ export default {
           console.log(response.data);
         })
         .catch((error) => {});
+      setTimeout(() => {
+        this.isNewlySelected = true;
+        this.shortCountDownValue = 100;
+        this.shortCountDownSeconds = this.durasiSoal;
+        this.currentSoal += 1;
+      }, 1000);
     },
     initData(vm) {
       // get paramater from url segments
@@ -189,14 +266,20 @@ export default {
         type: vm.type,
       };
       vm.getSoal(payload).then((response) => {
-        vm.shortCountDown();
+        console.log(response.data.durasi_soal);
         vm.shortCountDownSeconds = response.data.durasi_soal;
+        vm.shortCountDown();
       });
     },
     skipSoal() {
-      this.shortCountDownValue = 100;
-      this.shortCountDownSeconds = this.durasiSoal;
-      this.currentSoal += 1;
+      this.isNotSkipped = false;
+      setTimeout(() => {
+        this.isNotSkipped = true;
+        this.shortCountDownValue = 100;
+        this.shortCountDownSeconds = this.durasiSoal;
+        this.currentSoal += 1;
+      }, 500);
+      console.log(this.soal[this.currentSoal].jawaban);
     },
     goToPendaftaran() {
       this.$router.push({ name: "Pendaftaran", params: { id: this.ujian_id } });
@@ -209,9 +292,12 @@ export default {
   },
   data() {
     return {
+      isSemuaSoalTerjawab: false,
+      isNotSkipped: true,
+      isNewlySelected: true,
       isStillCounting: true,
       shortCountDownValue: 100,
-      shortCountDownSeconds: 15,
+      shortCountDownSeconds: null,
       shortCountDownColor: "blue",
       currentSoal: 0,
       isLulus: false,
@@ -227,13 +313,12 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     if (from.name == null) {
-      console.log("anjing");
       next((vm) => {
         vm.initSoal(vm);
       });
     } else {
-      console.log("abjing");
       next((vm) => {
+        vm.shortCountDownSeconds = vm.durasiSoal;
         vm.shortCountDown(vm);
       });
     }
@@ -243,7 +328,28 @@ export default {
     this.initData(vm);
   },
   computed: {
-    ...mapState(["soal", "durasi", "durasiSoal", "startTime", "endTime"]),
+    ...mapState([
+      "soal",
+      "durasi",
+      "jumlahSoal",
+      "durasiSoal",
+      "startTime",
+      "endTime",
+    ]),
+    soalTerjawab() {
+      var jumlah = 0;
+      this.soal.forEach((element) => {
+        if (element.jawaban != null) jumlah += 1;
+      });
+      if (jumlah == this.jumlahSoal) {
+        this.isSemuaSoalTerjawab = true;
+        this.dialog = true;
+      }
+      return jumlah;
+    },
+    checkPresence() {
+      return this.isNewlySelected && this.isNotSkipped;
+    },
   },
 };
 </script>

@@ -23,7 +23,8 @@
         color="green"
         :editable="isJurusanEditable"
         step="1"
-        :complete="jurusanSelected?true:false"
+        :complete="jurusanSelected ? true : false"
+        v-if="stepper == 1"
       >
         Pilih Jurusan
         <strong>Pilihlah program studi/konsentrasi yang anda inginkan.</strong>
@@ -54,11 +55,12 @@
       </v-stepper-content>
 
       <v-stepper-step
-        :editable="jurusanSelected?true:false"
+        :editable="jurusanSelected ? true : false"
         color="green"
         :complete="stepper > 2"
         step="2"
         :rules="ruleBiodata"
+        v-if="stepper == 2"
       >
         Isi Biodata
         <!-- <strong
@@ -114,33 +116,35 @@
             ></v-textarea>
           </v-row>
           <v-row>
-            <v-col
-              class="mr-1"
-              style="padding: 0 !important"
-            >
-              <v-text-field
-                color="green"
-                filled
-                @change="updateUser(user)"
-                prepend-inner-icon="mdi-attachment"
-                label="Nilai IPK"
-                type="number"
-                v-model="user.nilai_ipk"
-              ></v-text-field>
-            </v-col>
-            <v-col
-              class="ml-1"
-              style="padding: 0 !important"
-            >
-              <v-text-field
-                color="green"
-                filled
-                @change="updateUser(user)"
-                prepend-inner-icon="mdi-attachment"
-                label="Nilai Bahasa"
-                v-model="user.nilai_bhs"
-              ></v-text-field>
-            </v-col>
+            <v-text-field
+              color="green"
+              filled
+              @change="updateUser(user)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai Bahasa Inggris"
+              v-model="user.nilai_bhs_inggris"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
+              @change="updateUser(user)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai Bahasa Arab"
+              v-model="user.nilai_bhs_arab"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
+              @change="updateUser(user)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai IPK"
+              type="number"
+              v-model="user.nilai_ipk"
+            ></v-text-field>
           </v-row>
           <v-row>
             <v-text-field
@@ -175,7 +179,8 @@
                   dark
                   @click="link(user.ijazah)"
                   color="green darken-2"
-                >lihat File Anda </v-btn>
+                >lihat File Anda
+                </v-btn>
               </v-col>
             </template>
             <v-file-input
@@ -221,7 +226,8 @@
                   dark
                   @click="link(user.pas_photo)"
                   color="green darken-2"
-                >lihat foto anda </v-btn>
+                >lihat foto anda
+                </v-btn>
               </v-col>
             </template>
             <!-- @change="updateUser(user)" -->
@@ -235,7 +241,7 @@
           </v-row>
         </v-container>
         <v-btn
-          :disabled="isBiodataFilled?false:true"
+          :disabled="isBiodataFilled ? false : true"
           color="green darken-2"
           class="text-white"
           @click="stepper = 3"
@@ -251,6 +257,7 @@
         :complete="stepper > 3"
         step="3"
         :rules="rulePembayaran"
+        v-if="stepper == 3"
       >
         Pembayaran
         <!-- <strong
@@ -267,7 +274,8 @@
         >
           <!-- v-if="!ujian.kode_bayar" -->
           <v-card-title>Lakukan Pembayaran</v-card-title>
-          <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian masuk</v-card-subtitle>
+          <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
+            masuk</v-card-subtitle>
           <v-card-text>
             <v-btn
               block
@@ -279,20 +287,17 @@
               @click="generateCode()"
             >Dapatkan Kode Pembayaran</v-btn>
             <div v-if="kodePembayaran && !isPembayaranLunas">
-              <span>
-                Segera membayar dengan kode berikut
-              </span>
-              <h1>{{kodePembayaran}}</h1>
+              <span> Segera membayar dengan kode berikut </span>
+              <h1>{{ kodePembayaran }}</h1>
             </div>
             <div v-if="isPembayaranLunas">
               <h1>Pembayaran Berhasil!</h1>
               <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
             </div>
-
           </v-card-text>
         </v-card>
         <v-btn
-          :disabled="isPembayaranLunas?false:true"
+          :disabled="isPembayaranLunas ? false : true"
           color="green darken-2"
           class="text-white"
           @click="stepper = 4"
@@ -303,11 +308,12 @@
 
       <!-- :editable="isPembayaranLunas?true:false" -->
       <v-stepper-step
-        :complete="stepper>4"
+        :complete="stepper > 4"
         :editable="!isLulusUjian"
         color="green"
         step="4"
         :rules="ruleUjian"
+        v-if="stepper == 4"
       >
         Ujian
         <!-- <strong
@@ -322,9 +328,13 @@
           class="mb-12"
         >
           <v-card-title>Ujian Masuk</v-card-title>
-          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan Jurusan (TKJ)</v-card-subtitle>
+          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
+            Jurusan (TKJ)</v-card-subtitle>
           <v-card-text>
-            <template v-if="ujianSelected.is_lulus_tkj!=false&&ujianSelected.is_lulus_tka!=false">
+            <template v-if="
+                ujianSelected.is_lulus_tkj != false &&
+                ujianSelected.is_lulus_tka != false
+              ">
               <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
               <span>
                 <!-- :end-label="''" -->
@@ -332,7 +342,7 @@
                   @start_callback="startCallBack('event started')"
                   @end_callback="endCallBack('event ended')"
                   :start-time="now"
-                  :end-time="ujianSelected.batas_ujian+' 00:00:00'"
+                  :end-time="ujianSelected.batas_ujian + ' 00:00:00'"
                   :interval="1000"
                   :start-label="'Until start:'"
                   label-position="begin"
@@ -344,7 +354,6 @@
                 >
                 </vue-countdown-timer>
               </span>
-
             </template>
             <template v-else>
               <h4 class="text-red">Maaf anda tidak lulus ujian masuk</h4>
@@ -361,11 +370,15 @@
             <div
               v-if="ujianSelected.is_lulus_tka"
               class="text-center"
-            ><strong> Status Ujian TKA lulus.</strong></div>
+            >
+              <strong> Status Ujian TKA lulus.</strong>
+            </div>
             <div
-              v-if="ujianSelected.is_lulus_tka==false"
+              v-if="ujianSelected.is_lulus_tka == false"
               class="text-center"
-            ><strong> Status Ujian TKA gagal.</strong></div>
+            >
+              <strong> Status Ujian TKA gagal.</strong>
+            </div>
             <v-divider></v-divider>
             <v-btn
               block
@@ -377,19 +390,24 @@
             <div
               v-if="ujianSelected.is_lulus_tkj"
               class="text-center"
-            ><strong> Status Ujian TKJ lulus.</strong></div>
+            >
+              <strong> Status Ujian TKJ lulus.</strong>
+            </div>
             <div
-              v-if="ujianSelected.is_lulus_tkj==false"
+              v-if="ujianSelected.is_lulus_tkj == false"
               class="text-center"
-            ><strong> Status Ujian TKJ gagal.</strong></div>
+            >
+              <strong> Status Ujian TKJ gagal.</strong>
+            </div>
           </v-card-text>
         </v-card>
       </v-stepper-content>
       <v-stepper-step
-        :editable="isLulusUjian?true:false"
+        :editable="isLulusUjian ? true : false"
         color="green"
         step="5"
         :rules="ruleTemuRamah"
+        v-if="stepper == 5"
       >
         Temu Ramah
         <!-- <strong
@@ -398,39 +416,46 @@
         >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan TKJ.</strong> -->
       </v-stepper-step>
       <v-stepper-content step="5">
-        <template v-if="jadwalTR!=null">
+        <template v-if="jadwalTR != null">
           <v-card
-            v-if="jadwalTR.length>0"
+            v-if="jadwalTR.length > 0"
             color="grey lighten-4"
           >
             <v-card-title>Pilih Jadwal Temu Ramah</v-card-title>
             <v-card-text>
               <v-card
                 class="mb-2"
-                :color="!(jadwalSelected==jadwal.id)?'grey lighten-2':'white' "
+                :color="
+                  !(jadwalSelected == jadwal.id) ? 'grey lighten-2' : 'white'
+                "
                 outlined
-                v-for="(jadwal,index) in jadwalTR"
+                v-for="(jadwal, index) in jadwalTR"
                 :key="index"
               >
-                <v-card-title>{{parseDate(jadwal.tanggal)}}</v-card-title>
+                <v-card-title>{{ parseDate(jadwal.tanggal) }}</v-card-title>
                 <v-card-subtitle>
-                  Dosen {{jadwal.nama_dosen}} <br>
-                  Kuota {{calcQuota(jadwal)}}
+                  Dosen {{ jadwal.nama_dosen }} <br />
+                  Kuota {{ calcQuota(jadwal) }}
                 </v-card-subtitle>
                 <v-card-text>
-                  <div v-if="jadwalSelected==jadwal.id">
-                    <strong>Tanggal temu ramah anda sudah ditetapkan</strong> Silahkan datang pada waktu yang
-                    ditentukan untuk melakukan temu ramah
+                  <div v-if="jadwalSelected == jadwal.id">
+                    <strong>Tanggal temu ramah anda sudah ditetapkan</strong>
+                    Silahkan datang pada waktu yang ditentukan untuk melakukan
+                    temu ramah
                   </div>
                   <v-btn
-                    v-if="jadwalSelected!=jadwal.id"
+                    v-if="jadwalSelected != jadwal.id"
                     block
                     color="green"
                     large
                     class="text-white"
-                    :disabled="jadwalSelected?true:false"
+                    :disabled="jadwalSelected ? true : false"
                     @click="setJadwal(jadwal)"
-                  >{{jadwalSelected?'Anda telah memiliki jadwal':'Pilih tanggal ini'}}</v-btn>
+                  >{{
+                      jadwalSelected
+                        ? "Anda telah memiliki jadwal"
+                        : "Pilih tanggal ini"
+                    }}</v-btn>
                 </v-card-text>
               </v-card>
             </v-card-text>
@@ -471,8 +496,12 @@
         <v-list>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>{{this.loadingSheet.message}}</v-list-item-title>
-              <v-list-item-subtitle>{{this.progress+"%"}}</v-list-item-subtitle>
+              <v-list-item-title>{{
+                this.loadingSheet.message
+              }}</v-list-item-title>
+              <v-list-item-subtitle>{{
+                this.progress + "%"
+              }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -487,7 +516,7 @@ export default {
   // first check if this page reloaded before or accessed directly via url
   beforeRouteEnter(to, from, next) {
     if (from.name == null || from.name == "Soal") {
-      next(vm => {
+      next((vm) => {
         console.log(vm.initPendaftaran(vm));
       });
     } else {
@@ -523,12 +552,12 @@ export default {
       jadwal.ids_cln_mhs.push(this.user.id);
       axios
         .put(`/api/temu-ramah/${jadwal.id}`, jadwal)
-        .then(response => {
+        .then((response) => {
           var ini = this;
           this.jadwalTR = response.data.temuRamah;
           this.getTemuRamah(ini);
         })
-        .catch(error => {});
+        .catch((error) => {});
     },
     ujian(type) {
       // console.log("ID", this.ujianSelected.id);
@@ -536,10 +565,10 @@ export default {
       var soal_id = this.ujianSelected.soal_id;
       var payload = { ujian_id, type, soal_id };
       console.log(payload);
-      this.getSoal(payload).then(response => {
+      this.getSoal(payload).then((response) => {
         this.$router.push({
           name: "Soal",
-          params: { type, ujian_id, soal_id: this.ujianSelected.soal_id }
+          params: { type, ujian_id, soal_id: this.ujianSelected.soal_id },
         });
       });
     },
@@ -571,28 +600,28 @@ export default {
       // this method initialize the data that this page needed
       console.log(vm);
       const thePath = window.location.pathname;
-      const getLastItem = thePath =>
+      const getLastItem = (thePath) =>
         thePath.substring(thePath.lastIndexOf("/") + 1);
       var payload = { jurusan_id: getLastItem(thePath) };
       axios
         .post("/api/ujian/get-pendaftaran", payload)
-        .then(response => {
+        .then((response) => {
           vm.setUser(response.data.user);
           vm.setJurusan(response.data.jurusan);
           vm.setUjianSelected(response.data.ujian);
           vm.setData(vm);
         })
-        .catch(error => {});
+        .catch((error) => {});
     },
     getTemuRamah(ini) {
       var payload = { periode: ini.ujianSelected.periode_id };
       var user_id = ini.ujianSelected.user_cln_mhs_id;
       axios
         .get("/api/temu-ramah", payload)
-        .then(response => {
+        .then((response) => {
           // check if is there a date have been booked already
-          response.data.temuRamah.forEach(element => {
-            element.ids_cln_mhs.every(id => {
+          response.data.temuRamah.forEach((element) => {
+            element.ids_cln_mhs.every((id) => {
               if (id == user_id) {
                 ini.jadwalSelected = element.id;
                 return false;
@@ -603,11 +632,14 @@ export default {
           ini.jadwalTR = response.data.temuRamah;
           console.log("temu ramah", ini.jadwalTR);
         })
-        .catch(error => {});
+        .catch((error) => {});
     },
     checkBiodata(v) {
-      Object.keys(v).every(element => {
+      Object.keys(v).every((element) => {
         if (element == "email_verified_at") {
+          return true;
+        }
+        if (element == "is_verified") {
           return true;
         }
         if (v[element] == null) {
@@ -625,21 +657,21 @@ export default {
       var payload = { ujian_id: this.ujian_id };
       axios
         .post("/api/ujian/generate-pembayaran", payload)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
           this.isLoading = false;
           this.kodePembayaran = response.data.code;
           this.isJurusanEditable = false;
           this.loopCheckPembayaran();
         })
-        .catch(error => {});
+        .catch((error) => {});
     },
     initUjian() {
       var periode_id = this.periode[0].id;
       var jurusan_id = this.jurusanSelected;
       var payload = { periode_id, jurusan_id };
       if (this.ujian_id) payload["ujian_id"] = this.ujian_id;
-      axios.post("/api/ujian/init", payload).then(response => {
+      axios.post("/api/ujian/init", payload).then((response) => {
         this.ujian_id = response.data.ujian_id;
         console.log(response.data);
       });
@@ -651,7 +683,7 @@ export default {
       var data = new FormData();
       data.append("file", this.ijazahFile);
       data.append("methodName", "saveIjazahPath");
-      this.upload(data, this).then(response => {
+      this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -667,7 +699,7 @@ export default {
       var data = new FormData();
       data.append("file", this.photoFile);
       data.append("methodName", "savePhotoPath");
-      this.upload(data, this).then(response => {
+      this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
         this.setUser(response.data.user);
@@ -680,25 +712,25 @@ export default {
       return axios({
         method: "post",
         url: "/api/user/store-file",
-        onUploadProgress: progressEvent => {
+        onUploadProgress: (progressEvent) => {
           var percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
           );
           ini.progress = percentCompleted;
         },
-        data
+        data,
       });
     },
     async loopCheckPembayaran() {
       function sleep(ms) {
-        return new Promise(res => setTimeout(res, ms));
+        return new Promise((res) => setTimeout(res, ms));
       }
-      let myAsyncFunc = async function(ini) {
+      let myAsyncFunc = async function (ini) {
         console.log("Sleeping");
         await sleep(3000);
         console.log("Done");
         // console.log(ini);
-        ini.checkPembayaran(ini.ujian_id, ini).then(response => {
+        ini.checkPembayaran(ini.ujian_id, ini).then((response) => {
           if (response.data.status) {
             ini.isPembayaranLunas = true;
             ini.setUjianSelected(response.data.ujian);
@@ -714,11 +746,11 @@ export default {
       return new Promise((resolve, reject) => {
         axios
           .post("/api/ujian/check-pembayaran", payload)
-          .then(response => {
+          .then((response) => {
             if (response.data.status) ini.isPembayaranLunas = true;
             resolve(response);
           })
-          .catch(error => {
+          .catch((error) => {
             reject(error);
           });
       });
@@ -741,11 +773,11 @@ export default {
       } else {
         return "50%";
       }
-    }
+    },
   },
   computed: {
     ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
-    now: function() {
+    now: function () {
       var today = new Date();
       var date =
         today.getFullYear() +
@@ -758,15 +790,15 @@ export default {
       var dateTime = date + " " + time;
       return dateTime;
     },
-    PhotoFileName: function() {}
+    PhotoFileName: function () {},
   },
   watch: {
     user: {
       deep: true,
-      handler: function(v) {
+      handler: function (v) {
         this.checkBiodata(v);
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -786,15 +818,15 @@ export default {
       ruleTemuRamah: [() => this.isLulusUjian != false],
       ruleUjian: [() => this.isPembayaranLunas != false],
       rulePembayaran: [
-        () => this.isBiodataFilled != false && this.jurusanSelected != null
+        () => this.isBiodataFilled != false && this.jurusanSelected != null,
       ],
       ruleBiodata: [() => this.jurusanSelected != null],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,
-      form: {}
+      form: {},
     };
-  }
+  },
 };
 </script>
 

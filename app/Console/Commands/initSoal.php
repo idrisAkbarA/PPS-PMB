@@ -46,13 +46,13 @@ class initSoal extends Command
         $ujians = Ujian::all();
         foreach ($ujians as $key => $value) {
             $jurusan = $value->jurusan_id;
-            $tka_id = $value->kat_tka_id;
-            $tkj_id = $value->kat_tka_id;
+            $komposisi_tka = $value->komposisi_tka;
+            $komposisi_tkj = $value->komposisi_tkj;
             $ujian_id = $value->id;
             $jum_tka = Periode::find($value->periode_id)->jumlah_tka;
             $jum_tkd = Periode::find($value->periode_id)->jumlah_tkj;
             $soalUjian = new SoalUjian;
-            $soalUjian->generate($jurusan, $tka_id, $tkj_id, $jum_tka, $jum_tkd, $ujian_id);
+            $soalUjian->generate($jurusan, $komposisi_tka, $komposisi_tkj, $jum_tka, $jum_tkd, $ujian_id);
         }
         echo "Soal Ujian Stored\n";
     }

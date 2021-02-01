@@ -49,6 +49,12 @@ class UserClnMhs extends Authenticatable
         $this->attributes['ujian'] = $ujian;
     }
 
+    // Setters
+    public function setIsVerifiedAttribute($value)
+    {
+        $this->attributes['is_verified'] = $value;
+    }
+
     // Relations
     public function ujian()
     {

@@ -51,8 +51,8 @@ class addUjian extends Command
         $ujian->periode_id = $periode_active['id'];
         $ujian->jurusan_id = 1;
         $ujian->user_cln_mhs_id = $this->argument('userID');
-        $ujian->kat_tka_id = $jurusan->kat_tka_default;
-        $ujian->kat_tkj_id = $jurusan->kat_tkj_default;
+        $ujian->komposisi_tka = $jurusan->komposisi_tka_default;
+        $ujian->komposisi_tkj = $jurusan->komposisi_tkj_default;
         $ujian->lunas_at = Carbon::now();
         $ujian->batas_ujian = $batasUjian;
         $ujian->save();

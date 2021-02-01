@@ -21,11 +21,11 @@ class Periode extends Model
             $allJurusan = Jurusan::all();
 
             foreach ($allJurusan as $jurusan) {
-                if ($jurusan->kat_tka_default && $jurusan->kat_tkj_default) {
+                if ($jurusan->komposisi_tka_default && $jurusan->komposisi_tkj_default) {
                     $model->kategori()->create([
                         'jurusan_id' => $jurusan->id,
-                        'kat_tka_id' => $jurusan->kat_tka_default,
-                        'kat_tkj_id' => $jurusan->kat_tkj_default,
+                        'komposisi_tka' => $jurusan->komposisi_tka_default,
+                        'komposisi_tkj' => $jurusan->komposisi_tkj_default,
                     ]);
                 }
             }
