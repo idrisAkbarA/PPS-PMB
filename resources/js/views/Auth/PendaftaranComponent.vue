@@ -92,7 +92,7 @@
             <v-col>
               <span>
                 Sudah memiliki akun? Login
-                <a href="/login">disini</a>.
+                <a href="/login">di sini</a>.
               </span>
             </v-col>
           </v-row>

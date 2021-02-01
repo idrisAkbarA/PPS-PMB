@@ -15,12 +15,15 @@ class WebURLController extends Controller
         return view("landingPage",['is_landing_page'=>$is_landing_page]);
     }
     public function pendaftaran(){
-        return view("pendaftaran");
+        $is_login= true;
+        return view("pendaftaran", ['is_login'=>$is_login]);
     }
     public function login(){
-        return view("login");
+        $is_login= true;
+        return view("login", ['is_login'=>$is_login]);
     }
     public function loginPetugas(){
-        return view("login-petugas");
+        $is_login= true;
+        return view("login-petugas", ['is_login'=>$is_login]);
     }
 }

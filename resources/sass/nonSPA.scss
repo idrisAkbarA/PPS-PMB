@@ -31,6 +31,14 @@ $bg-color : #12A50A;
     -webkit-box-shadow: 3px -2px 147px 23px rgba(0, 0, 0, 0.56);
     -moz-box-shadow: 3px -2px 147px 23px rgba(0, 0, 0, 0.56);
   }
+  .left-image {
+    z-index: 1;
+    height: 100%;
+    background: url("/images/uin.jpg") no-repeat;
+    
+    background-size: cover;
+    background-position: center;
+  }
   .left-no-shadow {
     z-index: 1;
     height: 100%;
