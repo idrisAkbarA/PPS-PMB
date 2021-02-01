@@ -16,6 +16,7 @@ class Jurusan extends Model
     protected $appends = [
         'kat_per_periode',
     ];
+
     protected $casts = [
         'komposisi_tka_default' => 'object',
         'komposisi_tkj_default' => 'object',
@@ -41,13 +42,12 @@ class Jurusan extends Model
                     'deskripsi' => 'Soal dengan tingkat kesulitan Sulit'
                 ]
             ]);
-            $kategori = $model->kategori()->first();
-            $komposisi = [
-                ['kategori_id' => $kategori->id, 'nama_kategori' => $kategori->nama, 'jumlah' => 10,],
-            ];
+            $kategori = $model->kategori()->get();
+            $kategori[0]->jumlah_tka = 10;
+            $kategori[0]->jumlah_tkj = 10;
             $model->update([
-                'komposisi_tka_default' => $komposisi,
-                'komposisi_tkj_default' => $komposisi
+                'komposisi_tka_default' => $kategori,
+                'komposisi_tkj_default' => $kategori
             ]);
         });
 
@@ -64,7 +64,7 @@ class Jurusan extends Model
     public static function getAll()
     {
         return self::with('kategori', 'tkj_default', 'tka_default')
-            ->latest()
+            ->orderBy('created_at')
             ->get();
     }
 
@@ -85,6 +85,31 @@ class Jurusan extends Model
             return $kategori;
         }
         return null;
+    }
+
+    // Setters
+    public function setKomposisiTkaDefaultAttribute($value)
+    {
+        $komposisi = [];
+        foreach ($value as $row) {
+            if ($row['jumlah_tka'] > 0) {
+                $tmp = ['kategori_id' => $row['id'], 'nama_kategori' => $row['nama'], 'jumlah' => $row['jumlah_tka'] ?? 0,];
+                array_push($komposisi, $tmp);
+            }
+        }
+        $this->attributes['komposisi_tka_default'] = json_encode($komposisi);
+    }
+
+    public function setKomposisiTkjDefaultAttribute($value)
+    {
+        $komposisi = [];
+        foreach ($value as $row) {
+            if ($row['jumlah_tkj'] > 0) {
+                $tmp = ['kategori_id' => $row['id'], 'nama_kategori' => $row['nama'], 'jumlah' => $row['jumlah_tkj'] ?? 0,];
+                array_push($komposisi, $tmp);
+            }
+        }
+        $this->attributes['komposisi_tkj_default'] = json_encode($komposisi);
     }
 
     // Relations

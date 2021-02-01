@@ -22,10 +22,28 @@
         class="elevation-1"
       >
         <template v-slot:[`item.kategori_tka`]="{ item }">
-          {{ item.tka_default ? item.tka_default.nama : "-" }}
+          <span v-if="item.komposisi_tka_default">
+            <ul>
+              <li
+                v-for="(row, index) in item.komposisi_tka_default"
+                :key="index"
+              >
+                {{ row.nama_kategori }} : {{ row.jumlah }} Soal
+              </li>
+            </ul>
+          </span>
         </template>
         <template v-slot:[`item.kategori_tkj`]="{ item }">
-          {{ item.tkj_default ? item.tkj_default.nama : "-" }}
+          <span v-if="item.komposisi_tkj_default">
+            <ul>
+              <li
+                v-for="(row, index) in item.komposisi_tkj_default"
+                :key="index"
+              >
+                {{ row.nama_kategori }} : {{ row.jumlah }} Soal
+              </li>
+            </ul>
+          </span>
         </template>
         <template v-slot:[`item.actions`]="{ item }">
           <v-btn
@@ -86,22 +104,40 @@
                   </v-text-field>
                 </v-col>
                 <v-col cols="6" v-if="form.id">
-                  <v-select
-                    :items="form.kategori"
-                    label="Kategori TKA Default"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.kat_tka_default"
-                  ></v-select>
+                  <p class="overline text-muted mb-0">Komposisi TKA Default</p>
+                  <v-row
+                    align="center"
+                    v-for="(row, index) in form.kategori"
+                    :key="index"
+                  >
+                    <v-col cols="6">{{ row.nama }}</v-col>
+                    <v-col cols="6">
+                      <v-text-field
+                        dense
+                        type="number"
+                        color="#2C3E50"
+                        v-model="row.jumlah_tka"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
                 </v-col>
                 <v-col cols="6" v-if="form.id">
-                  <v-select
-                    :items="form.kategori"
-                    label="Kategori TKJ Default"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.kat_tkj_default"
-                  ></v-select>
+                  <p class="overline text-muted mb-0">Komposisi TKJ Default</p>
+                  <v-row
+                    align="center"
+                    v-for="(row, index) in form.kategori"
+                    :key="index"
+                  >
+                    <v-col cols="6">{{ row.nama }}</v-col>
+                    <v-col cols="6">
+                      <v-text-field
+                        dense
+                        type="number"
+                        color="#2C3E50"
+                        v-model="row.jumlah_tkj"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -114,7 +150,7 @@
     <v-dialog v-model="dialogCategory" width="500">
       <v-card>
         <v-card-title class="headline bg-white">
-          <h5 class="text-muted">Kategari Soal {{ form.nama }}</h5>
+          <h5 class="text-muted">Kategori Soal {{ form.nama }}</h5>
           <v-spacer></v-spacer>
           <v-card-actions>
             <v-btn
@@ -325,10 +361,23 @@ export default {
     },
     edit(item) {
       this.form = _.clone(item);
+      this.form.kategori.forEach((el) => {
+        let kategori = item.komposisi_tka_default.filter((elem) => {
+          return elem.kategori_id == el.id;
+        })[0];
+        el.jumlah_tka = kategori ? kategori.jumlah : 0;
+
+        kategori = item.komposisi_tkj_default.filter((elem) => {
+          return elem.kategori_id == el.id;
+        })[0];
+        el.jumlah_tkj = kategori ? kategori.jumlah : 0;
+      });
       this.bottomSheet = true;
     },
     submit() {
       const form = this.form;
+      this.form.komposisi_tka_default = this.form.kategori;
+      this.form.komposisi_tkj_default = this.form.kategori;
       if (!form.id) {
         this.store();
         return;
