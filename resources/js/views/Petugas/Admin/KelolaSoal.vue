@@ -278,41 +278,52 @@
             class="mr-2"
             @click="bottomSheet = false"
           >batal</v-btn>
-          <!-- <v-btn
-            color="#2C3E50"
-            dark
-            @click="submit"
-          >Simpan</v-btn> -->
         </v-card-title>
+        <v-card-subtitle>
+          <v-container>
+            <v-row>
+              <v-col cols="6">
+                <v-select
+                  :items="jurusan"
+                  label="Jurusan"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="form.jurusan_id"
+                ></v-select>
+              </v-col>
+              <v-col cols="3">
+                <v-select
+                  :items="kategori"
+                  label="Kategori"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="form.kategori_id"
+                ></v-select>
+              </v-col>
+              <v-col cols="3">
+                <v-select
+                  :items="['TKA', 'TKJ']"
+                  label="Type"
+                  v-model="form.type"
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-subtitle>
         <v-card-text>
           <vue-scroll :ops="scrollOps">
             <v-card-text>
+              <v-overlay
+                absolute
+                :value="!(form.type && form.kategori_id && form.jurusan_id)? true:false"
+              >
+                <v-card>
+                  <v-card-text>
+                    Mohon pilih <strong>jurusan, kategori, dan tipe soal</strong> terlebih dahulu
+                  </v-card-text>
+                </v-card>
+              </v-overlay>
               <v-row>
-                <v-col cols="6">
-                  <v-select
-                    :items="jurusan"
-                    label="Jurusan"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.jurusan_id"
-                  ></v-select>
-                </v-col>
-                <v-col cols="3">
-                  <v-select
-                    :items="kategori"
-                    label="Kategori"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.kategori_id"
-                  ></v-select>
-                </v-col>
-                <v-col cols="3">
-                  <v-select
-                    :items="['TKA', 'TKJ']"
-                    label="Type"
-                    v-model="form.type"
-                  ></v-select>
-                </v-col>
                 <v-col>
                   <v-card
                     outlined
@@ -381,6 +392,7 @@
                             dark
                             @click="submit"
                             class="green darken-2 text-white"
+                            :disabled="!(form.jawaban && form.pertanyaan)?true:false"
                           >
                             Simpan
                           </v-btn>
@@ -494,39 +506,39 @@ export default {
             pertanyaan: "Ma Rabbuka?",
             pilihan_ganda: [
               { pilihan: "A", text: "Allah" },
-              { pilihan: "B", text: "Allah" }
+              { pilihan: "B", text: "Allah" },
             ],
             jawaban: "A",
             jurusan_id: 0,
             kategori_id: 0,
-            type: "tka"
+            type: "tka",
           },
           {
             id: 1,
             pertanyaan: "Ma Rabbukaa?",
             pilihan_ganda: [
               { pilihan: "A", text: "Allah" },
-              { pilihan: "B", text: "Allah" }
+              { pilihan: "B", text: "Allah" },
             ],
             jawaban: "A",
             jurusan_id: 0,
             kategori_id: 0,
-            type: "tka"
-          }
-        ]
+            type: "tka",
+          },
+        ],
       },
       scrollOps: {
         scrollPanel: {
           easing: "easeInQuad",
           speed: 800,
-          scrollingX: false
+          scrollingX: false,
         },
         vuescroll: {
           mode: "native",
           wheelScrollDuration: 0,
-          locking: true
-        }
-      }
+          locking: true,
+        },
+      },
     };
   },
   computed: {
@@ -534,26 +546,26 @@ export default {
       "isBottomSheetOpen",
       "urlBankSoal",
       "urlJurusan",
-      "urlKategori"
+      "urlKategori",
     ]),
     bottomSheet: {
-      get: function() {
+      get: function () {
         return this.isBottomSheetOpen;
       },
-      set: function(data) {
+      set: function (data) {
         this.toggleBottomSheet(data);
-      }
-    }
+      },
+    },
   },
   watch: {
-    bottomSheet: function(val) {
+    bottomSheet: function (val) {
       if (val && !this.form.id) {
         this.setPilihanGanda();
       } else if (!val) {
         this.form = {};
       }
     },
-    selectedJurusan: function(val) {
+    selectedJurusan: function (val) {
       if (!val) {
         this.kategori = [];
       } else {
@@ -562,20 +574,31 @@ export default {
       this.selectedKategori = null;
       this.getSoal();
     },
-    selectedKategori: function(val) {
+    selectedKategori: function (val) {
       this.getSoal();
     },
-    "soalTKA.currentPage": function(val) {
+    "soalTKA.currentPage": function (val) {
       this.getSoal("tka");
     },
-    "soalTKJ.currentPage": function(val) {
+    "soalTKJ.currentPage": function (val) {
       this.getSoal("tkj");
     },
-    "form.jurusan_id": function(val) {
+    "form.jurusan_id": function (val) {
       if (val) {
-        this.getKategori(val);
+        const urlKategori = `${this.urlKategori}/${val}`;
+        this.isLoading = true;
+        axios
+          .get(urlKategori)
+          .then((response) => {
+            this.kategori = response.data;
+          })
+          .catch((err) => {
+            console.error(err);
+          })
+          .then((this.isLoading = false));
+        console.log(this.kategori);
       }
-    }
+    },
   },
   created() {
     this.getJurusan();
@@ -592,14 +615,14 @@ export default {
       const form = {
         jurusan: this.selectedJurusan,
         kategori: this.selectedKategori,
-        page: type ? this[`soal${type.toUpperCase()}`].currentPage : null
+        page: type ? this[`soal${type.toUpperCase()}`].currentPage : null,
       };
       this.isLoading = true;
       axios
         .get(urlBankSoal, {
-          params: form
+          params: form,
         })
-        .then(response => {
+        .then((response) => {
           if (type) {
             this[`soal${type.toUpperCase()}`] = {
               data: response.data.data,
@@ -607,7 +630,7 @@ export default {
               lastPage: response.data.last_page,
               from: response.data.from,
               to: response.data.to,
-              total: response.data.total
+              total: response.data.total,
             };
             return;
           }
@@ -617,7 +640,7 @@ export default {
             lastPage: response.data.tka.last_page,
             from: response.data.tka.from,
             to: response.data.tka.to,
-            total: response.data.tka.total
+            total: response.data.tka.total,
           };
           this.soalTKJ = {
             data: response.data.tkj.data,
@@ -625,10 +648,10 @@ export default {
             lastPage: response.data.tkj.last_page,
             from: response.data.tkj.from,
             to: response.data.tkj.to,
-            total: response.data.tkj.total
+            total: response.data.tkj.total,
           };
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -637,10 +660,10 @@ export default {
       this.isLoading = true;
       axios
         .get(this.urlJurusan)
-        .then(response => {
+        .then((response) => {
           this.jurusan = response.data;
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -650,13 +673,13 @@ export default {
       this.isLoading = true;
       axios
         .get(urlKategori)
-        .then(response => {
+        .then((response) => {
           this.kategori = response.data;
-          if (this.kategori.some(e => !(e.id == this.form.kategori_id))) {
+          if (this.kategori.some((e) => !(e.id == this.form.kategori_id))) {
             this.form.kategori_id = null;
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -674,7 +697,7 @@ export default {
       this.isLoading = true;
       axios
         .post(this.urlBankSoal, this.form)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.buttonLoading = false;
             this.cardSoal = false;
@@ -688,16 +711,16 @@ export default {
             // this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then(() => {
@@ -706,6 +729,7 @@ export default {
         });
     },
     edit(item) {
+      console.log(item);
       this.form = _.cloneDeep(item);
       this.bottomSheet = true;
     },
@@ -714,22 +738,22 @@ export default {
       this.isLoading = true;
       axios
         .put(urlBankSoal, this.form)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
             this.getSoal();
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then((this.isLoading = false));
@@ -740,22 +764,22 @@ export default {
       this.isLoading = true;
       axios
         .delete(urlBankSoal)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.dialogDelete = false;
             this.getSoal();
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then((this.isLoading = false));
@@ -766,10 +790,10 @@ export default {
         { pilihan: "B", label: "Pilihan B", text: "" },
         { pilihan: "C", label: "Pilihan C", text: "" },
         { pilihan: "D", label: "Pilihan D", text: "" },
-        { pilihan: "E", label: "Pilihan E", text: "" }
+        { pilihan: "E", label: "Pilihan E", text: "" },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 
