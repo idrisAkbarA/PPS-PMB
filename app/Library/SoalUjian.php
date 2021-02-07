@@ -69,18 +69,18 @@ class SoalUjian
         $tka_selected = null;
         foreach ($komposisi_tka as $key => $value) {
             if ($tka_selected == null) {
-                $tka_selected = self::selectRandomly($soalTKA, $value->jumlah);
+                $tka_selected = self::selectRandomly($soalTKA, 2 * $value->jumlah);
             } else {
-                $temp = self::selectRandomly($soalTKA, $value->jumlah);
+                $temp = self::selectRandomly($soalTKA, 2 * $value->jumlah);
                 array_merge($tka_selected, $temp);
             }
         }
         $tkj_selected = null;
         foreach ($komposisi_tkj as $key => $value) {
             if ($tkj_selected == null) {
-                $tkj_selected = self::selectRandomly($soalTKJ, $value->jumlah);
+                $tkj_selected = self::selectRandomly($soalTKJ, 2 * $value->jumlah);
             } else {
-                $temp = self::selectRandomly($soalTKJ, $value->jumlah);
+                $temp = self::selectRandomly($soalTKJ, 2 * $value->jumlah);
                 array_merge($tkj_selected, $temp);
             }
         }
