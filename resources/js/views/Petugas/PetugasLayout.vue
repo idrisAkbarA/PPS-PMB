@@ -247,7 +247,7 @@ export default {
     logout() {
       axios
         .get("/api/logout-petugas")
-        .then(response => {
+        .then((response) => {
           window.location.replace("/");
         })
         .catch(() => {
@@ -255,10 +255,10 @@ export default {
           console.log("Couldn't logout");
           // this.$router.push({ path: "/login" });
         });
-    }
+    },
   },
   props: {
-    source: String
+    source: String,
   },
   computed: {
     ...mapState(["currentPeriode"]),
@@ -271,28 +271,28 @@ export default {
         {
           icon: "mdi-school",
           title: "Kelola Periode",
-          to: `/admin/${petugas}/kelola-periode`
+          to: `/admin/${petugas}/kelola-periode`,
         },
         {
           icon: "mdi-clipboard-check-multiple",
           title: "Kelola Jurusan",
-          to: `/admin/${petugas}/kelola-jurusan`
+          to: `/admin/${petugas}/kelola-jurusan`,
         },
         {
           icon: "mdi-account-details",
           title: "Akun Pendaftar",
-          to: `/admin/${petugas}/pendaftar`
+          to: `/admin/${petugas}/pendaftar`,
         },
         {
           icon: "mdi-book-multiple",
           title: "Pendaftaran",
-          to: `/admin/${petugas}/kelola-pendaftaran`
+          to: `/admin/${petugas}/kelola-pendaftaran`,
         },
         {
           icon: "mdi-book-plus",
           title: "Temu Ramah",
-          to: `/admin/${petugas}/kelola-temu-ramah`
-        }
+          to: `/admin/${petugas}/kelola-temu-ramah`,
+        },
       ];
     },
     CATpages() {
@@ -301,30 +301,30 @@ export default {
         {
           icon: "mdi-file-document",
           title: "Kelola Soal",
-          to: `/admin/${petugas}/kelola-soal`
+          to: `/admin/${petugas}/kelola-soal`,
         },
         {
           icon: "mdi-file-compare",
           title: "Kelola Kategori",
-          to: `/admin/${petugas}/kelola-kategori`
+          to: `/admin/${petugas}/kelola-kategori`,
         },
         {
           icon: "mdi-file-document",
           title: "Laporan Ujian",
-          to: `/admin/${petugas}/laporan-ujian`
+          to: `/admin/${petugas}/laporan-ujian`,
         },
         {
           icon: "mdi-tools",
           title: "Setting Ujian",
-          to: `/admin/${petugas}/setting-ujian`
-        }
+          to: `/admin/${petugas}/setting-ujian`,
+        },
         // {
         //   icon: "mdi-file-document",
         //   title: "Hasil Ujian",
         //   to: `/admin/${petugas}/kelola-kategori`
         // }
       ];
-    }
+    },
   },
   data: () => ({
     drawer: false,
@@ -335,24 +335,24 @@ export default {
       scrollPanel: {
         easing: "easeInQuad",
         speed: 800,
-        scrollingX: false
+        scrollingX: false,
       },
       bar: {
-        background: "#FFEBEE"
+        background: "#FFEBEE",
       },
       vuescroll: {
         mode: "native",
         wheelScrollDuration: 0,
-        locking: true
-      }
-    }
+        locking: true,
+      },
+    },
   }),
   mounted() {
     console.log(this.$route);
     console.log(this.$route.matched);
     this.getCurrentPeriode();
     // this.$vuetify.theme.dark = true;
-  }
+  },
 };
 </script>
 
@@ -411,7 +411,7 @@ export default {
   background: #ff8481;
 }
 .bg-pattern {
-  background: url("/pattern.svg") repeat;
+  background: url("/images/pattern1.svg") repeat;
   background-size: 400px;
 }
 a {

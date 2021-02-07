@@ -48,7 +48,10 @@
     <div class="ribbon"></div>
 
     <!-- Sizes your content based upon application components -->
-    <v-main style="z-index: 2">
+    <v-main
+      style="z-index: 2"
+      class="bg-pattern"
+    >
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
         <!-- If using vue-router -->
@@ -99,19 +102,22 @@ export default {
 </script>
 
 <style>
+.bg-pattern {
+  background: url("/images/pattern1.svg") repeat;
+  background-size: 400px;
+}
 .ribbon {
   position: absolute;
   z-index: 1;
   background: rgb(0, 36, 15);
-  background: 
-  linear-gradient(
+  background: linear-gradient(
       0deg,
       rgb(5, 94, 42) 0%,
       rgba(6, 90, 13, 0.377) 30%
     ),
     url("/images/pasca1.jpg") no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-size: cover;
+  background-position: center;
   /* background-size: contain; */
   /* background: url("/images/bg.jpg"); */
   /* background: #33691e; */
