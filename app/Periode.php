@@ -31,7 +31,7 @@ class Periode extends Model
                 if ($jurusan->kuota_kelas_default) {
                     $model->kuota_kelas()->create([
                         'jurusan_id' => $jurusan->id,
-                        'kuota_kelas' => $jurusan->kuota_kelas_default
+                        'kuota' => $jurusan->kuota_kelas_default
                     ]);
                 }
             }
