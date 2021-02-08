@@ -28,6 +28,12 @@ class Periode extends Model
                         'komposisi_tkj' => $jurusan->komposisi_tkj_default,
                     ]);
                 }
+                if ($jurusan->kuota_kelas_default) {
+                    $model->kuota_kelas()->create([
+                        'jurusan_id' => $jurusan->id,
+                        'kuota_kelas' => $jurusan->kuota_kelas_default
+                    ]);
+                }
             }
         });
 
@@ -110,6 +116,10 @@ class Periode extends Model
     public function kategori()
     {
         return $this->hasMany('App\KatJurusanPerPeriode');
+    }
+    public function kuota_kelas()
+    {
+        return $this->hasMany('App\KuotaKelasPerPeriode');
     }
 
     public function temu_ramah()

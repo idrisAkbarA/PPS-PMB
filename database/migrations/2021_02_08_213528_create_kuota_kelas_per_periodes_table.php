@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJurusansTable extends Migration
+class CreateKuotaKelasPerPeriodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateJurusansTable extends Migration
      */
     public function up()
     {
-        Schema::create('jurusans', function (Blueprint $table) {
+        Schema::create('kuota_kelas_per_periodes', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->json('komposisi_tka_default')->nullable();
-            $table->json('komposisi_tkj_default')->nullable();
-            $table->integer('kuota_kelas_default');
+            $table->bigInteger('periode_id');
+            $table->bigInteger('jurusan_id');
+            $table->Integer('kuota');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateJurusansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jurusans');
+        Schema::dropIfExists('kuota_kelas_per_periodes');
     }
 }

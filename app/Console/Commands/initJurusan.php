@@ -52,6 +52,7 @@ class initJurusan extends Command
         foreach ($program as $key => $value) {
             $jurusan = new Jurusan;
             $jurusan->nama = $value;
+            $jurusan->kuota_kelas_default = 10;
             $jurusan->save();
         }
         echo "Jurusan Stored\n";
