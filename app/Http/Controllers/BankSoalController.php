@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\BankSoal;
 use App\Imports\SoalImport;
+use App\Exports\templateExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 class BankSoalController extends Controller
 {
@@ -20,6 +23,17 @@ class BankSoalController extends Controller
         Excel::import($import, $request->file('file'));
 
         return response()->json(['status' => "Success: Soal Added", 'total' => $import->getRowCount()]);
+    }
+    public function generateTemplate()
+    {
+        // $spreadsheet = new Spreadsheet();
+        // $spreadsheet = new Spreadsheet();
+        // $sheet = $spreadsheet->getActiveSheet();
+        // $sheet->setCellValue('A1', 'Hello World !');
+
+        // $writer = new Xls($spreadsheet);
+        // $writer->save('hello world.xls');
+        return Excel::download(new templateExport, 'template.xlsx');
     }
     public function index(Request $request)
     {

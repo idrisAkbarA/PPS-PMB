@@ -118,6 +118,8 @@ export default new Vuex.Store({
                     }
                 }).then(response => {
                     resolve(response);
+                }).catch(error => {
+                    reject(error);
                 })
 
             });

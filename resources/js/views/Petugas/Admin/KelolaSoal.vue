@@ -434,10 +434,13 @@
                 <v-col cols="12">
                   <strong>Isi soal kedalam template file excel yang sudah di sediakan</strong>
                   <div>
+                    <p class="text-muted">Pastikan selalu menggunakan template terbaru apabila ada perubahan pada kategori soal dan jurusan</p>
                     <v-btn
                       color="green darken-2"
                       dark
                       class="mt-1"
+                      :loading="downloadLoading"
+                      @click="downloadTemplate"
                     >
                       <v-icon left> mdi-download</v-icon>
                       Download template excel
@@ -569,10 +572,12 @@
 </template>
 
 <script>
+const FileDownload = require("js-file-download");
 import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      downloadLoading: false,
       btnLoading: false,
       file: null,
       buttonLoading: false,
@@ -708,6 +713,17 @@ export default {
     attachTemplate() {
       document.getElementById("upload").click();
     },
+    downloadTemplate() {
+      this.downloadLoading = true;
+      axios
+        .get("/api/bank-soal/download-template", {
+          responseType: "blob",
+        })
+        .then((response) => {
+          FileDownload(response.data, "Beasiswa.xlsx");
+          this.downloadLoading = false;
+        });
+    },
     uploadTemplate() {
       this.btnLoading = true;
       var formData = new FormData();
@@ -722,6 +738,9 @@ export default {
         })
         .catch((error) => {
           this.btnLoading = false;
+          this.snackbar.color = "red";
+          this.snackbar.message = `Maaf terjadi kesalahan, mohon periksa file kembali.`;
+          this.snackbar.show = true;
         });
     },
     getSoal(type = null) {
