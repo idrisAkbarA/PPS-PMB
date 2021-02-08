@@ -720,7 +720,7 @@ export default {
           responseType: "blob",
         })
         .then((response) => {
-          FileDownload(response.data, "Beasiswa.xlsx");
+          FileDownload(response.data, "template.xlsx");
           this.downloadLoading = false;
         });
     },
