@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\BankSoal;
+use App\Imports\SoalImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BankSoalController extends Controller
 {
@@ -12,6 +14,13 @@ class BankSoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function importExcel(Request $request)
+    {
+        $import = new SoalImport;
+        Excel::import($import, $request->file('file'));
+
+        return response()->json(['status' => "Success: Soal Added", 'total' => $import->getRowCount()]);
+    }
     public function index(Request $request)
     {
         $jurusan_id = $request->jurusan;

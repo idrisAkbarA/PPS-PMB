@@ -26,6 +26,7 @@ export default new Vuex.Store({
         urlTemuRamah: '/api/temu-ramah',
         urlKategoriPeriode: "/api/kategori-periode",
         isBottomSheetOpen: false,
+        isBottomSheetOpen2: false,
         currentPeriode: null, // current active periode
         jurusan: null,
         ujian: null,
@@ -35,6 +36,9 @@ export default new Vuex.Store({
         soal: null,
     },
     mutations: {
+        toggleBottomSheet2(state, data) {
+            state.isBottomSheetOpen2 = data;
+        },
         toggleBottomSheet(state, data) {
             state.isBottomSheetOpen = data;
         },
@@ -106,6 +110,21 @@ export default new Vuex.Store({
         }
     },
     actions: {
+        importExcel({ commit, dispatch, state }, data) {
+            return new Promise((resolve, reject) => {
+                axios.post("/api/bank-soal/import", data, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then(response => {
+                    resolve(response);
+                })
+
+            });
+
+
+
+        },
         initAllDataClnMhs({ commit, dispatch, state }) {
             state.isLoading = true;
             return new Promise((resolve, reject) => {

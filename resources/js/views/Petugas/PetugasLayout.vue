@@ -148,8 +148,21 @@
           v-if="checkRoute('Kelola Soal')"
           @click="setBottomSheetToTrue"
         >
-          <v-icon> mdi-plus</v-icon> tambah soal
+          <v-icon left> mdi-plus</v-icon> tambah soal
         </v-btn>
+
+      </v-slide-y-transition>
+      <v-slide-y-transition>
+        <v-btn
+          small
+          class="green darken-3 ml-2"
+          dark
+          v-if="checkRoute('Kelola Soal')"
+          @click="setBottomSheetToTrue2"
+        >
+          <v-icon left> mdi-file-excel</v-icon> Import soal
+        </v-btn>
+
       </v-slide-y-transition>
       <v-slide-y-transition>
         <v-btn
@@ -225,8 +238,11 @@
 import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   methods: {
-    ...mapMutations(["toggleBottomSheet"]),
+    ...mapMutations(["toggleBottomSheet", "toggleBottomSheet2"]),
     ...mapActions(["getCurrentPeriode"]),
+    setBottomSheetToTrue2() {
+      this.toggleBottomSheet2(true);
+    },
     setBottomSheetToTrue() {
       this.toggleBottomSheet(true);
     },

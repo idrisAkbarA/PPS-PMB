@@ -414,16 +414,103 @@
           </vue-scroll>
         </v-card-text>
         <v-row justify="center">
-          <!-- <v-btn
-            class="mt-2"
-            fab
-            dark
-            small
-            color="#2C3E50"
-          >
-            <v-icon dark> mdi-plus </v-icon>
-          </v-btn> -->
         </v-row>
+      </v-card>
+    </v-bottom-sheet>
+    <v-bottom-sheet v-model="bottomSheet2">
+      <v-card>
+        <v-card-title>Import Soal</v-card-title>
+        <v-card-subtitle>Import soal dari file excel</v-card-subtitle>
+        <v-card-text>
+          <v-timeline
+            align-top
+            dense
+          >
+            <v-timeline-item
+              color="pink"
+              small
+            >
+              <v-row class="pt-1">
+                <v-col cols="12">
+                  <strong>Isi soal kedalam template file excel yang sudah di sediakan</strong>
+                  <div>
+                    <v-btn
+                      color="green darken-2"
+                      dark
+                      class="mt-1"
+                    >
+                      <v-icon left> mdi-download</v-icon>
+                      Download template excel
+                    </v-btn>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+
+            <v-timeline-item
+              color="teal lighten-3"
+              small
+            >
+              <v-row class="pt-1">
+                <v-col cols="12">
+                  <strong>Upload file excel yang sudah di isi</strong>
+                  <div>
+                    <div v-if="file">
+                      <p class="text-muted">File terlampir: <br>
+                        <strong>
+                          {{file.name}}
+                        </strong>
+                        <i
+                          class="mdi mdi-close"
+                          @click="file=null"
+                        ></i>
+                      </p>
+                    </div>
+                    <v-btn
+                      class="mt-1"
+                      color="green darken-2"
+                      @click="attachTemplate()"
+                      :text="file?true:false"
+                      dark
+                    ><i class="mdi mdi-attachment mr-2"></i> <span v-if="!file">Lampirkan file excel</span> <span v-else>Ganti file</span> </v-btn>
+                    <v-file-input
+                      accept=".xls, .xlsx"
+                      id="upload"
+                      v-model="file"
+                      hide-input
+                      truncate-length="1"
+                      class="d-none"
+                    ></v-file-input>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+            <v-timeline-item
+              color="teal lighten-3"
+              small
+            >
+              <v-row>
+                <v-col>
+                  <strong>Upload dan simpan file excel terlampir</strong>
+                  <div>
+                    <v-btn
+                      color="green darken-2"
+                      class="mt-1 text-white"
+                      :disabled="!file"
+                      @click="uploadTemplate()"
+                      :loading="btnLoading"
+                    >
+                      <v-icon left>
+                        mdi-upload
+                      </v-icon>
+                      Upload file
+                    </v-btn>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+          </v-timeline>
+        </v-card-text>
       </v-card>
     </v-bottom-sheet>
     <!-- Dialog Delete -->
@@ -482,10 +569,12 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      btnLoading: false,
+      file: null,
       buttonLoading: false,
       cardSoal: true,
       tab: null,
@@ -544,6 +633,7 @@ export default {
   computed: {
     ...mapState([
       "isBottomSheetOpen",
+      "isBottomSheetOpen2",
       "urlBankSoal",
       "urlJurusan",
       "urlKategori",
@@ -554,6 +644,14 @@ export default {
       },
       set: function (data) {
         this.toggleBottomSheet(data);
+      },
+    },
+    bottomSheet2: {
+      get: function () {
+        return this.isBottomSheetOpen2;
+      },
+      set: function (data) {
+        this.toggleBottomSheet2(data);
       },
     },
   },
@@ -605,7 +703,27 @@ export default {
     this.getSoal();
   },
   methods: {
-    ...mapMutations(["toggleBottomSheet"]),
+    ...mapMutations(["toggleBottomSheet", "toggleBottomSheet2"]),
+    ...mapActions(["importExcel"]),
+    attachTemplate() {
+      document.getElementById("upload").click();
+    },
+    uploadTemplate() {
+      this.btnLoading = true;
+      var formData = new FormData();
+      var file = this.file;
+      formData.append("file", file);
+      this.importExcel(formData)
+        .then((response) => {
+          this.btnLoading = false;
+          this.bottomSheet2 = false;
+          this.snackbar.message = `${response.data.total} Soal berhasil disimpan`;
+          this.snackbar.show = true;
+        })
+        .catch((error) => {
+          this.btnLoading = false;
+        });
+    },
     getSoal(type = null) {
       let urlBankSoal = this.urlBankSoal;
       if (type) {
