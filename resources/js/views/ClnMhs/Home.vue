@@ -10,13 +10,13 @@
         Universitas Islam Negeri Sultan Syarif Kasim Riau
       </h4>
       <h4 class="mt-10 text-white font-weight-light">
-        Lihat panduan pendaftaran
+        Lihat panduan pendaftaran serta syarat dan ketentuan
         <a
           href="#"
           class="font-weight-black text-white"
           style="text-decoration: none"
           @click="$router.push({ name: 'Panduan Pendaftaran' })"
-        >disini</a>. Silahkan mendaftar!
+        >DI SINI</a>.  Harap baca dengan teliti!
 
       </h4>
     </div>
