@@ -21,7 +21,7 @@
       </h4>
     </div>
     <div>
-      <h4 class="font-weight-light">Pendaftaran anda</h4>
+      <h4 class="font-weight-light">Riwayat pendaftaran anda</h4>
     </div>
     <v-container style="padding: 0px !important">
       <v-row v-if="isLoading">

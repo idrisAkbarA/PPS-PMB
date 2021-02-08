@@ -278,41 +278,52 @@
             class="mr-2"
             @click="bottomSheet = false"
           >batal</v-btn>
-          <!-- <v-btn
-            color="#2C3E50"
-            dark
-            @click="submit"
-          >Simpan</v-btn> -->
         </v-card-title>
+        <v-card-subtitle>
+          <v-container>
+            <v-row>
+              <v-col cols="6">
+                <v-select
+                  :items="jurusan"
+                  label="Jurusan"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="form.jurusan_id"
+                ></v-select>
+              </v-col>
+              <v-col cols="3">
+                <v-select
+                  :items="kategori"
+                  label="Kategori"
+                  item-text="nama"
+                  item-value="id"
+                  v-model="form.kategori_id"
+                ></v-select>
+              </v-col>
+              <v-col cols="3">
+                <v-select
+                  :items="['TKA', 'TKJ']"
+                  label="Type"
+                  v-model="form.type"
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-subtitle>
         <v-card-text>
           <vue-scroll :ops="scrollOps">
             <v-card-text>
+              <v-overlay
+                absolute
+                :value="!(form.type && form.kategori_id && form.jurusan_id)? true:false"
+              >
+                <v-card>
+                  <v-card-text>
+                    Mohon pilih <strong>jurusan, kategori, dan tipe soal</strong> terlebih dahulu
+                  </v-card-text>
+                </v-card>
+              </v-overlay>
               <v-row>
-                <v-col cols="6">
-                  <v-select
-                    :items="jurusan"
-                    label="Jurusan"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.jurusan_id"
-                  ></v-select>
-                </v-col>
-                <v-col cols="3">
-                  <v-select
-                    :items="kategori"
-                    label="Kategori"
-                    item-text="nama"
-                    item-value="id"
-                    v-model="form.kategori_id"
-                  ></v-select>
-                </v-col>
-                <v-col cols="3">
-                  <v-select
-                    :items="['TKA', 'TKJ']"
-                    label="Type"
-                    v-model="form.type"
-                  ></v-select>
-                </v-col>
                 <v-col>
                   <v-card
                     outlined
@@ -381,6 +392,7 @@
                             dark
                             @click="submit"
                             class="green darken-2 text-white"
+                            :disabled="!(form.jawaban && form.pertanyaan)?true:false"
                           >
                             Simpan
                           </v-btn>
@@ -402,16 +414,103 @@
           </vue-scroll>
         </v-card-text>
         <v-row justify="center">
-          <!-- <v-btn
-            class="mt-2"
-            fab
-            dark
-            small
-            color="#2C3E50"
-          >
-            <v-icon dark> mdi-plus </v-icon>
-          </v-btn> -->
         </v-row>
+      </v-card>
+    </v-bottom-sheet>
+    <v-bottom-sheet v-model="bottomSheet2">
+      <v-card>
+        <v-card-title>Import Soal</v-card-title>
+        <v-card-subtitle>Import soal dari file excel</v-card-subtitle>
+        <v-card-text>
+          <v-timeline
+            align-top
+            dense
+          >
+            <v-timeline-item
+              color="pink"
+              small
+            >
+              <v-row class="pt-1">
+                <v-col cols="12">
+                  <strong>Isi soal kedalam template file excel yang sudah di sediakan</strong>
+                  <div>
+                    <v-btn
+                      color="green darken-2"
+                      dark
+                      class="mt-1"
+                    >
+                      <v-icon left> mdi-download</v-icon>
+                      Download template excel
+                    </v-btn>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+
+            <v-timeline-item
+              color="teal lighten-3"
+              small
+            >
+              <v-row class="pt-1">
+                <v-col cols="12">
+                  <strong>Upload file excel yang sudah di isi</strong>
+                  <div>
+                    <div v-if="file">
+                      <p class="text-muted">File terlampir: <br>
+                        <strong>
+                          {{file.name}}
+                        </strong>
+                        <i
+                          class="mdi mdi-close"
+                          @click="file=null"
+                        ></i>
+                      </p>
+                    </div>
+                    <v-btn
+                      class="mt-1"
+                      color="green darken-2"
+                      @click="attachTemplate()"
+                      :text="file?true:false"
+                      dark
+                    ><i class="mdi mdi-attachment mr-2"></i> <span v-if="!file">Lampirkan file excel</span> <span v-else>Ganti file</span> </v-btn>
+                    <v-file-input
+                      accept=".xls, .xlsx"
+                      id="upload"
+                      v-model="file"
+                      hide-input
+                      truncate-length="1"
+                      class="d-none"
+                    ></v-file-input>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+            <v-timeline-item
+              color="teal lighten-3"
+              small
+            >
+              <v-row>
+                <v-col>
+                  <strong>Upload dan simpan file excel terlampir</strong>
+                  <div>
+                    <v-btn
+                      color="green darken-2"
+                      class="mt-1 text-white"
+                      :disabled="!file"
+                      @click="uploadTemplate()"
+                      :loading="btnLoading"
+                    >
+                      <v-icon left>
+                        mdi-upload
+                      </v-icon>
+                      Upload file
+                    </v-btn>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+          </v-timeline>
+        </v-card-text>
       </v-card>
     </v-bottom-sheet>
     <!-- Dialog Delete -->
@@ -470,10 +569,12 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      btnLoading: false,
+      file: null,
       buttonLoading: false,
       cardSoal: true,
       tab: null,
@@ -494,66 +595,75 @@ export default {
             pertanyaan: "Ma Rabbuka?",
             pilihan_ganda: [
               { pilihan: "A", text: "Allah" },
-              { pilihan: "B", text: "Allah" }
+              { pilihan: "B", text: "Allah" },
             ],
             jawaban: "A",
             jurusan_id: 0,
             kategori_id: 0,
-            type: "tka"
+            type: "tka",
           },
           {
             id: 1,
             pertanyaan: "Ma Rabbukaa?",
             pilihan_ganda: [
               { pilihan: "A", text: "Allah" },
-              { pilihan: "B", text: "Allah" }
+              { pilihan: "B", text: "Allah" },
             ],
             jawaban: "A",
             jurusan_id: 0,
             kategori_id: 0,
-            type: "tka"
-          }
-        ]
+            type: "tka",
+          },
+        ],
       },
       scrollOps: {
         scrollPanel: {
           easing: "easeInQuad",
           speed: 800,
-          scrollingX: false
+          scrollingX: false,
         },
         vuescroll: {
           mode: "native",
           wheelScrollDuration: 0,
-          locking: true
-        }
-      }
+          locking: true,
+        },
+      },
     };
   },
   computed: {
     ...mapState([
       "isBottomSheetOpen",
+      "isBottomSheetOpen2",
       "urlBankSoal",
       "urlJurusan",
-      "urlKategori"
+      "urlKategori",
     ]),
     bottomSheet: {
-      get: function() {
+      get: function () {
         return this.isBottomSheetOpen;
       },
-      set: function(data) {
+      set: function (data) {
         this.toggleBottomSheet(data);
-      }
-    }
+      },
+    },
+    bottomSheet2: {
+      get: function () {
+        return this.isBottomSheetOpen2;
+      },
+      set: function (data) {
+        this.toggleBottomSheet2(data);
+      },
+    },
   },
   watch: {
-    bottomSheet: function(val) {
+    bottomSheet: function (val) {
       if (val && !this.form.id) {
         this.setPilihanGanda();
       } else if (!val) {
         this.form = {};
       }
     },
-    selectedJurusan: function(val) {
+    selectedJurusan: function (val) {
       if (!val) {
         this.kategori = [];
       } else {
@@ -562,27 +672,58 @@ export default {
       this.selectedKategori = null;
       this.getSoal();
     },
-    selectedKategori: function(val) {
+    selectedKategori: function (val) {
       this.getSoal();
     },
-    "soalTKA.currentPage": function(val) {
+    "soalTKA.currentPage": function (val) {
       this.getSoal("tka");
     },
-    "soalTKJ.currentPage": function(val) {
+    "soalTKJ.currentPage": function (val) {
       this.getSoal("tkj");
     },
-    "form.jurusan_id": function(val) {
+    "form.jurusan_id": function (val) {
       if (val) {
-        this.getKategori(val);
+        const urlKategori = `${this.urlKategori}/${val}`;
+        this.isLoading = true;
+        axios
+          .get(urlKategori)
+          .then((response) => {
+            this.kategori = response.data;
+          })
+          .catch((err) => {
+            console.error(err);
+          })
+          .then((this.isLoading = false));
+        console.log(this.kategori);
       }
-    }
+    },
   },
   created() {
     this.getJurusan();
     this.getSoal();
   },
   methods: {
-    ...mapMutations(["toggleBottomSheet"]),
+    ...mapMutations(["toggleBottomSheet", "toggleBottomSheet2"]),
+    ...mapActions(["importExcel"]),
+    attachTemplate() {
+      document.getElementById("upload").click();
+    },
+    uploadTemplate() {
+      this.btnLoading = true;
+      var formData = new FormData();
+      var file = this.file;
+      formData.append("file", file);
+      this.importExcel(formData)
+        .then((response) => {
+          this.btnLoading = false;
+          this.bottomSheet2 = false;
+          this.snackbar.message = `${response.data.total} Soal berhasil disimpan`;
+          this.snackbar.show = true;
+        })
+        .catch((error) => {
+          this.btnLoading = false;
+        });
+    },
     getSoal(type = null) {
       let urlBankSoal = this.urlBankSoal;
       if (type) {
@@ -592,14 +733,14 @@ export default {
       const form = {
         jurusan: this.selectedJurusan,
         kategori: this.selectedKategori,
-        page: type ? this[`soal${type.toUpperCase()}`].currentPage : null
+        page: type ? this[`soal${type.toUpperCase()}`].currentPage : null,
       };
       this.isLoading = true;
       axios
         .get(urlBankSoal, {
-          params: form
+          params: form,
         })
-        .then(response => {
+        .then((response) => {
           if (type) {
             this[`soal${type.toUpperCase()}`] = {
               data: response.data.data,
@@ -607,7 +748,7 @@ export default {
               lastPage: response.data.last_page,
               from: response.data.from,
               to: response.data.to,
-              total: response.data.total
+              total: response.data.total,
             };
             return;
           }
@@ -617,7 +758,7 @@ export default {
             lastPage: response.data.tka.last_page,
             from: response.data.tka.from,
             to: response.data.tka.to,
-            total: response.data.tka.total
+            total: response.data.tka.total,
           };
           this.soalTKJ = {
             data: response.data.tkj.data,
@@ -625,10 +766,10 @@ export default {
             lastPage: response.data.tkj.last_page,
             from: response.data.tkj.from,
             to: response.data.tkj.to,
-            total: response.data.tkj.total
+            total: response.data.tkj.total,
           };
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -637,10 +778,10 @@ export default {
       this.isLoading = true;
       axios
         .get(this.urlJurusan)
-        .then(response => {
+        .then((response) => {
           this.jurusan = response.data;
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -650,13 +791,13 @@ export default {
       this.isLoading = true;
       axios
         .get(urlKategori)
-        .then(response => {
+        .then((response) => {
           this.kategori = response.data;
-          if (this.kategori.some(e => !(e.id == this.form.kategori_id))) {
+          if (this.kategori.some((e) => !(e.id == this.form.kategori_id))) {
             this.form.kategori_id = null;
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         })
         .then((this.isLoading = false));
@@ -674,7 +815,7 @@ export default {
       this.isLoading = true;
       axios
         .post(this.urlBankSoal, this.form)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.buttonLoading = false;
             this.cardSoal = false;
@@ -688,16 +829,16 @@ export default {
             // this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then(() => {
@@ -706,6 +847,7 @@ export default {
         });
     },
     edit(item) {
+      console.log(item);
       this.form = _.cloneDeep(item);
       this.bottomSheet = true;
     },
@@ -714,22 +856,22 @@ export default {
       this.isLoading = true;
       axios
         .put(urlBankSoal, this.form)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
             this.getSoal();
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then((this.isLoading = false));
@@ -740,22 +882,22 @@ export default {
       this.isLoading = true;
       axios
         .delete(urlBankSoal)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.dialogDelete = false;
             this.getSoal();
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then((this.isLoading = false));
@@ -766,10 +908,10 @@ export default {
         { pilihan: "B", label: "Pilihan B", text: "" },
         { pilihan: "C", label: "Pilihan C", text: "" },
         { pilihan: "D", label: "Pilihan D", text: "" },
-        { pilihan: "E", label: "Pilihan E", text: "" }
+        { pilihan: "E", label: "Pilihan E", text: "" },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 

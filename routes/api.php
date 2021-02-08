@@ -92,6 +92,7 @@ Route::prefix('bank-soal')->name('bank-soal.')->group(function () {
     Route::get('/tka', 'BankSoalController@getSoalTKA')->name('tka');
     Route::get('/tkj', 'BankSoalController@getSoalTKJ')->name('tkj');
     Route::post('/', 'BankSoalController@store')->name('store');
+    Route::post('/import', 'BankSoalController@importExcel')->name('import');
     Route::put('/{soal?}', 'BankSoalController@update')->name('update');
     Route::delete('/{soal?}', 'BankSoalController@destroy')->name('destroy');
 });
