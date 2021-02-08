@@ -329,13 +329,13 @@
         >
           <v-card-title>Ujian Masuk</v-card-title>
           <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
-            Jurusan (TKJ)</v-card-subtitle>
+            Keilmuan (TKK)</v-card-subtitle>
           <v-card-text>
             <template v-if="
                 ujianSelected.is_lulus_tkj != false &&
                 ujianSelected.is_lulus_tka != false
               ">
-              <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
+              <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
               <span>
                 <!-- :end-label="''" -->
                 <vue-countdown-timer
@@ -386,7 +386,7 @@
               class="text-white"
               :disabled="checkButtonMulaiUjian('tkj')"
               @click="ujian('tkj')"
-            >Mulai Ujian TKJ</v-btn>
+            >Mulai Ujian TKK</v-btn>
             <div
               v-if="ujianSelected.is_lulus_tkj"
               class="text-center"

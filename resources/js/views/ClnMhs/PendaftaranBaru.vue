@@ -320,9 +320,9 @@
         >
           <v-card-title>Ujian Masuk</v-card-title>
           <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
-            Jurusan (TKJ)</v-card-subtitle>
+            Keilmuan (TKK)</v-card-subtitle>
           <v-card-text>
-            <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
+            <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
             <span>
               <!-- :end-label="''" -->
               <vue-countdown-timer
@@ -354,7 +354,7 @@
               color="green darken-2"
               dark
               @click="ujian('tkj')"
-            >Mulai Ujian TKJ</v-btn>
+            >Mulai Ujian TKK</v-btn>
           </v-card-text>
         </v-card>
       </v-stepper-content>
