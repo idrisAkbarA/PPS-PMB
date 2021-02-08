@@ -170,7 +170,7 @@
                 <v-col cols="6">
                   <label class="text-dark">Syarat Mengikuti Ujian</label>
                 </v-col>
-                <v-col cols="3">
+                <v-col cols="2">
                   <v-text-field
                     type="number"
                     color="#2C3E50"
@@ -182,13 +182,23 @@
                   >
                   </v-text-field>
                 </v-col>
-                <v-col cols="3">
+                <v-col cols="2">
                   <v-text-field
                     type="number"
                     color="#2C3E50"
                     min="0"
-                    label="Bahasa"
-                    v-model="form.syarat_bhs"
+                    label="Bahasa Inggris"
+                    v-model="form.syarat_bhs_inggris"
+                  >
+                  </v-text-field>
+                </v-col>
+                <v-col cols="2">
+                  <v-text-field
+                    type="number"
+                    color="#2C3E50"
+                    min="0"
+                    label="Bahasa Arab"
+                    v-model="form.syarat_bhs_arab"
                   >
                   </v-text-field>
                 </v-col>
@@ -251,6 +261,7 @@
                     label="Range Ujian"
                     hint="Batas ujian setelah pembayaran, dalam hari"
                     v-model="form.range_ujian"
+                    suffix="Hari"
                   >
                   </v-text-field>
                 </v-col>
@@ -265,6 +276,22 @@
                     label="Durasi Ujian"
                     hint="Durasi ujian, dalam menit"
                     v-model="form.durasi_ujian"
+                    suffix="Menit"
+                  >
+                  </v-text-field>
+                </v-col>
+                <v-col cols="6">
+                  <label class="text-dark">Durasi Menjawab 1 soal</label>
+                </v-col>
+                <v-col cols="6">
+                  <v-text-field
+                    type="number"
+                    color="#2C3E50"
+                    min="0"
+                    label="Durasi soal"
+                    hint="Durasi ujian, dalam detik"
+                    v-model="form.durasi_soal"
+                    suffix="Detik"
                   >
                   </v-text-field>
                 </v-col>
@@ -459,36 +486,36 @@ export default {
         scrollPanel: {
           easing: "easeInQuad",
           speed: 800,
-          scrollingX: false
+          scrollingX: false,
         },
         vuescroll: {
           mode: "native",
           wheelScrollDuration: 0,
-          locking: true
-        }
+          locking: true,
+        },
       },
       headers: [
         {
           text: "Nama",
           align: "start",
-          value: "nama"
+          value: "nama",
         },
         { text: "Periode", value: "periode" },
         { text: "Status", value: "is_active" },
-        { text: "Actions", value: "actions" }
-      ]
+        { text: "Actions", value: "actions" },
+      ],
     };
   },
   computed: {
     ...mapState(["isBottomSheetOpen", "urlPeriode", "currentPeriode"]),
     bottomSheet: {
-      get: function() {
+      get: function () {
         return this.isBottomSheetOpen;
       },
-      set: function(data) {
+      set: function (data) {
         this.toggleBottomSheet(data);
-      }
-    }
+      },
+    },
   },
   watch: {
     bottomSheet(val) {
@@ -505,7 +532,7 @@ export default {
       if (!val) {
         this.form = {};
       }
-    }
+    },
   },
   created() {
     this.getPeriode();
@@ -516,15 +543,15 @@ export default {
       this.isLoading = true;
       axios
         .get(this.urlPeriode)
-        .then(response => {
+        .then((response) => {
           this.periode = response.data;
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         })
         .then(() => {
           this.isLoading = false;
-          const periode = this.periode.filter(value => {
+          const periode = this.periode.filter((value) => {
             return value.is_active;
           });
           this.setCurrentPeriode(periode[0] ?? {});
@@ -556,21 +583,21 @@ export default {
       this.isLoading = true;
       axios
         .post(this.urlPeriode, this.form)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then(() => {
@@ -583,23 +610,23 @@ export default {
       this.isLoading = true;
       axios
         .put(urlPeriode, this.form)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.bottomSheet = false;
             this.form = {};
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
             this.getPeriode();
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then((this.isLoading = false));
@@ -610,27 +637,27 @@ export default {
       this.isLoading = true;
       axios
         .delete(urlPeriode)
-        .then(response => {
+        .then((response) => {
           if (response.data.status) {
             this.dialogDelete = false;
             this.getPeriode();
             this.snackbar = {
               show: true,
-              message: response.data.message
+              message: response.data.message,
             };
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
           this.snackbar = {
             show: true,
             message: err,
-            color: "danger"
+            color: "danger",
           };
         })
         .then((this.isLoading = false));
-    }
-  }
+    },
+  },
 };
 </script>
 
