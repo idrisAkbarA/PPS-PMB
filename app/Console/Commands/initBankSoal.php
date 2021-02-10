@@ -70,7 +70,8 @@ class initBankSoal extends Command
                     ['pilihan' => 'D', 'text' => $faker->text($maxNbChars = 20)],
                     ['pilihan' => 'E', 'text' => $faker->text($maxNbChars = 20)]
                 ];
-                $bankSoal->jawaban = ['A', 'B', 'C', 'D', 'E'][rand(0, 4)];
+                $bankSoal->jawaban = 'A';
+                // $bankSoal->jawaban = ['A', 'B', 'C', 'D', 'E'][rand(0, 4)];
                 $bankSoal->save();
             }
         }

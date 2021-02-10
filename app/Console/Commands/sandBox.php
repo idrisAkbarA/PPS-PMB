@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\KelasController;
 use Illuminate\Console\Command;
 use App\Library\SoalUjian;
 
@@ -39,7 +40,7 @@ class sandBox extends Command
     public function handle()
     {
         // $soal = SoalUjian::getSoal("tkj", 1);
-        $soal = new SoalUjian;
-        echo $soal->getSoal("tkj", 11);
+        $kelas = new KelasController;
+        return $kelas->addNewStudent(1, 1, 1);
     }
 }

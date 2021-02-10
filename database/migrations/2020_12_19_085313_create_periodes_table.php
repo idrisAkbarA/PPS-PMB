@@ -26,7 +26,6 @@ class CreatePeriodesTable extends Migration
             $table->double('syarat_bhs_arab');
             $table->date('awal_temu_ramah');
             $table->date('akhir_temu_ramah');
-            // $table->bigInteger('id_jadwal_tr');
             $table->bigInteger('jumlah_tka'); //jumlah soal
             $table->bigInteger('jumlah_tkj');
             $table->bigInteger('min_lulus_tka'); // jumlah minimal soal terjawab benar untuk lulus

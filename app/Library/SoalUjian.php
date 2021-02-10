@@ -214,7 +214,11 @@ class SoalUjian
 
         $ujian->$isLulusObject = $isLulus;
         $ujian->save();
-        return ['nilai' => $nilaiUjian, 'batas_lulus' => $batasLulus, 'status_lulus' => $isLulus];
+
+        // check if the user pass both exam
+        // if passed set kelas
+        $isBothPass = $ujian->is_lulus_tka && $ujian->is_lulus_tkj;
+        return ['is_both_exam_passed' => $isBothPass, 'nilai' => $nilaiUjian, 'batas_lulus' => $batasLulus, 'status_lulus' => $isLulus];
         return ['status lulus' => $isLulus];
     }
     public function calcScore($id, $type)
