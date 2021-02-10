@@ -111,7 +111,7 @@
                   Mohon selesaikan pembayaran
                 </p>
                 <v-row v-else-if="isStillUjian(item)">
-                  <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKJ</p>
+                  <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
                   <span>
                     <!-- :end-label="''" -->
                     <vue-countdown-timer
