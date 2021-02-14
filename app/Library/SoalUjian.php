@@ -4,6 +4,7 @@ namespace App\Library;
 
 use App\Soal;
 use App\BankSoal;
+use App\Http\Controllers\KelasController;
 use App\Jurusan;
 use App\Ujian;
 use App\Periode;
@@ -218,6 +219,10 @@ class SoalUjian
         // check if the user pass both exam
         // if passed set kelas
         $isBothPass = $ujian->is_lulus_tka && $ujian->is_lulus_tkj;
+        if ($isBothPass) {
+            $kelas = new KelasController;
+            $kelas->addNewStudent($periode->id, $ujian->jurusan_id, $ujian->user_cln_mhs_id);
+        }
         return ['is_both_exam_passed' => $isBothPass, 'nilai' => $nilaiUjian, 'batas_lulus' => $batasLulus, 'status_lulus' => $isLulus];
         return ['status lulus' => $isLulus];
     }

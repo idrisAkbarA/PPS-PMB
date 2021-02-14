@@ -52,16 +52,16 @@ class KelasController extends Controller
         // dd($kelas);
 
         if (!$kelas) {
-            echo 'belum ada kelas';
+            // echo 'belum ada kelas';
             $this->store($periode_id, $jurusan_id, $clnMhs_id);
             return 0;
         }
         if (count($kelas->cln_mhs) >= $kuota->kuota) {
-            echo 'Kelas terakhir penuh';
+            // echo 'Kelas terakhir penuh';
             $this->store($periode_id, $jurusan_id, $clnMhs_id);
             return 0;
         }
-        echo 'new student appended to latest class available';
+        // echo 'new student appended to latest class available';
         $this->appendStudent($periode_id, $jurusan_id, $clnMhs_id);
     }
 

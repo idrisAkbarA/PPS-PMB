@@ -4,6 +4,10 @@
     class="mx-auto"
     :width="width()"
   >
+    <v-card>
+      <v-card-title>Pendaftaran Pantek</v-card-title>
+      <v-card-subtitle>Tahap {{stepper}} dari 5</v-card-subtitle>
+    </v-card>
     <v-stepper
       non-linear
       vertical
@@ -65,7 +69,9 @@
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field0"
+              :disabled="biodataDisabled.field0"
+              @change="sendUser(user,0)"
               prepend-inner-icon="mdi-account"
               label="Nama Lengkap"
               v-model="user.nama"
@@ -75,7 +81,9 @@
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field1"
+              :disabled="biodataDisabled.field1"
+              @change="sendUser(user,1)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
               type="number"
@@ -84,9 +92,11 @@
           </v-row>
           <v-row>
             <v-text-field
+              :loading="biodata.field2"
+              :disabled="biodataDisabled.field2"
               color="green"
               filled
-              @change="updateUser(user)"
+              @change="sendUser(user,2)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
               type="number"
@@ -99,11 +109,50 @@
               auto-grow
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field3"
+              :disabled="biodataDisabled.field3"
+              @change="sendUser(user,3)"
               prepend-inner-icon="mdi-map-marker"
               label="Alamat Rumah Lengkap"
               v-model="user.alamat"
             ></v-textarea>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
+              :loading="biodata.field4"
+              :disabled="biodataDisabled.field4"
+              @change="sendUser(user,4)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai Bahasa Inggris"
+              v-model="user.nilai_bhs_inggris"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
+              :loading="biodata.field5"
+              :disabled="biodataDisabled.field5"
+              @change="sendUser(user,5)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai Bahasa Arab"
+              v-model="user.nilai_bhs_arab"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-text-field
+              :loading="biodata.field6"
+              :disabled="biodataDisabled.field6"
+              color="green"
+              filled
+              @change="sendUser(user,6)"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai IPK"
+              type="number"
+              v-model="user.nilai_ipk"
+            ></v-text-field>
           </v-row>
           <v-row>
             <v-text-field
@@ -152,37 +201,6 @@
           </v-row>
           <v-row>
             <v-text-field
-              color="green"
-              filled
-              @change="updateUser(user)"
-              prepend-inner-icon="mdi-attachment"
-              label="Nilai Bahasa Inggris"
-              v-model="user.nilai_bhs_inggris"
-            ></v-text-field>
-          </v-row>
-          <v-row>
-            <v-text-field
-              color="green"
-              filled
-              @change="updateUser(user)"
-              prepend-inner-icon="mdi-attachment"
-              label="Nilai Bahasa Arab"
-              v-model="user.nilai_bhs_arab"
-            ></v-text-field>
-          </v-row>
-          <v-row>
-            <v-text-field
-              color="green"
-              filled
-              @change="updateUser(user)"
-              prepend-inner-icon="mdi-attachment"
-              label="Nilai IPK"
-              type="number"
-              v-model="user.nilai_ipk"
-            ></v-text-field>
-          </v-row>
-          <v-row>
-            <v-text-field
               v-if="!user.pas_photo"
               color="green"
               filled
@@ -219,7 +237,7 @@
                 </v-btn>
               </v-col>
             </template>
-            <!-- @change="updateUser(user)" -->
+            <!-- @change="sendUser(user,)" -->
             <v-file-input
               @change="setPhoto()"
               hide-input
@@ -426,6 +444,32 @@ export default {
   methods: {
     ...mapMutations(["setUser", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    sendUser(user, id) {
+      // id is biodara's property number, see at data property section
+      console.log("im called");
+      this.biodata["field" + id] = true;
+      this.setFieldToDisabled(id, true);
+      this.updateUser(user)
+        .then((response) => {
+          setTimeout(() => {
+            this.setFieldToDisabled(id, false);
+            this.biodata["field" + id] = false;
+          }, 300);
+        })
+        .error((error) => {
+          setTimeout(() => {
+            this.setFieldToDisabled(id, false);
+            this.biodata["field" + id] = false;
+          }, 300);
+        });
+    },
+    setFieldToDisabled(id, value) {
+      Object.keys(this.biodataDisabled).forEach((key) => {
+        if (key != "field" + id) {
+          this.biodataDisabled[key] = value;
+        }
+      });
+    },
     ujian(type) {
       // console.log("ID", this.ujianSelected.id);
       var ujian_id = this.ujianSelected.id;
@@ -606,11 +650,34 @@ export default {
       deep: true,
       handler: function (v) {
         this.checkBiodata(v);
+        console.log(_);
       },
     },
   },
   data() {
     return {
+      // these biodara properties is for biodatas loading and disabled state
+      biodata: {
+        field0: false,
+        field1: false,
+        field2: false,
+        field3: false,
+        field4: false,
+        field5: false,
+        field6: false,
+        field7: false,
+      },
+      biodataDisabled: {
+        field0: false,
+        field1: false,
+        field2: false,
+        field3: false,
+        field4: false,
+        field5: false,
+        field6: false,
+        field7: false,
+      },
+
       isLoading: false,
       kodePembayaran: null,
       progress: 0,

@@ -7,6 +7,7 @@
   >
     <v-card>
       <v-card-title>Pendaftaran</v-card-title>
+      <v-card-subtitle>Tahap {{stepper}} dari 5</v-card-subtitle>
     </v-card>
     <v-card v-if="!ujianSelected">
       <v-card-text>
