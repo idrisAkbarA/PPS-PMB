@@ -5,7 +5,7 @@
     :width="width()"
   >
     <v-card>
-      <v-card-title>Pendaftaran Pantek</v-card-title>
+      <v-card-title>Pendaftaran</v-card-title>
       <v-card-subtitle>Tahap {{stepper}} dari 5</v-card-subtitle>
     </v-card>
     <v-stepper
@@ -71,11 +71,24 @@
               filled
               :loading="biodata.field0"
               :disabled="biodataDisabled.field0"
-              @change="sendUser(user,0)"
+              @input="sendUser(user,0)"
               prepend-inner-icon="mdi-account"
               label="Nama Lengkap"
               v-model="user.nama"
             ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-select
+              color="green"
+              filled
+              :loading="biodata.field7"
+              :disabled="biodataDisabled.field7"
+              @input="sendUser(user,7)"
+              prepend-inner-icon="mdi-account"
+              label="Jenis Kelamin"
+              :items="jk"
+              v-model="user.jenis_kelamin"
+            ></v-select>
           </v-row>
           <v-row>
             <v-text-field
@@ -83,7 +96,7 @@
               filled
               :loading="biodata.field1"
               :disabled="biodataDisabled.field1"
-              @change="sendUser(user,1)"
+              @input="sendUser(user,1)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
               type="number"
@@ -96,7 +109,7 @@
               :disabled="biodataDisabled.field2"
               color="green"
               filled
-              @change="sendUser(user,2)"
+              @input="sendUser(user,2)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
               type="number"
@@ -111,7 +124,7 @@
               filled
               :loading="biodata.field3"
               :disabled="biodataDisabled.field3"
-              @change="sendUser(user,3)"
+              @input="sendUser(user,3)"
               prepend-inner-icon="mdi-map-marker"
               label="Alamat Rumah Lengkap"
               v-model="user.alamat"
@@ -123,7 +136,7 @@
               filled
               :loading="biodata.field4"
               :disabled="biodataDisabled.field4"
-              @change="sendUser(user,4)"
+              @input="sendUser(user,4)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Inggris"
               v-model="user.nilai_bhs_inggris"
@@ -135,7 +148,7 @@
               filled
               :loading="biodata.field5"
               :disabled="biodataDisabled.field5"
-              @change="sendUser(user,5)"
+              @input="sendUser(user,5)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Arab"
               v-model="user.nilai_bhs_arab"
@@ -143,11 +156,13 @@
           </v-row>
           <v-row>
             <v-text-field
+              required
               :loading="biodata.field6"
               :disabled="biodataDisabled.field6"
               color="green"
               filled
-              @change="sendUser(user,6)"
+              @input="sendUser(user,6)"
+              :rules="ruleIPKValidation"
               prepend-inner-icon="mdi-attachment"
               label="Nilai IPK"
               type="number"
@@ -237,7 +252,7 @@
                 </v-btn>
               </v-col>
             </template>
-            <!-- @change="sendUser(user,)" -->
+            <!-- @input="sendUser(user,)" -->
             <v-file-input
               @change="setPhoto()"
               hide-input
@@ -433,9 +448,11 @@
 </template>
 
 <script>
+import _ from "lodash";
 import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   created() {
+    this.sendUser = _.debounce(this.sendUser, 500);
     if (!this.jurusan) {
       this.initAllDataClnMhs();
     }
@@ -677,7 +694,7 @@ export default {
         field6: false,
         field7: false,
       },
-
+      jk: ["Laki-laki", "Perempuan"],
       isLoading: false,
       kodePembayaran: null,
       progress: 0,
@@ -694,6 +711,10 @@ export default {
         () => this.isBiodataFilled != false && this.jurusanSelected != null,
       ],
       ruleBiodata: [() => this.jurusanSelected != null],
+      ruleIPKValidation: [
+        (v) => !!v || "IPK wajib diisi",
+        (v) => v <= 4 || "IPK hanya 0 - 4",
+      ],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,

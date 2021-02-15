@@ -76,17 +76,34 @@
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field0"
+              :disabled="biodataDisabled.field0"
+              @input="sendUser(user,0)"
               prepend-inner-icon="mdi-account"
               label="Nama Lengkap"
               v-model="user.nama"
             ></v-text-field>
           </v-row>
           <v-row>
+            <v-select
+              color="green"
+              filled
+              :loading="biodata.field7"
+              :disabled="biodataDisabled.field7"
+              @input="sendUser(user,7)"
+              prepend-inner-icon="mdi-account"
+              label="Jenis Kelamin"
+              :items="jk"
+              v-model="user.jenis_kelamin"
+            ></v-select>
+          </v-row>
+          <v-row>
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field1"
+              :disabled="biodataDisabled.field1"
+              @input="sendUser(user,1)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
               type="number"
@@ -95,9 +112,11 @@
           </v-row>
           <v-row>
             <v-text-field
+              :loading="biodata.field2"
+              :disabled="biodataDisabled.field2"
               color="green"
               filled
-              @change="updateUser(user)"
+              @input="sendUser(user,2)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
               type="number"
@@ -110,7 +129,9 @@
               auto-grow
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field3"
+              :disabled="biodataDisabled.field3"
+              @input="sendUser(user,3)"
               prepend-inner-icon="mdi-map-marker"
               label="Alamat Rumah Lengkap"
               v-model="user.alamat"
@@ -120,7 +141,9 @@
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field4"
+              :disabled="biodataDisabled.field4"
+              @input="sendUser(user,4)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Inggris"
               v-model="user.nilai_bhs_inggris"
@@ -130,7 +153,9 @@
             <v-text-field
               color="green"
               filled
-              @change="updateUser(user)"
+              :loading="biodata.field5"
+              :disabled="biodataDisabled.field5"
+              @input="sendUser(user,5)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Arab"
               v-model="user.nilai_bhs_arab"
@@ -138,9 +163,13 @@
           </v-row>
           <v-row>
             <v-text-field
+              required
+              :loading="biodata.field6"
+              :disabled="biodataDisabled.field6"
               color="green"
               filled
-              @change="updateUser(user)"
+              @input="sendUser(user,6)"
+              :rules="ruleIPKValidation"
               prepend-inner-icon="mdi-attachment"
               label="Nilai IPK"
               type="number"
@@ -512,6 +541,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   // first check if this page reloaded before or accessed directly via url
@@ -525,6 +555,7 @@ export default {
     }
   },
   created() {
+    this.sendUser = _.debounce(this.sendUser, 500);
     if (!this.jurusan) {
       this.initAllDataClnMhs();
     }
@@ -539,6 +570,32 @@ export default {
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    sendUser(user, id) {
+      // id is biodara's property number, see at data property section
+      console.log("im called");
+      this.biodata["field" + id] = true;
+      this.setFieldToDisabled(id, true);
+      this.updateUser(user)
+        .then((response) => {
+          setTimeout(() => {
+            this.setFieldToDisabled(id, false);
+            this.biodata["field" + id] = false;
+          }, 300);
+        })
+        .error((error) => {
+          setTimeout(() => {
+            this.setFieldToDisabled(id, false);
+            this.biodata["field" + id] = false;
+          }, 300);
+        });
+    },
+    setFieldToDisabled(id, value) {
+      Object.keys(this.biodataDisabled).forEach((key) => {
+        if (key != "field" + id) {
+          this.biodataDisabled[key] = value;
+        }
+      });
+    },
     checkButtonMulaiUjian(type) {
       if (type == "tka") {
         if (this.ujianSelected.is_lulus_tkj == false) return true;
@@ -803,6 +860,27 @@ export default {
   },
   data() {
     return {
+      biodata: {
+        field0: false,
+        field1: false,
+        field2: false,
+        field3: false,
+        field4: false,
+        field5: false,
+        field6: false,
+        field7: false,
+      },
+      biodataDisabled: {
+        field0: false,
+        field1: false,
+        field2: false,
+        field3: false,
+        field4: false,
+        field5: false,
+        field6: false,
+        field7: false,
+      },
+      jk: ["Laki-laki", "Perempuan"],
       jadwalSelected: null,
       jadwalTR: null,
       isLoading: false,
@@ -822,6 +900,10 @@ export default {
         () => this.isBiodataFilled != false && this.jurusanSelected != null,
       ],
       ruleBiodata: [() => this.jurusanSelected != null],
+      ruleIPKValidation: [
+        (v) => !!v || "IPK wajib diisi",
+        (v) => v <= 4 || "IPK hanya 0 - 4",
+      ],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,

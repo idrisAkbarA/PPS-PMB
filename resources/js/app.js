@@ -17,7 +17,9 @@ import vuescroll from 'vuescroll';
 import moment from './moment.js';
 import Vue2Filters from 'vue2-filters'
 import VueCountdownTimer from 'vuejs-countdown-timer';
+import VueMask from 'v-mask';
 
+Vue.use(VueMask);
 Vue.use(VueCountdownTimer);
 Vue.use(Vue2Filters)
 Vue.use(moment);
