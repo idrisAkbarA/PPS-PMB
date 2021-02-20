@@ -74,6 +74,7 @@ Route::prefix('pendaftar')->name('pendaftar.')->group(function () {
 // Ujian Routes
 Route::prefix('ujian')->name('ujian.')->group(function () {
     Route::get('/', 'UjianController@index')->name('index');
+    Route::put('/{ujian?}', 'UjianController@update');
 });
 
 // Kategori Routes

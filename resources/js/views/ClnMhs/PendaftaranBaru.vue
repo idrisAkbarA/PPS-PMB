@@ -42,6 +42,7 @@
           class="text-white"
           color="green darken-3"
           :disabled="!jurusanSelected"
+          :loading="pilihJurusanLoading"
           @click="stepper = 2"
         >
           Selanjutnya
@@ -71,7 +72,7 @@
               filled
               :loading="biodata.field0"
               :disabled="biodataDisabled.field0"
-              @input="sendUser(user,0)"
+              @change="sendUser(user,0)"
               prepend-inner-icon="mdi-account"
               label="Nama Lengkap"
               v-model="user.nama"
@@ -83,7 +84,7 @@
               filled
               :loading="biodata.field7"
               :disabled="biodataDisabled.field7"
-              @input="sendUser(user,7)"
+              @change="sendUser(user,7)"
               prepend-inner-icon="mdi-account"
               label="Jenis Kelamin"
               :items="jk"
@@ -96,7 +97,7 @@
               filled
               :loading="biodata.field1"
               :disabled="biodataDisabled.field1"
-              @input="sendUser(user,1)"
+              @change="sendUser(user,1)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
               type="number"
@@ -109,7 +110,7 @@
               :disabled="biodataDisabled.field2"
               color="green"
               filled
-              @input="sendUser(user,2)"
+              @change="sendUser(user,2)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
               type="number"
@@ -124,7 +125,7 @@
               filled
               :loading="biodata.field3"
               :disabled="biodataDisabled.field3"
-              @input="sendUser(user,3)"
+              @change="sendUser(user,3)"
               prepend-inner-icon="mdi-map-marker"
               label="Alamat Rumah Lengkap"
               v-model="user.alamat"
@@ -136,8 +137,9 @@
               filled
               :loading="biodata.field4"
               :disabled="biodataDisabled.field4"
-              @input="sendUser(user,4)"
+              @change="sendUser(user,4)"
               prepend-inner-icon="mdi-attachment"
+              type="number"
               label="Nilai Bahasa Inggris"
               v-model="user.nilai_bhs_inggris"
             ></v-text-field>
@@ -145,10 +147,11 @@
           <v-row>
             <v-text-field
               color="green"
+              type="number"
               filled
               :loading="biodata.field5"
               :disabled="biodataDisabled.field5"
-              @input="sendUser(user,5)"
+              @change="sendUser(user,5)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Arab"
               v-model="user.nilai_bhs_arab"
@@ -161,7 +164,7 @@
               :disabled="biodataDisabled.field6"
               color="green"
               filled
-              @input="sendUser(user,6)"
+              @change="sendUser(user,6)"
               :rules="ruleIPKValidation"
               prepend-inner-icon="mdi-attachment"
               label="Nilai IPK"
@@ -207,6 +210,7 @@
               </v-col>
             </template>
             <v-file-input
+              accept=".pdf"
               @change="setIjazah()"
               hide-input
               ref="ijazah"
@@ -222,6 +226,7 @@
               prepend-inner-icon="mdi-attachment"
               label="Upload Pas Foto"
               readonly
+              accept="images/*, .pdf"
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
             <template v-else>
@@ -252,14 +257,23 @@
                 </v-btn>
               </v-col>
             </template>
-            <!-- @input="sendUser(user,)" -->
+            <!-- @change="sendUser(user,)" -->
             <v-file-input
               @change="setPhoto()"
               hide-input
+              accept="images/*, .pdf"
               ref="photoProfile"
               class="d-none"
               v-model="photoFile"
             ></v-file-input>
+          </v-row>
+          <v-row v-if="ujianSelected">
+            <v-checkbox
+              @click="setTnC()"
+              v-model="ujianSelected.is_agree"
+              color="green"
+              label="Setuju dengan syarat dan ketentuan pendaftaran Pascasarjana UIN Suska Riau"
+            ></v-checkbox>
           </v-row>
           <v-row v-if="isSyaratLulus">
             <h4>
@@ -268,10 +282,11 @@
           </v-row>
         </v-container>
         <v-btn
-          :disabled="isBiodataFilled ? false : true"
+          :disabled="!isTnCAgreednBiodataFilled"
           color="green darken-2"
           class="text-white"
           @click="stepper = 3"
+          :loading="biodataLoading"
         >
           Selanjutnya
         </v-btn>
@@ -444,6 +459,20 @@
         </v-list>
       </v-card>
     </v-bottom-sheet>
+    <v-snackbar
+      v-model="snackbar.show"
+      :color="snackbar.color"
+    >{{snackbar.message}}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          text
+          v-bind="attrs"
+          @click="snackbar.show = false"
+        >
+          Tutup
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-sheet>
 </template>
 
@@ -465,17 +494,27 @@ export default {
       // id is biodara's property number, see at data property section
       console.log("im called");
       this.biodata["field" + id] = true;
-      this.setFieldToDisabled(id, true);
+      this.biodataLoading = true;
+      // this.setFieldToDisabled(id, true);
       this.updateUser(user)
         .then((response) => {
+          this.biodataLoading = false;
           setTimeout(() => {
-            this.setFieldToDisabled(id, false);
+            // this.setFieldToDisabled(id, false);
             this.biodata["field" + id] = false;
+            this.snackbar.message = "Biodata berhasil disimpan!";
+            this.snackbar.color = "green";
+            this.snackbar.show = true;
           }, 300);
         })
         .error((error) => {
+          this.biodataLoading = false;
           setTimeout(() => {
-            this.setFieldToDisabled(id, false);
+            // this.setFieldToDisabled(id, false);
+            this.snackbar.message =
+              "Maaf terjadi kesalahan! Silahkan coba lagi";
+            this.snackbar.color = "red";
+            this.snackbar.show = true;
             this.biodata["field" + id] = false;
           }, 300);
         });
@@ -486,6 +525,16 @@ export default {
           this.biodataDisabled[key] = value;
         }
       });
+    },
+    setTnC() {
+      console.log(this.ujianSelected);
+      this.biodataLoading = true;
+      axios
+        .put("/api/ujian/" + this.ujianSelected.id, this.ujianSelected)
+        .then((response) => {
+          this.biodataLoading = false;
+          console.log(response.data);
+        });
     },
     ujian(type) {
       // console.log("ID", this.ujianSelected.id);
@@ -536,10 +585,13 @@ export default {
       var periode_id = this.periode[0].id;
       var jurusan_id = this.jurusanSelected;
       var payload = { periode_id, jurusan_id };
+      this.pilihJurusanLoading = true;
       if (this.ujian_id) payload["ujian_id"] = this.ujian_id;
       axios.post("/api/ujian/init", payload).then((response) => {
         this.ujian_id = response.data.ujian_id;
+        this.setUjianSelected(response.data.ujian_selected);
         console.log(response.data);
+        this.pilihJurusanLoading = false;
       });
     },
     setIjazah() {
@@ -640,6 +692,13 @@ export default {
   },
   computed: {
     ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
+    isTnCAgreednBiodataFilled() {
+      if (this.ujianSelected) {
+        return this.isBiodataFilled && this.ujianSelected.is_agree;
+      } else {
+        return false;
+      }
+    },
     PhotoFileName: function () {},
     isSyaratLulus: function () {
       if (!this.user && !this.ujianSelected) {
@@ -674,6 +733,9 @@ export default {
   data() {
     return {
       // these biodara properties is for biodatas loading and disabled state
+      pilihJurusanLoading: false,
+      biodataLoading: false,
+      snackbar: { show: false, message: null },
       biodata: {
         field0: false,
         field1: false,

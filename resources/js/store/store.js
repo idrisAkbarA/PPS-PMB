@@ -1,10 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
-// import moment from '../moment.js';
 import Axios from "axios";
-Vue.use(Vuex);
 import moment from 'moment';
-// Vue.use(moment)
+Vue.use(Vuex);
 Axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 Axios.defaults.withCredentials = true;
 
@@ -31,6 +29,7 @@ export default new Vuex.Store({
         jurusan: null,
         ujian: null,
         periode: null,
+        activePeriode: null,
         isLoading: false,
         ujianSelected: null,
         soal: null,
@@ -60,6 +59,9 @@ export default new Vuex.Store({
         },
         setCurrentPeriode(state, data) {
             state.currentPeriode = data;
+        },
+        setActivePeriode(state, data) {
+            state.activePeriode = data;
         },
         setSoal(state, data) {
             // console.log("ujian",state.ujianSelected)
@@ -137,6 +139,7 @@ export default new Vuex.Store({
                         commit('setUser', response.data.user);
                         commit('setUjian', response.data.ujian);
                         commit('setPeriode', response.data.periode);
+                        commit('setActivePeriode', response.data.active_periode);
                         commit('setJurusan', response.data.jurusan);
                         state.isLoading = false;
                         resolve(response);

@@ -36,7 +36,7 @@
       <v-row v-if="!ujian && !isLoading">
         <v-col cols="12">
           <v-card
-            class="bg-with-overlay"
+            class="bg-with-overlay-empty"
             width="100%"
             flat
             outlined
@@ -58,7 +58,7 @@
                     </h1>
                     <v-btn
                       large
-                      @click="$router.push({name:'Pendaftaran Baru'})"
+                      @click="buatPendaftaran"
                     >Silahkan Lakukan Pendaftaran</v-btn>
                   </div>
                 </v-col>
@@ -159,6 +159,28 @@
         </v-card-text>
       </v-card>
     </v-dialog>
+    <v-dialog
+      max-width="400"
+      v-model="dialogEmpty"
+    >
+      <v-card>
+        <v-img
+          class="mx-auto"
+          max-width="350"
+          :src="'/images/empty.png'"
+        ></v-img>
+        <v-container>
+          <v-row>
+            <div class="pa-3">
+              <h3>Maaf, Periode pendaftaran belum dibuka...</h3>
+              <p>
+                Mohon menunggu pembukaan periode pendaftaran, atau hubungi admin pendaftaran.
+              </p>
+            </div>
+          </v-row>
+        </v-container>
+      </v-card>
+    </v-dialog>
     <v-btn
       v-if="ujian"
       rounded
@@ -167,7 +189,7 @@
       dark
       x-large
       elevation="20"
-      @click="$router.push({ name: 'Pendaftaran Baru' })"
+      @click="buatPendaftaran()"
     >
       <v-icon left>mdi-plus</v-icon>Buat Pendaftaran Baru
     </v-btn>
@@ -194,6 +216,13 @@ export default {
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
     ...mapMutations(["setUjianSelected"]),
+    buatPendaftaran() {
+      if (!this.activePeriode) {
+        this.dialogEmpty = true;
+        return 0;
+      }
+      this.$router.push({ name: "Pendaftaran Baru" });
+    },
     checkPeriode(ujian) {
       var today = new Date();
       var batas_ujian = new Date();
@@ -324,7 +353,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["user", "ujian", "isLoading", "periode"]),
+    ...mapState(["user", "ujian", "isLoading", "periode", "activePeriode"]),
     now: function () {
       var today = new Date();
       var date =
@@ -341,6 +370,7 @@ export default {
   },
   data() {
     return {
+      dialogEmpty: null,
       dialogTambah: null,
       item: null,
       form: {},
@@ -360,6 +390,16 @@ export default {
   z-index: 2;
   bottom: 50px;
   right: 40px;
+}
+.bg-with-overlay-empty {
+  background: rgb(0, 36, 15);
+  background: linear-gradient(
+      0deg,
+      rgb(5, 94, 42) 0%,
+      rgba(6, 76, 90, 0.377) 100%
+    ),
+    url("/images/bg.jpg");
+  background-size: contain;
 }
 .bg-with-overlay {
   background: rgb(0, 36, 15);

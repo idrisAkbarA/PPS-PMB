@@ -38,10 +38,17 @@ class UjianController extends Controller
     {
         $user = Auth::guard('cln_mahasiswa')->user();
         $periode = Periode::latest()->get();
+        $active_periode = Periode::getActive();
         $ujian_temp = Ujian::where(['user_cln_mhs_id' => $user->id])->orderBy('id', 'DESC')->with(['jurusan', 'periode'])->get();
         $jurusan = Jurusan::orderBy('id', 'DESC')->get();
         $ujian = count($ujian_temp) > 0 ? $ujian_temp : null;
-        return response()->json(['user' => $user, 'periode' => $periode, 'jurusan' => $jurusan, 'ujian' => $ujian], 200);
+        return response()->json([
+            'active_periode' => $active_periode,
+            'user' => $user,
+            'periode' => $periode,
+            'jurusan' => $jurusan,
+            'ujian' => $ujian
+        ], 200);
     }
 
     public function laporan()
@@ -122,19 +129,21 @@ class UjianController extends Controller
             return response()->json([
                 "status" => true,
                 "message" => "Ujian Succesfully intialized",
-                "ujian_id" => $ujian->id
+                "ujian_id" => $ujian->id,
+                "ujian_selected" => $ujian
             ]);
         }
         $ujian = ujian::find($ujian_id);
         $ujian->jurusan_id = $jurusan_id;
-        $ujian->kat_tka_id = $kategori->kat_tka_id;
-        $ujian->kat_tkj_id = $kategori->kat_tkj_id;
+        $ujian->komposisi_tka = $kategori->komposisi_tka;
+        $ujian->komposisi_tkj = $kategori->komposisi_tkj;
         $ujian->save();
 
         return response()->json([
             "status" => true,
             "message" => "Ujian Succesfully updated",
-            "ujian_id" => $ujian->id
+            "ujian_id" => $ujian->id,
+            "ujian_selected" => $ujian
         ]);
     }
     public function generatePembayaran(Request $request)
@@ -242,7 +251,9 @@ class UjianController extends Controller
      */
     public function update(Request $request, Ujian $ujian)
     {
-        //
+        $ujian->update($request->all());
+        // $ujian->save();
+        return response()->json(['status' => "Update Succesfull", 'request' => $request->all()]);
     }
 
     /**
