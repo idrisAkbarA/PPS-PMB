@@ -87,8 +87,9 @@ export default {
     },
     logout() {
       axios
-        .get("/api/logout")
+        .post("/api/logout")
         .then((response) => {
+          console.log("logout", response.data);
           window.location.replace("/");
         })
         .catch(() => {

@@ -55,11 +55,13 @@ class AuthController extends Controller
         if (Auth::guard($role)->check()) {
             // user logged in...
             return response()->json([
-                'status' => 'Authenticated'
+                'status' => 'Authenticated',
+                'value' => true
             ]);
         }
         return response()->json([
             'status' => 'Not Authenticated',
+            'value' => true
         ]);
     }
 

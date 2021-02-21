@@ -582,7 +582,7 @@ export default {
         .catch((error) => {});
     },
     initUjian() {
-      var periode_id = this.periode[0].id;
+      var periode_id = this.activePeriode.id;
       var jurusan_id = this.jurusanSelected;
       var payload = { periode_id, jurusan_id };
       this.pilihJurusanLoading = true;
@@ -691,7 +691,13 @@ export default {
     },
   },
   computed: {
-    ...mapState(["jurusan", "user", "periode", "ujianSelected"]),
+    ...mapState([
+      "jurusan",
+      "user",
+      "periode",
+      "ujianSelected",
+      "activePeriode",
+    ]),
     isTnCAgreednBiodataFilled() {
       if (this.ujianSelected) {
         return this.isBiodataFilled && this.ujianSelected.is_agree;

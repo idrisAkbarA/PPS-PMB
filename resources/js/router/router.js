@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from '../store/store'
-
+import axios from 'axios';
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
 import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
@@ -162,7 +162,38 @@ const router = new VueRouter({
 });
 router.beforeEach((to, from, next) => {
     if (from.name == null) {
-        console.log('from null')
+        console.log('from null');
+        console.log('destination', to);
+        var rootPath = to.matched[0].path;
+        var isLoggedIn = async (role) => {
+            var value = null;
+            await axios.post('/api/auth-is-login/' + role).then(response => {
+                value = response.data.value;
+            })
+            return value;
+        }
+        switch (rootPath) {
+            case '/cln-mhs':
+                console.log('im at mahasiswa');
+                console.log('is logged in?', !isLoggedIn('cln_mahasiswa'))
+                if (!isLoggedIn('cln_mahasiswa')) {
+                    console.log('not logged in as mahasiswa');
+                    window.location.replace('/login');
+                    next(false)
+                }
+                break;
+            case '/petugas':
+                console.log('im at petugas');
+                console.log('is logged in?', !isLoggedIn('petugas'))
+                if (!isLoggedIn('petugas')) {
+                    console.log('not logged in as petugas');
+                    window.location.replace('/login');
+                    next(false)
+                }
+                break;
+            default:
+                break;
+        }
     }
     next();
 })
