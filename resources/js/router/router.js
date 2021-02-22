@@ -162,8 +162,8 @@ const router = new VueRouter({
 });
 router.beforeEach((to, from, next) => {
     if (from.name == null) {
-        console.log('from null');
-        console.log('destination', to);
+        // console.log('from null');
+        // console.log('destination', to);
         var rootPath = to.matched[0].path;
         var isLoggedIn = async (role) => {
             var value = null;
@@ -174,8 +174,8 @@ router.beforeEach((to, from, next) => {
         }
         switch (rootPath) {
             case '/cln-mhs':
-                console.log('im at mahasiswa');
-                console.log('is logged in?', !isLoggedIn('cln_mahasiswa'))
+                // console.log('im at mahasiswa');
+                // console.log('is logged in?', !isLoggedIn('cln_mahasiswa'))
                 if (!isLoggedIn('cln_mahasiswa')) {
                     console.log('not logged in as mahasiswa');
                     window.location.replace('/login');
@@ -183,8 +183,8 @@ router.beforeEach((to, from, next) => {
                 }
                 break;
             case '/petugas':
-                console.log('im at petugas');
-                console.log('is logged in?', !isLoggedIn('petugas'))
+                // console.log('im at petugas');
+                // console.log('is logged in?', !isLoggedIn('petugas'))
                 if (!isLoggedIn('petugas')) {
                     console.log('not logged in as petugas');
                     window.location.replace('/login');

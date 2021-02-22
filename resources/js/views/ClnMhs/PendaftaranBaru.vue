@@ -142,6 +142,7 @@
               type="number"
               label="Nilai Bahasa Inggris"
               v-model="user.nilai_bhs_inggris"
+              :rules="ruleBahasaInggrisValidation"
             ></v-text-field>
           </v-row>
           <v-row>
@@ -154,6 +155,7 @@
               @change="sendUser(user,5)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Arab"
+              :rules="ruleBahasaArabValidation"
               v-model="user.nilai_bhs_arab"
             ></v-text-field>
           </v-row>
@@ -483,7 +485,7 @@ export default {
   created() {
     this.sendUser = _.debounce(this.sendUser, 500);
     if (!this.jurusan) {
-      this.initAllDataClnMhs();
+      this.initAllDataClnMhs().then((response) => {});
     }
     this.checkBiodata(this.user);
   },
@@ -592,6 +594,26 @@ export default {
         this.setUjianSelected(response.data.ujian_selected);
         console.log(response.data);
         this.pilihJurusanLoading = false;
+
+        //update rule for biodata's fields
+        var batasIPK = this.ujianSelected.periode.syarat_ipk;
+        var batasArab = this.ujianSelected.periode.syarat_bhs_arab;
+        var batasInggris = this.ujianSelected.periode.syarat_bhs_inggris;
+        this.ruleIPKValidation.push(
+          (v) =>
+            v >= batasIPK ||
+            `Maaf, syarat minimal ipk untuk mendaftar adalah ${batasIPK}`
+        );
+        this.ruleBahasaArabValidation.push(
+          (v) =>
+            v >= batasArab ||
+            `Maaf, syarat minimal Bahasa Arab untuk mendaftar adalah ${batasArab}`
+        );
+        this.ruleBahasaInggrisValidation.push(
+          (v) =>
+            v >= batasInggris ||
+            `Maaf, syarat minimal Bahasa Inggris untuk mendaftar adalah ${batasInggris}`
+        );
       });
     },
     setIjazah() {
@@ -783,6 +805,8 @@ export default {
         (v) => !!v || "IPK wajib diisi",
         (v) => v <= 4 || "IPK hanya 0 - 4",
       ],
+      ruleBahasaArabValidation: [(v) => !!v || "Nilai wajib diisi"],
+      ruleBahasaInggrisValidation: [(v) => !!v || "Nilai wajib diisi"],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,

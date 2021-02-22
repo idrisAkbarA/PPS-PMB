@@ -144,7 +144,11 @@ export default new Vuex.Store({
                         state.isLoading = false;
                         resolve(response);
                     })
-                    .catch((error) => { console.error(error); state.isLoading = false; });
+                    .catch((error) => {
+                        console.error(error);
+                        reject(error);
+                        state.isLoading = false;
+                    });
 
             })
         },

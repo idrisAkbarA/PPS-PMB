@@ -78,7 +78,7 @@
               filled
               :loading="biodata.field0"
               :disabled="biodataDisabled.field0"
-              @input="sendUser(user,0)"
+              @change="sendUser(user,0)"
               prepend-inner-icon="mdi-account"
               label="Nama Lengkap"
               v-model="user.nama"
@@ -90,7 +90,7 @@
               filled
               :loading="biodata.field7"
               :disabled="biodataDisabled.field7"
-              @input="sendUser(user,7)"
+              @change="sendUser(user,7)"
               prepend-inner-icon="mdi-account"
               label="Jenis Kelamin"
               :items="jk"
@@ -103,7 +103,7 @@
               filled
               :loading="biodata.field1"
               :disabled="biodataDisabled.field1"
-              @input="sendUser(user,1)"
+              @change="sendUser(user,1)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
               type="number"
@@ -116,7 +116,7 @@
               :disabled="biodataDisabled.field2"
               color="green"
               filled
-              @input="sendUser(user,2)"
+              @change="sendUser(user,2)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
               type="number"
@@ -131,7 +131,7 @@
               filled
               :loading="biodata.field3"
               :disabled="biodataDisabled.field3"
-              @input="sendUser(user,3)"
+              @change="sendUser(user,3)"
               prepend-inner-icon="mdi-map-marker"
               label="Alamat Rumah Lengkap"
               v-model="user.alamat"
@@ -143,10 +143,11 @@
               filled
               :loading="biodata.field4"
               :disabled="biodataDisabled.field4"
-              @input="sendUser(user,4)"
+              @change="sendUser(user,4)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Inggris"
               v-model="user.nilai_bhs_inggris"
+              :rules="ruleBahasaInggrisValidation"
             ></v-text-field>
           </v-row>
           <v-row>
@@ -155,9 +156,10 @@
               filled
               :loading="biodata.field5"
               :disabled="biodataDisabled.field5"
-              @input="sendUser(user,5)"
+              @change="sendUser(user,5)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Arab"
+              :rules="ruleBahasaArabValidation"
               v-model="user.nilai_bhs_arab"
             ></v-text-field>
           </v-row>
@@ -168,7 +170,7 @@
               :disabled="biodataDisabled.field6"
               color="green"
               filled
-              @input="sendUser(user,6)"
+              @change="sendUser(user,6)"
               :rules="ruleIPKValidation"
               prepend-inner-icon="mdi-attachment"
               label="Nilai IPK"
@@ -269,12 +271,21 @@
               v-model="photoFile"
             ></v-file-input>
           </v-row>
+          <v-row v-if="ujianSelected">
+            <v-checkbox
+              @click="setTnC()"
+              v-model="ujianSelected.is_agree"
+              color="green"
+              label="Setuju dengan syarat dan ketentuan pendaftaran Pascasarjana UIN Suska Riau"
+            ></v-checkbox>
+          </v-row>
         </v-container>
         <v-btn
-          :disabled="isBiodataFilled ? false : true"
+          :disabled="!isTnCAgreednBiodataFilled"
           color="green darken-2"
           class="text-white"
           @click="stepper = 3"
+          :loading="biodataLoading"
         >
           Selanjutnya
         </v-btn>
@@ -565,6 +576,9 @@ export default {
       var ini = this;
       this.checkBiodata(this.user);
       this.setData(ini);
+      if (this.stepper == 3) {
+        this.loopCheckPembayaran();
+      }
     }
   },
   methods: {
@@ -595,6 +609,16 @@ export default {
           this.biodataDisabled[key] = value;
         }
       });
+    },
+    setTnC() {
+      console.log(this.ujianSelected);
+      this.biodataLoading = true;
+      axios
+        .put("/api/ujian/" + this.ujianSelected.id, this.ujianSelected)
+        .then((response) => {
+          this.biodataLoading = false;
+          console.log(response.data);
+        });
     },
     checkButtonMulaiUjian(type) {
       if (type == "tka") {
@@ -647,10 +671,33 @@ export default {
       ini.isLulusUjian = ini.ujianSelected.lulus_at ? true : false;
       // set stepper position
       if (ini.jurusanSelected != null) ini.stepper = 2;
-      if (ini.isBiodataFilled != false && ini.jurusanSelected != null)
+      if (
+        ini.isBiodataFilled != false &&
+        ini.jurusanSelected != null &&
+        ini.ujianSelected.is_agree
+      )
         ini.stepper = 3;
       if (ini.isPembayaranLunas != false) ini.stepper = 4;
       if (ini.isLulusUjian != false) ini.stepper = 5;
+      //update rule for biodata's fields
+      var batasIPK = ini.ujianSelected.periode.syarat_ipk;
+      var batasArab = ini.ujianSelected.periode.syarat_bhs_arab;
+      var batasInggris = ini.ujianSelected.periode.syarat_bhs_inggris;
+      ini.ruleIPKValidation.push(
+        (v) =>
+          v >= batasIPK ||
+          `Maaf, syarat minimal ipk untuk mendaftar adalah ${batasIPK}`
+      );
+      ini.ruleBahasaArabValidation.push(
+        (v) =>
+          v >= batasArab ||
+          `Maaf, syarat minimal Bahasa Arab untuk mendaftar adalah ${batasArab}`
+      );
+      ini.ruleBahasaInggrisValidation.push(
+        (v) =>
+          v >= batasInggris ||
+          `Maaf, syarat minimal Bahasa Inggris untuk mendaftar adalah ${batasInggris}`
+      );
       console.log("islulus", ini.isLulusUjian);
     },
     initPendaftaran(vm) {
@@ -725,7 +772,7 @@ export default {
         .catch((error) => {});
     },
     initUjian() {
-      var periode_id = this.periode[0].id;
+      var periode_id = this.activePeriode.id;
       var jurusan_id = this.jurusanSelected;
       var payload = { periode_id, jurusan_id };
       if (this.ujian_id) payload["ujian_id"] = this.ujian_id;
@@ -848,6 +895,13 @@ export default {
       var dateTime = date + " " + time;
       return dateTime;
     },
+    isTnCAgreednBiodataFilled() {
+      if (this.ujianSelected) {
+        return this.isBiodataFilled && this.ujianSelected.is_agree;
+      } else {
+        return false;
+      }
+    },
     PhotoFileName: function () {},
   },
   watch: {
@@ -857,9 +911,18 @@ export default {
         this.checkBiodata(v);
       },
     },
+    stepper(v) {
+      // check if in pembayaran step,
+      // if it is then call check pembayaran
+      // if (v == 3) {
+      //   this.loopCheckPembayaran();
+      // }
+    },
   },
   data() {
     return {
+      pilihJurusanLoading: false,
+      biodataLoading: false,
       biodata: {
         field0: false,
         field1: false,
@@ -904,6 +967,8 @@ export default {
         (v) => !!v || "IPK wajib diisi",
         (v) => v <= 4 || "IPK hanya 0 - 4",
       ],
+      ruleBahasaArabValidation: [(v) => !!v || "Nilai wajib diisi"],
+      ruleBahasaInggrisValidation: [(v) => !!v || "Nilai wajib diisi"],
       ujian_id: null,
       jurusanSelected: null,
       stepper: 1,
