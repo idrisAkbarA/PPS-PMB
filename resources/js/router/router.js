@@ -177,7 +177,7 @@ router.beforeEach(async (to, from, next) => {
             case '/cln-mhs':
                 console.log('im at mahasiswa');
                 // console.log('is logged in?', !isLoggedIn('cln_mahasiswa'))
-                var isLogin = await !isLoggedIn('cln_mahasiswa')
+                var isLogin = await isLoggedIn('cln_mahasiswa')
                 if (!isLogin) {
                     console.log('not logged in as mahasiswa');
                     next(false)
@@ -187,7 +187,8 @@ router.beforeEach(async (to, from, next) => {
             case '/admin/:petugas':
                 console.log('im at petugas');
                 // console.log('is logged in?', !isLoggedIn('petugas'))
-                var isLogin = await !isLoggedIn('petugas')
+                var isLogin = await isLoggedIn('petugas')
+                console.log(isLogin);
                 if (!isLogin) {
                     console.log('not logged in as petugas');
                     next(false)

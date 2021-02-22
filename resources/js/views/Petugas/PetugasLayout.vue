@@ -262,13 +262,14 @@ export default {
     },
     logout() {
       axios
-        .get("/api/logout-petugas")
+        .post("/api/logout-petugas")
         .then((response) => {
+          console.log("im shoould be loggedout", response.data);
           window.location.replace("/");
         })
         .catch(() => {
-          window.location.replace("/");
           console.log("Couldn't logout");
+          window.location.replace("/");
           // this.$router.push({ path: "/login" });
         });
     },
