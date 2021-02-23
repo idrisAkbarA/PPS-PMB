@@ -137,7 +137,7 @@
               filled
               :loading="biodata.field4"
               :disabled="biodataDisabled.field4"
-              @change="sendUser(user,4)"
+              @change="validationNilai({obj:user, id:4},'inggris',user.nilai_bhs_inggris)"
               prepend-inner-icon="mdi-attachment"
               type="number"
               label="Nilai Bahasa Inggris"
@@ -152,7 +152,7 @@
               filled
               :loading="biodata.field5"
               :disabled="biodataDisabled.field5"
-              @change="sendUser(user,5)"
+              @change="validationNilai({obj:user, id:5},'arab',user.nilai_bhs_arab)"
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Arab"
               :rules="ruleBahasaArabValidation"
@@ -166,13 +166,14 @@
               :disabled="biodataDisabled.field6"
               color="green"
               filled
-              @change="sendUser(user,6)"
+              @change="validationNilai({obj:user, id:6},'ipk',user.nilai_ipk)"
               :rules="ruleIPKValidation"
               prepend-inner-icon="mdi-attachment"
               label="Nilai IPK"
               type="number"
               v-model="user.nilai_ipk"
             ></v-text-field>
+            <!-- @change="sendUser(user,6)" -->
           </v-row>
           <v-row>
             <v-text-field
@@ -492,6 +493,63 @@ export default {
   methods: {
     ...mapMutations(["setUser", "setUjianSelected"]),
     ...mapActions(["initAllDataClnMhs", "updateUser", "getSoal"]),
+    validationNilai(obj, field, value) {
+      console.log("IM VALIDATION");
+      // field: arab, inggris, ipk
+      if (field == "ipk") {
+        var isValid = true;
+        for (let index = 0; index < this.ruleIPKValidation.length; index++) {
+          const element = this.ruleIPKValidation[index];
+          console.log("loop", element(value));
+          if (element(value) != true) {
+            isValid = false;
+          }
+        }
+        console.log("response", isValid);
+        if (isValid) {
+          this.sendUser(obj.obj, obj.id);
+        }
+        return 0;
+      }
+      if (field == "arab") {
+        var isValid = true;
+        for (
+          let index = 0;
+          index < this.ruleBahasaArabValidation.length;
+          index++
+        ) {
+          const element = this.ruleBahasaArabValidation[index];
+          console.log("loop", element(value));
+          if (element(value) != true) {
+            isValid = false;
+          }
+        }
+        console.log("response", isValid);
+        if (isValid) {
+          this.sendUser(obj.obj, obj.id);
+        }
+        return 0;
+      }
+      if (field == "inggris") {
+        var isValid = true;
+        for (
+          let index = 0;
+          index < this.ruleBahasaInggrisValidation.length;
+          index++
+        ) {
+          const element = this.ruleBahasaInggrisValidation[index];
+          console.log("loop", element(value));
+          if (element(value) != true) {
+            isValid = false;
+          }
+        }
+        console.log("response", isValid);
+        if (isValid) {
+          this.sendUser(obj.obj, obj.id);
+        }
+        return 0;
+      }
+    },
     sendUser(user, id) {
       // id is biodara's property number, see at data property section
       console.log("im called");
@@ -559,14 +617,14 @@ export default {
         if (element == "is_verified") {
           return true;
         }
-        if (v[element] == null) {
+        if (v[element] == null || v[element] == "") {
           this.isBiodataFilled = false;
           return false;
         }
         this.isBiodataFilled = true;
         return true;
       });
-      console.log(this.isBiodataFilled);
+      console.log("biodata", this.isBiodataFilled);
     },
     generateCode() {
       // this method generate payment code
@@ -665,6 +723,13 @@ export default {
       function sleep(ms) {
         return new Promise((res) => setTimeout(res, ms));
       }
+      //check is still in the pendaftaran page,
+      // if not then stop the loop
+      console.log("route now:", this.$route.name);
+      if (this.$route.name != "Pendaftaran Baru") {
+        console.log("Check Stopped");
+        return 0;
+      }
       let myAsyncFunc = async function (ini) {
         console.log("Sleeping");
         await sleep(3000);
@@ -754,7 +819,7 @@ export default {
       deep: true,
       handler: function (v) {
         this.checkBiodata(v);
-        console.log(_);
+        // console.log(_);
       },
     },
   },

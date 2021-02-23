@@ -61,7 +61,7 @@ class AuthController extends Controller
         }
         return response()->json([
             'status' => 'Not Authenticated',
-            'value' => true
+            'value' => false
         ]);
     }
 
@@ -97,5 +97,6 @@ class AuthController extends Controller
     public function logoutPetugas(Request $request)
     {
         Auth::guard('petugas')->logout();
+        return Auth::guard($role)->check();
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 class CreateUjiansTable extends Migration
 {
@@ -15,6 +16,7 @@ class CreateUjiansTable extends Migration
     {
         Schema::create('ujians', function (Blueprint $table) {
             $table->id();
+            // $table->string('');
             $table->bigInteger('periode_id');
             $table->bigInteger('jurusan_id')->nullable();
             $table->bigInteger('user_cln_mhs_id');
@@ -28,7 +30,7 @@ class CreateUjiansTable extends Migration
             $table->timestamp('start_tka')->nullable();
             $table->timestamp('tkj_ended')->nullable();
             $table->timestamp('tka_ended')->nullable();
-            $table->string('kode_bayar')->nullable();
+            $table->string('kode_bayar')->unique()->nullable();
             $table->date('batas_bayar')->nullable();
             $table->date('lunas_at')->nullable();
             $table->date('batas_ujian')->nullable();

@@ -160,7 +160,7 @@ const router = new VueRouter({
     },
     routes
 });
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
     if (from.name == null) {
         // console.log('from null');
         // console.log('destination', to);
@@ -169,26 +169,30 @@ router.beforeEach((to, from, next) => {
             var value = null;
             await axios.post('/api/auth-is-login/' + role).then(response => {
                 value = response.data.value;
+                console.log('check');
             })
             return value;
         }
         switch (rootPath) {
             case '/cln-mhs':
-                // console.log('im at mahasiswa');
+                console.log('im at mahasiswa');
                 // console.log('is logged in?', !isLoggedIn('cln_mahasiswa'))
-                if (!isLoggedIn('cln_mahasiswa')) {
+                var isLogin = await isLoggedIn('cln_mahasiswa')
+                if (!isLogin) {
                     console.log('not logged in as mahasiswa');
-                    window.location.replace('/login');
                     next(false)
+                    window.location.replace('/login');
                 }
                 break;
-            case '/petugas':
-                // console.log('im at petugas');
+            case '/admin/:petugas':
+                console.log('im at petugas');
                 // console.log('is logged in?', !isLoggedIn('petugas'))
-                if (!isLoggedIn('petugas')) {
+                var isLogin = await isLoggedIn('petugas')
+                console.log(isLogin);
+                if (!isLogin) {
                     console.log('not logged in as petugas');
-                    window.location.replace('/login');
                     next(false)
+                    window.location.replace('/login');
                 }
                 break;
             default:
