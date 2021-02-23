@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <p class="text-muted">
-      Mengolola akun petugas pada aplikasi Penerimaan Mahasiswa Baru
+      Mengelola akun petugas pada aplikasi Penerimaan Mahasiswa Baru
     </p>
     <v-card>
       <v-card-title>

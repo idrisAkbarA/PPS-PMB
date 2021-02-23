@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ujian;
 use App\Periode;
 use App\Jurusan;
+use App\Kelas;
 use App\KatJurusanPerPeriode;
 use App\Library\Pembayaran;
 use Illuminate\Http\Request;
@@ -21,16 +22,45 @@ class UjianController extends Controller
      */
     public function dashboard()
     {
-        $periode = Periode::latest()->first();
+        // $periode = Periode::latest()->first();
+        $periode = Periode::getActive();
         $periode_id = $periode->id;
         $ujian = Ujian::where(['periode_id' => $periode_id])->get();
         $total_pendaftaran = count($ujian);
         $total_lulus = count(Ujian::where(['periode_id' => $periode_id])->where("lulus_at", "!=", null)->get());
+        $jurusan = Jurusan::all();
+        $final_data = [];
+        foreach ($jurusan as $key => $value) {
+            $dataJurusan = Ujian::where(['jurusan_id'=>$value->id, 'periode_id'=>$periode_id])->get();
+            // $dataJurusan = Ujian::where('jurusan_id', $value->id)->where('periode_id',$periode->id)->get();
+            $jumlah_pendaftar = count($dataJurusan);
+            $jumlah_lulus =  count(Ujian::where(['jurusan_id'=>$value->id, 'periode_id'=>$periode_id])->whereNotNull('lulus_at')->get());
+            // $jumlah_gagal = count(Ujian::where(['jurusan_id'=>$value->id, 'periode_id'=>$periode_id])->where("lulus_at", "!=", null) ->get());
+            $jumlah_kelas_terisi = count(Kelas::where(['jurusan_id'=>$value->id, 'periode_id'=>$periode_id])->get());
+
+            $array_temp =  ['nama_jurusan'=>$value->nama,'jumlah_pendaftar'=>$jumlah_pendaftar,'jumlah_lulus'=>$jumlah_lulus,'jumlah_kelas_terisi'=>$jumlah_kelas_terisi];
+            array_push($final_data,$array_temp);
+        }
+
+        // return $final_data;
+        // return $jurusan;
+        // dd($jurusan);
+        // $id_jurusan = $jurusan->id;
+        // $jumlah_pendaftar = count(Ujian::where(['periode_id' => $periode_id])->where("user_cln_mhs_id", "=", $id_jurusan)->get());
+        // $jumlah_lulus = count(Ujian::where(['periode_id' => $periode_id])-> where("lulus_at", "!=", null)->where("user_cln_mhs_id", "=", $id_jurusan)->get());
+        // $reply = [
+        //     'jurusan' => $jurusan,
+        //     'jumlah_pendaftar' => $jumlah_pendaftar,
+        //     'jumlah_lulus' => $jumlah_lulus,
+        // ];
+        // dd($reply);
+        // return $reply;
         return response()->json(
             [
                 "periode" => $periode,
                 "total_pendaftaran" => $total_pendaftaran,
-                "total_lulus" => $total_lulus
+                "total_lulus" => $total_lulus,
+                "final_data" => $final_data,
             ]
         );
     }

@@ -59,6 +59,27 @@
         </v-card>
       </v-col>
     </v-row>
+    <!-- Tabel -->
+    <v-card class="mt-5">
+      <v-card-title>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        :headers="headers"
+        :items="final_data"
+        :items-per-page="10"
+        :search="search"
+        :loading="isLoading"
+        class="elevation-1"
+      >
+      </v-data-table>
+    </v-card>
   </v-container>
 </template>
 
@@ -77,6 +98,7 @@ export default {
           this.periode = response.data.periode;
           this.total_pendaftaran = response.data.total_pendaftaran;
           this.total_lulus = response.data.total_lulus;
+          this.final_data = response.data.final_data;
         })
         .catch();
     }
@@ -85,7 +107,32 @@ export default {
     return {
       periode: null,
       total_pendaftaran: null,
-      total_lulus: null
+      total_lulus: null,
+      search: "",
+      isLoading: false,
+      headers: [
+        {
+          text: "Nama Jurusan",
+          align: "start",
+          value: "nama_jurusan"
+        },
+        {
+          text: "Jumlah Pendaftar",
+          value: "jumlah_pendaftar"
+        },
+        {
+          text: "Jumlah Lulus",
+          value: "jumlah_lulus"
+        },
+        {
+          text: "Jumlah Gagal",
+          value: "jumlah_gagal"
+        },
+        {
+          text: "Jumlah Kelas Terisi",
+          value: "jumlah_kelas_terisi"
+        },
+      ]
     };
   }
 };
