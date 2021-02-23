@@ -61,20 +61,10 @@
     </v-row>
     <!-- Tabel -->
     <v-card class="mt-5">
-      <v-card-title>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
-        ></v-text-field>
-      </v-card-title>
       <v-data-table
         :headers="headers"
         :items="final_data"
         :items-per-page="10"
-        :search="search"
         :loading="isLoading"
         class="elevation-1"
       >
@@ -108,7 +98,6 @@ export default {
       periode: null,
       total_pendaftaran: null,
       total_lulus: null,
-      search: "",
       isLoading: false,
       headers: [
         {
