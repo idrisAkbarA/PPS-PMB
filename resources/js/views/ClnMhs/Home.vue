@@ -108,7 +108,7 @@
               <v-card-text>
                 <v-container class="mt-4">
                   <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
-                  <p v-else-if="!isBiodataFilled">Lengkapi biodata diri</p>
+                  <p v-else-if="!isBiodataFilled || !item.is_agree">Lengkapi biodata diri</p>
                   <p v-else-if="item.lunas_at == null">
                     Mohon selesaikan pembayaran
                   </p>
@@ -268,7 +268,7 @@ export default {
         return "grey darken-1";
       }
       // jika biodata belum lengkap card warna ungu
-      if (!this.isBiodataFilled) {
+      if (!this.isBiodataFilled || !ujian.is_agree) {
         return "purple darken";
       }
       // cek apakah sudah melakukan pembayaran
@@ -297,7 +297,7 @@ export default {
       }
     },
     // cek biodata sudah terisi apa belum,
-    // jika sudah terisi bernilai trus,
+    // jika sudah terisi bernilai true,
     // jika masih ada yg null bernilai false
     checkBiodata(v) {
       Object.keys(v).every((element) => {

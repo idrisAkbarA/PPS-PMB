@@ -726,7 +726,7 @@ export default {
       //check is still in the pendaftaran page,
       // if not then stop the loop
       console.log("route now:", this.$route.name);
-      if (this.$route.name != "Pendaftaran") {
+      if (this.$route.name != "Pendaftaran Baru") {
         console.log("Check Stopped");
         return 0;
       }
