@@ -55,7 +55,13 @@
           >
             <v-icon>mdi-bookmark-plus</v-icon>
           </v-btn>
-          <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
+          <v-btn
+            icon
+            x-small
+            class="mr-2"
+            title="Edit"
+            @click="edit(item)"
+          >
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
           <v-btn
@@ -85,8 +91,16 @@
         <v-card-title>
           <span>Jurusan</span>
           <v-spacer></v-spacer>
-          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
-          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
+          <v-btn
+            text
+            class="mr-2"
+            @click="bottomSheet = false"
+          >batal</v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="submit"
+          >Simpan</v-btn>
         </v-card-title>
         <v-card-text>
           <vue-scroll :ops="scrollOps">
@@ -103,7 +117,10 @@
                   >
                   </v-text-field>
                 </v-col>
-                <v-col cols="6" v-if="form.id">
+                <v-col
+                  cols="6"
+                  v-if="form.id"
+                >
                   <p class="overline text-muted mb-0">Komposisi TKA Default</p>
                   <v-row
                     align="center"
@@ -121,7 +138,11 @@
                     </v-col>
                   </v-row>
                 </v-col>
-                <v-col cols="6" v-if="form.id">
+                <!-- <v-divider vertical></v-divider> -->
+                <v-col
+                  cols="6"
+                  v-if="form.id"
+                >
                   <p class="overline text-muted mb-0">Komposisi TKJ Default</p>
                   <v-row
                     align="center"
@@ -140,6 +161,29 @@
                   </v-row>
                 </v-col>
               </v-row>
+              <v-divider>
+
+              </v-divider>
+              <v-row class="px-3">
+                <v-row
+                  align="center"
+                  justify="center"
+                >
+                  <v-col cols="6">
+                    <p class="overline text-muted mb-0">Kuota per Kelas Default</p>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-text-field
+                      dense
+                      type="number"
+                      color="#2C3E50"
+                      suffix="Orang/Kelas"
+                      label="Kuota"
+                      v-model="form.kuota_kelas_default"
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-row>
             </v-card-text>
             <!-- </v-card> -->
           </vue-scroll>
@@ -147,7 +191,10 @@
       </v-card>
     </v-bottom-sheet>
     <!-- Dialog Create Category -->
-    <v-dialog v-model="dialogCategory" width="500">
+    <v-dialog
+      v-model="dialogCategory"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline bg-white">
           <h5 class="text-muted">Kategori Soal {{ form.nama }}</h5>
@@ -165,7 +212,12 @@
         </v-card-title>
 
         <v-card-text class="pb-0">
-          <v-alert dense outlined class="mb-0" style="height: 100px">
+          <v-alert
+            dense
+            outlined
+            class="mb-0"
+            style="height: 100px"
+          >
             <v-menu
               v-model="editCategory[i]"
               bottom
@@ -186,7 +238,10 @@
                   v-on="on"
                 >
                   {{ category.nama }}
-                  <v-icon right small>mdi-pencil</v-icon>
+                  <v-icon
+                    right
+                    small
+                  >mdi-pencil</v-icon>
                 </v-chip>
               </template>
               <v-card width="300">
@@ -206,7 +261,11 @@
                         v-model="category.deskripsi"
                         label="Deskripsi"
                       ></v-textarea>
-                      <v-btn color="red" dark @click="removeCategory(i)">
+                      <v-btn
+                        color="red"
+                        dark
+                        @click="removeCategory(i)"
+                      >
                         <v-icon class="mr-2">mdi-trash-can</v-icon>
                         Hapus
                       </v-btn>
@@ -221,14 +280,24 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="dialogCategory = false"> Batal </v-btn>
+          <v-btn
+            text
+            @click="dialogCategory = false"
+          > Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="#2C3E50" dark @click="submitCategory"> Simpan </v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="submitCategory"
+          > Simpan </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
     <!-- Dialog Delete -->
-    <v-dialog v-model="dialogDelete" width="500">
+    <v-dialog
+      v-model="dialogDelete"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -243,9 +312,16 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
+          <v-btn
+            text
+            @click="dialogDelete = false"
+          > Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="destroy"
+          > Ya </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -305,6 +381,10 @@ export default {
         },
         { text: "TKA Default", value: "kategori_tka" },
         { text: "TKJ Default", value: "kategori_tkj" },
+        {
+          text: "Kuota per Kelas Default",
+          value: "kuota_kelas_default",
+        },
         { text: "Actions", value: "actions" },
       ],
     };

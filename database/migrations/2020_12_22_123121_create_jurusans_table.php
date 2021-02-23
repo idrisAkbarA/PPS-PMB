@@ -18,7 +18,7 @@ class CreateJurusansTable extends Migration
             $table->string('nama');
             $table->json('komposisi_tka_default')->nullable();
             $table->json('komposisi_tkj_default')->nullable();
-            $table->integer('kuota_kelas_default');
+            $table->integer('kuota_kelas_default')->default(10);
             $table->timestamps();
         });
     }
