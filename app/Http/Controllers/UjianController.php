@@ -30,6 +30,7 @@ class UjianController extends Controller
         $total_pendaftaran = count($ujian);
         $total_lulus = count(Ujian::where(['periode_id' => $periode_id])->where("lulus_at", "!=", null)->get());
         $jurusan = Jurusan::all();
+        $total_gagal = 0;
         $final_data = [];
         foreach ($jurusan as $key => $value) {
             $dataJurusan = Ujian::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->get();
@@ -37,6 +38,7 @@ class UjianController extends Controller
             $jumlah_lulus =  count(Ujian::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->whereNotNull('lulus_at')->get());
             $jumlah_kelas_terisi = count(Kelas::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->get());
             $jumlah_gagal = (new ReportUjian())->totalGagal($dataJurusan);
+            $total_gagal += $jumlah_gagal;
             $array_temp =  ['nama_jurusan' => $value->nama, 'jumlah_pendaftar' => $jumlah_pendaftar, 'jumlah_lulus' => $jumlah_lulus, 'jumlah_kelas_terisi' => $jumlah_kelas_terisi, 'jumlah_gagal' => $jumlah_gagal];
             array_push($final_data, $array_temp);
         }
@@ -45,6 +47,7 @@ class UjianController extends Controller
                 "periode" => $periode,
                 "total_pendaftaran" => $total_pendaftaran,
                 "total_lulus" => $total_lulus,
+                "total_gagal" => $total_gagal,
                 "final_data" => $final_data,
             ]
         );
