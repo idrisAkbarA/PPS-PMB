@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import Axios from "axios";
 import moment from 'moment';
+import axios from "axios";
 Vue.use(Vuex);
 Axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 Axios.defaults.withCredentials = true;
@@ -211,6 +212,17 @@ export default new Vuex.Store({
                 })
                 .catch((error) => console.error(error));
         },
+        getJurusan({ commit, dispatch, state }) {
+            return new Promise((resolve, reject) => {
+                axios.get('/api/jurusan').then(response => {
+                    commit('setJurusan', response.data)
+                    resolve(response.data);
+                }).catch(error => {
+                    reject(error);
+                    console.log(error);
+                });
+            })
+        }
     },
     modules: {},
 })

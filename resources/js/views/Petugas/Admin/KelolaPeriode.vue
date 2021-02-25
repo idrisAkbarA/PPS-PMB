@@ -351,6 +351,159 @@
                   </v-menu>
                 </v-col>
               </v-row>
+              <v-divider></v-divider>
+              <v-row class="px-3 mt-3 mb-3">
+                <p class="overline text-muted">Set komposisi soal dan kuota</p>
+                <p>Tetapkan komposisi soal ujian serta kuota mahasiswa per kelas untuk setiap jurusan, jika tidak ditetapkan maka digunakan <i> setting default</i>. Ubah setting default di halaman <router-link :to="{ name: 'Kelola Jurusan' }"> Kelola Jurusan</router-link>
+                </p>
+              </v-row>
+              <v-row class="px-3">
+                <v-expansion-panels focusable>
+                  <v-expansion-panel
+                    v-for="(item,i) in jurusan"
+                    :key="i"
+                  >
+                    <v-expansion-panel-header v-slot="{ open }">
+                      <v-row no-gutters>
+                        <v-col cols="4">
+                          <strong>
+                            {{item.nama}}
+                          </strong>
+                        </v-col>
+                        <v-col
+                          cols="8"
+                          class="text--secondary"
+                        >
+                          <v-fade-transition leave-absolute>
+                            <span v-if="open">Tetapkan komposisi soal dan kuota</span>
+                            <v-row
+                              v-else
+                              no-gutters
+                              style="width: 100%"
+                            >
+                              <v-col cols="4">
+                                <span v-if="item.komposisi_tka_default">
+                                  <strong>
+                                    TKA:
+                                  </strong>
+                                  <ul>
+                                    <li
+                                      v-for="(row, index) in item.komposisi_tka_default"
+                                      :key="index"
+                                    >
+                                      {{ row.nama_kategori }} : {{ row.jumlah }} Soal
+                                    </li>
+                                  </ul>
+                                </span>
+
+                              </v-col>
+                              <v-col cols="4">
+                                <strong>
+                                  TKJ:
+                                </strong>
+                                <span v-if="item.komposisi_tkj_default">
+                                  <ul>
+                                    <li
+                                      v-for="(row, index) in item.komposisi_tkj_default"
+                                      :key="index"
+                                    >
+                                      {{ row.nama_kategori }} : {{ row.jumlah }} Soal
+                                    </li>
+                                  </ul>
+                                </span>
+                              </v-col>
+                              <v-col cols="4">
+                                <span>
+                                  <strong>
+                                    Kelas
+
+                                  </strong>
+                                </span>
+                                <tr></tr>
+                                {{item.kuota_kelas_default}} Mahasiswa/Kelas
+                              </v-col>
+                            </v-row>
+                          </v-fade-transition>
+                        </v-col>
+                      </v-row>
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                      <v-container>
+                        <v-row>
+                          <v-col
+                            cols="6"
+                            v-if="item.kategori"
+                          >
+                            <p class="overline text-muted mb-0">Komposisi TKA Default</p>
+                            <v-row
+                              align="center"
+                              v-for="(row, index) in item.kategori"
+                              :key="index"
+                            >
+                              <v-col cols="6">{{ row.nama }}</v-col>
+                              <v-col cols="6">
+                                <v-text-field
+                                  suffix="Soal"
+                                  dense
+                                  type="number"
+                                  color="#2C3E50"
+                                  v-model="row.jumlah_tka"
+                                ></v-text-field>
+                              </v-col>
+                            </v-row>
+                          </v-col>
+                          <!-- <v-divider vertical></v-divider> -->
+                          <v-col
+                            cols="6"
+                            v-if="item.kategori"
+                          >
+                            <p class="overline text-muted mb-0">Komposisi TKJ Default</p>
+                            <v-row
+                              align="center"
+                              v-for="(row, index) in item.kategori"
+                              :key="index"
+                            >
+                              <v-col cols="6">{{ row.nama }}</v-col>
+                              <v-col cols="6">
+                                <v-text-field
+                                  dense
+                                  suffix="Soal"
+                                  type="number"
+                                  color="#2C3E50"
+                                  v-model="row.jumlah_tkj"
+                                ></v-text-field>
+                              </v-col>
+                            </v-row>
+                          </v-col>
+                        </v-row>
+                        <v-divider>
+
+                        </v-divider>
+                        <v-row class="px-3">
+                          <v-row
+                            align="center"
+                            justify="center"
+                          >
+                            <v-col cols="6">
+                              <p class="overline text-muted mb-0">Kuota per Kelas Default</p>
+                            </v-col>
+                            <v-col cols="6">
+                              <v-text-field
+                                dense
+                                type="number"
+                                color="#2C3E50"
+                                suffix="Orang/Kelas"
+                                label="Kuota"
+                                v-model="form.kuota_kelas_default"
+                              ></v-text-field>
+                            </v-col>
+                          </v-row>
+                        </v-row>
+                      </v-container>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-row>
             </v-card-text>
             <!-- </v-card> -->
           </vue-scroll>
@@ -386,7 +539,7 @@
                 <tr>
                   <td>Syarat</td>
                   <td>
-                    IPK: {{ form.syarat_ipk }}, Bahasa: {{ form.syarat_bhs }}
+                    IPK: {{ form.syarat_ipk }}, Bahasa Arab: {{ form.syarat_bhs_arab }}, Bahasa Inggris: {{ form.syarat_bhs_inggris }}
                   </td>
                 </tr>
                 <tr>
@@ -471,7 +624,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapMutations, mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -507,7 +660,12 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isBottomSheetOpen", "urlPeriode", "currentPeriode"]),
+    ...mapState([
+      "isBottomSheetOpen",
+      "urlPeriode",
+      "currentPeriode",
+      "jurusan",
+    ]),
     bottomSheet: {
       get: function () {
         return this.isBottomSheetOpen;
@@ -536,8 +694,10 @@ export default {
   },
   created() {
     this.getPeriode();
+    this.getJurusan();
   },
   methods: {
+    ...mapActions(["getJurusan"]),
     ...mapMutations(["toggleBottomSheet", "setCurrentPeriode"]),
     getPeriode() {
       this.isLoading = true;
