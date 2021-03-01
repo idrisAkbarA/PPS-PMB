@@ -354,7 +354,10 @@
               <v-divider></v-divider>
               <v-row class="px-3 mt-3 mb-3">
                 <p class="overline text-muted">Set komposisi soal dan kuota</p>
-                <p>Tetapkan komposisi soal ujian serta kuota mahasiswa per kelas untuk setiap jurusan, jika tidak ditetapkan maka digunakan <i> setting default</i>. Ubah setting default di halaman <router-link :to="{ name: 'Kelola Jurusan' }"> Kelola Jurusan</router-link>
+                <p>Tetapkan komposisi soal ujian serta kuota mahasiswa per kelas untuk setiap jurusan, jika tidak ditetapkan maka digunakan <i> setting default</i>. Ubah <i>setting default</i> di halaman <router-link
+                    :to="{ name: 'Kelola Jurusan' }"
+                    @click="bottomSheet=false"
+                  > Kelola Jurusan</router-link>
                 </p>
               </v-row>
               <v-row class="px-3">

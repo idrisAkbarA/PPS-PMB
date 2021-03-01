@@ -39,7 +39,15 @@ class UjianController extends Controller
             $jumlah_kelas_terisi = count(Kelas::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->get());
             $jumlah_gagal = (new ReportUjian())->totalGagal($dataJurusan);
             $total_gagal += $jumlah_gagal;
-            $array_temp =  ['nama_jurusan' => $value->nama, 'jumlah_pendaftar' => $jumlah_pendaftar, 'jumlah_lulus' => $jumlah_lulus, 'jumlah_kelas_terisi' => $jumlah_kelas_terisi, 'jumlah_gagal' => $jumlah_gagal];
+            $jumlah_belum_ujian = $jumlah_pendaftar - ($jumlah_lulus + $jumlah_gagal);
+            $array_temp =  [
+                'nama_jurusan' => $value->nama,
+                'jumlah_pendaftar' => $jumlah_pendaftar,
+                'jumlah_lulus' => $jumlah_lulus,
+                'jumlah_kelas_terisi' => $jumlah_kelas_terisi,
+                'jumlah_gagal' => $jumlah_gagal,
+                'jumlah_belum_ujian' => $jumlah_belum_ujian
+            ];
             array_push($final_data, $array_temp);
         }
         return response()->json(

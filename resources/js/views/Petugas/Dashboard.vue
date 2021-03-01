@@ -128,18 +128,27 @@ export default {
         },
         {
           text: "Jumlah Pendaftar",
+          align: "center",
           value: "jumlah_pendaftar",
         },
         {
-          text: "Jumlah Lulus",
+          text: "Lulus",
+          align: "center",
           value: "jumlah_lulus",
         },
         {
-          text: "Jumlah Gagal",
+          text: "Gagal",
+          align: "center",
           value: "jumlah_gagal",
         },
         {
+          text: "Belum Menyelesaikan Ujian",
+          align: "center",
+          value: "jumlah_belum_ujian",
+        },
+        {
           text: "Jumlah Kelas Terisi",
+          align: "center",
           value: "jumlah_kelas_terisi",
         },
       ],
