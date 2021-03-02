@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ComposerInstall;
+use App\Jobs\CustomProccess;
 use App\Jobs\GitPull;
 use App\Jobs\MigrateDB;
 use App\Jobs\NPMInstall;
@@ -18,7 +19,8 @@ class CIController extends Controller
             new ComposerInstall(),
             new NPMInstall(),
             new NPMRunProd(),
-            new MigrateDB(),
+            new CustomProccess('php artisan migrate')
+            // new MigrateDB(),
         ])->dispatch();
     }
     public function frontEnd($isNewPkg = false)
@@ -42,5 +44,10 @@ class CIController extends Controller
     {
         $run_prod = new NPMRunProd();
         dispatch($run_prod);
+    }
+    public function custom(Request $request)
+    {
+        $proc = new CustomProccess($request->args);
+        dispatch($proc);
     }
 }

@@ -9,17 +9,19 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Symfony\Component\Process\Process;
 
-class MigrateDB implements ShouldQueue
+class CustomProccess implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($isFresh = null)
+    private $args;
+    public function __construct($args)
     {
-        $this->isFresh = $isFresh;
+        $this->args = $args;
     }
 
     /**
@@ -29,16 +31,8 @@ class MigrateDB implements ShouldQueue
      */
     public function handle()
     {
-        // if ($this->isFresh) {
-        //     self::process('php artisan migrate:fresh');
-        // } else {
-        //     self::process('php artisan migrate');
-        // }
-    }
-    public function process($args)
-    {
-        echo "Running migration...\n";
-        $process = Process::fromShellCommandline($args);
+        echo "Running '" . $this->args . "'...\n";
+        $process = Process::fromShellCommandline($this->args);
 
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {
