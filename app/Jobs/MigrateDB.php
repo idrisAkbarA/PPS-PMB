@@ -17,7 +17,7 @@ class MigrateDB implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($isFresh = null)
     {
         $this->isFresh = $isFresh;
     }
