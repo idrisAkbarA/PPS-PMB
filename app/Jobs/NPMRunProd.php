@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Symfony\Component\Process\Process;
 
-class GitPull implements ShouldQueue
+class NPMRunProd implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -30,8 +30,8 @@ class GitPull implements ShouldQueue
      */
     public function handle()
     {
-        echo "pulling from github...\n";
-        $process = Process::fromShellCommandline('git pull');
+        echo "Running 'npm run production'...\n";
+        $process = Process::fromShellCommandline('npm run prod');
 
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {

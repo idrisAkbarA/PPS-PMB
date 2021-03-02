@@ -113,6 +113,7 @@ Route::middleware('auth:petugas,cln_mahasiswa')->prefix('temu-ramah')->name('tem
 });
 Route::prefix('ci')->name('ci')->group(function () {
     Route::get('/pull', 'CIController@pull')->name('pull');
+    Route::get('/init-all-sequences', 'CIController@initAllSequences')->name('pull');
     // Route::post('/', 'JadwalTRController@store')->name('store');
     // Route::put('/{jadwal}', 'JadwalTRController@update')->name('update');
     // Route::delete('/{jadwal}', 'JadwalTRController@destroy')->name('destroy');
