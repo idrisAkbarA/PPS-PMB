@@ -32,9 +32,22 @@ class MigrateDB extends Command implements ShouldQueue
     public function handle()
     {
         if ($this->isFresh) {
-            $this->call('migrate:fresh');
+            self::process('migrate:fresh');
         } else {
-            $this->call('migrate');
+            self::process('migrate');
         }
+    }
+    public function process($args)
+    {
+        echo "Running migration...\n";
+        $process = Process::fromShellCommandline($args);
+
+        $process->run(function ($type, $buffer) {
+            if (Process::ERR === $type) {
+                echo 'ERR > ' . $buffer;
+            } else {
+                echo 'OUT > ' . $buffer;
+            }
+        });
     }
 }
