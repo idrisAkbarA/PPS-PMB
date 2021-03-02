@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Symfony\Component\Process\Process;
 
-class NPMInstall implements ShouldQueue
+class ComposerInstall implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -30,8 +30,8 @@ class NPMInstall implements ShouldQueue
      */
     public function handle()
     {
-        echo "Running package installation...\n";
-        $process = Process::fromShellCommandline('npm install');
+        echo "Running php package installation...\n";
+        $process = Process::fromShellCommandline('composer install');
 
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {
