@@ -22,6 +22,9 @@ class CreateUserClnMhsTable extends Migration
             $table->string('wa')->nullable();
             $table->string('alamat')->nullable();
             $table->string('jenis_kelamin')->nullable();
+            $table->date('tgl_lahir')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->string('nik')->nullable();
             $table->string('ijazah')->nullable();
             $table->string('nilai_ipk')->nullable();
             $table->string('nilai_bhs_inggris')->nullable();

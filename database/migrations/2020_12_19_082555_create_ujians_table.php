@@ -17,6 +17,7 @@ class CreateUjiansTable extends Migration
         Schema::create('ujians', function (Blueprint $table) {
             $table->id();
             // $table->string('');
+            $table->string('ujian_id')->nullable();
             $table->bigInteger('periode_id');
             $table->bigInteger('jurusan_id')->nullable();
             $table->bigInteger('user_cln_mhs_id');
@@ -33,6 +34,7 @@ class CreateUjiansTable extends Migration
             $table->string('kode_bayar')->unique()->nullable();
             $table->date('batas_bayar')->nullable();
             $table->date('lunas_at')->nullable();
+            $table->boolean('is_lunas')->nullable();
             $table->date('batas_ujian')->nullable();
             $table->boolean('is_lulus_tka')->nullable();
             $table->boolean('is_lulus_tkj')->nullable();

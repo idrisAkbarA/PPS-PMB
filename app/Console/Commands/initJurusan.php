@@ -39,19 +39,20 @@ class initJurusan extends Command
     public function handle()
     {
         $program = [
-            "Pendidikan Agama Islam S3",
-            "Hukum Keluarga S3",
-            "Pendidikan Agama Islam S2",
-            "Manajemen Pendidikan Islam S2",
-            "Ekonomi Syariah S2",
-            "Hukum Keluarga S2",
-            "Studi Bahasa Arab S2",
-            "Konsentrasi Bahasa Inggris",
-            "Konsentrasi Tafsir Hadist"
+            "Pendidikan Agama Islam S3"     => 86008,
+            "Hukum Keluarga S3"             => 74030,
+            "Pendidikan Agama Islam S2"     => 86108,
+            "Manajemen Pendidikan Islam S2" => 86110,
+            "Ekonomi Syariah S2"            => 60102,
+            "Hukum Keluarga S2"             => 74130,
+            "Studi Bahasa Arab S2"          => 86111,
+            "Konsentrasi Bahasa Inggris"    => null,
+            "Konsentrasi Tafsir Hadist"     => null
         ];
         foreach ($program as $key => $value) {
             $jurusan = new Jurusan;
-            $jurusan->nama = $value;
+            $jurusan->nama = $key;
+            $jurusan->kode_jurusan = $value;
             $jurusan->kuota_kelas_default = 10;
             $jurusan->save();
         }

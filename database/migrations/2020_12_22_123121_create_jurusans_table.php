@@ -16,11 +16,12 @@ class CreateJurusansTable extends Migration
         Schema::create('jurusans', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('kode_jurusan');
             $table->json('komposisi_tka_default')->nullable();
             $table->json('komposisi_tkj_default')->nullable();
             $table->integer('kuota_kelas_default')->default(10);
-            $table->integer('jalur_masuk_id')->nullable();
-            $table->double('nominal_bayar')->nullable();
+            $table->integer('kode_jalur_masuk')->nullable();
+            $table->double('nominal_bayar_default')->nullable();
             $table->timestamps();
         });
     }

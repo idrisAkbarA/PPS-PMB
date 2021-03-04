@@ -51,6 +51,7 @@ class initPeriode extends Command
         $periode->nama = $thisYear . "/" . $nextYear;
         $periode->awal_periode = $thisYear . '-01-01';
         $periode->akhir_periode = $thisYear . '-4-30';
+        $periode->tahun = $thisYear;
         $periode->range_ujian = 10;
         $periode->durasi_ujian = 5;
         $periode->durasi_soal = 15;

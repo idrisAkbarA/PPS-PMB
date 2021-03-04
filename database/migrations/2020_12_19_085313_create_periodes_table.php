@@ -18,6 +18,7 @@ class CreatePeriodesTable extends Migration
             $table->string('nama');
             $table->date('awal_periode');
             $table->date('akhir_periode');
+            $table->string('tahun');
             $table->bigInteger('range_ujian'); // in days
             $table->bigInteger('durasi_ujian'); // in minutes
             $table->bigInteger('durasi_soal'); // in seconds
