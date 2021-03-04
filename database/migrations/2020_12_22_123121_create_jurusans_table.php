@@ -16,7 +16,7 @@ class CreateJurusansTable extends Migration
         Schema::create('jurusans', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('kode_jurusan');
+            $table->string('kode_jurusan')->nullable();
             $table->json('komposisi_tka_default')->nullable();
             $table->json('komposisi_tkj_default')->nullable();
             $table->integer('kuota_kelas_default')->default(10);
