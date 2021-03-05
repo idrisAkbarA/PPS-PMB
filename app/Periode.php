@@ -10,6 +10,7 @@ class Periode extends Model
 
     protected $casts = [
         'is_active' => 'boolean',
+        'jadwal_ujian' => 'array'
     ];
 
     public static function boot()

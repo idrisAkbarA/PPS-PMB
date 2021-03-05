@@ -373,39 +373,194 @@
           <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
             Keilmuan (TKK)</v-card-subtitle>
           <v-card-text>
-            <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
-            <span>
-              <!-- :end-label="''" -->
-              <vue-countdown-timer
-                @start_callback="startCallBack('event started')"
-                @end_callback="endCallBack('event ended')"
-                :start-time="now"
-                :end-time="ujianSelected.batas_ujian + ' 23:59:59'"
-                :interval="1000"
-                :start-label="'Until start:'"
-                label-position="begin"
-                :end-text="'Event ended!'"
-                :day-txt="'hari'"
-                :hour-txt="'jam'"
-                :minutes-txt="'menit'"
-                :seconds-txt="'detik'"
+            <template v-if="
+                ujianSelected.is_lulus_tkj != false &&
+                ujianSelected.is_lulus_tka != false
+              ">
+              <template v-if="!ujianSelected.periode.jadwal_ujian">
+                <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
+                <span>
+                  <vue-countdown-timer
+                    @start_callback="startCallBack('event started')"
+                    @end_callback="endCallBack('event ended')"
+                    :start-time="now"
+                    :end-time="ujianSelected.batas_ujian + ' 00:00:00'"
+                    :interval="1000"
+                    :start-label="'Until start:'"
+                    label-position="begin"
+                    :end-text="'Event ended!'"
+                    :day-txt="'hari'"
+                    :hour-txt="'jam'"
+                    :minutes-txt="'menit'"
+                    :seconds-txt="'detik'"
+                  >
+                  </vue-countdown-timer>
+                </span>
+              </template>
+            </template>
+            <template v-else>
+              <h4 class="text-red">Maaf anda tidak lulus ujian masuk</h4>
+              <label>Silahkan mengulangi pendaftaran</label>
+            </template>
+            <v-divider></v-divider>
+            <template v-if="!ujianSelected.periode.jadwal_ujian">
+              <v-btn
+                color="green darken-2"
+                block
+                class="text-white"
+                :disabled="checkButtonMulaiUjian('tka')"
+                @click="ujian('tka')"
+              >Mulai Ujian TKA</v-btn>
+              <div
+                v-if="ujianSelected.is_lulus_tka"
+                class="text-center"
               >
-              </vue-countdown-timer>
-            </span>
-            <v-divider></v-divider>
-            <v-btn
-              color="green darken-2"
-              dark
-              block
-              @click="ujian('tka')"
-            >Mulai Ujian TKA</v-btn>
-            <v-divider></v-divider>
-            <v-btn
-              block
-              color="green darken-2"
-              dark
-              @click="ujian('tkj')"
-            >Mulai Ujian TKK</v-btn>
+                <strong> Status Ujian TKA lulus.</strong>
+              </div>
+              <div
+                v-if="ujianSelected.is_lulus_tka == false"
+                class="text-center"
+              >
+                <strong> Status Ujian TKA gagal.</strong>
+              </div>
+              <v-divider></v-divider>
+              <v-btn
+                block
+                color="green darken-2"
+                class="text-white"
+                :disabled="checkButtonMulaiUjian('tkj')"
+                @click="ujian('tkj')"
+              >Mulai Ujian TKK</v-btn>
+              <div
+                v-if="ujianSelected.is_lulus_tkj"
+                class="text-center"
+              >
+                <strong> Status Ujian TKJ lulus.</strong>
+              </div>
+              <div
+                v-if="ujianSelected.is_lulus_tkj == false"
+                class="text-center"
+              >
+                <strong> Status Ujian TKJ gagal.</strong>
+              </div>
+            </template>
+            <template v-else>
+              <p class="title">Lakukan ujian pada tanggal berikut</p>
+              <p>
+                Anda dapat melakukan ujian jika berada dalam jadwal yang telah ditentukan.
+              </p>
+              <div
+                v-for="(jadwal,index) in ujianSelected.periode.jadwal_ujian"
+                :key="index"
+              >
+                <v-card>
+                  <v-card-text>
+                    <h5>
+                      {{parseDate(jadwal.start)}} pukul {{parseDateNTime(jadwal.start)}}
+                    </h5>
+                    <p>
+                      sampai
+                    </p>
+                    <h5>
+                      {{parseDate(jadwal.end)}} pukul {{parseDateNTime(jadwal.end)}}
+                    </h5>
+                    <v-divider></v-divider>
+                    <div>
+
+                      <template v-if="
+                        ujianSelected.is_lulus_tkj != false &&
+                        ujianSelected.is_lulus_tka != false
+                      ">
+                        <template>
+                          <p v-if="isInRange(jadwal.start,jadwal.end)">Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
+                          <span>
+                            <vue-countdown-timer
+                              @start_callback="startCallBack('event started')"
+                              @end_callback="endCallBack('event ended')"
+                              :start-time="jadwal.start"
+                              :end-time="jadwal.end"
+                              :interval="1000"
+                              :start-label="'Mulai ujian dalam:'"
+                              label-position="begin"
+                              :end-text="'Waktu ujian telah berlalu!'"
+                              :day-txt="'hari'"
+                              :hour-txt="'jam'"
+                              :minutes-txt="'menit'"
+                              :seconds-txt="'detik'"
+                            >
+                            </vue-countdown-timer>
+                          </span>
+                        </template>
+                      </template>
+                      <template v-else>
+                        <h4 class="text-red">Maaf anda tidak lulus ujian masuk</h4>
+                        <label>Silahkan mengulangi pendaftaran</label>
+                      </template>
+                      <v-divider></v-divider>
+                      <v-card
+                        flat
+                        class="pt-5 pb-5"
+                      >
+
+                        <v-overlay
+                          absolute
+                          :value="!isInRange(jadwal.start,jadwal.end)"
+                        >
+                          <v-card class="px-2">
+                            Maaf, anda belum berada dalam rentang jadwal
+                          </v-card>
+                        </v-overlay>
+                        <v-btn
+                          color="green darken-2"
+                          block
+                          class="text-white"
+                          :disabled="checkButtonMulaiUjian('tka')"
+                          @click="ujian('tka')"
+                        >Mulai Ujian TKA</v-btn>
+                        <div
+                          v-if="ujianSelected.is_lulus_tka"
+                          class="text-center"
+                        >
+                          <strong> Status Ujian TKA lulus.</strong>
+                        </div>
+                        <div
+                          v-if="ujianSelected.is_lulus_tka == false"
+                          class="text-center"
+                        >
+                          <strong> Status Ujian TKA gagal.</strong>
+                        </div>
+                        <v-divider></v-divider>
+                        <v-btn
+                          block
+                          color="green darken-2"
+                          class="text-white"
+                          :disabled="checkButtonMulaiUjian('tkj')"
+                          @click="ujian('tkj')"
+                        >Mulai Ujian TKK</v-btn>
+                        <div
+                          v-if="ujianSelected.is_lulus_tkj"
+                          class="text-center"
+                        >
+                          <strong> Status Ujian TKJ lulus.</strong>
+                        </div>
+                        <div
+                          v-if="ujianSelected.is_lulus_tkj == false"
+                          class="text-center"
+                        >
+                          <strong> Status Ujian TKJ gagal.</strong>
+                        </div>
+
+                      </v-card>
+                    </div>
+                  </v-card-text>
+
+                </v-card>
+                <p
+                  class="mt-5"
+                  v-if="ujianSelected.periode.jadwal_ujian.length>1&&index+1!=ujianSelected.periode.jadwal_ujian.length"
+                >atau</p>
+              </div>
+            </template>
           </v-card-text>
         </v-card>
       </v-stepper-content>
@@ -674,6 +829,27 @@ export default {
         );
       });
     },
+    checkButtonMulaiUjian(type) {
+      if (type == "tka") {
+        if (this.ujianSelected.is_lulus_tkj == false) return true;
+      }
+      if (type == "tkj") {
+        if (this.ujianSelected.is_lulus_tka == false) return true;
+      }
+      if (this.ujianSelected["is_lulus_" + type] == false) return true;
+      if (this.ujianSelected["is_lulus_" + type] == true) return true;
+    },
+    setJadwal(jadwal) {
+      jadwal.ids_cln_mhs.push(this.user.id);
+      axios
+        .put(`/api/temu-ramah/${jadwal.id}`, jadwal)
+        .then((response) => {
+          var ini = this;
+          this.jadwalTR = response.data.temuRamah;
+          this.getTemuRamah(ini);
+        })
+        .catch((error) => {});
+    },
     setIjazah() {
       this.progress = 0;
       this.loadingSheet.toggle = true;
@@ -759,6 +935,15 @@ export default {
             reject(error);
           });
       });
+    },
+    isInRange(start, end) {
+      return this.$moment(this.now).isBetween(start, end);
+    },
+    parseDate(date) {
+      return this.$moment(date, "YYYY-MM-DD").format("Do MMMM YYYY");
+    },
+    parseDateNTime(date) {
+      return this.$moment(date, "YYYY-MM-DD h:m:s").format("hh:mm");
     },
     startCallBack(data) {},
     endCallBack(data) {},
