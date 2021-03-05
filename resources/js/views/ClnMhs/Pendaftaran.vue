@@ -512,7 +512,7 @@
                 Anda dapat melakukan ujian jika berada dalam jadwal yang telah ditentukan.
               </p>
               <div
-                v-for="(jadwal,index) in JSON.parse(ujianSelected.periode.jadwal_ujian)"
+                v-for="(jadwal,index) in ujianSelected.periode.jadwal_ujian"
                 :key="index"
               >
                 <v-card>
@@ -619,7 +619,7 @@
                 </v-card>
                 <p
                   class="mt-5"
-                  v-if="JSON.parse(ujianSelected.periode.jadwal_ujian).length>1&&index+1!=JSON.parse(ujianSelected.periode.jadwal_ujian).length"
+                  v-if="ujianSelected.periode.jadwal_ujian.length>1&&index+1!=ujianSelected.periode.jadwal_ujian.length"
                 >atau</p>
               </div>
             </template>

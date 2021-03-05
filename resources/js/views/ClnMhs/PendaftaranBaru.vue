@@ -365,6 +365,7 @@
       </v-stepper-step>
       <v-stepper-content step="4">
         <v-card
+          v-if="ujianSelected"
           color="grey lighten-4"
           class="mb-12"
         >
@@ -449,7 +450,7 @@
                 Anda dapat melakukan ujian jika berada dalam jadwal yang telah ditentukan.
               </p>
               <div
-                v-for="(jadwal,index) in JSON.parse(ujianSelected.periode.jadwal_ujian)"
+                v-for="(jadwal,index) in ujianSelected.periode.jadwal_ujian"
                 :key="index"
               >
                 <v-card>
@@ -556,7 +557,7 @@
                 </v-card>
                 <p
                   class="mt-5"
-                  v-if="JSON.parse(ujianSelected.periode.jadwal_ujian).length>1&&index+1!=JSON.parse(ujianSelected.periode.jadwal_ujian).length"
+                  v-if="ujianSelected.periode.jadwal_ujian.length>1&&index+1!=ujianSelected.periode.jadwal_ujian.length"
                 >atau</p>
               </div>
             </template>
@@ -827,6 +828,27 @@ export default {
             `Maaf, syarat minimal Bahasa Inggris untuk mendaftar adalah ${batasInggris}`
         );
       });
+    },
+    checkButtonMulaiUjian(type) {
+      if (type == "tka") {
+        if (this.ujianSelected.is_lulus_tkj == false) return true;
+      }
+      if (type == "tkj") {
+        if (this.ujianSelected.is_lulus_tka == false) return true;
+      }
+      if (this.ujianSelected["is_lulus_" + type] == false) return true;
+      if (this.ujianSelected["is_lulus_" + type] == true) return true;
+    },
+    setJadwal(jadwal) {
+      jadwal.ids_cln_mhs.push(this.user.id);
+      axios
+        .put(`/api/temu-ramah/${jadwal.id}`, jadwal)
+        .then((response) => {
+          var ini = this;
+          this.jadwalTR = response.data.temuRamah;
+          this.getTemuRamah(ini);
+        })
+        .catch((error) => {});
     },
     setIjazah() {
       this.progress = 0;

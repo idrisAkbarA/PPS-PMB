@@ -216,7 +216,7 @@ class UjianController extends Controller
     public function checkPembayaran(Request $request)
     {
         $ujian_id = $request->ujian_id;
-        $ujian = Ujian::find($ujian_id);
+        $ujian = Ujian::with('periode')->find($ujian_id);
         if ($ujian->lunas_at) {
             return response()->json([
                 'status' => true,
