@@ -296,6 +296,97 @@
                   </v-text-field>
                 </v-col>
                 <v-col cols="6">
+                  <label class="text-dark">Tahun Ujian</label>
+                </v-col>
+                <v-col cols="6">
+                  <v-text-field
+                    type="number"
+                    color="#2C3E50"
+                    min="0"
+                    label="Tahun Ujian"
+                    v-model="form.tahun"
+                  >
+                  </v-text-field>
+                </v-col>
+                <v-col cols="6">
+                  <label class="text-dark">Menggunakan jadwal ujian</label>
+                </v-col>
+                <v-col cols="6">
+                  <v-switch
+                    inset
+                    hide-details="auto"
+                    color="green"
+                    v-model="isJadwal"
+                    :label="isJadwal?'Iya':'Tidak'"
+                  ></v-switch>
+                </v-col>
+                <v-expand-transition>
+                  <v-col
+                    v-if="isJadwal"
+                    cols="12"
+                  >
+                    <v-row>
+                      <v-card width="100%">
+                        <v-card-text>
+                          <v-container>
+                            <v-row
+                              align="center"
+                              v-for="(jadwal,index) in jadwals"
+                              :key="index"
+                            >
+
+                              <v-col cols="5">
+                                <v-text-field
+                                  readonly
+                                  color="#2C3E50"
+                                  prepend-icon="mdi-calendar"
+                                  label="Awal Ujian"
+                                  v-model="jadwal.start"
+                                  @click="openDialogDateNTime(index,'start')"
+                                >
+                                </v-text-field>
+                              </v-col>
+                              <v-col cols="5">
+                                <v-text-field
+                                  readonly
+                                  color="#2C3E50"
+                                  prepend-icon="mdi-calendar"
+                                  label="Akhir Ujian"
+                                  v-model="jadwal.end"
+                                  @click="openDialogDateNTime(index,'end')"
+                                >
+                                </v-text-field>
+                              </v-col>
+                              <v-col cols="2">
+                                <v-btn
+                                  icon
+                                  @click="removeJadwal(index)"
+                                >
+                                  <v-icon>
+                                    mdi-close
+                                  </v-icon>
+                                </v-btn>
+                              </v-col>
+                            </v-row>
+                            <v-row justify="center">
+                              <v-btn
+                                icon
+                                class="green"
+                                @click="addJadwal"
+                              >
+                                <v-icon class="text-white">
+                                  mdi-plus
+                                </v-icon>
+                              </v-btn>
+                            </v-row>
+                          </v-container>
+                        </v-card-text>
+
+                      </v-card>
+                    </v-row>
+                  </v-col>
+                </v-expand-transition>
+                <v-col cols="6">
                   <v-menu
                     :nudge-right="40"
                     transition="scale-transition"
@@ -513,6 +604,55 @@
         </v-card-text>
       </v-card>
     </v-bottom-sheet>
+    <!-- Dialog datetime picker -->
+    <v-dialog
+      v-model="dialogDateTime"
+      width="800"
+    >
+      <v-card>
+        <v-card-title>
+          Tetapkan Tanggal dan Waktu
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row justify="space-between">
+              <v-col cols="6">
+                <p>Tetapkan Tanggal</p>
+                <v-date-picker
+                  color="green"
+                  v-model="dateTemp"
+                ></v-date-picker>
+              </v-col>
+              <v-col cols="6">
+                <p>Tetapkan Waktu</p>
+                <v-time-picker
+                  color="green"
+                  v-model="timeTemp"
+                ></v-time-picker>
+              </v-col>
+            </v-row>
+            <v-row v-if="dateTemp">
+              <p>
+
+                Tanggal <strong>{{parseDate(dateTemp)}}</strong> <span
+                  class="ml-1"
+                  v-if="timeTemp"
+                > Pukul <strong>{{parseDateNTime(timeTemp)}}</strong></span>
+
+              </p>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            color="green"
+            class="text-white"
+            @click="saveDateTime()"
+          >Simpan</v-btn>
+          <v-btn text>Batal</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <!-- Dialog Show -->
     <v-dialog
       v-model="dialogShow"
@@ -631,10 +771,17 @@ import { mapMutations, mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
+      dateSelected: 0,
+      dateObjSelected: null,
+      jadwals: [],
+      dateTemp: null,
+      timeTemp: null,
+      isJadwal: false,
       search: "",
       periode: [],
       form: {},
       isLoading: false,
+      dialogDateTime: false,
       dialogDelete: false,
       dialogShow: false,
       snackbar: { show: false },
@@ -679,6 +826,13 @@ export default {
     },
   },
   watch: {
+    isJadwal(val) {
+      if (val) {
+        this.jadwals = [{ start: null, end: null }];
+      } else {
+        this.jadwals = [];
+      }
+    },
     bottomSheet(val) {
       if (!val) {
         this.form = {};
@@ -702,6 +856,29 @@ export default {
   methods: {
     ...mapActions(["getJurusan"]),
     ...mapMutations(["toggleBottomSheet", "setCurrentPeriode"]),
+    parseDate(date) {
+      return this.$moment(date, "YYYY-MM-DD").format("Do MMMM YYYY");
+    },
+    parseDateNTime(date) {
+      console.log(date);
+      return this.$moment(date, "h:m").format("hh:mm");
+    },
+    openDialogDateNTime(index, obj) {
+      this.dateSelected = index;
+      this.dateObjSelected = obj;
+      this.dialogDateTime = true;
+    },
+    addJadwal() {
+      this.jadwals.push({ start: null, end: null });
+    },
+    removeJadwal(index) {
+      this.jadwals.splice(index, 1);
+    },
+    saveDateTime() {
+      this.jadwals[this.dateSelected][this.dateObjSelected] =
+        this.dateTemp + " " + this.timeTemp + ":00";
+      this.dialogDateTime = false;
+    },
     getPeriode() {
       this.isLoading = true;
       axios
@@ -728,10 +905,12 @@ export default {
     },
     edit(item) {
       this.form = _.clone(item);
+      this.jadwals = this.form.jadwal_ujian;
       this.bottomSheet = true;
     },
     submit() {
       const form = this.form;
+      form.jadwal_ujian = this.jadwals;
       if (!form.id) {
         this.store();
         return;
