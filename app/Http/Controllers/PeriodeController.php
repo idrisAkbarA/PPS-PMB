@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Periode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PeriodeController extends Controller
 {
@@ -14,7 +15,7 @@ class PeriodeController extends Controller
      */
     public function index()
     {
-        $periode = Periode::latest()->get();
+        $periode = Periode::with('kategori')->latest()->get();
 
         return response()->json($periode, 200);
     }
@@ -27,14 +28,31 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        $periode = Periode::create($request->all());
+        DB::beginTransaction();
 
-        $reply = [
-            'status' => true,
-            'message' => 'Periode Successfully Created!',
-            'data' => $periode
-        ];
-        return response()->json($reply, 201);
+        try {
+            // Create periode
+            $periode = Periode::create($request->all());
+            // Create kategori per periode
+            $periode->setKategori($request->jurusan);
+
+            DB::commit();
+
+            $reply = [
+                'status' => true,
+                'message' => 'Periode Successfully Created!',
+                'data' => $periode
+            ];
+        } catch (\Exception $e) {
+            DB::rollback();
+            $reply = [
+                'status' => false,
+                'message' => 'Opps something went wrong!',
+                'exception' => $e
+            ];
+        }
+
+        return response()->json($reply, $reply['status'] ? 201 : 409);
     }
 
     /**
@@ -59,14 +77,31 @@ class PeriodeController extends Controller
      */
     public function update(Request $request, Periode $periode)
     {
-        $periode->update($request->all());
+        DB::beginTransaction();
 
-        $reply = [
-            'status' => true,
-            'message' => 'Periode Successfully Updated!',
-            'data' => $periode
-        ];
-        return response()->json($reply, 200);
+        try {
+            // Create periode
+            $periode->update($request->all());
+            // Create kategori per periode
+            $periode->setKategori($request->jurusan);
+
+            DB::commit();
+
+            $reply = [
+                'status' => true,
+                'message' => 'Periode Successfully Updated!',
+                'data' => $periode
+            ];
+        } catch (\Exception $e) {
+            DB::rollback();
+            $reply = [
+                'status' => false,
+                'message' => 'Opps something went wrong!',
+                'exception' => $e
+            ];
+        }
+
+        return response()->json($reply, $reply['status'] ? 200 : 409);
     }
 
     /**

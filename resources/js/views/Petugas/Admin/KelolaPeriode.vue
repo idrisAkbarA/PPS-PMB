@@ -44,13 +44,7 @@
           >
             <v-icon>mdi-information</v-icon>
           </v-btn>
-          <v-btn
-            icon
-            x-small
-            class="mr-2"
-            title="Edit"
-            @click="edit(item)"
-          >
+          <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
           <v-btn
@@ -80,16 +74,8 @@
         <v-card-title>
           <span>Periode</span>
           <v-spacer></v-spacer>
-          <v-btn
-            text
-            class="mr-2"
-            @click="bottomSheet = false"
-          >batal</v-btn>
-          <v-btn
-            color="#2C3E50"
-            dark
-            @click="submit"
-          >Simpan</v-btn>
+          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
+          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
         </v-card-title>
         <v-card-text>
           <vue-scroll :ops="scrollOps">
@@ -161,10 +147,7 @@
                     </v-date-picker>
                   </v-menu>
                 </v-col>
-                <v-col
-                  cols="12"
-                  class="pb-0"
-                >
+                <v-col cols="12" class="pb-0">
                   <p class="overline text-muted mb-0">Setting Ujian</p>
                 </v-col>
                 <v-col cols="6">
@@ -445,76 +428,67 @@
               <v-divider></v-divider>
               <v-row class="px-3 mt-3 mb-3">
                 <p class="overline text-muted">Set komposisi soal dan kuota</p>
-                <p>Tetapkan komposisi soal ujian serta kuota mahasiswa per kelas untuk setiap jurusan, jika tidak ditetapkan maka digunakan <i> setting default</i>. Ubah <i>setting default</i> di halaman <router-link
+                <p>
+                  Tetapkan komposisi soal ujian serta kuota mahasiswa per kelas
+                  untuk setiap jurusan, jika tidak ditetapkan maka digunakan
+                  <i> setting default</i>. Ubah <i>setting default</i> di
+                  halaman
+                  <router-link
                     :to="{ name: 'Kelola Jurusan' }"
-                    @click="bottomSheet=false"
-                  > Kelola Jurusan</router-link>
+                    @click="bottomSheet = false"
+                  >
+                    Kelola Jurusan</router-link
+                  >
                 </p>
               </v-row>
               <v-row class="px-3">
                 <v-expansion-panels focusable>
-                  <v-expansion-panel
-                    v-for="(item,i) in jurusan"
-                    :key="i"
-                  >
+                  <v-expansion-panel v-for="(item, i) in form.jurusan" :key="i">
                     <v-expansion-panel-header v-slot="{ open }">
                       <v-row no-gutters>
                         <v-col cols="4">
                           <strong>
-                            {{item.nama}}
+                            {{ item.nama }}
                           </strong>
                         </v-col>
-                        <v-col
-                          cols="8"
-                          class="text--secondary"
-                        >
+                        <v-col cols="8" class="text--secondary">
                           <v-fade-transition leave-absolute>
-                            <span v-if="open">Tetapkan komposisi soal dan kuota</span>
-                            <v-row
-                              v-else
-                              no-gutters
-                              style="width: 100%"
+                            <span v-if="open"
+                              >Tetapkan komposisi soal dan kuota</span
                             >
+                            <v-row v-else no-gutters style="width: 100%">
                               <v-col cols="4">
-                                <span v-if="item.komposisi_tka_default">
-                                  <strong>
-                                    TKA:
-                                  </strong>
+                                <span v-if="item.kategori">
+                                  <strong> TKA: </strong>
                                   <ul>
                                     <li
-                                      v-for="(row, index) in item.komposisi_tka_default"
+                                      v-for="(row, index) in item.kategori"
                                       :key="index"
                                     >
-                                      {{ row.nama_kategori }} : {{ row.jumlah }} Soal
+                                      {{ row.nama }} : {{ row.jumlah_tka }} Soal
                                     </li>
                                   </ul>
                                 </span>
-
                               </v-col>
                               <v-col cols="4">
-                                <strong>
-                                  TKJ:
-                                </strong>
-                                <span v-if="item.komposisi_tkj_default">
+                                <strong> TKJ: </strong>
+                                <span v-if="item.kategori">
                                   <ul>
                                     <li
-                                      v-for="(row, index) in item.komposisi_tkj_default"
+                                      v-for="(row, index) in item.kategori"
                                       :key="index"
                                     >
-                                      {{ row.nama_kategori }} : {{ row.jumlah }} Soal
+                                      {{ row.nama }} : {{ row.jumlah_tkj }} Soal
                                     </li>
                                   </ul>
                                 </span>
                               </v-col>
                               <v-col cols="4">
                                 <span>
-                                  <strong>
-                                    Kelas
-
-                                  </strong>
+                                  <strong> Kelas </strong>
                                 </span>
                                 <tr></tr>
-                                {{item.kuota_kelas_default}} Mahasiswa/Kelas
+                                {{ item.kuota_kelas_default }} Mahasiswa/Kelas
                               </v-col>
                             </v-row>
                           </v-fade-transition>
@@ -524,11 +498,10 @@
                     <v-expansion-panel-content>
                       <v-container>
                         <v-row>
-                          <v-col
-                            cols="6"
-                            v-if="item.kategori"
-                          >
-                            <p class="overline text-muted mb-0">Komposisi TKA Default</p>
+                          <v-col cols="6" v-if="item.kategori">
+                            <p class="overline text-muted mb-0">
+                              Komposisi TKA
+                            </p>
                             <v-row
                               align="center"
                               v-for="(row, index) in item.kategori"
@@ -547,11 +520,10 @@
                             </v-row>
                           </v-col>
                           <!-- <v-divider vertical></v-divider> -->
-                          <v-col
-                            cols="6"
-                            v-if="item.kategori"
-                          >
-                            <p class="overline text-muted mb-0">Komposisi TKJ Default</p>
+                          <v-col cols="6" v-if="item.kategori">
+                            <p class="overline text-muted mb-0">
+                              Komposisi TKJ
+                            </p>
                             <v-row
                               align="center"
                               v-for="(row, index) in item.kategori"
@@ -570,16 +542,13 @@
                             </v-row>
                           </v-col>
                         </v-row>
-                        <v-divider>
-
-                        </v-divider>
+                        <v-divider> </v-divider>
                         <v-row class="px-3">
-                          <v-row
-                            align="center"
-                            justify="center"
-                          >
+                          <v-row align="center" justify="center">
                             <v-col cols="6">
-                              <p class="overline text-muted mb-0">Kuota per Kelas Default</p>
+                              <p class="overline text-muted mb-0">
+                                Kuota per Kelas
+                              </p>
                             </v-col>
                             <v-col cols="6">
                               <v-text-field
@@ -654,10 +623,7 @@
       </v-card>
     </v-dialog>
     <!-- Dialog Show -->
-    <v-dialog
-      v-model="dialogShow"
-      width="500"
-    >
+    <v-dialog v-model="dialogShow" width="500">
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -682,7 +648,9 @@
                 <tr>
                   <td>Syarat</td>
                   <td>
-                    IPK: {{ form.syarat_ipk }}, Bahasa Arab: {{ form.syarat_bhs_arab }}, Bahasa Inggris: {{ form.syarat_bhs_inggris }}
+                    IPK: {{ form.syarat_ipk }}, Bahasa Arab:
+                    {{ form.syarat_bhs_arab }}, Bahasa Inggris:
+                    {{ form.syarat_bhs_inggris }}
                   </td>
                 </tr>
                 <tr>
@@ -712,10 +680,7 @@
       </v-card>
     </v-dialog>
     <!-- Dialog Delete -->
-    <v-dialog
-      v-model="dialogDelete"
-      width="500"
-    >
+    <v-dialog v-model="dialogDelete" width="500">
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -730,16 +695,9 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn
-            text
-            @click="dialogDelete = false"
-          > Batal </v-btn>
+          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn
-            color="#2C3E50"
-            dark
-            @click="destroy"
-          > Ya </v-btn>
+          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -836,6 +794,41 @@ export default {
     bottomSheet(val) {
       if (!val) {
         this.form = {};
+      } else {
+        this.form.jurusan = _.cloneDeep(this.jurusan);
+        if (!this.form.id) {
+          this.form.jurusan.forEach((item) => {
+            item.kategori.forEach((el) => {
+              let kategori = item.komposisi_tka_default.filter((elem) => {
+                return elem.kategori_id == el.id;
+              })[0];
+              el.jumlah_tka = kategori ? kategori.jumlah : 0;
+
+              kategori = item.komposisi_tkj_default.filter((elem) => {
+                return elem.kategori_id == el.id;
+              })[0];
+              el.jumlah_tkj = kategori ? kategori.jumlah : 0;
+            });
+          });
+        } else {
+          this.form.jurusan.forEach((item) => {
+            item.kategori.forEach((el) => {
+              const jurusan = this.form.kategori.filter((elem) => {
+                return elem.jurusan_id == item.id;
+              })[0];
+
+              let kategori = jurusan.komposisi_tka.filter((elem) => {
+                return elem.kategori_id == el.id;
+              })[0];
+              el.jumlah_tka = kategori ? kategori.jumlah : 0;
+
+              kategori = jurusan.komposisi_tkj.filter((elem) => {
+                return elem.kategori_id == el.id;
+              })[0];
+              el.jumlah_tkj = kategori ? kategori.jumlah : 0;
+            });
+          });
+        }
       }
     },
     dialogDelete(val) {

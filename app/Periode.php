@@ -22,13 +22,6 @@ class Periode extends Model
             $allJurusan = Jurusan::all();
 
             foreach ($allJurusan as $jurusan) {
-                if ($jurusan->komposisi_tka_default && $jurusan->komposisi_tkj_default) {
-                    $model->kategori()->create([
-                        'jurusan_id' => $jurusan->id,
-                        'komposisi_tka' => $jurusan->komposisi_tka_default,
-                        'komposisi_tkj' => $jurusan->komposisi_tkj_default,
-                    ]);
-                }
                 if ($jurusan->kuota_kelas_default) {
                     $model->kuota_kelas()->create([
                         'jurusan_id' => $jurusan->id,
@@ -43,6 +36,11 @@ class Periode extends Model
             $categories = $model->kategori()->get();
             foreach ($categories as $category) {
                 $category->delete();
+            }
+
+            $kuota = $model->kuota_kelas()->get();
+            foreach ($kuota as $row) {
+                $row->delete();
             }
         });
     }
@@ -106,6 +104,32 @@ class Periode extends Model
             $allperiode->update(['is_active' => 0]);
         }
         $this->attributes['is_active'] = $value;
+    }
+
+    public function setKategori($jurusan)
+    {
+        foreach ($jurusan as $item) {
+            $komposisi_tka = [];
+            $komposisi_tkj = [];
+            foreach ($item['kategori'] as $row) {
+                $tmp = ['kategori_id' => $row['id'], 'nama_kategori' => $row['nama'], 'jumlah' => $row['jumlah_tka']];
+                array_push($komposisi_tka, $tmp);
+                $tmp = ['kategori_id' => $row['id'], 'nama_kategori' => $row['nama'], 'jumlah' => $row['jumlah_tkj']];
+                array_push($komposisi_tkj, $tmp);
+            }
+
+            $this->kategori()->updateOrCreate(
+                [
+                    'periode_id' => $this->id,
+                    'jurusan_id' => $item['id']
+                ],
+                [
+                    'jurusan_id' => $item['id'],
+                    'komposisi_tka' => $komposisi_tka,
+                    'komposisi_tkj' => $komposisi_tkj,
+                ]
+            );
+        }
     }
 
     // Relations
