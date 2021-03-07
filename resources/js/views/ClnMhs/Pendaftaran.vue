@@ -1023,6 +1023,20 @@ export default {
       });
     },
     setIjazah() {
+      var exts = ["pdf"];
+      var isExtValid = this.checkFileType(this.ijazahFile, _.clone(exts));
+      if (!isExtValid) {
+        // console.log(exts);
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
       this.progress = 0;
       this.loadingSheet.toggle = true;
       this.loadingSheet.message = "Mengupload File Ijazah...";
@@ -1035,10 +1049,24 @@ export default {
         this.setUser(response.data.user);
         setTimeout(() => {
           this.loadingSheet.toggle = false;
-        }, 1000);
+        }, 1500);
       });
     },
     setPhoto() {
+      var exts = ["png", "jpg", "jpeg"];
+      var isExtValid = this.checkFileType(this.photoFile, _.clone(exts));
+      if (!isExtValid) {
+        // console.log(exts);
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
       this.progress = 0;
       this.loadingSheet.toggle = true;
       this.loadingSheet.message = "Mengupload File Photo...";
@@ -1051,7 +1079,7 @@ export default {
         this.setUser(response.data.user);
         setTimeout(() => {
           this.loadingSheet.toggle = false;
-        }, 1000);
+        }, 1500);
       });
     },
     upload: async (data, ini) => {

@@ -54,6 +54,31 @@ import App from './views/App';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.mixin({
+  methods: {
+    checkFileType(file, extensions) {
+      // check if the file extension from vuetify input file is the same as expected
+      console.log(file.name);
+      var fileExt = "";
+      var fileSplitted = file.name.split(".");
+      try {
+        fileExt = fileSplitted[fileSplitted.length - 1];
+      } catch (error) {
+        console.log(extensions[0], fileExt);
+        return false;
+      }
+      // console.log(extensions[0], fileExt);
+      while (extensions.length > 0) {
+        console.log(extensions[0], fileExt);
+        if (extensions[0] == fileExt) {
+          return true;
+        }
+        extensions.shift();
+      }
+      return false;
+    }
+  }
+})
 const app = new Vue({
   el: '#app',
   components: { App },
