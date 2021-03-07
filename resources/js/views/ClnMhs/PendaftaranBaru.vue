@@ -95,6 +95,66 @@
             <v-text-field
               color="green"
               filled
+              :loading="biodata.field8"
+              :disabled="biodataDisabled.field8"
+              @change="sendUser(user,8)"
+              prepend-inner-icon="mdi-city"
+              label="Tempat Lahir"
+              type="text"
+              v-model="user.tempat_lahir"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-menu
+              ref="menu"
+              v-model="menu"
+              :close-on-content-click="false"
+              transition="scale-transition"
+              offset-y
+              min-width="auto"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  color="green"
+                  filled
+                  :loading="biodata.field9"
+                  :disabled="biodataDisabled.field9"
+                  @change="sendUser(user,9)"
+                  v-model="user.tgl_lahir"
+                  label="Tanggal Lahir"
+                  prepend-inner-icon="mdi-calendar"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+                ></v-text-field>
+              </template>
+              <v-date-picker
+                color="green"
+                ref="picker"
+                v-model="user.tgl_lahir"
+                :max="new Date().toISOString().substr(0, 10)"
+                min="1950-01-01"
+                @change="save;sendUser(user,9)"
+              ></v-date-picker>
+            </v-menu>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
+              :loading="biodata.field10"
+              :disabled="biodataDisabled.field10"
+              @change="sendUser(user,10)"
+              prepend-inner-icon="mdi-card-bulleted"
+              label="NIK"
+              type="number"
+              v-model="user.nik"
+            ></v-text-field>
+          </v-row>
+          <v-row>
+            <v-text-field
+              color="green"
+              filled
               :loading="biodata.field1"
               :disabled="biodataDisabled.field1"
               @change="sendUser(user,1)"
@@ -213,7 +273,6 @@
               </v-col>
             </template>
             <v-file-input
-              accept=".pdf"
               @change="setIjazah()"
               hide-input
               ref="ijazah"
@@ -221,6 +280,7 @@
               v-model="ijazahFile"
             ></v-file-input>
           </v-row>
+
           <v-row>
             <v-text-field
               v-if="!user.pas_photo"
@@ -229,7 +289,6 @@
               prepend-inner-icon="mdi-attachment"
               label="Upload Pas Foto"
               readonly
-              accept="images/*, .pdf"
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
             <template v-else>
@@ -260,11 +319,10 @@
                 </v-btn>
               </v-col>
             </template>
-            <!-- @change="sendUser(user,)" -->
+            <!-- @change="updateUser(user)" -->
             <v-file-input
               @change="setPhoto()"
               hide-input
-              accept="images/*, .pdf"
               ref="photoProfile"
               class="d-none"
               v-model="photoFile"
@@ -277,11 +335,6 @@
               color="green"
               label="Setuju dengan syarat dan ketentuan pendaftaran Pascasarjana UIN Suska Riau"
             ></v-checkbox>
-          </v-row>
-          <v-row v-if="isSyaratLulus">
-            <h4>
-              Maaf Nilai IPK/Bahasa anda tidak mencukupi syarat pendaftaran
-            </h4>
           </v-row>
         </v-container>
         <v-btn
@@ -1011,9 +1064,11 @@ export default {
   data() {
     return {
       // these biodara properties is for biodatas loading and disabled state
+      snackbar: { show: false },
+      menu: false,
+      date: null,
       pilihJurusanLoading: false,
       biodataLoading: false,
-      snackbar: { show: false, message: null },
       biodata: {
         field0: false,
         field1: false,
@@ -1023,6 +1078,11 @@ export default {
         field5: false,
         field6: false,
         field7: false,
+        field8: false,
+        field9: false,
+        field10: false,
+        field11: false,
+        field12: false,
       },
       biodataDisabled: {
         field0: false,
@@ -1033,6 +1093,10 @@ export default {
         field5: false,
         field6: false,
         field7: false,
+        field8: false,
+        field9: false,
+        field10: false,
+        field11: false,
       },
       jk: ["Laki-laki", "Perempuan"],
       isLoading: false,

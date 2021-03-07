@@ -1182,6 +1182,7 @@ export default {
   },
   data() {
     return {
+      snackbar: { show: false },
       menu: false,
       date: null,
       pilihJurusanLoading: false,

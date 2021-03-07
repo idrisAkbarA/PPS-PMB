@@ -144,6 +144,10 @@
               </v-card-text>
             </v-card>
           </v-hover>
+          <p
+            class="mt-3 text-muted"
+            v-if="index==0"
+          >Pendaftaran terbaru anda</p>
         </v-col>
       </v-row>
     </v-container>
