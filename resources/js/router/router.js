@@ -10,20 +10,20 @@ import Pendaftaran from "../views/ClnMhs/Pendaftaran.vue";
 import Soal from "../views/ClnMhs/Soal.vue";
 import SoalWithTimer from "../views/ClnMhs/SoalWithTimer.vue";
 
-import PetugasLayout from "../views/petugas/PetugasLayout.vue";
-import DashboardPetugas from "../views/petugas/Dashboard.vue";
-import KelolaSoal from "../views/petugas/Admin/KelolaSoal.vue";
-import KelolaPetugas from "../views/petugas/Admin/KelolaPetugas.vue";
-import KelolaPeriode from "../views/petugas/Admin/KelolaPeriode.vue";
-import KelolaJurusan from "../views/petugas/Admin/KelolaJurusan.vue";
-import Pendaftar from "../views/petugas/Admin/Pendaftar.vue";
-import KelolaPendaftaran from "../views/petugas/Admin/KelolaPendaftaran.vue";
-import KelolaTemuRamah from "../views/petugas/Admin/KelolaTemuRamah.vue";
-import KelolaKategori from "../views/petugas/Admin/KelolaKategori.vue";
-import LaporanUjian from "../views/petugas/Admin/LaporanUjian.vue";
-import Setting from "../views/petugas/Admin/Setting.vue";
+import PetugasLayout from "../views/Petugas/PetugasLayout.vue";
+import DashboardPetugas from "../views/Petugas/Dashboard.vue";
+import KelolaSoal from "../views/Petugas/Admin/KelolaSoal.vue";
+import KelolaPetugas from "../views/Petugas/Admin/KelolaPetugas.vue";
+import KelolaPeriode from "../views/Petugas/Admin/KelolaPeriode.vue";
+import KelolaJurusan from "../views/Petugas/Admin/KelolaJurusan.vue";
+import Pendaftar from "../views/Petugas/Admin/Pendaftar.vue";
+import KelolaPendaftaran from "../views/Petugas/Admin/KelolaPendaftaran.vue";
+import KelolaTemuRamah from "../views/Petugas/Admin/KelolaTemuRamah.vue";
+import KelolaKategori from "../views/Petugas/Admin/KelolaKategori.vue";
+import LaporanUjian from "../views/Petugas/Admin/LaporanUjian.vue";
+import Setting from "../views/Petugas/Admin/Setting.vue";
 
-import HomeTemuRamah from "../views/petugas/TemuRamah/Home.vue";
+import HomeTemuRamah from "../views/Petugas/TemuRamah/Home.vue";
 
 Vue.use(VueRouter);
 const routes = [
