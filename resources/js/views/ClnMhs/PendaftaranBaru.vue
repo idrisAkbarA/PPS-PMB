@@ -277,6 +277,7 @@
               hide-input
               ref="ijazah"
               class="d-none"
+              accept=".pdf"
               v-model="ijazahFile"
             ></v-file-input>
           </v-row>
@@ -325,6 +326,7 @@
               hide-input
               ref="photoProfile"
               class="d-none"
+              accept="image/*"
               v-model="photoFile"
             ></v-file-input>
           </v-row>
