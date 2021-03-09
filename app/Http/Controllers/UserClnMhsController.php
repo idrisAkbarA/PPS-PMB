@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Periode;
+use App\Jurusan;
 use App\UserClnMhs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -43,9 +45,25 @@ class UserClnMhsController extends Controller
     {
         $user = Auth::guard("cln_mahasiswa")->user();
         $user_id = $user->id;
+        $periode = Periode::find($request->periode_id);
+        $jurusan = Jurusan::find($request->jurusan_id);
+        $nama_periode = str_replace("/", "-", $periode->nama);
+        $nama_jurusan = str_replace(" ", "-", $jurusan->nama);
+        $nama_file = str_replace(" ", "-", $request->file->getClientOriginalName());
         $namaUser = str_replace(" ", "-", $user['nama']);
-        $fileName = "files/" . $user->id . '-' . $namaUser . '/' . Carbon::now()->format("Y-m-d-H-i-s") . $request->file->getClientOriginalName();
-        $request->file->move(public_path('files/' . $user->id . '-' . $namaUser . '/' . $user['nim']), $fileName);
+        $fileName =
+            Carbon::now()->format("Y-m-d-H-i-s") .
+            $nama_file;
+        $request->file->move(
+            public_path(
+                'files/' .
+                    $nama_periode . "/" .
+                    $nama_jurusan . "/" .
+                    $user->id . '-' . $namaUser . '/' .
+                    $user['nim']
+            ),
+            $fileName
+        );
 
         // call to a spesific method requested by user dynamically, such as savePhotoPath
         if ($request->methodName != null) {
