@@ -291,6 +291,11 @@ export default {
           to: `/admin/${petugas}/kelola-periode`,
         },
         {
+          icon: "mdi-trophy",
+          title: "Kelola Jalur Cumlaude",
+          to: `/admin/${petugas}/kelola-jalur-cumlaude`,
+        },
+        {
           icon: "mdi-clipboard-check-multiple",
           title: "Kelola Jurusan",
           to: `/admin/${petugas}/kelola-jurusan`,

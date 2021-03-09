@@ -119,3 +119,7 @@ Route::prefix('ci')->name('ci')->group(function () {
     // Route::put('/{jadwal}', 'JadwalTRController@update')->name('update');
     // Route::delete('/{jadwal}', 'JadwalTRController@destroy')->name('destroy');
 });
+Route::prefix('cumlaude')->name('cumlaude')->group(function () {
+    Route::get('/', 'CumlaudeController@index')->name('all');
+    Route::get('/{periode_id}/{jurusan_id}', 'CumlaudeController@show')->name('show');
+});

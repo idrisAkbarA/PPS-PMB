@@ -20,6 +20,7 @@ import Pendaftar from "../views/Petugas/Admin/Pendaftar.vue";
 import KelolaPendaftaran from "../views/Petugas/Admin/KelolaPendaftaran.vue";
 import KelolaTemuRamah from "../views/Petugas/Admin/KelolaTemuRamah.vue";
 import KelolaKategori from "../views/Petugas/Admin/KelolaKategori.vue";
+import KelolaJalurCumlaude from "../views/Petugas/Admin/KelolaJalurCumlaude.vue";
 import LaporanUjian from "../views/Petugas/Admin/LaporanUjian.vue";
 import Setting from "../views/Petugas/Admin/Setting.vue";
 
@@ -87,6 +88,11 @@ const routes = [
                 path: "kelola-petugas",
                 name: "Kelola Petugas",
                 component: KelolaPetugas
+            },
+            {
+                path: "kelola-jalur-cumlaude",
+                name: "Kelola Jalur Cumlaude",
+                component: KelolaJalurCumlaude
             },
             {
                 path: "kelola-periode",

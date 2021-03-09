@@ -22,6 +22,7 @@ class CreateUjiansTable extends Migration
             $table->bigInteger('jurusan_id')->nullable();
             $table->bigInteger('user_cln_mhs_id');
             $table->boolean('is_agree')->default(false);
+            $table->boolean('is_jalur_cumlaude')->nullable();
             $table->json('komposisi_tka')->nullable();
             $table->json('komposisi_tkj')->nullable();
             $table->bigInteger('soal_id')->nullable();
