@@ -15,7 +15,7 @@ class PeriodeController extends Controller
      */
     public function index()
     {
-        $periode = Periode::with('kategori')->latest()->get();
+        $periode = Periode::with('kategori', 'kuota_kelas', 'nominal')->latest()->get();
 
         return response()->json($periode, 200);
     }
@@ -33,8 +33,8 @@ class PeriodeController extends Controller
         try {
             // Create periode
             $periode = Periode::create($request->all());
-            // Create kategori per periode
-            $periode->setKategori($request->jurusan);
+            // Setting jurusan per periode
+            $periode->setJurusan($request->jurusan);
 
             DB::commit();
 
@@ -77,29 +77,29 @@ class PeriodeController extends Controller
      */
     public function update(Request $request, Periode $periode)
     {
-        DB::beginTransaction();
+        // DB::beginTransaction();
 
-        try {
-            // Create periode
-            $periode->update($request->all());
-            // Create kategori per periode
-            $periode->setKategori($request->jurusan);
+        // try {
+        // Create periode
+        $periode->update($request->all());
+        // Setting jurusan per periode
+        $periode->setJurusan($request->jurusan);
 
-            DB::commit();
+        // DB::commit();
 
-            $reply = [
-                'status' => true,
-                'message' => 'Periode Successfully Updated!',
-                'data' => $periode
-            ];
-        } catch (\Exception $e) {
-            DB::rollback();
-            $reply = [
-                'status' => false,
-                'message' => 'Opps something went wrong!',
-                'exception' => $e
-            ];
-        }
+        $reply = [
+            'status' => true,
+            'message' => 'Periode Successfully Updated!',
+            'data' => $periode
+        ];
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     $reply = [
+        //         'status' => false,
+        //         'message' => 'Opps something went wrong!',
+        //         'exception' => $e
+        //     ];
+        // }
 
         return response()->json($reply, $reply['status'] ? 200 : 409);
     }

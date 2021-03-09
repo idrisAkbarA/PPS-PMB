@@ -300,24 +300,20 @@
                     hide-details="auto"
                     color="green"
                     v-model="isJadwal"
-                    :label="isJadwal?'Iya':'Tidak'"
+                    :label="isJadwal ? 'Iya' : 'Tidak'"
                   ></v-switch>
                 </v-col>
                 <v-expand-transition>
-                  <v-col
-                    v-if="isJadwal"
-                    cols="12"
-                  >
+                  <v-col v-if="isJadwal" cols="12">
                     <v-row>
                       <v-card width="100%">
                         <v-card-text>
                           <v-container>
                             <v-row
                               align="center"
-                              v-for="(jadwal,index) in jadwals"
+                              v-for="(jadwal, index) in jadwals"
                               :key="index"
                             >
-
                               <v-col cols="5">
                                 <v-text-field
                                   readonly
@@ -325,7 +321,7 @@
                                   prepend-icon="mdi-calendar"
                                   label="Awal Ujian"
                                   v-model="jadwal.start"
-                                  @click="openDialogDateNTime(index,'start')"
+                                  @click="openDialogDateNTime(index, 'start')"
                                 >
                                 </v-text-field>
                               </v-col>
@@ -336,35 +332,23 @@
                                   prepend-icon="mdi-calendar"
                                   label="Akhir Ujian"
                                   v-model="jadwal.end"
-                                  @click="openDialogDateNTime(index,'end')"
+                                  @click="openDialogDateNTime(index, 'end')"
                                 >
                                 </v-text-field>
                               </v-col>
                               <v-col cols="2">
-                                <v-btn
-                                  icon
-                                  @click="removeJadwal(index)"
-                                >
-                                  <v-icon>
-                                    mdi-close
-                                  </v-icon>
+                                <v-btn icon @click="removeJadwal(index)">
+                                  <v-icon> mdi-close </v-icon>
                                 </v-btn>
                               </v-col>
                             </v-row>
                             <v-row justify="center">
-                              <v-btn
-                                icon
-                                class="green"
-                                @click="addJadwal"
-                              >
-                                <v-icon class="text-white">
-                                  mdi-plus
-                                </v-icon>
+                              <v-btn icon class="green" @click="addJadwal">
+                                <v-icon class="text-white"> mdi-plus </v-icon>
                               </v-btn>
                             </v-row>
                           </v-container>
                         </v-card-text>
-
                       </v-card>
                     </v-row>
                   </v-col>
@@ -557,7 +541,24 @@
                                 color="#2C3E50"
                                 suffix="Orang/Kelas"
                                 label="Kuota"
-                                v-model="form.kuota_kelas_default"
+                                v-model="item.kuota_kelas"
+                              ></v-text-field>
+                            </v-col>
+                          </v-row>
+                        </v-row>
+                        <v-row class="px-3">
+                          <v-row align="center" justify="center">
+                            <v-col cols="6">
+                              <p class="overline text-muted mb-0">Nominal</p>
+                            </v-col>
+                            <v-col cols="6">
+                              <v-text-field
+                                dense
+                                type="number"
+                                color="#2C3E50"
+                                prefix="Rp."
+                                label=""
+                                v-model="item.nominal_bayar"
                               ></v-text-field>
                             </v-col>
                           </v-row>
@@ -574,50 +575,35 @@
       </v-card>
     </v-bottom-sheet>
     <!-- Dialog datetime picker -->
-    <v-dialog
-      v-model="dialogDateTime"
-      width="800"
-    >
+    <v-dialog v-model="dialogDateTime" width="800">
       <v-card>
-        <v-card-title>
-          Tetapkan Tanggal dan Waktu
-        </v-card-title>
+        <v-card-title> Tetapkan Tanggal dan Waktu </v-card-title>
         <v-card-text>
           <v-container>
             <v-row justify="space-between">
               <v-col cols="6">
                 <p>Tetapkan Tanggal</p>
-                <v-date-picker
-                  color="green"
-                  v-model="dateTemp"
-                ></v-date-picker>
+                <v-date-picker color="green" v-model="dateTemp"></v-date-picker>
               </v-col>
               <v-col cols="6">
                 <p>Tetapkan Waktu</p>
-                <v-time-picker
-                  color="green"
-                  v-model="timeTemp"
-                ></v-time-picker>
+                <v-time-picker color="green" v-model="timeTemp"></v-time-picker>
               </v-col>
             </v-row>
             <v-row v-if="dateTemp">
               <p>
-
-                Tanggal <strong>{{parseDate(dateTemp)}}</strong> <span
-                  class="ml-1"
-                  v-if="timeTemp"
-                > Pukul <strong>{{parseDateNTime(timeTemp)}}</strong></span>
-
+                Tanggal <strong>{{ parseDate(dateTemp) }}</strong>
+                <span class="ml-1" v-if="timeTemp">
+                  Pukul <strong>{{ parseDateNTime(timeTemp) }}</strong></span
+                >
               </p>
             </v-row>
           </v-container>
         </v-card-text>
         <v-card-actions>
-          <v-btn
-            color="green"
-            class="text-white"
-            @click="saveDateTime()"
-          >Simpan</v-btn>
+          <v-btn color="green" class="text-white" @click="saveDateTime()"
+            >Simpan</v-btn
+          >
           <v-btn text>Batal</v-btn>
         </v-card-actions>
       </v-card>
@@ -809,6 +795,8 @@ export default {
               })[0];
               el.jumlah_tkj = kategori ? kategori.jumlah : 0;
             });
+            item.kuota_kelas = item.kuota_kelas_default;
+            item.nominal_bayar = item.nominal_bayar_default ?? 0;
           });
         } else {
           this.form.jurusan.forEach((item) => {
@@ -904,6 +892,7 @@ export default {
     submit() {
       const form = this.form;
       form.jadwal_ujian = this.jadwals;
+      delete form.kategori;
       if (!form.id) {
         this.store();
         return;
