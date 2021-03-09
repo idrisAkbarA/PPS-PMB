@@ -926,6 +926,8 @@ export default {
       var data = new FormData();
       data.append("file", this.ijazahFile);
       data.append("methodName", "saveIjazahPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
       this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
@@ -956,6 +958,8 @@ export default {
       var data = new FormData();
       data.append("file", this.photoFile);
       data.append("methodName", "savePhotoPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
       this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
