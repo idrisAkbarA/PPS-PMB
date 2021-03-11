@@ -26,7 +26,9 @@
     "dependencies": {
         "js-file-download": "^0.4.12",
         "moment": "^2.29.1",
+        "pdfvuer": "^1.7.5",
         "v-mask": "^2.2.4",
+        "vue-pdf": "^4.2.0",
         "vue-router": "^3.4.7",
         "vue-window-size": "^0.6.2",
         "vue2-filters": "^0.11.0",

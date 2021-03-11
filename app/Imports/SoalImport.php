@@ -46,13 +46,18 @@ class SoalImport implements ToModel, WithHeadingRow
                 ]);
             }
         } catch (\Throwable $th) {
-            dd($row);
-            dd($th);
-            dd($this->rows);
+            self::rowError($this->rows, $this->row);
+            // dd($row);
+            // dd($th);
+            // dd($this->rows);
         }
     }
     public function getRowCount(): int
     {
         return $this->rows;
+    }
+    public function rowError($index, $row)
+    {
+        return ['Baris_ke' => $index + 1, 'Data' => $row];
     }
 }

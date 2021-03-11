@@ -122,4 +122,5 @@ Route::prefix('ci')->name('ci')->group(function () {
 Route::prefix('cumlaude')->name('cumlaude')->group(function () {
     Route::get('/', 'CumlaudeController@index')->name('all');
     Route::get('/{periode_id}/{jurusan_id}', 'CumlaudeController@show')->name('show');
+    Route::post('/update', 'CumlaudeController@update')->name('show');
 });

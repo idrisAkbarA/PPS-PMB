@@ -95,10 +95,15 @@
               :elevation="hover?12:5"
               @click="goToPendaftaran(item)"
             >
+
               <v-card-subtitle
                 class="pb-0"
                 :class="setColor(item) + ' text-white'"
               >
+                <p
+                  class=""
+                  v-if="index==0"
+                >Pendaftaran terbaru anda</p>
                 <h3 class="mb-0">
                   {{item.jurusan.nama}}
                 </h3>
@@ -144,10 +149,7 @@
               </v-card-text>
             </v-card>
           </v-hover>
-          <p
-            class="mt-3 text-muted"
-            v-if="index==0"
-          >Pendaftaran terbaru anda</p>
+
         </v-col>
       </v-row>
     </v-container>

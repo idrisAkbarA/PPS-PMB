@@ -22,7 +22,11 @@ class BankSoalController extends Controller
         $import = new SoalImport;
         Excel::import($import, $request->file('file'));
 
-        return response()->json(['status' => "Success: Soal Added", 'total' => $import->getRowCount()]);
+        return response()->json([
+            'status' => "Success: Soal Added",
+            'total' => $import->getRowCount(),
+            'error' => $import->rowError()
+        ]);
     }
     public function generateTemplate()
     {
