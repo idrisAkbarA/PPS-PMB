@@ -1,25 +1,16 @@
 <template>
   <!-- v-model="stepper" -->
-  <v-sheet
-    class="mx-auto"
-    :width="width()"
-    elevation="10"
-  >
+  <v-sheet class="mx-auto" :width="width()" elevation="10">
     <v-card>
       <v-card-title>Pendaftaran</v-card-title>
-      <v-card-subtitle>Tahap {{stepper}} dari 5</v-card-subtitle>
+      <v-card-subtitle>Tahap {{ stepper }} dari 5</v-card-subtitle>
     </v-card>
     <v-card v-if="!ujianSelected">
       <v-card-text>
         <v-progress-circular indeterminate></v-progress-circular>
       </v-card-text>
     </v-card>
-    <v-stepper
-      non-linear
-      vertical
-      v-else
-      v-model="stepper"
-    >
+    <v-stepper non-linear vertical v-else v-model="stepper">
       <v-stepper-step
         color="green"
         :editable="isJurusanEditable"
@@ -32,11 +23,7 @@
       </v-stepper-step>
 
       <v-stepper-content step="1">
-        <v-radio-group
-          v-model="jurusanSelected"
-          column
-          @change="initUjian()"
-        >
+        <v-radio-group v-model="jurusanSelected" column @change="initUjian()">
           <v-radio
             color="green"
             v-for="item in jurusan"
@@ -78,7 +65,7 @@
               filled
               :loading="biodata.field0"
               :disabled="biodataDisabled.field0"
-              @change="sendUser(user,0)"
+              @change="sendUser(user, 0)"
               prepend-inner-icon="mdi-account"
               label="Nama Lengkap"
               v-model="user.nama"
@@ -90,7 +77,7 @@
               filled
               :loading="biodata.field7"
               :disabled="biodataDisabled.field7"
-              @change="sendUser(user,7)"
+              @change="sendUser(user, 7)"
               prepend-inner-icon="mdi-account"
               label="Jenis Kelamin"
               :items="jk"
@@ -103,7 +90,7 @@
               filled
               :loading="biodata.field8"
               :disabled="biodataDisabled.field8"
-              @change="sendUser(user,8)"
+              @change="sendUser(user, 8)"
               prepend-inner-icon="mdi-city"
               label="Tempat Lahir"
               type="text"
@@ -125,7 +112,7 @@
                   filled
                   :loading="biodata.field9"
                   :disabled="biodataDisabled.field9"
-                  @change="sendUser(user,9)"
+                  @change="sendUser(user, 9)"
                   v-model="user.tgl_lahir"
                   label="Tanggal Lahir"
                   prepend-inner-icon="mdi-calendar"
@@ -140,7 +127,10 @@
                 v-model="user.tgl_lahir"
                 :max="new Date().toISOString().substr(0, 10)"
                 min="1950-01-01"
-                @change="save;sendUser(user,9)"
+                @change="
+                  save;
+                  sendUser(user, 9);
+                "
               ></v-date-picker>
             </v-menu>
           </v-row>
@@ -150,7 +140,7 @@
               filled
               :loading="biodata.field10"
               :disabled="biodataDisabled.field10"
-              @change="sendUser(user,10)"
+              @change="sendUser(user, 10)"
               prepend-inner-icon="mdi-card-bulleted"
               label="NIK"
               type="number"
@@ -163,7 +153,7 @@
               filled
               :loading="biodata.field1"
               :disabled="biodataDisabled.field1"
-              @change="sendUser(user,1)"
+              @change="sendUser(user, 1)"
               prepend-inner-icon="mdi-phone"
               label="No Telepon"
               type="number"
@@ -176,7 +166,7 @@
               :disabled="biodataDisabled.field2"
               color="green"
               filled
-              @change="sendUser(user,2)"
+              @change="sendUser(user, 2)"
               prepend-inner-icon="mdi-whatsapp"
               label="No Whatsapp"
               type="number"
@@ -191,7 +181,7 @@
               filled
               :loading="biodata.field3"
               :disabled="biodataDisabled.field3"
-              @change="sendUser(user,3)"
+              @change="sendUser(user, 3)"
               prepend-inner-icon="mdi-map-marker"
               label="Alamat Rumah Lengkap"
               v-model="user.alamat"
@@ -203,7 +193,13 @@
               filled
               :loading="biodata.field4"
               :disabled="biodataDisabled.field4"
-              @change="validationNilai({obj:user, id:4},'inggris',user.nilai_bhs_inggris)"
+              @change="
+                validationNilai(
+                  { obj: user, id: 4 },
+                  'inggris',
+                  user.nilai_bhs_inggris
+                )
+              "
               prepend-inner-icon="mdi-attachment"
               type="number"
               label="Nilai Bahasa Inggris"
@@ -213,12 +209,58 @@
           </v-row>
           <v-row>
             <v-text-field
+              v-if="!user.sertifikat_bhs_inggris"
+              color="green"
+              filled
+              prepend-inner-icon="mdi-attachment"
+              label="Sertifikat TOEFL"
+              @click="$refs.toefl.$refs.input.click()"
+            ></v-text-field>
+            <template v-else>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah Sertifikat TOEFL"
+                  readonly
+                  @click="$refs.toefl.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.sertifikat_bhs_inggris)"
+                  color="green darken-2"
+                  >lihat File Anda
+                </v-btn>
+              </v-col>
+            </template>
+            <v-file-input
+              @change="setSertifikatTOEFL()"
+              hide-input
+              ref="toefl"
+              class="d-none"
+              accept=".pdf"
+              v-model="file.toefl"
+            ></v-file-input>
+          </v-row>
+          <v-row>
+            <v-text-field
               color="green"
               type="number"
               filled
               :loading="biodata.field5"
               :disabled="biodataDisabled.field5"
-              @change="validationNilai({obj:user, id:5},'arab',user.nilai_bhs_arab)"
+              @change="
+                validationNilai(
+                  { obj: user, id: 5 },
+                  'arab',
+                  user.nilai_bhs_arab
+                )
+              "
               prepend-inner-icon="mdi-attachment"
               label="Nilai Bahasa Arab"
               :rules="ruleBahasaArabValidation"
@@ -227,12 +269,54 @@
           </v-row>
           <v-row>
             <v-text-field
+              v-if="!user.sertifikat_bhs_arab"
+              color="green"
+              filled
+              prepend-inner-icon="mdi-attachment"
+              label="Sertifikat TOAFL"
+              @click="$refs.toafl.$refs.input.click()"
+            ></v-text-field>
+            <template v-else>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah Sertifikat TOAFL"
+                  readonly
+                  @click="$refs.toafl.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.sertifikat_bhs_arab)"
+                  color="green darken-2"
+                  >lihat File Anda
+                </v-btn>
+              </v-col>
+            </template>
+            <v-file-input
+              @change="setSertifikatTOAFL()"
+              hide-input
+              ref="toafl"
+              class="d-none"
+              accept=".pdf"
+              v-model="file.toafl"
+            ></v-file-input>
+          </v-row>
+          <v-row>
+            <v-text-field
               required
               :loading="biodata.field6"
               :disabled="biodataDisabled.field6"
               color="green"
               filled
-              @change="validationNilai({obj:user, id:6},'ipk',user.nilai_ipk)"
+              @change="
+                validationNilai({ obj: user, id: 6 }, 'ipk', user.nilai_ipk)
+              "
               :rules="ruleIPKValidation"
               prepend-inner-icon="mdi-attachment"
               label="Nilai IPK"
@@ -251,10 +335,7 @@
               @click="$refs.ijazah.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-text-field
                   color="green"
                   filled
@@ -264,17 +345,14 @@
                   @click="$refs.ijazah.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.ijazah)"
                   color="green darken-2"
-                >lihat File Anda
+                  >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -287,7 +365,86 @@
               v-model="ijazahFile"
             ></v-file-input>
           </v-row>
-
+          <v-row>
+            <v-text-field
+              v-if="!user.transkip"
+              color="green"
+              filled
+              prepend-inner-icon="mdi-attachment"
+              label="Transkip Nilai"
+              @click="$refs.transkip.$refs.input.click()"
+            ></v-text-field>
+            <template v-else>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah File Transkip Nilai"
+                  readonly
+                  @click="$refs.transkip.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.transkip)"
+                  color="green darken-2"
+                  >lihat File Anda
+                </v-btn>
+              </v-col>
+            </template>
+            <v-file-input
+              @change="setTranskip()"
+              hide-input
+              ref="transkip"
+              class="d-none"
+              accept=".pdf"
+              v-model="file.transkip"
+            ></v-file-input>
+          </v-row>
+          <v-row>
+            <v-text-field
+              v-if="!user.surat_rekomendasi"
+              color="green"
+              filled
+              prepend-inner-icon="mdi-attachment"
+              label="Surat Rekomendasi"
+              @click="$refs.rekomendasi.$refs.input.click()"
+            ></v-text-field>
+            <template v-else>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah File Surat Rekomendasi"
+                  readonly
+                  @click="$refs.rekomendasi.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.surat_rekomendasi)"
+                  color="green darken-2"
+                  >lihat File Anda
+                </v-btn>
+              </v-col>
+            </template>
+            <v-file-input
+              @change="setSuratRekomendasi()"
+              hide-input
+              ref="rekomendasi"
+              class="d-none"
+              accept=".pdf"
+              v-model="file.surat_rekomendasi"
+            ></v-file-input>
+          </v-row>
           <v-row>
             <v-text-field
               v-if="!user.pas_photo"
@@ -299,10 +456,7 @@
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-text-field
                   color="green"
                   filled
@@ -312,17 +466,14 @@
                   @click="$refs.photoProfile.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col
-                class="ml-1"
-                style="padding: 0 !important"
-              >
+              <v-col class="ml-1" style="padding: 0 !important">
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.pas_photo)"
                   color="green darken-2"
-                >lihat foto anda
+                  >lihat foto anda
                 </v-btn>
               </v-col>
             </template>
@@ -334,6 +485,86 @@
               class="d-none"
               accept="image/*"
               v-model="photoFile"
+            ></v-file-input>
+          </v-row>
+          <v-row>
+            <v-text-field
+              v-if="!user.ktp"
+              color="green"
+              filled
+              prepend-inner-icon="mdi-attachment"
+              label="Kartu Tanda Penduduk"
+              @click="$refs.ktp.$refs.input.click()"
+            ></v-text-field>
+            <template v-else>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah File Kartu Tanda Penduduk"
+                  readonly
+                  @click="$refs.ktp.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.ktp)"
+                  color="green darken-2"
+                  >lihat File Anda
+                </v-btn>
+              </v-col>
+            </template>
+            <v-file-input
+              @change="setKTP()"
+              hide-input
+              ref="ktp"
+              class="d-none"
+              accept=".pdf"
+              v-model="file.ktp"
+            ></v-file-input>
+          </v-row>
+          <v-row>
+            <v-text-field
+              v-if="!user.kartu_keluarga"
+              color="green"
+              filled
+              prepend-inner-icon="mdi-attachment"
+              label="Kartu Keluarga"
+              @click="$refs.kk.$refs.input.click()"
+            ></v-text-field>
+            <template v-else>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-text-field
+                  color="green"
+                  filled
+                  prepend-inner-icon="mdi-attachment"
+                  label="Ubah File Kartu Keluarga"
+                  readonly
+                  @click="$refs.kk.$refs.input.click()"
+                ></v-text-field>
+              </v-col>
+              <v-col class="ml-1" style="padding: 0 !important">
+                <v-btn
+                  block
+                  x-large
+                  dark
+                  @click="link(user.ktp)"
+                  color="green darken-2"
+                  >lihat File Anda
+                </v-btn>
+              </v-col>
+            </template>
+            <v-file-input
+              @change="setKartuKeluarga()"
+              hide-input
+              ref="kk"
+              class="d-none"
+              accept=".pdf"
+              v-model="file.kartu_keluarga"
             ></v-file-input>
           </v-row>
           <v-row v-if="ujianSelected">
@@ -380,8 +611,10 @@
         >
           <!-- v-if="!ujian.kode_bayar" -->
           <v-card-title>Lakukan Pembayaran</v-card-title>
-          <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
-            masuk</v-card-subtitle>
+          <v-card-subtitle
+            >Lakukan pembayaran untuk dapat mengikuti ujian
+            masuk</v-card-subtitle
+          >
           <v-card-text>
             <v-btn
               block
@@ -391,7 +624,8 @@
               color="green darken-3"
               v-if="!kodePembayaran"
               @click="generateCode()"
-            >Dapatkan Kode Pembayaran</v-btn>
+              >Dapatkan Kode Pembayaran</v-btn
+            >
             <div v-if="kodePembayaran && !isPembayaranLunas">
               <span> Segera membayar dengan kode berikut </span>
               <h1>{{ kodePembayaran }}</h1>
@@ -429,18 +663,19 @@
         <strong v-if="isLulusUjian">Ujian lulus!</strong>
       </v-stepper-step>
       <v-stepper-content step="4">
-        <v-card
-          color="grey lighten-4"
-          class="mb-12"
-        >
+        <v-card color="grey lighten-4" class="mb-12">
           <v-card-title>Ujian Masuk</v-card-title>
-          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
-            Keilmuan (TKK)</v-card-subtitle>
+          <v-card-subtitle
+            >Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
+            Keilmuan (TKK)</v-card-subtitle
+          >
           <v-card-text>
-            <template v-if="
+            <template
+              v-if="
                 ujianSelected.is_lulus_tkj != false &&
                 ujianSelected.is_lulus_tka != false
-              ">
+              "
+            >
               <template v-if="!ujianSelected.periode.jadwal_ujian">
                 <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
                 <span>
@@ -474,11 +709,9 @@
                 class="text-white"
                 :disabled="checkButtonMulaiUjian('tka')"
                 @click="ujian('tka')"
-              >Mulai Ujian TKA</v-btn>
-              <div
-                v-if="ujianSelected.is_lulus_tka"
-                class="text-center"
+                >Mulai Ujian TKA</v-btn
               >
+              <div v-if="ujianSelected.is_lulus_tka" class="text-center">
                 <strong> Status Ujian TKA lulus.</strong>
               </div>
               <div
@@ -494,11 +727,9 @@
                 class="text-white"
                 :disabled="checkButtonMulaiUjian('tkj')"
                 @click="ujian('tkj')"
-              >Mulai Ujian TKK</v-btn>
-              <div
-                v-if="ujianSelected.is_lulus_tkj"
-                class="text-center"
+                >Mulai Ujian TKK</v-btn
               >
+              <div v-if="ujianSelected.is_lulus_tkj" class="text-center">
                 <strong> Status Ujian TKJ lulus.</strong>
               </div>
               <div
@@ -511,32 +742,36 @@
             <template v-else>
               <p class="title">Lakukan ujian pada tanggal berikut</p>
               <p>
-                Anda dapat melakukan ujian jika berada dalam jadwal yang telah ditentukan.
+                Anda dapat melakukan ujian jika berada dalam jadwal yang telah
+                ditentukan.
               </p>
               <div
-                v-for="(jadwal,index) in ujianSelected.periode.jadwal_ujian"
+                v-for="(jadwal, index) in ujianSelected.periode.jadwal_ujian"
                 :key="index"
               >
                 <v-card>
                   <v-card-text>
                     <h5>
-                      {{parseDate(jadwal.start)}} pukul {{parseDateNTime(jadwal.start)}}
+                      {{ parseDate(jadwal.start) }} pukul
+                      {{ parseDateNTime(jadwal.start) }}
                     </h5>
-                    <p>
-                      sampai
-                    </p>
+                    <p>sampai</p>
                     <h5>
-                      {{parseDate(jadwal.end)}} pukul {{parseDateNTime(jadwal.end)}}
+                      {{ parseDate(jadwal.end) }} pukul
+                      {{ parseDateNTime(jadwal.end) }}
                     </h5>
                     <v-divider></v-divider>
                     <div>
-
-                      <template v-if="
-                        ujianSelected.is_lulus_tkj != false &&
-                        ujianSelected.is_lulus_tka != false
-                      ">
+                      <template
+                        v-if="
+                          ujianSelected.is_lulus_tkj != false &&
+                          ujianSelected.is_lulus_tka != false
+                        "
+                      >
                         <template>
-                          <p v-if="isInRange(jadwal.start,jadwal.end)">Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
+                          <p v-if="isInRange(jadwal.start, jadwal.end)">
+                            Waktu tersisa untuk menyelesaikan ujian TKA dan TKK
+                          </p>
                           <span>
                             <vue-countdown-timer
                               @start_callback="startCallBack('event started')"
@@ -557,18 +792,16 @@
                         </template>
                       </template>
                       <template v-else>
-                        <h4 class="text-red">Maaf anda tidak lulus ujian masuk</h4>
+                        <h4 class="text-red">
+                          Maaf anda tidak lulus ujian masuk
+                        </h4>
                         <label>Silahkan mengulangi pendaftaran</label>
                       </template>
                       <v-divider></v-divider>
-                      <v-card
-                        flat
-                        class="pt-5 pb-5"
-                      >
-
+                      <v-card flat class="pt-5 pb-5">
                         <v-overlay
                           absolute
-                          :value="!isInRange(jadwal.start,jadwal.end)"
+                          :value="!isInRange(jadwal.start, jadwal.end)"
                         >
                           <v-card class="px-2">
                             Maaf, anda belum berada dalam rentang jadwal
@@ -580,7 +813,8 @@
                           class="text-white"
                           :disabled="checkButtonMulaiUjian('tka')"
                           @click="ujian('tka')"
-                        >Mulai Ujian TKA</v-btn>
+                          >Mulai Ujian TKA</v-btn
+                        >
                         <div
                           v-if="ujianSelected.is_lulus_tka"
                           class="text-center"
@@ -600,7 +834,8 @@
                           class="text-white"
                           :disabled="checkButtonMulaiUjian('tkj')"
                           @click="ujian('tkj')"
-                        >Mulai Ujian TKK</v-btn>
+                          >Mulai Ujian TKK</v-btn
+                        >
                         <div
                           v-if="ujianSelected.is_lulus_tkj"
                           class="text-center"
@@ -613,16 +848,19 @@
                         >
                           <strong> Status Ujian TKJ gagal.</strong>
                         </div>
-
                       </v-card>
                     </div>
                   </v-card-text>
-
                 </v-card>
                 <p
                   class="mt-5"
-                  v-if="ujianSelected.periode.jadwal_ujian.length>1&&index+1!=ujianSelected.periode.jadwal_ujian.length"
-                >atau</p>
+                  v-if="
+                    ujianSelected.periode.jadwal_ujian.length > 1 &&
+                    index + 1 != ujianSelected.periode.jadwal_ujian.length
+                  "
+                >
+                  atau
+                </p>
               </div>
             </template>
           </v-card-text>
@@ -643,10 +881,7 @@
       </v-stepper-step>
       <v-stepper-content step="5">
         <template v-if="jadwalTR != null">
-          <v-card
-            v-if="jadwalTR.length > 0"
-            color="grey lighten-4"
-          >
+          <v-card v-if="jadwalTR.length > 0" color="grey lighten-4">
             <v-card-title>Pilih Jadwal Temu Ramah</v-card-title>
             <v-card-text>
               <v-card
@@ -677,11 +912,12 @@
                     class="text-white"
                     :disabled="jadwalSelected ? true : false"
                     @click="setJadwal(jadwal)"
-                  >{{
+                    >{{
                       jadwalSelected
                         ? "Anda telah memiliki jadwal"
                         : "Pilih tanggal ini"
-                    }}</v-btn>
+                    }}</v-btn
+                  >
                 </v-card-text>
               </v-card>
             </v-card-text>
@@ -1024,6 +1260,198 @@ export default {
         console.log(response.data);
       });
     },
+    setSertifikatTOEFL() {
+      var exts = ["pdf"];
+      var isExtValid = this.checkFileType(this.file.toefl, _.clone(exts));
+      if (!isExtValid) {
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload Sertifikat TOEFL...";
+      var data = new FormData();
+      data.append("file", this.file.toefl);
+      data.append("methodName", "saveToeflPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    setSertifikatTOAFL() {
+      var exts = ["pdf"];
+      var isExtValid = this.checkFileType(this.file.toafl, _.clone(exts));
+      if (!isExtValid) {
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload Sertifikat TOAFL...";
+      var data = new FormData();
+      data.append("file", this.file.toafl);
+      data.append("methodName", "saveToaflPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    setSuratRekomendasi() {
+      var exts = ["pdf"];
+      var isExtValid = this.checkFileType(
+        this.file.surat_rekomendasi,
+        _.clone(exts)
+      );
+      if (!isExtValid) {
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload Surat Rekomendasi...";
+      var data = new FormData();
+      data.append("file", this.file.surat_rekomendasi);
+      data.append("methodName", "saveSuratRekomendasiPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    setKartuKeluarga() {
+      var exts = ["pdf"];
+      var isExtValid = this.checkFileType(
+        this.file.kartu_keluarga,
+        _.clone(exts)
+      );
+      if (!isExtValid) {
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload Kartu Keluarga...";
+      var data = new FormData();
+      data.append("file", this.file.kartu_keluarga);
+      data.append("methodName", "saveKartuKeluargaPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    setKTP() {
+      var exts = ["pdf"];
+      var isExtValid = this.checkFileType(this.file.ktp, _.clone(exts));
+      if (!isExtValid) {
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload KTP...";
+      var data = new FormData();
+      data.append("file", this.file.ktp);
+      data.append("methodName", "saveKtpPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
+    setTranskip() {
+      var exts = ["pdf"];
+      var isExtValid = this.checkFileType(this.file.transkip, _.clone(exts));
+      if (!isExtValid) {
+        var extensions = exts.join(", ");
+        console.log(extensions);
+        this.snackbar.message =
+          "Maaf sepertinya file anda tidak dalam format yang sesuai (" +
+          extensions +
+          ")";
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
+        return 0;
+      }
+      this.progress = 0;
+      this.loadingSheet.toggle = true;
+      this.loadingSheet.message = "Mengupload Transkip Nilai...";
+      var data = new FormData();
+      data.append("file", this.file.transkip);
+      data.append("methodName", "saveTranskipPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
+      this.upload(data, this).then((response) => {
+        console.log(response.data);
+        this.loadingSheet.message = "File berhasil di upload";
+        this.setUser(response.data.user);
+        setTimeout(() => {
+          this.loadingSheet.toggle = false;
+        }, 1500);
+      });
+    },
     setIjazah() {
       var exts = ["pdf"];
       var isExtValid = this.checkFileType(this.ijazahFile, _.clone(exts));
@@ -1045,6 +1473,8 @@ export default {
       var data = new FormData();
       data.append("file", this.ijazahFile);
       data.append("methodName", "saveIjazahPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
       this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
@@ -1075,6 +1505,8 @@ export default {
       var data = new FormData();
       data.append("file", this.photoFile);
       data.append("methodName", "savePhotoPath");
+      data.append("periode_id", this.ujianSelected.periode_id);
+      data.append("jurusan_id", this.ujianSelected.jurusan_id);
       this.upload(data, this).then((response) => {
         console.log(response.data);
         this.loadingSheet.message = "File berhasil di upload";
@@ -1252,6 +1684,7 @@ export default {
       isLoading: false,
       kodePembayaran: null,
       progress: 0,
+      file: {},
       photoFile: null,
       ijazahFile: null,
       loadingSheet: { toggle: false, message: null, loading: 0 },

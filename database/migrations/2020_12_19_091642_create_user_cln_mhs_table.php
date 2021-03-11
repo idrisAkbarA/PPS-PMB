@@ -29,6 +29,11 @@ class CreateUserClnMhsTable extends Migration
             $table->string('nilai_bhs_inggris')->nullable();
             $table->string('nilai_bhs_arab')->nullable();
             $table->string('ijazah')->nullable();
+            $table->string('sertifikat_bhs_inggris')->nullable();
+            $table->string('sertifikat_bhs_arab')->nullable();
+            $table->string('surat_rekomendasi')->nullable();
+            $table->string('kartu_keluarga')->nullable();
+            $table->string('ktp')->nullable();
             $table->string('pas_photo')->nullable();
             $table->string('transkip')->nullable();
             $table->timestamp('is_verified')->nullable();
