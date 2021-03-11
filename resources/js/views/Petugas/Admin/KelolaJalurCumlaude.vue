@@ -13,14 +13,22 @@
           <v-row>
             <v-col cols="6">
               <v-select
-                :items="items"
+                :items="periode"
+                item-text="nama"
+                item-value="id"
                 filled
                 label="Periode"
+                v-model="periode_id"
+                @change="getData()"
               ></v-select>
             </v-col>
             <v-col cols="6">
               <v-select
-                :items="items"
+                @change="getData()"
+                v-model="jurusan_id"
+                :items="jurusan"
+                item-text="nama"
+                item-value="id"
                 filled
                 label="Jurusan"
               ></v-select>
@@ -190,11 +198,49 @@ export default {
       axios
         .post("/api/cumlaude/update", { is_lulus, id })
         .then((response) => {
+          console.log(response.data);
+          this.setDataStatus(id, is_lulus);
           this.loading = false;
           this.dialogVerifikasi = false;
           this.dialogKonfirmasi = false;
         })
         .catch();
+    },
+    initData() {
+      // get the data that this page needed: periodes,jurusans
+      axios
+        .get("/api/cumlaude/init-data")
+        .then((response) => {
+          this.periode = response.data.periode;
+          this.jurusan = this.jurusan.concat(response.data.jurusan);
+        })
+        .catch((error) => {});
+    },
+    getData() {
+      if (this.periode_id) {
+        var url = "/api/cumlaude/" + this.periode_id + "/" + this.jurusan_id;
+        axios
+          .get(url)
+          .then((response) => {
+            this.cumlaudes = response.data;
+          })
+          .catch();
+      }
+    },
+    setDataStatus(id, status) {
+      // set the data after being verified to passed or fail
+
+      this.cumlaudes.every((item) => {
+        console.log(item);
+        if (item.id == id) {
+          item.status_code = status ? 1 : 0;
+          item.status_message = status
+            ? "Lulus Verifikasi"
+            : "Tidak Lulus Verifikasi";
+          return false;
+        }
+        return true;
+      });
     },
     width() {
       if (this.windowWidth <= 600) {
@@ -207,6 +253,7 @@ export default {
     },
   },
   created() {
+    this.initData();
     axios
       .get("/api/cumlaude")
       .then((response) => {
@@ -220,7 +267,7 @@ export default {
         return [];
       }
       return this.cumlaudes.filter((item) => {
-        return item.status_code == 3;
+        return item.status_code == 2;
       });
     },
     sudahVerifikasi() {
@@ -228,7 +275,7 @@ export default {
         return [];
       }
       return this.cumlaudes.filter((item) => {
-        return item.status_code != 3;
+        return item.status_code != 2;
       });
     },
   },
@@ -253,9 +300,10 @@ export default {
       ],
       dessert: {},
       cumlaudes: [],
-      periode: {},
-      jurusan: {},
-      jurusan_id: null,
+      originalCumlaudes: [],
+      periode: [],
+      jurusan: [{ nama: "Semua Jurusan", id: "all" }],
+      jurusan_id: "all",
       periode_id: null,
       ujian_id: null,
       dialogVerifikasi: false,
