@@ -26,6 +26,21 @@ class Cumlaude
         $desiredData = self::setData($cumlaudes);
         return $desiredData;
     }
+    public function setStatusLulus(bool $is_lulus, int $id)
+    {
+        try {
+            //code...
+            $ujian = Ujian::find($id);
+            $ujian->is_lulus_tka = $is_lulus;
+            $ujian->is_lulus_tkj = $is_lulus;
+            $ujian->save();
+
+            return ['status' => true, 'message' => "Status berhasil di simpan!"];
+        } catch (\Throwable $th) {
+            //throw $th;
+            return ['status' => false, 'message' => "Terjadi kesalahan"];
+        }
+    }
     private function setData($cumlaudes)
     {
         // set wether cln mhs is eligible or not or not yet verified
@@ -39,7 +54,7 @@ class Cumlaude
                 $value['status_message'] = "Tidak Lulus Verifikasi";
             }
             if ($value['is_lulus_tka'] === null) {
-                $value['status_code'] = 3;
+                $value['status_code'] = 2;
                 $value['status_message'] = "Belum Verifikasi";
             }
             $value['link_transkip'] = $value['user_cln_mhs']['transkip'];
