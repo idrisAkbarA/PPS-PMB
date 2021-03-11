@@ -26,6 +26,28 @@ class Cumlaude
         $desiredData = self::setData($cumlaudes);
         return $desiredData;
     }
+    public function get($periode_id, $jurusan_id)
+    {
+        $where = [
+            'periode_id' => $periode_id,
+            'is_jalur_cumlaude' => 1
+        ];
+        if ($jurusan_id != 'all') {
+            $where['jurusan_id'] = $jurusan_id;
+        }
+        $cumlaudes = Ujian::select(
+            'id',
+            'periode_id',
+            'jurusan_id',
+            'user_cln_mhs_id',
+            'is_lulus_tka',
+            'is_lulus_tkj'
+        )->with('user_cln_mhs')
+            ->where()
+            ->get();
+        $desiredData = self::setData($cumlaudes);
+        return $desiredData;
+    }
     public function setStatusLulus(bool $is_lulus, int $id)
     {
         try {
