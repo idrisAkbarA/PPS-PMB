@@ -73,6 +73,25 @@ class UserClnMhsController extends Controller
         $user = UserClnMhs::find($user_id);
         return response()->json(['success' => 'You have successfully upload file.', 'file_name' => $fileName, 'user' => $user]);
     }
+
+    private function saveToeflPath($path)
+    {
+        //this function save toefl path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->sertifikat_bhs_inggris = $path;
+        $userInstance->save();
+    }
+
+    private function saveToaflPath($path)
+    {
+        //this function save toafl path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->sertifikat_bhs_arab = $path;
+        $userInstance->save();
+    }
+
     private function savePhotoPath($path)
     {
         //this function save pas photo path
@@ -81,12 +100,49 @@ class UserClnMhsController extends Controller
         $userInstance->pas_photo = $path;
         $userInstance->save();
     }
+
+    private function saveKtpPath($path)
+    {
+        //this function save Ktp path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->ktp = $path;
+        $userInstance->save();
+    }
+
+    private function saveKartuKeluargaPath($path)
+    {
+        //this function save kk path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->kartu_keluarga = $path;
+        $userInstance->save();
+    }
+
     private function saveIjazahPath($path)
     {
-        //this function save pas photo path
+        //this function save ijzah path
         $user_id = Auth::guard("cln_mahasiswa")->user()->id;
         $userInstance = UserClnMhs::find($user_id);
         $userInstance->ijazah = $path;
+        $userInstance->save();
+    }
+
+    private function saveTranskipPath($path)
+    {
+        //this function save transkip path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->transkip = $path;
+        $userInstance->save();
+    }
+
+    private function saveSuratRekomendasiPath($path)
+    {
+        //this function save rekomendasi path
+        $user_id = Auth::guard("cln_mahasiswa")->user()->id;
+        $userInstance = UserClnMhs::find($user_id);
+        $userInstance->surat_rekomendasi = $path;
         $userInstance->save();
     }
 
