@@ -63,7 +63,7 @@
         :rules="ruleBiodata"
         v-if="stepper == 2"
       >
-        Isi Biodata
+        Isi Biodata dan Jalur Masuk
         <!-- <strong
           class="text-red"
           v-if="jurusanSelected?false:true"
@@ -336,6 +336,53 @@
               v-model="photoFile"
             ></v-file-input>
           </v-row>
+          <v-row v-if="ujianSelected">
+            <v-card color="grey lighten-4">
+              <v-card-title>Pilih Jalur Masuk</v-card-title>
+              <v-card-subtitle>
+                Silahkan pilih jalur masuk sesuai yang anda inginkan.
+              </v-card-subtitle>
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-card>
+                      <v-card-title>
+                        Jalur Cumlaude <span v-if="ujianSelected.is_jalur_masuk === true">- Pilihan anda</span>
+                      </v-card-title>
+                      <v-card-text>
+                        Anda dapat melaksanakan pendaftaran tanpa melalui tes
+                        ujian jika anda terbukti lulus dengan predikat Cumlaude.
+                        <v-btn
+                          color="green"
+                          class="text-white"
+                          block
+                          @click="setCumlaude()"
+                        >Daftar jalur cumlaude</v-btn>
+                      </v-card-text>
+                    </v-card>
+                  </v-row>
+                  <v-row class="mt-10">
+                    <v-card>
+                      <v-card-title>
+                        Jalur Requler <span v-if="ujianSelected.is_jalur_masuk === false">- Pilihan anda</span>
+                      </v-card-title>
+                      <v-card-text>
+                        Anda dapat melaksanakan pendaftaran melalui tes
+                        ujian dan sesi temu ramah akademik.
+                        <v-btn
+                          color="green"
+                          class="text-white"
+                          block
+                          @click="setReguler()"
+                        >Daftar jalur Reguler</v-btn>
+                      </v-card-text>
+                    </v-card>
+                  </v-row>
+                </v-container>
+              </v-card-text>
+            </v-card>
+          </v-row>
+
           <v-row v-if="ujianSelected">
             <v-checkbox
               @click="setTnC()"
@@ -733,6 +780,53 @@
         </v-list>
       </v-card>
     </v-bottom-sheet>
+    <!-- <v-dialog
+      width="400"
+      v-model="dialogJalur"
+    >
+      <v-card color="grey lighten-4">
+        <v-card-title>Pilih Jalur Masuk</v-card-title>
+        <v-card-subtitle>
+          Silahkan pilih jalur masuk sesuai yang anda inginkan.
+        </v-card-subtitle>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-card>
+                <v-card-title>
+                  Jalur Cumlaude
+                </v-card-title>
+                <v-card-text>
+                  Anda dapat melaksanakan pendaftaran tanpa melalui tes
+                  ujian jika anda terbukti lulus dengan predikat Cumlaude.
+                  <v-btn
+                    color="green"
+                    class="text-white"
+                    block
+                  >Daftar jalur cumlaude</v-btn>
+                </v-card-text>
+              </v-card>
+            </v-row>
+            <v-row class="mt-10">
+              <v-card>
+                <v-card-title>
+                  Jalur Requler
+                </v-card-title>
+                <v-card-text>
+                  Anda dapat melaksanakan pendaftaran melalui tes
+                  ujian dan sesi temu ramah akademik.
+                  <v-btn
+                    color="green"
+                    class="text-white"
+                    block
+                  >Daftar jalur Reguler</v-btn>
+                </v-card-text>
+              </v-card>
+            </v-row>
+          </v-container>
+        </v-card-text>
+      </v-card>
+    </v-dialog> -->
   </v-sheet>
 </template>
 
@@ -851,6 +945,12 @@ export default {
           this.biodataDisabled[key] = value;
         }
       });
+    },
+    setCumlaude() {
+      this.ujianSelected.is_jalur_cumlaude = true;
+    },
+    setReguler() {
+      this.ujianSelected.is_jalur_cumlaude = false;
     },
     setTnC() {
       console.log(this.ujianSelected);
@@ -1185,7 +1285,11 @@ export default {
     },
     isTnCAgreednBiodataFilled() {
       if (this.ujianSelected) {
-        return this.isBiodataFilled && this.ujianSelected.is_agree;
+        return (
+          this.isBiodataFilled &&
+          this.ujianSelected.is_agree &&
+          this.ujianSelected.is_jalur_cumlaude !== null
+        );
       } else {
         return false;
       }
@@ -1212,6 +1316,7 @@ export default {
   },
   data() {
     return {
+      dialogJalur: true,
       snackbar: { show: false },
       menu: false,
       date: null,

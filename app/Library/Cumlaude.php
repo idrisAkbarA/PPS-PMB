@@ -43,7 +43,7 @@ class Cumlaude
             'is_lulus_tka',
             'is_lulus_tkj'
         )->with('user_cln_mhs')
-            ->where()
+            ->where($where)
             ->get();
         $desiredData = self::setData($cumlaudes);
         return $desiredData;
