@@ -106,7 +106,7 @@ class Periode extends Model
         $this->attributes['is_active'] = $value;
     }
 
-    public function setKategori($jurusan)
+    public function setJurusan($jurusan)
     {
         foreach ($jurusan as $item) {
             $komposisi_tka = [];
@@ -129,6 +129,30 @@ class Periode extends Model
                     'komposisi_tkj' => $komposisi_tkj,
                 ]
             );
+
+            $this->kuota_kelas()->updateOrCreate(
+                [
+                    'periode_id' => $this->id,
+                    'jurusan_id' => $item['id']
+                ],
+                [
+
+                    'jurusan_id' => $item['id'],
+                    'kuota' => $item['kuota_kelas']
+                ]
+            );
+
+            $this->nominal()->updateOrCreate(
+                [
+                    'periode_id' => $this->id,
+                    'jurusan_id' => $item['id']
+                ],
+                [
+
+                    'jurusan_id' => $item['id'],
+                    'nominal' => $item['nominal_bayar']
+                ]
+            );
         }
     }
 
@@ -142,9 +166,15 @@ class Periode extends Model
     {
         return $this->hasMany('App\KatJurusanPerPeriode');
     }
+
     public function kuota_kelas()
     {
         return $this->hasMany('App\KuotaKelasPerPeriode');
+    }
+
+    public function nominal()
+    {
+        return $this->hasMany('App\NominalJurusanPerPeriode');
     }
 
     public function temu_ramah()
