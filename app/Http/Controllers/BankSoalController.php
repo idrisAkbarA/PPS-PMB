@@ -25,7 +25,7 @@ class BankSoalController extends Controller
         return response()->json([
             'status' => "Success: Soal Added",
             'total' => $import->getRowCount(),
-            'error' => $import->rowError()
+            'error' => $import->getError()
         ]);
     }
     public function generateTemplate()
