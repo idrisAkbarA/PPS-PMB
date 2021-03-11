@@ -12,11 +12,11 @@ class CumlaudeController extends Controller
 {
     public function index()
     {
-
         return response()->json((new Cumlaude())->all());
     }
     public function show($periode_id, $jurusan_id)
     {
+        return response()->json((new Cumlaude())->get($periode_id, $jurusan_id));
     }
     public function initData()
     {

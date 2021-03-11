@@ -22,7 +22,8 @@ class Ujian extends Model
     protected $casts = [
         'komposisi_tka' => 'object',
         'komposisi_tkj' => 'object',
-        'is_agree' => 'boolean'
+        'is_agree' => 'boolean',
+        'is_jalur_cumlaude' => 'boolean'
     ];
 
     // Getters
