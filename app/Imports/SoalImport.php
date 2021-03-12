@@ -47,7 +47,7 @@ class SoalImport implements ToModel, WithHeadingRow
                 ]);
             }
         } catch (\Throwable $th) {
-            self::rowError($this->rows, $this->row);
+            self::rowError($this->rows, $row);
             // dd($row);
             // dd($th);
             // dd($this->rows);
