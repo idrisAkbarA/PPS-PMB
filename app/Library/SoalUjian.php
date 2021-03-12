@@ -70,9 +70,9 @@ class SoalUjian
         $tka_selected = null;
         foreach ($komposisi_tka as $key => $value) {
             if ($tka_selected == null) {
-                $tka_selected = self::selectRandomly($soalTKA, 2 * $value->jumlah);
+                $tka_selected = self::selectRandomly($soalTKA, $value->jumlah);
             } else {
-                $temp = self::selectRandomly($soalTKA, 2 * $value->jumlah);
+                $temp = self::selectRandomly($soalTKA, $value->jumlah);
                 array_merge($tka_selected, $temp);
             }
         }
