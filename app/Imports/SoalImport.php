@@ -16,6 +16,7 @@ class SoalImport implements ToModel, WithHeadingRow
      * @return \Illuminate\Database\Eloquent\Model|null
      */
     private $rows = 0;
+    private $errors = [];
     public function model(array $row)
     {
         try {
@@ -24,11 +25,11 @@ class SoalImport implements ToModel, WithHeadingRow
 
                 ++$this->rows;
                 $pilihan_ganda = [
-                    ['pilihan' => 'A', 'text' => $row['pilihan_a']],
-                    ['pilihan' => 'B', 'text' => $row['pilihan_b']],
-                    ['pilihan' => 'C', 'text' => $row['pilihan_c']],
-                    ['pilihan' => 'D', 'text' => $row['pilihan_d']],
-                    ['pilihan' => 'E', 'text' => $row['pilihan_e']],
+                    ['pilihan' => 'A', 'text' => strval($row['pilihan_a'])],
+                    ['pilihan' => 'B', 'text' => strval($row['pilihan_b'])],
+                    ['pilihan' => 'C', 'text' => strval($row['pilihan_c'])],
+                    ['pilihan' => 'D', 'text' => strval($row['pilihan_d'])],
+                    ['pilihan' => 'E', 'text' => strval($row['pilihan_e'])],
                 ];
                 // dd($row);
                 $jurusan = Jurusan::where('nama', $row['jurusan'])->first();
@@ -56,8 +57,15 @@ class SoalImport implements ToModel, WithHeadingRow
     {
         return $this->rows;
     }
+
+    public function getError()
+    {
+        return $this->errors;
+    }
+
     public function rowError($index, $row)
     {
-        return ['Baris_ke' => $index + 1, 'Data' => $row];
+        $tmp = ['Baris_ke' => $index + 1, 'Data' => $row];
+        array_push($this->error, $tmp);
     }
 }
