@@ -4,9 +4,10 @@ import store from '../store/store'
 import axios from 'axios';
 import HomeClnMhs from "../views/ClnMhs/Home.vue";
 import ClnMhsLayout from "../views/ClnMhs/ClnMhsLayout.vue";
-import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
 import PanduanPendaftaran from "../views/ClnMhs/PanduanPendaftaran.vue";
+import PendaftaranBaru from "../views/ClnMhs/PendaftaranBaru.vue";
 import Pendaftaran from "../views/ClnMhs/Pendaftaran.vue";
+import Cumlaude from "../views/ClnMhs/Cumlaude.vue";
 import Soal from "../views/ClnMhs/Soal.vue";
 import SoalWithTimer from "../views/ClnMhs/SoalWithTimer.vue";
 
@@ -41,6 +42,11 @@ const routes = [
                 path: "daftar/:id",
                 name: "Pendaftaran",
                 component: Pendaftaran
+            },
+            {
+                path: "cumlaude/:id",
+                name: "Daftar Cumlaude",
+                component: Cumlaude
             },
             // {
             //     path: "ujian/:type/:ujian_id/:soal_id",

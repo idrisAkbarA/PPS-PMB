@@ -1,6 +1,10 @@
 <template>
   <!-- v-model="stepper" -->
-  <v-sheet class="mx-auto" :width="width()" elevation="10">
+  <v-sheet
+    class="mx-auto"
+    :width="width()"
+    elevation="10"
+  >
     <v-card>
       <v-card-title>Pendaftaran</v-card-title>
       <v-card-subtitle>Tahap {{ stepper }} dari 5</v-card-subtitle>
@@ -10,7 +14,12 @@
         <v-progress-circular indeterminate></v-progress-circular>
       </v-card-text>
     </v-card>
-    <v-stepper non-linear vertical v-else v-model="stepper">
+    <v-stepper
+      non-linear
+      vertical
+      v-else
+      v-model="stepper"
+    >
       <v-stepper-step
         color="green"
         :editable="isJurusanEditable"
@@ -23,7 +32,11 @@
       </v-stepper-step>
 
       <v-stepper-content step="1">
-        <v-radio-group v-model="jurusanSelected" column @change="initUjian()">
+        <v-radio-group
+          v-model="jurusanSelected"
+          column
+          @change="initUjian()"
+        >
           <v-radio
             color="green"
             v-for="item in jurusan"
@@ -217,7 +230,10 @@
               @click="$refs.toefl.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -227,14 +243,17 @@
                   @click="$refs.toefl.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.sertifikat_bhs_inggris)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -277,7 +296,10 @@
               @click="$refs.toafl.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -287,14 +309,17 @@
                   @click="$refs.toafl.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.sertifikat_bhs_arab)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -335,7 +360,10 @@
               @click="$refs.ijazah.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -345,14 +373,17 @@
                   @click="$refs.ijazah.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.ijazah)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -375,7 +406,10 @@
               @click="$refs.transkip.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -385,14 +419,17 @@
                   @click="$refs.transkip.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.transkip)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -415,7 +452,10 @@
               @click="$refs.rekomendasi.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -425,14 +465,17 @@
                   @click="$refs.rekomendasi.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.surat_rekomendasi)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -456,7 +499,10 @@
               @click="$refs.photoProfile.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -466,14 +512,17 @@
                   @click="$refs.photoProfile.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.pas_photo)"
                   color="green darken-2"
-                  >lihat foto anda
+                >lihat foto anda
                 </v-btn>
               </v-col>
             </template>
@@ -497,7 +546,10 @@
               @click="$refs.ktp.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -507,14 +559,17 @@
                   @click="$refs.ktp.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.ktp)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -537,7 +592,10 @@
               @click="$refs.kk.$refs.input.click()"
             ></v-text-field>
             <template v-else>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-text-field
                   color="green"
                   filled
@@ -547,14 +605,17 @@
                   @click="$refs.kk.$refs.input.click()"
                 ></v-text-field>
               </v-col>
-              <v-col class="ml-1" style="padding: 0 !important">
+              <v-col
+                class="ml-1"
+                style="padding: 0 !important"
+              >
                 <v-btn
                   block
                   x-large
                   dark
                   @click="link(user.ktp)"
                   color="green darken-2"
-                  >lihat File Anda
+                >lihat File Anda
                 </v-btn>
               </v-col>
             </template>
@@ -576,15 +637,15 @@
               <v-card-text>
                 <v-container>
                   <v-row>
-                    <v-card>
+                    <v-card :color="ujianSelected.is_jalur_cumlaude === true?'white':'grey lighten-3'">
                       <v-card-title>
-                        Jalur Cumlaude <span v-if="ujianSelected.is_jalur_masuk === true">- Pilihan anda</span>
+                        Jalur Cumlaude <span v-if="ujianSelected.is_jalur_cumlaude === true"> - Pilihan anda</span>
                       </v-card-title>
                       <v-card-text>
                         Anda dapat melaksanakan pendaftaran tanpa melalui tes
                         ujian jika anda terbukti lulus dengan predikat Cumlaude.
                         <v-btn
-                          color="green"
+                          :color="ujianSelected.is_jalur_cumlaude === true?'green':'grey'"
                           class="text-white"
                           block
                           @click="setCumlaude()"
@@ -593,15 +654,15 @@
                     </v-card>
                   </v-row>
                   <v-row class="mt-10">
-                    <v-card>
+                    <v-card :color="ujianSelected.is_jalur_cumlaude === false?'white':'grey lighten-3'">
                       <v-card-title>
-                        Jalur Requler <span v-if="ujianSelected.is_jalur_masuk === false">- Pilihan anda</span>
+                        Jalur Reguler <span v-if="ujianSelected.is_jalur_cumlaude === false">- Pilihan anda</span>
                       </v-card-title>
                       <v-card-text>
                         Anda dapat melaksanakan pendaftaran melalui tes
                         ujian dan sesi temu ramah akademik.
                         <v-btn
-                          color="green"
+                          :color="ujianSelected.is_jalur_cumlaude === false?'green':'grey'"
                           class="text-white"
                           block
                           @click="setReguler()"
@@ -627,9 +688,10 @@
           :disabled="!isTnCAgreednBiodataFilled"
           color="green darken-2"
           class="text-white"
-          @click="stepper = 3"
           :loading="biodataLoading"
+          @click="selanjutnyaBio()"
         >
+          <!-- @click="stepper = 3" -->
           Selanjutnya
         </v-btn>
       </v-stepper-content>
@@ -658,10 +720,8 @@
         >
           <!-- v-if="!ujian.kode_bayar" -->
           <v-card-title>Lakukan Pembayaran</v-card-title>
-          <v-card-subtitle
-            >Lakukan pembayaran untuk dapat mengikuti ujian
-            masuk</v-card-subtitle
-          >
+          <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
+            masuk</v-card-subtitle>
           <v-card-text>
             <v-btn
               block
@@ -671,8 +731,7 @@
               color="green darken-3"
               v-if="!kodePembayaran"
               @click="generateCode()"
-              >Dapatkan Kode Pembayaran</v-btn
-            >
+            >Dapatkan Kode Pembayaran</v-btn>
             <div v-if="kodePembayaran && !isPembayaranLunas">
               <span> Segera membayar dengan kode berikut </span>
               <h1>{{ kodePembayaran }}</h1>
@@ -710,19 +769,18 @@
         <strong v-if="isLulusUjian">Ujian lulus!</strong>
       </v-stepper-step>
       <v-stepper-content step="4">
-        <v-card color="grey lighten-4" class="mb-12">
+        <v-card
+          color="grey lighten-4"
+          class="mb-12"
+        >
           <v-card-title>Ujian Masuk</v-card-title>
-          <v-card-subtitle
-            >Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
-            Keilmuan (TKK)</v-card-subtitle
-          >
+          <v-card-subtitle>Lakukan ujian Tes Kemampuan Akademik (TKA) dan Tes Kemampuan
+            Keilmuan (TKK)</v-card-subtitle>
           <v-card-text>
-            <template
-              v-if="
+            <template v-if="
                 ujianSelected.is_lulus_tkj != false &&
                 ujianSelected.is_lulus_tka != false
-              "
-            >
+              ">
               <template v-if="!ujianSelected.periode.jadwal_ujian">
                 <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
                 <span>
@@ -756,9 +814,11 @@
                 class="text-white"
                 :disabled="checkButtonMulaiUjian('tka')"
                 @click="ujian('tka')"
-                >Mulai Ujian TKA</v-btn
+              >Mulai Ujian TKA</v-btn>
+              <div
+                v-if="ujianSelected.is_lulus_tka"
+                class="text-center"
               >
-              <div v-if="ujianSelected.is_lulus_tka" class="text-center">
                 <strong> Status Ujian TKA lulus.</strong>
               </div>
               <div
@@ -774,9 +834,11 @@
                 class="text-white"
                 :disabled="checkButtonMulaiUjian('tkj')"
                 @click="ujian('tkj')"
-                >Mulai Ujian TKK</v-btn
+              >Mulai Ujian TKK</v-btn>
+              <div
+                v-if="ujianSelected.is_lulus_tkj"
+                class="text-center"
               >
-              <div v-if="ujianSelected.is_lulus_tkj" class="text-center">
                 <strong> Status Ujian TKJ lulus.</strong>
               </div>
               <div
@@ -809,12 +871,10 @@
                     </h5>
                     <v-divider></v-divider>
                     <div>
-                      <template
-                        v-if="
+                      <template v-if="
                           ujianSelected.is_lulus_tkj != false &&
                           ujianSelected.is_lulus_tka != false
-                        "
-                      >
+                        ">
                         <template>
                           <p v-if="isInRange(jadwal.start, jadwal.end)">
                             Waktu tersisa untuk menyelesaikan ujian TKA dan TKK
@@ -845,7 +905,10 @@
                         <label>Silahkan mengulangi pendaftaran</label>
                       </template>
                       <v-divider></v-divider>
-                      <v-card flat class="pt-5 pb-5">
+                      <v-card
+                        flat
+                        class="pt-5 pb-5"
+                      >
                         <v-overlay
                           absolute
                           :value="!isInRange(jadwal.start, jadwal.end)"
@@ -860,8 +923,7 @@
                           class="text-white"
                           :disabled="checkButtonMulaiUjian('tka')"
                           @click="ujian('tka')"
-                          >Mulai Ujian TKA</v-btn
-                        >
+                        >Mulai Ujian TKA</v-btn>
                         <div
                           v-if="ujianSelected.is_lulus_tka"
                           class="text-center"
@@ -881,8 +943,7 @@
                           class="text-white"
                           :disabled="checkButtonMulaiUjian('tkj')"
                           @click="ujian('tkj')"
-                          >Mulai Ujian TKK</v-btn
-                        >
+                        >Mulai Ujian TKK</v-btn>
                         <div
                           v-if="ujianSelected.is_lulus_tkj"
                           class="text-center"
@@ -928,7 +989,10 @@
       </v-stepper-step>
       <v-stepper-content step="5">
         <template v-if="jadwalTR != null">
-          <v-card v-if="jadwalTR.length > 0" color="grey lighten-4">
+          <v-card
+            v-if="jadwalTR.length > 0"
+            color="grey lighten-4"
+          >
             <v-card-title>Pilih Jadwal Temu Ramah</v-card-title>
             <v-card-text>
               <v-card
@@ -959,12 +1023,11 @@
                     class="text-white"
                     :disabled="jadwalSelected ? true : false"
                     @click="setJadwal(jadwal)"
-                    >{{
+                  >{{
                       jadwalSelected
                         ? "Anda telah memiliki jadwal"
                         : "Pilih tanggal ini"
-                    }}</v-btn
-                  >
+                    }}</v-btn>
                 </v-card-text>
               </v-card>
             </v-card-text>
@@ -1182,11 +1245,36 @@ export default {
         }
       });
     },
+    selanjutnyaBio() {
+      console.log("cumlaude", this.ujianSelected.is_jalur_cumlaude);
+      if (this.ujianSelected.is_jalur_cumlaude) {
+        this.$router.push({
+          name: "Daftar Cumlaude",
+          params: { id: this.ujianSelected.id },
+        });
+      } else {
+        this.stepper = 3;
+      }
+    },
     setCumlaude() {
       this.ujianSelected.is_jalur_cumlaude = true;
+      this.biodataLoading = true;
+      axios
+        .put("/api/ujian/" + this.ujianSelected.id, this.ujianSelected)
+        .then((response) => {
+          this.biodataLoading = false;
+          console.log(response.data);
+        });
     },
     setReguler() {
       this.ujianSelected.is_jalur_cumlaude = false;
+      this.biodataLoading = true;
+      axios
+        .put("/api/ujian/" + this.ujianSelected.id, this.ujianSelected)
+        .then((response) => {
+          this.biodataLoading = false;
+          console.log(response.data);
+        });
     },
     setTnC() {
       console.log(this.ujianSelected);
@@ -1237,6 +1325,12 @@ export default {
     },
     setData(ini) {
       // this method set the data after initial data get fetched
+      if (ini.ujianSelected.is_jalur_cumlaude) {
+        ini.$router.push({
+          name: "Daftar Cumlaude",
+          params: { id: ini.ujianSelected.id },
+        });
+      }
       ini.jurusanSelected = ini.ujianSelected.jurusan_id;
       ini.ujian_id = ini.ujianSelected.id;
       ini.kodePembayaran = ini.ujianSelected.kode_bayar;
