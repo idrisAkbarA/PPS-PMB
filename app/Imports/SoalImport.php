@@ -66,6 +66,6 @@ class SoalImport implements ToModel, WithHeadingRow
     public function rowError($index, $row)
     {
         $tmp = ['Baris_ke' => $index + 1, 'Data' => $row];
-        array_push($this->error, $tmp);
+        array_push($this->errors, $tmp);
     }
 }
