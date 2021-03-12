@@ -32,9 +32,9 @@ class SoalImport implements ToModel, WithHeadingRow
                     ['pilihan' => 'E', 'text' => strval($row['pilihan_e'])],
                 ];
                 // dd($row);
-                $jurusan = Jurusan::where('nama', $row['jurusan'])->first();
+                $jurusan = Jurusan::where(['nama', $row['jurusan']])->first();
                 $jurusan_id = $jurusan->id;
-                $kategori = Kategori::where('nama', $row['kategori'])->first();
+                $kategori = Kategori::where(['nama' => $row['kategori'], 'jurusan_id' => $jurusan_id])->first();
                 $kategori_id = $kategori->id;
                 // dd($kategori_id);
                 BankSoal::create([
