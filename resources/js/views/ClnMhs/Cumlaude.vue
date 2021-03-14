@@ -227,6 +227,20 @@ export default {
           });
       });
     },
+    checkVerifikasi: async (ujian_id, ini) => {
+      var payload = { ujian_id };
+      return new Promise((resolve, reject) => {
+        axios
+          .post("/api/ujian/check-pembayaran", payload)
+          .then((response) => {
+            if (response.data.status) ini.isPembayaranLunas = true;
+            resolve(response);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
+    },
     width() {
       if (this.windowWidth <= 600) {
         return "100%";
