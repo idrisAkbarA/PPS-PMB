@@ -115,13 +115,13 @@
         <v-card-subtitle>disini
           Silahkan lakukan pemeriksaan nilai pada transkip peserta. <br>
           Klik <a
-            :href="form.link_transkip"
+            :href="'/'+form.link_transkip"
             target="_blank"
           >disini</a> untuk lihat transkip di tab baru
           <!-- atau download disini -->
         </v-card-subtitle>
         <v-card-text>
-          <pdf :src="form.link_transkip">
+          <pdf :src="'/'+form.link_transkip">
 
           </pdf>
         </v-card-text>

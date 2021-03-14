@@ -781,7 +781,7 @@
                 ujianSelected.is_lulus_tkj != false &&
                 ujianSelected.is_lulus_tka != false
               ">
-              <template v-if="!ujianSelected.periode.jadwal_ujian">
+              <template v-if="!ujianSelected.periode.jadwal_ujian || ujianSelected.periode.jadwal_ujian.length <1">
                 <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
                 <span>
                   <vue-countdown-timer
@@ -807,7 +807,7 @@
               <label>Silahkan mengulangi pendaftaran</label>
             </template>
             <v-divider></v-divider>
-            <template v-if="!ujianSelected.periode.jadwal_ujian">
+            <template v-if="!ujianSelected.periode.jadwal_ujian || ujianSelected.periode.jadwal_ujian.length <1">
               <v-btn
                 color="green darken-2"
                 block

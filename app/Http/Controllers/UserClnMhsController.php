@@ -66,9 +66,15 @@ class UserClnMhsController extends Controller
         );
 
         // call to a spesific method requested by user dynamically, such as savePhotoPath
+        $path = 'files/' .
+            $nama_periode . "/" .
+            $nama_jurusan . "/" .
+            $user->id . '-' . $namaUser . '/' .
+            $user['nim'] . '/' .
+            $fileName;
         if ($request->methodName != null) {
             $method = $request->methodName;
-            $this->$method($fileName);
+            $this->$method($path);
         }
         $user = UserClnMhs::find($user_id);
         return response()->json(['success' => 'You have successfully upload file.', 'file_name' => $fileName, 'user' => $user]);

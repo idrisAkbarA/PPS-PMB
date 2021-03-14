@@ -42,7 +42,10 @@
         ></v-progress-linear>
         <v-card-title>
 
-          <v-row class="mx-0">
+          <v-row
+            class="mx-0"
+            v-if="soal"
+          >
             <span class="mr-2">Jumlah soal terjawab </span>
             <v-chip
               color="green darken-2"
@@ -264,10 +267,19 @@
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
+  watch: {
+    currentSoal(v) {
+      localStorage.setItem("last_soal_index", v);
+    },
+    shortCountDownSeconds(v) {
+      localStorage.setItem("last_soal_time", v);
+    },
+  },
   methods: {
-    shortCountDown() {
+    shortCountDown(durasiSoal = null) {
+      console.log("durasi", durasiSoal);
       let milliseconds = 1000;
-      let interval = this.durasiSoal; // in seconds
+      let interval = durasiSoal ? durasiSoal : this.durasiSoal; // in seconds
       let soalTimer = setInterval(() => {
         if (this.shortCountDownValue <= 30) {
           this.shortCountDownColor = "red";
@@ -282,6 +294,10 @@ export default {
           this.shortCountDownSeconds = this.durasiSoal;
           this.shortCountDown();
         } else {
+          if (durasiSoal > 0) {
+            this.shortCountDownSeconds = durasiSoal;
+            durasiSoal = null;
+          }
           this.shortCountDownValue -= 100 / interval;
           this.shortCountDownSeconds -= 1;
         }
@@ -306,15 +322,15 @@ export default {
         })
         .catch((error) => {});
     },
-    calcSoalRemaining() {
-      var jumlah_soal = this.soal.length;
+    calcSoalRemaining(vm = this) {
+      var jumlah_soal = vm.soal.length;
       var terjawab = 0;
-      this.soal.forEach((element) => {
+      vm.soal.forEach((element) => {
         if (element.jawaban) {
           terjawab += 1;
         }
       });
-      this.belum_terjawab = jumlah_soal - terjawab;
+      vm.belum_terjawab = jumlah_soal - terjawab;
     },
     setNomorColor(soal, index) {
       if (soal.ragu && this.currentSoal == index) return "yellow darken-2";
@@ -344,6 +360,7 @@ export default {
       setTimeout(() => {
         this.isNewlySelected = true;
         this.shortCountDownValue = 100;
+        this.shortCountDownColor = "blue";
         this.shortCountDownSeconds = this.durasiSoal;
         if (soal.length != this.currentSoal + 1) this.currentSoal += 1;
       }, 1000);
@@ -371,7 +388,13 @@ export default {
       vm.getSoal(payload).then((response) => {
         console.log(response.data.durasi_soal);
         vm.shortCountDownSeconds = response.data.durasi_soal;
-        vm.shortCountDown();
+        var durasiSoal = localStorage.getItem("last_soal_time");
+        if (durasiSoal > 0) {
+          console.log("pantek anjing bangi");
+          vm.shortCountDown(durasiSoal);
+        } else {
+          vm.shortCountDown();
+        }
       });
     },
     skipSoal() {

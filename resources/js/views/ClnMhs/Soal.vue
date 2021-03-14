@@ -365,17 +365,23 @@
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
+  watch: {
+    currentSoal(v) {
+      console.log("local storage", v);
+      localStorage.setItem("last_soal_index", v);
+    },
+  },
   methods: {
     ...mapActions(["getSoal"]),
     getHasil() {
       var payload = {
         type: this.type,
         id: this.soal_id,
-        idUjian: this.ujian_id
+        idUjian: this.ujian_id,
       };
       axios
         .post("/api/soal/calc-score", payload)
-        .then(response => {
+        .then((response) => {
           this.nilai = response.data.nilai;
           this.isLulus = response.data.status_lulus;
           this.dialogHasil = true;
@@ -383,17 +389,17 @@ export default {
 
           console.log(response.data);
         })
-        .catch(error => {});
+        .catch((error) => {});
     },
-    calcSoalRemaining() {
-      var jumlah_soal = this.soal.length;
+    calcSoalRemaining(vm = this) {
+      var jumlah_soal = vm.soal.length;
       var terjawab = 0;
-      this.soal.forEach(element => {
+      vm.soal.forEach((element) => {
         if (element.jawaban) {
           terjawab += 1;
         }
       });
-      this.belum_terjawab = jumlah_soal - terjawab;
+      vm.belum_terjawab = jumlah_soal - terjawab;
     },
     setNomorColor(soal, index) {
       if (soal.ragu && this.currentSoal == index) return "yellow darken-2";
@@ -411,14 +417,14 @@ export default {
         type: this.type,
         rowID: this.soal_id,
         soalID: soal.id,
-        jawaban: soal.jawaban
+        jawaban: soal.jawaban,
       };
       axios
         .post("/api/soal/set-jawaban", payload)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
         })
-        .catch(error => {});
+        .catch((error) => {});
     },
     initData(vm) {
       // get paramater from url segments
@@ -438,9 +444,18 @@ export default {
       const payload = {
         soal_id: vm.soal_id,
         ujian_id: vm.ujian_id,
-        type: vm.type
+        type: vm.type,
       };
-      vm.getSoal(payload);
+      vm.getSoal(payload).then((response) => {
+        console.log("pantek");
+        vm.calcSoalRemaining(vm);
+        var jumlah_soal = vm.soal.length;
+        if (vm.belum_terjawab == jumlah_soal) {
+          localStorage.setItem("last_soal_index", 0);
+        } else {
+          vm.currentSoal = localStorage.getItem("last_soal_index", 0);
+        }
+      });
     },
     goToPendaftaran() {
       this.$router.push({ name: "Pendaftaran", params: { id: this.ujian_id } });
@@ -448,10 +463,10 @@ export default {
     startCallBack(data) {},
     endCallBack(data) {
       this.getHasil();
-    }
+    },
   },
   computed: {
-    ...mapState(["soal", "durasi", "startTime", "endTime"])
+    ...mapState(["soal", "durasi", "startTime", "endTime"]),
   },
   data() {
     return {
@@ -463,12 +478,12 @@ export default {
       currentSoal: 0,
       soal_id: null,
       ujian_id: null,
-      type: null
+      type: null,
     };
   },
   beforeRouteEnter(to, from, next) {
     if (from.name == null) {
-      next(vm => {
+      next((vm) => {
         vm.initSoal(vm);
       });
     } else {
@@ -478,7 +493,7 @@ export default {
   created() {
     let vm = this;
     this.initData(vm);
-  }
+  },
 };
 </script>
 
