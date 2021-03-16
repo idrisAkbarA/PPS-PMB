@@ -236,7 +236,7 @@ class SoalUjian
         $jawabanDB = $instance->set_jawaban_mhs;
         $soalTypeIndex = null;
         $jawabanTypeIndex = null;
-        if (!$jawabanDB) {
+        if (!$jawabanDB || count($jawabanDB) < 1) {
             $objName = 'nilai_' . $type;
             $ujian = Ujian::where('soal_id', $id)->first();
             $ujian->$objName = $score;

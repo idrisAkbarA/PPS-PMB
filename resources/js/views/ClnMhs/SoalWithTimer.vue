@@ -322,7 +322,8 @@ export default {
           this.isLulus = response.data.status_lulus;
           this.dialogHasil = true;
           this.dialog = false;
-
+          localStorage.setItem("last_soal_index", 0);
+          localStorage.setItem("last_soal_time", 0);
           console.log(response.data);
         })
         .catch((error) => {});
