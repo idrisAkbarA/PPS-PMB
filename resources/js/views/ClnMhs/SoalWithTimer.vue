@@ -270,6 +270,11 @@ export default {
   watch: {
     currentSoal(v) {
       localStorage.setItem("last_soal_index", v);
+      if (this.soal) {
+        if (v == this.soal.length) {
+          endCallBack();
+        }
+      }
     },
     shortCountDownSeconds(v) {
       localStorage.setItem("last_soal_time", v);
@@ -461,7 +466,14 @@ export default {
     } else {
       next((vm) => {
         vm.shortCountDownSeconds = vm.durasiSoal;
-        vm.shortCountDown(vm);
+        // vm.shortCountDown();
+        var durasiSoal = localStorage.getItem("last_soal_time");
+        if (durasiSoal > 0) {
+          console.log("pantek anjing bangi");
+          vm.shortCountDown(durasiSoal);
+        } else {
+          vm.shortCountDown();
+        }
       });
     }
   },
