@@ -1314,6 +1314,15 @@ export default {
       var payload = { ujian_id, type, soal_id };
       console.log(payload);
       this.getSoal(payload).then((response) => {
+        console.log(
+          "%start_" + type,
+          this.ujianSelected["start_" + type],
+          "color:green"
+        );
+        if (!this.ujianSelected["start_" + type]) {
+          console.log("newly acccesed");
+          localStorage.setItem("last_soal_index", 0);
+        }
         this.$router.push({
           name: "Soal",
           params: { type, ujian_id, soal_id: this.ujianSelected.soal_id },

@@ -447,7 +447,6 @@ export default {
         type: vm.type,
       };
       vm.getSoal(payload).then((response) => {
-        console.log("pantek");
         vm.calcSoalRemaining(vm);
         var jumlah_soal = vm.soal.length;
         if (vm.belum_terjawab == jumlah_soal) {

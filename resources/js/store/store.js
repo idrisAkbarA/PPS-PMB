@@ -9,6 +9,7 @@ Axios.defaults.withCredentials = true;
 
 export default new Vuex.Store({
     state: {
+        isSoalNewlyCreated: null,
         startTime: null,
         endTime: null,
         durasi: null,
@@ -72,7 +73,7 @@ export default new Vuex.Store({
             // var endTime = moment(data.start_time).format("YYYY-MM-DD HH:mm:ss");
             console.log('end', endTime);
 
-
+            state.isSoalNewlyCreated = data.is_soal_newly_created;
             state.startTime = data.start_time;
             state.durasi = data.durasi;
             state.durasiSoal = data.durasi_soal;

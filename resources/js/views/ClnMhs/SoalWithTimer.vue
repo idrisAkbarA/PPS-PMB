@@ -269,6 +269,7 @@ import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   watch: {
     currentSoal(v) {
+      var currentIndex = localStorage.getItem("last_soal_index");
       localStorage.setItem("last_soal_index", v);
       if (this.soal) {
         if (v == this.soal.length) {
@@ -368,7 +369,9 @@ export default {
         this.shortCountDownValue = 100;
         this.shortCountDownColor = "blue";
         this.shortCountDownSeconds = this.durasiSoal;
-        if (soal.length != this.currentSoal + 1) this.currentSoal += 1;
+        var currentSoalIndex = parseInt(this.currentSoal);
+        if (soal.length != this.currentSoal + 1)
+          this.currentSoal = currentSoalIndex + 1;
       }, 1000);
     },
     initData(vm) {
@@ -381,6 +384,15 @@ export default {
       vm.soal_id = segments[segments.length - 1];
       vm.ujian_id = segments[segments.length - 2];
       vm.type = segments[segments.length - 3];
+
+      // set index soal, continue where did the user left
+      // or if it is a new exam then set to 0
+      var soalIndex = localStorage.getItem("last_soal_index");
+      if (soalIndex > 0) {
+        vm.currentSoal = soalIndex;
+      } else {
+        vm.currentSoal = 0;
+      }
     },
     initSoal(vm) {
       // this method called if the page get reloaded or direct access via url
@@ -396,11 +408,13 @@ export default {
         vm.shortCountDownSeconds = response.data.durasi_soal;
         var durasiSoal = localStorage.getItem("last_soal_time");
         if (durasiSoal > 0) {
-          console.log("pantek anjing bangi");
           vm.shortCountDown(durasiSoal);
         } else {
           vm.shortCountDown();
         }
+        // if (vm.isSoalNewlyCreated) {
+        //   localStorage.setItem("last_soal_index", 0);
+        // }
       });
     },
     skipSoal() {
@@ -409,9 +423,10 @@ export default {
         this.isNotSkipped = true;
         this.shortCountDownValue = 100;
         this.shortCountDownSeconds = this.durasiSoal;
-        this.currentSoal += 1;
+        var currentSoalIndex = parseInt(this.currentSoal);
+        this.currentSoal = currentSoalIndex + 1;
       }, 500);
-      console.log(this.soal[this.currentSoal].jawaban);
+      // console.log(this.soal[this.currentSoal].jawaban);
     },
     goToPendaftaran() {
       this.$router.replace({
@@ -470,11 +485,13 @@ export default {
         // vm.shortCountDown();
         var durasiSoal = localStorage.getItem("last_soal_time");
         if (durasiSoal > 0) {
-          console.log("pantek anjing bangi");
           vm.shortCountDown(durasiSoal);
         } else {
           vm.shortCountDown();
         }
+        // if (vm.isSoalNewlyCreated) {
+        //   localStorage.setItem("last_soal_index", 0);
+        // }
       });
     }
   },
@@ -484,6 +501,7 @@ export default {
   },
   computed: {
     ...mapState([
+      "isSoalNewlyCreated",
       "soal",
       "durasi",
       "jumlahSoal",

@@ -22,9 +22,10 @@ class SoalController extends Controller
     {
         //if soal_id is not exist then generate soal
         $user = Auth::guard('cln_mahasiswa')->user();
+        $is_soal_newly_created = false; // used to check if this a new request or not
         if ($soal_id == "null") {
-            // dd($soal_id);
             $soal_id = $this->generate($ujian_id);
+            $is_soal_newly_created = true;
         }
         $soal = Soal::find($soal_id);
         $ujian = Ujian::find($ujian_id);
@@ -53,6 +54,7 @@ class SoalController extends Controller
 
         $jumlahSoal = "jumlah_" . $type;
         // append other atribute
+        $result['is_soal_newly_created'] = $is_soal_newly_created;
         $result['id'] = $soal_id;
         $result['start_time'] = $ujian->$start_soal;
         $result['durasi'] = $periode->durasi_ujian;
