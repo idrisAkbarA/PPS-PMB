@@ -126,29 +126,41 @@ class BankSoalController extends Controller
     }
     public function jumlah()
     {
-       $bank_soal = BankSoal::all();
-       $jurusans = Jurusan::all();
-       $kategoris = Kategori::all();
-        
-       $result = [];
-    foreach ($jurusans as $key => $value) {
-        $jumlah_kat = [];
-        // 1. get all data for each jurusan 
-        $kategori_temp = $kategoris->where('jurusan_id',$value['id']])->get();
-        $soal_temp = $bank_soal->where('jurusan_id',$value['id'])->get();
-        // 2. count them
-        $jumlah_soal_jurusan = count($jurusan_temp);
-        $jumlah_kategoti_jurusan = count($kategori_temp);
-        // count each kategori for every jurusan
-        // an store it in $jumlah_kat
-        foreach ($kategori_temp as $kat_key => $kat_value) {
-            $jumlah_kat_temp = count($soal_temp->where('kategori_id',$kat_value['id'])->get());
-            array_merge($jumlah_kat,[
-                $kat_value['nama'] => $jumlah_kat_temp
-            ]);
+        $bank_soal = BankSoal::all();
+        $jurusans = Jurusan::all();
+        $kategoris = Kategori::all();
+
+        $result = [];
+        foreach ($jurusans as $key => $value) {
+            $jumlah_kat = [];
+            // 1. get all data for each jurusan 
+            $kategori_temp = $kategoris->where('jurusan_id', $value['id']);
+            $soal_temp = $bank_soal->where('jurusan_id', $value['id']);
+            // 2. count them
+            $jumlah_soal_jurusan = count($soal_temp);
+            $jumlah_kategori_jurusan = count($kategori_temp);
+            // count each kategori for every jurusan
+            // an store it in $jumlah_kat
+            foreach ($kategori_temp as $kat_key => $kat_value) {
+                $jumlah_kat_temp = count($soal_temp->where('kategori_id', $kat_value['id']));
+                array_push($jumlah_kat, [
+                    'kategori' => $kat_value['nama'],
+                    'jumlah' => $jumlah_kat_temp
+                ]);
+            }
+            $temp =
+                [
+                    'jurusan' => $value['nama'],
+                    'kategori' => $jumlah_kat,
+                    'jumlah_soal_total' => $jumlah_soal_jurusan,
+                    'jumlah_kategori' => $jumlah_kategori_jurusan,
+                ];
+            array_push($result, $temp);
         }
-        $result[$value['nama_jurusan']] 
-    }
-       
+        $result = [
+            'total' => count($bank_soal),
+            'detail' => $result,
+        ];
+        return response()->json($result);
     }
 }
