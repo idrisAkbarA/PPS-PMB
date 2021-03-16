@@ -15,7 +15,7 @@ class convertAllSoalKomposisi extends Command
      *
      * @var string
      */
-    protected $signature = 'convertAllSoalKomposisi { periode_id : id periode } { kategori_id: id kategori} { jumlah: jumlah}';
+    protected $signature = 'convertAllSoalKomposisi { periode_id : id periode }';
 
     /**
      * The console command description.
