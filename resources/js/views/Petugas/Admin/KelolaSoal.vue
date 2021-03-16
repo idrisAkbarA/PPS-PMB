@@ -35,6 +35,27 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
+    <v-expansion-panels>
+      <v-expansion-panel>
+        <v-expansion-panel-header>
+          <v-row>
+            <v-col cols="6">
+              <span>
+                <v-icon>mdi-info</v-icon> Jumlah Soal
+              </span>
+            </v-col>
+            <v-col cols="6">
+              <span>
+                Total:
+              </span>
+            </v-col>
+          </v-row>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          under progress
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
     <v-card>
       <v-tabs
         v-model="tab"

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\BankSoal;
 use App\Imports\SoalImport;
 use App\Exports\templateExport;
+use App\Jurusan;
+use App\Kategori;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -121,5 +123,32 @@ class BankSoalController extends Controller
             'message' => 'Soal Successfully Deleted!',
         ];
         return response()->json($reply, 200);
+    }
+    public function jumlah()
+    {
+       $bank_soal = BankSoal::all();
+       $jurusans = Jurusan::all();
+       $kategoris = Kategori::all();
+        
+       $result = [];
+    foreach ($jurusans as $key => $value) {
+        $jumlah_kat = [];
+        // 1. get all data for each jurusan 
+        $kategori_temp = $kategoris->where('jurusan_id',$value['id']])->get();
+        $soal_temp = $bank_soal->where('jurusan_id',$value['id'])->get();
+        // 2. count them
+        $jumlah_soal_jurusan = count($jurusan_temp);
+        $jumlah_kategoti_jurusan = count($kategori_temp);
+        // count each kategori for every jurusan
+        // an store it in $jumlah_kat
+        foreach ($kategori_temp as $kat_key => $kat_value) {
+            $jumlah_kat_temp = count($soal_temp->where('kategori_id',$kat_value['id'])->get());
+            array_merge($jumlah_kat,[
+                $kat_value['nama'] => $jumlah_kat_temp
+            ]);
+        }
+        $result[$value['nama_jurusan']] 
+    }
+       
     }
 }

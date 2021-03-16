@@ -95,6 +95,7 @@ Route::prefix('bank-soal')->name('bank-soal.')->group(function () {
     Route::post('/', 'BankSoalController@store')->name('store');
     Route::post('/import', 'BankSoalController@importExcel')->name('import');
     Route::get('/download-template', 'BankSoalController@generateTemplate')->name('template');
+    Route::get('/jumlah', 'BankSoalController@jumlah')->name('jumlah');
     Route::put('/{soal?}', 'BankSoalController@update')->name('update');
     Route::delete('/{soal?}', 'BankSoalController@destroy')->name('destroy');
 });

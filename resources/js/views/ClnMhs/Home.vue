@@ -227,7 +227,18 @@ export default {
         this.dialogEmpty = true;
         return 0;
       }
+      var isPeriodeIsInRange = this.isInRange(
+        this.activePeriode.awal_periode,
+        this.activePeriode.akhir_periode
+      );
+      if (!isPeriodeIsInRange) {
+        this.dialogEmpty = true;
+        return 0;
+      }
       this.$router.push({ name: "Pendaftaran Baru" });
+    },
+    isInRange(start, end) {
+      return this.$moment(this.now).isBetween(start, end);
     },
     checkPeriode(ujian) {
       var today = new Date();
