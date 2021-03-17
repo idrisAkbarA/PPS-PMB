@@ -124,9 +124,36 @@ class BankSoalController extends Controller
         ];
         return response()->json($reply, 200);
     }
-    public function jumlah()
+    public function jumlahAkhir()
     {
-        $bank_soal = BankSoal::all();
+        $tka = $this->jumlah('tka');
+        $tkj = $this->jumlah('tkj');
+        $total = $tka['total'] + $tkj['total'];
+
+        foreach ($tka['detail'] as $key => $value) {
+            $tka['detail'][$key]['kategori_tka'] = $value['kategori'];
+            $tka['detail'][$key]['jumlah_soal_total_tka'] = $value['jumlah_soal_total'];
+            $tka['detail'][$key]['jumlah_kategori_tka'] = $value['jumlah_kategori'];
+            unset($tka['detail'][$key]['kategori']);
+            unset($tka['detail'][$key]['jumlah_soal_total']);
+            unset($tka['detail'][$key]['jumlah_kategori']);
+
+            foreach ($tkj['detail'] as $keyTKJ => $valueTKJ) {
+                if ($valueTKJ['jurusan'] == $value['jurusan']) {
+                    $tka['detail'][$key]['kategori_tkj'] = $valueTKJ['kategori'];
+                    $tka['detail'][$key]['jumlah_soal_total_tkj'] = $valueTKJ['jumlah_soal_total'];
+                    $tka['detail'][$key]['jumlah_kategori_tkj'] = $valueTKJ['jumlah_kategori'];
+                }
+            }
+        }
+        $tka['total_tka'] = $tka['total'];
+        $tka['total_tkj'] = $tkj['total'];
+        $tka['total'] = $total;
+        return response()->json($tka);
+    }
+    public function jumlah($type)
+    {
+        $bank_soal = BankSoal::where('type', $type)->get();
         $jurusans = Jurusan::all();
         $kategoris = Kategori::all();
 
@@ -135,7 +162,10 @@ class BankSoalController extends Controller
             $jumlah_kat = [];
             // 1. get all data for each jurusan 
             $kategori_temp = $kategoris->where('jurusan_id', $value['id']);
-            $soal_temp = $bank_soal->where('jurusan_id', $value['id']);
+            $soal_temp = $bank_soal->where(
+                'jurusan_id',
+                $value['id'],
+            );
             // 2. count them
             $jumlah_soal_jurusan = count($soal_temp);
             $jumlah_kategori_jurusan = count($kategori_temp);
@@ -161,6 +191,6 @@ class BankSoalController extends Controller
             'total' => count($bank_soal),
             'detail' => $result,
         ];
-        return response()->json($result);
+        return $result;
     }
 }

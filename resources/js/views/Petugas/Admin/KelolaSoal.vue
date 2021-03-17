@@ -39,12 +39,22 @@
       <v-expansion-panel>
         <v-expansion-panel-header>
           <v-row>
-            <v-col cols="6">
+            <v-col cols="3">
               <span>
                 <v-icon>mdi-info</v-icon> Jumlah Soal
               </span>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="3">
+              <span>
+                TKA: {{total.total_tka}} soal
+              </span>
+            </v-col>
+            <v-col cols="3">
+              <span>
+                TKJ: {{total.total_tkj}} soal
+              </span>
+            </v-col>
+            <v-col cols="3">
               <span>
                 Total: {{total.total}} soal
               </span>
@@ -73,10 +83,10 @@
                     </v-card-subtitle>
 
                     <v-divider></v-divider>
-
+                    <v-subheader>TKA</v-subheader>
                     <v-list dense>
                       <v-list-item
-                        v-for="(kat,index) in item.kategori"
+                        v-for="(kat,index) in item.kategori_tka"
                         :key="index"
                       >
                         <v-list-item-content>{{kat.kategori}}:</v-list-item-content>
@@ -86,18 +96,45 @@
                       </v-list-item>
 
                     </v-list>
-                    <v-divider></v-divider>
                     <v-list>
                       <v-list-item>
                         <v-list-item-content>Total soal: </v-list-item-content>
                         <v-list-item-content class="align-end">
-                          {{ item.jumlah_soal_total }}
+                          {{ item.jumlah_soal_total_tka }}
                         </v-list-item-content>
                       </v-list-item>
                       <v-list-item>
                         <v-list-item-content>Total kategori: </v-list-item-content>
                         <v-list-item-content class="align-end">
-                          {{ item.jumlah_kategori }}
+                          {{ item.jumlah_kategori_tka }}
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                    <v-divider></v-divider>
+                    <v-subheader>TKJ</v-subheader>
+                    <v-list dense>
+                      <v-list-item
+                        v-for="(kat,index) in item.kategori_tkj"
+                        :key="index"
+                      >
+                        <v-list-item-content>{{kat.kategori}}:</v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ kat.jumlah }}
+                        </v-list-item-content>
+                      </v-list-item>
+
+                    </v-list>
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-content>Total soal: </v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ item.jumlah_soal_total_tkj }}
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-content>Total kategori: </v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ item.jumlah_kategori_tkj }}
                         </v-list-item-content>
                       </v-list-item>
                     </v-list>
