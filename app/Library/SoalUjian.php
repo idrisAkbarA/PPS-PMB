@@ -109,16 +109,20 @@ class SoalUjian
         // $ujianInstance->batas_ujian = $batas_ujian;
         $ujianInstance->save();
     }
-    public function calcDeadline($ujian_id)
+    public function calcDeadline($ujian_id, $date_lunas = null)
     {
         $ujianInstance = Ujian::find($ujian_id);
 
         $periode_id =  $ujianInstance['periode_id'];
         $periode = Periode::find($periode_id);
-        // return $periode;
         $range_ujian = $periode->range_ujian;
         $akhir_periode = Carbon::createFromFormat('Y-m-d', $periode->akhir_periode);
-        $temp_batas_ujian = Carbon::now()->addDays($range_ujian);
+        $temp_batas_ujian = null;
+        if ($date_lunas) {
+            $temp_batas_ujian = Carbon::createFromFormat('Y-m-d', $date_lunas)->addDays($range_ujian);;
+        } else {
+            $temp_batas_ujian = Carbon::now()->addDays($range_ujian);
+        }
         $selisih = $temp_batas_ujian->diffInDays($akhir_periode, false);
         // $selisih = $akhir_periode->diffInDays($temp_batas_ujian, false);
         if ($selisih >= 0) {
@@ -127,10 +131,6 @@ class SoalUjian
             $batas_ujian = $akhir_periode;
         }
         return $batas_ujian;
-        // return [$akhir_periode, $temp_batas_ujian, $selisih];
-        // return $selisih;
-        // return [$akhir_periode, $temp_batas_ujian];
-        // return $akhir_periode;
     }
     public function get($type, $id)
     {
@@ -236,6 +236,13 @@ class SoalUjian
         $jawabanDB = $instance->set_jawaban_mhs;
         $soalTypeIndex = null;
         $jawabanTypeIndex = null;
+        if (!$jawabanDB || count($jawabanDB) < 1) {
+            $objName = 'nilai_' . $type;
+            $ujian = Ujian::where('soal_id', $id)->first();
+            $ujian->$objName = $score;
+            $ujian->save();
+            return $score;
+        }
         foreach ($jawabanDB as $key => $value) {
             if ($value->type == $type) {
                 $jawabanTypeIndex = $key;

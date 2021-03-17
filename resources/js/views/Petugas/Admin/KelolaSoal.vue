@@ -35,6 +35,117 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
+    <v-expansion-panels v-if="total">
+      <v-expansion-panel>
+        <v-expansion-panel-header>
+          <v-row>
+            <v-col cols="3">
+              <span>
+                <v-icon>mdi-info</v-icon> Jumlah Soal
+              </span>
+            </v-col>
+            <v-col cols="3">
+              <span>
+                TKA: {{total.total_tka}} soal
+              </span>
+            </v-col>
+            <v-col cols="3">
+              <span>
+                TKJ: {{total.total_tkj}} soal
+              </span>
+            </v-col>
+            <v-col cols="3">
+              <span>
+                Total: {{total.total}} soal
+              </span>
+            </v-col>
+          </v-row>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <v-data-iterator
+            :items="total.detail"
+            hide-default-footer
+          >
+
+            <template v-slot:default="props">
+              <v-row>
+                <v-col
+                  v-for="item in props.items"
+                  :key="item.name"
+                  cols="12"
+                  sm="6"
+                  md="4"
+                  lg="3"
+                >
+                  <v-card>
+                    <v-card-subtitle class="subheading font-weight-bold">
+                      <h3>{{ item.jurusan }}</h3>
+                    </v-card-subtitle>
+
+                    <v-divider></v-divider>
+                    <v-subheader>TKA</v-subheader>
+                    <v-list dense>
+                      <v-list-item
+                        v-for="(kat,index) in item.kategori_tka"
+                        :key="index"
+                      >
+                        <v-list-item-content>{{kat.kategori}}:</v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ kat.jumlah }}
+                        </v-list-item-content>
+                      </v-list-item>
+
+                    </v-list>
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-content>Total soal: </v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ item.jumlah_soal_total_tka }}
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-content>Total kategori: </v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ item.jumlah_kategori_tka }}
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                    <v-divider></v-divider>
+                    <v-subheader>TKJ</v-subheader>
+                    <v-list dense>
+                      <v-list-item
+                        v-for="(kat,index) in item.kategori_tkj"
+                        :key="index"
+                      >
+                        <v-list-item-content>{{kat.kategori}}:</v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ kat.jumlah }}
+                        </v-list-item-content>
+                      </v-list-item>
+
+                    </v-list>
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-content>Total soal: </v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ item.jumlah_soal_total_tkj }}
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-content>Total kategori: </v-list-item-content>
+                        <v-list-item-content class="align-end">
+                          {{ item.jumlah_kategori_tkj }}
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </template>
+          </v-data-iterator>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
     <v-card>
       <v-tabs
         v-model="tab"
@@ -577,6 +688,7 @@ import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      total: null,
       downloadLoading: false,
       btnLoading: false,
       file: null,
@@ -706,10 +818,17 @@ export default {
   created() {
     this.getJurusan();
     this.getSoal();
+    this.getTotal();
   },
   methods: {
     ...mapMutations(["toggleBottomSheet", "toggleBottomSheet2"]),
     ...mapActions(["importExcel"]),
+    getTotal() {
+      axios.get("/api/bank-soal/jumlah").then((response) => {
+        console.log(response.data);
+        this.total = response.data;
+      });
+    },
     attachTemplate() {
       document.getElementById("upload").click();
     },

@@ -110,10 +110,11 @@
             x-small
             class="mr-2"
             title="Detail"
+            @click="show(item)"
           >
             <v-icon>mdi-information</v-icon>
           </v-btn>
-          <v-btn
+          <!-- <v-btn
             icon
             x-small
             class="mr-2"
@@ -133,7 +134,7 @@
             "
           >
             <v-icon>mdi-delete</v-icon>
-          </v-btn>
+          </v-btn> -->
         </template>
       </v-data-table>
     </v-card>
@@ -257,6 +258,222 @@
         </v-btn>
       </template>
     </v-snackbar>
+    <v-dialog
+      scrollable
+      width="400"
+      v-model="dialogDetail"
+    >
+      <v-card v-if="mhsSelected">
+        <v-card-title>
+          Rincian
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-text-field
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-account"
+                label="Nama Lengkap"
+                v-model="mhsSelected.nama"
+              ></v-text-field>
+            </v-row>
+            <v-row>
+              <v-select
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-account"
+                label="Jenis Kelamin"
+                :items="jk"
+                v-model="mhsSelected.jenis_kelamin"
+              ></v-select>
+            </v-row>
+            <v-row>
+              <v-text-field
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-city"
+                label="Tempat Lahir"
+                type="text"
+                v-model="mhsSelected.tempat_lahir"
+              ></v-text-field>
+            </v-row>
+            <v-row>
+
+              <v-text-field
+                color="green"
+                filled
+                v-model="mhsSelected.tgl_lahir"
+                label="Tanggal Lahir"
+                prepend-inner-icon="mdi-calendar"
+                readonly
+              ></v-text-field>
+
+            </v-row>
+            <v-row>
+              <v-text-field
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-card-bulleted"
+                label="NIK"
+                type="number"
+                v-model="mhsSelected.nik"
+              ></v-text-field>
+            </v-row>
+            <v-row>
+              <v-text-field
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-phone"
+                label="No Telepon"
+                type="number"
+                v-model="mhsSelected.hp"
+              ></v-text-field>
+            </v-row>
+            <v-row>
+              <v-text-field
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-whatsapp"
+                label="No Whatsapp"
+                type="number"
+                v-model="mhsSelected.wa"
+              ></v-text-field>
+            </v-row>
+            <v-row>
+              <v-textarea
+                rows="1"
+                auto-grow
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-map-marker"
+                label="Alamat Rumah Lengkap"
+                v-model="mhsSelected.alamat"
+              ></v-textarea>
+            </v-row>
+            <v-row>
+              <v-text-field
+                color="green"
+                filled
+                @change="
+                validationNilai(
+                  { obj: mhsSelected, id: 4 },
+                  'inggris',
+                  mhsSelected.nilai_bhs_inggris
+                )
+              "
+                prepend-inner-icon="mdi-attachment"
+                type="number"
+                label="Nilai Bahasa Inggris"
+                v-model="mhsSelected.nilai_bhs_inggris"
+              ></v-text-field>
+            </v-row>
+
+            <v-row>
+              <v-text-field
+                color="green"
+                type="number"
+                filled
+                prepend-inner-icon="mdi-attachment"
+                label="Nilai Bahasa Arab"
+                v-model="mhsSelected.nilai_bhs_arab"
+              ></v-text-field>
+            </v-row>
+
+            <v-row>
+              <v-text-field
+                required
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-attachment"
+                label="Nilai IPK"
+                type="number"
+                v-model="mhsSelected.nilai_ipk"
+              ></v-text-field>
+              <!-- @change="sendUser(mhsSelected,6)" -->
+            </v-row>
+            <v-row>
+              <v-btn
+                block
+                x-large
+                dark
+                @click="link(mhsSelected.sertifikat_bhs_arab)"
+                color="green darken-2"
+              > Sertifikat Bahasa arab
+              </v-btn>
+            </v-row>
+            <v-row>
+              <v-btn
+                block
+                x-large
+                dark
+                @click="link(mhsSelected.sertifikat_bhs_inggris)"
+                color="green darken-2"
+              >Sertifikat Bahasa Inggris
+              </v-btn>
+            </v-row>
+            <v-row>
+              <v-btn
+                block
+                x-large
+                dark
+                @click="link(mhsSelected.ijazah)"
+                color="green darken-2"
+              > File Ijazah
+              </v-btn>
+            </v-row>
+            <v-row>
+              <v-btn
+                block
+                x-large
+                dark
+                @click="link(mhsSelected.transkip)"
+                color="green darken-2"
+              > File Transkip
+              </v-btn>
+            </v-row>
+            <v-row>
+              <v-btn
+                block
+                x-large
+                dark
+                @click="link(mhsSelected.surat_rekomendasi)"
+                color="green darken-2"
+              > File surat rekomendasi
+              </v-btn>
+            </v-row>
+            <v-row>
+              <v-btn
+                block
+                x-large
+                dark
+                @click="link(mhsSelected.pas_photo)"
+                color="green darken-2"
+              >Pas Photo
+              </v-btn>
+            </v-row>
+            <v-row>
+              <v-btn
+                block
+                x-large
+                dark
+                @click="link(mhsSelected.ktp)"
+                color="green darken-2"
+              >File KTP
+              </v-btn>
+            </v-row>
+          </v-container>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -265,6 +482,9 @@ import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      dialogDetail: false,
+      jk: ["Laki-laki", "Perempuan"],
+      mhsSelected: null,
       search: "",
       periode: [],
       jurusan: [],
@@ -334,6 +554,15 @@ export default {
   },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    link(url) {
+      var a = "/" + url;
+      var link = a.replace(" ", "%20");
+      window.open(link, "_blank");
+    },
+    show(item) {
+      this.mhsSelected = item.user_cln_mhs;
+      this.dialogDetail = true;
+    },
     getPendaftaran(params = {}) {
       this.isLoading = true;
       axios

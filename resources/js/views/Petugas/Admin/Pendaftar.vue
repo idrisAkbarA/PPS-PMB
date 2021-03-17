@@ -57,7 +57,11 @@
       </v-data-table>
     </v-card>
     <!-- Dialog Show -->
-    <v-dialog v-model="dialogShow" width="500" scrollable>
+    <v-dialog
+      v-model="dialogShow"
+      width="500"
+      scrollable
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -77,22 +81,41 @@
                 <h5>{{ form.nama }}</h5>
                 <p class="text-muted">{{ form.email }}</p>
                 <v-row class="mt-3">
-                  <v-col cols="6" class="mb-0">HP / WA</v-col>
-                  <v-col cols="6" class="mb-0"
-                    >{{ form.hp ? form.hp : "-" }} /
-                    {{ form.wa ? form.wa : "-" }}</v-col
-                  >
-                  <v-col cols="6" class="mb-0">IPK</v-col>
-                  <v-col cols="6" class="mb-0"
-                    >{{ form.nilai_ipk ? form.nilai_ipk : "-" }}
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >HP / WA</v-col>
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >{{ form.hp ? form.hp : "-" }} /
+                    {{ form.wa ? form.wa : "-" }}</v-col>
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >IPK</v-col>
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >{{ form.nilai_ipk ? form.nilai_ipk : "-" }}
                   </v-col>
-                  <v-col cols="6" class="mb-0">Bahasa</v-col>
-                  <v-col cols="6" class="mb-0"
-                    >{{ form.nilai_bhs ? form.nilai_bhs : "-" }}
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >Bahasa</v-col>
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >{{ form.nilai_bhs ? form.nilai_bhs : "-" }}
                   </v-col>
-                  <v-col cols="6" class="mb-0">Alamat</v-col>
-                  <v-col cols="6" class="mb-0"
-                    >{{ form.alamat ? form.alamat : "-" }}
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >Alamat</v-col>
+                  <v-col
+                    cols="6"
+                    class="mb-0"
+                  >{{ form.alamat ? form.alamat : "-" }}
                   </v-col>
                 </v-row>
               </v-col>
@@ -101,7 +124,10 @@
                   <v-subheader>Pendaftaran</v-subheader>
                   <v-divider class="mt-0"></v-divider>
                   <template v-for="(ujian, index) in form.ujian">
-                    <v-list-item three-line :key="index">
+                    <v-list-item
+                      three-line
+                      :key="index"
+                    >
                       <v-list-item-content>
                         <v-list-item-title>{{
                           ujian.jurusan.nama
@@ -110,19 +136,16 @@
                           Periode {{ ujian.nama_periode }}
                         </v-list-item-subtitle>
                         <v-list-item-subtitle>
-                          <span
-                            :class="
+                          <span :class="
                               ujian.lulus_at ? 'text-success' : 'text-danger'
-                            "
-                          >
+                            ">
                             {{ ujian.lulus_at ? "Lulus" : "Tidak Lulus" }}
                             <v-icon
                               small
                               :color="ujian.lulus_at ? 'success' : 'red'"
-                              >{{
+                            >{{
                                 ujian.lulus_at ? "mdi-check" : "mdi-close"
-                              }}</v-icon
-                            >
+                              }}</v-icon>
                           </span>
                         </v-list-item-subtitle>
                       </v-list-item-content>
@@ -141,7 +164,10 @@
       </v-card>
     </v-dialog>
     <!-- Dialog Delete -->
-    <v-dialog v-model="dialogDelete" width="500">
+    <v-dialog
+      v-model="dialogDelete"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -156,9 +182,16 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
+          <v-btn
+            text
+            @click="dialogDelete = false"
+          > Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="destroy"
+          > Ya </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

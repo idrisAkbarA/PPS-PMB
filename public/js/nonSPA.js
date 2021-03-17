@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -41895,14 +41895,18 @@ __webpack_require__(/*! ./material */ "./resources/js/material.js");
 
 /***/ }),
 
-/***/ 1:
+/***/ 7:
 /*!**************************************!*\
   !*** multi ./resources/js/nonSPA.js ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\pemrograman\APK\Web-Root\PPS-PMB\resources\js\nonSPA.js */"./resources/js/nonSPA.js");
+=======
+module.exports = __webpack_require__(/*! D:\Programming\Projects\Web\PPS-PMB\resources\js\nonSPA.js */"./resources/js/nonSPA.js");
+>>>>>>> 728d97eaa9ca80a4a3343e761f6432945cb95e1e
 
 
 /***/ })

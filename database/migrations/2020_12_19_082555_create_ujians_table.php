@@ -35,7 +35,7 @@ class CreateUjiansTable extends Migration
             $table->string('kode_bayar')->unique()->nullable();
             $table->date('batas_bayar')->nullable();
             $table->date('lunas_at')->nullable();
-            $table->boolean('is_lunas')->nullable();
+            $table->boolean('is_lunas')->default(0);
             $table->date('batas_ujian')->nullable();
             $table->boolean('is_lulus_tka')->nullable();
             $table->boolean('is_lulus_tkj')->nullable();

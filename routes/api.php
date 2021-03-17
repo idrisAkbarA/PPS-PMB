@@ -97,6 +97,7 @@ Route::prefix('bank-soal')->name('bank-soal.')->group(function () {
     Route::post('/', 'BankSoalController@store')->name('store');
     Route::post('/import', 'BankSoalController@importExcel')->name('import');
     Route::get('/download-template', 'BankSoalController@generateTemplate')->name('template');
+    Route::get('/jumlah', 'BankSoalController@jumlahAkhir')->name('jumlah');
     Route::put('/{soal?}', 'BankSoalController@update')->name('update');
     Route::delete('/{soal?}', 'BankSoalController@destroy')->name('destroy');
 });
@@ -124,4 +125,6 @@ Route::prefix('ci')->name('ci')->group(function () {
 Route::prefix('cumlaude')->name('cumlaude')->group(function () {
     Route::get('/', 'CumlaudeController@index')->name('all');
     Route::get('/{periode_id}/{jurusan_id}', 'CumlaudeController@show')->name('show');
+    Route::get('/init-data', 'CumlaudeController@initData')->name('initData');
+    Route::post('/update', 'CumlaudeController@update')->name('show');
 });

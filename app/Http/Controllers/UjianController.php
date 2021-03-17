@@ -218,6 +218,9 @@ class UjianController extends Controller
         $ujian_id = $request->ujian_id;
         $ujian = Ujian::with('periode')->find($ujian_id);
         if ($ujian->lunas_at) {
+            $soalUjian = new SoalUjian;
+            $batas_ujian = $soalUjian->calcDeadline($ujian->id, $ujian->lunas_at);
+            $ujian->batas_ujian = $batas_ujian;
             return response()->json([
                 'status' => true,
                 "message" => 'Pembayaran sudah lunas',

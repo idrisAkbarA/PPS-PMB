@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -34675,12810 +34675,4817 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
-/*!**************************************************!*\
-  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/popper.js/dist/esm/popper.js":
+/*!***************************************************!*\
+  !*** ./node_modules/popper.js/dist/esm/popper.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var map = {
-	"./af": "./node_modules/moment/locale/af.js",
-	"./af.js": "./node_modules/moment/locale/af.js",
-	"./ar": "./node_modules/moment/locale/ar.js",
-	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
-	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
-	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
-	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
-	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
-	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
-	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
-	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
-	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
-	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
-	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
-	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
-	"./ar.js": "./node_modules/moment/locale/ar.js",
-	"./az": "./node_modules/moment/locale/az.js",
-	"./az.js": "./node_modules/moment/locale/az.js",
-	"./be": "./node_modules/moment/locale/be.js",
-	"./be.js": "./node_modules/moment/locale/be.js",
-	"./bg": "./node_modules/moment/locale/bg.js",
-	"./bg.js": "./node_modules/moment/locale/bg.js",
-	"./bm": "./node_modules/moment/locale/bm.js",
-	"./bm.js": "./node_modules/moment/locale/bm.js",
-	"./bn": "./node_modules/moment/locale/bn.js",
-	"./bn-bd": "./node_modules/moment/locale/bn-bd.js",
-	"./bn-bd.js": "./node_modules/moment/locale/bn-bd.js",
-	"./bn.js": "./node_modules/moment/locale/bn.js",
-	"./bo": "./node_modules/moment/locale/bo.js",
-	"./bo.js": "./node_modules/moment/locale/bo.js",
-	"./br": "./node_modules/moment/locale/br.js",
-	"./br.js": "./node_modules/moment/locale/br.js",
-	"./bs": "./node_modules/moment/locale/bs.js",
-	"./bs.js": "./node_modules/moment/locale/bs.js",
-	"./ca": "./node_modules/moment/locale/ca.js",
-	"./ca.js": "./node_modules/moment/locale/ca.js",
-	"./cs": "./node_modules/moment/locale/cs.js",
-	"./cs.js": "./node_modules/moment/locale/cs.js",
-	"./cv": "./node_modules/moment/locale/cv.js",
-	"./cv.js": "./node_modules/moment/locale/cv.js",
-	"./cy": "./node_modules/moment/locale/cy.js",
-	"./cy.js": "./node_modules/moment/locale/cy.js",
-	"./da": "./node_modules/moment/locale/da.js",
-	"./da.js": "./node_modules/moment/locale/da.js",
-	"./de": "./node_modules/moment/locale/de.js",
-	"./de-at": "./node_modules/moment/locale/de-at.js",
-	"./de-at.js": "./node_modules/moment/locale/de-at.js",
-	"./de-ch": "./node_modules/moment/locale/de-ch.js",
-	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
-	"./de.js": "./node_modules/moment/locale/de.js",
-	"./dv": "./node_modules/moment/locale/dv.js",
-	"./dv.js": "./node_modules/moment/locale/dv.js",
-	"./el": "./node_modules/moment/locale/el.js",
-	"./el.js": "./node_modules/moment/locale/el.js",
-	"./en-au": "./node_modules/moment/locale/en-au.js",
-	"./en-au.js": "./node_modules/moment/locale/en-au.js",
-	"./en-ca": "./node_modules/moment/locale/en-ca.js",
-	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
-	"./en-gb": "./node_modules/moment/locale/en-gb.js",
-	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
-	"./en-ie": "./node_modules/moment/locale/en-ie.js",
-	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
-	"./en-il": "./node_modules/moment/locale/en-il.js",
-	"./en-il.js": "./node_modules/moment/locale/en-il.js",
-	"./en-in": "./node_modules/moment/locale/en-in.js",
-	"./en-in.js": "./node_modules/moment/locale/en-in.js",
-	"./en-nz": "./node_modules/moment/locale/en-nz.js",
-	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
-	"./en-sg": "./node_modules/moment/locale/en-sg.js",
-	"./en-sg.js": "./node_modules/moment/locale/en-sg.js",
-	"./eo": "./node_modules/moment/locale/eo.js",
-	"./eo.js": "./node_modules/moment/locale/eo.js",
-	"./es": "./node_modules/moment/locale/es.js",
-	"./es-do": "./node_modules/moment/locale/es-do.js",
-	"./es-do.js": "./node_modules/moment/locale/es-do.js",
-	"./es-mx": "./node_modules/moment/locale/es-mx.js",
-	"./es-mx.js": "./node_modules/moment/locale/es-mx.js",
-	"./es-us": "./node_modules/moment/locale/es-us.js",
-	"./es-us.js": "./node_modules/moment/locale/es-us.js",
-	"./es.js": "./node_modules/moment/locale/es.js",
-	"./et": "./node_modules/moment/locale/et.js",
-	"./et.js": "./node_modules/moment/locale/et.js",
-	"./eu": "./node_modules/moment/locale/eu.js",
-	"./eu.js": "./node_modules/moment/locale/eu.js",
-	"./fa": "./node_modules/moment/locale/fa.js",
-	"./fa.js": "./node_modules/moment/locale/fa.js",
-	"./fi": "./node_modules/moment/locale/fi.js",
-	"./fi.js": "./node_modules/moment/locale/fi.js",
-	"./fil": "./node_modules/moment/locale/fil.js",
-	"./fil.js": "./node_modules/moment/locale/fil.js",
-	"./fo": "./node_modules/moment/locale/fo.js",
-	"./fo.js": "./node_modules/moment/locale/fo.js",
-	"./fr": "./node_modules/moment/locale/fr.js",
-	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
-	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
-	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
-	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
-	"./fr.js": "./node_modules/moment/locale/fr.js",
-	"./fy": "./node_modules/moment/locale/fy.js",
-	"./fy.js": "./node_modules/moment/locale/fy.js",
-	"./ga": "./node_modules/moment/locale/ga.js",
-	"./ga.js": "./node_modules/moment/locale/ga.js",
-	"./gd": "./node_modules/moment/locale/gd.js",
-	"./gd.js": "./node_modules/moment/locale/gd.js",
-	"./gl": "./node_modules/moment/locale/gl.js",
-	"./gl.js": "./node_modules/moment/locale/gl.js",
-	"./gom-deva": "./node_modules/moment/locale/gom-deva.js",
-	"./gom-deva.js": "./node_modules/moment/locale/gom-deva.js",
-	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
-	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
-	"./gu": "./node_modules/moment/locale/gu.js",
-	"./gu.js": "./node_modules/moment/locale/gu.js",
-	"./he": "./node_modules/moment/locale/he.js",
-	"./he.js": "./node_modules/moment/locale/he.js",
-	"./hi": "./node_modules/moment/locale/hi.js",
-	"./hi.js": "./node_modules/moment/locale/hi.js",
-	"./hr": "./node_modules/moment/locale/hr.js",
-	"./hr.js": "./node_modules/moment/locale/hr.js",
-	"./hu": "./node_modules/moment/locale/hu.js",
-	"./hu.js": "./node_modules/moment/locale/hu.js",
-	"./hy-am": "./node_modules/moment/locale/hy-am.js",
-	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
-	"./id": "./node_modules/moment/locale/id.js",
-	"./id.js": "./node_modules/moment/locale/id.js",
-	"./is": "./node_modules/moment/locale/is.js",
-	"./is.js": "./node_modules/moment/locale/is.js",
-	"./it": "./node_modules/moment/locale/it.js",
-	"./it-ch": "./node_modules/moment/locale/it-ch.js",
-	"./it-ch.js": "./node_modules/moment/locale/it-ch.js",
-	"./it.js": "./node_modules/moment/locale/it.js",
-	"./ja": "./node_modules/moment/locale/ja.js",
-	"./ja.js": "./node_modules/moment/locale/ja.js",
-	"./jv": "./node_modules/moment/locale/jv.js",
-	"./jv.js": "./node_modules/moment/locale/jv.js",
-	"./ka": "./node_modules/moment/locale/ka.js",
-	"./ka.js": "./node_modules/moment/locale/ka.js",
-	"./kk": "./node_modules/moment/locale/kk.js",
-	"./kk.js": "./node_modules/moment/locale/kk.js",
-	"./km": "./node_modules/moment/locale/km.js",
-	"./km.js": "./node_modules/moment/locale/km.js",
-	"./kn": "./node_modules/moment/locale/kn.js",
-	"./kn.js": "./node_modules/moment/locale/kn.js",
-	"./ko": "./node_modules/moment/locale/ko.js",
-	"./ko.js": "./node_modules/moment/locale/ko.js",
-	"./ku": "./node_modules/moment/locale/ku.js",
-	"./ku.js": "./node_modules/moment/locale/ku.js",
-	"./ky": "./node_modules/moment/locale/ky.js",
-	"./ky.js": "./node_modules/moment/locale/ky.js",
-	"./lb": "./node_modules/moment/locale/lb.js",
-	"./lb.js": "./node_modules/moment/locale/lb.js",
-	"./lo": "./node_modules/moment/locale/lo.js",
-	"./lo.js": "./node_modules/moment/locale/lo.js",
-	"./lt": "./node_modules/moment/locale/lt.js",
-	"./lt.js": "./node_modules/moment/locale/lt.js",
-	"./lv": "./node_modules/moment/locale/lv.js",
-	"./lv.js": "./node_modules/moment/locale/lv.js",
-	"./me": "./node_modules/moment/locale/me.js",
-	"./me.js": "./node_modules/moment/locale/me.js",
-	"./mi": "./node_modules/moment/locale/mi.js",
-	"./mi.js": "./node_modules/moment/locale/mi.js",
-	"./mk": "./node_modules/moment/locale/mk.js",
-	"./mk.js": "./node_modules/moment/locale/mk.js",
-	"./ml": "./node_modules/moment/locale/ml.js",
-	"./ml.js": "./node_modules/moment/locale/ml.js",
-	"./mn": "./node_modules/moment/locale/mn.js",
-	"./mn.js": "./node_modules/moment/locale/mn.js",
-	"./mr": "./node_modules/moment/locale/mr.js",
-	"./mr.js": "./node_modules/moment/locale/mr.js",
-	"./ms": "./node_modules/moment/locale/ms.js",
-	"./ms-my": "./node_modules/moment/locale/ms-my.js",
-	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
-	"./ms.js": "./node_modules/moment/locale/ms.js",
-	"./mt": "./node_modules/moment/locale/mt.js",
-	"./mt.js": "./node_modules/moment/locale/mt.js",
-	"./my": "./node_modules/moment/locale/my.js",
-	"./my.js": "./node_modules/moment/locale/my.js",
-	"./nb": "./node_modules/moment/locale/nb.js",
-	"./nb.js": "./node_modules/moment/locale/nb.js",
-	"./ne": "./node_modules/moment/locale/ne.js",
-	"./ne.js": "./node_modules/moment/locale/ne.js",
-	"./nl": "./node_modules/moment/locale/nl.js",
-	"./nl-be": "./node_modules/moment/locale/nl-be.js",
-	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
-	"./nl.js": "./node_modules/moment/locale/nl.js",
-	"./nn": "./node_modules/moment/locale/nn.js",
-	"./nn.js": "./node_modules/moment/locale/nn.js",
-	"./oc-lnc": "./node_modules/moment/locale/oc-lnc.js",
-	"./oc-lnc.js": "./node_modules/moment/locale/oc-lnc.js",
-	"./pa-in": "./node_modules/moment/locale/pa-in.js",
-	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
-	"./pl": "./node_modules/moment/locale/pl.js",
-	"./pl.js": "./node_modules/moment/locale/pl.js",
-	"./pt": "./node_modules/moment/locale/pt.js",
-	"./pt-br": "./node_modules/moment/locale/pt-br.js",
-	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
-	"./pt.js": "./node_modules/moment/locale/pt.js",
-	"./ro": "./node_modules/moment/locale/ro.js",
-	"./ro.js": "./node_modules/moment/locale/ro.js",
-	"./ru": "./node_modules/moment/locale/ru.js",
-	"./ru.js": "./node_modules/moment/locale/ru.js",
-	"./sd": "./node_modules/moment/locale/sd.js",
-	"./sd.js": "./node_modules/moment/locale/sd.js",
-	"./se": "./node_modules/moment/locale/se.js",
-	"./se.js": "./node_modules/moment/locale/se.js",
-	"./si": "./node_modules/moment/locale/si.js",
-	"./si.js": "./node_modules/moment/locale/si.js",
-	"./sk": "./node_modules/moment/locale/sk.js",
-	"./sk.js": "./node_modules/moment/locale/sk.js",
-	"./sl": "./node_modules/moment/locale/sl.js",
-	"./sl.js": "./node_modules/moment/locale/sl.js",
-	"./sq": "./node_modules/moment/locale/sq.js",
-	"./sq.js": "./node_modules/moment/locale/sq.js",
-	"./sr": "./node_modules/moment/locale/sr.js",
-	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
-	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
-	"./sr.js": "./node_modules/moment/locale/sr.js",
-	"./ss": "./node_modules/moment/locale/ss.js",
-	"./ss.js": "./node_modules/moment/locale/ss.js",
-	"./sv": "./node_modules/moment/locale/sv.js",
-	"./sv.js": "./node_modules/moment/locale/sv.js",
-	"./sw": "./node_modules/moment/locale/sw.js",
-	"./sw.js": "./node_modules/moment/locale/sw.js",
-	"./ta": "./node_modules/moment/locale/ta.js",
-	"./ta.js": "./node_modules/moment/locale/ta.js",
-	"./te": "./node_modules/moment/locale/te.js",
-	"./te.js": "./node_modules/moment/locale/te.js",
-	"./tet": "./node_modules/moment/locale/tet.js",
-	"./tet.js": "./node_modules/moment/locale/tet.js",
-	"./tg": "./node_modules/moment/locale/tg.js",
-	"./tg.js": "./node_modules/moment/locale/tg.js",
-	"./th": "./node_modules/moment/locale/th.js",
-	"./th.js": "./node_modules/moment/locale/th.js",
-	"./tk": "./node_modules/moment/locale/tk.js",
-	"./tk.js": "./node_modules/moment/locale/tk.js",
-	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
-	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
-	"./tlh": "./node_modules/moment/locale/tlh.js",
-	"./tlh.js": "./node_modules/moment/locale/tlh.js",
-	"./tr": "./node_modules/moment/locale/tr.js",
-	"./tr.js": "./node_modules/moment/locale/tr.js",
-	"./tzl": "./node_modules/moment/locale/tzl.js",
-	"./tzl.js": "./node_modules/moment/locale/tzl.js",
-	"./tzm": "./node_modules/moment/locale/tzm.js",
-	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
-	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
-	"./tzm.js": "./node_modules/moment/locale/tzm.js",
-	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
-	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
-	"./uk": "./node_modules/moment/locale/uk.js",
-	"./uk.js": "./node_modules/moment/locale/uk.js",
-	"./ur": "./node_modules/moment/locale/ur.js",
-	"./ur.js": "./node_modules/moment/locale/ur.js",
-	"./uz": "./node_modules/moment/locale/uz.js",
-	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
-	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
-	"./uz.js": "./node_modules/moment/locale/uz.js",
-	"./vi": "./node_modules/moment/locale/vi.js",
-	"./vi.js": "./node_modules/moment/locale/vi.js",
-	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
-	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
-	"./yo": "./node_modules/moment/locale/yo.js",
-	"./yo.js": "./node_modules/moment/locale/yo.js",
-	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
-	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
-	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
-	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
-	"./zh-mo": "./node_modules/moment/locale/zh-mo.js",
-	"./zh-mo.js": "./node_modules/moment/locale/zh-mo.js",
-	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
-	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/**!
+ * @fileOverview Kickass library to create and place poppers near their reference elements.
+ * @version 1.16.1
+ * @license
+ * Copyright (c) 2016 Federico Zivolo and contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && typeof navigator !== 'undefined';
+
+var timeoutDuration = function () {
+  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+      return 1;
+    }
+  }
+  return 0;
+}();
+
+function microtaskDebounce(fn) {
+  var called = false;
+  return function () {
+    if (called) {
+      return;
+    }
+    called = true;
+    window.Promise.resolve().then(function () {
+      called = false;
+      fn();
+    });
+  };
+}
+
+function taskDebounce(fn) {
+  var scheduled = false;
+  return function () {
+    if (!scheduled) {
+      scheduled = true;
+      setTimeout(function () {
+        scheduled = false;
+        fn();
+      }, timeoutDuration);
+    }
+  };
+}
+
+var supportsMicroTasks = isBrowser && window.Promise;
+
+/**
+* Create a debounced version of a method, that's asynchronously deferred
+* but called in the minimum time possible.
+*
+* @method
+* @memberof Popper.Utils
+* @argument {Function} fn
+* @returns {Function}
+*/
+var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
+
+/**
+ * Check if the given variable is a function
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Any} functionToCheck - variable to check
+ * @returns {Boolean} answer to: is a function?
+ */
+function isFunction(functionToCheck) {
+  var getType = {};
+  return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+}
+
+/**
+ * Get CSS computed property of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Eement} element
+ * @argument {String} property
+ */
+function getStyleComputedProperty(element, property) {
+  if (element.nodeType !== 1) {
+    return [];
+  }
+  // NOTE: 1 DOM access here
+  var window = element.ownerDocument.defaultView;
+  var css = window.getComputedStyle(element, null);
+  return property ? css[property] : css;
+}
+
+/**
+ * Returns the parentNode or the host of the element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} parent
+ */
+function getParentNode(element) {
+  if (element.nodeName === 'HTML') {
+    return element;
+  }
+  return element.parentNode || element.host;
+}
+
+/**
+ * Returns the scrolling parent of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} scroll parent
+ */
+function getScrollParent(element) {
+  // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+  if (!element) {
+    return document.body;
+  }
+
+  switch (element.nodeName) {
+    case 'HTML':
+    case 'BODY':
+      return element.ownerDocument.body;
+    case '#document':
+      return element.body;
+  }
+
+  // Firefox want us to check `-x` and `-y` variations as well
+
+  var _getStyleComputedProp = getStyleComputedProperty(element),
+      overflow = _getStyleComputedProp.overflow,
+      overflowX = _getStyleComputedProp.overflowX,
+      overflowY = _getStyleComputedProp.overflowY;
+
+  if (/(auto|scroll|overlay)/.test(overflow + overflowY + overflowX)) {
+    return element;
+  }
+
+  return getScrollParent(getParentNode(element));
+}
+
+/**
+ * Returns the reference node of the reference object, or the reference object itself.
+ * @method
+ * @memberof Popper.Utils
+ * @param {Element|Object} reference - the reference element (the popper will be relative to this)
+ * @returns {Element} parent
+ */
+function getReferenceNode(reference) {
+  return reference && reference.referenceNode ? reference.referenceNode : reference;
+}
+
+var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
+var isIE10 = isBrowser && /MSIE 10/.test(navigator.userAgent);
+
+/**
+ * Determines if the browser is Internet Explorer
+ * @method
+ * @memberof Popper.Utils
+ * @param {Number} version to check
+ * @returns {Boolean} isIE
+ */
+function isIE(version) {
+  if (version === 11) {
+    return isIE11;
+  }
+  if (version === 10) {
+    return isIE10;
+  }
+  return isIE11 || isIE10;
+}
+
+/**
+ * Returns the offset parent of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} offset parent
+ */
+function getOffsetParent(element) {
+  if (!element) {
+    return document.documentElement;
+  }
+
+  var noOffsetParent = isIE(10) ? document.body : null;
+
+  // NOTE: 1 DOM access here
+  var offsetParent = element.offsetParent || null;
+  // Skip hidden elements which don't have an offsetParent
+  while (offsetParent === noOffsetParent && element.nextElementSibling) {
+    offsetParent = (element = element.nextElementSibling).offsetParent;
+  }
+
+  var nodeName = offsetParent && offsetParent.nodeName;
+
+  if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
+    return element ? element.ownerDocument.documentElement : document.documentElement;
+  }
+
+  // .offsetParent will return the closest TH, TD or TABLE in case
+  // no offsetParent is present, I hate this job...
+  if (['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
+    return getOffsetParent(offsetParent);
+  }
+
+  return offsetParent;
+}
+
+function isOffsetContainer(element) {
+  var nodeName = element.nodeName;
+
+  if (nodeName === 'BODY') {
+    return false;
+  }
+  return nodeName === 'HTML' || getOffsetParent(element.firstElementChild) === element;
+}
+
+/**
+ * Finds the root node (document, shadowDOM root) of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} node
+ * @returns {Element} root node
+ */
+function getRoot(node) {
+  if (node.parentNode !== null) {
+    return getRoot(node.parentNode);
+  }
+
+  return node;
+}
+
+/**
+ * Finds the offset parent common to the two provided nodes
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element1
+ * @argument {Element} element2
+ * @returns {Element} common offset parent
+ */
+function findCommonOffsetParent(element1, element2) {
+  // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+  if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
+    return document.documentElement;
+  }
+
+  // Here we make sure to give as "start" the element that comes first in the DOM
+  var order = element1.compareDocumentPosition(element2) & Node.DOCUMENT_POSITION_FOLLOWING;
+  var start = order ? element1 : element2;
+  var end = order ? element2 : element1;
+
+  // Get common ancestor container
+  var range = document.createRange();
+  range.setStart(start, 0);
+  range.setEnd(end, 0);
+  var commonAncestorContainer = range.commonAncestorContainer;
+
+  // Both nodes are inside #document
+
+  if (element1 !== commonAncestorContainer && element2 !== commonAncestorContainer || start.contains(end)) {
+    if (isOffsetContainer(commonAncestorContainer)) {
+      return commonAncestorContainer;
+    }
+
+    return getOffsetParent(commonAncestorContainer);
+  }
+
+  // one of the nodes is inside shadowDOM, find which one
+  var element1root = getRoot(element1);
+  if (element1root.host) {
+    return findCommonOffsetParent(element1root.host, element2);
+  } else {
+    return findCommonOffsetParent(element1, getRoot(element2).host);
+  }
+}
+
+/**
+ * Gets the scroll value of the given element in the given side (top and left)
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @argument {String} side `top` or `left`
+ * @returns {number} amount of scrolled pixels
+ */
+function getScroll(element) {
+  var side = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'top';
+
+  var upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft';
+  var nodeName = element.nodeName;
+
+  if (nodeName === 'BODY' || nodeName === 'HTML') {
+    var html = element.ownerDocument.documentElement;
+    var scrollingElement = element.ownerDocument.scrollingElement || html;
+    return scrollingElement[upperSide];
+  }
+
+  return element[upperSide];
+}
+
+/*
+ * Sum or subtract the element scroll values (left and top) from a given rect object
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} rect - Rect object you want to change
+ * @param {HTMLElement} element - The element from the function reads the scroll values
+ * @param {Boolean} subtract - set to true if you want to subtract the scroll values
+ * @return {Object} rect - The modifier rect object
+ */
+function includeScroll(rect, element) {
+  var subtract = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  var scrollTop = getScroll(element, 'top');
+  var scrollLeft = getScroll(element, 'left');
+  var modifier = subtract ? -1 : 1;
+  rect.top += scrollTop * modifier;
+  rect.bottom += scrollTop * modifier;
+  rect.left += scrollLeft * modifier;
+  rect.right += scrollLeft * modifier;
+  return rect;
+}
+
+/*
+ * Helper to detect borders of a given element
+ * @method
+ * @memberof Popper.Utils
+ * @param {CSSStyleDeclaration} styles
+ * Result of `getStyleComputedProperty` on the given element
+ * @param {String} axis - `x` or `y`
+ * @return {number} borders - The borders size of the given axis
+ */
+
+function getBordersSize(styles, axis) {
+  var sideA = axis === 'x' ? 'Left' : 'Top';
+  var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
+
+  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
+}
+
+function getSize(axis, body, html, computedStyle) {
+  return Math.max(body['offset' + axis], body['scroll' + axis], html['client' + axis], html['offset' + axis], html['scroll' + axis], isIE(10) ? parseInt(html['offset' + axis]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')]) : 0);
+}
+
+function getWindowSizes(document) {
+  var body = document.body;
+  var html = document.documentElement;
+  var computedStyle = isIE(10) && getComputedStyle(html);
+
+  return {
+    height: getSize('Height', body, html, computedStyle),
+    width: getSize('Width', body, html, computedStyle)
+  };
+}
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
 };
 
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
 
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+
+
+
+
+var defineProperty = function (obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
 };
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
-/***/ }),
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
 
-/***/ "./node_modules/moment/locale/af.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/af.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
 
-//! moment.js locale configuration
-//! locale : Afrikaans [af]
-//! author : Werner Mollentze : https://github.com/wernerm
+  return target;
+};
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
+/**
+ * Given element offsets, generate an output similar to getBoundingClientRect
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Object} offsets
+ * @returns {Object} ClientRect like output
+ */
+function getClientRect(offsets) {
+  return _extends({}, offsets, {
+    right: offsets.left + offsets.width,
+    bottom: offsets.top + offsets.height
+  });
+}
 
-    //! moment.js locale configuration
+/**
+ * Get bounding client rect of given element
+ * @method
+ * @memberof Popper.Utils
+ * @param {HTMLElement} element
+ * @return {Object} client rect
+ */
+function getBoundingClientRect(element) {
+  var rect = {};
 
-    var af = moment.defineLocale('af', {
-        months: 'Januarie_Februarie_Maart_April_Mei_Junie_Julie_Augustus_September_Oktober_November_Desember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mrt_Apr_Mei_Jun_Jul_Aug_Sep_Okt_Nov_Des'.split('_'),
-        weekdays: 'Sondag_Maandag_Dinsdag_Woensdag_Donderdag_Vrydag_Saterdag'.split(
-            '_'
-        ),
-        weekdaysShort: 'Son_Maa_Din_Woe_Don_Vry_Sat'.split('_'),
-        weekdaysMin: 'So_Ma_Di_Wo_Do_Vr_Sa'.split('_'),
-        meridiemParse: /vm|nm/i,
-        isPM: function (input) {
-            return /^nm$/i.test(input);
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours < 12) {
-                return isLower ? 'vm' : 'VM';
-            } else {
-                return isLower ? 'nm' : 'NM';
-            }
-        },
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Vandag om] LT',
-            nextDay: '[Môre om] LT',
-            nextWeek: 'dddd [om] LT',
-            lastDay: '[Gister om] LT',
-            lastWeek: '[Laas] dddd [om] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'oor %s',
-            past: '%s gelede',
-            s: "'n paar sekondes",
-            ss: '%d sekondes',
-            m: "'n minuut",
-            mm: '%d minute',
-            h: "'n uur",
-            hh: '%d ure',
-            d: "'n dag",
-            dd: '%d dae',
-            M: "'n maand",
-            MM: '%d maande',
-            y: "'n jaar",
-            yy: '%d jaar',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(ste|de)/,
-        ordinal: function (number) {
-            return (
-                number +
-                (number === 1 || number === 8 || number >= 20 ? 'ste' : 'de')
-            ); // Thanks to Joris Röling : https://github.com/jjupiter
-        },
-        week: {
-            dow: 1, // Maandag is die eerste dag van die week.
-            doy: 4, // Die week wat die 4de Januarie bevat is die eerste week van die jaar.
-        },
+  // IE10 10 FIX: Please, don't ask, the element isn't
+  // considered in DOM in some circumstances...
+  // This isn't reproducible in IE10 compatibility mode of IE11
+  try {
+    if (isIE(10)) {
+      rect = element.getBoundingClientRect();
+      var scrollTop = getScroll(element, 'top');
+      var scrollLeft = getScroll(element, 'left');
+      rect.top += scrollTop;
+      rect.left += scrollLeft;
+      rect.bottom += scrollTop;
+      rect.right += scrollLeft;
+    } else {
+      rect = element.getBoundingClientRect();
+    }
+  } catch (e) {}
+
+  var result = {
+    left: rect.left,
+    top: rect.top,
+    width: rect.right - rect.left,
+    height: rect.bottom - rect.top
+  };
+
+  // subtract scrollbar size from sizes
+  var sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
+  var width = sizes.width || element.clientWidth || result.width;
+  var height = sizes.height || element.clientHeight || result.height;
+
+  var horizScrollbar = element.offsetWidth - width;
+  var vertScrollbar = element.offsetHeight - height;
+
+  // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
+  // we make this check conditional for performance reasons
+  if (horizScrollbar || vertScrollbar) {
+    var styles = getStyleComputedProperty(element);
+    horizScrollbar -= getBordersSize(styles, 'x');
+    vertScrollbar -= getBordersSize(styles, 'y');
+
+    result.width -= horizScrollbar;
+    result.height -= vertScrollbar;
+  }
+
+  return getClientRect(result);
+}
+
+function getOffsetRectRelativeToArbitraryNode(children, parent) {
+  var fixedPosition = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  var isIE10 = isIE(10);
+  var isHTML = parent.nodeName === 'HTML';
+  var childrenRect = getBoundingClientRect(children);
+  var parentRect = getBoundingClientRect(parent);
+  var scrollParent = getScrollParent(children);
+
+  var styles = getStyleComputedProperty(parent);
+  var borderTopWidth = parseFloat(styles.borderTopWidth);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth);
+
+  // In cases where the parent is fixed, we must ignore negative scroll in offset calc
+  if (fixedPosition && isHTML) {
+    parentRect.top = Math.max(parentRect.top, 0);
+    parentRect.left = Math.max(parentRect.left, 0);
+  }
+  var offsets = getClientRect({
+    top: childrenRect.top - parentRect.top - borderTopWidth,
+    left: childrenRect.left - parentRect.left - borderLeftWidth,
+    width: childrenRect.width,
+    height: childrenRect.height
+  });
+  offsets.marginTop = 0;
+  offsets.marginLeft = 0;
+
+  // Subtract margins of documentElement in case it's being used as parent
+  // we do this only on HTML because it's the only element that behaves
+  // differently when margins are applied to it. The margins are included in
+  // the box of the documentElement, in the other cases not.
+  if (!isIE10 && isHTML) {
+    var marginTop = parseFloat(styles.marginTop);
+    var marginLeft = parseFloat(styles.marginLeft);
+
+    offsets.top -= borderTopWidth - marginTop;
+    offsets.bottom -= borderTopWidth - marginTop;
+    offsets.left -= borderLeftWidth - marginLeft;
+    offsets.right -= borderLeftWidth - marginLeft;
+
+    // Attach marginTop and marginLeft because in some circumstances we may need them
+    offsets.marginTop = marginTop;
+    offsets.marginLeft = marginLeft;
+  }
+
+  if (isIE10 && !fixedPosition ? parent.contains(scrollParent) : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
+    offsets = includeScroll(offsets, parent);
+  }
+
+  return offsets;
+}
+
+function getViewportOffsetRectRelativeToArtbitraryNode(element) {
+  var excludeScroll = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  var html = element.ownerDocument.documentElement;
+  var relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html);
+  var width = Math.max(html.clientWidth, window.innerWidth || 0);
+  var height = Math.max(html.clientHeight, window.innerHeight || 0);
+
+  var scrollTop = !excludeScroll ? getScroll(html) : 0;
+  var scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0;
+
+  var offset = {
+    top: scrollTop - relativeOffset.top + relativeOffset.marginTop,
+    left: scrollLeft - relativeOffset.left + relativeOffset.marginLeft,
+    width: width,
+    height: height
+  };
+
+  return getClientRect(offset);
+}
+
+/**
+ * Check if the given element is fixed or is inside a fixed parent
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @argument {Element} customContainer
+ * @returns {Boolean} answer to "isFixed?"
+ */
+function isFixed(element) {
+  var nodeName = element.nodeName;
+  if (nodeName === 'BODY' || nodeName === 'HTML') {
+    return false;
+  }
+  if (getStyleComputedProperty(element, 'position') === 'fixed') {
+    return true;
+  }
+  var parentNode = getParentNode(element);
+  if (!parentNode) {
+    return false;
+  }
+  return isFixed(parentNode);
+}
+
+/**
+ * Finds the first parent of an element that has a transformed property defined
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} first transformed parent or documentElement
+ */
+
+function getFixedPositionOffsetParent(element) {
+  // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+  if (!element || !element.parentElement || isIE()) {
+    return document.documentElement;
+  }
+  var el = element.parentElement;
+  while (el && getStyleComputedProperty(el, 'transform') === 'none') {
+    el = el.parentElement;
+  }
+  return el || document.documentElement;
+}
+
+/**
+ * Computed the boundaries limits and return them
+ * @method
+ * @memberof Popper.Utils
+ * @param {HTMLElement} popper
+ * @param {HTMLElement} reference
+ * @param {number} padding
+ * @param {HTMLElement} boundariesElement - Element used to define the boundaries
+ * @param {Boolean} fixedPosition - Is in fixed position mode
+ * @returns {Object} Coordinates of the boundaries
+ */
+function getBoundaries(popper, reference, padding, boundariesElement) {
+  var fixedPosition = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+
+  // NOTE: 1 DOM access here
+
+  var boundaries = { top: 0, left: 0 };
+  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+
+  // Handle viewport case
+  if (boundariesElement === 'viewport') {
+    boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent, fixedPosition);
+  } else {
+    // Handle other cases based on DOM element used as boundaries
+    var boundariesNode = void 0;
+    if (boundariesElement === 'scrollParent') {
+      boundariesNode = getScrollParent(getParentNode(reference));
+      if (boundariesNode.nodeName === 'BODY') {
+        boundariesNode = popper.ownerDocument.documentElement;
+      }
+    } else if (boundariesElement === 'window') {
+      boundariesNode = popper.ownerDocument.documentElement;
+    } else {
+      boundariesNode = boundariesElement;
+    }
+
+    var offsets = getOffsetRectRelativeToArbitraryNode(boundariesNode, offsetParent, fixedPosition);
+
+    // In case of HTML, we need a different computation
+    if (boundariesNode.nodeName === 'HTML' && !isFixed(offsetParent)) {
+      var _getWindowSizes = getWindowSizes(popper.ownerDocument),
+          height = _getWindowSizes.height,
+          width = _getWindowSizes.width;
+
+      boundaries.top += offsets.top - offsets.marginTop;
+      boundaries.bottom = height + offsets.top;
+      boundaries.left += offsets.left - offsets.marginLeft;
+      boundaries.right = width + offsets.left;
+    } else {
+      // for all the other DOM elements, this one is good
+      boundaries = offsets;
+    }
+  }
+
+  // Add paddings
+  padding = padding || 0;
+  var isPaddingNumber = typeof padding === 'number';
+  boundaries.left += isPaddingNumber ? padding : padding.left || 0;
+  boundaries.top += isPaddingNumber ? padding : padding.top || 0;
+  boundaries.right -= isPaddingNumber ? padding : padding.right || 0;
+  boundaries.bottom -= isPaddingNumber ? padding : padding.bottom || 0;
+
+  return boundaries;
+}
+
+function getArea(_ref) {
+  var width = _ref.width,
+      height = _ref.height;
+
+  return width * height;
+}
+
+/**
+ * Utility used to transform the `auto` placement to the placement with more
+ * available space.
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function computeAutoPlacement(placement, refRect, popper, reference, boundariesElement) {
+  var padding = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+
+  if (placement.indexOf('auto') === -1) {
+    return placement;
+  }
+
+  var boundaries = getBoundaries(popper, reference, padding, boundariesElement);
+
+  var rects = {
+    top: {
+      width: boundaries.width,
+      height: refRect.top - boundaries.top
+    },
+    right: {
+      width: boundaries.right - refRect.right,
+      height: boundaries.height
+    },
+    bottom: {
+      width: boundaries.width,
+      height: boundaries.bottom - refRect.bottom
+    },
+    left: {
+      width: refRect.left - boundaries.left,
+      height: boundaries.height
+    }
+  };
+
+  var sortedAreas = Object.keys(rects).map(function (key) {
+    return _extends({
+      key: key
+    }, rects[key], {
+      area: getArea(rects[key])
     });
+  }).sort(function (a, b) {
+    return b.area - a.area;
+  });
 
-    return af;
+  var filteredAreas = sortedAreas.filter(function (_ref2) {
+    var width = _ref2.width,
+        height = _ref2.height;
+    return width >= popper.clientWidth && height >= popper.clientHeight;
+  });
 
-})));
+  var computedPlacement = filteredAreas.length > 0 ? filteredAreas[0].key : sortedAreas[0].key;
 
+  var variation = placement.split('-')[1];
 
-/***/ }),
+  return computedPlacement + (variation ? '-' + variation : '');
+}
 
-/***/ "./node_modules/moment/locale/ar-dz.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/ar-dz.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/**
+ * Get offsets to the reference element
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} state
+ * @param {Element} popper - the popper element
+ * @param {Element} reference - the reference element (the popper will be relative to this)
+ * @param {Element} fixedPosition - is in fixed position mode
+ * @returns {Object} An object containing the offsets which will be applied to the popper
+ */
+function getReferenceOffsets(state, popper, reference) {
+  var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-//! moment.js locale configuration
-//! locale : Arabic (Algeria) [ar-dz]
-//! author : Amine Roukh: https://github.com/Amine27
-//! author : Abdel Said: https://github.com/abdelsaid
-//! author : Ahmed Elkhatib
-//! author : forabi https://github.com/forabi
-//! author : Noureddine LOUAHEDJ : https://github.com/noureddinem
+  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+  return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
+}
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
+/**
+ * Get the outer sizes of the given element (offset size + margins)
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Object} object containing width and height properties
+ */
+function getOuterSizes(element) {
+  var window = element.ownerDocument.defaultView;
+  var styles = window.getComputedStyle(element);
+  var x = parseFloat(styles.marginTop || 0) + parseFloat(styles.marginBottom || 0);
+  var y = parseFloat(styles.marginLeft || 0) + parseFloat(styles.marginRight || 0);
+  var result = {
+    width: element.offsetWidth + y,
+    height: element.offsetHeight + x
+  };
+  return result;
+}
 
-    //! moment.js locale configuration
+/**
+ * Get the opposite placement of the given one
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement
+ * @returns {String} flipped placement
+ */
+function getOppositePlacement(placement) {
+  var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
+  return placement.replace(/left|right|bottom|top/g, function (matched) {
+    return hash[matched];
+  });
+}
 
-    var pluralForm = function (n) {
-            return n === 0
-                ? 0
-                : n === 1
-                ? 1
-                : n === 2
-                ? 2
-                : n % 100 >= 3 && n % 100 <= 10
-                ? 3
-                : n % 100 >= 11
-                ? 4
-                : 5;
-        },
-        plurals = {
-            s: [
-                'أقل من ثانية',
-                'ثانية واحدة',
-                ['ثانيتان', 'ثانيتين'],
-                '%d ثوان',
-                '%d ثانية',
-                '%d ثانية',
-            ],
-            m: [
-                'أقل من دقيقة',
-                'دقيقة واحدة',
-                ['دقيقتان', 'دقيقتين'],
-                '%d دقائق',
-                '%d دقيقة',
-                '%d دقيقة',
-            ],
-            h: [
-                'أقل من ساعة',
-                'ساعة واحدة',
-                ['ساعتان', 'ساعتين'],
-                '%d ساعات',
-                '%d ساعة',
-                '%d ساعة',
-            ],
-            d: [
-                'أقل من يوم',
-                'يوم واحد',
-                ['يومان', 'يومين'],
-                '%d أيام',
-                '%d يومًا',
-                '%d يوم',
-            ],
-            M: [
-                'أقل من شهر',
-                'شهر واحد',
-                ['شهران', 'شهرين'],
-                '%d أشهر',
-                '%d شهرا',
-                '%d شهر',
-            ],
-            y: [
-                'أقل من عام',
-                'عام واحد',
-                ['عامان', 'عامين'],
-                '%d أعوام',
-                '%d عامًا',
-                '%d عام',
-            ],
-        },
-        pluralize = function (u) {
-            return function (number, withoutSuffix, string, isFuture) {
-                var f = pluralForm(number),
-                    str = plurals[u][pluralForm(number)];
-                if (f === 2) {
-                    str = str[withoutSuffix ? 0 : 1];
-                }
-                return str.replace(/%d/i, number);
-            };
-        },
-        months = [
-            'جانفي',
-            'فيفري',
-            'مارس',
-            'أفريل',
-            'ماي',
-            'جوان',
-            'جويلية',
-            'أوت',
-            'سبتمبر',
-            'أكتوبر',
-            'نوفمبر',
-            'ديسمبر',
-        ];
+/**
+ * Get offsets to the popper
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} position - CSS position the Popper will get applied
+ * @param {HTMLElement} popper - the popper element
+ * @param {Object} referenceOffsets - the reference offsets (the popper will be relative to this)
+ * @param {String} placement - one of the valid placement options
+ * @returns {Object} popperOffsets - An object containing the offsets which will be applied to the popper
+ */
+function getPopperOffsets(popper, referenceOffsets, placement) {
+  placement = placement.split('-')[0];
 
-    var arDz = moment.defineLocale('ar-dz', {
-        months: months,
-        monthsShort: months,
-        weekdays: 'الأحد_الإثنين_الثلاثاء_الأربعاء_الخميس_الجمعة_السبت'.split('_'),
-        weekdaysShort: 'أحد_إثنين_ثلاثاء_أربعاء_خميس_جمعة_سبت'.split('_'),
-        weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'D/\u200FM/\u200FYYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /ص|م/,
-        isPM: function (input) {
-            return 'م' === input;
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'ص';
-            } else {
-                return 'م';
-            }
-        },
-        calendar: {
-            sameDay: '[اليوم عند الساعة] LT',
-            nextDay: '[غدًا عند الساعة] LT',
-            nextWeek: 'dddd [عند الساعة] LT',
-            lastDay: '[أمس عند الساعة] LT',
-            lastWeek: 'dddd [عند الساعة] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'بعد %s',
-            past: 'منذ %s',
-            s: pluralize('s'),
-            ss: pluralize('s'),
-            m: pluralize('m'),
-            mm: pluralize('m'),
-            h: pluralize('h'),
-            hh: pluralize('h'),
-            d: pluralize('d'),
-            dd: pluralize('d'),
-            M: pluralize('M'),
-            MM: pluralize('M'),
-            y: pluralize('y'),
-            yy: pluralize('y'),
-        },
-        postformat: function (string) {
-            return string.replace(/,/g, '،');
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
+  // Get popper node sizes
+  var popperRect = getOuterSizes(popper);
+
+  // Add position, width and height to our offsets object
+  var popperOffsets = {
+    width: popperRect.width,
+    height: popperRect.height
+  };
+
+  // depending by the popper placement we have to compute its offsets slightly differently
+  var isHoriz = ['right', 'left'].indexOf(placement) !== -1;
+  var mainSide = isHoriz ? 'top' : 'left';
+  var secondarySide = isHoriz ? 'left' : 'top';
+  var measurement = isHoriz ? 'height' : 'width';
+  var secondaryMeasurement = !isHoriz ? 'height' : 'width';
+
+  popperOffsets[mainSide] = referenceOffsets[mainSide] + referenceOffsets[measurement] / 2 - popperRect[measurement] / 2;
+  if (placement === secondarySide) {
+    popperOffsets[secondarySide] = referenceOffsets[secondarySide] - popperRect[secondaryMeasurement];
+  } else {
+    popperOffsets[secondarySide] = referenceOffsets[getOppositePlacement(secondarySide)];
+  }
+
+  return popperOffsets;
+}
+
+/**
+ * Mimics the `find` method of Array
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Array} arr
+ * @argument prop
+ * @argument value
+ * @returns index or -1
+ */
+function find(arr, check) {
+  // use native find if supported
+  if (Array.prototype.find) {
+    return arr.find(check);
+  }
+
+  // use `filter` to obtain the same behavior of `find`
+  return arr.filter(check)[0];
+}
+
+/**
+ * Return the index of the matching object
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Array} arr
+ * @argument prop
+ * @argument value
+ * @returns index or -1
+ */
+function findIndex(arr, prop, value) {
+  // use native findIndex if supported
+  if (Array.prototype.findIndex) {
+    return arr.findIndex(function (cur) {
+      return cur[prop] === value;
     });
+  }
 
-    return arDz;
+  // use `find` + `indexOf` if `findIndex` isn't supported
+  var match = find(arr, function (obj) {
+    return obj[prop] === value;
+  });
+  return arr.indexOf(match);
+}
 
-})));
+/**
+ * Loop trough the list of modifiers and run them in order,
+ * each of them will then edit the data object.
+ * @method
+ * @memberof Popper.Utils
+ * @param {dataObject} data
+ * @param {Array} modifiers
+ * @param {String} ends - Optional modifier name used as stopper
+ * @returns {dataObject}
+ */
+function runModifiers(modifiers, data, ends) {
+  var modifiersToRun = ends === undefined ? modifiers : modifiers.slice(0, findIndex(modifiers, 'name', ends));
 
+  modifiersToRun.forEach(function (modifier) {
+    if (modifier['function']) {
+      // eslint-disable-line dot-notation
+      console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
+    }
+    var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
+    if (modifier.enabled && isFunction(fn)) {
+      // Add properties to offsets to make them a complete clientRect object
+      // we do this before each modifier to make sure the previous one doesn't
+      // mess with these values
+      data.offsets.popper = getClientRect(data.offsets.popper);
+      data.offsets.reference = getClientRect(data.offsets.reference);
 
-/***/ }),
+      data = fn(data, modifier);
+    }
+  });
 
-/***/ "./node_modules/moment/locale/ar-kw.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/ar-kw.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  return data;
+}
 
-//! moment.js locale configuration
-//! locale : Arabic (Kuwait) [ar-kw]
-//! author : Nusret Parlak: https://github.com/nusretparlak
+/**
+ * Updates the position of the popper, computing the new offsets and applying
+ * the new style.<br />
+ * Prefer `scheduleUpdate` over `update` because of performance reasons.
+ * @method
+ * @memberof Popper
+ */
+function update() {
+  // if popper is destroyed, don't perform any further update
+  if (this.state.isDestroyed) {
+    return;
+  }
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
+  var data = {
+    instance: this,
+    styles: {},
+    arrowStyles: {},
+    attributes: {},
+    flipped: false,
+    offsets: {}
+  };
 
-    //! moment.js locale configuration
+  // compute reference element offsets
+  data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference, this.options.positionFixed);
 
-    var arKw = moment.defineLocale('ar-kw', {
-        months: 'يناير_فبراير_مارس_أبريل_ماي_يونيو_يوليوز_غشت_شتنبر_أكتوبر_نونبر_دجنبر'.split(
-            '_'
-        ),
-        monthsShort: 'يناير_فبراير_مارس_أبريل_ماي_يونيو_يوليوز_غشت_شتنبر_أكتوبر_نونبر_دجنبر'.split(
-            '_'
-        ),
-        weekdays: 'الأحد_الإتنين_الثلاثاء_الأربعاء_الخميس_الجمعة_السبت'.split('_'),
-        weekdaysShort: 'احد_اتنين_ثلاثاء_اربعاء_خميس_جمعة_سبت'.split('_'),
-        weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[اليوم على الساعة] LT',
-            nextDay: '[غدا على الساعة] LT',
-            nextWeek: 'dddd [على الساعة] LT',
-            lastDay: '[أمس على الساعة] LT',
-            lastWeek: 'dddd [على الساعة] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'في %s',
-            past: 'منذ %s',
-            s: 'ثوان',
-            ss: '%d ثانية',
-            m: 'دقيقة',
-            mm: '%d دقائق',
-            h: 'ساعة',
-            hh: '%d ساعات',
-            d: 'يوم',
-            dd: '%d أيام',
-            M: 'شهر',
-            MM: '%d أشهر',
-            y: 'سنة',
-            yy: '%d سنوات',
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 12, // The week that contains Jan 12th is the first week of the year.
-        },
+  // compute auto placement, store placement inside the data object,
+  // modifiers will be able to edit `placement` if needed
+  // and refer to originalPlacement to know the original value
+  data.placement = computeAutoPlacement(this.options.placement, data.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding);
+
+  // store the computed placement inside `originalPlacement`
+  data.originalPlacement = data.placement;
+
+  data.positionFixed = this.options.positionFixed;
+
+  // compute the popper offsets
+  data.offsets.popper = getPopperOffsets(this.popper, data.offsets.reference, data.placement);
+
+  data.offsets.popper.position = this.options.positionFixed ? 'fixed' : 'absolute';
+
+  // run the modifiers
+  data = runModifiers(this.modifiers, data);
+
+  // the first `update` will call `onCreate` callback
+  // the other ones will call `onUpdate` callback
+  if (!this.state.isCreated) {
+    this.state.isCreated = true;
+    this.options.onCreate(data);
+  } else {
+    this.options.onUpdate(data);
+  }
+}
+
+/**
+ * Helper used to know if the given modifier is enabled.
+ * @method
+ * @memberof Popper.Utils
+ * @returns {Boolean}
+ */
+function isModifierEnabled(modifiers, modifierName) {
+  return modifiers.some(function (_ref) {
+    var name = _ref.name,
+        enabled = _ref.enabled;
+    return enabled && name === modifierName;
+  });
+}
+
+/**
+ * Get the prefixed supported property name
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} property (camelCase)
+ * @returns {String} prefixed property (camelCase or PascalCase, depending on the vendor prefix)
+ */
+function getSupportedPropertyName(property) {
+  var prefixes = [false, 'ms', 'Webkit', 'Moz', 'O'];
+  var upperProp = property.charAt(0).toUpperCase() + property.slice(1);
+
+  for (var i = 0; i < prefixes.length; i++) {
+    var prefix = prefixes[i];
+    var toCheck = prefix ? '' + prefix + upperProp : property;
+    if (typeof document.body.style[toCheck] !== 'undefined') {
+      return toCheck;
+    }
+  }
+  return null;
+}
+
+/**
+ * Destroys the popper.
+ * @method
+ * @memberof Popper
+ */
+function destroy() {
+  this.state.isDestroyed = true;
+
+  // touch DOM only if `applyStyle` modifier is enabled
+  if (isModifierEnabled(this.modifiers, 'applyStyle')) {
+    this.popper.removeAttribute('x-placement');
+    this.popper.style.position = '';
+    this.popper.style.top = '';
+    this.popper.style.left = '';
+    this.popper.style.right = '';
+    this.popper.style.bottom = '';
+    this.popper.style.willChange = '';
+    this.popper.style[getSupportedPropertyName('transform')] = '';
+  }
+
+  this.disableEventListeners();
+
+  // remove the popper if user explicitly asked for the deletion on destroy
+  // do not use `remove` because IE11 doesn't support it
+  if (this.options.removeOnDestroy) {
+    this.popper.parentNode.removeChild(this.popper);
+  }
+  return this;
+}
+
+/**
+ * Get the window associated with the element
+ * @argument {Element} element
+ * @returns {Window}
+ */
+function getWindow(element) {
+  var ownerDocument = element.ownerDocument;
+  return ownerDocument ? ownerDocument.defaultView : window;
+}
+
+function attachToScrollParents(scrollParent, event, callback, scrollParents) {
+  var isBody = scrollParent.nodeName === 'BODY';
+  var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
+  target.addEventListener(event, callback, { passive: true });
+
+  if (!isBody) {
+    attachToScrollParents(getScrollParent(target.parentNode), event, callback, scrollParents);
+  }
+  scrollParents.push(target);
+}
+
+/**
+ * Setup needed event listeners used to update the popper position
+ * @method
+ * @memberof Popper.Utils
+ * @private
+ */
+function setupEventListeners(reference, options, state, updateBound) {
+  // Resize event listener on window
+  state.updateBound = updateBound;
+  getWindow(reference).addEventListener('resize', state.updateBound, { passive: true });
+
+  // Scroll event listener on scroll parents
+  var scrollElement = getScrollParent(reference);
+  attachToScrollParents(scrollElement, 'scroll', state.updateBound, state.scrollParents);
+  state.scrollElement = scrollElement;
+  state.eventsEnabled = true;
+
+  return state;
+}
+
+/**
+ * It will add resize/scroll events and start recalculating
+ * position of the popper element when they are triggered.
+ * @method
+ * @memberof Popper
+ */
+function enableEventListeners() {
+  if (!this.state.eventsEnabled) {
+    this.state = setupEventListeners(this.reference, this.options, this.state, this.scheduleUpdate);
+  }
+}
+
+/**
+ * Remove event listeners used to update the popper position
+ * @method
+ * @memberof Popper.Utils
+ * @private
+ */
+function removeEventListeners(reference, state) {
+  // Remove resize event listener on window
+  getWindow(reference).removeEventListener('resize', state.updateBound);
+
+  // Remove scroll event listener on scroll parents
+  state.scrollParents.forEach(function (target) {
+    target.removeEventListener('scroll', state.updateBound);
+  });
+
+  // Reset state
+  state.updateBound = null;
+  state.scrollParents = [];
+  state.scrollElement = null;
+  state.eventsEnabled = false;
+  return state;
+}
+
+/**
+ * It will remove resize/scroll events and won't recalculate popper position
+ * when they are triggered. It also won't trigger `onUpdate` callback anymore,
+ * unless you call `update` method manually.
+ * @method
+ * @memberof Popper
+ */
+function disableEventListeners() {
+  if (this.state.eventsEnabled) {
+    cancelAnimationFrame(this.scheduleUpdate);
+    this.state = removeEventListeners(this.reference, this.state);
+  }
+}
+
+/**
+ * Tells if a given input is a number
+ * @method
+ * @memberof Popper.Utils
+ * @param {*} input to check
+ * @return {Boolean}
+ */
+function isNumeric(n) {
+  return n !== '' && !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+/**
+ * Set the style to the given popper
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element - Element to apply the style to
+ * @argument {Object} styles
+ * Object with a list of properties and values which will be applied to the element
+ */
+function setStyles(element, styles) {
+  Object.keys(styles).forEach(function (prop) {
+    var unit = '';
+    // add unit if the value is numeric and is one of the following
+    if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
+      unit = 'px';
+    }
+    element.style[prop] = styles[prop] + unit;
+  });
+}
+
+/**
+ * Set the attributes to the given popper
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element - Element to apply the attributes to
+ * @argument {Object} styles
+ * Object with a list of properties and values which will be applied to the element
+ */
+function setAttributes(element, attributes) {
+  Object.keys(attributes).forEach(function (prop) {
+    var value = attributes[prop];
+    if (value !== false) {
+      element.setAttribute(prop, attributes[prop]);
+    } else {
+      element.removeAttribute(prop);
+    }
+  });
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data.styles - List of style properties - values to apply to popper element
+ * @argument {Object} data.attributes - List of attribute properties - values to apply to popper element
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The same data object
+ */
+function applyStyle(data) {
+  // any property present in `data.styles` will be applied to the popper,
+  // in this way we can make the 3rd party modifiers add custom styles to it
+  // Be aware, modifiers could override the properties defined in the previous
+  // lines of this modifier!
+  setStyles(data.instance.popper, data.styles);
+
+  // any property present in `data.attributes` will be applied to the popper,
+  // they will be set as HTML attributes of the element
+  setAttributes(data.instance.popper, data.attributes);
+
+  // if arrowElement is defined and arrowStyles has some properties
+  if (data.arrowElement && Object.keys(data.arrowStyles).length) {
+    setStyles(data.arrowElement, data.arrowStyles);
+  }
+
+  return data;
+}
+
+/**
+ * Set the x-placement attribute before everything else because it could be used
+ * to add margins to the popper margins needs to be calculated to get the
+ * correct popper offsets.
+ * @method
+ * @memberof Popper.modifiers
+ * @param {HTMLElement} reference - The reference element used to position the popper
+ * @param {HTMLElement} popper - The HTML element used as popper
+ * @param {Object} options - Popper.js options
+ */
+function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
+  // compute reference element offsets
+  var referenceOffsets = getReferenceOffsets(state, popper, reference, options.positionFixed);
+
+  // compute auto placement, store placement inside the data object,
+  // modifiers will be able to edit `placement` if needed
+  // and refer to originalPlacement to know the original value
+  var placement = computeAutoPlacement(options.placement, referenceOffsets, popper, reference, options.modifiers.flip.boundariesElement, options.modifiers.flip.padding);
+
+  popper.setAttribute('x-placement', placement);
+
+  // Apply `position` to popper before anything else because
+  // without the position applied we can't guarantee correct computations
+  setStyles(popper, { position: options.positionFixed ? 'fixed' : 'absolute' });
+
+  return options;
+}
+
+/**
+ * @function
+ * @memberof Popper.Utils
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Boolean} shouldRound - If the offsets should be rounded at all
+ * @returns {Object} The popper's position offsets rounded
+ *
+ * The tale of pixel-perfect positioning. It's still not 100% perfect, but as
+ * good as it can be within reason.
+ * Discussion here: https://github.com/FezVrasta/popper.js/pull/715
+ *
+ * Low DPI screens cause a popper to be blurry if not using full pixels (Safari
+ * as well on High DPI screens).
+ *
+ * Firefox prefers no rounding for positioning and does not have blurriness on
+ * high DPI screens.
+ *
+ * Only horizontal placement and left/right values need to be considered.
+ */
+function getRoundedOffsets(data, shouldRound) {
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+  var round = Math.round,
+      floor = Math.floor;
+
+  var noRound = function noRound(v) {
+    return v;
+  };
+
+  var referenceWidth = round(reference.width);
+  var popperWidth = round(popper.width);
+
+  var isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
+  var isVariation = data.placement.indexOf('-') !== -1;
+  var sameWidthParity = referenceWidth % 2 === popperWidth % 2;
+  var bothOddWidth = referenceWidth % 2 === 1 && popperWidth % 2 === 1;
+
+  var horizontalToInteger = !shouldRound ? noRound : isVertical || isVariation || sameWidthParity ? round : floor;
+  var verticalToInteger = !shouldRound ? noRound : round;
+
+  return {
+    left: horizontalToInteger(bothOddWidth && !isVariation && shouldRound ? popper.left - 1 : popper.left),
+    top: verticalToInteger(popper.top),
+    bottom: verticalToInteger(popper.bottom),
+    right: horizontalToInteger(popper.right)
+  };
+}
+
+var isFirefox = isBrowser && /Firefox/i.test(navigator.userAgent);
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function computeStyle(data, options) {
+  var x = options.x,
+      y = options.y;
+  var popper = data.offsets.popper;
+
+  // Remove this legacy support in Popper.js v2
+
+  var legacyGpuAccelerationOption = find(data.instance.modifiers, function (modifier) {
+    return modifier.name === 'applyStyle';
+  }).gpuAcceleration;
+  if (legacyGpuAccelerationOption !== undefined) {
+    console.warn('WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!');
+  }
+  var gpuAcceleration = legacyGpuAccelerationOption !== undefined ? legacyGpuAccelerationOption : options.gpuAcceleration;
+
+  var offsetParent = getOffsetParent(data.instance.popper);
+  var offsetParentRect = getBoundingClientRect(offsetParent);
+
+  // Styles
+  var styles = {
+    position: popper.position
+  };
+
+  var offsets = getRoundedOffsets(data, window.devicePixelRatio < 2 || !isFirefox);
+
+  var sideA = x === 'bottom' ? 'top' : 'bottom';
+  var sideB = y === 'right' ? 'left' : 'right';
+
+  // if gpuAcceleration is set to `true` and transform is supported,
+  //  we use `translate3d` to apply the position to the popper we
+  // automatically use the supported prefixed version if needed
+  var prefixedProperty = getSupportedPropertyName('transform');
+
+  // now, let's make a step back and look at this code closely (wtf?)
+  // If the content of the popper grows once it's been positioned, it
+  // may happen that the popper gets misplaced because of the new content
+  // overflowing its reference element
+  // To avoid this problem, we provide two options (x and y), which allow
+  // the consumer to define the offset origin.
+  // If we position a popper on top of a reference element, we can set
+  // `x` to `top` to make the popper grow towards its top instead of
+  // its bottom.
+  var left = void 0,
+      top = void 0;
+  if (sideA === 'bottom') {
+    // when offsetParent is <html> the positioning is relative to the bottom of the screen (excluding the scrollbar)
+    // and not the bottom of the html element
+    if (offsetParent.nodeName === 'HTML') {
+      top = -offsetParent.clientHeight + offsets.bottom;
+    } else {
+      top = -offsetParentRect.height + offsets.bottom;
+    }
+  } else {
+    top = offsets.top;
+  }
+  if (sideB === 'right') {
+    if (offsetParent.nodeName === 'HTML') {
+      left = -offsetParent.clientWidth + offsets.right;
+    } else {
+      left = -offsetParentRect.width + offsets.right;
+    }
+  } else {
+    left = offsets.left;
+  }
+  if (gpuAcceleration && prefixedProperty) {
+    styles[prefixedProperty] = 'translate3d(' + left + 'px, ' + top + 'px, 0)';
+    styles[sideA] = 0;
+    styles[sideB] = 0;
+    styles.willChange = 'transform';
+  } else {
+    // othwerise, we use the standard `top`, `left`, `bottom` and `right` properties
+    var invertTop = sideA === 'bottom' ? -1 : 1;
+    var invertLeft = sideB === 'right' ? -1 : 1;
+    styles[sideA] = top * invertTop;
+    styles[sideB] = left * invertLeft;
+    styles.willChange = sideA + ', ' + sideB;
+  }
+
+  // Attributes
+  var attributes = {
+    'x-placement': data.placement
+  };
+
+  // Update `data` attributes, styles and arrowStyles
+  data.attributes = _extends({}, attributes, data.attributes);
+  data.styles = _extends({}, styles, data.styles);
+  data.arrowStyles = _extends({}, data.offsets.arrow, data.arrowStyles);
+
+  return data;
+}
+
+/**
+ * Helper used to know if the given modifier depends from another one.<br />
+ * It checks if the needed modifier is listed and enabled.
+ * @method
+ * @memberof Popper.Utils
+ * @param {Array} modifiers - list of modifiers
+ * @param {String} requestingName - name of requesting modifier
+ * @param {String} requestedName - name of requested modifier
+ * @returns {Boolean}
+ */
+function isModifierRequired(modifiers, requestingName, requestedName) {
+  var requesting = find(modifiers, function (_ref) {
+    var name = _ref.name;
+    return name === requestingName;
+  });
+
+  var isRequired = !!requesting && modifiers.some(function (modifier) {
+    return modifier.name === requestedName && modifier.enabled && modifier.order < requesting.order;
+  });
+
+  if (!isRequired) {
+    var _requesting = '`' + requestingName + '`';
+    var requested = '`' + requestedName + '`';
+    console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in order to work, be sure to include it before ' + _requesting + '!');
+  }
+  return isRequired;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function arrow(data, options) {
+  var _data$offsets$arrow;
+
+  // arrow depends on keepTogether in order to work
+  if (!isModifierRequired(data.instance.modifiers, 'arrow', 'keepTogether')) {
+    return data;
+  }
+
+  var arrowElement = options.element;
+
+  // if arrowElement is a string, suppose it's a CSS selector
+  if (typeof arrowElement === 'string') {
+    arrowElement = data.instance.popper.querySelector(arrowElement);
+
+    // if arrowElement is not found, don't run the modifier
+    if (!arrowElement) {
+      return data;
+    }
+  } else {
+    // if the arrowElement isn't a query selector we must check that the
+    // provided DOM node is child of its popper node
+    if (!data.instance.popper.contains(arrowElement)) {
+      console.warn('WARNING: `arrow.element` must be child of its popper element!');
+      return data;
+    }
+  }
+
+  var placement = data.placement.split('-')[0];
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var isVertical = ['left', 'right'].indexOf(placement) !== -1;
+
+  var len = isVertical ? 'height' : 'width';
+  var sideCapitalized = isVertical ? 'Top' : 'Left';
+  var side = sideCapitalized.toLowerCase();
+  var altSide = isVertical ? 'left' : 'top';
+  var opSide = isVertical ? 'bottom' : 'right';
+  var arrowElementSize = getOuterSizes(arrowElement)[len];
+
+  //
+  // extends keepTogether behavior making sure the popper and its
+  // reference have enough pixels in conjunction
+  //
+
+  // top/left side
+  if (reference[opSide] - arrowElementSize < popper[side]) {
+    data.offsets.popper[side] -= popper[side] - (reference[opSide] - arrowElementSize);
+  }
+  // bottom/right side
+  if (reference[side] + arrowElementSize > popper[opSide]) {
+    data.offsets.popper[side] += reference[side] + arrowElementSize - popper[opSide];
+  }
+  data.offsets.popper = getClientRect(data.offsets.popper);
+
+  // compute center of the popper
+  var center = reference[side] + reference[len] / 2 - arrowElementSize / 2;
+
+  // Compute the sideValue using the updated popper offsets
+  // take popper margin in account because we don't have this info available
+  var css = getStyleComputedProperty(data.instance.popper);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
+  var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
+
+  // prevent arrowElement from being placed not contiguously to its popper
+  sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0);
+
+  data.arrowElement = arrowElement;
+  data.offsets.arrow = (_data$offsets$arrow = {}, defineProperty(_data$offsets$arrow, side, Math.round(sideValue)), defineProperty(_data$offsets$arrow, altSide, ''), _data$offsets$arrow);
+
+  return data;
+}
+
+/**
+ * Get the opposite placement variation of the given one
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement variation
+ * @returns {String} flipped placement variation
+ */
+function getOppositeVariation(variation) {
+  if (variation === 'end') {
+    return 'start';
+  } else if (variation === 'start') {
+    return 'end';
+  }
+  return variation;
+}
+
+/**
+ * List of accepted placements to use as values of the `placement` option.<br />
+ * Valid placements are:
+ * - `auto`
+ * - `top`
+ * - `right`
+ * - `bottom`
+ * - `left`
+ *
+ * Each placement can have a variation from this list:
+ * - `-start`
+ * - `-end`
+ *
+ * Variations are interpreted easily if you think of them as the left to right
+ * written languages. Horizontally (`top` and `bottom`), `start` is left and `end`
+ * is right.<br />
+ * Vertically (`left` and `right`), `start` is top and `end` is bottom.
+ *
+ * Some valid examples are:
+ * - `top-end` (on top of reference, right aligned)
+ * - `right-start` (on right of reference, top aligned)
+ * - `bottom` (on bottom, centered)
+ * - `auto-end` (on the side with more space available, alignment depends by placement)
+ *
+ * @static
+ * @type {Array}
+ * @enum {String}
+ * @readonly
+ * @method placements
+ * @memberof Popper
+ */
+var placements = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
+
+// Get rid of `auto` `auto-start` and `auto-end`
+var validPlacements = placements.slice(3);
+
+/**
+ * Given an initial placement, returns all the subsequent placements
+ * clockwise (or counter-clockwise).
+ *
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement - A valid placement (it accepts variations)
+ * @argument {Boolean} counter - Set to true to walk the placements counterclockwise
+ * @returns {Array} placements including their variations
+ */
+function clockwise(placement) {
+  var counter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  var index = validPlacements.indexOf(placement);
+  var arr = validPlacements.slice(index + 1).concat(validPlacements.slice(0, index));
+  return counter ? arr.reverse() : arr;
+}
+
+var BEHAVIORS = {
+  FLIP: 'flip',
+  CLOCKWISE: 'clockwise',
+  COUNTERCLOCKWISE: 'counterclockwise'
+};
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function flip(data, options) {
+  // if `inner` modifier is enabled, we can't use the `flip` modifier
+  if (isModifierEnabled(data.instance.modifiers, 'inner')) {
+    return data;
+  }
+
+  if (data.flipped && data.placement === data.originalPlacement) {
+    // seems like flip is trying to loop, probably there's not enough space on any of the flippable sides
+    return data;
+  }
+
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, options.boundariesElement, data.positionFixed);
+
+  var placement = data.placement.split('-')[0];
+  var placementOpposite = getOppositePlacement(placement);
+  var variation = data.placement.split('-')[1] || '';
+
+  var flipOrder = [];
+
+  switch (options.behavior) {
+    case BEHAVIORS.FLIP:
+      flipOrder = [placement, placementOpposite];
+      break;
+    case BEHAVIORS.CLOCKWISE:
+      flipOrder = clockwise(placement);
+      break;
+    case BEHAVIORS.COUNTERCLOCKWISE:
+      flipOrder = clockwise(placement, true);
+      break;
+    default:
+      flipOrder = options.behavior;
+  }
+
+  flipOrder.forEach(function (step, index) {
+    if (placement !== step || flipOrder.length === index + 1) {
+      return data;
+    }
+
+    placement = data.placement.split('-')[0];
+    placementOpposite = getOppositePlacement(placement);
+
+    var popperOffsets = data.offsets.popper;
+    var refOffsets = data.offsets.reference;
+
+    // using floor because the reference offsets may contain decimals we are not going to consider here
+    var floor = Math.floor;
+    var overlapsRef = placement === 'left' && floor(popperOffsets.right) > floor(refOffsets.left) || placement === 'right' && floor(popperOffsets.left) < floor(refOffsets.right) || placement === 'top' && floor(popperOffsets.bottom) > floor(refOffsets.top) || placement === 'bottom' && floor(popperOffsets.top) < floor(refOffsets.bottom);
+
+    var overflowsLeft = floor(popperOffsets.left) < floor(boundaries.left);
+    var overflowsRight = floor(popperOffsets.right) > floor(boundaries.right);
+    var overflowsTop = floor(popperOffsets.top) < floor(boundaries.top);
+    var overflowsBottom = floor(popperOffsets.bottom) > floor(boundaries.bottom);
+
+    var overflowsBoundaries = placement === 'left' && overflowsLeft || placement === 'right' && overflowsRight || placement === 'top' && overflowsTop || placement === 'bottom' && overflowsBottom;
+
+    // flip the variation if required
+    var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+
+    // flips variation if reference element overflows boundaries
+    var flippedVariationByRef = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
+
+    // flips variation if popper content overflows boundaries
+    var flippedVariationByContent = !!options.flipVariationsByContent && (isVertical && variation === 'start' && overflowsRight || isVertical && variation === 'end' && overflowsLeft || !isVertical && variation === 'start' && overflowsBottom || !isVertical && variation === 'end' && overflowsTop);
+
+    var flippedVariation = flippedVariationByRef || flippedVariationByContent;
+
+    if (overlapsRef || overflowsBoundaries || flippedVariation) {
+      // this boolean to detect any flip loop
+      data.flipped = true;
+
+      if (overlapsRef || overflowsBoundaries) {
+        placement = flipOrder[index + 1];
+      }
+
+      if (flippedVariation) {
+        variation = getOppositeVariation(variation);
+      }
+
+      data.placement = placement + (variation ? '-' + variation : '');
+
+      // this object contains `position`, we want to preserve it along with
+      // any additional property we may add in the future
+      data.offsets.popper = _extends({}, data.offsets.popper, getPopperOffsets(data.instance.popper, data.offsets.reference, data.placement));
+
+      data = runModifiers(data.instance.modifiers, data, 'flip');
+    }
+  });
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function keepTogether(data) {
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var placement = data.placement.split('-')[0];
+  var floor = Math.floor;
+  var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+  var side = isVertical ? 'right' : 'bottom';
+  var opSide = isVertical ? 'left' : 'top';
+  var measurement = isVertical ? 'width' : 'height';
+
+  if (popper[side] < floor(reference[opSide])) {
+    data.offsets.popper[opSide] = floor(reference[opSide]) - popper[measurement];
+  }
+  if (popper[opSide] > floor(reference[side])) {
+    data.offsets.popper[opSide] = floor(reference[side]);
+  }
+
+  return data;
+}
+
+/**
+ * Converts a string containing value + unit into a px value number
+ * @function
+ * @memberof {modifiers~offset}
+ * @private
+ * @argument {String} str - Value + unit string
+ * @argument {String} measurement - `height` or `width`
+ * @argument {Object} popperOffsets
+ * @argument {Object} referenceOffsets
+ * @returns {Number|String}
+ * Value in pixels, or original string if no values were extracted
+ */
+function toValue(str, measurement, popperOffsets, referenceOffsets) {
+  // separate value from unit
+  var split = str.match(/((?:\-|\+)?\d*\.?\d*)(.*)/);
+  var value = +split[1];
+  var unit = split[2];
+
+  // If it's not a number it's an operator, I guess
+  if (!value) {
+    return str;
+  }
+
+  if (unit.indexOf('%') === 0) {
+    var element = void 0;
+    switch (unit) {
+      case '%p':
+        element = popperOffsets;
+        break;
+      case '%':
+      case '%r':
+      default:
+        element = referenceOffsets;
+    }
+
+    var rect = getClientRect(element);
+    return rect[measurement] / 100 * value;
+  } else if (unit === 'vh' || unit === 'vw') {
+    // if is a vh or vw, we calculate the size based on the viewport
+    var size = void 0;
+    if (unit === 'vh') {
+      size = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    } else {
+      size = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    }
+    return size / 100 * value;
+  } else {
+    // if is an explicit pixel unit, we get rid of the unit and keep the value
+    // if is an implicit unit, it's px, and we return just the value
+    return value;
+  }
+}
+
+/**
+ * Parse an `offset` string to extrapolate `x` and `y` numeric offsets.
+ * @function
+ * @memberof {modifiers~offset}
+ * @private
+ * @argument {String} offset
+ * @argument {Object} popperOffsets
+ * @argument {Object} referenceOffsets
+ * @argument {String} basePlacement
+ * @returns {Array} a two cells array with x and y offsets in numbers
+ */
+function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
+  var offsets = [0, 0];
+
+  // Use height if placement is left or right and index is 0 otherwise use width
+  // in this way the first offset will use an axis and the second one
+  // will use the other one
+  var useHeight = ['right', 'left'].indexOf(basePlacement) !== -1;
+
+  // Split the offset string to obtain a list of values and operands
+  // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
+  var fragments = offset.split(/(\+|\-)/).map(function (frag) {
+    return frag.trim();
+  });
+
+  // Detect if the offset string contains a pair of values or a single one
+  // they could be separated by comma or space
+  var divider = fragments.indexOf(find(fragments, function (frag) {
+    return frag.search(/,|\s/) !== -1;
+  }));
+
+  if (fragments[divider] && fragments[divider].indexOf(',') === -1) {
+    console.warn('Offsets separated by white space(s) are deprecated, use a comma (,) instead.');
+  }
+
+  // If divider is found, we divide the list of values and operands to divide
+  // them by ofset X and Y.
+  var splitRegex = /\s*,\s*|\s+/;
+  var ops = divider !== -1 ? [fragments.slice(0, divider).concat([fragments[divider].split(splitRegex)[0]]), [fragments[divider].split(splitRegex)[1]].concat(fragments.slice(divider + 1))] : [fragments];
+
+  // Convert the values with units to absolute pixels to allow our computations
+  ops = ops.map(function (op, index) {
+    // Most of the units rely on the orientation of the popper
+    var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
+    var mergeWithPrevious = false;
+    return op
+    // This aggregates any `+` or `-` sign that aren't considered operators
+    // e.g.: 10 + +5 => [10, +, +5]
+    .reduce(function (a, b) {
+      if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
+        a[a.length - 1] = b;
+        mergeWithPrevious = true;
+        return a;
+      } else if (mergeWithPrevious) {
+        a[a.length - 1] += b;
+        mergeWithPrevious = false;
+        return a;
+      } else {
+        return a.concat(b);
+      }
+    }, [])
+    // Here we convert the string values into number values (in px)
+    .map(function (str) {
+      return toValue(str, measurement, popperOffsets, referenceOffsets);
     });
+  });
 
-    return arKw;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ar-ly.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/ar-ly.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Arabic (Lybia) [ar-ly]
-//! author : Ali Hmer: https://github.com/kikoanis
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '1',
-            2: '2',
-            3: '3',
-            4: '4',
-            5: '5',
-            6: '6',
-            7: '7',
-            8: '8',
-            9: '9',
-            0: '0',
-        },
-        pluralForm = function (n) {
-            return n === 0
-                ? 0
-                : n === 1
-                ? 1
-                : n === 2
-                ? 2
-                : n % 100 >= 3 && n % 100 <= 10
-                ? 3
-                : n % 100 >= 11
-                ? 4
-                : 5;
-        },
-        plurals = {
-            s: [
-                'أقل من ثانية',
-                'ثانية واحدة',
-                ['ثانيتان', 'ثانيتين'],
-                '%d ثوان',
-                '%d ثانية',
-                '%d ثانية',
-            ],
-            m: [
-                'أقل من دقيقة',
-                'دقيقة واحدة',
-                ['دقيقتان', 'دقيقتين'],
-                '%d دقائق',
-                '%d دقيقة',
-                '%d دقيقة',
-            ],
-            h: [
-                'أقل من ساعة',
-                'ساعة واحدة',
-                ['ساعتان', 'ساعتين'],
-                '%d ساعات',
-                '%d ساعة',
-                '%d ساعة',
-            ],
-            d: [
-                'أقل من يوم',
-                'يوم واحد',
-                ['يومان', 'يومين'],
-                '%d أيام',
-                '%d يومًا',
-                '%d يوم',
-            ],
-            M: [
-                'أقل من شهر',
-                'شهر واحد',
-                ['شهران', 'شهرين'],
-                '%d أشهر',
-                '%d شهرا',
-                '%d شهر',
-            ],
-            y: [
-                'أقل من عام',
-                'عام واحد',
-                ['عامان', 'عامين'],
-                '%d أعوام',
-                '%d عامًا',
-                '%d عام',
-            ],
-        },
-        pluralize = function (u) {
-            return function (number, withoutSuffix, string, isFuture) {
-                var f = pluralForm(number),
-                    str = plurals[u][pluralForm(number)];
-                if (f === 2) {
-                    str = str[withoutSuffix ? 0 : 1];
-                }
-                return str.replace(/%d/i, number);
-            };
-        },
-        months = [
-            'يناير',
-            'فبراير',
-            'مارس',
-            'أبريل',
-            'مايو',
-            'يونيو',
-            'يوليو',
-            'أغسطس',
-            'سبتمبر',
-            'أكتوبر',
-            'نوفمبر',
-            'ديسمبر',
-        ];
-
-    var arLy = moment.defineLocale('ar-ly', {
-        months: months,
-        monthsShort: months,
-        weekdays: 'الأحد_الإثنين_الثلاثاء_الأربعاء_الخميس_الجمعة_السبت'.split('_'),
-        weekdaysShort: 'أحد_إثنين_ثلاثاء_أربعاء_خميس_جمعة_سبت'.split('_'),
-        weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'D/\u200FM/\u200FYYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /ص|م/,
-        isPM: function (input) {
-            return 'م' === input;
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'ص';
-            } else {
-                return 'م';
-            }
-        },
-        calendar: {
-            sameDay: '[اليوم عند الساعة] LT',
-            nextDay: '[غدًا عند الساعة] LT',
-            nextWeek: 'dddd [عند الساعة] LT',
-            lastDay: '[أمس عند الساعة] LT',
-            lastWeek: 'dddd [عند الساعة] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'بعد %s',
-            past: 'منذ %s',
-            s: pluralize('s'),
-            ss: pluralize('s'),
-            m: pluralize('m'),
-            mm: pluralize('m'),
-            h: pluralize('h'),
-            hh: pluralize('h'),
-            d: pluralize('d'),
-            dd: pluralize('d'),
-            M: pluralize('M'),
-            MM: pluralize('M'),
-            y: pluralize('y'),
-            yy: pluralize('y'),
-        },
-        preparse: function (string) {
-            return string.replace(/،/g, ',');
-        },
-        postformat: function (string) {
-            return string
-                .replace(/\d/g, function (match) {
-                    return symbolMap[match];
-                })
-                .replace(/,/g, '،');
-        },
-        week: {
-            dow: 6, // Saturday is the first day of the week.
-            doy: 12, // The week that contains Jan 12th is the first week of the year.
-        },
+  // Loop trough the offsets arrays and execute the operations
+  ops.forEach(function (op, index) {
+    op.forEach(function (frag, index2) {
+      if (isNumeric(frag)) {
+        offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1);
+      }
     });
+  });
+  return offsets;
+}
 
-    return arLy;
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @argument {Number|String} options.offset=0
+ * The offset value as described in the modifier description
+ * @returns {Object} The data object, properly modified
+ */
+function offset(data, _ref) {
+  var offset = _ref.offset;
+  var placement = data.placement,
+      _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
 
-})));
+  var basePlacement = placement.split('-')[0];
 
+  var offsets = void 0;
+  if (isNumeric(+offset)) {
+    offsets = [+offset, 0];
+  } else {
+    offsets = parseOffset(offset, popper, reference, basePlacement);
+  }
 
-/***/ }),
+  if (basePlacement === 'left') {
+    popper.top += offsets[0];
+    popper.left -= offsets[1];
+  } else if (basePlacement === 'right') {
+    popper.top += offsets[0];
+    popper.left += offsets[1];
+  } else if (basePlacement === 'top') {
+    popper.left += offsets[0];
+    popper.top -= offsets[1];
+  } else if (basePlacement === 'bottom') {
+    popper.left += offsets[0];
+    popper.top += offsets[1];
+  }
 
-/***/ "./node_modules/moment/locale/ar-ma.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/ar-ma.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  data.popper = popper;
+  return data;
+}
 
-//! moment.js locale configuration
-//! locale : Arabic (Morocco) [ar-ma]
-//! author : ElFadili Yassine : https://github.com/ElFadiliY
-//! author : Abdel Said : https://github.com/abdelsaid
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function preventOverflow(data, options) {
+  var boundariesElement = options.boundariesElement || getOffsetParent(data.instance.popper);
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
+  // If offsetParent is the reference element, we really want to
+  // go one step up and use the next offsetParent as reference to
+  // avoid to make this modifier completely useless and look like broken
+  if (data.instance.reference === boundariesElement) {
+    boundariesElement = getOffsetParent(boundariesElement);
+  }
 
-    //! moment.js locale configuration
+  // NOTE: DOM access here
+  // resets the popper's position so that the document size can be calculated excluding
+  // the size of the popper element itself
+  var transformProp = getSupportedPropertyName('transform');
+  var popperStyles = data.instance.popper.style; // assignment to help minification
+  var top = popperStyles.top,
+      left = popperStyles.left,
+      transform = popperStyles[transformProp];
 
-    var arMa = moment.defineLocale('ar-ma', {
-        months: 'يناير_فبراير_مارس_أبريل_ماي_يونيو_يوليوز_غشت_شتنبر_أكتوبر_نونبر_دجنبر'.split(
-            '_'
-        ),
-        monthsShort: 'يناير_فبراير_مارس_أبريل_ماي_يونيو_يوليوز_غشت_شتنبر_أكتوبر_نونبر_دجنبر'.split(
-            '_'
-        ),
-        weekdays: 'الأحد_الإثنين_الثلاثاء_الأربعاء_الخميس_الجمعة_السبت'.split('_'),
-        weekdaysShort: 'احد_اثنين_ثلاثاء_اربعاء_خميس_جمعة_سبت'.split('_'),
-        weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[اليوم على الساعة] LT',
-            nextDay: '[غدا على الساعة] LT',
-            nextWeek: 'dddd [على الساعة] LT',
-            lastDay: '[أمس على الساعة] LT',
-            lastWeek: 'dddd [على الساعة] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'في %s',
-            past: 'منذ %s',
-            s: 'ثوان',
-            ss: '%d ثانية',
-            m: 'دقيقة',
-            mm: '%d دقائق',
-            h: 'ساعة',
-            hh: '%d ساعات',
-            d: 'يوم',
-            dd: '%d أيام',
-            M: 'شهر',
-            MM: '%d أشهر',
-            y: 'سنة',
-            yy: '%d سنوات',
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
+  popperStyles.top = '';
+  popperStyles.left = '';
+  popperStyles[transformProp] = '';
 
-    return arMa;
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement, data.positionFixed);
 
-})));
+  // NOTE: DOM access here
+  // restores the original style properties after the offsets have been computed
+  popperStyles.top = top;
+  popperStyles.left = left;
+  popperStyles[transformProp] = transform;
 
+  options.boundaries = boundaries;
 
-/***/ }),
+  var order = options.priority;
+  var popper = data.offsets.popper;
 
-/***/ "./node_modules/moment/locale/ar-sa.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/ar-sa.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  var check = {
+    primary: function primary(placement) {
+      var value = popper[placement];
+      if (popper[placement] < boundaries[placement] && !options.escapeWithReference) {
+        value = Math.max(popper[placement], boundaries[placement]);
+      }
+      return defineProperty({}, placement, value);
+    },
+    secondary: function secondary(placement) {
+      var mainSide = placement === 'right' ? 'left' : 'top';
+      var value = popper[mainSide];
+      if (popper[placement] > boundaries[placement] && !options.escapeWithReference) {
+        value = Math.min(popper[mainSide], boundaries[placement] - (placement === 'right' ? popper.width : popper.height));
+      }
+      return defineProperty({}, mainSide, value);
+    }
+  };
 
-//! moment.js locale configuration
-//! locale : Arabic (Saudi Arabia) [ar-sa]
-//! author : Suhail Alkowaileet : https://github.com/xsoh
+  order.forEach(function (placement) {
+    var side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
+    popper = _extends({}, popper, check[side](placement));
+  });
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
+  data.offsets.popper = popper;
 
-    //! moment.js locale configuration
+  return data;
+}
 
-    var symbolMap = {
-            1: '١',
-            2: '٢',
-            3: '٣',
-            4: '٤',
-            5: '٥',
-            6: '٦',
-            7: '٧',
-            8: '٨',
-            9: '٩',
-            0: '٠',
-        },
-        numberMap = {
-            '١': '1',
-            '٢': '2',
-            '٣': '3',
-            '٤': '4',
-            '٥': '5',
-            '٦': '6',
-            '٧': '7',
-            '٨': '8',
-            '٩': '9',
-            '٠': '0',
-        };
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function shift(data) {
+  var placement = data.placement;
+  var basePlacement = placement.split('-')[0];
+  var shiftvariation = placement.split('-')[1];
 
-    var arSa = moment.defineLocale('ar-sa', {
-        months: 'يناير_فبراير_مارس_أبريل_مايو_يونيو_يوليو_أغسطس_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split(
-            '_'
-        ),
-        monthsShort: 'يناير_فبراير_مارس_أبريل_مايو_يونيو_يوليو_أغسطس_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split(
-            '_'
-        ),
-        weekdays: 'الأحد_الإثنين_الثلاثاء_الأربعاء_الخميس_الجمعة_السبت'.split('_'),
-        weekdaysShort: 'أحد_إثنين_ثلاثاء_أربعاء_خميس_جمعة_سبت'.split('_'),
-        weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /ص|م/,
-        isPM: function (input) {
-            return 'م' === input;
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'ص';
-            } else {
-                return 'م';
-            }
-        },
-        calendar: {
-            sameDay: '[اليوم على الساعة] LT',
-            nextDay: '[غدا على الساعة] LT',
-            nextWeek: 'dddd [على الساعة] LT',
-            lastDay: '[أمس على الساعة] LT',
-            lastWeek: 'dddd [على الساعة] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'في %s',
-            past: 'منذ %s',
-            s: 'ثوان',
-            ss: '%d ثانية',
-            m: 'دقيقة',
-            mm: '%d دقائق',
-            h: 'ساعة',
-            hh: '%d ساعات',
-            d: 'يوم',
-            dd: '%d أيام',
-            M: 'شهر',
-            MM: '%d أشهر',
-            y: 'سنة',
-            yy: '%d سنوات',
-        },
-        preparse: function (string) {
-            return string
-                .replace(/[١٢٣٤٥٦٧٨٩٠]/g, function (match) {
-                    return numberMap[match];
-                })
-                .replace(/،/g, ',');
-        },
-        postformat: function (string) {
-            return string
-                .replace(/\d/g, function (match) {
-                    return symbolMap[match];
-                })
-                .replace(/,/g, '،');
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
+  // if shift shiftvariation is specified, run the modifier
+  if (shiftvariation) {
+    var _data$offsets = data.offsets,
+        reference = _data$offsets.reference,
+        popper = _data$offsets.popper;
 
-    return arSa;
+    var isVertical = ['bottom', 'top'].indexOf(basePlacement) !== -1;
+    var side = isVertical ? 'left' : 'top';
+    var measurement = isVertical ? 'width' : 'height';
 
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ar-tn.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/ar-tn.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale  :  Arabic (Tunisia) [ar-tn]
-//! author : Nader Toukabri : https://github.com/naderio
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var arTn = moment.defineLocale('ar-tn', {
-        months: 'جانفي_فيفري_مارس_أفريل_ماي_جوان_جويلية_أوت_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split(
-            '_'
-        ),
-        monthsShort: 'جانفي_فيفري_مارس_أفريل_ماي_جوان_جويلية_أوت_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split(
-            '_'
-        ),
-        weekdays: 'الأحد_الإثنين_الثلاثاء_الأربعاء_الخميس_الجمعة_السبت'.split('_'),
-        weekdaysShort: 'أحد_إثنين_ثلاثاء_أربعاء_خميس_جمعة_سبت'.split('_'),
-        weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[اليوم على الساعة] LT',
-            nextDay: '[غدا على الساعة] LT',
-            nextWeek: 'dddd [على الساعة] LT',
-            lastDay: '[أمس على الساعة] LT',
-            lastWeek: 'dddd [على الساعة] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'في %s',
-            past: 'منذ %s',
-            s: 'ثوان',
-            ss: '%d ثانية',
-            m: 'دقيقة',
-            mm: '%d دقائق',
-            h: 'ساعة',
-            hh: '%d ساعات',
-            d: 'يوم',
-            dd: '%d أيام',
-            M: 'شهر',
-            MM: '%d أشهر',
-            y: 'سنة',
-            yy: '%d سنوات',
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return arTn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ar.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ar.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Arabic [ar]
-//! author : Abdel Said: https://github.com/abdelsaid
-//! author : Ahmed Elkhatib
-//! author : forabi https://github.com/forabi
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '١',
-            2: '٢',
-            3: '٣',
-            4: '٤',
-            5: '٥',
-            6: '٦',
-            7: '٧',
-            8: '٨',
-            9: '٩',
-            0: '٠',
-        },
-        numberMap = {
-            '١': '1',
-            '٢': '2',
-            '٣': '3',
-            '٤': '4',
-            '٥': '5',
-            '٦': '6',
-            '٧': '7',
-            '٨': '8',
-            '٩': '9',
-            '٠': '0',
-        },
-        pluralForm = function (n) {
-            return n === 0
-                ? 0
-                : n === 1
-                ? 1
-                : n === 2
-                ? 2
-                : n % 100 >= 3 && n % 100 <= 10
-                ? 3
-                : n % 100 >= 11
-                ? 4
-                : 5;
-        },
-        plurals = {
-            s: [
-                'أقل من ثانية',
-                'ثانية واحدة',
-                ['ثانيتان', 'ثانيتين'],
-                '%d ثوان',
-                '%d ثانية',
-                '%d ثانية',
-            ],
-            m: [
-                'أقل من دقيقة',
-                'دقيقة واحدة',
-                ['دقيقتان', 'دقيقتين'],
-                '%d دقائق',
-                '%d دقيقة',
-                '%d دقيقة',
-            ],
-            h: [
-                'أقل من ساعة',
-                'ساعة واحدة',
-                ['ساعتان', 'ساعتين'],
-                '%d ساعات',
-                '%d ساعة',
-                '%d ساعة',
-            ],
-            d: [
-                'أقل من يوم',
-                'يوم واحد',
-                ['يومان', 'يومين'],
-                '%d أيام',
-                '%d يومًا',
-                '%d يوم',
-            ],
-            M: [
-                'أقل من شهر',
-                'شهر واحد',
-                ['شهران', 'شهرين'],
-                '%d أشهر',
-                '%d شهرا',
-                '%d شهر',
-            ],
-            y: [
-                'أقل من عام',
-                'عام واحد',
-                ['عامان', 'عامين'],
-                '%d أعوام',
-                '%d عامًا',
-                '%d عام',
-            ],
-        },
-        pluralize = function (u) {
-            return function (number, withoutSuffix, string, isFuture) {
-                var f = pluralForm(number),
-                    str = plurals[u][pluralForm(number)];
-                if (f === 2) {
-                    str = str[withoutSuffix ? 0 : 1];
-                }
-                return str.replace(/%d/i, number);
-            };
-        },
-        months = [
-            'يناير',
-            'فبراير',
-            'مارس',
-            'أبريل',
-            'مايو',
-            'يونيو',
-            'يوليو',
-            'أغسطس',
-            'سبتمبر',
-            'أكتوبر',
-            'نوفمبر',
-            'ديسمبر',
-        ];
-
-    var ar = moment.defineLocale('ar', {
-        months: months,
-        monthsShort: months,
-        weekdays: 'الأحد_الإثنين_الثلاثاء_الأربعاء_الخميس_الجمعة_السبت'.split('_'),
-        weekdaysShort: 'أحد_إثنين_ثلاثاء_أربعاء_خميس_جمعة_سبت'.split('_'),
-        weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'D/\u200FM/\u200FYYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /ص|م/,
-        isPM: function (input) {
-            return 'م' === input;
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'ص';
-            } else {
-                return 'م';
-            }
-        },
-        calendar: {
-            sameDay: '[اليوم عند الساعة] LT',
-            nextDay: '[غدًا عند الساعة] LT',
-            nextWeek: 'dddd [عند الساعة] LT',
-            lastDay: '[أمس عند الساعة] LT',
-            lastWeek: 'dddd [عند الساعة] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'بعد %s',
-            past: 'منذ %s',
-            s: pluralize('s'),
-            ss: pluralize('s'),
-            m: pluralize('m'),
-            mm: pluralize('m'),
-            h: pluralize('h'),
-            hh: pluralize('h'),
-            d: pluralize('d'),
-            dd: pluralize('d'),
-            M: pluralize('M'),
-            MM: pluralize('M'),
-            y: pluralize('y'),
-            yy: pluralize('y'),
-        },
-        preparse: function (string) {
-            return string
-                .replace(/[١٢٣٤٥٦٧٨٩٠]/g, function (match) {
-                    return numberMap[match];
-                })
-                .replace(/،/g, ',');
-        },
-        postformat: function (string) {
-            return string
-                .replace(/\d/g, function (match) {
-                    return symbolMap[match];
-                })
-                .replace(/,/g, '،');
-        },
-        week: {
-            dow: 6, // Saturday is the first day of the week.
-            doy: 12, // The week that contains Jan 12th is the first week of the year.
-        },
-    });
-
-    return ar;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/az.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/az.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Azerbaijani [az]
-//! author : topchiyev : https://github.com/topchiyev
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var suffixes = {
-        1: '-inci',
-        5: '-inci',
-        8: '-inci',
-        70: '-inci',
-        80: '-inci',
-        2: '-nci',
-        7: '-nci',
-        20: '-nci',
-        50: '-nci',
-        3: '-üncü',
-        4: '-üncü',
-        100: '-üncü',
-        6: '-ncı',
-        9: '-uncu',
-        10: '-uncu',
-        30: '-uncu',
-        60: '-ıncı',
-        90: '-ıncı',
+    var shiftOffsets = {
+      start: defineProperty({}, side, reference[side]),
+      end: defineProperty({}, side, reference[side] + reference[measurement] - popper[measurement])
     };
 
-    var az = moment.defineLocale('az', {
-        months: 'yanvar_fevral_mart_aprel_may_iyun_iyul_avqust_sentyabr_oktyabr_noyabr_dekabr'.split(
-            '_'
-        ),
-        monthsShort: 'yan_fev_mar_apr_may_iyn_iyl_avq_sen_okt_noy_dek'.split('_'),
-        weekdays: 'Bazar_Bazar ertəsi_Çərşənbə axşamı_Çərşənbə_Cümə axşamı_Cümə_Şənbə'.split(
-            '_'
-        ),
-        weekdaysShort: 'Baz_BzE_ÇAx_Çər_CAx_Cüm_Şən'.split('_'),
-        weekdaysMin: 'Bz_BE_ÇA_Çə_CA_Cü_Şə'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[bugün saat] LT',
-            nextDay: '[sabah saat] LT',
-            nextWeek: '[gələn həftə] dddd [saat] LT',
-            lastDay: '[dünən] LT',
-            lastWeek: '[keçən həftə] dddd [saat] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s sonra',
-            past: '%s əvvəl',
-            s: 'bir neçə saniyə',
-            ss: '%d saniyə',
-            m: 'bir dəqiqə',
-            mm: '%d dəqiqə',
-            h: 'bir saat',
-            hh: '%d saat',
-            d: 'bir gün',
-            dd: '%d gün',
-            M: 'bir ay',
-            MM: '%d ay',
-            y: 'bir il',
-            yy: '%d il',
-        },
-        meridiemParse: /gecə|səhər|gündüz|axşam/,
-        isPM: function (input) {
-            return /^(gündüz|axşam)$/.test(input);
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'gecə';
-            } else if (hour < 12) {
-                return 'səhər';
-            } else if (hour < 17) {
-                return 'gündüz';
-            } else {
-                return 'axşam';
-            }
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-(ıncı|inci|nci|üncü|ncı|uncu)/,
-        ordinal: function (number) {
-            if (number === 0) {
-                // special case for zero
-                return number + '-ıncı';
-            }
-            var a = number % 10,
-                b = (number % 100) - a,
-                c = number >= 100 ? 100 : null;
-            return number + (suffixes[a] || suffixes[b] || suffixes[c]);
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
+    data.offsets.popper = _extends({}, popper, shiftOffsets[shiftvariation]);
+  }
 
-    return az;
+  return data;
+}
 
-})));
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function hide(data) {
+  if (!isModifierRequired(data.instance.modifiers, 'hide', 'preventOverflow')) {
+    return data;
+  }
 
+  var refRect = data.offsets.reference;
+  var bound = find(data.instance.modifiers, function (modifier) {
+    return modifier.name === 'preventOverflow';
+  }).boundaries;
 
-/***/ }),
-
-/***/ "./node_modules/moment/locale/be.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/be.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Belarusian [be]
-//! author : Dmitry Demidov : https://github.com/demidov91
-//! author: Praleska: http://praleska.pro/
-//! Author : Menelion Elensúle : https://github.com/Oire
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function plural(word, num) {
-        var forms = word.split('_');
-        return num % 10 === 1 && num % 100 !== 11
-            ? forms[0]
-            : num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)
-            ? forms[1]
-            : forms[2];
-    }
-    function relativeTimeWithPlural(number, withoutSuffix, key) {
-        var format = {
-            ss: withoutSuffix ? 'секунда_секунды_секунд' : 'секунду_секунды_секунд',
-            mm: withoutSuffix ? 'хвіліна_хвіліны_хвілін' : 'хвіліну_хвіліны_хвілін',
-            hh: withoutSuffix ? 'гадзіна_гадзіны_гадзін' : 'гадзіну_гадзіны_гадзін',
-            dd: 'дзень_дні_дзён',
-            MM: 'месяц_месяцы_месяцаў',
-            yy: 'год_гады_гадоў',
-        };
-        if (key === 'm') {
-            return withoutSuffix ? 'хвіліна' : 'хвіліну';
-        } else if (key === 'h') {
-            return withoutSuffix ? 'гадзіна' : 'гадзіну';
-        } else {
-            return number + ' ' + plural(format[key], +number);
-        }
+  if (refRect.bottom < bound.top || refRect.left > bound.right || refRect.top > bound.bottom || refRect.right < bound.left) {
+    // Avoid unnecessary DOM access if visibility hasn't changed
+    if (data.hide === true) {
+      return data;
     }
 
-    var be = moment.defineLocale('be', {
-        months: {
-            format: 'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасня_кастрычніка_лістапада_снежня'.split(
-                '_'
-            ),
-            standalone: 'студзень_люты_сакавік_красавік_травень_чэрвень_ліпень_жнівень_верасень_кастрычнік_лістапад_снежань'.split(
-                '_'
-            ),
-        },
-        monthsShort: 'студ_лют_сак_крас_трав_чэрв_ліп_жнів_вер_каст_ліст_снеж'.split(
-            '_'
-        ),
-        weekdays: {
-            format: 'нядзелю_панядзелак_аўторак_сераду_чацвер_пятніцу_суботу'.split(
-                '_'
-            ),
-            standalone: 'нядзеля_панядзелак_аўторак_серада_чацвер_пятніца_субота'.split(
-                '_'
-            ),
-            isFormat: /\[ ?[Ууў] ?(?:мінулую|наступную)? ?\] ?dddd/,
-        },
-        weekdaysShort: 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
-        weekdaysMin: 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY г.',
-            LLL: 'D MMMM YYYY г., HH:mm',
-            LLLL: 'dddd, D MMMM YYYY г., HH:mm',
-        },
-        calendar: {
-            sameDay: '[Сёння ў] LT',
-            nextDay: '[Заўтра ў] LT',
-            lastDay: '[Учора ў] LT',
-            nextWeek: function () {
-                return '[У] dddd [ў] LT';
-            },
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                    case 3:
-                    case 5:
-                    case 6:
-                        return '[У мінулую] dddd [ў] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                        return '[У мінулы] dddd [ў] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'праз %s',
-            past: '%s таму',
-            s: 'некалькі секунд',
-            m: relativeTimeWithPlural,
-            mm: relativeTimeWithPlural,
-            h: relativeTimeWithPlural,
-            hh: relativeTimeWithPlural,
-            d: 'дзень',
-            dd: relativeTimeWithPlural,
-            M: 'месяц',
-            MM: relativeTimeWithPlural,
-            y: 'год',
-            yy: relativeTimeWithPlural,
-        },
-        meridiemParse: /ночы|раніцы|дня|вечара/,
-        isPM: function (input) {
-            return /^(дня|вечара)$/.test(input);
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'ночы';
-            } else if (hour < 12) {
-                return 'раніцы';
-            } else if (hour < 17) {
-                return 'дня';
-            } else {
-                return 'вечара';
-            }
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-(і|ы|га)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                case 'M':
-                case 'd':
-                case 'DDD':
-                case 'w':
-                case 'W':
-                    return (number % 10 === 2 || number % 10 === 3) &&
-                        number % 100 !== 12 &&
-                        number % 100 !== 13
-                        ? number + '-і'
-                        : number + '-ы';
-                case 'D':
-                    return number + '-га';
-                default:
-                    return number;
-            }
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return be;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/bg.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/bg.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Bulgarian [bg]
-//! author : Krasen Borisov : https://github.com/kraz
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var bg = moment.defineLocale('bg', {
-        months: 'януари_февруари_март_април_май_юни_юли_август_септември_октомври_ноември_декември'.split(
-            '_'
-        ),
-        monthsShort: 'яну_фев_мар_апр_май_юни_юли_авг_сеп_окт_ное_дек'.split('_'),
-        weekdays: 'неделя_понеделник_вторник_сряда_четвъртък_петък_събота'.split(
-            '_'
-        ),
-        weekdaysShort: 'нед_пон_вто_сря_чет_пет_съб'.split('_'),
-        weekdaysMin: 'нд_пн_вт_ср_чт_пт_сб'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'D.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY H:mm',
-            LLLL: 'dddd, D MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[Днес в] LT',
-            nextDay: '[Утре в] LT',
-            nextWeek: 'dddd [в] LT',
-            lastDay: '[Вчера в] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                    case 3:
-                    case 6:
-                        return '[Миналата] dddd [в] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[Миналия] dddd [в] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'след %s',
-            past: 'преди %s',
-            s: 'няколко секунди',
-            ss: '%d секунди',
-            m: 'минута',
-            mm: '%d минути',
-            h: 'час',
-            hh: '%d часа',
-            d: 'ден',
-            dd: '%d дена',
-            w: 'седмица',
-            ww: '%d седмици',
-            M: 'месец',
-            MM: '%d месеца',
-            y: 'година',
-            yy: '%d години',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-(ев|ен|ти|ви|ри|ми)/,
-        ordinal: function (number) {
-            var lastDigit = number % 10,
-                last2Digits = number % 100;
-            if (number === 0) {
-                return number + '-ев';
-            } else if (last2Digits === 0) {
-                return number + '-ен';
-            } else if (last2Digits > 10 && last2Digits < 20) {
-                return number + '-ти';
-            } else if (lastDigit === 1) {
-                return number + '-ви';
-            } else if (lastDigit === 2) {
-                return number + '-ри';
-            } else if (lastDigit === 7 || lastDigit === 8) {
-                return number + '-ми';
-            } else {
-                return number + '-ти';
-            }
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return bg;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/bm.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/bm.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Bambara [bm]
-//! author : Estelle Comment : https://github.com/estellecomment
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var bm = moment.defineLocale('bm', {
-        months: 'Zanwuyekalo_Fewuruyekalo_Marisikalo_Awirilikalo_Mɛkalo_Zuwɛnkalo_Zuluyekalo_Utikalo_Sɛtanburukalo_ɔkutɔburukalo_Nowanburukalo_Desanburukalo'.split(
-            '_'
-        ),
-        monthsShort: 'Zan_Few_Mar_Awi_Mɛ_Zuw_Zul_Uti_Sɛt_ɔku_Now_Des'.split('_'),
-        weekdays: 'Kari_Ntɛnɛn_Tarata_Araba_Alamisa_Juma_Sibiri'.split('_'),
-        weekdaysShort: 'Kar_Ntɛ_Tar_Ara_Ala_Jum_Sib'.split('_'),
-        weekdaysMin: 'Ka_Nt_Ta_Ar_Al_Ju_Si'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'MMMM [tile] D [san] YYYY',
-            LLL: 'MMMM [tile] D [san] YYYY [lɛrɛ] HH:mm',
-            LLLL: 'dddd MMMM [tile] D [san] YYYY [lɛrɛ] HH:mm',
-        },
-        calendar: {
-            sameDay: '[Bi lɛrɛ] LT',
-            nextDay: '[Sini lɛrɛ] LT',
-            nextWeek: 'dddd [don lɛrɛ] LT',
-            lastDay: '[Kunu lɛrɛ] LT',
-            lastWeek: 'dddd [tɛmɛnen lɛrɛ] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s kɔnɔ',
-            past: 'a bɛ %s bɔ',
-            s: 'sanga dama dama',
-            ss: 'sekondi %d',
-            m: 'miniti kelen',
-            mm: 'miniti %d',
-            h: 'lɛrɛ kelen',
-            hh: 'lɛrɛ %d',
-            d: 'tile kelen',
-            dd: 'tile %d',
-            M: 'kalo kelen',
-            MM: 'kalo %d',
-            y: 'san kelen',
-            yy: 'san %d',
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return bm;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/bn-bd.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/bn-bd.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Bengali (Bangladesh) [bn-bd]
-//! author : Asraf Hossain Patoary : https://github.com/ashwoolford
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '১',
-            2: '২',
-            3: '৩',
-            4: '৪',
-            5: '৫',
-            6: '৬',
-            7: '৭',
-            8: '৮',
-            9: '৯',
-            0: '০',
-        },
-        numberMap = {
-            '১': '1',
-            '২': '2',
-            '৩': '3',
-            '৪': '4',
-            '৫': '5',
-            '৬': '6',
-            '৭': '7',
-            '৮': '8',
-            '৯': '9',
-            '০': '0',
-        };
-
-    var bnBd = moment.defineLocale('bn-bd', {
-        months: 'জানুয়ারি_ফেব্রুয়ারি_মার্চ_এপ্রিল_মে_জুন_জুলাই_আগস্ট_সেপ্টেম্বর_অক্টোবর_নভেম্বর_ডিসেম্বর'.split(
-            '_'
-        ),
-        monthsShort: 'জানু_ফেব্রু_মার্চ_এপ্রিল_মে_জুন_জুলাই_আগস্ট_সেপ্ট_অক্টো_নভে_ডিসে'.split(
-            '_'
-        ),
-        weekdays: 'রবিবার_সোমবার_মঙ্গলবার_বুধবার_বৃহস্পতিবার_শুক্রবার_শনিবার'.split(
-            '_'
-        ),
-        weekdaysShort: 'রবি_সোম_মঙ্গল_বুধ_বৃহস্পতি_শুক্র_শনি'.split('_'),
-        weekdaysMin: 'রবি_সোম_মঙ্গল_বুধ_বৃহ_শুক্র_শনি'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm সময়',
-            LTS: 'A h:mm:ss সময়',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm সময়',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm সময়',
-        },
-        calendar: {
-            sameDay: '[আজ] LT',
-            nextDay: '[আগামীকাল] LT',
-            nextWeek: 'dddd, LT',
-            lastDay: '[গতকাল] LT',
-            lastWeek: '[গত] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s পরে',
-            past: '%s আগে',
-            s: 'কয়েক সেকেন্ড',
-            ss: '%d সেকেন্ড',
-            m: 'এক মিনিট',
-            mm: '%d মিনিট',
-            h: 'এক ঘন্টা',
-            hh: '%d ঘন্টা',
-            d: 'এক দিন',
-            dd: '%d দিন',
-            M: 'এক মাস',
-            MM: '%d মাস',
-            y: 'এক বছর',
-            yy: '%d বছর',
-        },
-        preparse: function (string) {
-            return string.replace(/[১২৩৪৫৬৭৮৯০]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-
-        meridiemParse: /রাত|ভোর|সকাল|দুপুর|বিকাল|সন্ধ্যা|রাত/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'রাত') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'ভোর') {
-                return hour;
-            } else if (meridiem === 'সকাল') {
-                return hour;
-            } else if (meridiem === 'দুপুর') {
-                return hour >= 3 ? hour : hour + 12;
-            } else if (meridiem === 'বিকাল') {
-                return hour + 12;
-            } else if (meridiem === 'সন্ধ্যা') {
-                return hour + 12;
-            }
-        },
-
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'রাত';
-            } else if (hour < 6) {
-                return 'ভোর';
-            } else if (hour < 12) {
-                return 'সকাল';
-            } else if (hour < 15) {
-                return 'দুপুর';
-            } else if (hour < 18) {
-                return 'বিকাল';
-            } else if (hour < 20) {
-                return 'সন্ধ্যা';
-            } else {
-                return 'রাত';
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return bnBd;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/bn.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/bn.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Bengali [bn]
-//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '১',
-            2: '২',
-            3: '৩',
-            4: '৪',
-            5: '৫',
-            6: '৬',
-            7: '৭',
-            8: '৮',
-            9: '৯',
-            0: '০',
-        },
-        numberMap = {
-            '১': '1',
-            '২': '2',
-            '৩': '3',
-            '৪': '4',
-            '৫': '5',
-            '৬': '6',
-            '৭': '7',
-            '৮': '8',
-            '৯': '9',
-            '০': '0',
-        };
-
-    var bn = moment.defineLocale('bn', {
-        months: 'জানুয়ারি_ফেব্রুয়ারি_মার্চ_এপ্রিল_মে_জুন_জুলাই_আগস্ট_সেপ্টেম্বর_অক্টোবর_নভেম্বর_ডিসেম্বর'.split(
-            '_'
-        ),
-        monthsShort: 'জানু_ফেব্রু_মার্চ_এপ্রিল_মে_জুন_জুলাই_আগস্ট_সেপ্ট_অক্টো_নভে_ডিসে'.split(
-            '_'
-        ),
-        weekdays: 'রবিবার_সোমবার_মঙ্গলবার_বুধবার_বৃহস্পতিবার_শুক্রবার_শনিবার'.split(
-            '_'
-        ),
-        weekdaysShort: 'রবি_সোম_মঙ্গল_বুধ_বৃহস্পতি_শুক্র_শনি'.split('_'),
-        weekdaysMin: 'রবি_সোম_মঙ্গল_বুধ_বৃহ_শুক্র_শনি'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm সময়',
-            LTS: 'A h:mm:ss সময়',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm সময়',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm সময়',
-        },
-        calendar: {
-            sameDay: '[আজ] LT',
-            nextDay: '[আগামীকাল] LT',
-            nextWeek: 'dddd, LT',
-            lastDay: '[গতকাল] LT',
-            lastWeek: '[গত] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s পরে',
-            past: '%s আগে',
-            s: 'কয়েক সেকেন্ড',
-            ss: '%d সেকেন্ড',
-            m: 'এক মিনিট',
-            mm: '%d মিনিট',
-            h: 'এক ঘন্টা',
-            hh: '%d ঘন্টা',
-            d: 'এক দিন',
-            dd: '%d দিন',
-            M: 'এক মাস',
-            MM: '%d মাস',
-            y: 'এক বছর',
-            yy: '%d বছর',
-        },
-        preparse: function (string) {
-            return string.replace(/[১২৩৪৫৬৭৮৯০]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        meridiemParse: /রাত|সকাল|দুপুর|বিকাল|রাত/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (
-                (meridiem === 'রাত' && hour >= 4) ||
-                (meridiem === 'দুপুর' && hour < 5) ||
-                meridiem === 'বিকাল'
-            ) {
-                return hour + 12;
-            } else {
-                return hour;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'রাত';
-            } else if (hour < 10) {
-                return 'সকাল';
-            } else if (hour < 17) {
-                return 'দুপুর';
-            } else if (hour < 20) {
-                return 'বিকাল';
-            } else {
-                return 'রাত';
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return bn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/bo.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/bo.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Tibetan [bo]
-//! author : Thupten N. Chakrishar : https://github.com/vajradog
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '༡',
-            2: '༢',
-            3: '༣',
-            4: '༤',
-            5: '༥',
-            6: '༦',
-            7: '༧',
-            8: '༨',
-            9: '༩',
-            0: '༠',
-        },
-        numberMap = {
-            '༡': '1',
-            '༢': '2',
-            '༣': '3',
-            '༤': '4',
-            '༥': '5',
-            '༦': '6',
-            '༧': '7',
-            '༨': '8',
-            '༩': '9',
-            '༠': '0',
-        };
-
-    var bo = moment.defineLocale('bo', {
-        months: 'ཟླ་བ་དང་པོ_ཟླ་བ་གཉིས་པ_ཟླ་བ་གསུམ་པ_ཟླ་བ་བཞི་པ_ཟླ་བ་ལྔ་པ_ཟླ་བ་དྲུག་པ_ཟླ་བ་བདུན་པ_ཟླ་བ་བརྒྱད་པ_ཟླ་བ་དགུ་པ_ཟླ་བ་བཅུ་པ_ཟླ་བ་བཅུ་གཅིག་པ_ཟླ་བ་བཅུ་གཉིས་པ'.split(
-            '_'
-        ),
-        monthsShort: 'ཟླ་1_ཟླ་2_ཟླ་3_ཟླ་4_ཟླ་5_ཟླ་6_ཟླ་7_ཟླ་8_ཟླ་9_ཟླ་10_ཟླ་11_ཟླ་12'.split(
-            '_'
-        ),
-        monthsShortRegex: /^(ཟླ་\d{1,2})/,
-        monthsParseExact: true,
-        weekdays: 'གཟའ་ཉི་མ་_གཟའ་ཟླ་བ་_གཟའ་མིག་དམར་_གཟའ་ལྷག་པ་_གཟའ་ཕུར་བུ_གཟའ་པ་སངས་_གཟའ་སྤེན་པ་'.split(
-            '_'
-        ),
-        weekdaysShort: 'ཉི་མ་_ཟླ་བ་_མིག་དམར་_ལྷག་པ་_ཕུར་བུ_པ་སངས་_སྤེན་པ་'.split(
-            '_'
-        ),
-        weekdaysMin: 'ཉི_ཟླ_མིག_ལྷག_ཕུར_སངས_སྤེན'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm',
-            LTS: 'A h:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm',
-        },
-        calendar: {
-            sameDay: '[དི་རིང] LT',
-            nextDay: '[སང་ཉིན] LT',
-            nextWeek: '[བདུན་ཕྲག་རྗེས་མ], LT',
-            lastDay: '[ཁ་སང] LT',
-            lastWeek: '[བདུན་ཕྲག་མཐའ་མ] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s ལ་',
-            past: '%s སྔན་ལ',
-            s: 'ལམ་སང',
-            ss: '%d སྐར་ཆ།',
-            m: 'སྐར་མ་གཅིག',
-            mm: '%d སྐར་མ',
-            h: 'ཆུ་ཚོད་གཅིག',
-            hh: '%d ཆུ་ཚོད',
-            d: 'ཉིན་གཅིག',
-            dd: '%d ཉིན་',
-            M: 'ཟླ་བ་གཅིག',
-            MM: '%d ཟླ་བ',
-            y: 'ལོ་གཅིག',
-            yy: '%d ལོ',
-        },
-        preparse: function (string) {
-            return string.replace(/[༡༢༣༤༥༦༧༨༩༠]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        meridiemParse: /མཚན་མོ|ཞོགས་ཀས|ཉིན་གུང|དགོང་དག|མཚན་མོ/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (
-                (meridiem === 'མཚན་མོ' && hour >= 4) ||
-                (meridiem === 'ཉིན་གུང' && hour < 5) ||
-                meridiem === 'དགོང་དག'
-            ) {
-                return hour + 12;
-            } else {
-                return hour;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'མཚན་མོ';
-            } else if (hour < 10) {
-                return 'ཞོགས་ཀས';
-            } else if (hour < 17) {
-                return 'ཉིན་གུང';
-            } else if (hour < 20) {
-                return 'དགོང་དག';
-            } else {
-                return 'མཚན་མོ';
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return bo;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/br.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/br.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Breton [br]
-//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function relativeTimeWithMutation(number, withoutSuffix, key) {
-        var format = {
-            mm: 'munutenn',
-            MM: 'miz',
-            dd: 'devezh',
-        };
-        return number + ' ' + mutation(format[key], number);
-    }
-    function specialMutationForYears(number) {
-        switch (lastNumber(number)) {
-            case 1:
-            case 3:
-            case 4:
-            case 5:
-            case 9:
-                return number + ' bloaz';
-            default:
-                return number + ' vloaz';
-        }
-    }
-    function lastNumber(number) {
-        if (number > 9) {
-            return lastNumber(number % 10);
-        }
-        return number;
-    }
-    function mutation(text, number) {
-        if (number === 2) {
-            return softMutation(text);
-        }
-        return text;
-    }
-    function softMutation(text) {
-        var mutationTable = {
-            m: 'v',
-            b: 'v',
-            d: 'z',
-        };
-        if (mutationTable[text.charAt(0)] === undefined) {
-            return text;
-        }
-        return mutationTable[text.charAt(0)] + text.substring(1);
+    data.hide = true;
+    data.attributes['x-out-of-boundaries'] = '';
+  } else {
+    // Avoid unnecessary DOM access if visibility hasn't changed
+    if (data.hide === false) {
+      return data;
     }
 
-    var monthsParse = [
-            /^gen/i,
-            /^c[ʼ\']hwe/i,
-            /^meu/i,
-            /^ebr/i,
-            /^mae/i,
-            /^(mez|eve)/i,
-            /^gou/i,
-            /^eos/i,
-            /^gwe/i,
-            /^her/i,
-            /^du/i,
-            /^ker/i,
-        ],
-        monthsRegex = /^(genver|c[ʼ\']hwevrer|meurzh|ebrel|mae|mezheven|gouere|eost|gwengolo|here|du|kerzu|gen|c[ʼ\']hwe|meu|ebr|mae|eve|gou|eos|gwe|her|du|ker)/i,
-        monthsStrictRegex = /^(genver|c[ʼ\']hwevrer|meurzh|ebrel|mae|mezheven|gouere|eost|gwengolo|here|du|kerzu)/i,
-        monthsShortStrictRegex = /^(gen|c[ʼ\']hwe|meu|ebr|mae|eve|gou|eos|gwe|her|du|ker)/i,
-        fullWeekdaysParse = [
-            /^sul/i,
-            /^lun/i,
-            /^meurzh/i,
-            /^merc[ʼ\']her/i,
-            /^yaou/i,
-            /^gwener/i,
-            /^sadorn/i,
-        ],
-        shortWeekdaysParse = [
-            /^Sul/i,
-            /^Lun/i,
-            /^Meu/i,
-            /^Mer/i,
-            /^Yao/i,
-            /^Gwe/i,
-            /^Sad/i,
-        ],
-        minWeekdaysParse = [
-            /^Su/i,
-            /^Lu/i,
-            /^Me([^r]|$)/i,
-            /^Mer/i,
-            /^Ya/i,
-            /^Gw/i,
-            /^Sa/i,
-        ];
-
-    var br = moment.defineLocale('br', {
-        months: 'Genver_Cʼhwevrer_Meurzh_Ebrel_Mae_Mezheven_Gouere_Eost_Gwengolo_Here_Du_Kerzu'.split(
-            '_'
-        ),
-        monthsShort: 'Gen_Cʼhwe_Meu_Ebr_Mae_Eve_Gou_Eos_Gwe_Her_Du_Ker'.split('_'),
-        weekdays: 'Sul_Lun_Meurzh_Mercʼher_Yaou_Gwener_Sadorn'.split('_'),
-        weekdaysShort: 'Sul_Lun_Meu_Mer_Yao_Gwe_Sad'.split('_'),
-        weekdaysMin: 'Su_Lu_Me_Mer_Ya_Gw_Sa'.split('_'),
-        weekdaysParse: minWeekdaysParse,
-        fullWeekdaysParse: fullWeekdaysParse,
-        shortWeekdaysParse: shortWeekdaysParse,
-        minWeekdaysParse: minWeekdaysParse,
-
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: monthsStrictRegex,
-        monthsShortStrictRegex: monthsShortStrictRegex,
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D [a viz] MMMM YYYY',
-            LLL: 'D [a viz] MMMM YYYY HH:mm',
-            LLLL: 'dddd, D [a viz] MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Hiziv da] LT',
-            nextDay: '[Warcʼhoazh da] LT',
-            nextWeek: 'dddd [da] LT',
-            lastDay: '[Decʼh da] LT',
-            lastWeek: 'dddd [paset da] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'a-benn %s',
-            past: '%s ʼzo',
-            s: 'un nebeud segondennoù',
-            ss: '%d eilenn',
-            m: 'ur vunutenn',
-            mm: relativeTimeWithMutation,
-            h: 'un eur',
-            hh: '%d eur',
-            d: 'un devezh',
-            dd: relativeTimeWithMutation,
-            M: 'ur miz',
-            MM: relativeTimeWithMutation,
-            y: 'ur bloaz',
-            yy: specialMutationForYears,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(añ|vet)/,
-        ordinal: function (number) {
-            var output = number === 1 ? 'añ' : 'vet';
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-        meridiemParse: /a.m.|g.m./, // goude merenn | a-raok merenn
-        isPM: function (token) {
-            return token === 'g.m.';
-        },
-        meridiem: function (hour, minute, isLower) {
-            return hour < 12 ? 'a.m.' : 'g.m.';
-        },
-    });
-
-    return br;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/bs.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/bs.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Bosnian [bs]
-//! author : Nedim Cholich : https://github.com/frontyard
-//! based on (hr) translation by Bojan Marković
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function translate(number, withoutSuffix, key) {
-        var result = number + ' ';
-        switch (key) {
-            case 'ss':
-                if (number === 1) {
-                    result += 'sekunda';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'sekunde';
-                } else {
-                    result += 'sekundi';
-                }
-                return result;
-            case 'm':
-                return withoutSuffix ? 'jedna minuta' : 'jedne minute';
-            case 'mm':
-                if (number === 1) {
-                    result += 'minuta';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'minute';
-                } else {
-                    result += 'minuta';
-                }
-                return result;
-            case 'h':
-                return withoutSuffix ? 'jedan sat' : 'jednog sata';
-            case 'hh':
-                if (number === 1) {
-                    result += 'sat';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'sata';
-                } else {
-                    result += 'sati';
-                }
-                return result;
-            case 'dd':
-                if (number === 1) {
-                    result += 'dan';
-                } else {
-                    result += 'dana';
-                }
-                return result;
-            case 'MM':
-                if (number === 1) {
-                    result += 'mjesec';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'mjeseca';
-                } else {
-                    result += 'mjeseci';
-                }
-                return result;
-            case 'yy':
-                if (number === 1) {
-                    result += 'godina';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'godine';
-                } else {
-                    result += 'godina';
-                }
-                return result;
-        }
-    }
-
-    var bs = moment.defineLocale('bs', {
-        months: 'januar_februar_mart_april_maj_juni_juli_august_septembar_oktobar_novembar_decembar'.split(
-            '_'
-        ),
-        monthsShort: 'jan._feb._mar._apr._maj._jun._jul._aug._sep._okt._nov._dec.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'nedjelja_ponedjeljak_utorak_srijeda_četvrtak_petak_subota'.split(
-            '_'
-        ),
-        weekdaysShort: 'ned._pon._uto._sri._čet._pet._sub.'.split('_'),
-        weekdaysMin: 'ne_po_ut_sr_če_pe_su'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY H:mm',
-            LLLL: 'dddd, D. MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[danas u] LT',
-            nextDay: '[sutra u] LT',
-            nextWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[u] [nedjelju] [u] LT';
-                    case 3:
-                        return '[u] [srijedu] [u] LT';
-                    case 6:
-                        return '[u] [subotu] [u] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[u] dddd [u] LT';
-                }
-            },
-            lastDay: '[jučer u] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                    case 3:
-                        return '[prošlu] dddd [u] LT';
-                    case 6:
-                        return '[prošle] [subote] [u] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[prošli] dddd [u] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'za %s',
-            past: 'prije %s',
-            s: 'par sekundi',
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: 'dan',
-            dd: translate,
-            M: 'mjesec',
-            MM: translate,
-            y: 'godinu',
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return bs;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ca.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ca.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Catalan [ca]
-//! author : Juan G. Hurtado : https://github.com/juanghurtado
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ca = moment.defineLocale('ca', {
-        months: {
-            standalone: 'gener_febrer_març_abril_maig_juny_juliol_agost_setembre_octubre_novembre_desembre'.split(
-                '_'
-            ),
-            format: "de gener_de febrer_de març_d'abril_de maig_de juny_de juliol_d'agost_de setembre_d'octubre_de novembre_de desembre".split(
-                '_'
-            ),
-            isFormat: /D[oD]?(\s)+MMMM/,
-        },
-        monthsShort: 'gen._febr._març_abr._maig_juny_jul._ag._set._oct._nov._des.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'diumenge_dilluns_dimarts_dimecres_dijous_divendres_dissabte'.split(
-            '_'
-        ),
-        weekdaysShort: 'dg._dl._dt._dc._dj._dv._ds.'.split('_'),
-        weekdaysMin: 'dg_dl_dt_dc_dj_dv_ds'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM [de] YYYY',
-            ll: 'D MMM YYYY',
-            LLL: 'D MMMM [de] YYYY [a les] H:mm',
-            lll: 'D MMM YYYY, H:mm',
-            LLLL: 'dddd D MMMM [de] YYYY [a les] H:mm',
-            llll: 'ddd D MMM YYYY, H:mm',
-        },
-        calendar: {
-            sameDay: function () {
-                return '[avui a ' + (this.hours() !== 1 ? 'les' : 'la') + '] LT';
-            },
-            nextDay: function () {
-                return '[demà a ' + (this.hours() !== 1 ? 'les' : 'la') + '] LT';
-            },
-            nextWeek: function () {
-                return 'dddd [a ' + (this.hours() !== 1 ? 'les' : 'la') + '] LT';
-            },
-            lastDay: function () {
-                return '[ahir a ' + (this.hours() !== 1 ? 'les' : 'la') + '] LT';
-            },
-            lastWeek: function () {
-                return (
-                    '[el] dddd [passat a ' +
-                    (this.hours() !== 1 ? 'les' : 'la') +
-                    '] LT'
-                );
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: "d'aquí %s",
-            past: 'fa %s',
-            s: 'uns segons',
-            ss: '%d segons',
-            m: 'un minut',
-            mm: '%d minuts',
-            h: 'una hora',
-            hh: '%d hores',
-            d: 'un dia',
-            dd: '%d dies',
-            M: 'un mes',
-            MM: '%d mesos',
-            y: 'un any',
-            yy: '%d anys',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(r|n|t|è|a)/,
-        ordinal: function (number, period) {
-            var output =
-                number === 1
-                    ? 'r'
-                    : number === 2
-                    ? 'n'
-                    : number === 3
-                    ? 'r'
-                    : number === 4
-                    ? 't'
-                    : 'è';
-            if (period === 'w' || period === 'W') {
-                output = 'a';
-            }
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return ca;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/cs.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/cs.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Czech [cs]
-//! author : petrbela : https://github.com/petrbela
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var months = 'leden_únor_březen_duben_květen_červen_červenec_srpen_září_říjen_listopad_prosinec'.split(
-            '_'
-        ),
-        monthsShort = 'led_úno_bře_dub_kvě_čvn_čvc_srp_zář_říj_lis_pro'.split('_'),
-        monthsParse = [
-            /^led/i,
-            /^úno/i,
-            /^bře/i,
-            /^dub/i,
-            /^kvě/i,
-            /^(čvn|červen$|června)/i,
-            /^(čvc|červenec|července)/i,
-            /^srp/i,
-            /^zář/i,
-            /^říj/i,
-            /^lis/i,
-            /^pro/i,
-        ],
-        // NOTE: 'červen' is substring of 'červenec'; therefore 'červenec' must precede 'červen' in the regex to be fully matched.
-        // Otherwise parser matches '1. červenec' as '1. červen' + 'ec'.
-        monthsRegex = /^(leden|únor|březen|duben|květen|červenec|července|červen|června|srpen|září|říjen|listopad|prosinec|led|úno|bře|dub|kvě|čvn|čvc|srp|zář|říj|lis|pro)/i;
-
-    function plural(n) {
-        return n > 1 && n < 5 && ~~(n / 10) !== 1;
-    }
-    function translate(number, withoutSuffix, key, isFuture) {
-        var result = number + ' ';
-        switch (key) {
-            case 's': // a few seconds / in a few seconds / a few seconds ago
-                return withoutSuffix || isFuture ? 'pár sekund' : 'pár sekundami';
-            case 'ss': // 9 seconds / in 9 seconds / 9 seconds ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'sekundy' : 'sekund');
-                } else {
-                    return result + 'sekundami';
-                }
-            case 'm': // a minute / in a minute / a minute ago
-                return withoutSuffix ? 'minuta' : isFuture ? 'minutu' : 'minutou';
-            case 'mm': // 9 minutes / in 9 minutes / 9 minutes ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'minuty' : 'minut');
-                } else {
-                    return result + 'minutami';
-                }
-            case 'h': // an hour / in an hour / an hour ago
-                return withoutSuffix ? 'hodina' : isFuture ? 'hodinu' : 'hodinou';
-            case 'hh': // 9 hours / in 9 hours / 9 hours ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'hodiny' : 'hodin');
-                } else {
-                    return result + 'hodinami';
-                }
-            case 'd': // a day / in a day / a day ago
-                return withoutSuffix || isFuture ? 'den' : 'dnem';
-            case 'dd': // 9 days / in 9 days / 9 days ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'dny' : 'dní');
-                } else {
-                    return result + 'dny';
-                }
-            case 'M': // a month / in a month / a month ago
-                return withoutSuffix || isFuture ? 'měsíc' : 'měsícem';
-            case 'MM': // 9 months / in 9 months / 9 months ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'měsíce' : 'měsíců');
-                } else {
-                    return result + 'měsíci';
-                }
-            case 'y': // a year / in a year / a year ago
-                return withoutSuffix || isFuture ? 'rok' : 'rokem';
-            case 'yy': // 9 years / in 9 years / 9 years ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'roky' : 'let');
-                } else {
-                    return result + 'lety';
-                }
-        }
-    }
-
-    var cs = moment.defineLocale('cs', {
-        months: months,
-        monthsShort: monthsShort,
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        // NOTE: 'červen' is substring of 'červenec'; therefore 'červenec' must precede 'červen' in the regex to be fully matched.
-        // Otherwise parser matches '1. červenec' as '1. červen' + 'ec'.
-        monthsStrictRegex: /^(leden|ledna|února|únor|březen|března|duben|dubna|květen|května|červenec|července|červen|června|srpen|srpna|září|říjen|října|listopadu|listopad|prosinec|prosince)/i,
-        monthsShortStrictRegex: /^(led|úno|bře|dub|kvě|čvn|čvc|srp|zář|říj|lis|pro)/i,
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-        weekdays: 'neděle_pondělí_úterý_středa_čtvrtek_pátek_sobota'.split('_'),
-        weekdaysShort: 'ne_po_út_st_čt_pá_so'.split('_'),
-        weekdaysMin: 'ne_po_út_st_čt_pá_so'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY H:mm',
-            LLLL: 'dddd D. MMMM YYYY H:mm',
-            l: 'D. M. YYYY',
-        },
-        calendar: {
-            sameDay: '[dnes v] LT',
-            nextDay: '[zítra v] LT',
-            nextWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[v neděli v] LT';
-                    case 1:
-                    case 2:
-                        return '[v] dddd [v] LT';
-                    case 3:
-                        return '[ve středu v] LT';
-                    case 4:
-                        return '[ve čtvrtek v] LT';
-                    case 5:
-                        return '[v pátek v] LT';
-                    case 6:
-                        return '[v sobotu v] LT';
-                }
-            },
-            lastDay: '[včera v] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[minulou neděli v] LT';
-                    case 1:
-                    case 2:
-                        return '[minulé] dddd [v] LT';
-                    case 3:
-                        return '[minulou středu v] LT';
-                    case 4:
-                    case 5:
-                        return '[minulý] dddd [v] LT';
-                    case 6:
-                        return '[minulou sobotu v] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'za %s',
-            past: 'před %s',
-            s: translate,
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: translate,
-            dd: translate,
-            M: translate,
-            MM: translate,
-            y: translate,
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return cs;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/cv.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/cv.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Chuvash [cv]
-//! author : Anatoly Mironov : https://github.com/mirontoli
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var cv = moment.defineLocale('cv', {
-        months: 'кӑрлач_нарӑс_пуш_ака_май_ҫӗртме_утӑ_ҫурла_авӑн_юпа_чӳк_раштав'.split(
-            '_'
-        ),
-        monthsShort: 'кӑр_нар_пуш_ака_май_ҫӗр_утӑ_ҫур_авн_юпа_чӳк_раш'.split('_'),
-        weekdays: 'вырсарникун_тунтикун_ытларикун_юнкун_кӗҫнерникун_эрнекун_шӑматкун'.split(
-            '_'
-        ),
-        weekdaysShort: 'выр_тун_ытл_юн_кӗҫ_эрн_шӑм'.split('_'),
-        weekdaysMin: 'вр_тн_ыт_юн_кҫ_эр_шм'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD-MM-YYYY',
-            LL: 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ]',
-            LLL: 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ], HH:mm',
-            LLLL: 'dddd, YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ], HH:mm',
-        },
-        calendar: {
-            sameDay: '[Паян] LT [сехетре]',
-            nextDay: '[Ыран] LT [сехетре]',
-            lastDay: '[Ӗнер] LT [сехетре]',
-            nextWeek: '[Ҫитес] dddd LT [сехетре]',
-            lastWeek: '[Иртнӗ] dddd LT [сехетре]',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: function (output) {
-                var affix = /сехет$/i.exec(output)
-                    ? 'рен'
-                    : /ҫул$/i.exec(output)
-                    ? 'тан'
-                    : 'ран';
-                return output + affix;
-            },
-            past: '%s каялла',
-            s: 'пӗр-ик ҫеккунт',
-            ss: '%d ҫеккунт',
-            m: 'пӗр минут',
-            mm: '%d минут',
-            h: 'пӗр сехет',
-            hh: '%d сехет',
-            d: 'пӗр кун',
-            dd: '%d кун',
-            M: 'пӗр уйӑх',
-            MM: '%d уйӑх',
-            y: 'пӗр ҫул',
-            yy: '%d ҫул',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-мӗш/,
-        ordinal: '%d-мӗш',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return cv;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/cy.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/cy.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Welsh [cy]
-//! author : Robert Allen : https://github.com/robgallen
-//! author : https://github.com/ryangreaves
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var cy = moment.defineLocale('cy', {
-        months: 'Ionawr_Chwefror_Mawrth_Ebrill_Mai_Mehefin_Gorffennaf_Awst_Medi_Hydref_Tachwedd_Rhagfyr'.split(
-            '_'
-        ),
-        monthsShort: 'Ion_Chwe_Maw_Ebr_Mai_Meh_Gor_Aws_Med_Hyd_Tach_Rhag'.split(
-            '_'
-        ),
-        weekdays: 'Dydd Sul_Dydd Llun_Dydd Mawrth_Dydd Mercher_Dydd Iau_Dydd Gwener_Dydd Sadwrn'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sul_Llun_Maw_Mer_Iau_Gwe_Sad'.split('_'),
-        weekdaysMin: 'Su_Ll_Ma_Me_Ia_Gw_Sa'.split('_'),
-        weekdaysParseExact: true,
-        // time formats are the same as en-gb
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Heddiw am] LT',
-            nextDay: '[Yfory am] LT',
-            nextWeek: 'dddd [am] LT',
-            lastDay: '[Ddoe am] LT',
-            lastWeek: 'dddd [diwethaf am] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'mewn %s',
-            past: '%s yn ôl',
-            s: 'ychydig eiliadau',
-            ss: '%d eiliad',
-            m: 'munud',
-            mm: '%d munud',
-            h: 'awr',
-            hh: '%d awr',
-            d: 'diwrnod',
-            dd: '%d diwrnod',
-            M: 'mis',
-            MM: '%d mis',
-            y: 'blwyddyn',
-            yy: '%d flynedd',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(fed|ain|af|il|ydd|ed|eg)/,
-        // traditional ordinal numbers above 31 are not commonly used in colloquial Welsh
-        ordinal: function (number) {
-            var b = number,
-                output = '',
-                lookup = [
-                    '',
-                    'af',
-                    'il',
-                    'ydd',
-                    'ydd',
-                    'ed',
-                    'ed',
-                    'ed',
-                    'fed',
-                    'fed',
-                    'fed', // 1af to 10fed
-                    'eg',
-                    'fed',
-                    'eg',
-                    'eg',
-                    'fed',
-                    'eg',
-                    'eg',
-                    'fed',
-                    'eg',
-                    'fed', // 11eg to 20fed
-                ];
-            if (b > 20) {
-                if (b === 40 || b === 50 || b === 60 || b === 80 || b === 100) {
-                    output = 'fed'; // not 30ain, 70ain or 90ain
-                } else {
-                    output = 'ain';
-                }
-            } else if (b > 0) {
-                output = lookup[b];
-            }
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return cy;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/da.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/da.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Danish [da]
-//! author : Ulrik Nielsen : https://github.com/mrbase
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var da = moment.defineLocale('da', {
-        months: 'januar_februar_marts_april_maj_juni_juli_august_september_oktober_november_december'.split(
-            '_'
-        ),
-        monthsShort: 'jan_feb_mar_apr_maj_jun_jul_aug_sep_okt_nov_dec'.split('_'),
-        weekdays: 'søndag_mandag_tirsdag_onsdag_torsdag_fredag_lørdag'.split('_'),
-        weekdaysShort: 'søn_man_tir_ons_tor_fre_lør'.split('_'),
-        weekdaysMin: 'sø_ma_ti_on_to_fr_lø'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY HH:mm',
-            LLLL: 'dddd [d.] D. MMMM YYYY [kl.] HH:mm',
-        },
-        calendar: {
-            sameDay: '[i dag kl.] LT',
-            nextDay: '[i morgen kl.] LT',
-            nextWeek: 'på dddd [kl.] LT',
-            lastDay: '[i går kl.] LT',
-            lastWeek: '[i] dddd[s kl.] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'om %s',
-            past: '%s siden',
-            s: 'få sekunder',
-            ss: '%d sekunder',
-            m: 'et minut',
-            mm: '%d minutter',
-            h: 'en time',
-            hh: '%d timer',
-            d: 'en dag',
-            dd: '%d dage',
-            M: 'en måned',
-            MM: '%d måneder',
-            y: 'et år',
-            yy: '%d år',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return da;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/de-at.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/de-at.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : German (Austria) [de-at]
-//! author : lluchs : https://github.com/lluchs
-//! author: Menelion Elensúle: https://github.com/Oire
-//! author : Martin Groller : https://github.com/MadMG
-//! author : Mikolaj Dadela : https://github.com/mik01aj
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var format = {
-            m: ['eine Minute', 'einer Minute'],
-            h: ['eine Stunde', 'einer Stunde'],
-            d: ['ein Tag', 'einem Tag'],
-            dd: [number + ' Tage', number + ' Tagen'],
-            w: ['eine Woche', 'einer Woche'],
-            M: ['ein Monat', 'einem Monat'],
-            MM: [number + ' Monate', number + ' Monaten'],
-            y: ['ein Jahr', 'einem Jahr'],
-            yy: [number + ' Jahre', number + ' Jahren'],
-        };
-        return withoutSuffix ? format[key][0] : format[key][1];
-    }
-
-    var deAt = moment.defineLocale('de-at', {
-        months: 'Jänner_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember'.split(
-            '_'
-        ),
-        monthsShort: 'Jän._Feb._März_Apr._Mai_Juni_Juli_Aug._Sep._Okt._Nov._Dez.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'Sonntag_Montag_Dienstag_Mittwoch_Donnerstag_Freitag_Samstag'.split(
-            '_'
-        ),
-        weekdaysShort: 'So._Mo._Di._Mi._Do._Fr._Sa.'.split('_'),
-        weekdaysMin: 'So_Mo_Di_Mi_Do_Fr_Sa'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY HH:mm',
-            LLLL: 'dddd, D. MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[heute um] LT [Uhr]',
-            sameElse: 'L',
-            nextDay: '[morgen um] LT [Uhr]',
-            nextWeek: 'dddd [um] LT [Uhr]',
-            lastDay: '[gestern um] LT [Uhr]',
-            lastWeek: '[letzten] dddd [um] LT [Uhr]',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: 'vor %s',
-            s: 'ein paar Sekunden',
-            ss: '%d Sekunden',
-            m: processRelativeTime,
-            mm: '%d Minuten',
-            h: processRelativeTime,
-            hh: '%d Stunden',
-            d: processRelativeTime,
-            dd: processRelativeTime,
-            w: processRelativeTime,
-            ww: '%d Wochen',
-            M: processRelativeTime,
-            MM: processRelativeTime,
-            y: processRelativeTime,
-            yy: processRelativeTime,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return deAt;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/de-ch.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/de-ch.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : German (Switzerland) [de-ch]
-//! author : sschueller : https://github.com/sschueller
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var format = {
-            m: ['eine Minute', 'einer Minute'],
-            h: ['eine Stunde', 'einer Stunde'],
-            d: ['ein Tag', 'einem Tag'],
-            dd: [number + ' Tage', number + ' Tagen'],
-            w: ['eine Woche', 'einer Woche'],
-            M: ['ein Monat', 'einem Monat'],
-            MM: [number + ' Monate', number + ' Monaten'],
-            y: ['ein Jahr', 'einem Jahr'],
-            yy: [number + ' Jahre', number + ' Jahren'],
-        };
-        return withoutSuffix ? format[key][0] : format[key][1];
-    }
-
-    var deCh = moment.defineLocale('de-ch', {
-        months: 'Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan._Feb._März_Apr._Mai_Juni_Juli_Aug._Sep._Okt._Nov._Dez.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'Sonntag_Montag_Dienstag_Mittwoch_Donnerstag_Freitag_Samstag'.split(
-            '_'
-        ),
-        weekdaysShort: 'So_Mo_Di_Mi_Do_Fr_Sa'.split('_'),
-        weekdaysMin: 'So_Mo_Di_Mi_Do_Fr_Sa'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY HH:mm',
-            LLLL: 'dddd, D. MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[heute um] LT [Uhr]',
-            sameElse: 'L',
-            nextDay: '[morgen um] LT [Uhr]',
-            nextWeek: 'dddd [um] LT [Uhr]',
-            lastDay: '[gestern um] LT [Uhr]',
-            lastWeek: '[letzten] dddd [um] LT [Uhr]',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: 'vor %s',
-            s: 'ein paar Sekunden',
-            ss: '%d Sekunden',
-            m: processRelativeTime,
-            mm: '%d Minuten',
-            h: processRelativeTime,
-            hh: '%d Stunden',
-            d: processRelativeTime,
-            dd: processRelativeTime,
-            w: processRelativeTime,
-            ww: '%d Wochen',
-            M: processRelativeTime,
-            MM: processRelativeTime,
-            y: processRelativeTime,
-            yy: processRelativeTime,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return deCh;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/de.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/de.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : German [de]
-//! author : lluchs : https://github.com/lluchs
-//! author: Menelion Elensúle: https://github.com/Oire
-//! author : Mikolaj Dadela : https://github.com/mik01aj
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var format = {
-            m: ['eine Minute', 'einer Minute'],
-            h: ['eine Stunde', 'einer Stunde'],
-            d: ['ein Tag', 'einem Tag'],
-            dd: [number + ' Tage', number + ' Tagen'],
-            w: ['eine Woche', 'einer Woche'],
-            M: ['ein Monat', 'einem Monat'],
-            MM: [number + ' Monate', number + ' Monaten'],
-            y: ['ein Jahr', 'einem Jahr'],
-            yy: [number + ' Jahre', number + ' Jahren'],
-        };
-        return withoutSuffix ? format[key][0] : format[key][1];
-    }
-
-    var de = moment.defineLocale('de', {
-        months: 'Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan._Feb._März_Apr._Mai_Juni_Juli_Aug._Sep._Okt._Nov._Dez.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'Sonntag_Montag_Dienstag_Mittwoch_Donnerstag_Freitag_Samstag'.split(
-            '_'
-        ),
-        weekdaysShort: 'So._Mo._Di._Mi._Do._Fr._Sa.'.split('_'),
-        weekdaysMin: 'So_Mo_Di_Mi_Do_Fr_Sa'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY HH:mm',
-            LLLL: 'dddd, D. MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[heute um] LT [Uhr]',
-            sameElse: 'L',
-            nextDay: '[morgen um] LT [Uhr]',
-            nextWeek: 'dddd [um] LT [Uhr]',
-            lastDay: '[gestern um] LT [Uhr]',
-            lastWeek: '[letzten] dddd [um] LT [Uhr]',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: 'vor %s',
-            s: 'ein paar Sekunden',
-            ss: '%d Sekunden',
-            m: processRelativeTime,
-            mm: '%d Minuten',
-            h: processRelativeTime,
-            hh: '%d Stunden',
-            d: processRelativeTime,
-            dd: processRelativeTime,
-            w: processRelativeTime,
-            ww: '%d Wochen',
-            M: processRelativeTime,
-            MM: processRelativeTime,
-            y: processRelativeTime,
-            yy: processRelativeTime,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return de;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/dv.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/dv.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Maldivian [dv]
-//! author : Jawish Hameed : https://github.com/jawish
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var months = [
-            'ޖެނުއަރީ',
-            'ފެބްރުއަރީ',
-            'މާރިޗު',
-            'އޭޕްރީލު',
-            'މޭ',
-            'ޖޫން',
-            'ޖުލައި',
-            'އޯގަސްޓު',
-            'ސެޕްޓެމްބަރު',
-            'އޮކްޓޯބަރު',
-            'ނޮވެމްބަރު',
-            'ޑިސެމްބަރު',
-        ],
-        weekdays = [
-            'އާދިއްތަ',
-            'ހޯމަ',
-            'އަންގާރަ',
-            'ބުދަ',
-            'ބުރާސްފަތި',
-            'ހުކުރު',
-            'ހޮނިހިރު',
-        ];
-
-    var dv = moment.defineLocale('dv', {
-        months: months,
-        monthsShort: months,
-        weekdays: weekdays,
-        weekdaysShort: weekdays,
-        weekdaysMin: 'އާދި_ހޯމަ_އަން_ބުދަ_ބުރާ_ހުކު_ހޮނި'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'D/M/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /މކ|މފ/,
-        isPM: function (input) {
-            return 'މފ' === input;
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'މކ';
-            } else {
-                return 'މފ';
-            }
-        },
-        calendar: {
-            sameDay: '[މިއަދު] LT',
-            nextDay: '[މާދަމާ] LT',
-            nextWeek: 'dddd LT',
-            lastDay: '[އިއްޔެ] LT',
-            lastWeek: '[ފާއިތުވި] dddd LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'ތެރޭގައި %s',
-            past: 'ކުރިން %s',
-            s: 'ސިކުންތުކޮޅެއް',
-            ss: 'd% ސިކުންތު',
-            m: 'މިނިޓެއް',
-            mm: 'މިނިޓު %d',
-            h: 'ގަޑިއިރެއް',
-            hh: 'ގަޑިއިރު %d',
-            d: 'ދުވަހެއް',
-            dd: 'ދުވަސް %d',
-            M: 'މަހެއް',
-            MM: 'މަސް %d',
-            y: 'އަހަރެއް',
-            yy: 'އަހަރު %d',
-        },
-        preparse: function (string) {
-            return string.replace(/،/g, ',');
-        },
-        postformat: function (string) {
-            return string.replace(/,/g, '،');
-        },
-        week: {
-            dow: 7, // Sunday is the first day of the week.
-            doy: 12, // The week that contains Jan 12th is the first week of the year.
-        },
-    });
-
-    return dv;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/el.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/el.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Greek [el]
-//! author : Aggelos Karalias : https://github.com/mehiel
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function isFunction(input) {
-        return (
-            (typeof Function !== 'undefined' && input instanceof Function) ||
-            Object.prototype.toString.call(input) === '[object Function]'
-        );
-    }
-
-    var el = moment.defineLocale('el', {
-        monthsNominativeEl: 'Ιανουάριος_Φεβρουάριος_Μάρτιος_Απρίλιος_Μάιος_Ιούνιος_Ιούλιος_Αύγουστος_Σεπτέμβριος_Οκτώβριος_Νοέμβριος_Δεκέμβριος'.split(
-            '_'
-        ),
-        monthsGenitiveEl: 'Ιανουαρίου_Φεβρουαρίου_Μαρτίου_Απριλίου_Μαΐου_Ιουνίου_Ιουλίου_Αυγούστου_Σεπτεμβρίου_Οκτωβρίου_Νοεμβρίου_Δεκεμβρίου'.split(
-            '_'
-        ),
-        months: function (momentToFormat, format) {
-            if (!momentToFormat) {
-                return this._monthsNominativeEl;
-            } else if (
-                typeof format === 'string' &&
-                /D/.test(format.substring(0, format.indexOf('MMMM')))
-            ) {
-                // if there is a day number before 'MMMM'
-                return this._monthsGenitiveEl[momentToFormat.month()];
-            } else {
-                return this._monthsNominativeEl[momentToFormat.month()];
-            }
-        },
-        monthsShort: 'Ιαν_Φεβ_Μαρ_Απρ_Μαϊ_Ιουν_Ιουλ_Αυγ_Σεπ_Οκτ_Νοε_Δεκ'.split('_'),
-        weekdays: 'Κυριακή_Δευτέρα_Τρίτη_Τετάρτη_Πέμπτη_Παρασκευή_Σάββατο'.split(
-            '_'
-        ),
-        weekdaysShort: 'Κυρ_Δευ_Τρι_Τετ_Πεμ_Παρ_Σαβ'.split('_'),
-        weekdaysMin: 'Κυ_Δε_Τρ_Τε_Πε_Πα_Σα'.split('_'),
-        meridiem: function (hours, minutes, isLower) {
-            if (hours > 11) {
-                return isLower ? 'μμ' : 'ΜΜ';
-            } else {
-                return isLower ? 'πμ' : 'ΠΜ';
-            }
-        },
-        isPM: function (input) {
-            return (input + '').toLowerCase()[0] === 'μ';
-        },
-        meridiemParse: /[ΠΜ]\.?Μ?\.?/i,
-        longDateFormat: {
-            LT: 'h:mm A',
-            LTS: 'h:mm:ss A',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY h:mm A',
-            LLLL: 'dddd, D MMMM YYYY h:mm A',
-        },
-        calendarEl: {
-            sameDay: '[Σήμερα {}] LT',
-            nextDay: '[Αύριο {}] LT',
-            nextWeek: 'dddd [{}] LT',
-            lastDay: '[Χθες {}] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 6:
-                        return '[το προηγούμενο] dddd [{}] LT';
-                    default:
-                        return '[την προηγούμενη] dddd [{}] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        calendar: function (key, mom) {
-            var output = this._calendarEl[key],
-                hours = mom && mom.hours();
-            if (isFunction(output)) {
-                output = output.apply(mom);
-            }
-            return output.replace('{}', hours % 12 === 1 ? 'στη' : 'στις');
-        },
-        relativeTime: {
-            future: 'σε %s',
-            past: '%s πριν',
-            s: 'λίγα δευτερόλεπτα',
-            ss: '%d δευτερόλεπτα',
-            m: 'ένα λεπτό',
-            mm: '%d λεπτά',
-            h: 'μία ώρα',
-            hh: '%d ώρες',
-            d: 'μία μέρα',
-            dd: '%d μέρες',
-            M: 'ένας μήνας',
-            MM: '%d μήνες',
-            y: 'ένας χρόνος',
-            yy: '%d χρόνια',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}η/,
-        ordinal: '%dη',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4st is the first week of the year.
-        },
-    });
-
-    return el;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-au.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-au.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (Australia) [en-au]
-//! author : Jared Morse : https://github.com/jarcoal
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enAu = moment.defineLocale('en-au', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'h:mm A',
-            LTS: 'h:mm:ss A',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY h:mm A',
-            LLLL: 'dddd, D MMMM YYYY h:mm A',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return enAu;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-ca.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-ca.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (Canada) [en-ca]
-//! author : Jonathan Abourbih : https://github.com/jonbca
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enCa = moment.defineLocale('en-ca', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'h:mm A',
-            LTS: 'h:mm:ss A',
-            L: 'YYYY-MM-DD',
-            LL: 'MMMM D, YYYY',
-            LLL: 'MMMM D, YYYY h:mm A',
-            LLLL: 'dddd, MMMM D, YYYY h:mm A',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-    });
-
-    return enCa;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-gb.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-gb.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (United Kingdom) [en-gb]
-//! author : Chris Gedrim : https://github.com/chrisgedrim
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enGb = moment.defineLocale('en-gb', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return enGb;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-ie.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-ie.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (Ireland) [en-ie]
-//! author : Chris Cartlidge : https://github.com/chriscartlidge
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enIe = moment.defineLocale('en-ie', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return enIe;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-il.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-il.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (Israel) [en-il]
-//! author : Chris Gedrim : https://github.com/chrisgedrim
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enIl = moment.defineLocale('en-il', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-    });
-
-    return enIl;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-in.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-in.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (India) [en-in]
-//! author : Jatin Agrawal : https://github.com/jatinag22
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enIn = moment.defineLocale('en-in', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'h:mm A',
-            LTS: 'h:mm:ss A',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY h:mm A',
-            LLLL: 'dddd, D MMMM YYYY h:mm A',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 1st is the first week of the year.
-        },
-    });
-
-    return enIn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-nz.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-nz.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (New Zealand) [en-nz]
-//! author : Luke McGregor : https://github.com/lukemcgregor
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enNz = moment.defineLocale('en-nz', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'h:mm A',
-            LTS: 'h:mm:ss A',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY h:mm A',
-            LLLL: 'dddd, D MMMM YYYY h:mm A',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return enNz;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/en-sg.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/en-sg.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : English (Singapore) [en-sg]
-//! author : Matthew Castrillon-Madrigal : https://github.com/techdimension
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var enSg = moment.defineLocale('en-sg', {
-        months: 'January_February_March_April_May_June_July_August_September_October_November_December'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysMin: 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
-            nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(st|nd|rd|th)/,
-        ordinal: function (number) {
-            var b = number % 10,
-                output =
-                    ~~((number % 100) / 10) === 1
-                        ? 'th'
-                        : b === 1
-                        ? 'st'
-                        : b === 2
-                        ? 'nd'
-                        : b === 3
-                        ? 'rd'
-                        : 'th';
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return enSg;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/eo.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/eo.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Esperanto [eo]
-//! author : Colin Dean : https://github.com/colindean
-//! author : Mia Nordentoft Imperatori : https://github.com/miestasmia
-//! comment : miestasmia corrected the translation by colindean
-//! comment : Vivakvo corrected the translation by colindean and miestasmia
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var eo = moment.defineLocale('eo', {
-        months: 'januaro_februaro_marto_aprilo_majo_junio_julio_aŭgusto_septembro_oktobro_novembro_decembro'.split(
-            '_'
-        ),
-        monthsShort: 'jan_feb_mart_apr_maj_jun_jul_aŭg_sept_okt_nov_dec'.split('_'),
-        weekdays: 'dimanĉo_lundo_mardo_merkredo_ĵaŭdo_vendredo_sabato'.split('_'),
-        weekdaysShort: 'dim_lun_mard_merk_ĵaŭ_ven_sab'.split('_'),
-        weekdaysMin: 'di_lu_ma_me_ĵa_ve_sa'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'YYYY-MM-DD',
-            LL: '[la] D[-an de] MMMM, YYYY',
-            LLL: '[la] D[-an de] MMMM, YYYY HH:mm',
-            LLLL: 'dddd[n], [la] D[-an de] MMMM, YYYY HH:mm',
-            llll: 'ddd, [la] D[-an de] MMM, YYYY HH:mm',
-        },
-        meridiemParse: /[ap]\.t\.m/i,
-        isPM: function (input) {
-            return input.charAt(0).toLowerCase() === 'p';
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours > 11) {
-                return isLower ? 'p.t.m.' : 'P.T.M.';
-            } else {
-                return isLower ? 'a.t.m.' : 'A.T.M.';
-            }
-        },
-        calendar: {
-            sameDay: '[Hodiaŭ je] LT',
-            nextDay: '[Morgaŭ je] LT',
-            nextWeek: 'dddd[n je] LT',
-            lastDay: '[Hieraŭ je] LT',
-            lastWeek: '[pasintan] dddd[n je] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'post %s',
-            past: 'antaŭ %s',
-            s: 'kelkaj sekundoj',
-            ss: '%d sekundoj',
-            m: 'unu minuto',
-            mm: '%d minutoj',
-            h: 'unu horo',
-            hh: '%d horoj',
-            d: 'unu tago', //ne 'diurno', ĉar estas uzita por proksimumo
-            dd: '%d tagoj',
-            M: 'unu monato',
-            MM: '%d monatoj',
-            y: 'unu jaro',
-            yy: '%d jaroj',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}a/,
-        ordinal: '%da',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return eo;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/es-do.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/es-do.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Spanish (Dominican Republic) [es-do]
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(
-            '_'
-        ),
-        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),
-        monthsParse = [
-            /^ene/i,
-            /^feb/i,
-            /^mar/i,
-            /^abr/i,
-            /^may/i,
-            /^jun/i,
-            /^jul/i,
-            /^ago/i,
-            /^sep/i,
-            /^oct/i,
-            /^nov/i,
-            /^dic/i,
-        ],
-        monthsRegex = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i;
-
-    var esDo = moment.defineLocale('es-do', {
-        months: 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split(
-            '_'
-        ),
-        monthsShort: function (m, format) {
-            if (!m) {
-                return monthsShortDot;
-            } else if (/-MMM-/.test(format)) {
-                return monthsShort[m.month()];
-            } else {
-                return monthsShortDot[m.month()];
-            }
-        },
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,
-        monthsShortStrictRegex: /^(ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i,
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-        weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
-        weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
-        weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'h:mm A',
-            LTS: 'h:mm:ss A',
-            L: 'DD/MM/YYYY',
-            LL: 'D [de] MMMM [de] YYYY',
-            LLL: 'D [de] MMMM [de] YYYY h:mm A',
-            LLLL: 'dddd, D [de] MMMM [de] YYYY h:mm A',
-        },
-        calendar: {
-            sameDay: function () {
-                return '[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextDay: function () {
-                return '[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextWeek: function () {
-                return 'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastDay: function () {
-                return '[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastWeek: function () {
-                return (
-                    '[el] dddd [pasado a la' +
-                    (this.hours() !== 1 ? 's' : '') +
-                    '] LT'
-                );
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'en %s',
-            past: 'hace %s',
-            s: 'unos segundos',
-            ss: '%d segundos',
-            m: 'un minuto',
-            mm: '%d minutos',
-            h: 'una hora',
-            hh: '%d horas',
-            d: 'un día',
-            dd: '%d días',
-            w: 'una semana',
-            ww: '%d semanas',
-            M: 'un mes',
-            MM: '%d meses',
-            y: 'un año',
-            yy: '%d años',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return esDo;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/es-mx.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/es-mx.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Spanish (Mexico) [es-mx]
-//! author : JC Franco : https://github.com/jcfranco
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(
-            '_'
-        ),
-        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),
-        monthsParse = [
-            /^ene/i,
-            /^feb/i,
-            /^mar/i,
-            /^abr/i,
-            /^may/i,
-            /^jun/i,
-            /^jul/i,
-            /^ago/i,
-            /^sep/i,
-            /^oct/i,
-            /^nov/i,
-            /^dic/i,
-        ],
-        monthsRegex = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i;
-
-    var esMx = moment.defineLocale('es-mx', {
-        months: 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split(
-            '_'
-        ),
-        monthsShort: function (m, format) {
-            if (!m) {
-                return monthsShortDot;
-            } else if (/-MMM-/.test(format)) {
-                return monthsShort[m.month()];
-            } else {
-                return monthsShortDot[m.month()];
-            }
-        },
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,
-        monthsShortStrictRegex: /^(ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i,
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-        weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
-        weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
-        weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D [de] MMMM [de] YYYY',
-            LLL: 'D [de] MMMM [de] YYYY H:mm',
-            LLLL: 'dddd, D [de] MMMM [de] YYYY H:mm',
-        },
-        calendar: {
-            sameDay: function () {
-                return '[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextDay: function () {
-                return '[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextWeek: function () {
-                return 'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastDay: function () {
-                return '[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastWeek: function () {
-                return (
-                    '[el] dddd [pasado a la' +
-                    (this.hours() !== 1 ? 's' : '') +
-                    '] LT'
-                );
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'en %s',
-            past: 'hace %s',
-            s: 'unos segundos',
-            ss: '%d segundos',
-            m: 'un minuto',
-            mm: '%d minutos',
-            h: 'una hora',
-            hh: '%d horas',
-            d: 'un día',
-            dd: '%d días',
-            w: 'una semana',
-            ww: '%d semanas',
-            M: 'un mes',
-            MM: '%d meses',
-            y: 'un año',
-            yy: '%d años',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-        invalidDate: 'Fecha inválida',
-    });
-
-    return esMx;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/es-us.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/es-us.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Spanish (United States) [es-us]
-//! author : bustta : https://github.com/bustta
-//! author : chrisrodz : https://github.com/chrisrodz
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(
-            '_'
-        ),
-        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),
-        monthsParse = [
-            /^ene/i,
-            /^feb/i,
-            /^mar/i,
-            /^abr/i,
-            /^may/i,
-            /^jun/i,
-            /^jul/i,
-            /^ago/i,
-            /^sep/i,
-            /^oct/i,
-            /^nov/i,
-            /^dic/i,
-        ],
-        monthsRegex = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i;
-
-    var esUs = moment.defineLocale('es-us', {
-        months: 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split(
-            '_'
-        ),
-        monthsShort: function (m, format) {
-            if (!m) {
-                return monthsShortDot;
-            } else if (/-MMM-/.test(format)) {
-                return monthsShort[m.month()];
-            } else {
-                return monthsShortDot[m.month()];
-            }
-        },
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,
-        monthsShortStrictRegex: /^(ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i,
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-        weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
-        weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
-        weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'h:mm A',
-            LTS: 'h:mm:ss A',
-            L: 'MM/DD/YYYY',
-            LL: 'D [de] MMMM [de] YYYY',
-            LLL: 'D [de] MMMM [de] YYYY h:mm A',
-            LLLL: 'dddd, D [de] MMMM [de] YYYY h:mm A',
-        },
-        calendar: {
-            sameDay: function () {
-                return '[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextDay: function () {
-                return '[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextWeek: function () {
-                return 'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastDay: function () {
-                return '[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastWeek: function () {
-                return (
-                    '[el] dddd [pasado a la' +
-                    (this.hours() !== 1 ? 's' : '') +
-                    '] LT'
-                );
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'en %s',
-            past: 'hace %s',
-            s: 'unos segundos',
-            ss: '%d segundos',
-            m: 'un minuto',
-            mm: '%d minutos',
-            h: 'una hora',
-            hh: '%d horas',
-            d: 'un día',
-            dd: '%d días',
-            w: 'una semana',
-            ww: '%d semanas',
-            M: 'un mes',
-            MM: '%d meses',
-            y: 'un año',
-            yy: '%d años',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return esUs;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/es.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/es.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Spanish [es]
-//! author : Julio Napurí : https://github.com/julionc
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(
-            '_'
-        ),
-        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),
-        monthsParse = [
-            /^ene/i,
-            /^feb/i,
-            /^mar/i,
-            /^abr/i,
-            /^may/i,
-            /^jun/i,
-            /^jul/i,
-            /^ago/i,
-            /^sep/i,
-            /^oct/i,
-            /^nov/i,
-            /^dic/i,
-        ],
-        monthsRegex = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i;
-
-    var es = moment.defineLocale('es', {
-        months: 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split(
-            '_'
-        ),
-        monthsShort: function (m, format) {
-            if (!m) {
-                return monthsShortDot;
-            } else if (/-MMM-/.test(format)) {
-                return monthsShort[m.month()];
-            } else {
-                return monthsShortDot[m.month()];
-            }
-        },
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,
-        monthsShortStrictRegex: /^(ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i,
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-        weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
-        weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
-        weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D [de] MMMM [de] YYYY',
-            LLL: 'D [de] MMMM [de] YYYY H:mm',
-            LLLL: 'dddd, D [de] MMMM [de] YYYY H:mm',
-        },
-        calendar: {
-            sameDay: function () {
-                return '[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextDay: function () {
-                return '[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            nextWeek: function () {
-                return 'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastDay: function () {
-                return '[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-            },
-            lastWeek: function () {
-                return (
-                    '[el] dddd [pasado a la' +
-                    (this.hours() !== 1 ? 's' : '') +
-                    '] LT'
-                );
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'en %s',
-            past: 'hace %s',
-            s: 'unos segundos',
-            ss: '%d segundos',
-            m: 'un minuto',
-            mm: '%d minutos',
-            h: 'una hora',
-            hh: '%d horas',
-            d: 'un día',
-            dd: '%d días',
-            w: 'una semana',
-            ww: '%d semanas',
-            M: 'un mes',
-            MM: '%d meses',
-            y: 'un año',
-            yy: '%d años',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-        invalidDate: 'Fecha inválida',
-    });
-
-    return es;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/et.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/et.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Estonian [et]
-//! author : Henry Kehlmann : https://github.com/madhenry
-//! improvements : Illimar Tambek : https://github.com/ragulka
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var format = {
-            s: ['mõne sekundi', 'mõni sekund', 'paar sekundit'],
-            ss: [number + 'sekundi', number + 'sekundit'],
-            m: ['ühe minuti', 'üks minut'],
-            mm: [number + ' minuti', number + ' minutit'],
-            h: ['ühe tunni', 'tund aega', 'üks tund'],
-            hh: [number + ' tunni', number + ' tundi'],
-            d: ['ühe päeva', 'üks päev'],
-            M: ['kuu aja', 'kuu aega', 'üks kuu'],
-            MM: [number + ' kuu', number + ' kuud'],
-            y: ['ühe aasta', 'aasta', 'üks aasta'],
-            yy: [number + ' aasta', number + ' aastat'],
-        };
-        if (withoutSuffix) {
-            return format[key][2] ? format[key][2] : format[key][1];
-        }
-        return isFuture ? format[key][0] : format[key][1];
-    }
-
-    var et = moment.defineLocale('et', {
-        months: 'jaanuar_veebruar_märts_aprill_mai_juuni_juuli_august_september_oktoober_november_detsember'.split(
-            '_'
-        ),
-        monthsShort: 'jaan_veebr_märts_apr_mai_juuni_juuli_aug_sept_okt_nov_dets'.split(
-            '_'
-        ),
-        weekdays: 'pühapäev_esmaspäev_teisipäev_kolmapäev_neljapäev_reede_laupäev'.split(
-            '_'
-        ),
-        weekdaysShort: 'P_E_T_K_N_R_L'.split('_'),
-        weekdaysMin: 'P_E_T_K_N_R_L'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY H:mm',
-            LLLL: 'dddd, D. MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[Täna,] LT',
-            nextDay: '[Homme,] LT',
-            nextWeek: '[Järgmine] dddd LT',
-            lastDay: '[Eile,] LT',
-            lastWeek: '[Eelmine] dddd LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s pärast',
-            past: '%s tagasi',
-            s: processRelativeTime,
-            ss: processRelativeTime,
-            m: processRelativeTime,
-            mm: processRelativeTime,
-            h: processRelativeTime,
-            hh: processRelativeTime,
-            d: processRelativeTime,
-            dd: '%d päeva',
-            M: processRelativeTime,
-            MM: processRelativeTime,
-            y: processRelativeTime,
-            yy: processRelativeTime,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return et;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/eu.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/eu.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Basque [eu]
-//! author : Eneko Illarramendi : https://github.com/eillarra
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var eu = moment.defineLocale('eu', {
-        months: 'urtarrila_otsaila_martxoa_apirila_maiatza_ekaina_uztaila_abuztua_iraila_urria_azaroa_abendua'.split(
-            '_'
-        ),
-        monthsShort: 'urt._ots._mar._api._mai._eka._uzt._abu._ira._urr._aza._abe.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'igandea_astelehena_asteartea_asteazkena_osteguna_ostirala_larunbata'.split(
-            '_'
-        ),
-        weekdaysShort: 'ig._al._ar._az._og._ol._lr.'.split('_'),
-        weekdaysMin: 'ig_al_ar_az_og_ol_lr'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'YYYY-MM-DD',
-            LL: 'YYYY[ko] MMMM[ren] D[a]',
-            LLL: 'YYYY[ko] MMMM[ren] D[a] HH:mm',
-            LLLL: 'dddd, YYYY[ko] MMMM[ren] D[a] HH:mm',
-            l: 'YYYY-M-D',
-            ll: 'YYYY[ko] MMM D[a]',
-            lll: 'YYYY[ko] MMM D[a] HH:mm',
-            llll: 'ddd, YYYY[ko] MMM D[a] HH:mm',
-        },
-        calendar: {
-            sameDay: '[gaur] LT[etan]',
-            nextDay: '[bihar] LT[etan]',
-            nextWeek: 'dddd LT[etan]',
-            lastDay: '[atzo] LT[etan]',
-            lastWeek: '[aurreko] dddd LT[etan]',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s barru',
-            past: 'duela %s',
-            s: 'segundo batzuk',
-            ss: '%d segundo',
-            m: 'minutu bat',
-            mm: '%d minutu',
-            h: 'ordu bat',
-            hh: '%d ordu',
-            d: 'egun bat',
-            dd: '%d egun',
-            M: 'hilabete bat',
-            MM: '%d hilabete',
-            y: 'urte bat',
-            yy: '%d urte',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return eu;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fa.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/fa.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Persian [fa]
-//! author : Ebrahim Byagowi : https://github.com/ebraminio
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '۱',
-            2: '۲',
-            3: '۳',
-            4: '۴',
-            5: '۵',
-            6: '۶',
-            7: '۷',
-            8: '۸',
-            9: '۹',
-            0: '۰',
-        },
-        numberMap = {
-            '۱': '1',
-            '۲': '2',
-            '۳': '3',
-            '۴': '4',
-            '۵': '5',
-            '۶': '6',
-            '۷': '7',
-            '۸': '8',
-            '۹': '9',
-            '۰': '0',
-        };
-
-    var fa = moment.defineLocale('fa', {
-        months: 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split(
-            '_'
-        ),
-        monthsShort: 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split(
-            '_'
-        ),
-        weekdays: 'یک\u200cشنبه_دوشنبه_سه\u200cشنبه_چهارشنبه_پنج\u200cشنبه_جمعه_شنبه'.split(
-            '_'
-        ),
-        weekdaysShort: 'یک\u200cشنبه_دوشنبه_سه\u200cشنبه_چهارشنبه_پنج\u200cشنبه_جمعه_شنبه'.split(
-            '_'
-        ),
-        weekdaysMin: 'ی_د_س_چ_پ_ج_ش'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /قبل از ظهر|بعد از ظهر/,
-        isPM: function (input) {
-            return /بعد از ظهر/.test(input);
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'قبل از ظهر';
-            } else {
-                return 'بعد از ظهر';
-            }
-        },
-        calendar: {
-            sameDay: '[امروز ساعت] LT',
-            nextDay: '[فردا ساعت] LT',
-            nextWeek: 'dddd [ساعت] LT',
-            lastDay: '[دیروز ساعت] LT',
-            lastWeek: 'dddd [پیش] [ساعت] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'در %s',
-            past: '%s پیش',
-            s: 'چند ثانیه',
-            ss: '%d ثانیه',
-            m: 'یک دقیقه',
-            mm: '%d دقیقه',
-            h: 'یک ساعت',
-            hh: '%d ساعت',
-            d: 'یک روز',
-            dd: '%d روز',
-            M: 'یک ماه',
-            MM: '%d ماه',
-            y: 'یک سال',
-            yy: '%d سال',
-        },
-        preparse: function (string) {
-            return string
-                .replace(/[۰-۹]/g, function (match) {
-                    return numberMap[match];
-                })
-                .replace(/،/g, ',');
-        },
-        postformat: function (string) {
-            return string
-                .replace(/\d/g, function (match) {
-                    return symbolMap[match];
-                })
-                .replace(/,/g, '،');
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}م/,
-        ordinal: '%dم',
-        week: {
-            dow: 6, // Saturday is the first day of the week.
-            doy: 12, // The week that contains Jan 12th is the first week of the year.
-        },
-    });
-
-    return fa;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fi.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/fi.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Finnish [fi]
-//! author : Tarmo Aidantausta : https://github.com/bleadof
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var numbersPast = 'nolla yksi kaksi kolme neljä viisi kuusi seitsemän kahdeksan yhdeksän'.split(
-            ' '
-        ),
-        numbersFuture = [
-            'nolla',
-            'yhden',
-            'kahden',
-            'kolmen',
-            'neljän',
-            'viiden',
-            'kuuden',
-            numbersPast[7],
-            numbersPast[8],
-            numbersPast[9],
-        ];
-    function translate(number, withoutSuffix, key, isFuture) {
-        var result = '';
-        switch (key) {
-            case 's':
-                return isFuture ? 'muutaman sekunnin' : 'muutama sekunti';
-            case 'ss':
-                result = isFuture ? 'sekunnin' : 'sekuntia';
-                break;
-            case 'm':
-                return isFuture ? 'minuutin' : 'minuutti';
-            case 'mm':
-                result = isFuture ? 'minuutin' : 'minuuttia';
-                break;
-            case 'h':
-                return isFuture ? 'tunnin' : 'tunti';
-            case 'hh':
-                result = isFuture ? 'tunnin' : 'tuntia';
-                break;
-            case 'd':
-                return isFuture ? 'päivän' : 'päivä';
-            case 'dd':
-                result = isFuture ? 'päivän' : 'päivää';
-                break;
-            case 'M':
-                return isFuture ? 'kuukauden' : 'kuukausi';
-            case 'MM':
-                result = isFuture ? 'kuukauden' : 'kuukautta';
-                break;
-            case 'y':
-                return isFuture ? 'vuoden' : 'vuosi';
-            case 'yy':
-                result = isFuture ? 'vuoden' : 'vuotta';
-                break;
-        }
-        result = verbalNumber(number, isFuture) + ' ' + result;
-        return result;
-    }
-    function verbalNumber(number, isFuture) {
-        return number < 10
-            ? isFuture
-                ? numbersFuture[number]
-                : numbersPast[number]
-            : number;
-    }
-
-    var fi = moment.defineLocale('fi', {
-        months: 'tammikuu_helmikuu_maaliskuu_huhtikuu_toukokuu_kesäkuu_heinäkuu_elokuu_syyskuu_lokakuu_marraskuu_joulukuu'.split(
-            '_'
-        ),
-        monthsShort: 'tammi_helmi_maalis_huhti_touko_kesä_heinä_elo_syys_loka_marras_joulu'.split(
-            '_'
-        ),
-        weekdays: 'sunnuntai_maanantai_tiistai_keskiviikko_torstai_perjantai_lauantai'.split(
-            '_'
-        ),
-        weekdaysShort: 'su_ma_ti_ke_to_pe_la'.split('_'),
-        weekdaysMin: 'su_ma_ti_ke_to_pe_la'.split('_'),
-        longDateFormat: {
-            LT: 'HH.mm',
-            LTS: 'HH.mm.ss',
-            L: 'DD.MM.YYYY',
-            LL: 'Do MMMM[ta] YYYY',
-            LLL: 'Do MMMM[ta] YYYY, [klo] HH.mm',
-            LLLL: 'dddd, Do MMMM[ta] YYYY, [klo] HH.mm',
-            l: 'D.M.YYYY',
-            ll: 'Do MMM YYYY',
-            lll: 'Do MMM YYYY, [klo] HH.mm',
-            llll: 'ddd, Do MMM YYYY, [klo] HH.mm',
-        },
-        calendar: {
-            sameDay: '[tänään] [klo] LT',
-            nextDay: '[huomenna] [klo] LT',
-            nextWeek: 'dddd [klo] LT',
-            lastDay: '[eilen] [klo] LT',
-            lastWeek: '[viime] dddd[na] [klo] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s päästä',
-            past: '%s sitten',
-            s: translate,
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: translate,
-            dd: translate,
-            M: translate,
-            MM: translate,
-            y: translate,
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return fi;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fil.js":
-/*!*******************************************!*\
-  !*** ./node_modules/moment/locale/fil.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Filipino [fil]
-//! author : Dan Hagman : https://github.com/hagmandan
-//! author : Matthew Co : https://github.com/matthewdeeco
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var fil = moment.defineLocale('fil', {
-        months: 'Enero_Pebrero_Marso_Abril_Mayo_Hunyo_Hulyo_Agosto_Setyembre_Oktubre_Nobyembre_Disyembre'.split(
-            '_'
-        ),
-        monthsShort: 'Ene_Peb_Mar_Abr_May_Hun_Hul_Ago_Set_Okt_Nob_Dis'.split('_'),
-        weekdays: 'Linggo_Lunes_Martes_Miyerkules_Huwebes_Biyernes_Sabado'.split(
-            '_'
-        ),
-        weekdaysShort: 'Lin_Lun_Mar_Miy_Huw_Biy_Sab'.split('_'),
-        weekdaysMin: 'Li_Lu_Ma_Mi_Hu_Bi_Sab'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'MM/D/YYYY',
-            LL: 'MMMM D, YYYY',
-            LLL: 'MMMM D, YYYY HH:mm',
-            LLLL: 'dddd, MMMM DD, YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: 'LT [ngayong araw]',
-            nextDay: '[Bukas ng] LT',
-            nextWeek: 'LT [sa susunod na] dddd',
-            lastDay: 'LT [kahapon]',
-            lastWeek: 'LT [noong nakaraang] dddd',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'sa loob ng %s',
-            past: '%s ang nakalipas',
-            s: 'ilang segundo',
-            ss: '%d segundo',
-            m: 'isang minuto',
-            mm: '%d minuto',
-            h: 'isang oras',
-            hh: '%d oras',
-            d: 'isang araw',
-            dd: '%d araw',
-            M: 'isang buwan',
-            MM: '%d buwan',
-            y: 'isang taon',
-            yy: '%d taon',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}/,
-        ordinal: function (number) {
-            return number;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return fil;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fo.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/fo.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Faroese [fo]
-//! author : Ragnar Johannesen : https://github.com/ragnar123
-//! author : Kristian Sakarisson : https://github.com/sakarisson
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var fo = moment.defineLocale('fo', {
-        months: 'januar_februar_mars_apríl_mai_juni_juli_august_september_oktober_november_desember'.split(
-            '_'
-        ),
-        monthsShort: 'jan_feb_mar_apr_mai_jun_jul_aug_sep_okt_nov_des'.split('_'),
-        weekdays: 'sunnudagur_mánadagur_týsdagur_mikudagur_hósdagur_fríggjadagur_leygardagur'.split(
-            '_'
-        ),
-        weekdaysShort: 'sun_mán_týs_mik_hós_frí_ley'.split('_'),
-        weekdaysMin: 'su_má_tý_mi_hó_fr_le'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D. MMMM, YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Í dag kl.] LT',
-            nextDay: '[Í morgin kl.] LT',
-            nextWeek: 'dddd [kl.] LT',
-            lastDay: '[Í gjár kl.] LT',
-            lastWeek: '[síðstu] dddd [kl] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'um %s',
-            past: '%s síðani',
-            s: 'fá sekund',
-            ss: '%d sekundir',
-            m: 'ein minuttur',
-            mm: '%d minuttir',
-            h: 'ein tími',
-            hh: '%d tímar',
-            d: 'ein dagur',
-            dd: '%d dagar',
-            M: 'ein mánaður',
-            MM: '%d mánaðir',
-            y: 'eitt ár',
-            yy: '%d ár',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return fo;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fr-ca.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/fr-ca.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : French (Canada) [fr-ca]
-//! author : Jonathan Abourbih : https://github.com/jonbca
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var frCa = moment.defineLocale('fr-ca', {
-        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
-            '_'
-        ),
-        monthsShort: 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
-        weekdaysShort: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
-        weekdaysMin: 'di_lu_ma_me_je_ve_sa'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'YYYY-MM-DD',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Aujourd’hui à] LT',
-            nextDay: '[Demain à] LT',
-            nextWeek: 'dddd [à] LT',
-            lastDay: '[Hier à] LT',
-            lastWeek: 'dddd [dernier à] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'dans %s',
-            past: 'il y a %s',
-            s: 'quelques secondes',
-            ss: '%d secondes',
-            m: 'une minute',
-            mm: '%d minutes',
-            h: 'une heure',
-            hh: '%d heures',
-            d: 'un jour',
-            dd: '%d jours',
-            M: 'un mois',
-            MM: '%d mois',
-            y: 'un an',
-            yy: '%d ans',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(er|e)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                // Words with masculine grammatical gender: mois, trimestre, jour
-                default:
-                case 'M':
-                case 'Q':
-                case 'D':
-                case 'DDD':
-                case 'd':
-                    return number + (number === 1 ? 'er' : 'e');
-
-                // Words with feminine grammatical gender: semaine
-                case 'w':
-                case 'W':
-                    return number + (number === 1 ? 're' : 'e');
-            }
-        },
-    });
-
-    return frCa;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fr-ch.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/fr-ch.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : French (Switzerland) [fr-ch]
-//! author : Gaspard Bucher : https://github.com/gaspard
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var frCh = moment.defineLocale('fr-ch', {
-        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
-            '_'
-        ),
-        monthsShort: 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
-        weekdaysShort: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
-        weekdaysMin: 'di_lu_ma_me_je_ve_sa'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Aujourd’hui à] LT',
-            nextDay: '[Demain à] LT',
-            nextWeek: 'dddd [à] LT',
-            lastDay: '[Hier à] LT',
-            lastWeek: 'dddd [dernier à] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'dans %s',
-            past: 'il y a %s',
-            s: 'quelques secondes',
-            ss: '%d secondes',
-            m: 'une minute',
-            mm: '%d minutes',
-            h: 'une heure',
-            hh: '%d heures',
-            d: 'un jour',
-            dd: '%d jours',
-            M: 'un mois',
-            MM: '%d mois',
-            y: 'un an',
-            yy: '%d ans',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(er|e)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                // Words with masculine grammatical gender: mois, trimestre, jour
-                default:
-                case 'M':
-                case 'Q':
-                case 'D':
-                case 'DDD':
-                case 'd':
-                    return number + (number === 1 ? 'er' : 'e');
-
-                // Words with feminine grammatical gender: semaine
-                case 'w':
-                case 'W':
-                    return number + (number === 1 ? 're' : 'e');
-            }
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return frCh;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fr.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/fr.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : French [fr]
-//! author : John Fischer : https://github.com/jfroffice
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsStrictRegex = /^(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
-        monthsShortStrictRegex = /(janv\.?|févr\.?|mars|avr\.?|mai|juin|juil\.?|août|sept\.?|oct\.?|nov\.?|déc\.?)/i,
-        monthsRegex = /(janv\.?|févr\.?|mars|avr\.?|mai|juin|juil\.?|août|sept\.?|oct\.?|nov\.?|déc\.?|janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
-        monthsParse = [
-            /^janv/i,
-            /^févr/i,
-            /^mars/i,
-            /^avr/i,
-            /^mai/i,
-            /^juin/i,
-            /^juil/i,
-            /^août/i,
-            /^sept/i,
-            /^oct/i,
-            /^nov/i,
-            /^déc/i,
-        ];
-
-    var fr = moment.defineLocale('fr', {
-        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
-            '_'
-        ),
-        monthsShort: 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split(
-            '_'
-        ),
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: monthsStrictRegex,
-        monthsShortStrictRegex: monthsShortStrictRegex,
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-        weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
-        weekdaysShort: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
-        weekdaysMin: 'di_lu_ma_me_je_ve_sa'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Aujourd’hui à] LT',
-            nextDay: '[Demain à] LT',
-            nextWeek: 'dddd [à] LT',
-            lastDay: '[Hier à] LT',
-            lastWeek: 'dddd [dernier à] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'dans %s',
-            past: 'il y a %s',
-            s: 'quelques secondes',
-            ss: '%d secondes',
-            m: 'une minute',
-            mm: '%d minutes',
-            h: 'une heure',
-            hh: '%d heures',
-            d: 'un jour',
-            dd: '%d jours',
-            w: 'une semaine',
-            ww: '%d semaines',
-            M: 'un mois',
-            MM: '%d mois',
-            y: 'un an',
-            yy: '%d ans',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(er|)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                // TODO: Return 'e' when day of month > 1. Move this case inside
-                // block for masculine words below.
-                // See https://github.com/moment/moment/issues/3375
-                case 'D':
-                    return number + (number === 1 ? 'er' : '');
-
-                // Words with masculine grammatical gender: mois, trimestre, jour
-                default:
-                case 'M':
-                case 'Q':
-                case 'DDD':
-                case 'd':
-                    return number + (number === 1 ? 'er' : 'e');
-
-                // Words with feminine grammatical gender: semaine
-                case 'w':
-                case 'W':
-                    return number + (number === 1 ? 're' : 'e');
-            }
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return fr;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/fy.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/fy.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Frisian [fy]
-//! author : Robin van der Vliet : https://github.com/robin0van0der0v
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsShortWithDots = 'jan._feb._mrt._apr._mai_jun._jul._aug._sep._okt._nov._des.'.split(
-            '_'
-        ),
-        monthsShortWithoutDots = 'jan_feb_mrt_apr_mai_jun_jul_aug_sep_okt_nov_des'.split(
-            '_'
-        );
-
-    var fy = moment.defineLocale('fy', {
-        months: 'jannewaris_febrewaris_maart_april_maaie_juny_july_augustus_septimber_oktober_novimber_desimber'.split(
-            '_'
-        ),
-        monthsShort: function (m, format) {
-            if (!m) {
-                return monthsShortWithDots;
-            } else if (/-MMM-/.test(format)) {
-                return monthsShortWithoutDots[m.month()];
-            } else {
-                return monthsShortWithDots[m.month()];
-            }
-        },
-        monthsParseExact: true,
-        weekdays: 'snein_moandei_tiisdei_woansdei_tongersdei_freed_sneon'.split(
-            '_'
-        ),
-        weekdaysShort: 'si._mo._ti._wo._to._fr._so.'.split('_'),
-        weekdaysMin: 'Si_Mo_Ti_Wo_To_Fr_So'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD-MM-YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[hjoed om] LT',
-            nextDay: '[moarn om] LT',
-            nextWeek: 'dddd [om] LT',
-            lastDay: '[juster om] LT',
-            lastWeek: '[ôfrûne] dddd [om] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'oer %s',
-            past: '%s lyn',
-            s: 'in pear sekonden',
-            ss: '%d sekonden',
-            m: 'ien minút',
-            mm: '%d minuten',
-            h: 'ien oere',
-            hh: '%d oeren',
-            d: 'ien dei',
-            dd: '%d dagen',
-            M: 'ien moanne',
-            MM: '%d moannen',
-            y: 'ien jier',
-            yy: '%d jierren',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(ste|de)/,
-        ordinal: function (number) {
-            return (
-                number +
-                (number === 1 || number === 8 || number >= 20 ? 'ste' : 'de')
-            );
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return fy;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ga.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ga.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Irish or Irish Gaelic [ga]
-//! author : André Silva : https://github.com/askpt
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var months = [
-            'Eanáir',
-            'Feabhra',
-            'Márta',
-            'Aibreán',
-            'Bealtaine',
-            'Meitheamh',
-            'Iúil',
-            'Lúnasa',
-            'Meán Fómhair',
-            'Deireadh Fómhair',
-            'Samhain',
-            'Nollaig',
-        ],
-        monthsShort = [
-            'Ean',
-            'Feabh',
-            'Márt',
-            'Aib',
-            'Beal',
-            'Meith',
-            'Iúil',
-            'Lún',
-            'M.F.',
-            'D.F.',
-            'Samh',
-            'Noll',
-        ],
-        weekdays = [
-            'Dé Domhnaigh',
-            'Dé Luain',
-            'Dé Máirt',
-            'Dé Céadaoin',
-            'Déardaoin',
-            'Dé hAoine',
-            'Dé Sathairn',
-        ],
-        weekdaysShort = ['Domh', 'Luan', 'Máirt', 'Céad', 'Déar', 'Aoine', 'Sath'],
-        weekdaysMin = ['Do', 'Lu', 'Má', 'Cé', 'Dé', 'A', 'Sa'];
-
-    var ga = moment.defineLocale('ga', {
-        months: months,
-        monthsShort: monthsShort,
-        monthsParseExact: true,
-        weekdays: weekdays,
-        weekdaysShort: weekdaysShort,
-        weekdaysMin: weekdaysMin,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Inniu ag] LT',
-            nextDay: '[Amárach ag] LT',
-            nextWeek: 'dddd [ag] LT',
-            lastDay: '[Inné ag] LT',
-            lastWeek: 'dddd [seo caite] [ag] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'i %s',
-            past: '%s ó shin',
-            s: 'cúpla soicind',
-            ss: '%d soicind',
-            m: 'nóiméad',
-            mm: '%d nóiméad',
-            h: 'uair an chloig',
-            hh: '%d uair an chloig',
-            d: 'lá',
-            dd: '%d lá',
-            M: 'mí',
-            MM: '%d míonna',
-            y: 'bliain',
-            yy: '%d bliain',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(d|na|mh)/,
-        ordinal: function (number) {
-            var output = number === 1 ? 'd' : number % 10 === 2 ? 'na' : 'mh';
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return ga;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/gd.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/gd.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Scottish Gaelic [gd]
-//! author : Jon Ashdown : https://github.com/jonashdown
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var months = [
-            'Am Faoilleach',
-            'An Gearran',
-            'Am Màrt',
-            'An Giblean',
-            'An Cèitean',
-            'An t-Ògmhios',
-            'An t-Iuchar',
-            'An Lùnastal',
-            'An t-Sultain',
-            'An Dàmhair',
-            'An t-Samhain',
-            'An Dùbhlachd',
-        ],
-        monthsShort = [
-            'Faoi',
-            'Gear',
-            'Màrt',
-            'Gibl',
-            'Cèit',
-            'Ògmh',
-            'Iuch',
-            'Lùn',
-            'Sult',
-            'Dàmh',
-            'Samh',
-            'Dùbh',
-        ],
-        weekdays = [
-            'Didòmhnaich',
-            'Diluain',
-            'Dimàirt',
-            'Diciadain',
-            'Diardaoin',
-            'Dihaoine',
-            'Disathairne',
-        ],
-        weekdaysShort = ['Did', 'Dil', 'Dim', 'Dic', 'Dia', 'Dih', 'Dis'],
-        weekdaysMin = ['Dò', 'Lu', 'Mà', 'Ci', 'Ar', 'Ha', 'Sa'];
-
-    var gd = moment.defineLocale('gd', {
-        months: months,
-        monthsShort: monthsShort,
-        monthsParseExact: true,
-        weekdays: weekdays,
-        weekdaysShort: weekdaysShort,
-        weekdaysMin: weekdaysMin,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[An-diugh aig] LT',
-            nextDay: '[A-màireach aig] LT',
-            nextWeek: 'dddd [aig] LT',
-            lastDay: '[An-dè aig] LT',
-            lastWeek: 'dddd [seo chaidh] [aig] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'ann an %s',
-            past: 'bho chionn %s',
-            s: 'beagan diogan',
-            ss: '%d diogan',
-            m: 'mionaid',
-            mm: '%d mionaidean',
-            h: 'uair',
-            hh: '%d uairean',
-            d: 'latha',
-            dd: '%d latha',
-            M: 'mìos',
-            MM: '%d mìosan',
-            y: 'bliadhna',
-            yy: '%d bliadhna',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(d|na|mh)/,
-        ordinal: function (number) {
-            var output = number === 1 ? 'd' : number % 10 === 2 ? 'na' : 'mh';
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return gd;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/gl.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/gl.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Galician [gl]
-//! author : Juan G. Hurtado : https://github.com/juanghurtado
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var gl = moment.defineLocale('gl', {
-        months: 'xaneiro_febreiro_marzo_abril_maio_xuño_xullo_agosto_setembro_outubro_novembro_decembro'.split(
-            '_'
-        ),
-        monthsShort: 'xan._feb._mar._abr._mai._xuñ._xul._ago._set._out._nov._dec.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'domingo_luns_martes_mércores_xoves_venres_sábado'.split('_'),
-        weekdaysShort: 'dom._lun._mar._mér._xov._ven._sáb.'.split('_'),
-        weekdaysMin: 'do_lu_ma_mé_xo_ve_sá'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D [de] MMMM [de] YYYY',
-            LLL: 'D [de] MMMM [de] YYYY H:mm',
-            LLLL: 'dddd, D [de] MMMM [de] YYYY H:mm',
-        },
-        calendar: {
-            sameDay: function () {
-                return '[hoxe ' + (this.hours() !== 1 ? 'ás' : 'á') + '] LT';
-            },
-            nextDay: function () {
-                return '[mañá ' + (this.hours() !== 1 ? 'ás' : 'á') + '] LT';
-            },
-            nextWeek: function () {
-                return 'dddd [' + (this.hours() !== 1 ? 'ás' : 'a') + '] LT';
-            },
-            lastDay: function () {
-                return '[onte ' + (this.hours() !== 1 ? 'á' : 'a') + '] LT';
-            },
-            lastWeek: function () {
-                return (
-                    '[o] dddd [pasado ' + (this.hours() !== 1 ? 'ás' : 'a') + '] LT'
-                );
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: function (str) {
-                if (str.indexOf('un') === 0) {
-                    return 'n' + str;
-                }
-                return 'en ' + str;
-            },
-            past: 'hai %s',
-            s: 'uns segundos',
-            ss: '%d segundos',
-            m: 'un minuto',
-            mm: '%d minutos',
-            h: 'unha hora',
-            hh: '%d horas',
-            d: 'un día',
-            dd: '%d días',
-            M: 'un mes',
-            MM: '%d meses',
-            y: 'un ano',
-            yy: '%d anos',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return gl;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/gom-deva.js":
-/*!************************************************!*\
-  !*** ./node_modules/moment/locale/gom-deva.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Konkani Devanagari script [gom-deva]
-//! author : The Discoverer : https://github.com/WikiDiscoverer
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var format = {
-            s: ['थोडया सॅकंडांनी', 'थोडे सॅकंड'],
-            ss: [number + ' सॅकंडांनी', number + ' सॅकंड'],
-            m: ['एका मिणटान', 'एक मिनूट'],
-            mm: [number + ' मिणटांनी', number + ' मिणटां'],
-            h: ['एका वरान', 'एक वर'],
-            hh: [number + ' वरांनी', number + ' वरां'],
-            d: ['एका दिसान', 'एक दीस'],
-            dd: [number + ' दिसांनी', number + ' दीस'],
-            M: ['एका म्हयन्यान', 'एक म्हयनो'],
-            MM: [number + ' म्हयन्यानी', number + ' म्हयने'],
-            y: ['एका वर्सान', 'एक वर्स'],
-            yy: [number + ' वर्सांनी', number + ' वर्सां'],
-        };
-        return isFuture ? format[key][0] : format[key][1];
-    }
-
-    var gomDeva = moment.defineLocale('gom-deva', {
-        months: {
-            standalone: 'जानेवारी_फेब्रुवारी_मार्च_एप्रील_मे_जून_जुलय_ऑगस्ट_सप्टेंबर_ऑक्टोबर_नोव्हेंबर_डिसेंबर'.split(
-                '_'
-            ),
-            format: 'जानेवारीच्या_फेब्रुवारीच्या_मार्चाच्या_एप्रीलाच्या_मेयाच्या_जूनाच्या_जुलयाच्या_ऑगस्टाच्या_सप्टेंबराच्या_ऑक्टोबराच्या_नोव्हेंबराच्या_डिसेंबराच्या'.split(
-                '_'
-            ),
-            isFormat: /MMMM(\s)+D[oD]?/,
-        },
-        monthsShort: 'जाने._फेब्रु._मार्च_एप्री._मे_जून_जुल._ऑग._सप्टें._ऑक्टो._नोव्हें._डिसें.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'आयतार_सोमार_मंगळार_बुधवार_बिरेस्तार_सुक्रार_शेनवार'.split('_'),
-        weekdaysShort: 'आयत._सोम._मंगळ._बुध._ब्रेस्त._सुक्र._शेन.'.split('_'),
-        weekdaysMin: 'आ_सो_मं_बु_ब्रे_सु_शे'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'A h:mm [वाजतां]',
-            LTS: 'A h:mm:ss [वाजतां]',
-            L: 'DD-MM-YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY A h:mm [वाजतां]',
-            LLLL: 'dddd, MMMM Do, YYYY, A h:mm [वाजतां]',
-            llll: 'ddd, D MMM YYYY, A h:mm [वाजतां]',
-        },
-        calendar: {
-            sameDay: '[आयज] LT',
-            nextDay: '[फाल्यां] LT',
-            nextWeek: '[फुडलो] dddd[,] LT',
-            lastDay: '[काल] LT',
-            lastWeek: '[फाटलो] dddd[,] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s',
-            past: '%s आदीं',
-            s: processRelativeTime,
-            ss: processRelativeTime,
-            m: processRelativeTime,
-            mm: processRelativeTime,
-            h: processRelativeTime,
-            hh: processRelativeTime,
-            d: processRelativeTime,
-            dd: processRelativeTime,
-            M: processRelativeTime,
-            MM: processRelativeTime,
-            y: processRelativeTime,
-            yy: processRelativeTime,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(वेर)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                // the ordinal 'वेर' only applies to day of the month
-                case 'D':
-                    return number + 'वेर';
-                default:
-                case 'M':
-                case 'Q':
-                case 'DDD':
-                case 'd':
-                case 'w':
-                case 'W':
-                    return number;
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week
-            doy: 3, // The week that contains Jan 4th is the first week of the year (7 + 0 - 4)
-        },
-        meridiemParse: /राती|सकाळीं|दनपारां|सांजे/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'राती') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'सकाळीं') {
-                return hour;
-            } else if (meridiem === 'दनपारां') {
-                return hour > 12 ? hour : hour + 12;
-            } else if (meridiem === 'सांजे') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'राती';
-            } else if (hour < 12) {
-                return 'सकाळीं';
-            } else if (hour < 16) {
-                return 'दनपारां';
-            } else if (hour < 20) {
-                return 'सांजे';
-            } else {
-                return 'राती';
-            }
-        },
-    });
-
-    return gomDeva;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/gom-latn.js":
-/*!************************************************!*\
-  !*** ./node_modules/moment/locale/gom-latn.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Konkani Latin script [gom-latn]
-//! author : The Discoverer : https://github.com/WikiDiscoverer
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var format = {
-            s: ['thoddea sekondamni', 'thodde sekond'],
-            ss: [number + ' sekondamni', number + ' sekond'],
-            m: ['eka mintan', 'ek minut'],
-            mm: [number + ' mintamni', number + ' mintam'],
-            h: ['eka voran', 'ek vor'],
-            hh: [number + ' voramni', number + ' voram'],
-            d: ['eka disan', 'ek dis'],
-            dd: [number + ' disamni', number + ' dis'],
-            M: ['eka mhoinean', 'ek mhoino'],
-            MM: [number + ' mhoineamni', number + ' mhoine'],
-            y: ['eka vorsan', 'ek voros'],
-            yy: [number + ' vorsamni', number + ' vorsam'],
-        };
-        return isFuture ? format[key][0] : format[key][1];
-    }
-
-    var gomLatn = moment.defineLocale('gom-latn', {
-        months: {
-            standalone: 'Janer_Febrer_Mars_Abril_Mai_Jun_Julai_Agost_Setembr_Otubr_Novembr_Dezembr'.split(
-                '_'
-            ),
-            format: 'Janerachea_Febrerachea_Marsachea_Abrilachea_Maiachea_Junachea_Julaiachea_Agostachea_Setembrachea_Otubrachea_Novembrachea_Dezembrachea'.split(
-                '_'
-            ),
-            isFormat: /MMMM(\s)+D[oD]?/,
-        },
-        monthsShort: 'Jan._Feb._Mars_Abr._Mai_Jun_Jul._Ago._Set._Otu._Nov._Dez.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: "Aitar_Somar_Mongllar_Budhvar_Birestar_Sukrar_Son'var".split('_'),
-        weekdaysShort: 'Ait._Som._Mon._Bud._Bre._Suk._Son.'.split('_'),
-        weekdaysMin: 'Ai_Sm_Mo_Bu_Br_Su_Sn'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'A h:mm [vazta]',
-            LTS: 'A h:mm:ss [vazta]',
-            L: 'DD-MM-YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY A h:mm [vazta]',
-            LLLL: 'dddd, MMMM Do, YYYY, A h:mm [vazta]',
-            llll: 'ddd, D MMM YYYY, A h:mm [vazta]',
-        },
-        calendar: {
-            sameDay: '[Aiz] LT',
-            nextDay: '[Faleam] LT',
-            nextWeek: '[Fuddlo] dddd[,] LT',
-            lastDay: '[Kal] LT',
-            lastWeek: '[Fattlo] dddd[,] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s',
-            past: '%s adim',
-            s: processRelativeTime,
-            ss: processRelativeTime,
-            m: processRelativeTime,
-            mm: processRelativeTime,
-            h: processRelativeTime,
-            hh: processRelativeTime,
-            d: processRelativeTime,
-            dd: processRelativeTime,
-            M: processRelativeTime,
-            MM: processRelativeTime,
-            y: processRelativeTime,
-            yy: processRelativeTime,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(er)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                // the ordinal 'er' only applies to day of the month
-                case 'D':
-                    return number + 'er';
-                default:
-                case 'M':
-                case 'Q':
-                case 'DDD':
-                case 'd':
-                case 'w':
-                case 'W':
-                    return number;
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week
-            doy: 3, // The week that contains Jan 4th is the first week of the year (7 + 0 - 4)
-        },
-        meridiemParse: /rati|sokallim|donparam|sanje/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'rati') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'sokallim') {
-                return hour;
-            } else if (meridiem === 'donparam') {
-                return hour > 12 ? hour : hour + 12;
-            } else if (meridiem === 'sanje') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'rati';
-            } else if (hour < 12) {
-                return 'sokallim';
-            } else if (hour < 16) {
-                return 'donparam';
-            } else if (hour < 20) {
-                return 'sanje';
-            } else {
-                return 'rati';
-            }
-        },
-    });
-
-    return gomLatn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/gu.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/gu.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Gujarati [gu]
-//! author : Kaushik Thanki : https://github.com/Kaushik1987
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '૧',
-            2: '૨',
-            3: '૩',
-            4: '૪',
-            5: '૫',
-            6: '૬',
-            7: '૭',
-            8: '૮',
-            9: '૯',
-            0: '૦',
-        },
-        numberMap = {
-            '૧': '1',
-            '૨': '2',
-            '૩': '3',
-            '૪': '4',
-            '૫': '5',
-            '૬': '6',
-            '૭': '7',
-            '૮': '8',
-            '૯': '9',
-            '૦': '0',
-        };
-
-    var gu = moment.defineLocale('gu', {
-        months: 'જાન્યુઆરી_ફેબ્રુઆરી_માર્ચ_એપ્રિલ_મે_જૂન_જુલાઈ_ઑગસ્ટ_સપ્ટેમ્બર_ઑક્ટ્બર_નવેમ્બર_ડિસેમ્બર'.split(
-            '_'
-        ),
-        monthsShort: 'જાન્યુ._ફેબ્રુ._માર્ચ_એપ્રિ._મે_જૂન_જુલા._ઑગ._સપ્ટે._ઑક્ટ્._નવે._ડિસે.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'રવિવાર_સોમવાર_મંગળવાર_બુધ્વાર_ગુરુવાર_શુક્રવાર_શનિવાર'.split(
-            '_'
-        ),
-        weekdaysShort: 'રવિ_સોમ_મંગળ_બુધ્_ગુરુ_શુક્ર_શનિ'.split('_'),
-        weekdaysMin: 'ર_સો_મં_બુ_ગુ_શુ_શ'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm વાગ્યે',
-            LTS: 'A h:mm:ss વાગ્યે',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm વાગ્યે',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm વાગ્યે',
-        },
-        calendar: {
-            sameDay: '[આજ] LT',
-            nextDay: '[કાલે] LT',
-            nextWeek: 'dddd, LT',
-            lastDay: '[ગઇકાલે] LT',
-            lastWeek: '[પાછલા] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s મા',
-            past: '%s પહેલા',
-            s: 'અમુક પળો',
-            ss: '%d સેકંડ',
-            m: 'એક મિનિટ',
-            mm: '%d મિનિટ',
-            h: 'એક કલાક',
-            hh: '%d કલાક',
-            d: 'એક દિવસ',
-            dd: '%d દિવસ',
-            M: 'એક મહિનો',
-            MM: '%d મહિનો',
-            y: 'એક વર્ષ',
-            yy: '%d વર્ષ',
-        },
-        preparse: function (string) {
-            return string.replace(/[૧૨૩૪૫૬૭૮૯૦]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        // Gujarati notation for meridiems are quite fuzzy in practice. While there exists
-        // a rigid notion of a 'Pahar' it is not used as rigidly in modern Gujarati.
-        meridiemParse: /રાત|બપોર|સવાર|સાંજ/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'રાત') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'સવાર') {
-                return hour;
-            } else if (meridiem === 'બપોર') {
-                return hour >= 10 ? hour : hour + 12;
-            } else if (meridiem === 'સાંજ') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'રાત';
-            } else if (hour < 10) {
-                return 'સવાર';
-            } else if (hour < 17) {
-                return 'બપોર';
-            } else if (hour < 20) {
-                return 'સાંજ';
-            } else {
-                return 'રાત';
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return gu;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/he.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/he.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Hebrew [he]
-//! author : Tomer Cohen : https://github.com/tomer
-//! author : Moshe Simantov : https://github.com/DevelopmentIL
-//! author : Tal Ater : https://github.com/TalAter
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var he = moment.defineLocale('he', {
-        months: 'ינואר_פברואר_מרץ_אפריל_מאי_יוני_יולי_אוגוסט_ספטמבר_אוקטובר_נובמבר_דצמבר'.split(
-            '_'
-        ),
-        monthsShort: 'ינו׳_פבר׳_מרץ_אפר׳_מאי_יוני_יולי_אוג׳_ספט׳_אוק׳_נוב׳_דצמ׳'.split(
-            '_'
-        ),
-        weekdays: 'ראשון_שני_שלישי_רביעי_חמישי_שישי_שבת'.split('_'),
-        weekdaysShort: 'א׳_ב׳_ג׳_ד׳_ה׳_ו׳_ש׳'.split('_'),
-        weekdaysMin: 'א_ב_ג_ד_ה_ו_ש'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D [ב]MMMM YYYY',
-            LLL: 'D [ב]MMMM YYYY HH:mm',
-            LLLL: 'dddd, D [ב]MMMM YYYY HH:mm',
-            l: 'D/M/YYYY',
-            ll: 'D MMM YYYY',
-            lll: 'D MMM YYYY HH:mm',
-            llll: 'ddd, D MMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[היום ב־]LT',
-            nextDay: '[מחר ב־]LT',
-            nextWeek: 'dddd [בשעה] LT',
-            lastDay: '[אתמול ב־]LT',
-            lastWeek: '[ביום] dddd [האחרון בשעה] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'בעוד %s',
-            past: 'לפני %s',
-            s: 'מספר שניות',
-            ss: '%d שניות',
-            m: 'דקה',
-            mm: '%d דקות',
-            h: 'שעה',
-            hh: function (number) {
-                if (number === 2) {
-                    return 'שעתיים';
-                }
-                return number + ' שעות';
-            },
-            d: 'יום',
-            dd: function (number) {
-                if (number === 2) {
-                    return 'יומיים';
-                }
-                return number + ' ימים';
-            },
-            M: 'חודש',
-            MM: function (number) {
-                if (number === 2) {
-                    return 'חודשיים';
-                }
-                return number + ' חודשים';
-            },
-            y: 'שנה',
-            yy: function (number) {
-                if (number === 2) {
-                    return 'שנתיים';
-                } else if (number % 10 === 0 && number !== 10) {
-                    return number + ' שנה';
-                }
-                return number + ' שנים';
-            },
-        },
-        meridiemParse: /אחה"צ|לפנה"צ|אחרי הצהריים|לפני הצהריים|לפנות בוקר|בבוקר|בערב/i,
-        isPM: function (input) {
-            return /^(אחה"צ|אחרי הצהריים|בערב)$/.test(input);
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 5) {
-                return 'לפנות בוקר';
-            } else if (hour < 10) {
-                return 'בבוקר';
-            } else if (hour < 12) {
-                return isLower ? 'לפנה"צ' : 'לפני הצהריים';
-            } else if (hour < 18) {
-                return isLower ? 'אחה"צ' : 'אחרי הצהריים';
-            } else {
-                return 'בערב';
-            }
-        },
-    });
-
-    return he;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/hi.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/hi.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Hindi [hi]
-//! author : Mayank Singhal : https://github.com/mayanksinghal
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '१',
-            2: '२',
-            3: '३',
-            4: '४',
-            5: '५',
-            6: '६',
-            7: '७',
-            8: '८',
-            9: '९',
-            0: '०',
-        },
-        numberMap = {
-            '१': '1',
-            '२': '2',
-            '३': '3',
-            '४': '4',
-            '५': '5',
-            '६': '6',
-            '७': '7',
-            '८': '8',
-            '९': '9',
-            '०': '0',
-        },
-        monthsParse = [
-            /^जन/i,
-            /^फ़र|फर/i,
-            /^मार्च/i,
-            /^अप्रै/i,
-            /^मई/i,
-            /^जून/i,
-            /^जुल/i,
-            /^अग/i,
-            /^सितं|सित/i,
-            /^अक्टू/i,
-            /^नव|नवं/i,
-            /^दिसं|दिस/i,
-        ],
-        shortMonthsParse = [
-            /^जन/i,
-            /^फ़र/i,
-            /^मार्च/i,
-            /^अप्रै/i,
-            /^मई/i,
-            /^जून/i,
-            /^जुल/i,
-            /^अग/i,
-            /^सित/i,
-            /^अक्टू/i,
-            /^नव/i,
-            /^दिस/i,
-        ];
-
-    var hi = moment.defineLocale('hi', {
-        months: {
-            format: 'जनवरी_फ़रवरी_मार्च_अप्रैल_मई_जून_जुलाई_अगस्त_सितम्बर_अक्टूबर_नवम्बर_दिसम्बर'.split(
-                '_'
-            ),
-            standalone: 'जनवरी_फरवरी_मार्च_अप्रैल_मई_जून_जुलाई_अगस्त_सितंबर_अक्टूबर_नवंबर_दिसंबर'.split(
-                '_'
-            ),
-        },
-        monthsShort: 'जन._फ़र._मार्च_अप्रै._मई_जून_जुल._अग._सित._अक्टू._नव._दिस.'.split(
-            '_'
-        ),
-        weekdays: 'रविवार_सोमवार_मंगलवार_बुधवार_गुरूवार_शुक्रवार_शनिवार'.split('_'),
-        weekdaysShort: 'रवि_सोम_मंगल_बुध_गुरू_शुक्र_शनि'.split('_'),
-        weekdaysMin: 'र_सो_मं_बु_गु_शु_श'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm बजे',
-            LTS: 'A h:mm:ss बजे',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm बजे',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm बजे',
-        },
-
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: shortMonthsParse,
-
-        monthsRegex: /^(जनवरी|जन\.?|फ़रवरी|फरवरी|फ़र\.?|मार्च?|अप्रैल|अप्रै\.?|मई?|जून?|जुलाई|जुल\.?|अगस्त|अग\.?|सितम्बर|सितंबर|सित\.?|अक्टूबर|अक्टू\.?|नवम्बर|नवंबर|नव\.?|दिसम्बर|दिसंबर|दिस\.?)/i,
-
-        monthsShortRegex: /^(जनवरी|जन\.?|फ़रवरी|फरवरी|फ़र\.?|मार्च?|अप्रैल|अप्रै\.?|मई?|जून?|जुलाई|जुल\.?|अगस्त|अग\.?|सितम्बर|सितंबर|सित\.?|अक्टूबर|अक्टू\.?|नवम्बर|नवंबर|नव\.?|दिसम्बर|दिसंबर|दिस\.?)/i,
-
-        monthsStrictRegex: /^(जनवरी?|फ़रवरी|फरवरी?|मार्च?|अप्रैल?|मई?|जून?|जुलाई?|अगस्त?|सितम्बर|सितंबर|सित?\.?|अक्टूबर|अक्टू\.?|नवम्बर|नवंबर?|दिसम्बर|दिसंबर?)/i,
-
-        monthsShortStrictRegex: /^(जन\.?|फ़र\.?|मार्च?|अप्रै\.?|मई?|जून?|जुल\.?|अग\.?|सित\.?|अक्टू\.?|नव\.?|दिस\.?)/i,
-
-        calendar: {
-            sameDay: '[आज] LT',
-            nextDay: '[कल] LT',
-            nextWeek: 'dddd, LT',
-            lastDay: '[कल] LT',
-            lastWeek: '[पिछले] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s में',
-            past: '%s पहले',
-            s: 'कुछ ही क्षण',
-            ss: '%d सेकंड',
-            m: 'एक मिनट',
-            mm: '%d मिनट',
-            h: 'एक घंटा',
-            hh: '%d घंटे',
-            d: 'एक दिन',
-            dd: '%d दिन',
-            M: 'एक महीने',
-            MM: '%d महीने',
-            y: 'एक वर्ष',
-            yy: '%d वर्ष',
-        },
-        preparse: function (string) {
-            return string.replace(/[१२३४५६७८९०]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        // Hindi notation for meridiems are quite fuzzy in practice. While there exists
-        // a rigid notion of a 'Pahar' it is not used as rigidly in modern Hindi.
-        meridiemParse: /रात|सुबह|दोपहर|शाम/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'रात') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'सुबह') {
-                return hour;
-            } else if (meridiem === 'दोपहर') {
-                return hour >= 10 ? hour : hour + 12;
-            } else if (meridiem === 'शाम') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'रात';
-            } else if (hour < 10) {
-                return 'सुबह';
-            } else if (hour < 17) {
-                return 'दोपहर';
-            } else if (hour < 20) {
-                return 'शाम';
-            } else {
-                return 'रात';
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return hi;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/hr.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/hr.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Croatian [hr]
-//! author : Bojan Marković : https://github.com/bmarkovic
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function translate(number, withoutSuffix, key) {
-        var result = number + ' ';
-        switch (key) {
-            case 'ss':
-                if (number === 1) {
-                    result += 'sekunda';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'sekunde';
-                } else {
-                    result += 'sekundi';
-                }
-                return result;
-            case 'm':
-                return withoutSuffix ? 'jedna minuta' : 'jedne minute';
-            case 'mm':
-                if (number === 1) {
-                    result += 'minuta';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'minute';
-                } else {
-                    result += 'minuta';
-                }
-                return result;
-            case 'h':
-                return withoutSuffix ? 'jedan sat' : 'jednog sata';
-            case 'hh':
-                if (number === 1) {
-                    result += 'sat';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'sata';
-                } else {
-                    result += 'sati';
-                }
-                return result;
-            case 'dd':
-                if (number === 1) {
-                    result += 'dan';
-                } else {
-                    result += 'dana';
-                }
-                return result;
-            case 'MM':
-                if (number === 1) {
-                    result += 'mjesec';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'mjeseca';
-                } else {
-                    result += 'mjeseci';
-                }
-                return result;
-            case 'yy':
-                if (number === 1) {
-                    result += 'godina';
-                } else if (number === 2 || number === 3 || number === 4) {
-                    result += 'godine';
-                } else {
-                    result += 'godina';
-                }
-                return result;
-        }
-    }
-
-    var hr = moment.defineLocale('hr', {
-        months: {
-            format: 'siječnja_veljače_ožujka_travnja_svibnja_lipnja_srpnja_kolovoza_rujna_listopada_studenoga_prosinca'.split(
-                '_'
-            ),
-            standalone: 'siječanj_veljača_ožujak_travanj_svibanj_lipanj_srpanj_kolovoz_rujan_listopad_studeni_prosinac'.split(
-                '_'
-            ),
-        },
-        monthsShort: 'sij._velj._ožu._tra._svi._lip._srp._kol._ruj._lis._stu._pro.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'nedjelja_ponedjeljak_utorak_srijeda_četvrtak_petak_subota'.split(
-            '_'
-        ),
-        weekdaysShort: 'ned._pon._uto._sri._čet._pet._sub.'.split('_'),
-        weekdaysMin: 'ne_po_ut_sr_če_pe_su'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'Do MMMM YYYY',
-            LLL: 'Do MMMM YYYY H:mm',
-            LLLL: 'dddd, Do MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[danas u] LT',
-            nextDay: '[sutra u] LT',
-            nextWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[u] [nedjelju] [u] LT';
-                    case 3:
-                        return '[u] [srijedu] [u] LT';
-                    case 6:
-                        return '[u] [subotu] [u] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[u] dddd [u] LT';
-                }
-            },
-            lastDay: '[jučer u] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[prošlu] [nedjelju] [u] LT';
-                    case 3:
-                        return '[prošlu] [srijedu] [u] LT';
-                    case 6:
-                        return '[prošle] [subote] [u] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[prošli] dddd [u] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'za %s',
-            past: 'prije %s',
-            s: 'par sekundi',
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: 'dan',
-            dd: translate,
-            M: 'mjesec',
-            MM: translate,
-            y: 'godinu',
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return hr;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/hu.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/hu.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Hungarian [hu]
-//! author : Adam Brunner : https://github.com/adambrunner
-//! author : Peter Viszt  : https://github.com/passatgt
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var weekEndings = 'vasárnap hétfőn kedden szerdán csütörtökön pénteken szombaton'.split(
-        ' '
-    );
-    function translate(number, withoutSuffix, key, isFuture) {
-        var num = number;
-        switch (key) {
-            case 's':
-                return isFuture || withoutSuffix
-                    ? 'néhány másodperc'
-                    : 'néhány másodperce';
-            case 'ss':
-                return num + (isFuture || withoutSuffix)
-                    ? ' másodperc'
-                    : ' másodperce';
-            case 'm':
-                return 'egy' + (isFuture || withoutSuffix ? ' perc' : ' perce');
-            case 'mm':
-                return num + (isFuture || withoutSuffix ? ' perc' : ' perce');
-            case 'h':
-                return 'egy' + (isFuture || withoutSuffix ? ' óra' : ' órája');
-            case 'hh':
-                return num + (isFuture || withoutSuffix ? ' óra' : ' órája');
-            case 'd':
-                return 'egy' + (isFuture || withoutSuffix ? ' nap' : ' napja');
-            case 'dd':
-                return num + (isFuture || withoutSuffix ? ' nap' : ' napja');
-            case 'M':
-                return 'egy' + (isFuture || withoutSuffix ? ' hónap' : ' hónapja');
-            case 'MM':
-                return num + (isFuture || withoutSuffix ? ' hónap' : ' hónapja');
-            case 'y':
-                return 'egy' + (isFuture || withoutSuffix ? ' év' : ' éve');
-            case 'yy':
-                return num + (isFuture || withoutSuffix ? ' év' : ' éve');
-        }
-        return '';
-    }
-    function week(isFuture) {
-        return (
-            (isFuture ? '' : '[múlt] ') +
-            '[' +
-            weekEndings[this.day()] +
-            '] LT[-kor]'
-        );
-    }
-
-    var hu = moment.defineLocale('hu', {
-        months: 'január_február_március_április_május_június_július_augusztus_szeptember_október_november_december'.split(
-            '_'
-        ),
-        monthsShort: 'jan._feb._márc._ápr._máj._jún._júl._aug._szept._okt._nov._dec.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'vasárnap_hétfő_kedd_szerda_csütörtök_péntek_szombat'.split('_'),
-        weekdaysShort: 'vas_hét_kedd_sze_csüt_pén_szo'.split('_'),
-        weekdaysMin: 'v_h_k_sze_cs_p_szo'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'YYYY.MM.DD.',
-            LL: 'YYYY. MMMM D.',
-            LLL: 'YYYY. MMMM D. H:mm',
-            LLLL: 'YYYY. MMMM D., dddd H:mm',
-        },
-        meridiemParse: /de|du/i,
-        isPM: function (input) {
-            return input.charAt(1).toLowerCase() === 'u';
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours < 12) {
-                return isLower === true ? 'de' : 'DE';
-            } else {
-                return isLower === true ? 'du' : 'DU';
-            }
-        },
-        calendar: {
-            sameDay: '[ma] LT[-kor]',
-            nextDay: '[holnap] LT[-kor]',
-            nextWeek: function () {
-                return week.call(this, true);
-            },
-            lastDay: '[tegnap] LT[-kor]',
-            lastWeek: function () {
-                return week.call(this, false);
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s múlva',
-            past: '%s',
-            s: translate,
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: translate,
-            dd: translate,
-            M: translate,
-            MM: translate,
-            y: translate,
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return hu;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/hy-am.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/hy-am.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Armenian [hy-am]
-//! author : Armendarabyan : https://github.com/armendarabyan
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var hyAm = moment.defineLocale('hy-am', {
-        months: {
-            format: 'հունվարի_փետրվարի_մարտի_ապրիլի_մայիսի_հունիսի_հուլիսի_օգոստոսի_սեպտեմբերի_հոկտեմբերի_նոյեմբերի_դեկտեմբերի'.split(
-                '_'
-            ),
-            standalone: 'հունվար_փետրվար_մարտ_ապրիլ_մայիս_հունիս_հուլիս_օգոստոս_սեպտեմբեր_հոկտեմբեր_նոյեմբեր_դեկտեմբեր'.split(
-                '_'
-            ),
-        },
-        monthsShort: 'հնվ_փտր_մրտ_ապր_մյս_հնս_հլս_օգս_սպտ_հկտ_նմբ_դկտ'.split('_'),
-        weekdays: 'կիրակի_երկուշաբթի_երեքշաբթի_չորեքշաբթի_հինգշաբթի_ուրբաթ_շաբաթ'.split(
-            '_'
-        ),
-        weekdaysShort: 'կրկ_երկ_երք_չրք_հնգ_ուրբ_շբթ'.split('_'),
-        weekdaysMin: 'կրկ_երկ_երք_չրք_հնգ_ուրբ_շբթ'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY թ.',
-            LLL: 'D MMMM YYYY թ., HH:mm',
-            LLLL: 'dddd, D MMMM YYYY թ., HH:mm',
-        },
-        calendar: {
-            sameDay: '[այսօր] LT',
-            nextDay: '[վաղը] LT',
-            lastDay: '[երեկ] LT',
-            nextWeek: function () {
-                return 'dddd [օրը ժամը] LT';
-            },
-            lastWeek: function () {
-                return '[անցած] dddd [օրը ժամը] LT';
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s հետո',
-            past: '%s առաջ',
-            s: 'մի քանի վայրկյան',
-            ss: '%d վայրկյան',
-            m: 'րոպե',
-            mm: '%d րոպե',
-            h: 'ժամ',
-            hh: '%d ժամ',
-            d: 'օր',
-            dd: '%d օր',
-            M: 'ամիս',
-            MM: '%d ամիս',
-            y: 'տարի',
-            yy: '%d տարի',
-        },
-        meridiemParse: /գիշերվա|առավոտվա|ցերեկվա|երեկոյան/,
-        isPM: function (input) {
-            return /^(ցերեկվա|երեկոյան)$/.test(input);
-        },
-        meridiem: function (hour) {
-            if (hour < 4) {
-                return 'գիշերվա';
-            } else if (hour < 12) {
-                return 'առավոտվա';
-            } else if (hour < 17) {
-                return 'ցերեկվա';
-            } else {
-                return 'երեկոյան';
-            }
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}|\d{1,2}-(ին|րդ)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                case 'DDD':
-                case 'w':
-                case 'W':
-                case 'DDDo':
-                    if (number === 1) {
-                        return number + '-ին';
-                    }
-                    return number + '-րդ';
-                default:
-                    return number;
-            }
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return hyAm;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/id.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/id.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Indonesian [id]
-//! author : Mohammad Satrio Utomo : https://github.com/tyok
-//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var id = moment.defineLocale('id', {
-        months: 'Januari_Februari_Maret_April_Mei_Juni_Juli_Agustus_September_Oktober_November_Desember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Agt_Sep_Okt_Nov_Des'.split('_'),
-        weekdays: 'Minggu_Senin_Selasa_Rabu_Kamis_Jumat_Sabtu'.split('_'),
-        weekdaysShort: 'Min_Sen_Sel_Rab_Kam_Jum_Sab'.split('_'),
-        weekdaysMin: 'Mg_Sn_Sl_Rb_Km_Jm_Sb'.split('_'),
-        longDateFormat: {
-            LT: 'HH.mm',
-            LTS: 'HH.mm.ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY [pukul] HH.mm',
-            LLLL: 'dddd, D MMMM YYYY [pukul] HH.mm',
-        },
-        meridiemParse: /pagi|siang|sore|malam/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'pagi') {
-                return hour;
-            } else if (meridiem === 'siang') {
-                return hour >= 11 ? hour : hour + 12;
-            } else if (meridiem === 'sore' || meridiem === 'malam') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours < 11) {
-                return 'pagi';
-            } else if (hours < 15) {
-                return 'siang';
-            } else if (hours < 19) {
-                return 'sore';
-            } else {
-                return 'malam';
-            }
-        },
-        calendar: {
-            sameDay: '[Hari ini pukul] LT',
-            nextDay: '[Besok pukul] LT',
-            nextWeek: 'dddd [pukul] LT',
-            lastDay: '[Kemarin pukul] LT',
-            lastWeek: 'dddd [lalu pukul] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'dalam %s',
-            past: '%s yang lalu',
-            s: 'beberapa detik',
-            ss: '%d detik',
-            m: 'semenit',
-            mm: '%d menit',
-            h: 'sejam',
-            hh: '%d jam',
-            d: 'sehari',
-            dd: '%d hari',
-            M: 'sebulan',
-            MM: '%d bulan',
-            y: 'setahun',
-            yy: '%d tahun',
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return id;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/is.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/is.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Icelandic [is]
-//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function plural(n) {
-        if (n % 100 === 11) {
-            return true;
-        } else if (n % 10 === 1) {
-            return false;
-        }
-        return true;
-    }
-    function translate(number, withoutSuffix, key, isFuture) {
-        var result = number + ' ';
-        switch (key) {
-            case 's':
-                return withoutSuffix || isFuture
-                    ? 'nokkrar sekúndur'
-                    : 'nokkrum sekúndum';
-            case 'ss':
-                if (plural(number)) {
-                    return (
-                        result +
-                        (withoutSuffix || isFuture ? 'sekúndur' : 'sekúndum')
-                    );
-                }
-                return result + 'sekúnda';
-            case 'm':
-                return withoutSuffix ? 'mínúta' : 'mínútu';
-            case 'mm':
-                if (plural(number)) {
-                    return (
-                        result + (withoutSuffix || isFuture ? 'mínútur' : 'mínútum')
-                    );
-                } else if (withoutSuffix) {
-                    return result + 'mínúta';
-                }
-                return result + 'mínútu';
-            case 'hh':
-                if (plural(number)) {
-                    return (
-                        result +
-                        (withoutSuffix || isFuture
-                            ? 'klukkustundir'
-                            : 'klukkustundum')
-                    );
-                }
-                return result + 'klukkustund';
-            case 'd':
-                if (withoutSuffix) {
-                    return 'dagur';
-                }
-                return isFuture ? 'dag' : 'degi';
-            case 'dd':
-                if (plural(number)) {
-                    if (withoutSuffix) {
-                        return result + 'dagar';
-                    }
-                    return result + (isFuture ? 'daga' : 'dögum');
-                } else if (withoutSuffix) {
-                    return result + 'dagur';
-                }
-                return result + (isFuture ? 'dag' : 'degi');
-            case 'M':
-                if (withoutSuffix) {
-                    return 'mánuður';
-                }
-                return isFuture ? 'mánuð' : 'mánuði';
-            case 'MM':
-                if (plural(number)) {
-                    if (withoutSuffix) {
-                        return result + 'mánuðir';
-                    }
-                    return result + (isFuture ? 'mánuði' : 'mánuðum');
-                } else if (withoutSuffix) {
-                    return result + 'mánuður';
-                }
-                return result + (isFuture ? 'mánuð' : 'mánuði');
-            case 'y':
-                return withoutSuffix || isFuture ? 'ár' : 'ári';
-            case 'yy':
-                if (plural(number)) {
-                    return result + (withoutSuffix || isFuture ? 'ár' : 'árum');
-                }
-                return result + (withoutSuffix || isFuture ? 'ár' : 'ári');
-        }
-    }
-
-    var is = moment.defineLocale('is', {
-        months: 'janúar_febrúar_mars_apríl_maí_júní_júlí_ágúst_september_október_nóvember_desember'.split(
-            '_'
-        ),
-        monthsShort: 'jan_feb_mar_apr_maí_jún_júl_ágú_sep_okt_nóv_des'.split('_'),
-        weekdays: 'sunnudagur_mánudagur_þriðjudagur_miðvikudagur_fimmtudagur_föstudagur_laugardagur'.split(
-            '_'
-        ),
-        weekdaysShort: 'sun_mán_þri_mið_fim_fös_lau'.split('_'),
-        weekdaysMin: 'Su_Má_Þr_Mi_Fi_Fö_La'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY [kl.] H:mm',
-            LLLL: 'dddd, D. MMMM YYYY [kl.] H:mm',
-        },
-        calendar: {
-            sameDay: '[í dag kl.] LT',
-            nextDay: '[á morgun kl.] LT',
-            nextWeek: 'dddd [kl.] LT',
-            lastDay: '[í gær kl.] LT',
-            lastWeek: '[síðasta] dddd [kl.] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'eftir %s',
-            past: 'fyrir %s síðan',
-            s: translate,
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: 'klukkustund',
-            hh: translate,
-            d: translate,
-            dd: translate,
-            M: translate,
-            MM: translate,
-            y: translate,
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return is;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/it-ch.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/it-ch.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Italian (Switzerland) [it-ch]
-//! author : xfh : https://github.com/xfh
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var itCh = moment.defineLocale('it-ch', {
-        months: 'gennaio_febbraio_marzo_aprile_maggio_giugno_luglio_agosto_settembre_ottobre_novembre_dicembre'.split(
-            '_'
-        ),
-        monthsShort: 'gen_feb_mar_apr_mag_giu_lug_ago_set_ott_nov_dic'.split('_'),
-        weekdays: 'domenica_lunedì_martedì_mercoledì_giovedì_venerdì_sabato'.split(
-            '_'
-        ),
-        weekdaysShort: 'dom_lun_mar_mer_gio_ven_sab'.split('_'),
-        weekdaysMin: 'do_lu_ma_me_gi_ve_sa'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Oggi alle] LT',
-            nextDay: '[Domani alle] LT',
-            nextWeek: 'dddd [alle] LT',
-            lastDay: '[Ieri alle] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[la scorsa] dddd [alle] LT';
-                    default:
-                        return '[lo scorso] dddd [alle] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: function (s) {
-                return (/^[0-9].+$/.test(s) ? 'tra' : 'in') + ' ' + s;
-            },
-            past: '%s fa',
-            s: 'alcuni secondi',
-            ss: '%d secondi',
-            m: 'un minuto',
-            mm: '%d minuti',
-            h: "un'ora",
-            hh: '%d ore',
-            d: 'un giorno',
-            dd: '%d giorni',
-            M: 'un mese',
-            MM: '%d mesi',
-            y: 'un anno',
-            yy: '%d anni',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return itCh;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/it.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/it.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Italian [it]
-//! author : Lorenzo : https://github.com/aliem
-//! author: Mattia Larentis: https://github.com/nostalgiaz
-//! author: Marco : https://github.com/Manfre98
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var it = moment.defineLocale('it', {
-        months: 'gennaio_febbraio_marzo_aprile_maggio_giugno_luglio_agosto_settembre_ottobre_novembre_dicembre'.split(
-            '_'
-        ),
-        monthsShort: 'gen_feb_mar_apr_mag_giu_lug_ago_set_ott_nov_dic'.split('_'),
-        weekdays: 'domenica_lunedì_martedì_mercoledì_giovedì_venerdì_sabato'.split(
-            '_'
-        ),
-        weekdaysShort: 'dom_lun_mar_mer_gio_ven_sab'.split('_'),
-        weekdaysMin: 'do_lu_ma_me_gi_ve_sa'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: function () {
-                return (
-                    '[Oggi a' +
-                    (this.hours() > 1 ? 'lle ' : this.hours() === 0 ? ' ' : "ll'") +
-                    ']LT'
-                );
-            },
-            nextDay: function () {
-                return (
-                    '[Domani a' +
-                    (this.hours() > 1 ? 'lle ' : this.hours() === 0 ? ' ' : "ll'") +
-                    ']LT'
-                );
-            },
-            nextWeek: function () {
-                return (
-                    'dddd [a' +
-                    (this.hours() > 1 ? 'lle ' : this.hours() === 0 ? ' ' : "ll'") +
-                    ']LT'
-                );
-            },
-            lastDay: function () {
-                return (
-                    '[Ieri a' +
-                    (this.hours() > 1 ? 'lle ' : this.hours() === 0 ? ' ' : "ll'") +
-                    ']LT'
-                );
-            },
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return (
-                            '[La scorsa] dddd [a' +
-                            (this.hours() > 1
-                                ? 'lle '
-                                : this.hours() === 0
-                                ? ' '
-                                : "ll'") +
-                            ']LT'
-                        );
-                    default:
-                        return (
-                            '[Lo scorso] dddd [a' +
-                            (this.hours() > 1
-                                ? 'lle '
-                                : this.hours() === 0
-                                ? ' '
-                                : "ll'") +
-                            ']LT'
-                        );
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'tra %s',
-            past: '%s fa',
-            s: 'alcuni secondi',
-            ss: '%d secondi',
-            m: 'un minuto',
-            mm: '%d minuti',
-            h: "un'ora",
-            hh: '%d ore',
-            d: 'un giorno',
-            dd: '%d giorni',
-            w: 'una settimana',
-            ww: '%d settimane',
-            M: 'un mese',
-            MM: '%d mesi',
-            y: 'un anno',
-            yy: '%d anni',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return it;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ja.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ja.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Japanese [ja]
-//! author : LI Long : https://github.com/baryon
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ja = moment.defineLocale('ja', {
-        eras: [
-            {
-                since: '2019-05-01',
-                offset: 1,
-                name: '令和',
-                narrow: '㋿',
-                abbr: 'R',
-            },
-            {
-                since: '1989-01-08',
-                until: '2019-04-30',
-                offset: 1,
-                name: '平成',
-                narrow: '㍻',
-                abbr: 'H',
-            },
-            {
-                since: '1926-12-25',
-                until: '1989-01-07',
-                offset: 1,
-                name: '昭和',
-                narrow: '㍼',
-                abbr: 'S',
-            },
-            {
-                since: '1912-07-30',
-                until: '1926-12-24',
-                offset: 1,
-                name: '大正',
-                narrow: '㍽',
-                abbr: 'T',
-            },
-            {
-                since: '1873-01-01',
-                until: '1912-07-29',
-                offset: 6,
-                name: '明治',
-                narrow: '㍾',
-                abbr: 'M',
-            },
-            {
-                since: '0001-01-01',
-                until: '1873-12-31',
-                offset: 1,
-                name: '西暦',
-                narrow: 'AD',
-                abbr: 'AD',
-            },
-            {
-                since: '0000-12-31',
-                until: -Infinity,
-                offset: 1,
-                name: '紀元前',
-                narrow: 'BC',
-                abbr: 'BC',
-            },
-        ],
-        eraYearOrdinalRegex: /(元|\d+)年/,
-        eraYearOrdinalParse: function (input, match) {
-            return match[1] === '元' ? 1 : parseInt(match[1] || input, 10);
-        },
-        months: '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
-        monthsShort: '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split(
-            '_'
-        ),
-        weekdays: '日曜日_月曜日_火曜日_水曜日_木曜日_金曜日_土曜日'.split('_'),
-        weekdaysShort: '日_月_火_水_木_金_土'.split('_'),
-        weekdaysMin: '日_月_火_水_木_金_土'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'YYYY/MM/DD',
-            LL: 'YYYY年M月D日',
-            LLL: 'YYYY年M月D日 HH:mm',
-            LLLL: 'YYYY年M月D日 dddd HH:mm',
-            l: 'YYYY/MM/DD',
-            ll: 'YYYY年M月D日',
-            lll: 'YYYY年M月D日 HH:mm',
-            llll: 'YYYY年M月D日(ddd) HH:mm',
-        },
-        meridiemParse: /午前|午後/i,
-        isPM: function (input) {
-            return input === '午後';
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return '午前';
-            } else {
-                return '午後';
-            }
-        },
-        calendar: {
-            sameDay: '[今日] LT',
-            nextDay: '[明日] LT',
-            nextWeek: function (now) {
-                if (now.week() !== this.week()) {
-                    return '[来週]dddd LT';
-                } else {
-                    return 'dddd LT';
-                }
-            },
-            lastDay: '[昨日] LT',
-            lastWeek: function (now) {
-                if (this.week() !== now.week()) {
-                    return '[先週]dddd LT';
-                } else {
-                    return 'dddd LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}日/,
-        ordinal: function (number, period) {
-            switch (period) {
-                case 'y':
-                    return number === 1 ? '元年' : number + '年';
-                case 'd':
-                case 'D':
-                case 'DDD':
-                    return number + '日';
-                default:
-                    return number;
-            }
-        },
-        relativeTime: {
-            future: '%s後',
-            past: '%s前',
-            s: '数秒',
-            ss: '%d秒',
-            m: '1分',
-            mm: '%d分',
-            h: '1時間',
-            hh: '%d時間',
-            d: '1日',
-            dd: '%d日',
-            M: '1ヶ月',
-            MM: '%dヶ月',
-            y: '1年',
-            yy: '%d年',
-        },
-    });
-
-    return ja;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/jv.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/jv.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Javanese [jv]
-//! author : Rony Lantip : https://github.com/lantip
-//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var jv = moment.defineLocale('jv', {
-        months: 'Januari_Februari_Maret_April_Mei_Juni_Juli_Agustus_September_Oktober_Nopember_Desember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Ags_Sep_Okt_Nop_Des'.split('_'),
-        weekdays: 'Minggu_Senen_Seloso_Rebu_Kemis_Jemuwah_Septu'.split('_'),
-        weekdaysShort: 'Min_Sen_Sel_Reb_Kem_Jem_Sep'.split('_'),
-        weekdaysMin: 'Mg_Sn_Sl_Rb_Km_Jm_Sp'.split('_'),
-        longDateFormat: {
-            LT: 'HH.mm',
-            LTS: 'HH.mm.ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY [pukul] HH.mm',
-            LLLL: 'dddd, D MMMM YYYY [pukul] HH.mm',
-        },
-        meridiemParse: /enjing|siyang|sonten|ndalu/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'enjing') {
-                return hour;
-            } else if (meridiem === 'siyang') {
-                return hour >= 11 ? hour : hour + 12;
-            } else if (meridiem === 'sonten' || meridiem === 'ndalu') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours < 11) {
-                return 'enjing';
-            } else if (hours < 15) {
-                return 'siyang';
-            } else if (hours < 19) {
-                return 'sonten';
-            } else {
-                return 'ndalu';
-            }
-        },
-        calendar: {
-            sameDay: '[Dinten puniko pukul] LT',
-            nextDay: '[Mbenjang pukul] LT',
-            nextWeek: 'dddd [pukul] LT',
-            lastDay: '[Kala wingi pukul] LT',
-            lastWeek: 'dddd [kepengker pukul] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'wonten ing %s',
-            past: '%s ingkang kepengker',
-            s: 'sawetawis detik',
-            ss: '%d detik',
-            m: 'setunggal menit',
-            mm: '%d menit',
-            h: 'setunggal jam',
-            hh: '%d jam',
-            d: 'sedinten',
-            dd: '%d dinten',
-            M: 'sewulan',
-            MM: '%d wulan',
-            y: 'setaun',
-            yy: '%d taun',
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return jv;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ka.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ka.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Georgian [ka]
-//! author : Irakli Janiashvili : https://github.com/IrakliJani
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ka = moment.defineLocale('ka', {
-        months: 'იანვარი_თებერვალი_მარტი_აპრილი_მაისი_ივნისი_ივლისი_აგვისტო_სექტემბერი_ოქტომბერი_ნოემბერი_დეკემბერი'.split(
-            '_'
-        ),
-        monthsShort: 'იან_თებ_მარ_აპრ_მაი_ივნ_ივლ_აგვ_სექ_ოქტ_ნოე_დეკ'.split('_'),
-        weekdays: {
-            standalone: 'კვირა_ორშაბათი_სამშაბათი_ოთხშაბათი_ხუთშაბათი_პარასკევი_შაბათი'.split(
-                '_'
-            ),
-            format: 'კვირას_ორშაბათს_სამშაბათს_ოთხშაბათს_ხუთშაბათს_პარასკევს_შაბათს'.split(
-                '_'
-            ),
-            isFormat: /(წინა|შემდეგ)/,
-        },
-        weekdaysShort: 'კვი_ორშ_სამ_ოთხ_ხუთ_პარ_შაბ'.split('_'),
-        weekdaysMin: 'კვ_ორ_სა_ოთ_ხუ_პა_შა'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[დღეს] LT[-ზე]',
-            nextDay: '[ხვალ] LT[-ზე]',
-            lastDay: '[გუშინ] LT[-ზე]',
-            nextWeek: '[შემდეგ] dddd LT[-ზე]',
-            lastWeek: '[წინა] dddd LT-ზე',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: function (s) {
-                return s.replace(/(წამ|წუთ|საათ|წელ|დღ|თვ)(ი|ე)/, function (
-                    $0,
-                    $1,
-                    $2
-                ) {
-                    return $2 === 'ი' ? $1 + 'ში' : $1 + $2 + 'ში';
-                });
-            },
-            past: function (s) {
-                if (/(წამი|წუთი|საათი|დღე|თვე)/.test(s)) {
-                    return s.replace(/(ი|ე)$/, 'ის წინ');
-                }
-                if (/წელი/.test(s)) {
-                    return s.replace(/წელი$/, 'წლის წინ');
-                }
-                return s;
-            },
-            s: 'რამდენიმე წამი',
-            ss: '%d წამი',
-            m: 'წუთი',
-            mm: '%d წუთი',
-            h: 'საათი',
-            hh: '%d საათი',
-            d: 'დღე',
-            dd: '%d დღე',
-            M: 'თვე',
-            MM: '%d თვე',
-            y: 'წელი',
-            yy: '%d წელი',
-        },
-        dayOfMonthOrdinalParse: /0|1-ლი|მე-\d{1,2}|\d{1,2}-ე/,
-        ordinal: function (number) {
-            if (number === 0) {
-                return number;
-            }
-            if (number === 1) {
-                return number + '-ლი';
-            }
-            if (
-                number < 20 ||
-                (number <= 100 && number % 20 === 0) ||
-                number % 100 === 0
-            ) {
-                return 'მე-' + number;
-            }
-            return number + '-ე';
-        },
-        week: {
-            dow: 1,
-            doy: 7,
-        },
-    });
-
-    return ka;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/kk.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/kk.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Kazakh [kk]
-//! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var suffixes = {
-        0: '-ші',
-        1: '-ші',
-        2: '-ші',
-        3: '-ші',
-        4: '-ші',
-        5: '-ші',
-        6: '-шы',
-        7: '-ші',
-        8: '-ші',
-        9: '-шы',
-        10: '-шы',
-        20: '-шы',
-        30: '-шы',
-        40: '-шы',
-        50: '-ші',
-        60: '-шы',
-        70: '-ші',
-        80: '-ші',
-        90: '-шы',
-        100: '-ші',
-    };
-
-    var kk = moment.defineLocale('kk', {
-        months: 'қаңтар_ақпан_наурыз_сәуір_мамыр_маусым_шілде_тамыз_қыркүйек_қазан_қараша_желтоқсан'.split(
-            '_'
-        ),
-        monthsShort: 'қаң_ақп_нау_сәу_мам_мау_шіл_там_қыр_қаз_қар_жел'.split('_'),
-        weekdays: 'жексенбі_дүйсенбі_сейсенбі_сәрсенбі_бейсенбі_жұма_сенбі'.split(
-            '_'
-        ),
-        weekdaysShort: 'жек_дүй_сей_сәр_бей_жұм_сен'.split('_'),
-        weekdaysMin: 'жк_дй_сй_ср_бй_жм_сн'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Бүгін сағат] LT',
-            nextDay: '[Ертең сағат] LT',
-            nextWeek: 'dddd [сағат] LT',
-            lastDay: '[Кеше сағат] LT',
-            lastWeek: '[Өткен аптаның] dddd [сағат] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s ішінде',
-            past: '%s бұрын',
-            s: 'бірнеше секунд',
-            ss: '%d секунд',
-            m: 'бір минут',
-            mm: '%d минут',
-            h: 'бір сағат',
-            hh: '%d сағат',
-            d: 'бір күн',
-            dd: '%d күн',
-            M: 'бір ай',
-            MM: '%d ай',
-            y: 'бір жыл',
-            yy: '%d жыл',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-(ші|шы)/,
-        ordinal: function (number) {
-            var a = number % 10,
-                b = number >= 100 ? 100 : null;
-            return number + (suffixes[number] || suffixes[a] || suffixes[b]);
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return kk;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/km.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/km.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Cambodian [km]
-//! author : Kruy Vanna : https://github.com/kruyvanna
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '១',
-            2: '២',
-            3: '៣',
-            4: '៤',
-            5: '៥',
-            6: '៦',
-            7: '៧',
-            8: '៨',
-            9: '៩',
-            0: '០',
-        },
-        numberMap = {
-            '១': '1',
-            '២': '2',
-            '៣': '3',
-            '៤': '4',
-            '៥': '5',
-            '៦': '6',
-            '៧': '7',
-            '៨': '8',
-            '៩': '9',
-            '០': '0',
-        };
-
-    var km = moment.defineLocale('km', {
-        months: 'មករា_កុម្ភៈ_មីនា_មេសា_ឧសភា_មិថុនា_កក្កដា_សីហា_កញ្ញា_តុលា_វិច្ឆិកា_ធ្នូ'.split(
-            '_'
-        ),
-        monthsShort: 'មករា_កុម្ភៈ_មីនា_មេសា_ឧសភា_មិថុនា_កក្កដា_សីហា_កញ្ញា_តុលា_វិច្ឆិកា_ធ្នូ'.split(
-            '_'
-        ),
-        weekdays: 'អាទិត្យ_ច័ន្ទ_អង្គារ_ពុធ_ព្រហស្បតិ៍_សុក្រ_សៅរ៍'.split('_'),
-        weekdaysShort: 'អា_ច_អ_ព_ព្រ_សុ_ស'.split('_'),
-        weekdaysMin: 'អា_ច_អ_ព_ព្រ_សុ_ស'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /ព្រឹក|ល្ងាច/,
-        isPM: function (input) {
-            return input === 'ល្ងាច';
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'ព្រឹក';
-            } else {
-                return 'ល្ងាច';
-            }
-        },
-        calendar: {
-            sameDay: '[ថ្ងៃនេះ ម៉ោង] LT',
-            nextDay: '[ស្អែក ម៉ោង] LT',
-            nextWeek: 'dddd [ម៉ោង] LT',
-            lastDay: '[ម្សិលមិញ ម៉ោង] LT',
-            lastWeek: 'dddd [សប្តាហ៍មុន] [ម៉ោង] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%sទៀត',
-            past: '%sមុន',
-            s: 'ប៉ុន្មានវិនាទី',
-            ss: '%d វិនាទី',
-            m: 'មួយនាទី',
-            mm: '%d នាទី',
-            h: 'មួយម៉ោង',
-            hh: '%d ម៉ោង',
-            d: 'មួយថ្ងៃ',
-            dd: '%d ថ្ងៃ',
-            M: 'មួយខែ',
-            MM: '%d ខែ',
-            y: 'មួយឆ្នាំ',
-            yy: '%d ឆ្នាំ',
-        },
-        dayOfMonthOrdinalParse: /ទី\d{1,2}/,
-        ordinal: 'ទី%d',
-        preparse: function (string) {
-            return string.replace(/[១២៣៤៥៦៧៨៩០]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return km;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/kn.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/kn.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Kannada [kn]
-//! author : Rajeev Naik : https://github.com/rajeevnaikte
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '೧',
-            2: '೨',
-            3: '೩',
-            4: '೪',
-            5: '೫',
-            6: '೬',
-            7: '೭',
-            8: '೮',
-            9: '೯',
-            0: '೦',
-        },
-        numberMap = {
-            '೧': '1',
-            '೨': '2',
-            '೩': '3',
-            '೪': '4',
-            '೫': '5',
-            '೬': '6',
-            '೭': '7',
-            '೮': '8',
-            '೯': '9',
-            '೦': '0',
-        };
-
-    var kn = moment.defineLocale('kn', {
-        months: 'ಜನವರಿ_ಫೆಬ್ರವರಿ_ಮಾರ್ಚ್_ಏಪ್ರಿಲ್_ಮೇ_ಜೂನ್_ಜುಲೈ_ಆಗಸ್ಟ್_ಸೆಪ್ಟೆಂಬರ್_ಅಕ್ಟೋಬರ್_ನವೆಂಬರ್_ಡಿಸೆಂಬರ್'.split(
-            '_'
-        ),
-        monthsShort: 'ಜನ_ಫೆಬ್ರ_ಮಾರ್ಚ್_ಏಪ್ರಿಲ್_ಮೇ_ಜೂನ್_ಜುಲೈ_ಆಗಸ್ಟ್_ಸೆಪ್ಟೆಂ_ಅಕ್ಟೋ_ನವೆಂ_ಡಿಸೆಂ'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'ಭಾನುವಾರ_ಸೋಮವಾರ_ಮಂಗಳವಾರ_ಬುಧವಾರ_ಗುರುವಾರ_ಶುಕ್ರವಾರ_ಶನಿವಾರ'.split(
-            '_'
-        ),
-        weekdaysShort: 'ಭಾನು_ಸೋಮ_ಮಂಗಳ_ಬುಧ_ಗುರು_ಶುಕ್ರ_ಶನಿ'.split('_'),
-        weekdaysMin: 'ಭಾ_ಸೋ_ಮಂ_ಬು_ಗು_ಶು_ಶ'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm',
-            LTS: 'A h:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm',
-        },
-        calendar: {
-            sameDay: '[ಇಂದು] LT',
-            nextDay: '[ನಾಳೆ] LT',
-            nextWeek: 'dddd, LT',
-            lastDay: '[ನಿನ್ನೆ] LT',
-            lastWeek: '[ಕೊನೆಯ] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s ನಂತರ',
-            past: '%s ಹಿಂದೆ',
-            s: 'ಕೆಲವು ಕ್ಷಣಗಳು',
-            ss: '%d ಸೆಕೆಂಡುಗಳು',
-            m: 'ಒಂದು ನಿಮಿಷ',
-            mm: '%d ನಿಮಿಷ',
-            h: 'ಒಂದು ಗಂಟೆ',
-            hh: '%d ಗಂಟೆ',
-            d: 'ಒಂದು ದಿನ',
-            dd: '%d ದಿನ',
-            M: 'ಒಂದು ತಿಂಗಳು',
-            MM: '%d ತಿಂಗಳು',
-            y: 'ಒಂದು ವರ್ಷ',
-            yy: '%d ವರ್ಷ',
-        },
-        preparse: function (string) {
-            return string.replace(/[೧೨೩೪೫೬೭೮೯೦]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        meridiemParse: /ರಾತ್ರಿ|ಬೆಳಿಗ್ಗೆ|ಮಧ್ಯಾಹ್ನ|ಸಂಜೆ/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'ರಾತ್ರಿ') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'ಬೆಳಿಗ್ಗೆ') {
-                return hour;
-            } else if (meridiem === 'ಮಧ್ಯಾಹ್ನ') {
-                return hour >= 10 ? hour : hour + 12;
-            } else if (meridiem === 'ಸಂಜೆ') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'ರಾತ್ರಿ';
-            } else if (hour < 10) {
-                return 'ಬೆಳಿಗ್ಗೆ';
-            } else if (hour < 17) {
-                return 'ಮಧ್ಯಾಹ್ನ';
-            } else if (hour < 20) {
-                return 'ಸಂಜೆ';
-            } else {
-                return 'ರಾತ್ರಿ';
-            }
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(ನೇ)/,
-        ordinal: function (number) {
-            return number + 'ನೇ';
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return kn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ko.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ko.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Korean [ko]
-//! author : Kyungwook, Park : https://github.com/kyungw00k
-//! author : Jeeeyul Lee <jeeeyul@gmail.com>
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ko = moment.defineLocale('ko', {
-        months: '1월_2월_3월_4월_5월_6월_7월_8월_9월_10월_11월_12월'.split('_'),
-        monthsShort: '1월_2월_3월_4월_5월_6월_7월_8월_9월_10월_11월_12월'.split(
-            '_'
-        ),
-        weekdays: '일요일_월요일_화요일_수요일_목요일_금요일_토요일'.split('_'),
-        weekdaysShort: '일_월_화_수_목_금_토'.split('_'),
-        weekdaysMin: '일_월_화_수_목_금_토'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm',
-            LTS: 'A h:mm:ss',
-            L: 'YYYY.MM.DD.',
-            LL: 'YYYY년 MMMM D일',
-            LLL: 'YYYY년 MMMM D일 A h:mm',
-            LLLL: 'YYYY년 MMMM D일 dddd A h:mm',
-            l: 'YYYY.MM.DD.',
-            ll: 'YYYY년 MMMM D일',
-            lll: 'YYYY년 MMMM D일 A h:mm',
-            llll: 'YYYY년 MMMM D일 dddd A h:mm',
-        },
-        calendar: {
-            sameDay: '오늘 LT',
-            nextDay: '내일 LT',
-            nextWeek: 'dddd LT',
-            lastDay: '어제 LT',
-            lastWeek: '지난주 dddd LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s 후',
-            past: '%s 전',
-            s: '몇 초',
-            ss: '%d초',
-            m: '1분',
-            mm: '%d분',
-            h: '한 시간',
-            hh: '%d시간',
-            d: '하루',
-            dd: '%d일',
-            M: '한 달',
-            MM: '%d달',
-            y: '일 년',
-            yy: '%d년',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(일|월|주)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                case 'd':
-                case 'D':
-                case 'DDD':
-                    return number + '일';
-                case 'M':
-                    return number + '월';
-                case 'w':
-                case 'W':
-                    return number + '주';
-                default:
-                    return number;
-            }
-        },
-        meridiemParse: /오전|오후/,
-        isPM: function (token) {
-            return token === '오후';
-        },
-        meridiem: function (hour, minute, isUpper) {
-            return hour < 12 ? '오전' : '오후';
-        },
-    });
-
-    return ko;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ku.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ku.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Kurdish [ku]
-//! author : Shahram Mebashar : https://github.com/ShahramMebashar
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '١',
-            2: '٢',
-            3: '٣',
-            4: '٤',
-            5: '٥',
-            6: '٦',
-            7: '٧',
-            8: '٨',
-            9: '٩',
-            0: '٠',
-        },
-        numberMap = {
-            '١': '1',
-            '٢': '2',
-            '٣': '3',
-            '٤': '4',
-            '٥': '5',
-            '٦': '6',
-            '٧': '7',
-            '٨': '8',
-            '٩': '9',
-            '٠': '0',
-        },
-        months = [
-            'کانونی دووەم',
-            'شوبات',
-            'ئازار',
-            'نیسان',
-            'ئایار',
-            'حوزەیران',
-            'تەمموز',
-            'ئاب',
-            'ئەیلوول',
-            'تشرینی یەكەم',
-            'تشرینی دووەم',
-            'كانونی یەکەم',
-        ];
-
-    var ku = moment.defineLocale('ku', {
-        months: months,
-        monthsShort: months,
-        weekdays: 'یه‌كشه‌ممه‌_دووشه‌ممه‌_سێشه‌ممه‌_چوارشه‌ممه‌_پێنجشه‌ممه‌_هه‌ینی_شه‌ممه‌'.split(
-            '_'
-        ),
-        weekdaysShort: 'یه‌كشه‌م_دووشه‌م_سێشه‌م_چوارشه‌م_پێنجشه‌م_هه‌ینی_شه‌ممه‌'.split(
-            '_'
-        ),
-        weekdaysMin: 'ی_د_س_چ_پ_ه_ش'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /ئێواره‌|به‌یانی/,
-        isPM: function (input) {
-            return /ئێواره‌/.test(input);
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'به‌یانی';
-            } else {
-                return 'ئێواره‌';
-            }
-        },
-        calendar: {
-            sameDay: '[ئه‌مرۆ كاتژمێر] LT',
-            nextDay: '[به‌یانی كاتژمێر] LT',
-            nextWeek: 'dddd [كاتژمێر] LT',
-            lastDay: '[دوێنێ كاتژمێر] LT',
-            lastWeek: 'dddd [كاتژمێر] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'له‌ %s',
-            past: '%s',
-            s: 'چه‌ند چركه‌یه‌ك',
-            ss: 'چركه‌ %d',
-            m: 'یه‌ك خوله‌ك',
-            mm: '%d خوله‌ك',
-            h: 'یه‌ك كاتژمێر',
-            hh: '%d كاتژمێر',
-            d: 'یه‌ك ڕۆژ',
-            dd: '%d ڕۆژ',
-            M: 'یه‌ك مانگ',
-            MM: '%d مانگ',
-            y: 'یه‌ك ساڵ',
-            yy: '%d ساڵ',
-        },
-        preparse: function (string) {
-            return string
-                .replace(/[١٢٣٤٥٦٧٨٩٠]/g, function (match) {
-                    return numberMap[match];
-                })
-                .replace(/،/g, ',');
-        },
-        postformat: function (string) {
-            return string
-                .replace(/\d/g, function (match) {
-                    return symbolMap[match];
-                })
-                .replace(/,/g, '،');
-        },
-        week: {
-            dow: 6, // Saturday is the first day of the week.
-            doy: 12, // The week that contains Jan 12th is the first week of the year.
-        },
-    });
-
-    return ku;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ky.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ky.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Kyrgyz [ky]
-//! author : Chyngyz Arystan uulu : https://github.com/chyngyz
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var suffixes = {
-        0: '-чү',
-        1: '-чи',
-        2: '-чи',
-        3: '-чү',
-        4: '-чү',
-        5: '-чи',
-        6: '-чы',
-        7: '-чи',
-        8: '-чи',
-        9: '-чу',
-        10: '-чу',
-        20: '-чы',
-        30: '-чу',
-        40: '-чы',
-        50: '-чү',
-        60: '-чы',
-        70: '-чи',
-        80: '-чи',
-        90: '-чу',
-        100: '-чү',
-    };
-
-    var ky = moment.defineLocale('ky', {
-        months: 'январь_февраль_март_апрель_май_июнь_июль_август_сентябрь_октябрь_ноябрь_декабрь'.split(
-            '_'
-        ),
-        monthsShort: 'янв_фев_март_апр_май_июнь_июль_авг_сен_окт_ноя_дек'.split(
-            '_'
-        ),
-        weekdays: 'Жекшемби_Дүйшөмбү_Шейшемби_Шаршемби_Бейшемби_Жума_Ишемби'.split(
-            '_'
-        ),
-        weekdaysShort: 'Жек_Дүй_Шей_Шар_Бей_Жум_Ише'.split('_'),
-        weekdaysMin: 'Жк_Дй_Шй_Шр_Бй_Жм_Иш'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Бүгүн саат] LT',
-            nextDay: '[Эртең саат] LT',
-            nextWeek: 'dddd [саат] LT',
-            lastDay: '[Кечээ саат] LT',
-            lastWeek: '[Өткөн аптанын] dddd [күнү] [саат] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s ичинде',
-            past: '%s мурун',
-            s: 'бирнече секунд',
-            ss: '%d секунд',
-            m: 'бир мүнөт',
-            mm: '%d мүнөт',
-            h: 'бир саат',
-            hh: '%d саат',
-            d: 'бир күн',
-            dd: '%d күн',
-            M: 'бир ай',
-            MM: '%d ай',
-            y: 'бир жыл',
-            yy: '%d жыл',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-(чи|чы|чү|чу)/,
-        ordinal: function (number) {
-            var a = number % 10,
-                b = number >= 100 ? 100 : null;
-            return number + (suffixes[number] || suffixes[a] || suffixes[b]);
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return ky;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/lb.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/lb.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Luxembourgish [lb]
-//! author : mweimerskirch : https://github.com/mweimerskirch
-//! author : David Raison : https://github.com/kwisatz
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var format = {
-            m: ['eng Minutt', 'enger Minutt'],
-            h: ['eng Stonn', 'enger Stonn'],
-            d: ['een Dag', 'engem Dag'],
-            M: ['ee Mount', 'engem Mount'],
-            y: ['ee Joer', 'engem Joer'],
-        };
-        return withoutSuffix ? format[key][0] : format[key][1];
-    }
-    function processFutureTime(string) {
-        var number = string.substr(0, string.indexOf(' '));
-        if (eifelerRegelAppliesToNumber(number)) {
-            return 'a ' + string;
-        }
-        return 'an ' + string;
-    }
-    function processPastTime(string) {
-        var number = string.substr(0, string.indexOf(' '));
-        if (eifelerRegelAppliesToNumber(number)) {
-            return 'viru ' + string;
-        }
-        return 'virun ' + string;
-    }
+    data.hide = false;
+    data.attributes['x-out-of-boundaries'] = false;
+  }
+
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function inner(data) {
+  var placement = data.placement;
+  var basePlacement = placement.split('-')[0];
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var isHoriz = ['left', 'right'].indexOf(basePlacement) !== -1;
+
+  var subtractLength = ['top', 'left'].indexOf(basePlacement) === -1;
+
+  popper[isHoriz ? 'left' : 'top'] = reference[basePlacement] - (subtractLength ? popper[isHoriz ? 'width' : 'height'] : 0);
+
+  data.placement = getOppositePlacement(placement);
+  data.offsets.popper = getClientRect(popper);
+
+  return data;
+}
+
+/**
+ * Modifier function, each modifier can have a function of this type assigned
+ * to its `fn` property.<br />
+ * These functions will be called on each update, this means that you must
+ * make sure they are performant enough to avoid performance bottlenecks.
+ *
+ * @function ModifierFn
+ * @argument {dataObject} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {dataObject} The data object, properly modified
+ */
+
+/**
+ * Modifiers are plugins used to alter the behavior of your poppers.<br />
+ * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
+ * needed by the library.
+ *
+ * Usually you don't want to override the `order`, `fn` and `onLoad` props.
+ * All the other properties are configurations that could be tweaked.
+ * @namespace modifiers
+ */
+var modifiers = {
+  /**
+   * Modifier used to shift the popper on the start or end of its reference
+   * element.<br />
+   * It will read the variation of the `placement` property.<br />
+   * It can be one either `-end` or `-start`.
+   * @memberof modifiers
+   * @inner
+   */
+  shift: {
+    /** @prop {number} order=100 - Index used to define the order of execution */
+    order: 100,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: shift
+  },
+
+  /**
+   * The `offset` modifier can shift your popper on both its axis.
+   *
+   * It accepts the following units:
+   * - `px` or unit-less, interpreted as pixels
+   * - `%` or `%r`, percentage relative to the length of the reference element
+   * - `%p`, percentage relative to the length of the popper element
+   * - `vw`, CSS viewport width unit
+   * - `vh`, CSS viewport height unit
+   *
+   * For length is intended the main axis relative to the placement of the popper.<br />
+   * This means that if the placement is `top` or `bottom`, the length will be the
+   * `width`. In case of `left` or `right`, it will be the `height`.
+   *
+   * You can provide a single value (as `Number` or `String`), or a pair of values
+   * as `String` divided by a comma or one (or more) white spaces.<br />
+   * The latter is a deprecated method because it leads to confusion and will be
+   * removed in v2.<br />
+   * Additionally, it accepts additions and subtractions between different units.
+   * Note that multiplications and divisions aren't supported.
+   *
+   * Valid examples are:
+   * ```
+   * 10
+   * '10%'
+   * '10, 10'
+   * '10%, 10'
+   * '10 + 10%'
+   * '10 - 5vh + 3%'
+   * '-10px + 5vh, 5px - 6%'
+   * ```
+   * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
+   * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
+   * > You can read more on this at this [issue](https://github.com/FezVrasta/popper.js/issues/373).
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  offset: {
+    /** @prop {number} order=200 - Index used to define the order of execution */
+    order: 200,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: offset,
+    /** @prop {Number|String} offset=0
+     * The offset value as described in the modifier description
+     */
+    offset: 0
+  },
+
+  /**
+   * Modifier used to prevent the popper from being positioned outside the boundary.
+   *
+   * A scenario exists where the reference itself is not within the boundaries.<br />
+   * We can say it has "escaped the boundaries" — or just "escaped".<br />
+   * In this case we need to decide whether the popper should either:
+   *
+   * - detach from the reference and remain "trapped" in the boundaries, or
+   * - if it should ignore the boundary and "escape with its reference"
+   *
+   * When `escapeWithReference` is set to`true` and reference is completely
+   * outside its boundaries, the popper will overflow (or completely leave)
+   * the boundaries in order to remain attached to the edge of the reference.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  preventOverflow: {
+    /** @prop {number} order=300 - Index used to define the order of execution */
+    order: 300,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: preventOverflow,
     /**
-     * Returns true if the word before the given number loses the '-n' ending.
-     * e.g. 'an 10 Deeg' but 'a 5 Deeg'
+     * @prop {Array} [priority=['left','right','top','bottom']]
+     * Popper will try to prevent overflow following these priorities by default,
+     * then, it could overflow on the left and on top of the `boundariesElement`
+     */
+    priority: ['left', 'right', 'top', 'bottom'],
+    /**
+     * @prop {number} padding=5
+     * Amount of pixel used to define a minimum distance between the boundaries
+     * and the popper. This makes sure the popper always has a little padding
+     * between the edges of its container
+     */
+    padding: 5,
+    /**
+     * @prop {String|HTMLElement} boundariesElement='scrollParent'
+     * Boundaries used by the modifier. Can be `scrollParent`, `window`,
+     * `viewport` or any DOM element.
+     */
+    boundariesElement: 'scrollParent'
+  },
+
+  /**
+   * Modifier used to make sure the reference and its popper stay near each other
+   * without leaving any gap between the two. Especially useful when the arrow is
+   * enabled and you want to ensure that it points to its reference element.
+   * It cares only about the first axis. You can still have poppers with margin
+   * between the popper and its reference element.
+   * @memberof modifiers
+   * @inner
+   */
+  keepTogether: {
+    /** @prop {number} order=400 - Index used to define the order of execution */
+    order: 400,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: keepTogether
+  },
+
+  /**
+   * This modifier is used to move the `arrowElement` of the popper to make
+   * sure it is positioned between the reference element and its popper element.
+   * It will read the outer size of the `arrowElement` node to detect how many
+   * pixels of conjunction are needed.
+   *
+   * It has no effect if no `arrowElement` is provided.
+   * @memberof modifiers
+   * @inner
+   */
+  arrow: {
+    /** @prop {number} order=500 - Index used to define the order of execution */
+    order: 500,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: arrow,
+    /** @prop {String|HTMLElement} element='[x-arrow]' - Selector or node used as arrow */
+    element: '[x-arrow]'
+  },
+
+  /**
+   * Modifier used to flip the popper's placement when it starts to overlap its
+   * reference element.
+   *
+   * Requires the `preventOverflow` modifier before it in order to work.
+   *
+   * **NOTE:** this modifier will interrupt the current update cycle and will
+   * restart it if it detects the need to flip the placement.
+   * @memberof modifiers
+   * @inner
+   */
+  flip: {
+    /** @prop {number} order=600 - Index used to define the order of execution */
+    order: 600,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: flip,
+    /**
+     * @prop {String|Array} behavior='flip'
+     * The behavior used to change the popper's placement. It can be one of
+     * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
+     * placements (with optional variations)
+     */
+    behavior: 'flip',
+    /**
+     * @prop {number} padding=5
+     * The popper will flip if it hits the edges of the `boundariesElement`
+     */
+    padding: 5,
+    /**
+     * @prop {String|HTMLElement} boundariesElement='viewport'
+     * The element which will define the boundaries of the popper position.
+     * The popper will never be placed outside of the defined boundaries
+     * (except if `keepTogether` is enabled)
+     */
+    boundariesElement: 'viewport',
+    /**
+     * @prop {Boolean} flipVariations=false
+     * The popper will switch placement variation between `-start` and `-end` when
+     * the reference element overlaps its boundaries.
      *
-     * @param number {integer}
-     * @returns {boolean}
+     * The original placement should have a set variation.
      */
-    function eifelerRegelAppliesToNumber(number) {
-        number = parseInt(number, 10);
-        if (isNaN(number)) {
-            return false;
-        }
-        if (number < 0) {
-            // Negative Number --> always true
-            return true;
-        } else if (number < 10) {
-            // Only 1 digit
-            if (4 <= number && number <= 7) {
-                return true;
-            }
-            return false;
-        } else if (number < 100) {
-            // 2 digits
-            var lastDigit = number % 10,
-                firstDigit = number / 10;
-            if (lastDigit === 0) {
-                return eifelerRegelAppliesToNumber(firstDigit);
-            }
-            return eifelerRegelAppliesToNumber(lastDigit);
-        } else if (number < 10000) {
-            // 3 or 4 digits --> recursively check first digit
-            while (number >= 10) {
-                number = number / 10;
-            }
-            return eifelerRegelAppliesToNumber(number);
-        } else {
-            // Anything larger than 4 digits: recursively check first n-3 digits
-            number = number / 1000;
-            return eifelerRegelAppliesToNumber(number);
-        }
-    }
-
-    var lb = moment.defineLocale('lb', {
-        months: 'Januar_Februar_Mäerz_Abrëll_Mee_Juni_Juli_August_September_Oktober_November_Dezember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan._Febr._Mrz._Abr._Mee_Jun._Jul._Aug._Sept._Okt._Nov._Dez.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'Sonndeg_Méindeg_Dënschdeg_Mëttwoch_Donneschdeg_Freideg_Samschdeg'.split(
-            '_'
-        ),
-        weekdaysShort: 'So._Mé._Dë._Më._Do._Fr._Sa.'.split('_'),
-        weekdaysMin: 'So_Mé_Dë_Më_Do_Fr_Sa'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm [Auer]',
-            LTS: 'H:mm:ss [Auer]',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY H:mm [Auer]',
-            LLLL: 'dddd, D. MMMM YYYY H:mm [Auer]',
-        },
-        calendar: {
-            sameDay: '[Haut um] LT',
-            sameElse: 'L',
-            nextDay: '[Muer um] LT',
-            nextWeek: 'dddd [um] LT',
-            lastDay: '[Gëschter um] LT',
-            lastWeek: function () {
-                // Different date string for 'Dënschdeg' (Tuesday) and 'Donneschdeg' (Thursday) due to phonological rule
-                switch (this.day()) {
-                    case 2:
-                    case 4:
-                        return '[Leschten] dddd [um] LT';
-                    default:
-                        return '[Leschte] dddd [um] LT';
-                }
-            },
-        },
-        relativeTime: {
-            future: processFutureTime,
-            past: processPastTime,
-            s: 'e puer Sekonnen',
-            ss: '%d Sekonnen',
-            m: processRelativeTime,
-            mm: '%d Minutten',
-            h: processRelativeTime,
-            hh: '%d Stonnen',
-            d: processRelativeTime,
-            dd: '%d Deeg',
-            M: processRelativeTime,
-            MM: '%d Méint',
-            y: processRelativeTime,
-            yy: '%d Joer',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return lb;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/lo.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/lo.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Lao [lo]
-//! author : Ryan Hart : https://github.com/ryanhart2
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var lo = moment.defineLocale('lo', {
-        months: 'ມັງກອນ_ກຸມພາ_ມີນາ_ເມສາ_ພຶດສະພາ_ມິຖຸນາ_ກໍລະກົດ_ສິງຫາ_ກັນຍາ_ຕຸລາ_ພະຈິກ_ທັນວາ'.split(
-            '_'
-        ),
-        monthsShort: 'ມັງກອນ_ກຸມພາ_ມີນາ_ເມສາ_ພຶດສະພາ_ມິຖຸນາ_ກໍລະກົດ_ສິງຫາ_ກັນຍາ_ຕຸລາ_ພະຈິກ_ທັນວາ'.split(
-            '_'
-        ),
-        weekdays: 'ອາທິດ_ຈັນ_ອັງຄານ_ພຸດ_ພະຫັດ_ສຸກ_ເສົາ'.split('_'),
-        weekdaysShort: 'ທິດ_ຈັນ_ອັງຄານ_ພຸດ_ພະຫັດ_ສຸກ_ເສົາ'.split('_'),
-        weekdaysMin: 'ທ_ຈ_ອຄ_ພ_ພຫ_ສກ_ສ'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'ວັນdddd D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /ຕອນເຊົ້າ|ຕອນແລງ/,
-        isPM: function (input) {
-            return input === 'ຕອນແລງ';
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'ຕອນເຊົ້າ';
-            } else {
-                return 'ຕອນແລງ';
-            }
-        },
-        calendar: {
-            sameDay: '[ມື້ນີ້ເວລາ] LT',
-            nextDay: '[ມື້ອື່ນເວລາ] LT',
-            nextWeek: '[ວັນ]dddd[ໜ້າເວລາ] LT',
-            lastDay: '[ມື້ວານນີ້ເວລາ] LT',
-            lastWeek: '[ວັນ]dddd[ແລ້ວນີ້ເວລາ] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'ອີກ %s',
-            past: '%sຜ່ານມາ',
-            s: 'ບໍ່ເທົ່າໃດວິນາທີ',
-            ss: '%d ວິນາທີ',
-            m: '1 ນາທີ',
-            mm: '%d ນາທີ',
-            h: '1 ຊົ່ວໂມງ',
-            hh: '%d ຊົ່ວໂມງ',
-            d: '1 ມື້',
-            dd: '%d ມື້',
-            M: '1 ເດືອນ',
-            MM: '%d ເດືອນ',
-            y: '1 ປີ',
-            yy: '%d ປີ',
-        },
-        dayOfMonthOrdinalParse: /(ທີ່)\d{1,2}/,
-        ordinal: function (number) {
-            return 'ທີ່' + number;
-        },
-    });
-
-    return lo;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/lt.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/lt.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Lithuanian [lt]
-//! author : Mindaugas Mozūras : https://github.com/mmozuras
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var units = {
-        ss: 'sekundė_sekundžių_sekundes',
-        m: 'minutė_minutės_minutę',
-        mm: 'minutės_minučių_minutes',
-        h: 'valanda_valandos_valandą',
-        hh: 'valandos_valandų_valandas',
-        d: 'diena_dienos_dieną',
-        dd: 'dienos_dienų_dienas',
-        M: 'mėnuo_mėnesio_mėnesį',
-        MM: 'mėnesiai_mėnesių_mėnesius',
-        y: 'metai_metų_metus',
-        yy: 'metai_metų_metus',
-    };
-    function translateSeconds(number, withoutSuffix, key, isFuture) {
-        if (withoutSuffix) {
-            return 'kelios sekundės';
-        } else {
-            return isFuture ? 'kelių sekundžių' : 'kelias sekundes';
-        }
-    }
-    function translateSingular(number, withoutSuffix, key, isFuture) {
-        return withoutSuffix
-            ? forms(key)[0]
-            : isFuture
-            ? forms(key)[1]
-            : forms(key)[2];
-    }
-    function special(number) {
-        return number % 10 === 0 || (number > 10 && number < 20);
-    }
-    function forms(key) {
-        return units[key].split('_');
-    }
-    function translate(number, withoutSuffix, key, isFuture) {
-        var result = number + ' ';
-        if (number === 1) {
-            return (
-                result + translateSingular(number, withoutSuffix, key[0], isFuture)
-            );
-        } else if (withoutSuffix) {
-            return result + (special(number) ? forms(key)[1] : forms(key)[0]);
-        } else {
-            if (isFuture) {
-                return result + forms(key)[1];
-            } else {
-                return result + (special(number) ? forms(key)[1] : forms(key)[2]);
-            }
-        }
-    }
-    var lt = moment.defineLocale('lt', {
-        months: {
-            format: 'sausio_vasario_kovo_balandžio_gegužės_birželio_liepos_rugpjūčio_rugsėjo_spalio_lapkričio_gruodžio'.split(
-                '_'
-            ),
-            standalone: 'sausis_vasaris_kovas_balandis_gegužė_birželis_liepa_rugpjūtis_rugsėjis_spalis_lapkritis_gruodis'.split(
-                '_'
-            ),
-            isFormat: /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?|MMMM?(\[[^\[\]]*\]|\s)+D[oD]?/,
-        },
-        monthsShort: 'sau_vas_kov_bal_geg_bir_lie_rgp_rgs_spa_lap_grd'.split('_'),
-        weekdays: {
-            format: 'sekmadienį_pirmadienį_antradienį_trečiadienį_ketvirtadienį_penktadienį_šeštadienį'.split(
-                '_'
-            ),
-            standalone: 'sekmadienis_pirmadienis_antradienis_trečiadienis_ketvirtadienis_penktadienis_šeštadienis'.split(
-                '_'
-            ),
-            isFormat: /dddd HH:mm/,
-        },
-        weekdaysShort: 'Sek_Pir_Ant_Tre_Ket_Pen_Šeš'.split('_'),
-        weekdaysMin: 'S_P_A_T_K_Pn_Š'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'YYYY-MM-DD',
-            LL: 'YYYY [m.] MMMM D [d.]',
-            LLL: 'YYYY [m.] MMMM D [d.], HH:mm [val.]',
-            LLLL: 'YYYY [m.] MMMM D [d.], dddd, HH:mm [val.]',
-            l: 'YYYY-MM-DD',
-            ll: 'YYYY [m.] MMMM D [d.]',
-            lll: 'YYYY [m.] MMMM D [d.], HH:mm [val.]',
-            llll: 'YYYY [m.] MMMM D [d.], ddd, HH:mm [val.]',
-        },
-        calendar: {
-            sameDay: '[Šiandien] LT',
-            nextDay: '[Rytoj] LT',
-            nextWeek: 'dddd LT',
-            lastDay: '[Vakar] LT',
-            lastWeek: '[Praėjusį] dddd LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'po %s',
-            past: 'prieš %s',
-            s: translateSeconds,
-            ss: translate,
-            m: translateSingular,
-            mm: translate,
-            h: translateSingular,
-            hh: translate,
-            d: translateSingular,
-            dd: translate,
-            M: translateSingular,
-            MM: translate,
-            y: translateSingular,
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-oji/,
-        ordinal: function (number) {
-            return number + '-oji';
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return lt;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/lv.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/lv.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Latvian [lv]
-//! author : Kristaps Karlsons : https://github.com/skakri
-//! author : Jānis Elmeris : https://github.com/JanisE
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var units = {
-        ss: 'sekundes_sekundēm_sekunde_sekundes'.split('_'),
-        m: 'minūtes_minūtēm_minūte_minūtes'.split('_'),
-        mm: 'minūtes_minūtēm_minūte_minūtes'.split('_'),
-        h: 'stundas_stundām_stunda_stundas'.split('_'),
-        hh: 'stundas_stundām_stunda_stundas'.split('_'),
-        d: 'dienas_dienām_diena_dienas'.split('_'),
-        dd: 'dienas_dienām_diena_dienas'.split('_'),
-        M: 'mēneša_mēnešiem_mēnesis_mēneši'.split('_'),
-        MM: 'mēneša_mēnešiem_mēnesis_mēneši'.split('_'),
-        y: 'gada_gadiem_gads_gadi'.split('_'),
-        yy: 'gada_gadiem_gads_gadi'.split('_'),
-    };
+    flipVariations: false,
     /**
-     * @param withoutSuffix boolean true = a length of time; false = before/after a period of time.
+     * @prop {Boolean} flipVariationsByContent=false
+     * The popper will switch placement variation between `-start` and `-end` when
+     * the popper element overlaps its reference boundaries.
+     *
+     * The original placement should have a set variation.
      */
-    function format(forms, number, withoutSuffix) {
-        if (withoutSuffix) {
-            // E.g. "21 minūte", "3 minūtes".
-            return number % 10 === 1 && number % 100 !== 11 ? forms[2] : forms[3];
-        } else {
-            // E.g. "21 minūtes" as in "pēc 21 minūtes".
-            // E.g. "3 minūtēm" as in "pēc 3 minūtēm".
-            return number % 10 === 1 && number % 100 !== 11 ? forms[0] : forms[1];
-        }
-    }
-    function relativeTimeWithPlural(number, withoutSuffix, key) {
-        return number + ' ' + format(units[key], number, withoutSuffix);
-    }
-    function relativeTimeWithSingular(number, withoutSuffix, key) {
-        return format(units[key], number, withoutSuffix);
-    }
-    function relativeSeconds(number, withoutSuffix) {
-        return withoutSuffix ? 'dažas sekundes' : 'dažām sekundēm';
-    }
+    flipVariationsByContent: false
+  },
 
-    var lv = moment.defineLocale('lv', {
-        months: 'janvāris_februāris_marts_aprīlis_maijs_jūnijs_jūlijs_augusts_septembris_oktobris_novembris_decembris'.split(
-            '_'
-        ),
-        monthsShort: 'jan_feb_mar_apr_mai_jūn_jūl_aug_sep_okt_nov_dec'.split('_'),
-        weekdays: 'svētdiena_pirmdiena_otrdiena_trešdiena_ceturtdiena_piektdiena_sestdiena'.split(
-            '_'
-        ),
-        weekdaysShort: 'Sv_P_O_T_C_Pk_S'.split('_'),
-        weekdaysMin: 'Sv_P_O_T_C_Pk_S'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY.',
-            LL: 'YYYY. [gada] D. MMMM',
-            LLL: 'YYYY. [gada] D. MMMM, HH:mm',
-            LLLL: 'YYYY. [gada] D. MMMM, dddd, HH:mm',
-        },
-        calendar: {
-            sameDay: '[Šodien pulksten] LT',
-            nextDay: '[Rīt pulksten] LT',
-            nextWeek: 'dddd [pulksten] LT',
-            lastDay: '[Vakar pulksten] LT',
-            lastWeek: '[Pagājušā] dddd [pulksten] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'pēc %s',
-            past: 'pirms %s',
-            s: relativeSeconds,
-            ss: relativeTimeWithPlural,
-            m: relativeTimeWithSingular,
-            mm: relativeTimeWithPlural,
-            h: relativeTimeWithSingular,
-            hh: relativeTimeWithPlural,
-            d: relativeTimeWithSingular,
-            dd: relativeTimeWithPlural,
-            M: relativeTimeWithSingular,
-            MM: relativeTimeWithPlural,
-            y: relativeTimeWithSingular,
-            yy: relativeTimeWithPlural,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
+  /**
+   * Modifier used to make the popper flow toward the inner of the reference element.
+   * By default, when this modifier is disabled, the popper will be placed outside
+   * the reference element.
+   * @memberof modifiers
+   * @inner
+   */
+  inner: {
+    /** @prop {number} order=700 - Index used to define the order of execution */
+    order: 700,
+    /** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */
+    enabled: false,
+    /** @prop {ModifierFn} */
+    fn: inner
+  },
 
-    return lv;
+  /**
+   * Modifier used to hide the popper when its reference element is outside of the
+   * popper boundaries. It will set a `x-out-of-boundaries` attribute which can
+   * be used to hide with a CSS selector the popper when its reference is
+   * out of boundaries.
+   *
+   * Requires the `preventOverflow` modifier before it in order to work.
+   * @memberof modifiers
+   * @inner
+   */
+  hide: {
+    /** @prop {number} order=800 - Index used to define the order of execution */
+    order: 800,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: hide
+  },
 
-})));
+  /**
+   * Computes the style that will be applied to the popper element to gets
+   * properly positioned.
+   *
+   * Note that this modifier will not touch the DOM, it just prepares the styles
+   * so that `applyStyle` modifier can apply it. This separation is useful
+   * in case you need to replace `applyStyle` with a custom implementation.
+   *
+   * This modifier has `850` as `order` value to maintain backward compatibility
+   * with previous versions of Popper.js. Expect the modifiers ordering method
+   * to change in future major versions of the library.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  computeStyle: {
+    /** @prop {number} order=850 - Index used to define the order of execution */
+    order: 850,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: computeStyle,
+    /**
+     * @prop {Boolean} gpuAcceleration=true
+     * If true, it uses the CSS 3D transformation to position the popper.
+     * Otherwise, it will use the `top` and `left` properties
+     */
+    gpuAcceleration: true,
+    /**
+     * @prop {string} [x='bottom']
+     * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
+     * Change this if your popper should grow in a direction different from `bottom`
+     */
+    x: 'bottom',
+    /**
+     * @prop {string} [x='left']
+     * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
+     * Change this if your popper should grow in a direction different from `right`
+     */
+    y: 'right'
+  },
 
+  /**
+   * Applies the computed styles to the popper element.
+   *
+   * All the DOM manipulations are limited to this modifier. This is useful in case
+   * you want to integrate Popper.js inside a framework or view library and you
+   * want to delegate all the DOM manipulations to it.
+   *
+   * Note that if you disable this modifier, you must make sure the popper element
+   * has its position set to `absolute` before Popper.js can do its work!
+   *
+   * Just disable this modifier and define your own to achieve the desired effect.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  applyStyle: {
+    /** @prop {number} order=900 - Index used to define the order of execution */
+    order: 900,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: applyStyle,
+    /** @prop {Function} */
+    onLoad: applyStyleOnLoad,
+    /**
+     * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
+     * @prop {Boolean} gpuAcceleration=true
+     * If true, it uses the CSS 3D transformation to position the popper.
+     * Otherwise, it will use the `top` and `left` properties
+     */
+    gpuAcceleration: undefined
+  }
+};
 
-/***/ }),
+/**
+ * The `dataObject` is an object containing all the information used by Popper.js.
+ * This object is passed to modifiers and to the `onCreate` and `onUpdate` callbacks.
+ * @name dataObject
+ * @property {Object} data.instance The Popper.js instance
+ * @property {String} data.placement Placement applied to popper
+ * @property {String} data.originalPlacement Placement originally defined on init
+ * @property {Boolean} data.flipped True if popper has been flipped by flip modifier
+ * @property {Boolean} data.hide True if the reference element is out of boundaries, useful to know when to hide the popper
+ * @property {HTMLElement} data.arrowElement Node used as arrow by arrow modifier
+ * @property {Object} data.styles Any CSS property defined here will be applied to the popper. It expects the JavaScript nomenclature (eg. `marginBottom`)
+ * @property {Object} data.arrowStyles Any CSS property defined here will be applied to the popper arrow. It expects the JavaScript nomenclature (eg. `marginBottom`)
+ * @property {Object} data.boundaries Offsets of the popper boundaries
+ * @property {Object} data.offsets The measurements of popper, reference and arrow elements
+ * @property {Object} data.offsets.popper `top`, `left`, `width`, `height` values
+ * @property {Object} data.offsets.reference `top`, `left`, `width`, `height` values
+ * @property {Object} data.offsets.arrow] `top` and `left` offsets, only one of them will be different from 0
+ */
 
-/***/ "./node_modules/moment/locale/me.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/me.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/**
+ * Default options provided to Popper.js constructor.<br />
+ * These can be overridden using the `options` argument of Popper.js.<br />
+ * To override an option, simply pass an object with the same
+ * structure of the `options` object, as the 3rd argument. For example:
+ * ```
+ * new Popper(ref, pop, {
+ *   modifiers: {
+ *     preventOverflow: { enabled: false }
+ *   }
+ * })
+ * ```
+ * @type {Object}
+ * @static
+ * @memberof Popper
+ */
+var Defaults = {
+  /**
+   * Popper's placement.
+   * @prop {Popper.placements} placement='bottom'
+   */
+  placement: 'bottom',
 
-//! moment.js locale configuration
-//! locale : Montenegrin [me]
-//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
+  /**
+   * Set this to true if you want popper to position it self in 'fixed' mode
+   * @prop {Boolean} positionFixed=false
+   */
+  positionFixed: false,
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
+  /**
+   * Whether events (resize, scroll) are initially enabled.
+   * @prop {Boolean} eventsEnabled=true
+   */
+  eventsEnabled: true,
 
-    //! moment.js locale configuration
+  /**
+   * Set to true if you want to automatically remove the popper when
+   * you call the `destroy` method.
+   * @prop {Boolean} removeOnDestroy=false
+   */
+  removeOnDestroy: false,
 
-    var translator = {
-        words: {
-            //Different grammatical cases
-            ss: ['sekund', 'sekunda', 'sekundi'],
-            m: ['jedan minut', 'jednog minuta'],
-            mm: ['minut', 'minuta', 'minuta'],
-            h: ['jedan sat', 'jednog sata'],
-            hh: ['sat', 'sata', 'sati'],
-            dd: ['dan', 'dana', 'dana'],
-            MM: ['mjesec', 'mjeseca', 'mjeseci'],
-            yy: ['godina', 'godine', 'godina'],
-        },
-        correctGrammaticalCase: function (number, wordKey) {
-            return number === 1
-                ? wordKey[0]
-                : number >= 2 && number <= 4
-                ? wordKey[1]
-                : wordKey[2];
-        },
-        translate: function (number, withoutSuffix, key) {
-            var wordKey = translator.words[key];
-            if (key.length === 1) {
-                return withoutSuffix ? wordKey[0] : wordKey[1];
-            } else {
-                return (
-                    number +
-                    ' ' +
-                    translator.correctGrammaticalCase(number, wordKey)
-                );
-            }
-        },
+  /**
+   * Callback called when the popper is created.<br />
+   * By default, it is set to no-op.<br />
+   * Access Popper.js instance with `data.instance`.
+   * @prop {onCreate}
+   */
+  onCreate: function onCreate() {},
+
+  /**
+   * Callback called when the popper is updated. This callback is not called
+   * on the initialization/creation of the popper, but only on subsequent
+   * updates.<br />
+   * By default, it is set to no-op.<br />
+   * Access Popper.js instance with `data.instance`.
+   * @prop {onUpdate}
+   */
+  onUpdate: function onUpdate() {},
+
+  /**
+   * List of modifiers used to modify the offsets before they are applied to the popper.
+   * They provide most of the functionalities of Popper.js.
+   * @prop {modifiers}
+   */
+  modifiers: modifiers
+};
+
+/**
+ * @callback onCreate
+ * @param {dataObject} data
+ */
+
+/**
+ * @callback onUpdate
+ * @param {dataObject} data
+ */
+
+// Utils
+// Methods
+var Popper = function () {
+  /**
+   * Creates a new Popper.js instance.
+   * @class Popper
+   * @param {Element|referenceObject} reference - The reference element used to position the popper
+   * @param {Element} popper - The HTML / XML element used as the popper
+   * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
+   * @return {Object} instance - The generated Popper.js instance
+   */
+  function Popper(reference, popper) {
+    var _this = this;
+
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    classCallCheck(this, Popper);
+
+    this.scheduleUpdate = function () {
+      return requestAnimationFrame(_this.update);
     };
 
-    var me = moment.defineLocale('me', {
-        months: 'januar_februar_mart_april_maj_jun_jul_avgust_septembar_oktobar_novembar_decembar'.split(
-            '_'
-        ),
-        monthsShort: 'jan._feb._mar._apr._maj_jun_jul_avg._sep._okt._nov._dec.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'nedjelja_ponedjeljak_utorak_srijeda_četvrtak_petak_subota'.split(
-            '_'
-        ),
-        weekdaysShort: 'ned._pon._uto._sri._čet._pet._sub.'.split('_'),
-        weekdaysMin: 'ne_po_ut_sr_če_pe_su'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY H:mm',
-            LLLL: 'dddd, D. MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[danas u] LT',
-            nextDay: '[sjutra u] LT',
-
-            nextWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[u] [nedjelju] [u] LT';
-                    case 3:
-                        return '[u] [srijedu] [u] LT';
-                    case 6:
-                        return '[u] [subotu] [u] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[u] dddd [u] LT';
-                }
-            },
-            lastDay: '[juče u] LT',
-            lastWeek: function () {
-                var lastWeekDays = [
-                    '[prošle] [nedjelje] [u] LT',
-                    '[prošlog] [ponedjeljka] [u] LT',
-                    '[prošlog] [utorka] [u] LT',
-                    '[prošle] [srijede] [u] LT',
-                    '[prošlog] [četvrtka] [u] LT',
-                    '[prošlog] [petka] [u] LT',
-                    '[prošle] [subote] [u] LT',
-                ];
-                return lastWeekDays[this.day()];
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'za %s',
-            past: 'prije %s',
-            s: 'nekoliko sekundi',
-            ss: translator.translate,
-            m: translator.translate,
-            mm: translator.translate,
-            h: translator.translate,
-            hh: translator.translate,
-            d: 'dan',
-            dd: translator.translate,
-            M: 'mjesec',
-            MM: translator.translate,
-            y: 'godinu',
-            yy: translator.translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return me;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/mi.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/mi.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Maori [mi]
-//! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var mi = moment.defineLocale('mi', {
-        months: 'Kohi-tāte_Hui-tanguru_Poutū-te-rangi_Paenga-whāwhā_Haratua_Pipiri_Hōngoingoi_Here-turi-kōkā_Mahuru_Whiringa-ā-nuku_Whiringa-ā-rangi_Hakihea'.split(
-            '_'
-        ),
-        monthsShort: 'Kohi_Hui_Pou_Pae_Hara_Pipi_Hōngoi_Here_Mahu_Whi-nu_Whi-ra_Haki'.split(
-            '_'
-        ),
-        monthsRegex: /(?:['a-z\u0101\u014D\u016B]+\-?){1,3}/i,
-        monthsStrictRegex: /(?:['a-z\u0101\u014D\u016B]+\-?){1,3}/i,
-        monthsShortRegex: /(?:['a-z\u0101\u014D\u016B]+\-?){1,3}/i,
-        monthsShortStrictRegex: /(?:['a-z\u0101\u014D\u016B]+\-?){1,2}/i,
-        weekdays: 'Rātapu_Mane_Tūrei_Wenerei_Tāite_Paraire_Hātarei'.split('_'),
-        weekdaysShort: 'Ta_Ma_Tū_We_Tāi_Pa_Hā'.split('_'),
-        weekdaysMin: 'Ta_Ma_Tū_We_Tāi_Pa_Hā'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY [i] HH:mm',
-            LLLL: 'dddd, D MMMM YYYY [i] HH:mm',
-        },
-        calendar: {
-            sameDay: '[i teie mahana, i] LT',
-            nextDay: '[apopo i] LT',
-            nextWeek: 'dddd [i] LT',
-            lastDay: '[inanahi i] LT',
-            lastWeek: 'dddd [whakamutunga i] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'i roto i %s',
-            past: '%s i mua',
-            s: 'te hēkona ruarua',
-            ss: '%d hēkona',
-            m: 'he meneti',
-            mm: '%d meneti',
-            h: 'te haora',
-            hh: '%d haora',
-            d: 'he ra',
-            dd: '%d ra',
-            M: 'he marama',
-            MM: '%d marama',
-            y: 'he tau',
-            yy: '%d tau',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return mi;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/mk.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/mk.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Macedonian [mk]
-//! author : Borislav Mickov : https://github.com/B0k0
-//! author : Sashko Todorov : https://github.com/bkyceh
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var mk = moment.defineLocale('mk', {
-        months: 'јануари_февруари_март_април_мај_јуни_јули_август_септември_октомври_ноември_декември'.split(
-            '_'
-        ),
-        monthsShort: 'јан_фев_мар_апр_мај_јун_јул_авг_сеп_окт_ное_дек'.split('_'),
-        weekdays: 'недела_понеделник_вторник_среда_четврток_петок_сабота'.split(
-            '_'
-        ),
-        weekdaysShort: 'нед_пон_вто_сре_чет_пет_саб'.split('_'),
-        weekdaysMin: 'нe_пo_вт_ср_че_пе_сa'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'D.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY H:mm',
-            LLLL: 'dddd, D MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[Денес во] LT',
-            nextDay: '[Утре во] LT',
-            nextWeek: '[Во] dddd [во] LT',
-            lastDay: '[Вчера во] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                    case 3:
-                    case 6:
-                        return '[Изминатата] dddd [во] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[Изминатиот] dddd [во] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'за %s',
-            past: 'пред %s',
-            s: 'неколку секунди',
-            ss: '%d секунди',
-            m: 'една минута',
-            mm: '%d минути',
-            h: 'еден час',
-            hh: '%d часа',
-            d: 'еден ден',
-            dd: '%d дена',
-            M: 'еден месец',
-            MM: '%d месеци',
-            y: 'една година',
-            yy: '%d години',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-(ев|ен|ти|ви|ри|ми)/,
-        ordinal: function (number) {
-            var lastDigit = number % 10,
-                last2Digits = number % 100;
-            if (number === 0) {
-                return number + '-ев';
-            } else if (last2Digits === 0) {
-                return number + '-ен';
-            } else if (last2Digits > 10 && last2Digits < 20) {
-                return number + '-ти';
-            } else if (lastDigit === 1) {
-                return number + '-ви';
-            } else if (lastDigit === 2) {
-                return number + '-ри';
-            } else if (lastDigit === 7 || lastDigit === 8) {
-                return number + '-ми';
-            } else {
-                return number + '-ти';
-            }
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return mk;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ml.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ml.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Malayalam [ml]
-//! author : Floyd Pink : https://github.com/floydpink
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ml = moment.defineLocale('ml', {
-        months: 'ജനുവരി_ഫെബ്രുവരി_മാർച്ച്_ഏപ്രിൽ_മേയ്_ജൂൺ_ജൂലൈ_ഓഗസ്റ്റ്_സെപ്റ്റംബർ_ഒക്ടോബർ_നവംബർ_ഡിസംബർ'.split(
-            '_'
-        ),
-        monthsShort: 'ജനു._ഫെബ്രു._മാർ._ഏപ്രി._മേയ്_ജൂൺ_ജൂലൈ._ഓഗ._സെപ്റ്റ._ഒക്ടോ._നവം._ഡിസം.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'ഞായറാഴ്ച_തിങ്കളാഴ്ച_ചൊവ്വാഴ്ച_ബുധനാഴ്ച_വ്യാഴാഴ്ച_വെള്ളിയാഴ്ച_ശനിയാഴ്ച'.split(
-            '_'
-        ),
-        weekdaysShort: 'ഞായർ_തിങ്കൾ_ചൊവ്വ_ബുധൻ_വ്യാഴം_വെള്ളി_ശനി'.split('_'),
-        weekdaysMin: 'ഞാ_തി_ചൊ_ബു_വ്യാ_വെ_ശ'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm -നു',
-            LTS: 'A h:mm:ss -നു',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm -നു',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm -നു',
-        },
-        calendar: {
-            sameDay: '[ഇന്ന്] LT',
-            nextDay: '[നാളെ] LT',
-            nextWeek: 'dddd, LT',
-            lastDay: '[ഇന്നലെ] LT',
-            lastWeek: '[കഴിഞ്ഞ] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s കഴിഞ്ഞ്',
-            past: '%s മുൻപ്',
-            s: 'അൽപ നിമിഷങ്ങൾ',
-            ss: '%d സെക്കൻഡ്',
-            m: 'ഒരു മിനിറ്റ്',
-            mm: '%d മിനിറ്റ്',
-            h: 'ഒരു മണിക്കൂർ',
-            hh: '%d മണിക്കൂർ',
-            d: 'ഒരു ദിവസം',
-            dd: '%d ദിവസം',
-            M: 'ഒരു മാസം',
-            MM: '%d മാസം',
-            y: 'ഒരു വർഷം',
-            yy: '%d വർഷം',
-        },
-        meridiemParse: /രാത്രി|രാവിലെ|ഉച്ച കഴിഞ്ഞ്|വൈകുന്നേരം|രാത്രി/i,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (
-                (meridiem === 'രാത്രി' && hour >= 4) ||
-                meridiem === 'ഉച്ച കഴിഞ്ഞ്' ||
-                meridiem === 'വൈകുന്നേരം'
-            ) {
-                return hour + 12;
-            } else {
-                return hour;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'രാത്രി';
-            } else if (hour < 12) {
-                return 'രാവിലെ';
-            } else if (hour < 17) {
-                return 'ഉച്ച കഴിഞ്ഞ്';
-            } else if (hour < 20) {
-                return 'വൈകുന്നേരം';
-            } else {
-                return 'രാത്രി';
-            }
-        },
-    });
-
-    return ml;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/mn.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/mn.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Mongolian [mn]
-//! author : Javkhlantugs Nyamdorj : https://github.com/javkhaanj7
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function translate(number, withoutSuffix, key, isFuture) {
-        switch (key) {
-            case 's':
-                return withoutSuffix ? 'хэдхэн секунд' : 'хэдхэн секундын';
-            case 'ss':
-                return number + (withoutSuffix ? ' секунд' : ' секундын');
-            case 'm':
-            case 'mm':
-                return number + (withoutSuffix ? ' минут' : ' минутын');
-            case 'h':
-            case 'hh':
-                return number + (withoutSuffix ? ' цаг' : ' цагийн');
-            case 'd':
-            case 'dd':
-                return number + (withoutSuffix ? ' өдөр' : ' өдрийн');
-            case 'M':
-            case 'MM':
-                return number + (withoutSuffix ? ' сар' : ' сарын');
-            case 'y':
-            case 'yy':
-                return number + (withoutSuffix ? ' жил' : ' жилийн');
-            default:
-                return number;
-        }
-    }
-
-    var mn = moment.defineLocale('mn', {
-        months: 'Нэгдүгээр сар_Хоёрдугаар сар_Гуравдугаар сар_Дөрөвдүгээр сар_Тавдугаар сар_Зургадугаар сар_Долдугаар сар_Наймдугаар сар_Есдүгээр сар_Аравдугаар сар_Арван нэгдүгээр сар_Арван хоёрдугаар сар'.split(
-            '_'
-        ),
-        monthsShort: '1 сар_2 сар_3 сар_4 сар_5 сар_6 сар_7 сар_8 сар_9 сар_10 сар_11 сар_12 сар'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'Ням_Даваа_Мягмар_Лхагва_Пүрэв_Баасан_Бямба'.split('_'),
-        weekdaysShort: 'Ням_Дав_Мяг_Лха_Пүр_Баа_Бям'.split('_'),
-        weekdaysMin: 'Ня_Да_Мя_Лх_Пү_Ба_Бя'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'YYYY-MM-DD',
-            LL: 'YYYY оны MMMMын D',
-            LLL: 'YYYY оны MMMMын D HH:mm',
-            LLLL: 'dddd, YYYY оны MMMMын D HH:mm',
-        },
-        meridiemParse: /ҮӨ|ҮХ/i,
-        isPM: function (input) {
-            return input === 'ҮХ';
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'ҮӨ';
-            } else {
-                return 'ҮХ';
-            }
-        },
-        calendar: {
-            sameDay: '[Өнөөдөр] LT',
-            nextDay: '[Маргааш] LT',
-            nextWeek: '[Ирэх] dddd LT',
-            lastDay: '[Өчигдөр] LT',
-            lastWeek: '[Өнгөрсөн] dddd LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s дараа',
-            past: '%s өмнө',
-            s: translate,
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: translate,
-            dd: translate,
-            M: translate,
-            MM: translate,
-            y: translate,
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2} өдөр/,
-        ordinal: function (number, period) {
-            switch (period) {
-                case 'd':
-                case 'D':
-                case 'DDD':
-                    return number + ' өдөр';
-                default:
-                    return number;
-            }
-        },
-    });
-
-    return mn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/mr.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/mr.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Marathi [mr]
-//! author : Harshad Kale : https://github.com/kalehv
-//! author : Vivek Athalye : https://github.com/vnathalye
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '१',
-            2: '२',
-            3: '३',
-            4: '४',
-            5: '५',
-            6: '६',
-            7: '७',
-            8: '८',
-            9: '९',
-            0: '०',
-        },
-        numberMap = {
-            '१': '1',
-            '२': '2',
-            '३': '3',
-            '४': '4',
-            '५': '5',
-            '६': '6',
-            '७': '7',
-            '८': '8',
-            '९': '9',
-            '०': '0',
-        };
-
-    function relativeTimeMr(number, withoutSuffix, string, isFuture) {
-        var output = '';
-        if (withoutSuffix) {
-            switch (string) {
-                case 's':
-                    output = 'काही सेकंद';
-                    break;
-                case 'ss':
-                    output = '%d सेकंद';
-                    break;
-                case 'm':
-                    output = 'एक मिनिट';
-                    break;
-                case 'mm':
-                    output = '%d मिनिटे';
-                    break;
-                case 'h':
-                    output = 'एक तास';
-                    break;
-                case 'hh':
-                    output = '%d तास';
-                    break;
-                case 'd':
-                    output = 'एक दिवस';
-                    break;
-                case 'dd':
-                    output = '%d दिवस';
-                    break;
-                case 'M':
-                    output = 'एक महिना';
-                    break;
-                case 'MM':
-                    output = '%d महिने';
-                    break;
-                case 'y':
-                    output = 'एक वर्ष';
-                    break;
-                case 'yy':
-                    output = '%d वर्षे';
-                    break;
-            }
-        } else {
-            switch (string) {
-                case 's':
-                    output = 'काही सेकंदां';
-                    break;
-                case 'ss':
-                    output = '%d सेकंदां';
-                    break;
-                case 'm':
-                    output = 'एका मिनिटा';
-                    break;
-                case 'mm':
-                    output = '%d मिनिटां';
-                    break;
-                case 'h':
-                    output = 'एका तासा';
-                    break;
-                case 'hh':
-                    output = '%d तासां';
-                    break;
-                case 'd':
-                    output = 'एका दिवसा';
-                    break;
-                case 'dd':
-                    output = '%d दिवसां';
-                    break;
-                case 'M':
-                    output = 'एका महिन्या';
-                    break;
-                case 'MM':
-                    output = '%d महिन्यां';
-                    break;
-                case 'y':
-                    output = 'एका वर्षा';
-                    break;
-                case 'yy':
-                    output = '%d वर्षां';
-                    break;
-            }
-        }
-        return output.replace(/%d/i, number);
-    }
-
-    var mr = moment.defineLocale('mr', {
-        months: 'जानेवारी_फेब्रुवारी_मार्च_एप्रिल_मे_जून_जुलै_ऑगस्ट_सप्टेंबर_ऑक्टोबर_नोव्हेंबर_डिसेंबर'.split(
-            '_'
-        ),
-        monthsShort: 'जाने._फेब्रु._मार्च._एप्रि._मे._जून._जुलै._ऑग._सप्टें._ऑक्टो._नोव्हें._डिसें.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'रविवार_सोमवार_मंगळवार_बुधवार_गुरूवार_शुक्रवार_शनिवार'.split('_'),
-        weekdaysShort: 'रवि_सोम_मंगळ_बुध_गुरू_शुक्र_शनि'.split('_'),
-        weekdaysMin: 'र_सो_मं_बु_गु_शु_श'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm वाजता',
-            LTS: 'A h:mm:ss वाजता',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm वाजता',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm वाजता',
-        },
-        calendar: {
-            sameDay: '[आज] LT',
-            nextDay: '[उद्या] LT',
-            nextWeek: 'dddd, LT',
-            lastDay: '[काल] LT',
-            lastWeek: '[मागील] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%sमध्ये',
-            past: '%sपूर्वी',
-            s: relativeTimeMr,
-            ss: relativeTimeMr,
-            m: relativeTimeMr,
-            mm: relativeTimeMr,
-            h: relativeTimeMr,
-            hh: relativeTimeMr,
-            d: relativeTimeMr,
-            dd: relativeTimeMr,
-            M: relativeTimeMr,
-            MM: relativeTimeMr,
-            y: relativeTimeMr,
-            yy: relativeTimeMr,
-        },
-        preparse: function (string) {
-            return string.replace(/[१२३४५६७८९०]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        meridiemParse: /पहाटे|सकाळी|दुपारी|सायंकाळी|रात्री/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'पहाटे' || meridiem === 'सकाळी') {
-                return hour;
-            } else if (
-                meridiem === 'दुपारी' ||
-                meridiem === 'सायंकाळी' ||
-                meridiem === 'रात्री'
-            ) {
-                return hour >= 12 ? hour : hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour >= 0 && hour < 6) {
-                return 'पहाटे';
-            } else if (hour < 12) {
-                return 'सकाळी';
-            } else if (hour < 17) {
-                return 'दुपारी';
-            } else if (hour < 20) {
-                return 'सायंकाळी';
-            } else {
-                return 'रात्री';
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return mr;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ms-my.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/ms-my.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Malay [ms-my]
-//! note : DEPRECATED, the correct one is [ms]
-//! author : Weldan Jamili : https://github.com/weldan
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var msMy = moment.defineLocale('ms-my', {
-        months: 'Januari_Februari_Mac_April_Mei_Jun_Julai_Ogos_September_Oktober_November_Disember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mac_Apr_Mei_Jun_Jul_Ogs_Sep_Okt_Nov_Dis'.split('_'),
-        weekdays: 'Ahad_Isnin_Selasa_Rabu_Khamis_Jumaat_Sabtu'.split('_'),
-        weekdaysShort: 'Ahd_Isn_Sel_Rab_Kha_Jum_Sab'.split('_'),
-        weekdaysMin: 'Ah_Is_Sl_Rb_Km_Jm_Sb'.split('_'),
-        longDateFormat: {
-            LT: 'HH.mm',
-            LTS: 'HH.mm.ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY [pukul] HH.mm',
-            LLLL: 'dddd, D MMMM YYYY [pukul] HH.mm',
-        },
-        meridiemParse: /pagi|tengahari|petang|malam/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'pagi') {
-                return hour;
-            } else if (meridiem === 'tengahari') {
-                return hour >= 11 ? hour : hour + 12;
-            } else if (meridiem === 'petang' || meridiem === 'malam') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours < 11) {
-                return 'pagi';
-            } else if (hours < 15) {
-                return 'tengahari';
-            } else if (hours < 19) {
-                return 'petang';
-            } else {
-                return 'malam';
-            }
-        },
-        calendar: {
-            sameDay: '[Hari ini pukul] LT',
-            nextDay: '[Esok pukul] LT',
-            nextWeek: 'dddd [pukul] LT',
-            lastDay: '[Kelmarin pukul] LT',
-            lastWeek: 'dddd [lepas pukul] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'dalam %s',
-            past: '%s yang lepas',
-            s: 'beberapa saat',
-            ss: '%d saat',
-            m: 'seminit',
-            mm: '%d minit',
-            h: 'sejam',
-            hh: '%d jam',
-            d: 'sehari',
-            dd: '%d hari',
-            M: 'sebulan',
-            MM: '%d bulan',
-            y: 'setahun',
-            yy: '%d tahun',
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return msMy;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ms.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ms.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Malay [ms]
-//! author : Weldan Jamili : https://github.com/weldan
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ms = moment.defineLocale('ms', {
-        months: 'Januari_Februari_Mac_April_Mei_Jun_Julai_Ogos_September_Oktober_November_Disember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mac_Apr_Mei_Jun_Jul_Ogs_Sep_Okt_Nov_Dis'.split('_'),
-        weekdays: 'Ahad_Isnin_Selasa_Rabu_Khamis_Jumaat_Sabtu'.split('_'),
-        weekdaysShort: 'Ahd_Isn_Sel_Rab_Kha_Jum_Sab'.split('_'),
-        weekdaysMin: 'Ah_Is_Sl_Rb_Km_Jm_Sb'.split('_'),
-        longDateFormat: {
-            LT: 'HH.mm',
-            LTS: 'HH.mm.ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY [pukul] HH.mm',
-            LLLL: 'dddd, D MMMM YYYY [pukul] HH.mm',
-        },
-        meridiemParse: /pagi|tengahari|petang|malam/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'pagi') {
-                return hour;
-            } else if (meridiem === 'tengahari') {
-                return hour >= 11 ? hour : hour + 12;
-            } else if (meridiem === 'petang' || meridiem === 'malam') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours < 11) {
-                return 'pagi';
-            } else if (hours < 15) {
-                return 'tengahari';
-            } else if (hours < 19) {
-                return 'petang';
-            } else {
-                return 'malam';
-            }
-        },
-        calendar: {
-            sameDay: '[Hari ini pukul] LT',
-            nextDay: '[Esok pukul] LT',
-            nextWeek: 'dddd [pukul] LT',
-            lastDay: '[Kelmarin pukul] LT',
-            lastWeek: 'dddd [lepas pukul] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'dalam %s',
-            past: '%s yang lepas',
-            s: 'beberapa saat',
-            ss: '%d saat',
-            m: 'seminit',
-            mm: '%d minit',
-            h: 'sejam',
-            hh: '%d jam',
-            d: 'sehari',
-            dd: '%d hari',
-            M: 'sebulan',
-            MM: '%d bulan',
-            y: 'setahun',
-            yy: '%d tahun',
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return ms;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/mt.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/mt.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Maltese (Malta) [mt]
-//! author : Alessandro Maruccia : https://github.com/alesma
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var mt = moment.defineLocale('mt', {
-        months: 'Jannar_Frar_Marzu_April_Mejju_Ġunju_Lulju_Awwissu_Settembru_Ottubru_Novembru_Diċembru'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Fra_Mar_Apr_Mej_Ġun_Lul_Aww_Set_Ott_Nov_Diċ'.split('_'),
-        weekdays: 'Il-Ħadd_It-Tnejn_It-Tlieta_L-Erbgħa_Il-Ħamis_Il-Ġimgħa_Is-Sibt'.split(
-            '_'
-        ),
-        weekdaysShort: 'Ħad_Tne_Tli_Erb_Ħam_Ġim_Sib'.split('_'),
-        weekdaysMin: 'Ħa_Tn_Tl_Er_Ħa_Ġi_Si'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Illum fil-]LT',
-            nextDay: '[Għada fil-]LT',
-            nextWeek: 'dddd [fil-]LT',
-            lastDay: '[Il-bieraħ fil-]LT',
-            lastWeek: 'dddd [li għadda] [fil-]LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'f’ %s',
-            past: '%s ilu',
-            s: 'ftit sekondi',
-            ss: '%d sekondi',
-            m: 'minuta',
-            mm: '%d minuti',
-            h: 'siegħa',
-            hh: '%d siegħat',
-            d: 'ġurnata',
-            dd: '%d ġranet',
-            M: 'xahar',
-            MM: '%d xhur',
-            y: 'sena',
-            yy: '%d sni',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return mt;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/my.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/my.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Burmese [my]
-//! author : Squar team, mysquar.com
-//! author : David Rossellat : https://github.com/gholadr
-//! author : Tin Aung Lin : https://github.com/thanyawzinmin
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '၁',
-            2: '၂',
-            3: '၃',
-            4: '၄',
-            5: '၅',
-            6: '၆',
-            7: '၇',
-            8: '၈',
-            9: '၉',
-            0: '၀',
-        },
-        numberMap = {
-            '၁': '1',
-            '၂': '2',
-            '၃': '3',
-            '၄': '4',
-            '၅': '5',
-            '၆': '6',
-            '၇': '7',
-            '၈': '8',
-            '၉': '9',
-            '၀': '0',
-        };
-
-    var my = moment.defineLocale('my', {
-        months: 'ဇန်နဝါရီ_ဖေဖော်ဝါရီ_မတ်_ဧပြီ_မေ_ဇွန်_ဇူလိုင်_သြဂုတ်_စက်တင်ဘာ_အောက်တိုဘာ_နိုဝင်ဘာ_ဒီဇင်ဘာ'.split(
-            '_'
-        ),
-        monthsShort: 'ဇန်_ဖေ_မတ်_ပြီ_မေ_ဇွန်_လိုင်_သြ_စက်_အောက်_နို_ဒီ'.split('_'),
-        weekdays: 'တနင်္ဂနွေ_တနင်္လာ_အင်္ဂါ_ဗုဒ္ဓဟူး_ကြာသပတေး_သောကြာ_စနေ'.split(
-            '_'
-        ),
-        weekdaysShort: 'နွေ_လာ_ဂါ_ဟူး_ကြာ_သော_နေ'.split('_'),
-        weekdaysMin: 'နွေ_လာ_ဂါ_ဟူး_ကြာ_သော_နေ'.split('_'),
-
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[ယနေ.] LT [မှာ]',
-            nextDay: '[မနက်ဖြန်] LT [မှာ]',
-            nextWeek: 'dddd LT [မှာ]',
-            lastDay: '[မနေ.က] LT [မှာ]',
-            lastWeek: '[ပြီးခဲ့သော] dddd LT [မှာ]',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'လာမည့် %s မှာ',
-            past: 'လွန်ခဲ့သော %s က',
-            s: 'စက္ကန်.အနည်းငယ်',
-            ss: '%d စက္ကန့်',
-            m: 'တစ်မိနစ်',
-            mm: '%d မိနစ်',
-            h: 'တစ်နာရီ',
-            hh: '%d နာရီ',
-            d: 'တစ်ရက်',
-            dd: '%d ရက်',
-            M: 'တစ်လ',
-            MM: '%d လ',
-            y: 'တစ်နှစ်',
-            yy: '%d နှစ်',
-        },
-        preparse: function (string) {
-            return string.replace(/[၁၂၃၄၅၆၇၈၉၀]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return my;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/nb.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/nb.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Norwegian Bokmål [nb]
-//! authors : Espen Hovlandsdal : https://github.com/rexxars
-//!           Sigurd Gartmann : https://github.com/sigurdga
-//!           Stephen Ramthun : https://github.com/stephenramthun
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var nb = moment.defineLocale('nb', {
-        months: 'januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember'.split(
-            '_'
-        ),
-        monthsShort: 'jan._feb._mars_apr._mai_juni_juli_aug._sep._okt._nov._des.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'søndag_mandag_tirsdag_onsdag_torsdag_fredag_lørdag'.split('_'),
-        weekdaysShort: 'sø._ma._ti._on._to._fr._lø.'.split('_'),
-        weekdaysMin: 'sø_ma_ti_on_to_fr_lø'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY [kl.] HH:mm',
-            LLLL: 'dddd D. MMMM YYYY [kl.] HH:mm',
-        },
-        calendar: {
-            sameDay: '[i dag kl.] LT',
-            nextDay: '[i morgen kl.] LT',
-            nextWeek: 'dddd [kl.] LT',
-            lastDay: '[i går kl.] LT',
-            lastWeek: '[forrige] dddd [kl.] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'om %s',
-            past: '%s siden',
-            s: 'noen sekunder',
-            ss: '%d sekunder',
-            m: 'ett minutt',
-            mm: '%d minutter',
-            h: 'en time',
-            hh: '%d timer',
-            d: 'en dag',
-            dd: '%d dager',
-            w: 'en uke',
-            ww: '%d uker',
-            M: 'en måned',
-            MM: '%d måneder',
-            y: 'ett år',
-            yy: '%d år',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return nb;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ne.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ne.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Nepalese [ne]
-//! author : suvash : https://github.com/suvash
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '१',
-            2: '२',
-            3: '३',
-            4: '४',
-            5: '५',
-            6: '६',
-            7: '७',
-            8: '८',
-            9: '९',
-            0: '०',
-        },
-        numberMap = {
-            '१': '1',
-            '२': '2',
-            '३': '3',
-            '४': '4',
-            '५': '5',
-            '६': '6',
-            '७': '7',
-            '८': '8',
-            '९': '9',
-            '०': '0',
-        };
-
-    var ne = moment.defineLocale('ne', {
-        months: 'जनवरी_फेब्रुवरी_मार्च_अप्रिल_मई_जुन_जुलाई_अगष्ट_सेप्टेम्बर_अक्टोबर_नोभेम्बर_डिसेम्बर'.split(
-            '_'
-        ),
-        monthsShort: 'जन._फेब्रु._मार्च_अप्रि._मई_जुन_जुलाई._अग._सेप्ट._अक्टो._नोभे._डिसे.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'आइतबार_सोमबार_मङ्गलबार_बुधबार_बिहिबार_शुक्रबार_शनिबार'.split(
-            '_'
-        ),
-        weekdaysShort: 'आइत._सोम._मङ्गल._बुध._बिहि._शुक्र._शनि.'.split('_'),
-        weekdaysMin: 'आ._सो._मं._बु._बि._शु._श.'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'Aको h:mm बजे',
-            LTS: 'Aको h:mm:ss बजे',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, Aको h:mm बजे',
-            LLLL: 'dddd, D MMMM YYYY, Aको h:mm बजे',
-        },
-        preparse: function (string) {
-            return string.replace(/[१२३४५६७८९०]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        meridiemParse: /राति|बिहान|दिउँसो|साँझ/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'राति') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'बिहान') {
-                return hour;
-            } else if (meridiem === 'दिउँसो') {
-                return hour >= 10 ? hour : hour + 12;
-            } else if (meridiem === 'साँझ') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 3) {
-                return 'राति';
-            } else if (hour < 12) {
-                return 'बिहान';
-            } else if (hour < 16) {
-                return 'दिउँसो';
-            } else if (hour < 20) {
-                return 'साँझ';
-            } else {
-                return 'राति';
-            }
-        },
-        calendar: {
-            sameDay: '[आज] LT',
-            nextDay: '[भोलि] LT',
-            nextWeek: '[आउँदो] dddd[,] LT',
-            lastDay: '[हिजो] LT',
-            lastWeek: '[गएको] dddd[,] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%sमा',
-            past: '%s अगाडि',
-            s: 'केही क्षण',
-            ss: '%d सेकेण्ड',
-            m: 'एक मिनेट',
-            mm: '%d मिनेट',
-            h: 'एक घण्टा',
-            hh: '%d घण्टा',
-            d: 'एक दिन',
-            dd: '%d दिन',
-            M: 'एक महिना',
-            MM: '%d महिना',
-            y: 'एक बर्ष',
-            yy: '%d बर्ष',
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return ne;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/nl-be.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/nl-be.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Dutch (Belgium) [nl-be]
-//! author : Joris Röling : https://github.com/jorisroling
-//! author : Jacob Middag : https://github.com/middagj
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsShortWithDots = 'jan._feb._mrt._apr._mei_jun._jul._aug._sep._okt._nov._dec.'.split(
-            '_'
-        ),
-        monthsShortWithoutDots = 'jan_feb_mrt_apr_mei_jun_jul_aug_sep_okt_nov_dec'.split(
-            '_'
-        ),
-        monthsParse = [
-            /^jan/i,
-            /^feb/i,
-            /^maart|mrt.?$/i,
-            /^apr/i,
-            /^mei$/i,
-            /^jun[i.]?$/i,
-            /^jul[i.]?$/i,
-            /^aug/i,
-            /^sep/i,
-            /^okt/i,
-            /^nov/i,
-            /^dec/i,
-        ],
-        monthsRegex = /^(januari|februari|maart|april|mei|ju[nl]i|augustus|september|oktober|november|december|jan\.?|feb\.?|mrt\.?|apr\.?|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i;
-
-    var nlBe = moment.defineLocale('nl-be', {
-        months: 'januari_februari_maart_april_mei_juni_juli_augustus_september_oktober_november_december'.split(
-            '_'
-        ),
-        monthsShort: function (m, format) {
-            if (!m) {
-                return monthsShortWithDots;
-            } else if (/-MMM-/.test(format)) {
-                return monthsShortWithoutDots[m.month()];
-            } else {
-                return monthsShortWithDots[m.month()];
-            }
-        },
-
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: /^(januari|februari|maart|april|mei|ju[nl]i|augustus|september|oktober|november|december)/i,
-        monthsShortStrictRegex: /^(jan\.?|feb\.?|mrt\.?|apr\.?|mei|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i,
-
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-
-        weekdays: 'zondag_maandag_dinsdag_woensdag_donderdag_vrijdag_zaterdag'.split(
-            '_'
-        ),
-        weekdaysShort: 'zo._ma._di._wo._do._vr._za.'.split('_'),
-        weekdaysMin: 'zo_ma_di_wo_do_vr_za'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[vandaag om] LT',
-            nextDay: '[morgen om] LT',
-            nextWeek: 'dddd [om] LT',
-            lastDay: '[gisteren om] LT',
-            lastWeek: '[afgelopen] dddd [om] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'over %s',
-            past: '%s geleden',
-            s: 'een paar seconden',
-            ss: '%d seconden',
-            m: 'één minuut',
-            mm: '%d minuten',
-            h: 'één uur',
-            hh: '%d uur',
-            d: 'één dag',
-            dd: '%d dagen',
-            M: 'één maand',
-            MM: '%d maanden',
-            y: 'één jaar',
-            yy: '%d jaar',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(ste|de)/,
-        ordinal: function (number) {
-            return (
-                number +
-                (number === 1 || number === 8 || number >= 20 ? 'ste' : 'de')
-            );
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return nlBe;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/nl.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/nl.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Dutch [nl]
-//! author : Joris Röling : https://github.com/jorisroling
-//! author : Jacob Middag : https://github.com/middagj
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsShortWithDots = 'jan._feb._mrt._apr._mei_jun._jul._aug._sep._okt._nov._dec.'.split(
-            '_'
-        ),
-        monthsShortWithoutDots = 'jan_feb_mrt_apr_mei_jun_jul_aug_sep_okt_nov_dec'.split(
-            '_'
-        ),
-        monthsParse = [
-            /^jan/i,
-            /^feb/i,
-            /^maart|mrt.?$/i,
-            /^apr/i,
-            /^mei$/i,
-            /^jun[i.]?$/i,
-            /^jul[i.]?$/i,
-            /^aug/i,
-            /^sep/i,
-            /^okt/i,
-            /^nov/i,
-            /^dec/i,
-        ],
-        monthsRegex = /^(januari|februari|maart|april|mei|ju[nl]i|augustus|september|oktober|november|december|jan\.?|feb\.?|mrt\.?|apr\.?|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i;
-
-    var nl = moment.defineLocale('nl', {
-        months: 'januari_februari_maart_april_mei_juni_juli_augustus_september_oktober_november_december'.split(
-            '_'
-        ),
-        monthsShort: function (m, format) {
-            if (!m) {
-                return monthsShortWithDots;
-            } else if (/-MMM-/.test(format)) {
-                return monthsShortWithoutDots[m.month()];
-            } else {
-                return monthsShortWithDots[m.month()];
-            }
-        },
-
-        monthsRegex: monthsRegex,
-        monthsShortRegex: monthsRegex,
-        monthsStrictRegex: /^(januari|februari|maart|april|mei|ju[nl]i|augustus|september|oktober|november|december)/i,
-        monthsShortStrictRegex: /^(jan\.?|feb\.?|mrt\.?|apr\.?|mei|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i,
-
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-
-        weekdays: 'zondag_maandag_dinsdag_woensdag_donderdag_vrijdag_zaterdag'.split(
-            '_'
-        ),
-        weekdaysShort: 'zo._ma._di._wo._do._vr._za.'.split('_'),
-        weekdaysMin: 'zo_ma_di_wo_do_vr_za'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD-MM-YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[vandaag om] LT',
-            nextDay: '[morgen om] LT',
-            nextWeek: 'dddd [om] LT',
-            lastDay: '[gisteren om] LT',
-            lastWeek: '[afgelopen] dddd [om] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'over %s',
-            past: '%s geleden',
-            s: 'een paar seconden',
-            ss: '%d seconden',
-            m: 'één minuut',
-            mm: '%d minuten',
-            h: 'één uur',
-            hh: '%d uur',
-            d: 'één dag',
-            dd: '%d dagen',
-            w: 'één week',
-            ww: '%d weken',
-            M: 'één maand',
-            MM: '%d maanden',
-            y: 'één jaar',
-            yy: '%d jaar',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(ste|de)/,
-        ordinal: function (number) {
-            return (
-                number +
-                (number === 1 || number === 8 || number >= 20 ? 'ste' : 'de')
-            );
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return nl;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/nn.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/nn.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Nynorsk [nn]
-//! authors : https://github.com/mechuwind
-//!           Stephen Ramthun : https://github.com/stephenramthun
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var nn = moment.defineLocale('nn', {
-        months: 'januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember'.split(
-            '_'
-        ),
-        monthsShort: 'jan._feb._mars_apr._mai_juni_juli_aug._sep._okt._nov._des.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'sundag_måndag_tysdag_onsdag_torsdag_fredag_laurdag'.split('_'),
-        weekdaysShort: 'su._må._ty._on._to._fr._lau.'.split('_'),
-        weekdaysMin: 'su_må_ty_on_to_fr_la'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY [kl.] H:mm',
-            LLLL: 'dddd D. MMMM YYYY [kl.] HH:mm',
-        },
-        calendar: {
-            sameDay: '[I dag klokka] LT',
-            nextDay: '[I morgon klokka] LT',
-            nextWeek: 'dddd [klokka] LT',
-            lastDay: '[I går klokka] LT',
-            lastWeek: '[Føregåande] dddd [klokka] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'om %s',
-            past: '%s sidan',
-            s: 'nokre sekund',
-            ss: '%d sekund',
-            m: 'eit minutt',
-            mm: '%d minutt',
-            h: 'ein time',
-            hh: '%d timar',
-            d: 'ein dag',
-            dd: '%d dagar',
-            w: 'ei veke',
-            ww: '%d veker',
-            M: 'ein månad',
-            MM: '%d månader',
-            y: 'eit år',
-            yy: '%d år',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return nn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/oc-lnc.js":
-/*!**********************************************!*\
-  !*** ./node_modules/moment/locale/oc-lnc.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Occitan, lengadocian dialecte [oc-lnc]
-//! author : Quentin PAGÈS : https://github.com/Quenty31
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ocLnc = moment.defineLocale('oc-lnc', {
-        months: {
-            standalone: 'genièr_febrièr_març_abril_mai_junh_julhet_agost_setembre_octòbre_novembre_decembre'.split(
-                '_'
-            ),
-            format: "de genièr_de febrièr_de març_d'abril_de mai_de junh_de julhet_d'agost_de setembre_d'octòbre_de novembre_de decembre".split(
-                '_'
-            ),
-            isFormat: /D[oD]?(\s)+MMMM/,
-        },
-        monthsShort: 'gen._febr._març_abr._mai_junh_julh._ago._set._oct._nov._dec.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'dimenge_diluns_dimars_dimècres_dijòus_divendres_dissabte'.split(
-            '_'
-        ),
-        weekdaysShort: 'dg._dl._dm._dc._dj._dv._ds.'.split('_'),
-        weekdaysMin: 'dg_dl_dm_dc_dj_dv_ds'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM [de] YYYY',
-            ll: 'D MMM YYYY',
-            LLL: 'D MMMM [de] YYYY [a] H:mm',
-            lll: 'D MMM YYYY, H:mm',
-            LLLL: 'dddd D MMMM [de] YYYY [a] H:mm',
-            llll: 'ddd D MMM YYYY, H:mm',
-        },
-        calendar: {
-            sameDay: '[uèi a] LT',
-            nextDay: '[deman a] LT',
-            nextWeek: 'dddd [a] LT',
-            lastDay: '[ièr a] LT',
-            lastWeek: 'dddd [passat a] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: "d'aquí %s",
-            past: 'fa %s',
-            s: 'unas segondas',
-            ss: '%d segondas',
-            m: 'una minuta',
-            mm: '%d minutas',
-            h: 'una ora',
-            hh: '%d oras',
-            d: 'un jorn',
-            dd: '%d jorns',
-            M: 'un mes',
-            MM: '%d meses',
-            y: 'un an',
-            yy: '%d ans',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}(r|n|t|è|a)/,
-        ordinal: function (number, period) {
-            var output =
-                number === 1
-                    ? 'r'
-                    : number === 2
-                    ? 'n'
-                    : number === 3
-                    ? 'r'
-                    : number === 4
-                    ? 't'
-                    : 'è';
-            if (period === 'w' || period === 'W') {
-                output = 'a';
-            }
-            return number + output;
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4,
-        },
-    });
-
-    return ocLnc;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/pa-in.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/pa-in.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Punjabi (India) [pa-in]
-//! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var symbolMap = {
-            1: '੧',
-            2: '੨',
-            3: '੩',
-            4: '੪',
-            5: '੫',
-            6: '੬',
-            7: '੭',
-            8: '੮',
-            9: '੯',
-            0: '੦',
-        },
-        numberMap = {
-            '੧': '1',
-            '੨': '2',
-            '੩': '3',
-            '੪': '4',
-            '੫': '5',
-            '੬': '6',
-            '੭': '7',
-            '੮': '8',
-            '੯': '9',
-            '੦': '0',
-        };
-
-    var paIn = moment.defineLocale('pa-in', {
-        // There are months name as per Nanakshahi Calendar but they are not used as rigidly in modern Punjabi.
-        months: 'ਜਨਵਰੀ_ਫ਼ਰਵਰੀ_ਮਾਰਚ_ਅਪ੍ਰੈਲ_ਮਈ_ਜੂਨ_ਜੁਲਾਈ_ਅਗਸਤ_ਸਤੰਬਰ_ਅਕਤੂਬਰ_ਨਵੰਬਰ_ਦਸੰਬਰ'.split(
-            '_'
-        ),
-        monthsShort: 'ਜਨਵਰੀ_ਫ਼ਰਵਰੀ_ਮਾਰਚ_ਅਪ੍ਰੈਲ_ਮਈ_ਜੂਨ_ਜੁਲਾਈ_ਅਗਸਤ_ਸਤੰਬਰ_ਅਕਤੂਬਰ_ਨਵੰਬਰ_ਦਸੰਬਰ'.split(
-            '_'
-        ),
-        weekdays: 'ਐਤਵਾਰ_ਸੋਮਵਾਰ_ਮੰਗਲਵਾਰ_ਬੁਧਵਾਰ_ਵੀਰਵਾਰ_ਸ਼ੁੱਕਰਵਾਰ_ਸ਼ਨੀਚਰਵਾਰ'.split(
-            '_'
-        ),
-        weekdaysShort: 'ਐਤ_ਸੋਮ_ਮੰਗਲ_ਬੁਧ_ਵੀਰ_ਸ਼ੁਕਰ_ਸ਼ਨੀ'.split('_'),
-        weekdaysMin: 'ਐਤ_ਸੋਮ_ਮੰਗਲ_ਬੁਧ_ਵੀਰ_ਸ਼ੁਕਰ_ਸ਼ਨੀ'.split('_'),
-        longDateFormat: {
-            LT: 'A h:mm ਵਜੇ',
-            LTS: 'A h:mm:ss ਵਜੇ',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY, A h:mm ਵਜੇ',
-            LLLL: 'dddd, D MMMM YYYY, A h:mm ਵਜੇ',
-        },
-        calendar: {
-            sameDay: '[ਅਜ] LT',
-            nextDay: '[ਕਲ] LT',
-            nextWeek: '[ਅਗਲਾ] dddd, LT',
-            lastDay: '[ਕਲ] LT',
-            lastWeek: '[ਪਿਛਲੇ] dddd, LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s ਵਿੱਚ',
-            past: '%s ਪਿਛਲੇ',
-            s: 'ਕੁਝ ਸਕਿੰਟ',
-            ss: '%d ਸਕਿੰਟ',
-            m: 'ਇਕ ਮਿੰਟ',
-            mm: '%d ਮਿੰਟ',
-            h: 'ਇੱਕ ਘੰਟਾ',
-            hh: '%d ਘੰਟੇ',
-            d: 'ਇੱਕ ਦਿਨ',
-            dd: '%d ਦਿਨ',
-            M: 'ਇੱਕ ਮਹੀਨਾ',
-            MM: '%d ਮਹੀਨੇ',
-            y: 'ਇੱਕ ਸਾਲ',
-            yy: '%d ਸਾਲ',
-        },
-        preparse: function (string) {
-            return string.replace(/[੧੨੩੪੫੬੭੮੯੦]/g, function (match) {
-                return numberMap[match];
-            });
-        },
-        postformat: function (string) {
-            return string.replace(/\d/g, function (match) {
-                return symbolMap[match];
-            });
-        },
-        // Punjabi notation for meridiems are quite fuzzy in practice. While there exists
-        // a rigid notion of a 'Pahar' it is not used as rigidly in modern Punjabi.
-        meridiemParse: /ਰਾਤ|ਸਵੇਰ|ਦੁਪਹਿਰ|ਸ਼ਾਮ/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'ਰਾਤ') {
-                return hour < 4 ? hour : hour + 12;
-            } else if (meridiem === 'ਸਵੇਰ') {
-                return hour;
-            } else if (meridiem === 'ਦੁਪਹਿਰ') {
-                return hour >= 10 ? hour : hour + 12;
-            } else if (meridiem === 'ਸ਼ਾਮ') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'ਰਾਤ';
-            } else if (hour < 10) {
-                return 'ਸਵੇਰ';
-            } else if (hour < 17) {
-                return 'ਦੁਪਹਿਰ';
-            } else if (hour < 20) {
-                return 'ਸ਼ਾਮ';
-            } else {
-                return 'ਰਾਤ';
-            }
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return paIn;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/pl.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/pl.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Polish [pl]
-//! author : Rafal Hirsz : https://github.com/evoL
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var monthsNominative = 'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpień_wrzesień_październik_listopad_grudzień'.split(
-            '_'
-        ),
-        monthsSubjective = 'stycznia_lutego_marca_kwietnia_maja_czerwca_lipca_sierpnia_września_października_listopada_grudnia'.split(
-            '_'
-        ),
-        monthsParse = [
-            /^sty/i,
-            /^lut/i,
-            /^mar/i,
-            /^kwi/i,
-            /^maj/i,
-            /^cze/i,
-            /^lip/i,
-            /^sie/i,
-            /^wrz/i,
-            /^paź/i,
-            /^lis/i,
-            /^gru/i,
-        ];
-    function plural(n) {
-        return n % 10 < 5 && n % 10 > 1 && ~~(n / 10) % 10 !== 1;
-    }
-    function translate(number, withoutSuffix, key) {
-        var result = number + ' ';
-        switch (key) {
-            case 'ss':
-                return result + (plural(number) ? 'sekundy' : 'sekund');
-            case 'm':
-                return withoutSuffix ? 'minuta' : 'minutę';
-            case 'mm':
-                return result + (plural(number) ? 'minuty' : 'minut');
-            case 'h':
-                return withoutSuffix ? 'godzina' : 'godzinę';
-            case 'hh':
-                return result + (plural(number) ? 'godziny' : 'godzin');
-            case 'ww':
-                return result + (plural(number) ? 'tygodnie' : 'tygodni');
-            case 'MM':
-                return result + (plural(number) ? 'miesiące' : 'miesięcy');
-            case 'yy':
-                return result + (plural(number) ? 'lata' : 'lat');
-        }
-    }
-
-    var pl = moment.defineLocale('pl', {
-        months: function (momentToFormat, format) {
-            if (!momentToFormat) {
-                return monthsNominative;
-            } else if (/D MMMM/.test(format)) {
-                return monthsSubjective[momentToFormat.month()];
-            } else {
-                return monthsNominative[momentToFormat.month()];
-            }
-        },
-        monthsShort: 'sty_lut_mar_kwi_maj_cze_lip_sie_wrz_paź_lis_gru'.split('_'),
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-        weekdays: 'niedziela_poniedziałek_wtorek_środa_czwartek_piątek_sobota'.split(
-            '_'
-        ),
-        weekdaysShort: 'ndz_pon_wt_śr_czw_pt_sob'.split('_'),
-        weekdaysMin: 'Nd_Pn_Wt_Śr_Cz_Pt_So'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Dziś o] LT',
-            nextDay: '[Jutro o] LT',
-            nextWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[W niedzielę o] LT';
-
-                    case 2:
-                        return '[We wtorek o] LT';
-
-                    case 3:
-                        return '[W środę o] LT';
-
-                    case 6:
-                        return '[W sobotę o] LT';
-
-                    default:
-                        return '[W] dddd [o] LT';
-                }
-            },
-            lastDay: '[Wczoraj o] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[W zeszłą niedzielę o] LT';
-                    case 3:
-                        return '[W zeszłą środę o] LT';
-                    case 6:
-                        return '[W zeszłą sobotę o] LT';
-                    default:
-                        return '[W zeszły] dddd [o] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'za %s',
-            past: '%s temu',
-            s: 'kilka sekund',
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: '1 dzień',
-            dd: '%d dni',
-            w: 'tydzień',
-            ww: translate,
-            M: 'miesiąc',
-            MM: translate,
-            y: 'rok',
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return pl;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/pt-br.js":
-/*!*********************************************!*\
-  !*** ./node_modules/moment/locale/pt-br.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Portuguese (Brazil) [pt-br]
-//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var ptBr = moment.defineLocale('pt-br', {
-        months: 'janeiro_fevereiro_março_abril_maio_junho_julho_agosto_setembro_outubro_novembro_dezembro'.split(
-            '_'
-        ),
-        monthsShort: 'jan_fev_mar_abr_mai_jun_jul_ago_set_out_nov_dez'.split('_'),
-        weekdays: 'domingo_segunda-feira_terça-feira_quarta-feira_quinta-feira_sexta-feira_sábado'.split(
-            '_'
-        ),
-        weekdaysShort: 'dom_seg_ter_qua_qui_sex_sáb'.split('_'),
-        weekdaysMin: 'do_2ª_3ª_4ª_5ª_6ª_sá'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D [de] MMMM [de] YYYY',
-            LLL: 'D [de] MMMM [de] YYYY [às] HH:mm',
-            LLLL: 'dddd, D [de] MMMM [de] YYYY [às] HH:mm',
-        },
-        calendar: {
-            sameDay: '[Hoje às] LT',
-            nextDay: '[Amanhã às] LT',
-            nextWeek: 'dddd [às] LT',
-            lastDay: '[Ontem às] LT',
-            lastWeek: function () {
-                return this.day() === 0 || this.day() === 6
-                    ? '[Último] dddd [às] LT' // Saturday + Sunday
-                    : '[Última] dddd [às] LT'; // Monday - Friday
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'em %s',
-            past: 'há %s',
-            s: 'poucos segundos',
-            ss: '%d segundos',
-            m: 'um minuto',
-            mm: '%d minutos',
-            h: 'uma hora',
-            hh: '%d horas',
-            d: 'um dia',
-            dd: '%d dias',
-            M: 'um mês',
-            MM: '%d meses',
-            y: 'um ano',
-            yy: '%d anos',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        invalidDate: 'Data inválida',
-    });
-
-    return ptBr;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/pt.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/pt.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Portuguese [pt]
-//! author : Jefferson : https://github.com/jalex79
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var pt = moment.defineLocale('pt', {
-        months: 'janeiro_fevereiro_março_abril_maio_junho_julho_agosto_setembro_outubro_novembro_dezembro'.split(
-            '_'
-        ),
-        monthsShort: 'jan_fev_mar_abr_mai_jun_jul_ago_set_out_nov_dez'.split('_'),
-        weekdays: 'Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado'.split(
-            '_'
-        ),
-        weekdaysShort: 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
-        weekdaysMin: 'Do_2ª_3ª_4ª_5ª_6ª_Sá'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D [de] MMMM [de] YYYY',
-            LLL: 'D [de] MMMM [de] YYYY HH:mm',
-            LLLL: 'dddd, D [de] MMMM [de] YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Hoje às] LT',
-            nextDay: '[Amanhã às] LT',
-            nextWeek: 'dddd [às] LT',
-            lastDay: '[Ontem às] LT',
-            lastWeek: function () {
-                return this.day() === 0 || this.day() === 6
-                    ? '[Último] dddd [às] LT' // Saturday + Sunday
-                    : '[Última] dddd [às] LT'; // Monday - Friday
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'em %s',
-            past: 'há %s',
-            s: 'segundos',
-            ss: '%d segundos',
-            m: 'um minuto',
-            mm: '%d minutos',
-            h: 'uma hora',
-            hh: '%d horas',
-            d: 'um dia',
-            dd: '%d dias',
-            w: 'uma semana',
-            ww: '%d semanas',
-            M: 'um mês',
-            MM: '%d meses',
-            y: 'um ano',
-            yy: '%d anos',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}º/,
-        ordinal: '%dº',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return pt;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ro.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ro.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Romanian [ro]
-//! author : Vlad Gurdiga : https://github.com/gurdiga
-//! author : Valentin Agachi : https://github.com/avaly
-//! author : Emanuel Cepoi : https://github.com/cepem
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function relativeTimeWithPlural(number, withoutSuffix, key) {
-        var format = {
-                ss: 'secunde',
-                mm: 'minute',
-                hh: 'ore',
-                dd: 'zile',
-                ww: 'săptămâni',
-                MM: 'luni',
-                yy: 'ani',
-            },
-            separator = ' ';
-        if (number % 100 >= 20 || (number >= 100 && number % 100 === 0)) {
-            separator = ' de ';
-        }
-        return number + separator + format[key];
-    }
-
-    var ro = moment.defineLocale('ro', {
-        months: 'ianuarie_februarie_martie_aprilie_mai_iunie_iulie_august_septembrie_octombrie_noiembrie_decembrie'.split(
-            '_'
-        ),
-        monthsShort: 'ian._feb._mart._apr._mai_iun._iul._aug._sept._oct._nov._dec.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'duminică_luni_marți_miercuri_joi_vineri_sâmbătă'.split('_'),
-        weekdaysShort: 'Dum_Lun_Mar_Mie_Joi_Vin_Sâm'.split('_'),
-        weekdaysMin: 'Du_Lu_Ma_Mi_Jo_Vi_Sâ'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY H:mm',
-            LLLL: 'dddd, D MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[azi la] LT',
-            nextDay: '[mâine la] LT',
-            nextWeek: 'dddd [la] LT',
-            lastDay: '[ieri la] LT',
-            lastWeek: '[fosta] dddd [la] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'peste %s',
-            past: '%s în urmă',
-            s: 'câteva secunde',
-            ss: relativeTimeWithPlural,
-            m: 'un minut',
-            mm: relativeTimeWithPlural,
-            h: 'o oră',
-            hh: relativeTimeWithPlural,
-            d: 'o zi',
-            dd: relativeTimeWithPlural,
-            w: 'o săptămână',
-            ww: relativeTimeWithPlural,
-            M: 'o lună',
-            MM: relativeTimeWithPlural,
-            y: 'un an',
-            yy: relativeTimeWithPlural,
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return ro;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/ru.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/ru.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Russian [ru]
-//! author : Viktorminator : https://github.com/Viktorminator
-//! author : Menelion Elensúle : https://github.com/Oire
-//! author : Коренберг Марк : https://github.com/socketpair
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function plural(word, num) {
-        var forms = word.split('_');
-        return num % 10 === 1 && num % 100 !== 11
-            ? forms[0]
-            : num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)
-            ? forms[1]
-            : forms[2];
-    }
-    function relativeTimeWithPlural(number, withoutSuffix, key) {
-        var format = {
-            ss: withoutSuffix ? 'секунда_секунды_секунд' : 'секунду_секунды_секунд',
-            mm: withoutSuffix ? 'минута_минуты_минут' : 'минуту_минуты_минут',
-            hh: 'час_часа_часов',
-            dd: 'день_дня_дней',
-            ww: 'неделя_недели_недель',
-            MM: 'месяц_месяца_месяцев',
-            yy: 'год_года_лет',
-        };
-        if (key === 'm') {
-            return withoutSuffix ? 'минута' : 'минуту';
-        } else {
-            return number + ' ' + plural(format[key], +number);
-        }
-    }
-    var monthsParse = [
-        /^янв/i,
-        /^фев/i,
-        /^мар/i,
-        /^апр/i,
-        /^ма[йя]/i,
-        /^июн/i,
-        /^июл/i,
-        /^авг/i,
-        /^сен/i,
-        /^окт/i,
-        /^ноя/i,
-        /^дек/i,
-    ];
-
-    // http://new.gramota.ru/spravka/rules/139-prop : § 103
-    // Сокращения месяцев: http://new.gramota.ru/spravka/buro/search-answer?s=242637
-    // CLDR data:          http://www.unicode.org/cldr/charts/28/summary/ru.html#1753
-    var ru = moment.defineLocale('ru', {
-        months: {
-            format: 'января_февраля_марта_апреля_мая_июня_июля_августа_сентября_октября_ноября_декабря'.split(
-                '_'
-            ),
-            standalone: 'январь_февраль_март_апрель_май_июнь_июль_август_сентябрь_октябрь_ноябрь_декабрь'.split(
-                '_'
-            ),
-        },
-        monthsShort: {
-            // по CLDR именно "июл." и "июн.", но какой смысл менять букву на точку?
-            format: 'янв._февр._мар._апр._мая_июня_июля_авг._сент._окт._нояб._дек.'.split(
-                '_'
-            ),
-            standalone: 'янв._февр._март_апр._май_июнь_июль_авг._сент._окт._нояб._дек.'.split(
-                '_'
-            ),
-        },
-        weekdays: {
-            standalone: 'воскресенье_понедельник_вторник_среда_четверг_пятница_суббота'.split(
-                '_'
-            ),
-            format: 'воскресенье_понедельник_вторник_среду_четверг_пятницу_субботу'.split(
-                '_'
-            ),
-            isFormat: /\[ ?[Вв] ?(?:прошлую|следующую|эту)? ?] ?dddd/,
-        },
-        weekdaysShort: 'вс_пн_вт_ср_чт_пт_сб'.split('_'),
-        weekdaysMin: 'вс_пн_вт_ср_чт_пт_сб'.split('_'),
-        monthsParse: monthsParse,
-        longMonthsParse: monthsParse,
-        shortMonthsParse: monthsParse,
-
-        // полные названия с падежами, по три буквы, для некоторых, по 4 буквы, сокращения с точкой и без точки
-        monthsRegex: /^(январ[ья]|янв\.?|феврал[ья]|февр?\.?|марта?|мар\.?|апрел[ья]|апр\.?|ма[йя]|июн[ья]|июн\.?|июл[ья]|июл\.?|августа?|авг\.?|сентябр[ья]|сент?\.?|октябр[ья]|окт\.?|ноябр[ья]|нояб?\.?|декабр[ья]|дек\.?)/i,
-
-        // копия предыдущего
-        monthsShortRegex: /^(январ[ья]|янв\.?|феврал[ья]|февр?\.?|марта?|мар\.?|апрел[ья]|апр\.?|ма[йя]|июн[ья]|июн\.?|июл[ья]|июл\.?|августа?|авг\.?|сентябр[ья]|сент?\.?|октябр[ья]|окт\.?|ноябр[ья]|нояб?\.?|декабр[ья]|дек\.?)/i,
-
-        // полные названия с падежами
-        monthsStrictRegex: /^(январ[яь]|феврал[яь]|марта?|апрел[яь]|ма[яй]|июн[яь]|июл[яь]|августа?|сентябр[яь]|октябр[яь]|ноябр[яь]|декабр[яь])/i,
-
-        // Выражение, которое соответствует только сокращённым формам
-        monthsShortStrictRegex: /^(янв\.|февр?\.|мар[т.]|апр\.|ма[яй]|июн[ья.]|июл[ья.]|авг\.|сент?\.|окт\.|нояб?\.|дек\.)/i,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D MMMM YYYY г.',
-            LLL: 'D MMMM YYYY г., H:mm',
-            LLLL: 'dddd, D MMMM YYYY г., H:mm',
-        },
-        calendar: {
-            sameDay: '[Сегодня, в] LT',
-            nextDay: '[Завтра, в] LT',
-            lastDay: '[Вчера, в] LT',
-            nextWeek: function (now) {
-                if (now.week() !== this.week()) {
-                    switch (this.day()) {
-                        case 0:
-                            return '[В следующее] dddd, [в] LT';
-                        case 1:
-                        case 2:
-                        case 4:
-                            return '[В следующий] dddd, [в] LT';
-                        case 3:
-                        case 5:
-                        case 6:
-                            return '[В следующую] dddd, [в] LT';
-                    }
-                } else {
-                    if (this.day() === 2) {
-                        return '[Во] dddd, [в] LT';
-                    } else {
-                        return '[В] dddd, [в] LT';
-                    }
-                }
-            },
-            lastWeek: function (now) {
-                if (now.week() !== this.week()) {
-                    switch (this.day()) {
-                        case 0:
-                            return '[В прошлое] dddd, [в] LT';
-                        case 1:
-                        case 2:
-                        case 4:
-                            return '[В прошлый] dddd, [в] LT';
-                        case 3:
-                        case 5:
-                        case 6:
-                            return '[В прошлую] dddd, [в] LT';
-                    }
-                } else {
-                    if (this.day() === 2) {
-                        return '[Во] dddd, [в] LT';
-                    } else {
-                        return '[В] dddd, [в] LT';
-                    }
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'через %s',
-            past: '%s назад',
-            s: 'несколько секунд',
-            ss: relativeTimeWithPlural,
-            m: relativeTimeWithPlural,
-            mm: relativeTimeWithPlural,
-            h: 'час',
-            hh: relativeTimeWithPlural,
-            d: 'день',
-            dd: relativeTimeWithPlural,
-            w: 'неделя',
-            ww: relativeTimeWithPlural,
-            M: 'месяц',
-            MM: relativeTimeWithPlural,
-            y: 'год',
-            yy: relativeTimeWithPlural,
-        },
-        meridiemParse: /ночи|утра|дня|вечера/i,
-        isPM: function (input) {
-            return /^(дня|вечера)$/.test(input);
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'ночи';
-            } else if (hour < 12) {
-                return 'утра';
-            } else if (hour < 17) {
-                return 'дня';
-            } else {
-                return 'вечера';
-            }
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}-(й|го|я)/,
-        ordinal: function (number, period) {
-            switch (period) {
-                case 'M':
-                case 'd':
-                case 'DDD':
-                    return number + '-й';
-                case 'D':
-                    return number + '-го';
-                case 'w':
-                case 'W':
-                    return number + '-я';
-                default:
-                    return number;
-            }
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return ru;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/sd.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/sd.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Sindhi [sd]
-//! author : Narain Sagar : https://github.com/narainsagar
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var months = [
-            'جنوري',
-            'فيبروري',
-            'مارچ',
-            'اپريل',
-            'مئي',
-            'جون',
-            'جولاءِ',
-            'آگسٽ',
-            'سيپٽمبر',
-            'آڪٽوبر',
-            'نومبر',
-            'ڊسمبر',
-        ],
-        days = ['آچر', 'سومر', 'اڱارو', 'اربع', 'خميس', 'جمع', 'ڇنڇر'];
-
-    var sd = moment.defineLocale('sd', {
-        months: months,
-        monthsShort: months,
-        weekdays: days,
-        weekdaysShort: days,
-        weekdaysMin: days,
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd، D MMMM YYYY HH:mm',
-        },
-        meridiemParse: /صبح|شام/,
-        isPM: function (input) {
-            return 'شام' === input;
-        },
-        meridiem: function (hour, minute, isLower) {
-            if (hour < 12) {
-                return 'صبح';
-            }
-            return 'شام';
-        },
-        calendar: {
-            sameDay: '[اڄ] LT',
-            nextDay: '[سڀاڻي] LT',
-            nextWeek: 'dddd [اڳين هفتي تي] LT',
-            lastDay: '[ڪالهه] LT',
-            lastWeek: '[گزريل هفتي] dddd [تي] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s پوء',
-            past: '%s اڳ',
-            s: 'چند سيڪنڊ',
-            ss: '%d سيڪنڊ',
-            m: 'هڪ منٽ',
-            mm: '%d منٽ',
-            h: 'هڪ ڪلاڪ',
-            hh: '%d ڪلاڪ',
-            d: 'هڪ ڏينهن',
-            dd: '%d ڏينهن',
-            M: 'هڪ مهينو',
-            MM: '%d مهينا',
-            y: 'هڪ سال',
-            yy: '%d سال',
-        },
-        preparse: function (string) {
-            return string.replace(/،/g, ',');
-        },
-        postformat: function (string) {
-            return string.replace(/,/g, '،');
-        },
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return sd;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/se.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/se.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Northern Sami [se]
-//! authors : Bård Rolstad Henriksen : https://github.com/karamell
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var se = moment.defineLocale('se', {
-        months: 'ođđajagemánnu_guovvamánnu_njukčamánnu_cuoŋománnu_miessemánnu_geassemánnu_suoidnemánnu_borgemánnu_čakčamánnu_golggotmánnu_skábmamánnu_juovlamánnu'.split(
-            '_'
-        ),
-        monthsShort: 'ođđj_guov_njuk_cuo_mies_geas_suoi_borg_čakč_golg_skáb_juov'.split(
-            '_'
-        ),
-        weekdays: 'sotnabeaivi_vuossárga_maŋŋebárga_gaskavahkku_duorastat_bearjadat_lávvardat'.split(
-            '_'
-        ),
-        weekdaysShort: 'sotn_vuos_maŋ_gask_duor_bear_láv'.split('_'),
-        weekdaysMin: 's_v_m_g_d_b_L'.split('_'),
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'MMMM D. [b.] YYYY',
-            LLL: 'MMMM D. [b.] YYYY [ti.] HH:mm',
-            LLLL: 'dddd, MMMM D. [b.] YYYY [ti.] HH:mm',
-        },
-        calendar: {
-            sameDay: '[otne ti] LT',
-            nextDay: '[ihttin ti] LT',
-            nextWeek: 'dddd [ti] LT',
-            lastDay: '[ikte ti] LT',
-            lastWeek: '[ovddit] dddd [ti] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%s geažes',
-            past: 'maŋit %s',
-            s: 'moadde sekunddat',
-            ss: '%d sekunddat',
-            m: 'okta minuhta',
-            mm: '%d minuhtat',
-            h: 'okta diimmu',
-            hh: '%d diimmut',
-            d: 'okta beaivi',
-            dd: '%d beaivvit',
-            M: 'okta mánnu',
-            MM: '%d mánut',
-            y: 'okta jahki',
-            yy: '%d jagit',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return se;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/si.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/si.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Sinhalese [si]
-//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    /*jshint -W100*/
-    var si = moment.defineLocale('si', {
-        months: 'ජනවාරි_පෙබරවාරි_මාර්තු_අප්‍රේල්_මැයි_ජූනි_ජූලි_අගෝස්තු_සැප්තැම්බර්_ඔක්තෝබර්_නොවැම්බර්_දෙසැම්බර්'.split(
-            '_'
-        ),
-        monthsShort: 'ජන_පෙබ_මාර්_අප්_මැයි_ජූනි_ජූලි_අගෝ_සැප්_ඔක්_නොවැ_දෙසැ'.split(
-            '_'
-        ),
-        weekdays: 'ඉරිදා_සඳුදා_අඟහරුවාදා_බදාදා_බ්‍රහස්පතින්දා_සිකුරාදා_සෙනසුරාදා'.split(
-            '_'
-        ),
-        weekdaysShort: 'ඉරි_සඳු_අඟ_බදා_බ්‍රහ_සිකු_සෙන'.split('_'),
-        weekdaysMin: 'ඉ_ස_අ_බ_බ්‍ර_සි_සෙ'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'a h:mm',
-            LTS: 'a h:mm:ss',
-            L: 'YYYY/MM/DD',
-            LL: 'YYYY MMMM D',
-            LLL: 'YYYY MMMM D, a h:mm',
-            LLLL: 'YYYY MMMM D [වැනි] dddd, a h:mm:ss',
-        },
-        calendar: {
-            sameDay: '[අද] LT[ට]',
-            nextDay: '[හෙට] LT[ට]',
-            nextWeek: 'dddd LT[ට]',
-            lastDay: '[ඊයේ] LT[ට]',
-            lastWeek: '[පසුගිය] dddd LT[ට]',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: '%sකින්',
-            past: '%sකට පෙර',
-            s: 'තත්පර කිහිපය',
-            ss: 'තත්පර %d',
-            m: 'මිනිත්තුව',
-            mm: 'මිනිත්තු %d',
-            h: 'පැය',
-            hh: 'පැය %d',
-            d: 'දිනය',
-            dd: 'දින %d',
-            M: 'මාසය',
-            MM: 'මාස %d',
-            y: 'වසර',
-            yy: 'වසර %d',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2} වැනි/,
-        ordinal: function (number) {
-            return number + ' වැනි';
-        },
-        meridiemParse: /පෙර වරු|පස් වරු|පෙ.ව|ප.ව./,
-        isPM: function (input) {
-            return input === 'ප.ව.' || input === 'පස් වරු';
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours > 11) {
-                return isLower ? 'ප.ව.' : 'පස් වරු';
-            } else {
-                return isLower ? 'පෙ.ව.' : 'පෙර වරු';
-            }
-        },
-    });
-
-    return si;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/sk.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/sk.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Slovak [sk]
-//! author : Martin Minka : https://github.com/k2s
-//! based on work of petrbela : https://github.com/petrbela
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var months = 'január_február_marec_apríl_máj_jún_júl_august_september_október_november_december'.split(
-            '_'
-        ),
-        monthsShort = 'jan_feb_mar_apr_máj_jún_júl_aug_sep_okt_nov_dec'.split('_');
-    function plural(n) {
-        return n > 1 && n < 5;
-    }
-    function translate(number, withoutSuffix, key, isFuture) {
-        var result = number + ' ';
-        switch (key) {
-            case 's': // a few seconds / in a few seconds / a few seconds ago
-                return withoutSuffix || isFuture ? 'pár sekúnd' : 'pár sekundami';
-            case 'ss': // 9 seconds / in 9 seconds / 9 seconds ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'sekundy' : 'sekúnd');
-                } else {
-                    return result + 'sekundami';
-                }
-            case 'm': // a minute / in a minute / a minute ago
-                return withoutSuffix ? 'minúta' : isFuture ? 'minútu' : 'minútou';
-            case 'mm': // 9 minutes / in 9 minutes / 9 minutes ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'minúty' : 'minút');
-                } else {
-                    return result + 'minútami';
-                }
-            case 'h': // an hour / in an hour / an hour ago
-                return withoutSuffix ? 'hodina' : isFuture ? 'hodinu' : 'hodinou';
-            case 'hh': // 9 hours / in 9 hours / 9 hours ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'hodiny' : 'hodín');
-                } else {
-                    return result + 'hodinami';
-                }
-            case 'd': // a day / in a day / a day ago
-                return withoutSuffix || isFuture ? 'deň' : 'dňom';
-            case 'dd': // 9 days / in 9 days / 9 days ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'dni' : 'dní');
-                } else {
-                    return result + 'dňami';
-                }
-            case 'M': // a month / in a month / a month ago
-                return withoutSuffix || isFuture ? 'mesiac' : 'mesiacom';
-            case 'MM': // 9 months / in 9 months / 9 months ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'mesiace' : 'mesiacov');
-                } else {
-                    return result + 'mesiacmi';
-                }
-            case 'y': // a year / in a year / a year ago
-                return withoutSuffix || isFuture ? 'rok' : 'rokom';
-            case 'yy': // 9 years / in 9 years / 9 years ago
-                if (withoutSuffix || isFuture) {
-                    return result + (plural(number) ? 'roky' : 'rokov');
-                } else {
-                    return result + 'rokmi';
-                }
-        }
-    }
-
-    var sk = moment.defineLocale('sk', {
-        months: months,
-        monthsShort: monthsShort,
-        weekdays: 'nedeľa_pondelok_utorok_streda_štvrtok_piatok_sobota'.split('_'),
-        weekdaysShort: 'ne_po_ut_st_št_pi_so'.split('_'),
-        weekdaysMin: 'ne_po_ut_st_št_pi_so'.split('_'),
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD.MM.YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY H:mm',
-            LLLL: 'dddd D. MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[dnes o] LT',
-            nextDay: '[zajtra o] LT',
-            nextWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[v nedeľu o] LT';
-                    case 1:
-                    case 2:
-                        return '[v] dddd [o] LT';
-                    case 3:
-                        return '[v stredu o] LT';
-                    case 4:
-                        return '[vo štvrtok o] LT';
-                    case 5:
-                        return '[v piatok o] LT';
-                    case 6:
-                        return '[v sobotu o] LT';
-                }
-            },
-            lastDay: '[včera o] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[minulú nedeľu o] LT';
-                    case 1:
-                    case 2:
-                        return '[minulý] dddd [o] LT';
-                    case 3:
-                        return '[minulú stredu o] LT';
-                    case 4:
-                    case 5:
-                        return '[minulý] dddd [o] LT';
-                    case 6:
-                        return '[minulú sobotu o] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'za %s',
-            past: 'pred %s',
-            s: translate,
-            ss: translate,
-            m: translate,
-            mm: translate,
-            h: translate,
-            hh: translate,
-            d: translate,
-            dd: translate,
-            M: translate,
-            MM: translate,
-            y: translate,
-            yy: translate,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return sk;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/sl.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/sl.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Slovenian [sl]
-//! author : Robert Sedovšek : https://github.com/sedovsek
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    function processRelativeTime(number, withoutSuffix, key, isFuture) {
-        var result = number + ' ';
-        switch (key) {
-            case 's':
-                return withoutSuffix || isFuture
-                    ? 'nekaj sekund'
-                    : 'nekaj sekundami';
-            case 'ss':
-                if (number === 1) {
-                    result += withoutSuffix ? 'sekundo' : 'sekundi';
-                } else if (number === 2) {
-                    result += withoutSuffix || isFuture ? 'sekundi' : 'sekundah';
-                } else if (number < 5) {
-                    result += withoutSuffix || isFuture ? 'sekunde' : 'sekundah';
-                } else {
-                    result += 'sekund';
-                }
-                return result;
-            case 'm':
-                return withoutSuffix ? 'ena minuta' : 'eno minuto';
-            case 'mm':
-                if (number === 1) {
-                    result += withoutSuffix ? 'minuta' : 'minuto';
-                } else if (number === 2) {
-                    result += withoutSuffix || isFuture ? 'minuti' : 'minutama';
-                } else if (number < 5) {
-                    result += withoutSuffix || isFuture ? 'minute' : 'minutami';
-                } else {
-                    result += withoutSuffix || isFuture ? 'minut' : 'minutami';
-                }
-                return result;
-            case 'h':
-                return withoutSuffix ? 'ena ura' : 'eno uro';
-            case 'hh':
-                if (number === 1) {
-                    result += withoutSuffix ? 'ura' : 'uro';
-                } else if (number === 2) {
-                    result += withoutSuffix || isFuture ? 'uri' : 'urama';
-                } else if (number < 5) {
-                    result += withoutSuffix || isFuture ? 'ure' : 'urami';
-                } else {
-                    result += withoutSuffix || isFuture ? 'ur' : 'urami';
-                }
-                return result;
-            case 'd':
-                return withoutSuffix || isFuture ? 'en dan' : 'enim dnem';
-            case 'dd':
-                if (number === 1) {
-                    result += withoutSuffix || isFuture ? 'dan' : 'dnem';
-                } else if (number === 2) {
-                    result += withoutSuffix || isFuture ? 'dni' : 'dnevoma';
-                } else {
-                    result += withoutSuffix || isFuture ? 'dni' : 'dnevi';
-                }
-                return result;
-            case 'M':
-                return withoutSuffix || isFuture ? 'en mesec' : 'enim mesecem';
-            case 'MM':
-                if (number === 1) {
-                    result += withoutSuffix || isFuture ? 'mesec' : 'mesecem';
-                } else if (number === 2) {
-                    result += withoutSuffix || isFuture ? 'meseca' : 'mesecema';
-                } else if (number < 5) {
-                    result += withoutSuffix || isFuture ? 'mesece' : 'meseci';
-                } else {
-                    result += withoutSuffix || isFuture ? 'mesecev' : 'meseci';
-                }
-                return result;
-            case 'y':
-                return withoutSuffix || isFuture ? 'eno leto' : 'enim letom';
-            case 'yy':
-                if (number === 1) {
-                    result += withoutSuffix || isFuture ? 'leto' : 'letom';
-                } else if (number === 2) {
-                    result += withoutSuffix || isFuture ? 'leti' : 'letoma';
-                } else if (number < 5) {
-                    result += withoutSuffix || isFuture ? 'leta' : 'leti';
-                } else {
-                    result += withoutSuffix || isFuture ? 'let' : 'leti';
-                }
-                return result;
-        }
-    }
-
-    var sl = moment.defineLocale('sl', {
-        months: 'januar_februar_marec_april_maj_junij_julij_avgust_september_oktober_november_december'.split(
-            '_'
-        ),
-        monthsShort: 'jan._feb._mar._apr._maj._jun._jul._avg._sep._okt._nov._dec.'.split(
-            '_'
-        ),
-        monthsParseExact: true,
-        weekdays: 'nedelja_ponedeljek_torek_sreda_četrtek_petek_sobota'.split('_'),
-        weekdaysShort: 'ned._pon._tor._sre._čet._pet._sob.'.split('_'),
-        weekdaysMin: 'ne_po_to_sr_če_pe_so'.split('_'),
-        weekdaysParseExact: true,
-        longDateFormat: {
-            LT: 'H:mm',
-            LTS: 'H:mm:ss',
-            L: 'DD. MM. YYYY',
-            LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY H:mm',
-            LLLL: 'dddd, D. MMMM YYYY H:mm',
-        },
-        calendar: {
-            sameDay: '[danes ob] LT',
-            nextDay: '[jutri ob] LT',
-
-            nextWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[v] [nedeljo] [ob] LT';
-                    case 3:
-                        return '[v] [sredo] [ob] LT';
-                    case 6:
-                        return '[v] [soboto] [ob] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[v] dddd [ob] LT';
-                }
-            },
-            lastDay: '[včeraj ob] LT',
-            lastWeek: function () {
-                switch (this.day()) {
-                    case 0:
-                        return '[prejšnjo] [nedeljo] [ob] LT';
-                    case 3:
-                        return '[prejšnjo] [sredo] [ob] LT';
-                    case 6:
-                        return '[prejšnjo] [soboto] [ob] LT';
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        return '[prejšnji] dddd [ob] LT';
-                }
-            },
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'čez %s',
-            past: 'pred %s',
-            s: processRelativeTime,
-            ss: processRelativeTime,
-            m: processRelativeTime,
-            mm: processRelativeTime,
-            h: processRelativeTime,
-            hh: processRelativeTime,
-            d: processRelativeTime,
-            dd: processRelativeTime,
-            M: processRelativeTime,
-            MM: processRelativeTime,
-            y: processRelativeTime,
-            yy: processRelativeTime,
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 7, // The week that contains Jan 7th is the first week of the year.
-        },
-    });
-
-    return sl;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/sq.js":
-/*!******************************************!*\
-  !*** ./node_modules/moment/locale/sq.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Albanian [sq]
-//! author : Flakërim Ismani : https://github.com/flakerimi
-//! author : Menelion Elensúle : https://github.com/Oire
-//! author : Oerd Cukalla : https://github.com/oerd
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var sq = moment.defineLocale('sq', {
-        months: 'Janar_Shkurt_Mars_Prill_Maj_Qershor_Korrik_Gusht_Shtator_Tetor_Nëntor_Dhjetor'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Shk_Mar_Pri_Maj_Qer_Kor_Gus_Sht_Tet_Nën_Dhj'.split('_'),
-        weekdays: 'E Diel_E Hënë_E Martë_E Mërkurë_E Enjte_E Premte_E Shtunë'.split(
-            '_'
-        ),
-        weekdaysShort: 'Die_Hën_Mar_Mër_Enj_Pre_Sht'.split('_'),
-        weekdaysMin: 'D_H_Ma_Më_E_P_Sh'.split('_'),
-        weekdaysParseExact: true,
-        meridiemParse: /PD|MD/,
-        isPM: function (input) {
-            return input.charAt(0) === 'M';
-        },
-        meridiem: function (hours, minutes, isLower) {
-            return hours < 12 ? 'PD' : 'MD';
-        },
-        longDateFormat: {
-            LT: 'HH:mm',
-            LTS: 'HH:mm:ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY HH:mm',
-            LLLL: 'dddd, D MMMM YYYY HH:mm',
-        },
-        calendar: {
-            sameDay: '[Sot në] LT',
-            nextDay: '[Nesër në] LT',
-            nextWeek: 'dddd [në] LT',
-            lastDay: '[Dje në] LT',
-            lastWeek: 'dddd [e kaluar në] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'në %s',
-            past: '%s më parë',
-            s: 'disa sekonda',
-            ss: '%d sekonda',
-            m: 'një minutë',
-            mm: '%d minuta',
-            h: 'një orë',
-            hh: '%d orë',
-            d: 'një ditë',
-            dd: '%d ditë',
-            M: 'një muaj',
-            MM: '%d muaj',
-            y: 'një vit',
-            yy: '%d vite',
-        },
-        dayOfMonthOrdinalParse: /\d{1,2}\./,
-        ordinal: '%d.',
-        week: {
-            dow: 1, // Monday is the first day of the week.
-            doy: 4, // The week that contains Jan 4th is the first week of the year.
-        },
-    });
-
-    return sq;
-
-})));
-
-
-/***/ }),
-
-/***/ "./node_modules/moment/locale/sr-cyrl.js":
-/*!***********************************************!*\
-  !*** ./node_modules/moment/locale/sr-cyrl.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-//! moment.js locale configuration
-//! locale : Serbian Cyrillic [sr-cyrl]
-//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
-//! author : Stefan Crnjaković <stefan@hotmail.rs> : https://github.com/crnjakovic
-
-;(function (global, factory) {
-    true ? factory(__webpack_require__(/*! ../moment */ "./node_modules/moment/moment.js")) :
-   undefined
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var translator = {
-        words: {
-            //Different grammatical cases
-            ss: ['секунда', 'секунде', 'секунди'],
-            m: ['један минут', 'једне минуте'],
-            mm: ['минут', 'минуте', 'минута'],
-            h: ['један сат', 'једног сата'],
-            hh: ['сат', 'сата', 'сати'],
-            dd: ['дан', 'дана', 'дана'],
-            MM: ['месец', 'месеца', 'месеци'],
-            yy: ['година', 'године', 'година'],
-        },
-        correctGrammaticalCase: function (number, wordKey) {
-            return number === 1
-                ? wordKey[0]
-                : number >= 2 && number <= 4
-                ? wordKey[1]
-                : wordKey[2];
-        },
-        translate: function (number, withoutSuffix, key) {
-            var wordKey = translator.words[key];
-            if (key.length === 1) {
-                return withoutSuffix ? wordKey[0] : wordKey[1];
-            } else {
-                return (
-                    number +
-                    ' ' +
-                    translator.correctGrammaticalCase(number, wordKey)
-                );
-            }
-        },
+    // make update() debounced, so that it only runs at most once-per-tick
+    this.update = debounce(this.update.bind(this));
+
+    // with {} we create a new object with the options inside it
+    this.options = _extends({}, Popper.Defaults, options);
+
+    // init state
+    this.state = {
+      isDestroyed: false,
+      isCreated: false,
+      scrollParents: []
     };
 
+    // get reference and popper elements (allow jQuery wrappers)
+    this.reference = reference && reference.jquery ? reference[0] : reference;
+    this.popper = popper && popper.jquery ? popper[0] : popper;
+
+    // Deep merge modifiers options
+    this.options.modifiers = {};
+    Object.keys(_extends({}, Popper.Defaults.modifiers, options.modifiers)).forEach(function (name) {
+      _this.options.modifiers[name] = _extends({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
+    });
+
+    // Refactoring modifiers' list (Object => Array)
+    this.modifiers = Object.keys(this.options.modifiers).map(function (name) {
+      return _extends({
+        name: name
+      }, _this.options.modifiers[name]);
+    })
+    // sort the modifiers by order
+    .sort(function (a, b) {
+      return a.order - b.order;
+    });
+
+    // modifiers have the ability to execute arbitrary code when Popper.js get inited
+    // such code is executed in the same order of its modifier
+    // they could add new properties to their options configuration
+    // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
+    this.modifiers.forEach(function (modifierOptions) {
+      if (modifierOptions.enabled && isFunction(modifierOptions.onLoad)) {
+        modifierOptions.onLoad(_this.reference, _this.popper, _this.options, modifierOptions, _this.state);
+      }
+    });
+
+    // fire the first update to position the popper in the right place
+    this.update();
+
+    var eventsEnabled = this.options.eventsEnabled;
+    if (eventsEnabled) {
+      // setup event listeners, they will take care of update the position in specific situations
+      this.enableEventListeners();
+    }
+
+    this.state.eventsEnabled = eventsEnabled;
+  }
+
+  // We can't use class properties because they don't get listed in the
+  // class prototype and break stuff like Sinon stubs
+
+
+  createClass(Popper, [{
+    key: 'update',
+    value: function update$$1() {
+      return update.call(this);
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy$$1() {
+      return destroy.call(this);
+    }
+  }, {
+    key: 'enableEventListeners',
+    value: function enableEventListeners$$1() {
+      return enableEventListeners.call(this);
+    }
+  }, {
+    key: 'disableEventListeners',
+    value: function disableEventListeners$$1() {
+      return disableEventListeners.call(this);
+    }
+
+    /**
+     * Schedules an update. It will run on the next UI update available.
+     * @method scheduleUpdate
+     * @memberof Popper
+     */
+
+
+    /**
+     * Collection of utilities useful when writing custom modifiers.
+     * Starting from version 1.7, this method is available only if you
+     * include `popper-utils.js` before `popper.js`.
+     *
+     * **DEPRECATION**: This way to access PopperUtils is deprecated
+     * and will be removed in v2! Use the PopperUtils module directly instead.
+     * Due to the high instability of the methods contained in Utils, we can't
+     * guarantee them to follow semver. Use them at your own risk!
+     * @static
+     * @private
+     * @type {Object}
+     * @deprecated since version 1.8
+     * @member Utils
+     * @memberof Popper
+     */
+
+  }]);
+  return Popper;
+}();
+
+/**
+ * The `referenceObject` is an object that provides an interface compatible with Popper.js
+ * and lets you use it as replacement of a real DOM node.<br />
+ * You can use this method to position a popper relatively to a set of coordinates
+ * in case you don't have a DOM node to use as reference.
+ *
+ * ```
+ * new Popper(referenceObject, popperNode);
+ * ```
+ *
+ * NB: This feature isn't supported in Internet Explorer 10.
+ * @name referenceObject
+ * @property {Function} data.getBoundingClientRect
+ * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
+ * @property {number} data.clientWidth
+ * An ES6 getter that will return the width of the virtual reference element.
+ * @property {number} data.clientHeight
+ * An ES6 getter that will return the height of the virtual reference element.
+ */
+
+
+Popper.Utils = (typeof window !== 'undefined' ? window : global).PopperUtils;
+Popper.placements = placements;
+Popper.Defaults = Defaults;
+
+/* harmony default export */ __webpack_exports__["default"] = (Popper);
+//# sourceMappingURL=popper.js.map
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : undefined
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/setimmediate/setImmediate.js":
+/*!***************************************************!*\
+  !*** ./node_modules/setimmediate/setImmediate.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+    "use strict";
+
+    if (global.setImmediate) {
+        return;
+    }
+
+    var nextHandle = 1; // Spec says greater than zero
+    var tasksByHandle = {};
+    var currentlyRunningATask = false;
+    var doc = global.document;
+    var registerImmediate;
+
+    function setImmediate(callback) {
+      // Callback can either be a function or a string
+      if (typeof callback !== "function") {
+        callback = new Function("" + callback);
+      }
+      // Copy function arguments
+      var args = new Array(arguments.length - 1);
+      for (var i = 0; i < args.length; i++) {
+          args[i] = arguments[i + 1];
+      }
+      // Store and register the task
+      var task = { callback: callback, args: args };
+      tasksByHandle[nextHandle] = task;
+      registerImmediate(nextHandle);
+      return nextHandle++;
+    }
+
+    function clearImmediate(handle) {
+        delete tasksByHandle[handle];
+    }
+
+    function run(task) {
+        var callback = task.callback;
+        var args = task.args;
+        switch (args.length) {
+        case 0:
+            callback();
+            break;
+        case 1:
+            callback(args[0]);
+            break;
+        case 2:
+            callback(args[0], args[1]);
+            break;
+        case 3:
+            callback(args[0], args[1], args[2]);
+            break;
+        default:
+            callback.apply(undefined, args);
+            break;
+        }
+    }
+
+    function runIfPresent(handle) {
+        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+        // So if we're currently running a task, we'll need to delay this invocation.
+        if (currentlyRunningATask) {
+            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+            // "too much recursion" error.
+            setTimeout(runIfPresent, 0, handle);
+        } else {
+            var task = tasksByHandle[handle];
+            if (task) {
+                currentlyRunningATask = true;
+                try {
+                    run(task);
+                } finally {
+                    clearImmediate(handle);
+                    currentlyRunningATask = false;
+                }
+            }
+        }
+    }
+
+    function installNextTickImplementation() {
+        registerImmediate = function(handle) {
+            process.nextTick(function () { runIfPresent(handle); });
+        };
+    }
+
+    function canUsePostMessage() {
+        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+        // where `global.postMessage` means something completely different and can't be used for this purpose.
+        if (global.postMessage && !global.importScripts) {
+            var postMessageIsAsynchronous = true;
+            var oldOnMessage = global.onmessage;
+            global.onmessage = function() {
+                postMessageIsAsynchronous = false;
+            };
+            global.postMessage("", "*");
+            global.onmessage = oldOnMessage;
+            return postMessageIsAsynchronous;
+        }
+    }
+
+    function installPostMessageImplementation() {
+        // Installs an event handler on `global` for the `message` event: see
+        // * https://developer.mozilla.org/en/DOM/window.postMessage
+        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+
+        var messagePrefix = "setImmediate$" + Math.random() + "$";
+        var onGlobalMessage = function(event) {
+            if (event.source === global &&
+                typeof event.data === "string" &&
+                event.data.indexOf(messagePrefix) === 0) {
+                runIfPresent(+event.data.slice(messagePrefix.length));
+            }
+        };
+
+        if (global.addEventListener) {
+            global.addEventListener("message", onGlobalMessage, false);
+        } else {
+            global.attachEvent("onmessage", onGlobalMessage);
+        }
+
+        registerImmediate = function(handle) {
+            global.postMessage(messagePrefix + handle, "*");
+        };
+    }
+
+    function installMessageChannelImplementation() {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function(event) {
+            var handle = event.data;
+            runIfPresent(handle);
+        };
+
+        registerImmediate = function(handle) {
+            channel.port2.postMessage(handle);
+        };
+    }
+
+    function installReadyStateChangeImplementation() {
+        var html = doc.documentElement;
+        registerImmediate = function(handle) {
+            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+            var script = doc.createElement("script");
+            script.onreadystatechange = function () {
+                runIfPresent(handle);
+                script.onreadystatechange = null;
+                html.removeChild(script);
+                script = null;
+            };
+            html.appendChild(script);
+        };
+    }
+
+    function installSetTimeoutImplementation() {
+        registerImmediate = function(handle) {
+            setTimeout(runIfPresent, 0, handle);
+        };
+    }
+
+    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+
+    // Don't get fooled by e.g. browserify environments.
+    if ({}.toString.call(global.process) === "[object process]") {
+        // For Node.js before 0.9
+        installNextTickImplementation();
+
+    } else if (canUsePostMessage()) {
+        // For non-IE10 modern browsers
+        installPostMessageImplementation();
+
+    } else if (global.MessageChannel) {
+        // For web workers, where supported
+        installMessageChannelImplementation();
+
+    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+        // For IE 6–8
+        installReadyStateChangeImplementation();
+
+    } else {
+        // For older browsers
+        installSetTimeoutImplementation();
+    }
+
+    attachTo.setImmediate = setImmediate;
+    attachTo.clearImmediate = clearImmediate;
+}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/timers-browserify/main.js":
+/*!************************************************!*\
+  !*** ./node_modules/timers-browserify/main.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
+            (typeof self !== "undefined" && self) ||
+            window;
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(scope, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(/*! setimmediate */ "./node_modules/setimmediate/setImmediate.js");
+// On some exotic environments, it's not clear which object `setimmediate` was
+// able to install onto.  Search each possibility in the same order as the
+// `setimmediate` library.
+exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
+                       (typeof global !== "undefined" && global.setImmediate) ||
+                       (this && this.setImmediate);
+exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
+                         (typeof global !== "undefined" && global.clearImmediate) ||
+                         (this && this.clearImmediate);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-md-8" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("Example Component")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _vm._v(
+                "\n                    I'm an example component.\n                "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Auth/LoginComponent.vue?vue&type=template&id=52ae002c&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Auth/LoginComponent.vue?vue&type=template&id=52ae002c& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { staticClass: "ma-5", attrs: { "fill-height": "" } },
+    [
+      _c(
+        "v-card",
+        { staticClass: "mx-auto", attrs: { flat: "", width: "65%" } },
+        [
+          _c(
+            "v-card-text",
+            [
+              _c(
+                "v-container",
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { dense: "" } },
+                    [_c("v-col", [_c("h2", [_vm._v("Login")])])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.error
+                    ? _c(
+                        "v-row",
+                        { attrs: { dense: "" } },
+                        [
+                          _c("v-col", [
+                            _c("p", { staticClass: "red--text" }, [
+                              _vm._v(_vm._s(_vm.error))
+                            ])
+                          ])
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { dense: "" } },
+                    [
+                      _c(
+                        "v-col",
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              rules: _vm.rule,
+                              "prepend-inner-icon": "mdi-account-circle",
+                              "hide-details": "auto",
+                              color: "green",
+                              label:
+                                _vm.loginUrl == "login" ? "Email" : "Username"
+                            },
+                            model: {
+                              value: _vm.username,
+                              callback: function($$v) {
+                                _vm.username = $$v
+                              },
+                              expression: "username"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { dense: "" } },
+                    [
+                      _c(
+                        "v-col",
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              rules: _vm.rule,
+                              "prepend-inner-icon": "mdi-lock",
+                              color: "green",
+                              type: _vm.show1 ? "text" : "password",
+                              label: "Password",
+                              "append-icon": _vm.show1
+                                ? "mdi-eye"
+                                : "mdi-eye-off"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.login()
+                              },
+                              "click:append": function($event) {
+                                _vm.show1 = !_vm.show1
+                              }
+                            },
+                            model: {
+                              value: _vm.password,
+                              callback: function($$v) {
+                                _vm.password = $$v
+                              },
+                              expression: "password"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    {
+                      staticClass: "mt-3",
+                      attrs: { align: "center", dense: "" }
+                    },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "3" } },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                loading: _vm.isLoading,
+                                color: "green",
+                                dark: ""
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.login()
+                                }
+                              }
+                            },
+                            [_vm._v("Login")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _vm.loginUrl == "login"
+                        ? _c("v-col", [
+                            _c("span", [
+                              _vm._v(
+                                "\n              Belum memiliki akun? Daftar "
+                              ),
+                              _c("a", { attrs: { href: "/pendaftaran" } }, [
+                                _vm._v("di sini")
+                              ]),
+                              _vm._v(".\n            ")
+                            ])
+                          ])
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functional component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/vue/dist/vue.common.dev.js":
+/*!*************************************************!*\
+  !*** ./node_modules/vue/dist/vue.common.dev.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
+ * Released under the MIT License.
+ */
+
+
+/*  */
+
+var emptyObject = Object.freeze({});
+
+// These helpers produce better VM code in JS engines due to their
+// explicitness and function inlining.
+function isUndef (v) {
+  return v === undefined || v === null
+}
+
+function isDef (v) {
+  return v !== undefined && v !== null
+}
+
+function isTrue (v) {
+  return v === true
+}
+
+function isFalse (v) {
+  return v === false
+}
+
+/**
+ * Check if value is primitive.
+ */
+function isPrimitive (value) {
+  return (
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    // $flow-disable-line
+    typeof value === 'symbol' ||
+    typeof value === 'boolean'
+  )
+}
+
+/**
+ * Quick object check - this is primarily used to tell
+ * Objects from primitive values when we know the value
+ * is a JSON-compliant type.
+ */
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+/**
+ * Get the raw type string of a value, e.g., [object Object].
+ */
+var _toString = Object.prototype.toString;
+
+function toRawType (value) {
+  return _toString.call(value).slice(8, -1)
+}
+
+/**
+ * Strict object type check. Only returns true
+ * for plain JavaScript objects.
+ */
+function isPlainObject (obj) {
+  return _toString.call(obj) === '[object Object]'
+}
+
+function isRegExp (v) {
+  return _toString.call(v) === '[object RegExp]'
+}
+
+/**
+ * Check if val is a valid array index.
+ */
+function isValidArrayIndex (val) {
+  var n = parseFloat(String(val));
+  return n >= 0 && Math.floor(n) === n && isFinite(val)
+}
+
+function isPromise (val) {
+  return (
+    isDef(val) &&
+    typeof val.then === 'function' &&
+    typeof val.catch === 'function'
+  )
+}
+
+/**
+ * Convert a value to a string that is actually rendered.
+ */
+function toString (val) {
+  return val == null
+    ? ''
+    : Array.isArray(val) || (isPlainObject(val) && val.toString === _toString)
+      ? JSON.stringify(val, null, 2)
+      : String(val)
+}
+
+/**
+ * Convert an input value to a number for persistence.
+ * If the conversion fails, return original string.
+ */
+function toNumber (val) {
+  var n = parseFloat(val);
+  return isNaN(n) ? val : n
+}
+
+/**
+ * Make a map and return a function for checking if a key
+ * is in that map.
+ */
+function makeMap (
+  str,
+  expectsLowerCase
+) {
+  var map = Object.create(null);
+  var list = str.split(',');
+  for (var i = 0; i < list.length; i++) {
+    map[list[i]] = true;
+  }
+  return expectsLowerCase
+    ? function (val) { return map[val.toLowerCase()]; }
+    : function (val) { return map[val]; }
+}
+
+/**
+ * Check if a tag is a built-in tag.
+ */
+var isBuiltInTag = makeMap('slot,component', true);
+
+/**
+ * Check if an attribute is a reserved attribute.
+ */
+var isReservedAttribute = makeMap('key,ref,slot,slot-scope,is');
+
+/**
+ * Remove an item from an array.
+ */
+function remove (arr, item) {
+  if (arr.length) {
+    var index = arr.indexOf(item);
+    if (index > -1) {
+      return arr.splice(index, 1)
+    }
+  }
+}
+
+/**
+ * Check whether an object has the property.
+ */
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+function hasOwn (obj, key) {
+  return hasOwnProperty.call(obj, key)
+}
+
+/**
+ * Create a cached version of a pure function.
+ */
+function cached (fn) {
+  var cache = Object.create(null);
+  return (function cachedFn (str) {
+    var hit = cache[str];
+    return hit || (cache[str] = fn(str))
+  })
+}
+
+/**
+ * Camelize a hyphen-delimited string.
+ */
+var camelizeRE = /-(\w)/g;
+var camelize = cached(function (str) {
+  return str.replace(camelizeRE, function (_, c) { return c ? c.toUpperCase() : ''; })
+});
+
+/**
+ * Capitalize a string.
+ */
+var capitalize = cached(function (str) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+});
+
+/**
+ * Hyphenate a camelCase string.
+ */
+var hyphenateRE = /\B([A-Z])/g;
+var hyphenate = cached(function (str) {
+  return str.replace(hyphenateRE, '-$1').toLowerCase()
+});
+
+/**
+ * Simple bind polyfill for environments that do not support it,
+ * e.g., PhantomJS 1.x. Technically, we don't need this anymore
+ * since native bind is now performant enough in most browsers.
+ * But removing it would mean breaking code that was able to run in
+ * PhantomJS 1.x, so this must be kept for backward compatibility.
+ */
+
+/* istanbul ignore next */
+function polyfillBind (fn, ctx) {
+  function boundFn (a) {
+    var l = arguments.length;
+    return l
+      ? l > 1
+        ? fn.apply(ctx, arguments)
+        : fn.call(ctx, a)
+      : fn.call(ctx)
+  }
+
+  boundFn._length = fn.length;
+  return boundFn
+}
+
+function nativeBind (fn, ctx) {
+  return fn.bind(ctx)
+}
+
+var bind = Function.prototype.bind
+  ? nativeBind
+  : polyfillBind;
+
+/**
+ * Convert an Array-like object to a real Array.
+ */
+function toArray (list, start) {
+  start = start || 0;
+  var i = list.length - start;
+  var ret = new Array(i);
+  while (i--) {
+    ret[i] = list[i + start];
+  }
+  return ret
+}
+
+/**
+ * Mix properties into target object.
+ */
+function extend (to, _from) {
+  for (var key in _from) {
+    to[key] = _from[key];
+  }
+  return to
+}
+
+/**
+ * Merge an Array of Objects into a single Object.
+ */
+function toObject (arr) {
+  var res = {};
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      extend(res, arr[i]);
+    }
+  }
+  return res
+}
+
+/* eslint-disable no-unused-vars */
+
+/**
+ * Perform no operation.
+ * Stubbing args to make Flow happy without leaving useless transpiled code
+ * with ...rest (https://flow.org/blog/2017/05/07/Strict-Function-Call-Arity/).
+ */
+function noop (a, b, c) {}
+
+/**
+ * Always return false.
+ */
+var no = function (a, b, c) { return false; };
+
+/* eslint-enable no-unused-vars */
+
+/**
+ * Return the same value.
+ */
+var identity = function (_) { return _; };
+
+/**
+ * Generate a string containing static keys from compiler modules.
+ */
+function genStaticKeys (modules) {
+  return modules.reduce(function (keys, m) {
+    return keys.concat(m.staticKeys || [])
+  }, []).join(',')
+}
+
+/**
+ * Check if two values are loosely equal - that is,
+ * if they are plain objects, do they have the same shape?
+ */
+function looseEqual (a, b) {
+  if (a === b) { return true }
+  var isObjectA = isObject(a);
+  var isObjectB = isObject(b);
+  if (isObjectA && isObjectB) {
+    try {
+      var isArrayA = Array.isArray(a);
+      var isArrayB = Array.isArray(b);
+      if (isArrayA && isArrayB) {
+        return a.length === b.length && a.every(function (e, i) {
+          return looseEqual(e, b[i])
+        })
+      } else if (a instanceof Date && b instanceof Date) {
+        return a.getTime() === b.getTime()
+      } else if (!isArrayA && !isArrayB) {
+        var keysA = Object.keys(a);
+        var keysB = Object.keys(b);
+        return keysA.length === keysB.length && keysA.every(function (key) {
+          return looseEqual(a[key], b[key])
+        })
+      } else {
+        /* istanbul ignore next */
+        return false
+      }
+    } catch (e) {
+      /* istanbul ignore next */
+      return false
+    }
+  } else if (!isObjectA && !isObjectB) {
+    return String(a) === String(b)
+  } else {
+    return false
+  }
+}
+
+/**
+ * Return the first index at which a loosely equal value can be
+ * found in the array (if value is a plain object, the array must
+ * contain an object of the same shape), or -1 if it is not present.
+ */
+function looseIndexOf (arr, val) {
+  for (var i = 0; i < arr.length; i++) {
+    if (looseEqual(arr[i], val)) { return i }
+  }
+  return -1
+}
+
+/**
+ * Ensure a function is called only once.
+ */
+function once (fn) {
+  var called = false;
+  return function () {
+    if (!called) {
+      called = true;
+      fn.apply(this, arguments);
+    }
+  }
+}
+
+var SSR_ATTR = 'data-server-rendered';
+
+var ASSET_TYPES = [
+  'component',
+  'directive',
+  'filter'
+];
+
+var LIFECYCLE_HOOKS = [
+  'beforeCreate',
+  'created',
+  'beforeMount',
+  'mounted',
+  'beforeUpdate',
+  'updated',
+  'beforeDestroy',
+  'destroyed',
+  'activated',
+  'deactivated',
+  'errorCaptured',
+  'serverPrefetch'
+];
+
+/*  */
+
+
+
+var config = ({
+  /**
+   * Option merge strategies (used in core/util/options)
+   */
+  // $flow-disable-line
+  optionMergeStrategies: Object.create(null),
+
+  /**
+   * Whether to suppress warnings.
+   */
+  silent: false,
+
+  /**
+   * Show production mode tip message on boot?
+   */
+  productionTip: "development" !== 'production',
+
+  /**
+   * Whether to enable devtools
+   */
+  devtools: "development" !== 'production',
+
+  /**
+   * Whether to record perf
+   */
+  performance: false,
+
+  /**
+   * Error handler for watcher errors
+   */
+  errorHandler: null,
+
+  /**
+   * Warn handler for watcher warns
+   */
+  warnHandler: null,
+
+  /**
+   * Ignore certain custom elements
+   */
+  ignoredElements: [],
+
+  /**
+   * Custom user key aliases for v-on
+   */
+  // $flow-disable-line
+  keyCodes: Object.create(null),
+
+  /**
+   * Check if a tag is reserved so that it cannot be registered as a
+   * component. This is platform-dependent and may be overwritten.
+   */
+  isReservedTag: no,
+
+  /**
+   * Check if an attribute is reserved so that it cannot be used as a component
+   * prop. This is platform-dependent and may be overwritten.
+   */
+  isReservedAttr: no,
+
+  /**
+   * Check if a tag is an unknown element.
+   * Platform-dependent.
+   */
+  isUnknownElement: no,
+
+  /**
+   * Get the namespace of an element
+   */
+  getTagNamespace: noop,
+
+  /**
+   * Parse the real tag name for the specific platform.
+   */
+  parsePlatformTagName: identity,
+
+  /**
+   * Check if an attribute must be bound using property, e.g. value
+   * Platform-dependent.
+   */
+  mustUseProp: no,
+
+  /**
+   * Perform updates asynchronously. Intended to be used by Vue Test Utils
+   * This will significantly reduce performance if set to false.
+   */
+  async: true,
+
+  /**
+   * Exposed for legacy reasons
+   */
+  _lifecycleHooks: LIFECYCLE_HOOKS
+});
+
+/*  */
+
+/**
+ * unicode letters used for parsing html tags, component names and property paths.
+ * using https://www.w3.org/TR/html53/semantics-scripting.html#potentialcustomelementname
+ * skipping \u10000-\uEFFFF due to it freezing up PhantomJS
+ */
+var unicodeRegExp = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/;
+
+/**
+ * Check if a string starts with $ or _
+ */
+function isReserved (str) {
+  var c = (str + '').charCodeAt(0);
+  return c === 0x24 || c === 0x5F
+}
+
+/**
+ * Define a property.
+ */
+function def (obj, key, val, enumerable) {
+  Object.defineProperty(obj, key, {
+    value: val,
+    enumerable: !!enumerable,
+    writable: true,
+    configurable: true
+  });
+}
+
+/**
+ * Parse simple path.
+ */
+var bailRE = new RegExp(("[^" + (unicodeRegExp.source) + ".$_\\d]"));
+function parsePath (path) {
+  if (bailRE.test(path)) {
+    return
+  }
+  var segments = path.split('.');
+  return function (obj) {
+    for (var i = 0; i < segments.length; i++) {
+      if (!obj) { return }
+      obj = obj[segments[i]];
+    }
+    return obj
+  }
+}
+
+/*  */
+
+// can we use __proto__?
+var hasProto = '__proto__' in {};
+
+// Browser environment sniffing
+var inBrowser = typeof window !== 'undefined';
+var inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform;
+var weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
+var UA = inBrowser && window.navigator.userAgent.toLowerCase();
+var isIE = UA && /msie|trident/.test(UA);
+var isIE9 = UA && UA.indexOf('msie 9.0') > 0;
+var isEdge = UA && UA.indexOf('edge/') > 0;
+var isAndroid = (UA && UA.indexOf('android') > 0) || (weexPlatform === 'android');
+var isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || (weexPlatform === 'ios');
+var isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
+var isPhantomJS = UA && /phantomjs/.test(UA);
+var isFF = UA && UA.match(/firefox\/(\d+)/);
+
+// Firefox has a "watch" function on Object.prototype...
+var nativeWatch = ({}).watch;
+
+var supportsPassive = false;
+if (inBrowser) {
+  try {
+    var opts = {};
+    Object.defineProperty(opts, 'passive', ({
+      get: function get () {
+        /* istanbul ignore next */
+        supportsPassive = true;
+      }
+    })); // https://github.com/facebook/flow/issues/285
+    window.addEventListener('test-passive', null, opts);
+  } catch (e) {}
+}
+
+// this needs to be lazy-evaled because vue may be required before
+// vue-server-renderer can set VUE_ENV
+var _isServer;
+var isServerRendering = function () {
+  if (_isServer === undefined) {
+    /* istanbul ignore if */
+    if (!inBrowser && !inWeex && typeof global !== 'undefined') {
+      // detect presence of vue-server-renderer and avoid
+      // Webpack shimming the process
+      _isServer = global['process'] && global['process'].env.VUE_ENV === 'server';
+    } else {
+      _isServer = false;
+    }
+  }
+  return _isServer
+};
+
+// detect devtools
+var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+/* istanbul ignore next */
+function isNative (Ctor) {
+  return typeof Ctor === 'function' && /native code/.test(Ctor.toString())
+}
+
+var hasSymbol =
+  typeof Symbol !== 'undefined' && isNative(Symbol) &&
+  typeof Reflect !== 'undefined' && isNative(Reflect.ownKeys);
+
+<<<<<<< HEAD
     var srCyrl = moment.defineLocale('sr-cyrl', {
         months: 'јануар_фебруар_март_април_мај_јун_јул_август_септембар_октобар_новембар_децембар'.split(
             '_'
@@ -61076,6 +53083,8 @@ var hasSymbol =
   typeof Symbol !== 'undefined' && isNative(Symbol) &&
   typeof Reflect !== 'undefined' && isNative(Reflect.ownKeys);
 
+=======
+>>>>>>> 728d97eaa9ca80a4a3343e761f6432945cb95e1e
 var _Set;
 /* istanbul ignore if */ // $flow-disable-line
 if (typeof Set !== 'undefined' && isNative(Set)) {
@@ -61086,6 +53095,5853 @@ if (typeof Set !== 'undefined' && isNative(Set)) {
   _Set = /*@__PURE__*/(function () {
     function Set () {
       this.set = Object.create(null);
+<<<<<<< HEAD
+    }
+    Set.prototype.has = function has (key) {
+      return this.set[key] === true
+    };
+    Set.prototype.add = function add (key) {
+      this.set[key] = true;
+    };
+    Set.prototype.clear = function clear () {
+      this.set = Object.create(null);
+    };
+
+    return Set;
+  }());
+}
+
+/*  */
+
+var warn = noop;
+var tip = noop;
+var generateComponentTrace = (noop); // work around flow check
+var formatComponentName = (noop);
+
+{
+  var hasConsole = typeof console !== 'undefined';
+  var classifyRE = /(?:^|[-_])(\w)/g;
+  var classify = function (str) { return str
+    .replace(classifyRE, function (c) { return c.toUpperCase(); })
+    .replace(/[-_]/g, ''); };
+
+  warn = function (msg, vm) {
+    var trace = vm ? generateComponentTrace(vm) : '';
+
+    if (config.warnHandler) {
+      config.warnHandler.call(null, msg, vm, trace);
+    } else if (hasConsole && (!config.silent)) {
+      console.error(("[Vue warn]: " + msg + trace));
+    }
+  };
+
+  tip = function (msg, vm) {
+    if (hasConsole && (!config.silent)) {
+      console.warn("[Vue tip]: " + msg + (
+        vm ? generateComponentTrace(vm) : ''
+      ));
+    }
+  };
+
+  formatComponentName = function (vm, includeFile) {
+    if (vm.$root === vm) {
+      return '<Root>'
+    }
+    var options = typeof vm === 'function' && vm.cid != null
+      ? vm.options
+      : vm._isVue
+        ? vm.$options || vm.constructor.options
+        : vm;
+    var name = options.name || options._componentTag;
+    var file = options.__file;
+    if (!name && file) {
+      var match = file.match(/([^/\\]+)\.vue$/);
+      name = match && match[1];
+    }
+
+    return (
+      (name ? ("<" + (classify(name)) + ">") : "<Anonymous>") +
+      (file && includeFile !== false ? (" at " + file) : '')
+    )
+  };
+
+  var repeat = function (str, n) {
+    var res = '';
+    while (n) {
+      if (n % 2 === 1) { res += str; }
+      if (n > 1) { str += str; }
+      n >>= 1;
+    }
+    return res
+  };
+
+  generateComponentTrace = function (vm) {
+    if (vm._isVue && vm.$parent) {
+      var tree = [];
+      var currentRecursiveSequence = 0;
+      while (vm) {
+        if (tree.length > 0) {
+          var last = tree[tree.length - 1];
+          if (last.constructor === vm.constructor) {
+            currentRecursiveSequence++;
+            vm = vm.$parent;
+            continue
+          } else if (currentRecursiveSequence > 0) {
+            tree[tree.length - 1] = [last, currentRecursiveSequence];
+            currentRecursiveSequence = 0;
+          }
+        }
+        tree.push(vm);
+        vm = vm.$parent;
+      }
+      return '\n\nfound in\n\n' + tree
+        .map(function (vm, i) { return ("" + (i === 0 ? '---> ' : repeat(' ', 5 + i * 2)) + (Array.isArray(vm)
+            ? ((formatComponentName(vm[0])) + "... (" + (vm[1]) + " recursive calls)")
+            : formatComponentName(vm))); })
+        .join('\n')
+    } else {
+      return ("\n\n(found in " + (formatComponentName(vm)) + ")")
+    }
+  };
+}
+
+/*  */
+
+var uid = 0;
+
+/**
+ * A dep is an observable that can have multiple
+ * directives subscribing to it.
+ */
+var Dep = function Dep () {
+  this.id = uid++;
+  this.subs = [];
+};
+
+Dep.prototype.addSub = function addSub (sub) {
+  this.subs.push(sub);
+};
+
+Dep.prototype.removeSub = function removeSub (sub) {
+  remove(this.subs, sub);
+};
+
+Dep.prototype.depend = function depend () {
+  if (Dep.target) {
+    Dep.target.addDep(this);
+  }
+};
+
+Dep.prototype.notify = function notify () {
+  // stabilize the subscriber list first
+  var subs = this.subs.slice();
+  if (!config.async) {
+    // subs aren't sorted in scheduler if not running async
+    // we need to sort them now to make sure they fire in correct
+    // order
+    subs.sort(function (a, b) { return a.id - b.id; });
+  }
+  for (var i = 0, l = subs.length; i < l; i++) {
+    subs[i].update();
+  }
+};
+
+// The current target watcher being evaluated.
+// This is globally unique because only one watcher
+// can be evaluated at a time.
+Dep.target = null;
+var targetStack = [];
+
+function pushTarget (target) {
+  targetStack.push(target);
+  Dep.target = target;
+}
+
+function popTarget () {
+  targetStack.pop();
+  Dep.target = targetStack[targetStack.length - 1];
+}
+
+/*  */
+
+var VNode = function VNode (
+  tag,
+  data,
+  children,
+  text,
+  elm,
+  context,
+  componentOptions,
+  asyncFactory
+) {
+  this.tag = tag;
+  this.data = data;
+  this.children = children;
+  this.text = text;
+  this.elm = elm;
+  this.ns = undefined;
+  this.context = context;
+  this.fnContext = undefined;
+  this.fnOptions = undefined;
+  this.fnScopeId = undefined;
+  this.key = data && data.key;
+  this.componentOptions = componentOptions;
+  this.componentInstance = undefined;
+  this.parent = undefined;
+  this.raw = false;
+  this.isStatic = false;
+  this.isRootInsert = true;
+  this.isComment = false;
+  this.isCloned = false;
+  this.isOnce = false;
+  this.asyncFactory = asyncFactory;
+  this.asyncMeta = undefined;
+  this.isAsyncPlaceholder = false;
+};
+
+var prototypeAccessors = { child: { configurable: true } };
+
+// DEPRECATED: alias for componentInstance for backwards compat.
+/* istanbul ignore next */
+prototypeAccessors.child.get = function () {
+  return this.componentInstance
+};
+
+Object.defineProperties( VNode.prototype, prototypeAccessors );
+
+var createEmptyVNode = function (text) {
+  if ( text === void 0 ) text = '';
+
+  var node = new VNode();
+  node.text = text;
+  node.isComment = true;
+  return node
+};
+
+function createTextVNode (val) {
+  return new VNode(undefined, undefined, undefined, String(val))
+}
+
+// optimized shallow clone
+// used for static nodes and slot nodes because they may be reused across
+// multiple renders, cloning them avoids errors when DOM manipulations rely
+// on their elm reference.
+function cloneVNode (vnode) {
+  var cloned = new VNode(
+    vnode.tag,
+    vnode.data,
+    // #7975
+    // clone children array to avoid mutating original in case of cloning
+    // a child.
+    vnode.children && vnode.children.slice(),
+    vnode.text,
+    vnode.elm,
+    vnode.context,
+    vnode.componentOptions,
+    vnode.asyncFactory
+  );
+  cloned.ns = vnode.ns;
+  cloned.isStatic = vnode.isStatic;
+  cloned.key = vnode.key;
+  cloned.isComment = vnode.isComment;
+  cloned.fnContext = vnode.fnContext;
+  cloned.fnOptions = vnode.fnOptions;
+  cloned.fnScopeId = vnode.fnScopeId;
+  cloned.asyncMeta = vnode.asyncMeta;
+  cloned.isCloned = true;
+  return cloned
+}
+
+/*
+ * not type checking this file because flow doesn't play well with
+ * dynamically accessing methods on Array prototype
+ */
+
+var arrayProto = Array.prototype;
+var arrayMethods = Object.create(arrayProto);
+
+var methodsToPatch = [
+  'push',
+  'pop',
+  'shift',
+  'unshift',
+  'splice',
+  'sort',
+  'reverse'
+];
+
+/**
+ * Intercept mutating methods and emit events
+ */
+methodsToPatch.forEach(function (method) {
+  // cache original method
+  var original = arrayProto[method];
+  def(arrayMethods, method, function mutator () {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var result = original.apply(this, args);
+    var ob = this.__ob__;
+    var inserted;
+    switch (method) {
+      case 'push':
+      case 'unshift':
+        inserted = args;
+        break
+      case 'splice':
+        inserted = args.slice(2);
+        break
+    }
+    if (inserted) { ob.observeArray(inserted); }
+    // notify change
+    ob.dep.notify();
+    return result
+  });
+});
+
+/*  */
+
+var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
+
+/**
+ * In some cases we may want to disable observation inside a component's
+ * update computation.
+ */
+var shouldObserve = true;
+
+function toggleObserving (value) {
+  shouldObserve = value;
+}
+
+/**
+ * Observer class that is attached to each observed
+ * object. Once attached, the observer converts the target
+ * object's property keys into getter/setters that
+ * collect dependencies and dispatch updates.
+ */
+var Observer = function Observer (value) {
+  this.value = value;
+  this.dep = new Dep();
+  this.vmCount = 0;
+  def(value, '__ob__', this);
+  if (Array.isArray(value)) {
+    if (hasProto) {
+      protoAugment(value, arrayMethods);
+    } else {
+      copyAugment(value, arrayMethods, arrayKeys);
+    }
+    this.observeArray(value);
+  } else {
+    this.walk(value);
+  }
+};
+
+/**
+ * Walk through all properties and convert them into
+ * getter/setters. This method should only be called when
+ * value type is Object.
+ */
+Observer.prototype.walk = function walk (obj) {
+  var keys = Object.keys(obj);
+  for (var i = 0; i < keys.length; i++) {
+    defineReactive$$1(obj, keys[i]);
+  }
+};
+
+/**
+ * Observe a list of Array items.
+ */
+Observer.prototype.observeArray = function observeArray (items) {
+  for (var i = 0, l = items.length; i < l; i++) {
+    observe(items[i]);
+  }
+};
+
+// helpers
+
+/**
+ * Augment a target Object or Array by intercepting
+ * the prototype chain using __proto__
+ */
+function protoAugment (target, src) {
+  /* eslint-disable no-proto */
+  target.__proto__ = src;
+  /* eslint-enable no-proto */
+}
+
+/**
+ * Augment a target Object or Array by defining
+ * hidden properties.
+ */
+/* istanbul ignore next */
+function copyAugment (target, src, keys) {
+  for (var i = 0, l = keys.length; i < l; i++) {
+    var key = keys[i];
+    def(target, key, src[key]);
+  }
+}
+
+/**
+ * Attempt to create an observer instance for a value,
+ * returns the new observer if successfully observed,
+ * or the existing observer if the value already has one.
+ */
+function observe (value, asRootData) {
+  if (!isObject(value) || value instanceof VNode) {
+    return
+  }
+  var ob;
+  if (hasOwn(value, '__ob__') && value.__ob__ instanceof Observer) {
+    ob = value.__ob__;
+  } else if (
+    shouldObserve &&
+    !isServerRendering() &&
+    (Array.isArray(value) || isPlainObject(value)) &&
+    Object.isExtensible(value) &&
+    !value._isVue
+  ) {
+    ob = new Observer(value);
+  }
+  if (asRootData && ob) {
+    ob.vmCount++;
+  }
+  return ob
+}
+
+/**
+ * Define a reactive property on an Object.
+ */
+function defineReactive$$1 (
+  obj,
+  key,
+  val,
+  customSetter,
+  shallow
+) {
+  var dep = new Dep();
+
+  var property = Object.getOwnPropertyDescriptor(obj, key);
+  if (property && property.configurable === false) {
+    return
+  }
+
+  // cater for pre-defined getter/setters
+  var getter = property && property.get;
+  var setter = property && property.set;
+  if ((!getter || setter) && arguments.length === 2) {
+    val = obj[key];
+  }
+
+  var childOb = !shallow && observe(val);
+  Object.defineProperty(obj, key, {
+    enumerable: true,
+    configurable: true,
+    get: function reactiveGetter () {
+      var value = getter ? getter.call(obj) : val;
+      if (Dep.target) {
+        dep.depend();
+        if (childOb) {
+          childOb.dep.depend();
+          if (Array.isArray(value)) {
+            dependArray(value);
+          }
+        }
+      }
+      return value
+    },
+    set: function reactiveSetter (newVal) {
+      var value = getter ? getter.call(obj) : val;
+      /* eslint-disable no-self-compare */
+      if (newVal === value || (newVal !== newVal && value !== value)) {
+        return
+      }
+      /* eslint-enable no-self-compare */
+      if (customSetter) {
+        customSetter();
+      }
+      // #7981: for accessor properties without setter
+      if (getter && !setter) { return }
+      if (setter) {
+        setter.call(obj, newVal);
+      } else {
+        val = newVal;
+      }
+      childOb = !shallow && observe(newVal);
+      dep.notify();
+    }
+  });
+}
+
+/**
+ * Set a property on an object. Adds the new property and
+ * triggers change notification if the property doesn't
+ * already exist.
+ */
+function set (target, key, val) {
+  if (isUndef(target) || isPrimitive(target)
+  ) {
+    warn(("Cannot set reactive property on undefined, null, or primitive value: " + ((target))));
+  }
+  if (Array.isArray(target) && isValidArrayIndex(key)) {
+    target.length = Math.max(target.length, key);
+    target.splice(key, 1, val);
+    return val
+  }
+  if (key in target && !(key in Object.prototype)) {
+    target[key] = val;
+    return val
+  }
+  var ob = (target).__ob__;
+  if (target._isVue || (ob && ob.vmCount)) {
+    warn(
+      'Avoid adding reactive properties to a Vue instance or its root $data ' +
+      'at runtime - declare it upfront in the data option.'
+    );
+    return val
+  }
+  if (!ob) {
+    target[key] = val;
+    return val
+  }
+  defineReactive$$1(ob.value, key, val);
+  ob.dep.notify();
+  return val
+}
+
+/**
+ * Delete a property and trigger change if necessary.
+ */
+function del (target, key) {
+  if (isUndef(target) || isPrimitive(target)
+  ) {
+    warn(("Cannot delete reactive property on undefined, null, or primitive value: " + ((target))));
+  }
+  if (Array.isArray(target) && isValidArrayIndex(key)) {
+    target.splice(key, 1);
+    return
+  }
+  var ob = (target).__ob__;
+  if (target._isVue || (ob && ob.vmCount)) {
+    warn(
+      'Avoid deleting properties on a Vue instance or its root $data ' +
+      '- just set it to null.'
+    );
+    return
+  }
+  if (!hasOwn(target, key)) {
+    return
+  }
+  delete target[key];
+  if (!ob) {
+    return
+  }
+  ob.dep.notify();
+}
+
+/**
+ * Collect dependencies on array elements when the array is touched, since
+ * we cannot intercept array element access like property getters.
+ */
+function dependArray (value) {
+  for (var e = (void 0), i = 0, l = value.length; i < l; i++) {
+    e = value[i];
+    e && e.__ob__ && e.__ob__.dep.depend();
+    if (Array.isArray(e)) {
+      dependArray(e);
+    }
+  }
+}
+
+/*  */
+
+/**
+ * Option overwriting strategies are functions that handle
+ * how to merge a parent option value and a child option
+ * value into the final value.
+ */
+var strats = config.optionMergeStrategies;
+
+/**
+ * Options with restrictions
+ */
+{
+  strats.el = strats.propsData = function (parent, child, vm, key) {
+    if (!vm) {
+      warn(
+        "option \"" + key + "\" can only be used during instance " +
+        'creation with the `new` keyword.'
+      );
+    }
+    return defaultStrat(parent, child)
+  };
+}
+
+/**
+ * Helper that recursively merges two data objects together.
+ */
+function mergeData (to, from) {
+  if (!from) { return to }
+  var key, toVal, fromVal;
+
+  var keys = hasSymbol
+    ? Reflect.ownKeys(from)
+    : Object.keys(from);
+
+  for (var i = 0; i < keys.length; i++) {
+    key = keys[i];
+    // in case the object is already observed...
+    if (key === '__ob__') { continue }
+    toVal = to[key];
+    fromVal = from[key];
+    if (!hasOwn(to, key)) {
+      set(to, key, fromVal);
+    } else if (
+      toVal !== fromVal &&
+      isPlainObject(toVal) &&
+      isPlainObject(fromVal)
+    ) {
+      mergeData(toVal, fromVal);
+    }
+  }
+  return to
+}
+
+/**
+ * Data
+ */
+function mergeDataOrFn (
+  parentVal,
+  childVal,
+  vm
+) {
+  if (!vm) {
+    // in a Vue.extend merge, both should be functions
+    if (!childVal) {
+      return parentVal
+    }
+    if (!parentVal) {
+      return childVal
+    }
+    // when parentVal & childVal are both present,
+    // we need to return a function that returns the
+    // merged result of both functions... no need to
+    // check if parentVal is a function here because
+    // it has to be a function to pass previous merges.
+    return function mergedDataFn () {
+      return mergeData(
+        typeof childVal === 'function' ? childVal.call(this, this) : childVal,
+        typeof parentVal === 'function' ? parentVal.call(this, this) : parentVal
+      )
+    }
+  } else {
+    return function mergedInstanceDataFn () {
+      // instance merge
+      var instanceData = typeof childVal === 'function'
+        ? childVal.call(vm, vm)
+        : childVal;
+      var defaultData = typeof parentVal === 'function'
+        ? parentVal.call(vm, vm)
+        : parentVal;
+      if (instanceData) {
+        return mergeData(instanceData, defaultData)
+      } else {
+        return defaultData
+      }
+    }
+  }
+}
+
+strats.data = function (
+  parentVal,
+  childVal,
+  vm
+) {
+  if (!vm) {
+    if (childVal && typeof childVal !== 'function') {
+      warn(
+        'The "data" option should be a function ' +
+        'that returns a per-instance value in component ' +
+        'definitions.',
+        vm
+      );
+
+      return parentVal
+    }
+    return mergeDataOrFn(parentVal, childVal)
+  }
+
+  return mergeDataOrFn(parentVal, childVal, vm)
+};
+
+/**
+ * Hooks and props are merged as arrays.
+ */
+function mergeHook (
+  parentVal,
+  childVal
+) {
+  var res = childVal
+    ? parentVal
+      ? parentVal.concat(childVal)
+      : Array.isArray(childVal)
+        ? childVal
+        : [childVal]
+    : parentVal;
+  return res
+    ? dedupeHooks(res)
+    : res
+}
+
+function dedupeHooks (hooks) {
+  var res = [];
+  for (var i = 0; i < hooks.length; i++) {
+    if (res.indexOf(hooks[i]) === -1) {
+      res.push(hooks[i]);
+    }
+  }
+  return res
+}
+
+LIFECYCLE_HOOKS.forEach(function (hook) {
+  strats[hook] = mergeHook;
+});
+
+/**
+ * Assets
+ *
+ * When a vm is present (instance creation), we need to do
+ * a three-way merge between constructor options, instance
+ * options and parent options.
+ */
+function mergeAssets (
+  parentVal,
+  childVal,
+  vm,
+  key
+) {
+  var res = Object.create(parentVal || null);
+  if (childVal) {
+    assertObjectType(key, childVal, vm);
+    return extend(res, childVal)
+  } else {
+    return res
+  }
+}
+
+ASSET_TYPES.forEach(function (type) {
+  strats[type + 's'] = mergeAssets;
+});
+
+/**
+ * Watchers.
+ *
+ * Watchers hashes should not overwrite one
+ * another, so we merge them as arrays.
+ */
+strats.watch = function (
+  parentVal,
+  childVal,
+  vm,
+  key
+) {
+  // work around Firefox's Object.prototype.watch...
+  if (parentVal === nativeWatch) { parentVal = undefined; }
+  if (childVal === nativeWatch) { childVal = undefined; }
+  /* istanbul ignore if */
+  if (!childVal) { return Object.create(parentVal || null) }
+  {
+    assertObjectType(key, childVal, vm);
+  }
+  if (!parentVal) { return childVal }
+  var ret = {};
+  extend(ret, parentVal);
+  for (var key$1 in childVal) {
+    var parent = ret[key$1];
+    var child = childVal[key$1];
+    if (parent && !Array.isArray(parent)) {
+      parent = [parent];
+    }
+    ret[key$1] = parent
+      ? parent.concat(child)
+      : Array.isArray(child) ? child : [child];
+  }
+  return ret
+};
+
+/**
+ * Other object hashes.
+ */
+strats.props =
+strats.methods =
+strats.inject =
+strats.computed = function (
+  parentVal,
+  childVal,
+  vm,
+  key
+) {
+  if (childVal && "development" !== 'production') {
+    assertObjectType(key, childVal, vm);
+  }
+  if (!parentVal) { return childVal }
+  var ret = Object.create(null);
+  extend(ret, parentVal);
+  if (childVal) { extend(ret, childVal); }
+  return ret
+};
+strats.provide = mergeDataOrFn;
+
+/**
+ * Default strategy.
+ */
+var defaultStrat = function (parentVal, childVal) {
+  return childVal === undefined
+    ? parentVal
+    : childVal
+};
+
+/**
+ * Validate component names
+ */
+function checkComponents (options) {
+  for (var key in options.components) {
+    validateComponentName(key);
+  }
+}
+
+function validateComponentName (name) {
+  if (!new RegExp(("^[a-zA-Z][\\-\\.0-9_" + (unicodeRegExp.source) + "]*$")).test(name)) {
+    warn(
+      'Invalid component name: "' + name + '". Component names ' +
+      'should conform to valid custom element name in html5 specification.'
+    );
+  }
+  if (isBuiltInTag(name) || config.isReservedTag(name)) {
+    warn(
+      'Do not use built-in or reserved HTML elements as component ' +
+      'id: ' + name
+    );
+  }
+}
+
+/**
+ * Ensure all props option syntax are normalized into the
+ * Object-based format.
+ */
+function normalizeProps (options, vm) {
+  var props = options.props;
+  if (!props) { return }
+  var res = {};
+  var i, val, name;
+  if (Array.isArray(props)) {
+    i = props.length;
+    while (i--) {
+      val = props[i];
+      if (typeof val === 'string') {
+        name = camelize(val);
+        res[name] = { type: null };
+      } else {
+        warn('props must be strings when using array syntax.');
+      }
+    }
+  } else if (isPlainObject(props)) {
+    for (var key in props) {
+      val = props[key];
+      name = camelize(key);
+      res[name] = isPlainObject(val)
+        ? val
+        : { type: val };
+    }
+  } else {
+    warn(
+      "Invalid value for option \"props\": expected an Array or an Object, " +
+      "but got " + (toRawType(props)) + ".",
+      vm
+    );
+  }
+  options.props = res;
+}
+
+/**
+ * Normalize all injections into Object-based format
+ */
+function normalizeInject (options, vm) {
+  var inject = options.inject;
+  if (!inject) { return }
+  var normalized = options.inject = {};
+  if (Array.isArray(inject)) {
+    for (var i = 0; i < inject.length; i++) {
+      normalized[inject[i]] = { from: inject[i] };
+    }
+  } else if (isPlainObject(inject)) {
+    for (var key in inject) {
+      var val = inject[key];
+      normalized[key] = isPlainObject(val)
+        ? extend({ from: key }, val)
+        : { from: val };
+    }
+  } else {
+    warn(
+      "Invalid value for option \"inject\": expected an Array or an Object, " +
+      "but got " + (toRawType(inject)) + ".",
+      vm
+    );
+  }
+}
+
+/**
+ * Normalize raw function directives into object format.
+ */
+function normalizeDirectives (options) {
+  var dirs = options.directives;
+  if (dirs) {
+    for (var key in dirs) {
+      var def$$1 = dirs[key];
+      if (typeof def$$1 === 'function') {
+        dirs[key] = { bind: def$$1, update: def$$1 };
+      }
+    }
+  }
+}
+
+function assertObjectType (name, value, vm) {
+  if (!isPlainObject(value)) {
+    warn(
+      "Invalid value for option \"" + name + "\": expected an Object, " +
+      "but got " + (toRawType(value)) + ".",
+      vm
+    );
+  }
+}
+
+/**
+ * Merge two option objects into a new one.
+ * Core utility used in both instantiation and inheritance.
+ */
+function mergeOptions (
+  parent,
+  child,
+  vm
+) {
+  {
+    checkComponents(child);
+  }
+
+  if (typeof child === 'function') {
+    child = child.options;
+  }
+
+  normalizeProps(child, vm);
+  normalizeInject(child, vm);
+  normalizeDirectives(child);
+
+  // Apply extends and mixins on the child options,
+  // but only if it is a raw options object that isn't
+  // the result of another mergeOptions call.
+  // Only merged options has the _base property.
+  if (!child._base) {
+    if (child.extends) {
+      parent = mergeOptions(parent, child.extends, vm);
+    }
+    if (child.mixins) {
+      for (var i = 0, l = child.mixins.length; i < l; i++) {
+        parent = mergeOptions(parent, child.mixins[i], vm);
+      }
+    }
+  }
+
+  var options = {};
+  var key;
+  for (key in parent) {
+    mergeField(key);
+  }
+  for (key in child) {
+    if (!hasOwn(parent, key)) {
+      mergeField(key);
+    }
+  }
+  function mergeField (key) {
+    var strat = strats[key] || defaultStrat;
+    options[key] = strat(parent[key], child[key], vm, key);
+  }
+  return options
+}
+
+/**
+ * Resolve an asset.
+ * This function is used because child instances need access
+ * to assets defined in its ancestor chain.
+ */
+function resolveAsset (
+  options,
+  type,
+  id,
+  warnMissing
+) {
+  /* istanbul ignore if */
+  if (typeof id !== 'string') {
+    return
+  }
+  var assets = options[type];
+  // check local registration variations first
+  if (hasOwn(assets, id)) { return assets[id] }
+  var camelizedId = camelize(id);
+  if (hasOwn(assets, camelizedId)) { return assets[camelizedId] }
+  var PascalCaseId = capitalize(camelizedId);
+  if (hasOwn(assets, PascalCaseId)) { return assets[PascalCaseId] }
+  // fallback to prototype chain
+  var res = assets[id] || assets[camelizedId] || assets[PascalCaseId];
+  if (warnMissing && !res) {
+    warn(
+      'Failed to resolve ' + type.slice(0, -1) + ': ' + id,
+      options
+    );
+  }
+  return res
+}
+
+/*  */
+
+
+
+function validateProp (
+  key,
+  propOptions,
+  propsData,
+  vm
+) {
+  var prop = propOptions[key];
+  var absent = !hasOwn(propsData, key);
+  var value = propsData[key];
+  // boolean casting
+  var booleanIndex = getTypeIndex(Boolean, prop.type);
+  if (booleanIndex > -1) {
+    if (absent && !hasOwn(prop, 'default')) {
+      value = false;
+    } else if (value === '' || value === hyphenate(key)) {
+      // only cast empty string / same name to boolean if
+      // boolean has higher priority
+      var stringIndex = getTypeIndex(String, prop.type);
+      if (stringIndex < 0 || booleanIndex < stringIndex) {
+        value = true;
+      }
+    }
+  }
+  // check default value
+  if (value === undefined) {
+    value = getPropDefaultValue(vm, prop, key);
+    // since the default value is a fresh copy,
+    // make sure to observe it.
+    var prevShouldObserve = shouldObserve;
+    toggleObserving(true);
+    observe(value);
+    toggleObserving(prevShouldObserve);
+  }
+  {
+    assertProp(prop, key, value, vm, absent);
+  }
+  return value
+}
+
+/**
+ * Get the default value of a prop.
+ */
+function getPropDefaultValue (vm, prop, key) {
+  // no default, return undefined
+  if (!hasOwn(prop, 'default')) {
+    return undefined
+  }
+  var def = prop.default;
+  // warn against non-factory defaults for Object & Array
+  if (isObject(def)) {
+    warn(
+      'Invalid default value for prop "' + key + '": ' +
+      'Props with type Object/Array must use a factory function ' +
+      'to return the default value.',
+      vm
+    );
+  }
+  // the raw prop value was also undefined from previous render,
+  // return previous default value to avoid unnecessary watcher trigger
+  if (vm && vm.$options.propsData &&
+    vm.$options.propsData[key] === undefined &&
+    vm._props[key] !== undefined
+  ) {
+    return vm._props[key]
+  }
+  // call factory function for non-Function types
+  // a value is Function if its prototype is function even across different execution context
+  return typeof def === 'function' && getType(prop.type) !== 'Function'
+    ? def.call(vm)
+    : def
+}
+
+/**
+ * Assert whether a prop is valid.
+ */
+function assertProp (
+  prop,
+  name,
+  value,
+  vm,
+  absent
+) {
+  if (prop.required && absent) {
+    warn(
+      'Missing required prop: "' + name + '"',
+      vm
+    );
+    return
+  }
+  if (value == null && !prop.required) {
+    return
+  }
+  var type = prop.type;
+  var valid = !type || type === true;
+  var expectedTypes = [];
+  if (type) {
+    if (!Array.isArray(type)) {
+      type = [type];
+    }
+    for (var i = 0; i < type.length && !valid; i++) {
+      var assertedType = assertType(value, type[i]);
+      expectedTypes.push(assertedType.expectedType || '');
+      valid = assertedType.valid;
+    }
+  }
+
+  if (!valid) {
+    warn(
+      getInvalidTypeMessage(name, value, expectedTypes),
+      vm
+    );
+    return
+  }
+  var validator = prop.validator;
+  if (validator) {
+    if (!validator(value)) {
+      warn(
+        'Invalid prop: custom validator check failed for prop "' + name + '".',
+        vm
+      );
+    }
+  }
+}
+
+var simpleCheckRE = /^(String|Number|Boolean|Function|Symbol)$/;
+
+function assertType (value, type) {
+  var valid;
+  var expectedType = getType(type);
+  if (simpleCheckRE.test(expectedType)) {
+    var t = typeof value;
+    valid = t === expectedType.toLowerCase();
+    // for primitive wrapper objects
+    if (!valid && t === 'object') {
+      valid = value instanceof type;
+    }
+  } else if (expectedType === 'Object') {
+    valid = isPlainObject(value);
+  } else if (expectedType === 'Array') {
+    valid = Array.isArray(value);
+  } else {
+    valid = value instanceof type;
+  }
+  return {
+    valid: valid,
+    expectedType: expectedType
+  }
+}
+
+/**
+ * Use function string name to check built-in types,
+ * because a simple equality check will fail when running
+ * across different vms / iframes.
+ */
+function getType (fn) {
+  var match = fn && fn.toString().match(/^\s*function (\w+)/);
+  return match ? match[1] : ''
+}
+
+function isSameType (a, b) {
+  return getType(a) === getType(b)
+}
+
+function getTypeIndex (type, expectedTypes) {
+  if (!Array.isArray(expectedTypes)) {
+    return isSameType(expectedTypes, type) ? 0 : -1
+  }
+  for (var i = 0, len = expectedTypes.length; i < len; i++) {
+    if (isSameType(expectedTypes[i], type)) {
+      return i
+    }
+  }
+  return -1
+}
+
+function getInvalidTypeMessage (name, value, expectedTypes) {
+  var message = "Invalid prop: type check failed for prop \"" + name + "\"." +
+    " Expected " + (expectedTypes.map(capitalize).join(', '));
+  var expectedType = expectedTypes[0];
+  var receivedType = toRawType(value);
+  var expectedValue = styleValue(value, expectedType);
+  var receivedValue = styleValue(value, receivedType);
+  // check if we need to specify expected value
+  if (expectedTypes.length === 1 &&
+      isExplicable(expectedType) &&
+      !isBoolean(expectedType, receivedType)) {
+    message += " with value " + expectedValue;
+  }
+  message += ", got " + receivedType + " ";
+  // check if we need to specify received value
+  if (isExplicable(receivedType)) {
+    message += "with value " + receivedValue + ".";
+  }
+  return message
+}
+
+function styleValue (value, type) {
+  if (type === 'String') {
+    return ("\"" + value + "\"")
+  } else if (type === 'Number') {
+    return ("" + (Number(value)))
+  } else {
+    return ("" + value)
+  }
+}
+
+function isExplicable (value) {
+  var explicitTypes = ['string', 'number', 'boolean'];
+  return explicitTypes.some(function (elem) { return value.toLowerCase() === elem; })
+}
+
+function isBoolean () {
+  var args = [], len = arguments.length;
+  while ( len-- ) args[ len ] = arguments[ len ];
+
+  return args.some(function (elem) { return elem.toLowerCase() === 'boolean'; })
+}
+
+/*  */
+
+function handleError (err, vm, info) {
+  // Deactivate deps tracking while processing error handler to avoid possible infinite rendering.
+  // See: https://github.com/vuejs/vuex/issues/1505
+  pushTarget();
+  try {
+    if (vm) {
+      var cur = vm;
+      while ((cur = cur.$parent)) {
+        var hooks = cur.$options.errorCaptured;
+        if (hooks) {
+          for (var i = 0; i < hooks.length; i++) {
+            try {
+              var capture = hooks[i].call(cur, err, vm, info) === false;
+              if (capture) { return }
+            } catch (e) {
+              globalHandleError(e, cur, 'errorCaptured hook');
+            }
+          }
+        }
+      }
+    }
+    globalHandleError(err, vm, info);
+  } finally {
+    popTarget();
+  }
+}
+
+function invokeWithErrorHandling (
+  handler,
+  context,
+  args,
+  vm,
+  info
+) {
+  var res;
+  try {
+    res = args ? handler.apply(context, args) : handler.call(context);
+    if (res && !res._isVue && isPromise(res) && !res._handled) {
+      res.catch(function (e) { return handleError(e, vm, info + " (Promise/async)"); });
+      // issue #9511
+      // avoid catch triggering multiple times when nested calls
+      res._handled = true;
+    }
+  } catch (e) {
+    handleError(e, vm, info);
+  }
+  return res
+}
+
+function globalHandleError (err, vm, info) {
+  if (config.errorHandler) {
+    try {
+      return config.errorHandler.call(null, err, vm, info)
+    } catch (e) {
+      // if the user intentionally throws the original error in the handler,
+      // do not log it twice
+      if (e !== err) {
+        logError(e, null, 'config.errorHandler');
+      }
+    }
+  }
+  logError(err, vm, info);
+}
+
+function logError (err, vm, info) {
+  {
+    warn(("Error in " + info + ": \"" + (err.toString()) + "\""), vm);
+  }
+  /* istanbul ignore else */
+  if ((inBrowser || inWeex) && typeof console !== 'undefined') {
+    console.error(err);
+  } else {
+    throw err
+  }
+}
+
+/*  */
+
+var isUsingMicroTask = false;
+
+var callbacks = [];
+var pending = false;
+
+function flushCallbacks () {
+  pending = false;
+  var copies = callbacks.slice(0);
+  callbacks.length = 0;
+  for (var i = 0; i < copies.length; i++) {
+    copies[i]();
+  }
+}
+
+// Here we have async deferring wrappers using microtasks.
+// In 2.5 we used (macro) tasks (in combination with microtasks).
+// However, it has subtle problems when state is changed right before repaint
+// (e.g. #6813, out-in transitions).
+// Also, using (macro) tasks in event handler would cause some weird behaviors
+// that cannot be circumvented (e.g. #7109, #7153, #7546, #7834, #8109).
+// So we now use microtasks everywhere, again.
+// A major drawback of this tradeoff is that there are some scenarios
+// where microtasks have too high a priority and fire in between supposedly
+// sequential events (e.g. #4521, #6690, which have workarounds)
+// or even between bubbling of the same event (#6566).
+var timerFunc;
+
+// The nextTick behavior leverages the microtask queue, which can be accessed
+// via either native Promise.then or MutationObserver.
+// MutationObserver has wider support, however it is seriously bugged in
+// UIWebView in iOS >= 9.3.3 when triggered in touch event handlers. It
+// completely stops working after triggering a few times... so, if native
+// Promise is available, we will use it:
+/* istanbul ignore next, $flow-disable-line */
+if (typeof Promise !== 'undefined' && isNative(Promise)) {
+  var p = Promise.resolve();
+  timerFunc = function () {
+    p.then(flushCallbacks);
+    // In problematic UIWebViews, Promise.then doesn't completely break, but
+    // it can get stuck in a weird state where callbacks are pushed into the
+    // microtask queue but the queue isn't being flushed, until the browser
+    // needs to do some other work, e.g. handle a timer. Therefore we can
+    // "force" the microtask queue to be flushed by adding an empty timer.
+    if (isIOS) { setTimeout(noop); }
+  };
+  isUsingMicroTask = true;
+} else if (!isIE && typeof MutationObserver !== 'undefined' && (
+  isNative(MutationObserver) ||
+  // PhantomJS and iOS 7.x
+  MutationObserver.toString() === '[object MutationObserverConstructor]'
+)) {
+  // Use MutationObserver where native Promise is not available,
+  // e.g. PhantomJS, iOS7, Android 4.4
+  // (#6466 MutationObserver is unreliable in IE11)
+  var counter = 1;
+  var observer = new MutationObserver(flushCallbacks);
+  var textNode = document.createTextNode(String(counter));
+  observer.observe(textNode, {
+    characterData: true
+  });
+  timerFunc = function () {
+    counter = (counter + 1) % 2;
+    textNode.data = String(counter);
+  };
+  isUsingMicroTask = true;
+} else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
+  // Fallback to setImmediate.
+  // Technically it leverages the (macro) task queue,
+  // but it is still a better choice than setTimeout.
+  timerFunc = function () {
+    setImmediate(flushCallbacks);
+  };
+} else {
+  // Fallback to setTimeout.
+  timerFunc = function () {
+    setTimeout(flushCallbacks, 0);
+  };
+}
+
+function nextTick (cb, ctx) {
+  var _resolve;
+  callbacks.push(function () {
+    if (cb) {
+      try {
+        cb.call(ctx);
+      } catch (e) {
+        handleError(e, ctx, 'nextTick');
+      }
+    } else if (_resolve) {
+      _resolve(ctx);
+    }
+  });
+  if (!pending) {
+    pending = true;
+    timerFunc();
+  }
+  // $flow-disable-line
+  if (!cb && typeof Promise !== 'undefined') {
+    return new Promise(function (resolve) {
+      _resolve = resolve;
+    })
+  }
+}
+
+/*  */
+
+var mark;
+var measure;
+
+{
+  var perf = inBrowser && window.performance;
+  /* istanbul ignore if */
+  if (
+    perf &&
+    perf.mark &&
+    perf.measure &&
+    perf.clearMarks &&
+    perf.clearMeasures
+  ) {
+    mark = function (tag) { return perf.mark(tag); };
+    measure = function (name, startTag, endTag) {
+      perf.measure(name, startTag, endTag);
+      perf.clearMarks(startTag);
+      perf.clearMarks(endTag);
+      // perf.clearMeasures(name)
+    };
+  }
+}
+
+/* not type checking this file because flow doesn't play well with Proxy */
+
+var initProxy;
+
+{
+  var allowedGlobals = makeMap(
+    'Infinity,undefined,NaN,isFinite,isNaN,' +
+    'parseFloat,parseInt,decodeURI,decodeURIComponent,encodeURI,encodeURIComponent,' +
+    'Math,Number,Date,Array,Object,Boolean,String,RegExp,Map,Set,JSON,Intl,' +
+    'require' // for Webpack/Browserify
+  );
+
+  var warnNonPresent = function (target, key) {
+    warn(
+      "Property or method \"" + key + "\" is not defined on the instance but " +
+      'referenced during render. Make sure that this property is reactive, ' +
+      'either in the data option, or for class-based components, by ' +
+      'initializing the property. ' +
+      'See: https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties.',
+      target
+    );
+  };
+
+  var warnReservedPrefix = function (target, key) {
+    warn(
+      "Property \"" + key + "\" must be accessed with \"$data." + key + "\" because " +
+      'properties starting with "$" or "_" are not proxied in the Vue instance to ' +
+      'prevent conflicts with Vue internals. ' +
+      'See: https://vuejs.org/v2/api/#data',
+      target
+    );
+  };
+
+  var hasProxy =
+    typeof Proxy !== 'undefined' && isNative(Proxy);
+
+  if (hasProxy) {
+    var isBuiltInModifier = makeMap('stop,prevent,self,ctrl,shift,alt,meta,exact');
+    config.keyCodes = new Proxy(config.keyCodes, {
+      set: function set (target, key, value) {
+        if (isBuiltInModifier(key)) {
+          warn(("Avoid overwriting built-in modifier in config.keyCodes: ." + key));
+          return false
+        } else {
+          target[key] = value;
+          return true
+        }
+      }
+    });
+  }
+
+  var hasHandler = {
+    has: function has (target, key) {
+      var has = key in target;
+      var isAllowed = allowedGlobals(key) ||
+        (typeof key === 'string' && key.charAt(0) === '_' && !(key in target.$data));
+      if (!has && !isAllowed) {
+        if (key in target.$data) { warnReservedPrefix(target, key); }
+        else { warnNonPresent(target, key); }
+      }
+      return has || !isAllowed
+    }
+  };
+
+  var getHandler = {
+    get: function get (target, key) {
+      if (typeof key === 'string' && !(key in target)) {
+        if (key in target.$data) { warnReservedPrefix(target, key); }
+        else { warnNonPresent(target, key); }
+      }
+      return target[key]
+    }
+  };
+
+  initProxy = function initProxy (vm) {
+    if (hasProxy) {
+      // determine which proxy handler to use
+      var options = vm.$options;
+      var handlers = options.render && options.render._withStripped
+        ? getHandler
+        : hasHandler;
+      vm._renderProxy = new Proxy(vm, handlers);
+    } else {
+      vm._renderProxy = vm;
+    }
+  };
+}
+
+/*  */
+
+var seenObjects = new _Set();
+
+/**
+ * Recursively traverse an object to evoke all converted
+ * getters, so that every nested property inside the object
+ * is collected as a "deep" dependency.
+ */
+function traverse (val) {
+  _traverse(val, seenObjects);
+  seenObjects.clear();
+}
+
+function _traverse (val, seen) {
+  var i, keys;
+  var isA = Array.isArray(val);
+  if ((!isA && !isObject(val)) || Object.isFrozen(val) || val instanceof VNode) {
+    return
+  }
+  if (val.__ob__) {
+    var depId = val.__ob__.dep.id;
+    if (seen.has(depId)) {
+      return
+    }
+    seen.add(depId);
+  }
+  if (isA) {
+    i = val.length;
+    while (i--) { _traverse(val[i], seen); }
+  } else {
+    keys = Object.keys(val);
+    i = keys.length;
+    while (i--) { _traverse(val[keys[i]], seen); }
+  }
+}
+
+/*  */
+
+var normalizeEvent = cached(function (name) {
+  var passive = name.charAt(0) === '&';
+  name = passive ? name.slice(1) : name;
+  var once$$1 = name.charAt(0) === '~'; // Prefixed last, checked first
+  name = once$$1 ? name.slice(1) : name;
+  var capture = name.charAt(0) === '!';
+  name = capture ? name.slice(1) : name;
+  return {
+    name: name,
+    once: once$$1,
+    capture: capture,
+    passive: passive
+  }
+});
+
+function createFnInvoker (fns, vm) {
+  function invoker () {
+    var arguments$1 = arguments;
+
+    var fns = invoker.fns;
+    if (Array.isArray(fns)) {
+      var cloned = fns.slice();
+      for (var i = 0; i < cloned.length; i++) {
+        invokeWithErrorHandling(cloned[i], null, arguments$1, vm, "v-on handler");
+      }
+    } else {
+      // return handler return value for single handlers
+      return invokeWithErrorHandling(fns, null, arguments, vm, "v-on handler")
+    }
+  }
+  invoker.fns = fns;
+  return invoker
+}
+
+function updateListeners (
+  on,
+  oldOn,
+  add,
+  remove$$1,
+  createOnceHandler,
+  vm
+) {
+  var name, def$$1, cur, old, event;
+  for (name in on) {
+    def$$1 = cur = on[name];
+    old = oldOn[name];
+    event = normalizeEvent(name);
+    if (isUndef(cur)) {
+      warn(
+        "Invalid handler for event \"" + (event.name) + "\": got " + String(cur),
+        vm
+      );
+    } else if (isUndef(old)) {
+      if (isUndef(cur.fns)) {
+        cur = on[name] = createFnInvoker(cur, vm);
+      }
+      if (isTrue(event.once)) {
+        cur = on[name] = createOnceHandler(event.name, cur, event.capture);
+      }
+      add(event.name, cur, event.capture, event.passive, event.params);
+    } else if (cur !== old) {
+      old.fns = cur;
+      on[name] = old;
+    }
+  }
+  for (name in oldOn) {
+    if (isUndef(on[name])) {
+      event = normalizeEvent(name);
+      remove$$1(event.name, oldOn[name], event.capture);
+    }
+  }
+}
+
+/*  */
+
+function mergeVNodeHook (def, hookKey, hook) {
+  if (def instanceof VNode) {
+    def = def.data.hook || (def.data.hook = {});
+  }
+  var invoker;
+  var oldHook = def[hookKey];
+
+  function wrappedHook () {
+    hook.apply(this, arguments);
+    // important: remove merged hook to ensure it's called only once
+    // and prevent memory leak
+    remove(invoker.fns, wrappedHook);
+  }
+
+  if (isUndef(oldHook)) {
+    // no existing hook
+    invoker = createFnInvoker([wrappedHook]);
+  } else {
+    /* istanbul ignore if */
+    if (isDef(oldHook.fns) && isTrue(oldHook.merged)) {
+      // already a merged invoker
+      invoker = oldHook;
+      invoker.fns.push(wrappedHook);
+    } else {
+      // existing plain hook
+      invoker = createFnInvoker([oldHook, wrappedHook]);
+    }
+  }
+
+  invoker.merged = true;
+  def[hookKey] = invoker;
+}
+
+/*  */
+
+function extractPropsFromVNodeData (
+  data,
+  Ctor,
+  tag
+) {
+  // we are only extracting raw values here.
+  // validation and default values are handled in the child
+  // component itself.
+  var propOptions = Ctor.options.props;
+  if (isUndef(propOptions)) {
+    return
+  }
+  var res = {};
+  var attrs = data.attrs;
+  var props = data.props;
+  if (isDef(attrs) || isDef(props)) {
+    for (var key in propOptions) {
+      var altKey = hyphenate(key);
+      {
+        var keyInLowerCase = key.toLowerCase();
+        if (
+          key !== keyInLowerCase &&
+          attrs && hasOwn(attrs, keyInLowerCase)
+        ) {
+          tip(
+            "Prop \"" + keyInLowerCase + "\" is passed to component " +
+            (formatComponentName(tag || Ctor)) + ", but the declared prop name is" +
+            " \"" + key + "\". " +
+            "Note that HTML attributes are case-insensitive and camelCased " +
+            "props need to use their kebab-case equivalents when using in-DOM " +
+            "templates. You should probably use \"" + altKey + "\" instead of \"" + key + "\"."
+          );
+        }
+      }
+      checkProp(res, props, key, altKey, true) ||
+      checkProp(res, attrs, key, altKey, false);
+    }
+  }
+  return res
+}
+
+function checkProp (
+  res,
+  hash,
+  key,
+  altKey,
+  preserve
+) {
+  if (isDef(hash)) {
+    if (hasOwn(hash, key)) {
+      res[key] = hash[key];
+      if (!preserve) {
+        delete hash[key];
+      }
+      return true
+    } else if (hasOwn(hash, altKey)) {
+      res[key] = hash[altKey];
+      if (!preserve) {
+        delete hash[altKey];
+      }
+      return true
+    }
+  }
+  return false
+}
+
+/*  */
+
+// The template compiler attempts to minimize the need for normalization by
+// statically analyzing the template at compile time.
+//
+// For plain HTML markup, normalization can be completely skipped because the
+// generated render function is guaranteed to return Array<VNode>. There are
+// two cases where extra normalization is needed:
+
+// 1. When the children contains components - because a functional component
+// may return an Array instead of a single root. In this case, just a simple
+// normalization is needed - if any child is an Array, we flatten the whole
+// thing with Array.prototype.concat. It is guaranteed to be only 1-level deep
+// because functional components already normalize their own children.
+function simpleNormalizeChildren (children) {
+  for (var i = 0; i < children.length; i++) {
+    if (Array.isArray(children[i])) {
+      return Array.prototype.concat.apply([], children)
+    }
+  }
+  return children
+}
+
+// 2. When the children contains constructs that always generated nested Arrays,
+// e.g. <template>, <slot>, v-for, or when the children is provided by user
+// with hand-written render functions / JSX. In such cases a full normalization
+// is needed to cater to all possible types of children values.
+function normalizeChildren (children) {
+  return isPrimitive(children)
+    ? [createTextVNode(children)]
+    : Array.isArray(children)
+      ? normalizeArrayChildren(children)
+      : undefined
+}
+
+function isTextNode (node) {
+  return isDef(node) && isDef(node.text) && isFalse(node.isComment)
+}
+
+function normalizeArrayChildren (children, nestedIndex) {
+  var res = [];
+  var i, c, lastIndex, last;
+  for (i = 0; i < children.length; i++) {
+    c = children[i];
+    if (isUndef(c) || typeof c === 'boolean') { continue }
+    lastIndex = res.length - 1;
+    last = res[lastIndex];
+    //  nested
+    if (Array.isArray(c)) {
+      if (c.length > 0) {
+        c = normalizeArrayChildren(c, ((nestedIndex || '') + "_" + i));
+        // merge adjacent text nodes
+        if (isTextNode(c[0]) && isTextNode(last)) {
+          res[lastIndex] = createTextVNode(last.text + (c[0]).text);
+          c.shift();
+        }
+        res.push.apply(res, c);
+      }
+    } else if (isPrimitive(c)) {
+      if (isTextNode(last)) {
+        // merge adjacent text nodes
+        // this is necessary for SSR hydration because text nodes are
+        // essentially merged when rendered to HTML strings
+        res[lastIndex] = createTextVNode(last.text + c);
+      } else if (c !== '') {
+        // convert primitive to vnode
+        res.push(createTextVNode(c));
+      }
+    } else {
+      if (isTextNode(c) && isTextNode(last)) {
+        // merge adjacent text nodes
+        res[lastIndex] = createTextVNode(last.text + c.text);
+      } else {
+        // default key for nested array children (likely generated by v-for)
+        if (isTrue(children._isVList) &&
+          isDef(c.tag) &&
+          isUndef(c.key) &&
+          isDef(nestedIndex)) {
+          c.key = "__vlist" + nestedIndex + "_" + i + "__";
+        }
+        res.push(c);
+      }
+    }
+  }
+  return res
+}
+
+/*  */
+
+function initProvide (vm) {
+  var provide = vm.$options.provide;
+  if (provide) {
+    vm._provided = typeof provide === 'function'
+      ? provide.call(vm)
+      : provide;
+  }
+}
+
+function initInjections (vm) {
+  var result = resolveInject(vm.$options.inject, vm);
+  if (result) {
+    toggleObserving(false);
+    Object.keys(result).forEach(function (key) {
+      /* istanbul ignore else */
+      {
+        defineReactive$$1(vm, key, result[key], function () {
+          warn(
+            "Avoid mutating an injected value directly since the changes will be " +
+            "overwritten whenever the provided component re-renders. " +
+            "injection being mutated: \"" + key + "\"",
+            vm
+          );
+        });
+      }
+    });
+    toggleObserving(true);
+  }
+}
+
+function resolveInject (inject, vm) {
+  if (inject) {
+    // inject is :any because flow is not smart enough to figure out cached
+    var result = Object.create(null);
+    var keys = hasSymbol
+      ? Reflect.ownKeys(inject)
+      : Object.keys(inject);
+
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      // #6574 in case the inject object is observed...
+      if (key === '__ob__') { continue }
+      var provideKey = inject[key].from;
+      var source = vm;
+      while (source) {
+        if (source._provided && hasOwn(source._provided, provideKey)) {
+          result[key] = source._provided[provideKey];
+          break
+        }
+        source = source.$parent;
+      }
+      if (!source) {
+        if ('default' in inject[key]) {
+          var provideDefault = inject[key].default;
+          result[key] = typeof provideDefault === 'function'
+            ? provideDefault.call(vm)
+            : provideDefault;
+        } else {
+          warn(("Injection \"" + key + "\" not found"), vm);
+        }
+      }
+    }
+    return result
+  }
+}
+
+/*  */
+
+
+
+/**
+ * Runtime helper for resolving raw children VNodes into a slot object.
+ */
+function resolveSlots (
+  children,
+  context
+) {
+  if (!children || !children.length) {
+    return {}
+  }
+  var slots = {};
+  for (var i = 0, l = children.length; i < l; i++) {
+    var child = children[i];
+    var data = child.data;
+    // remove slot attribute if the node is resolved as a Vue slot node
+    if (data && data.attrs && data.attrs.slot) {
+      delete data.attrs.slot;
+    }
+    // named slots should only be respected if the vnode was rendered in the
+    // same context.
+    if ((child.context === context || child.fnContext === context) &&
+      data && data.slot != null
+    ) {
+      var name = data.slot;
+      var slot = (slots[name] || (slots[name] = []));
+      if (child.tag === 'template') {
+        slot.push.apply(slot, child.children || []);
+      } else {
+        slot.push(child);
+      }
+    } else {
+      (slots.default || (slots.default = [])).push(child);
+    }
+  }
+  // ignore slots that contains only whitespace
+  for (var name$1 in slots) {
+    if (slots[name$1].every(isWhitespace)) {
+      delete slots[name$1];
+    }
+  }
+  return slots
+}
+
+function isWhitespace (node) {
+  return (node.isComment && !node.asyncFactory) || node.text === ' '
+}
+
+/*  */
+
+function normalizeScopedSlots (
+  slots,
+  normalSlots,
+  prevSlots
+) {
+  var res;
+  var hasNormalSlots = Object.keys(normalSlots).length > 0;
+  var isStable = slots ? !!slots.$stable : !hasNormalSlots;
+  var key = slots && slots.$key;
+  if (!slots) {
+    res = {};
+  } else if (slots._normalized) {
+    // fast path 1: child component re-render only, parent did not change
+    return slots._normalized
+  } else if (
+    isStable &&
+    prevSlots &&
+    prevSlots !== emptyObject &&
+    key === prevSlots.$key &&
+    !hasNormalSlots &&
+    !prevSlots.$hasNormal
+  ) {
+    // fast path 2: stable scoped slots w/ no normal slots to proxy,
+    // only need to normalize once
+    return prevSlots
+  } else {
+    res = {};
+    for (var key$1 in slots) {
+      if (slots[key$1] && key$1[0] !== '$') {
+        res[key$1] = normalizeScopedSlot(normalSlots, key$1, slots[key$1]);
+      }
+    }
+  }
+  // expose normal slots on scopedSlots
+  for (var key$2 in normalSlots) {
+    if (!(key$2 in res)) {
+      res[key$2] = proxyNormalSlot(normalSlots, key$2);
+    }
+  }
+  // avoriaz seems to mock a non-extensible $scopedSlots object
+  // and when that is passed down this would cause an error
+  if (slots && Object.isExtensible(slots)) {
+    (slots)._normalized = res;
+  }
+  def(res, '$stable', isStable);
+  def(res, '$key', key);
+  def(res, '$hasNormal', hasNormalSlots);
+  return res
+}
+
+function normalizeScopedSlot(normalSlots, key, fn) {
+  var normalized = function () {
+    var res = arguments.length ? fn.apply(null, arguments) : fn({});
+    res = res && typeof res === 'object' && !Array.isArray(res)
+      ? [res] // single vnode
+      : normalizeChildren(res);
+    return res && (
+      res.length === 0 ||
+      (res.length === 1 && res[0].isComment) // #9658
+    ) ? undefined
+      : res
+  };
+  // this is a slot using the new v-slot syntax without scope. although it is
+  // compiled as a scoped slot, render fn users would expect it to be present
+  // on this.$slots because the usage is semantically a normal slot.
+  if (fn.proxy) {
+    Object.defineProperty(normalSlots, key, {
+      get: normalized,
+      enumerable: true,
+      configurable: true
+    });
+  }
+  return normalized
+}
+
+function proxyNormalSlot(slots, key) {
+  return function () { return slots[key]; }
+}
+
+/*  */
+
+/**
+ * Runtime helper for rendering v-for lists.
+ */
+function renderList (
+  val,
+  render
+) {
+  var ret, i, l, keys, key;
+  if (Array.isArray(val) || typeof val === 'string') {
+    ret = new Array(val.length);
+    for (i = 0, l = val.length; i < l; i++) {
+      ret[i] = render(val[i], i);
+    }
+  } else if (typeof val === 'number') {
+    ret = new Array(val);
+    for (i = 0; i < val; i++) {
+      ret[i] = render(i + 1, i);
+    }
+  } else if (isObject(val)) {
+    if (hasSymbol && val[Symbol.iterator]) {
+      ret = [];
+      var iterator = val[Symbol.iterator]();
+      var result = iterator.next();
+      while (!result.done) {
+        ret.push(render(result.value, ret.length));
+        result = iterator.next();
+      }
+    } else {
+      keys = Object.keys(val);
+      ret = new Array(keys.length);
+      for (i = 0, l = keys.length; i < l; i++) {
+        key = keys[i];
+        ret[i] = render(val[key], key, i);
+      }
+    }
+  }
+  if (!isDef(ret)) {
+    ret = [];
+  }
+  (ret)._isVList = true;
+  return ret
+}
+
+/*  */
+
+/**
+ * Runtime helper for rendering <slot>
+ */
+function renderSlot (
+  name,
+  fallback,
+  props,
+  bindObject
+) {
+  var scopedSlotFn = this.$scopedSlots[name];
+  var nodes;
+  if (scopedSlotFn) { // scoped slot
+    props = props || {};
+    if (bindObject) {
+      if (!isObject(bindObject)) {
+        warn(
+          'slot v-bind without argument expects an Object',
+          this
+        );
+      }
+      props = extend(extend({}, bindObject), props);
+    }
+    nodes = scopedSlotFn(props) || fallback;
+  } else {
+    nodes = this.$slots[name] || fallback;
+  }
+
+  var target = props && props.slot;
+  if (target) {
+    return this.$createElement('template', { slot: target }, nodes)
+  } else {
+    return nodes
+  }
+}
+
+/*  */
+
+/**
+ * Runtime helper for resolving filters
+ */
+function resolveFilter (id) {
+  return resolveAsset(this.$options, 'filters', id, true) || identity
+}
+
+/*  */
+
+function isKeyNotMatch (expect, actual) {
+  if (Array.isArray(expect)) {
+    return expect.indexOf(actual) === -1
+  } else {
+    return expect !== actual
+  }
+}
+
+/**
+ * Runtime helper for checking keyCodes from config.
+ * exposed as Vue.prototype._k
+ * passing in eventKeyName as last argument separately for backwards compat
+ */
+function checkKeyCodes (
+  eventKeyCode,
+  key,
+  builtInKeyCode,
+  eventKeyName,
+  builtInKeyName
+) {
+  var mappedKeyCode = config.keyCodes[key] || builtInKeyCode;
+  if (builtInKeyName && eventKeyName && !config.keyCodes[key]) {
+    return isKeyNotMatch(builtInKeyName, eventKeyName)
+  } else if (mappedKeyCode) {
+    return isKeyNotMatch(mappedKeyCode, eventKeyCode)
+  } else if (eventKeyName) {
+    return hyphenate(eventKeyName) !== key
+  }
+}
+
+/*  */
+
+/**
+ * Runtime helper for merging v-bind="object" into a VNode's data.
+ */
+function bindObjectProps (
+  data,
+  tag,
+  value,
+  asProp,
+  isSync
+) {
+  if (value) {
+    if (!isObject(value)) {
+      warn(
+        'v-bind without argument expects an Object or Array value',
+        this
+      );
+    } else {
+      if (Array.isArray(value)) {
+        value = toObject(value);
+      }
+      var hash;
+      var loop = function ( key ) {
+        if (
+          key === 'class' ||
+          key === 'style' ||
+          isReservedAttribute(key)
+        ) {
+          hash = data;
+        } else {
+          var type = data.attrs && data.attrs.type;
+          hash = asProp || config.mustUseProp(tag, type, key)
+            ? data.domProps || (data.domProps = {})
+            : data.attrs || (data.attrs = {});
+        }
+        var camelizedKey = camelize(key);
+        var hyphenatedKey = hyphenate(key);
+        if (!(camelizedKey in hash) && !(hyphenatedKey in hash)) {
+          hash[key] = value[key];
+
+          if (isSync) {
+            var on = data.on || (data.on = {});
+            on[("update:" + key)] = function ($event) {
+              value[key] = $event;
+            };
+          }
+        }
+      };
+
+      for (var key in value) loop( key );
+    }
+  }
+  return data
+}
+
+/*  */
+
+/**
+ * Runtime helper for rendering static trees.
+ */
+function renderStatic (
+  index,
+  isInFor
+) {
+  var cached = this._staticTrees || (this._staticTrees = []);
+  var tree = cached[index];
+  // if has already-rendered static tree and not inside v-for,
+  // we can reuse the same tree.
+  if (tree && !isInFor) {
+    return tree
+  }
+  // otherwise, render a fresh tree.
+  tree = cached[index] = this.$options.staticRenderFns[index].call(
+    this._renderProxy,
+    null,
+    this // for render fns generated for functional component templates
+  );
+  markStatic(tree, ("__static__" + index), false);
+  return tree
+}
+
+/**
+ * Runtime helper for v-once.
+ * Effectively it means marking the node as static with a unique key.
+ */
+function markOnce (
+  tree,
+  index,
+  key
+) {
+  markStatic(tree, ("__once__" + index + (key ? ("_" + key) : "")), true);
+  return tree
+}
+
+function markStatic (
+  tree,
+  key,
+  isOnce
+) {
+  if (Array.isArray(tree)) {
+    for (var i = 0; i < tree.length; i++) {
+      if (tree[i] && typeof tree[i] !== 'string') {
+        markStaticNode(tree[i], (key + "_" + i), isOnce);
+      }
+    }
+  } else {
+    markStaticNode(tree, key, isOnce);
+  }
+}
+
+function markStaticNode (node, key, isOnce) {
+  node.isStatic = true;
+  node.key = key;
+  node.isOnce = isOnce;
+}
+
+/*  */
+
+function bindObjectListeners (data, value) {
+  if (value) {
+    if (!isPlainObject(value)) {
+      warn(
+        'v-on without argument expects an Object value',
+        this
+      );
+    } else {
+      var on = data.on = data.on ? extend({}, data.on) : {};
+      for (var key in value) {
+        var existing = on[key];
+        var ours = value[key];
+        on[key] = existing ? [].concat(existing, ours) : ours;
+      }
+    }
+  }
+  return data
+}
+
+/*  */
+
+function resolveScopedSlots (
+  fns, // see flow/vnode
+  res,
+  // the following are added in 2.6
+  hasDynamicKeys,
+  contentHashKey
+) {
+  res = res || { $stable: !hasDynamicKeys };
+  for (var i = 0; i < fns.length; i++) {
+    var slot = fns[i];
+    if (Array.isArray(slot)) {
+      resolveScopedSlots(slot, res, hasDynamicKeys);
+    } else if (slot) {
+      // marker for reverse proxying v-slot without scope on this.$slots
+      if (slot.proxy) {
+        slot.fn.proxy = true;
+      }
+      res[slot.key] = slot.fn;
+    }
+  }
+  if (contentHashKey) {
+    (res).$key = contentHashKey;
+  }
+  return res
+}
+
+/*  */
+
+function bindDynamicKeys (baseObj, values) {
+  for (var i = 0; i < values.length; i += 2) {
+    var key = values[i];
+    if (typeof key === 'string' && key) {
+      baseObj[values[i]] = values[i + 1];
+    } else if (key !== '' && key !== null) {
+      // null is a special value for explicitly removing a binding
+      warn(
+        ("Invalid value for dynamic directive argument (expected string or null): " + key),
+        this
+      );
+    }
+  }
+  return baseObj
+}
+
+// helper to dynamically append modifier runtime markers to event names.
+// ensure only append when value is already string, otherwise it will be cast
+// to string and cause the type check to miss.
+function prependModifier (value, symbol) {
+  return typeof value === 'string' ? symbol + value : value
+}
+
+/*  */
+
+function installRenderHelpers (target) {
+  target._o = markOnce;
+  target._n = toNumber;
+  target._s = toString;
+  target._l = renderList;
+  target._t = renderSlot;
+  target._q = looseEqual;
+  target._i = looseIndexOf;
+  target._m = renderStatic;
+  target._f = resolveFilter;
+  target._k = checkKeyCodes;
+  target._b = bindObjectProps;
+  target._v = createTextVNode;
+  target._e = createEmptyVNode;
+  target._u = resolveScopedSlots;
+  target._g = bindObjectListeners;
+  target._d = bindDynamicKeys;
+  target._p = prependModifier;
+}
+
+/*  */
+
+function FunctionalRenderContext (
+  data,
+  props,
+  children,
+  parent,
+  Ctor
+) {
+  var this$1 = this;
+
+  var options = Ctor.options;
+  // ensure the createElement function in functional components
+  // gets a unique context - this is necessary for correct named slot check
+  var contextVm;
+  if (hasOwn(parent, '_uid')) {
+    contextVm = Object.create(parent);
+    // $flow-disable-line
+    contextVm._original = parent;
+  } else {
+    // the context vm passed in is a functional context as well.
+    // in this case we want to make sure we are able to get a hold to the
+    // real context instance.
+    contextVm = parent;
+    // $flow-disable-line
+    parent = parent._original;
+  }
+  var isCompiled = isTrue(options._compiled);
+  var needNormalization = !isCompiled;
+
+  this.data = data;
+  this.props = props;
+  this.children = children;
+  this.parent = parent;
+  this.listeners = data.on || emptyObject;
+  this.injections = resolveInject(options.inject, parent);
+  this.slots = function () {
+    if (!this$1.$slots) {
+      normalizeScopedSlots(
+        data.scopedSlots,
+        this$1.$slots = resolveSlots(children, parent)
+      );
+    }
+    return this$1.$slots
+  };
+
+  Object.defineProperty(this, 'scopedSlots', ({
+    enumerable: true,
+    get: function get () {
+      return normalizeScopedSlots(data.scopedSlots, this.slots())
+    }
+  }));
+
+  // support for compiled functional template
+  if (isCompiled) {
+    // exposing $options for renderStatic()
+    this.$options = options;
+    // pre-resolve slots for renderSlot()
+    this.$slots = this.slots();
+    this.$scopedSlots = normalizeScopedSlots(data.scopedSlots, this.$slots);
+  }
+
+  if (options._scopeId) {
+    this._c = function (a, b, c, d) {
+      var vnode = createElement(contextVm, a, b, c, d, needNormalization);
+      if (vnode && !Array.isArray(vnode)) {
+        vnode.fnScopeId = options._scopeId;
+        vnode.fnContext = parent;
+      }
+      return vnode
+    };
+  } else {
+    this._c = function (a, b, c, d) { return createElement(contextVm, a, b, c, d, needNormalization); };
+  }
+}
+
+installRenderHelpers(FunctionalRenderContext.prototype);
+
+function createFunctionalComponent (
+  Ctor,
+  propsData,
+  data,
+  contextVm,
+  children
+) {
+  var options = Ctor.options;
+  var props = {};
+  var propOptions = options.props;
+  if (isDef(propOptions)) {
+    for (var key in propOptions) {
+      props[key] = validateProp(key, propOptions, propsData || emptyObject);
+    }
+  } else {
+    if (isDef(data.attrs)) { mergeProps(props, data.attrs); }
+    if (isDef(data.props)) { mergeProps(props, data.props); }
+  }
+
+  var renderContext = new FunctionalRenderContext(
+    data,
+    props,
+    children,
+    contextVm,
+    Ctor
+  );
+
+  var vnode = options.render.call(null, renderContext._c, renderContext);
+
+  if (vnode instanceof VNode) {
+    return cloneAndMarkFunctionalResult(vnode, data, renderContext.parent, options, renderContext)
+  } else if (Array.isArray(vnode)) {
+    var vnodes = normalizeChildren(vnode) || [];
+    var res = new Array(vnodes.length);
+    for (var i = 0; i < vnodes.length; i++) {
+      res[i] = cloneAndMarkFunctionalResult(vnodes[i], data, renderContext.parent, options, renderContext);
+    }
+    return res
+  }
+}
+
+function cloneAndMarkFunctionalResult (vnode, data, contextVm, options, renderContext) {
+  // #7817 clone node before setting fnContext, otherwise if the node is reused
+  // (e.g. it was from a cached normal slot) the fnContext causes named slots
+  // that should not be matched to match.
+  var clone = cloneVNode(vnode);
+  clone.fnContext = contextVm;
+  clone.fnOptions = options;
+  {
+    (clone.devtoolsMeta = clone.devtoolsMeta || {}).renderContext = renderContext;
+  }
+  if (data.slot) {
+    (clone.data || (clone.data = {})).slot = data.slot;
+  }
+  return clone
+}
+
+function mergeProps (to, from) {
+  for (var key in from) {
+    to[camelize(key)] = from[key];
+  }
+}
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+// inline hooks to be invoked on component VNodes during patch
+var componentVNodeHooks = {
+  init: function init (vnode, hydrating) {
+    if (
+      vnode.componentInstance &&
+      !vnode.componentInstance._isDestroyed &&
+      vnode.data.keepAlive
+    ) {
+      // kept-alive components, treat as a patch
+      var mountedNode = vnode; // work around flow
+      componentVNodeHooks.prepatch(mountedNode, mountedNode);
+    } else {
+      var child = vnode.componentInstance = createComponentInstanceForVnode(
+        vnode,
+        activeInstance
+      );
+      child.$mount(hydrating ? vnode.elm : undefined, hydrating);
+    }
+  },
+
+  prepatch: function prepatch (oldVnode, vnode) {
+    var options = vnode.componentOptions;
+    var child = vnode.componentInstance = oldVnode.componentInstance;
+    updateChildComponent(
+      child,
+      options.propsData, // updated props
+      options.listeners, // updated listeners
+      vnode, // new parent vnode
+      options.children // new children
+    );
+  },
+
+  insert: function insert (vnode) {
+    var context = vnode.context;
+    var componentInstance = vnode.componentInstance;
+    if (!componentInstance._isMounted) {
+      componentInstance._isMounted = true;
+      callHook(componentInstance, 'mounted');
+    }
+    if (vnode.data.keepAlive) {
+      if (context._isMounted) {
+        // vue-router#1212
+        // During updates, a kept-alive component's child components may
+        // change, so directly walking the tree here may call activated hooks
+        // on incorrect children. Instead we push them into a queue which will
+        // be processed after the whole patch process ended.
+        queueActivatedComponent(componentInstance);
+      } else {
+        activateChildComponent(componentInstance, true /* direct */);
+      }
+    }
+  },
+
+  destroy: function destroy (vnode) {
+    var componentInstance = vnode.componentInstance;
+    if (!componentInstance._isDestroyed) {
+      if (!vnode.data.keepAlive) {
+        componentInstance.$destroy();
+      } else {
+        deactivateChildComponent(componentInstance, true /* direct */);
+      }
+    }
+  }
+};
+
+var hooksToMerge = Object.keys(componentVNodeHooks);
+
+function createComponent (
+  Ctor,
+  data,
+  context,
+  children,
+  tag
+) {
+  if (isUndef(Ctor)) {
+    return
+  }
+
+  var baseCtor = context.$options._base;
+
+  // plain options object: turn it into a constructor
+  if (isObject(Ctor)) {
+    Ctor = baseCtor.extend(Ctor);
+  }
+
+  // if at this stage it's not a constructor or an async component factory,
+  // reject.
+  if (typeof Ctor !== 'function') {
+    {
+      warn(("Invalid Component definition: " + (String(Ctor))), context);
+    }
+    return
+  }
+
+  // async component
+  var asyncFactory;
+  if (isUndef(Ctor.cid)) {
+    asyncFactory = Ctor;
+    Ctor = resolveAsyncComponent(asyncFactory, baseCtor);
+    if (Ctor === undefined) {
+      // return a placeholder node for async component, which is rendered
+      // as a comment node but preserves all the raw information for the node.
+      // the information will be used for async server-rendering and hydration.
+      return createAsyncPlaceholder(
+        asyncFactory,
+        data,
+        context,
+        children,
+        tag
+      )
+    }
+  }
+
+  data = data || {};
+
+  // resolve constructor options in case global mixins are applied after
+  // component constructor creation
+  resolveConstructorOptions(Ctor);
+
+  // transform component v-model data into props & events
+  if (isDef(data.model)) {
+    transformModel(Ctor.options, data);
+  }
+
+  // extract props
+  var propsData = extractPropsFromVNodeData(data, Ctor, tag);
+
+  // functional component
+  if (isTrue(Ctor.options.functional)) {
+    return createFunctionalComponent(Ctor, propsData, data, context, children)
+  }
+
+  // extract listeners, since these needs to be treated as
+  // child component listeners instead of DOM listeners
+  var listeners = data.on;
+  // replace with listeners with .native modifier
+  // so it gets processed during parent component patch.
+  data.on = data.nativeOn;
+
+  if (isTrue(Ctor.options.abstract)) {
+    // abstract components do not keep anything
+    // other than props & listeners & slot
+
+    // work around flow
+    var slot = data.slot;
+    data = {};
+    if (slot) {
+      data.slot = slot;
+    }
+  }
+
+  // install component management hooks onto the placeholder node
+  installComponentHooks(data);
+
+  // return a placeholder vnode
+  var name = Ctor.options.name || tag;
+  var vnode = new VNode(
+    ("vue-component-" + (Ctor.cid) + (name ? ("-" + name) : '')),
+    data, undefined, undefined, undefined, context,
+    { Ctor: Ctor, propsData: propsData, listeners: listeners, tag: tag, children: children },
+    asyncFactory
+  );
+
+  return vnode
+}
+
+function createComponentInstanceForVnode (
+  vnode, // we know it's MountedComponentVNode but flow doesn't
+  parent // activeInstance in lifecycle state
+) {
+  var options = {
+    _isComponent: true,
+    _parentVnode: vnode,
+    parent: parent
+  };
+  // check inline-template render functions
+  var inlineTemplate = vnode.data.inlineTemplate;
+  if (isDef(inlineTemplate)) {
+    options.render = inlineTemplate.render;
+    options.staticRenderFns = inlineTemplate.staticRenderFns;
+  }
+  return new vnode.componentOptions.Ctor(options)
+}
+
+function installComponentHooks (data) {
+  var hooks = data.hook || (data.hook = {});
+  for (var i = 0; i < hooksToMerge.length; i++) {
+    var key = hooksToMerge[i];
+    var existing = hooks[key];
+    var toMerge = componentVNodeHooks[key];
+    if (existing !== toMerge && !(existing && existing._merged)) {
+      hooks[key] = existing ? mergeHook$1(toMerge, existing) : toMerge;
+    }
+  }
+}
+
+function mergeHook$1 (f1, f2) {
+  var merged = function (a, b) {
+    // flow complains about extra args which is why we use any
+    f1(a, b);
+    f2(a, b);
+  };
+  merged._merged = true;
+  return merged
+}
+
+// transform component v-model info (value and callback) into
+// prop and event handler respectively.
+function transformModel (options, data) {
+  var prop = (options.model && options.model.prop) || 'value';
+  var event = (options.model && options.model.event) || 'input'
+  ;(data.attrs || (data.attrs = {}))[prop] = data.model.value;
+  var on = data.on || (data.on = {});
+  var existing = on[event];
+  var callback = data.model.callback;
+  if (isDef(existing)) {
+    if (
+      Array.isArray(existing)
+        ? existing.indexOf(callback) === -1
+        : existing !== callback
+    ) {
+      on[event] = [callback].concat(existing);
+    }
+  } else {
+    on[event] = callback;
+  }
+}
+
+/*  */
+
+var SIMPLE_NORMALIZE = 1;
+var ALWAYS_NORMALIZE = 2;
+
+// wrapper function for providing a more flexible interface
+// without getting yelled at by flow
+function createElement (
+  context,
+  tag,
+  data,
+  children,
+  normalizationType,
+  alwaysNormalize
+) {
+  if (Array.isArray(data) || isPrimitive(data)) {
+    normalizationType = children;
+    children = data;
+    data = undefined;
+  }
+  if (isTrue(alwaysNormalize)) {
+    normalizationType = ALWAYS_NORMALIZE;
+  }
+  return _createElement(context, tag, data, children, normalizationType)
+}
+
+function _createElement (
+  context,
+  tag,
+  data,
+  children,
+  normalizationType
+) {
+  if (isDef(data) && isDef((data).__ob__)) {
+    warn(
+      "Avoid using observed data object as vnode data: " + (JSON.stringify(data)) + "\n" +
+      'Always create fresh vnode data objects in each render!',
+      context
+    );
+    return createEmptyVNode()
+  }
+  // object syntax in v-bind
+  if (isDef(data) && isDef(data.is)) {
+    tag = data.is;
+  }
+  if (!tag) {
+    // in case of component :is set to falsy value
+    return createEmptyVNode()
+  }
+  // warn against non-primitive key
+  if (isDef(data) && isDef(data.key) && !isPrimitive(data.key)
+  ) {
+    {
+      warn(
+        'Avoid using non-primitive value as key, ' +
+        'use string/number value instead.',
+        context
+      );
+    }
+  }
+  // support single function children as default scoped slot
+  if (Array.isArray(children) &&
+    typeof children[0] === 'function'
+  ) {
+    data = data || {};
+    data.scopedSlots = { default: children[0] };
+    children.length = 0;
+  }
+  if (normalizationType === ALWAYS_NORMALIZE) {
+    children = normalizeChildren(children);
+  } else if (normalizationType === SIMPLE_NORMALIZE) {
+    children = simpleNormalizeChildren(children);
+  }
+  var vnode, ns;
+  if (typeof tag === 'string') {
+    var Ctor;
+    ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag);
+    if (config.isReservedTag(tag)) {
+      // platform built-in elements
+      if (isDef(data) && isDef(data.nativeOn)) {
+        warn(
+          ("The .native modifier for v-on is only valid on components but it was used on <" + tag + ">."),
+          context
+        );
+      }
+      vnode = new VNode(
+        config.parsePlatformTagName(tag), data, children,
+        undefined, undefined, context
+      );
+    } else if ((!data || !data.pre) && isDef(Ctor = resolveAsset(context.$options, 'components', tag))) {
+      // component
+      vnode = createComponent(Ctor, data, context, children, tag);
+    } else {
+      // unknown or unlisted namespaced elements
+      // check at runtime because it may get assigned a namespace when its
+      // parent normalizes children
+      vnode = new VNode(
+        tag, data, children,
+        undefined, undefined, context
+      );
+    }
+  } else {
+    // direct component options / constructor
+    vnode = createComponent(tag, data, context, children);
+  }
+  if (Array.isArray(vnode)) {
+    return vnode
+  } else if (isDef(vnode)) {
+    if (isDef(ns)) { applyNS(vnode, ns); }
+    if (isDef(data)) { registerDeepBindings(data); }
+    return vnode
+  } else {
+    return createEmptyVNode()
+  }
+}
+
+function applyNS (vnode, ns, force) {
+  vnode.ns = ns;
+  if (vnode.tag === 'foreignObject') {
+    // use default namespace inside foreignObject
+    ns = undefined;
+    force = true;
+  }
+  if (isDef(vnode.children)) {
+    for (var i = 0, l = vnode.children.length; i < l; i++) {
+      var child = vnode.children[i];
+      if (isDef(child.tag) && (
+        isUndef(child.ns) || (isTrue(force) && child.tag !== 'svg'))) {
+        applyNS(child, ns, force);
+      }
+    }
+  }
+}
+
+// ref #5318
+// necessary to ensure parent re-render when deep bindings like :style and
+// :class are used on slot nodes
+function registerDeepBindings (data) {
+  if (isObject(data.style)) {
+    traverse(data.style);
+  }
+  if (isObject(data.class)) {
+    traverse(data.class);
+  }
+}
+
+/*  */
+
+function initRender (vm) {
+  vm._vnode = null; // the root of the child tree
+  vm._staticTrees = null; // v-once cached trees
+  var options = vm.$options;
+  var parentVnode = vm.$vnode = options._parentVnode; // the placeholder node in parent tree
+  var renderContext = parentVnode && parentVnode.context;
+  vm.$slots = resolveSlots(options._renderChildren, renderContext);
+  vm.$scopedSlots = emptyObject;
+  // bind the createElement fn to this instance
+  // so that we get proper render context inside it.
+  // args order: tag, data, children, normalizationType, alwaysNormalize
+  // internal version is used by render functions compiled from templates
+  vm._c = function (a, b, c, d) { return createElement(vm, a, b, c, d, false); };
+  // normalization is always applied for the public version, used in
+  // user-written render functions.
+  vm.$createElement = function (a, b, c, d) { return createElement(vm, a, b, c, d, true); };
+
+  // $attrs & $listeners are exposed for easier HOC creation.
+  // they need to be reactive so that HOCs using them are always updated
+  var parentData = parentVnode && parentVnode.data;
+
+  /* istanbul ignore else */
+  {
+    defineReactive$$1(vm, '$attrs', parentData && parentData.attrs || emptyObject, function () {
+      !isUpdatingChildComponent && warn("$attrs is readonly.", vm);
+    }, true);
+    defineReactive$$1(vm, '$listeners', options._parentListeners || emptyObject, function () {
+      !isUpdatingChildComponent && warn("$listeners is readonly.", vm);
+    }, true);
+  }
+}
+
+var currentRenderingInstance = null;
+
+function renderMixin (Vue) {
+  // install runtime convenience helpers
+  installRenderHelpers(Vue.prototype);
+
+  Vue.prototype.$nextTick = function (fn) {
+    return nextTick(fn, this)
+  };
+
+  Vue.prototype._render = function () {
+    var vm = this;
+    var ref = vm.$options;
+    var render = ref.render;
+    var _parentVnode = ref._parentVnode;
+
+    if (_parentVnode) {
+      vm.$scopedSlots = normalizeScopedSlots(
+        _parentVnode.data.scopedSlots,
+        vm.$slots,
+        vm.$scopedSlots
+      );
+    }
+
+    // set parent vnode. this allows render functions to have access
+    // to the data on the placeholder node.
+    vm.$vnode = _parentVnode;
+    // render self
+    var vnode;
+    try {
+      // There's no need to maintain a stack because all render fns are called
+      // separately from one another. Nested component's render fns are called
+      // when parent component is patched.
+      currentRenderingInstance = vm;
+      vnode = render.call(vm._renderProxy, vm.$createElement);
+    } catch (e) {
+      handleError(e, vm, "render");
+      // return error render result,
+      // or previous vnode to prevent render error causing blank component
+      /* istanbul ignore else */
+      if (vm.$options.renderError) {
+        try {
+          vnode = vm.$options.renderError.call(vm._renderProxy, vm.$createElement, e);
+        } catch (e) {
+          handleError(e, vm, "renderError");
+          vnode = vm._vnode;
+        }
+      } else {
+        vnode = vm._vnode;
+      }
+    } finally {
+      currentRenderingInstance = null;
+    }
+    // if the returned array contains only a single node, allow it
+    if (Array.isArray(vnode) && vnode.length === 1) {
+      vnode = vnode[0];
+    }
+    // return empty vnode in case the render function errored out
+    if (!(vnode instanceof VNode)) {
+      if (Array.isArray(vnode)) {
+        warn(
+          'Multiple root nodes returned from render function. Render function ' +
+          'should return a single root node.',
+          vm
+        );
+      }
+      vnode = createEmptyVNode();
+    }
+    // set parent
+    vnode.parent = _parentVnode;
+    return vnode
+  };
+}
+
+/*  */
+
+function ensureCtor (comp, base) {
+  if (
+    comp.__esModule ||
+    (hasSymbol && comp[Symbol.toStringTag] === 'Module')
+  ) {
+    comp = comp.default;
+  }
+  return isObject(comp)
+    ? base.extend(comp)
+    : comp
+}
+
+function createAsyncPlaceholder (
+  factory,
+  data,
+  context,
+  children,
+  tag
+) {
+  var node = createEmptyVNode();
+  node.asyncFactory = factory;
+  node.asyncMeta = { data: data, context: context, children: children, tag: tag };
+  return node
+}
+
+function resolveAsyncComponent (
+  factory,
+  baseCtor
+) {
+  if (isTrue(factory.error) && isDef(factory.errorComp)) {
+    return factory.errorComp
+  }
+
+  if (isDef(factory.resolved)) {
+    return factory.resolved
+  }
+
+  var owner = currentRenderingInstance;
+  if (owner && isDef(factory.owners) && factory.owners.indexOf(owner) === -1) {
+    // already pending
+    factory.owners.push(owner);
+  }
+
+  if (isTrue(factory.loading) && isDef(factory.loadingComp)) {
+    return factory.loadingComp
+  }
+
+  if (owner && !isDef(factory.owners)) {
+    var owners = factory.owners = [owner];
+    var sync = true;
+    var timerLoading = null;
+    var timerTimeout = null
+
+    ;(owner).$on('hook:destroyed', function () { return remove(owners, owner); });
+
+    var forceRender = function (renderCompleted) {
+      for (var i = 0, l = owners.length; i < l; i++) {
+        (owners[i]).$forceUpdate();
+      }
+
+      if (renderCompleted) {
+        owners.length = 0;
+        if (timerLoading !== null) {
+          clearTimeout(timerLoading);
+          timerLoading = null;
+        }
+        if (timerTimeout !== null) {
+          clearTimeout(timerTimeout);
+          timerTimeout = null;
+        }
+      }
+    };
+
+    var resolve = once(function (res) {
+      // cache resolved
+      factory.resolved = ensureCtor(res, baseCtor);
+      // invoke callbacks only if this is not a synchronous resolve
+      // (async resolves are shimmed as synchronous during SSR)
+      if (!sync) {
+        forceRender(true);
+      } else {
+        owners.length = 0;
+      }
+    });
+
+    var reject = once(function (reason) {
+      warn(
+        "Failed to resolve async component: " + (String(factory)) +
+        (reason ? ("\nReason: " + reason) : '')
+      );
+      if (isDef(factory.errorComp)) {
+        factory.error = true;
+        forceRender(true);
+      }
+    });
+
+    var res = factory(resolve, reject);
+
+    if (isObject(res)) {
+      if (isPromise(res)) {
+        // () => Promise
+        if (isUndef(factory.resolved)) {
+          res.then(resolve, reject);
+        }
+      } else if (isPromise(res.component)) {
+        res.component.then(resolve, reject);
+
+        if (isDef(res.error)) {
+          factory.errorComp = ensureCtor(res.error, baseCtor);
+        }
+
+        if (isDef(res.loading)) {
+          factory.loadingComp = ensureCtor(res.loading, baseCtor);
+          if (res.delay === 0) {
+            factory.loading = true;
+          } else {
+            timerLoading = setTimeout(function () {
+              timerLoading = null;
+              if (isUndef(factory.resolved) && isUndef(factory.error)) {
+                factory.loading = true;
+                forceRender(false);
+              }
+            }, res.delay || 200);
+          }
+        }
+
+        if (isDef(res.timeout)) {
+          timerTimeout = setTimeout(function () {
+            timerTimeout = null;
+            if (isUndef(factory.resolved)) {
+              reject(
+                "timeout (" + (res.timeout) + "ms)"
+              );
+            }
+          }, res.timeout);
+        }
+      }
+    }
+
+    sync = false;
+    // return in case resolved synchronously
+    return factory.loading
+      ? factory.loadingComp
+      : factory.resolved
+  }
+}
+
+/*  */
+
+function isAsyncPlaceholder (node) {
+  return node.isComment && node.asyncFactory
+}
+
+/*  */
+
+function getFirstComponentChild (children) {
+  if (Array.isArray(children)) {
+    for (var i = 0; i < children.length; i++) {
+      var c = children[i];
+      if (isDef(c) && (isDef(c.componentOptions) || isAsyncPlaceholder(c))) {
+        return c
+      }
+    }
+  }
+}
+
+/*  */
+
+/*  */
+
+function initEvents (vm) {
+  vm._events = Object.create(null);
+  vm._hasHookEvent = false;
+  // init parent attached events
+  var listeners = vm.$options._parentListeners;
+  if (listeners) {
+    updateComponentListeners(vm, listeners);
+  }
+}
+
+var target;
+
+function add (event, fn) {
+  target.$on(event, fn);
+}
+
+function remove$1 (event, fn) {
+  target.$off(event, fn);
+}
+
+function createOnceHandler (event, fn) {
+  var _target = target;
+  return function onceHandler () {
+    var res = fn.apply(null, arguments);
+    if (res !== null) {
+      _target.$off(event, onceHandler);
+    }
+  }
+}
+
+function updateComponentListeners (
+  vm,
+  listeners,
+  oldListeners
+) {
+  target = vm;
+  updateListeners(listeners, oldListeners || {}, add, remove$1, createOnceHandler, vm);
+  target = undefined;
+}
+
+function eventsMixin (Vue) {
+  var hookRE = /^hook:/;
+  Vue.prototype.$on = function (event, fn) {
+    var vm = this;
+    if (Array.isArray(event)) {
+      for (var i = 0, l = event.length; i < l; i++) {
+        vm.$on(event[i], fn);
+      }
+    } else {
+      (vm._events[event] || (vm._events[event] = [])).push(fn);
+      // optimize hook:event cost by using a boolean flag marked at registration
+      // instead of a hash lookup
+      if (hookRE.test(event)) {
+        vm._hasHookEvent = true;
+      }
+    }
+    return vm
+  };
+
+  Vue.prototype.$once = function (event, fn) {
+    var vm = this;
+    function on () {
+      vm.$off(event, on);
+      fn.apply(vm, arguments);
+    }
+    on.fn = fn;
+    vm.$on(event, on);
+    return vm
+  };
+
+  Vue.prototype.$off = function (event, fn) {
+    var vm = this;
+    // all
+    if (!arguments.length) {
+      vm._events = Object.create(null);
+      return vm
+    }
+    // array of events
+    if (Array.isArray(event)) {
+      for (var i$1 = 0, l = event.length; i$1 < l; i$1++) {
+        vm.$off(event[i$1], fn);
+      }
+      return vm
+    }
+    // specific event
+    var cbs = vm._events[event];
+    if (!cbs) {
+      return vm
+    }
+    if (!fn) {
+      vm._events[event] = null;
+      return vm
+    }
+    // specific handler
+    var cb;
+    var i = cbs.length;
+    while (i--) {
+      cb = cbs[i];
+      if (cb === fn || cb.fn === fn) {
+        cbs.splice(i, 1);
+        break
+      }
+    }
+    return vm
+  };
+
+  Vue.prototype.$emit = function (event) {
+    var vm = this;
+    {
+      var lowerCaseEvent = event.toLowerCase();
+      if (lowerCaseEvent !== event && vm._events[lowerCaseEvent]) {
+        tip(
+          "Event \"" + lowerCaseEvent + "\" is emitted in component " +
+          (formatComponentName(vm)) + " but the handler is registered for \"" + event + "\". " +
+          "Note that HTML attributes are case-insensitive and you cannot use " +
+          "v-on to listen to camelCase events when using in-DOM templates. " +
+          "You should probably use \"" + (hyphenate(event)) + "\" instead of \"" + event + "\"."
+        );
+      }
+    }
+    var cbs = vm._events[event];
+    if (cbs) {
+      cbs = cbs.length > 1 ? toArray(cbs) : cbs;
+      var args = toArray(arguments, 1);
+      var info = "event handler for \"" + event + "\"";
+      for (var i = 0, l = cbs.length; i < l; i++) {
+        invokeWithErrorHandling(cbs[i], vm, args, vm, info);
+      }
+    }
+    return vm
+  };
+}
+
+/*  */
+
+var activeInstance = null;
+var isUpdatingChildComponent = false;
+
+function setActiveInstance(vm) {
+  var prevActiveInstance = activeInstance;
+  activeInstance = vm;
+  return function () {
+    activeInstance = prevActiveInstance;
+  }
+}
+
+function initLifecycle (vm) {
+  var options = vm.$options;
+
+  // locate first non-abstract parent
+  var parent = options.parent;
+  if (parent && !options.abstract) {
+    while (parent.$options.abstract && parent.$parent) {
+      parent = parent.$parent;
+    }
+    parent.$children.push(vm);
+  }
+
+  vm.$parent = parent;
+  vm.$root = parent ? parent.$root : vm;
+
+  vm.$children = [];
+  vm.$refs = {};
+
+  vm._watcher = null;
+  vm._inactive = null;
+  vm._directInactive = false;
+  vm._isMounted = false;
+  vm._isDestroyed = false;
+  vm._isBeingDestroyed = false;
+}
+
+function lifecycleMixin (Vue) {
+  Vue.prototype._update = function (vnode, hydrating) {
+    var vm = this;
+    var prevEl = vm.$el;
+    var prevVnode = vm._vnode;
+    var restoreActiveInstance = setActiveInstance(vm);
+    vm._vnode = vnode;
+    // Vue.prototype.__patch__ is injected in entry points
+    // based on the rendering backend used.
+    if (!prevVnode) {
+      // initial render
+      vm.$el = vm.__patch__(vm.$el, vnode, hydrating, false /* removeOnly */);
+    } else {
+      // updates
+      vm.$el = vm.__patch__(prevVnode, vnode);
+    }
+    restoreActiveInstance();
+    // update __vue__ reference
+    if (prevEl) {
+      prevEl.__vue__ = null;
+    }
+    if (vm.$el) {
+      vm.$el.__vue__ = vm;
+    }
+    // if parent is an HOC, update its $el as well
+    if (vm.$vnode && vm.$parent && vm.$vnode === vm.$parent._vnode) {
+      vm.$parent.$el = vm.$el;
+    }
+    // updated hook is called by the scheduler to ensure that children are
+    // updated in a parent's updated hook.
+  };
+
+  Vue.prototype.$forceUpdate = function () {
+    var vm = this;
+    if (vm._watcher) {
+      vm._watcher.update();
+    }
+  };
+
+  Vue.prototype.$destroy = function () {
+    var vm = this;
+    if (vm._isBeingDestroyed) {
+      return
+    }
+    callHook(vm, 'beforeDestroy');
+    vm._isBeingDestroyed = true;
+    // remove self from parent
+    var parent = vm.$parent;
+    if (parent && !parent._isBeingDestroyed && !vm.$options.abstract) {
+      remove(parent.$children, vm);
+    }
+    // teardown watchers
+    if (vm._watcher) {
+      vm._watcher.teardown();
+    }
+    var i = vm._watchers.length;
+    while (i--) {
+      vm._watchers[i].teardown();
+    }
+    // remove reference from data ob
+    // frozen object may not have observer.
+    if (vm._data.__ob__) {
+      vm._data.__ob__.vmCount--;
+    }
+    // call the last hook...
+    vm._isDestroyed = true;
+    // invoke destroy hooks on current rendered tree
+    vm.__patch__(vm._vnode, null);
+    // fire destroyed hook
+    callHook(vm, 'destroyed');
+    // turn off all instance listeners.
+    vm.$off();
+    // remove __vue__ reference
+    if (vm.$el) {
+      vm.$el.__vue__ = null;
+    }
+    // release circular reference (#6759)
+    if (vm.$vnode) {
+      vm.$vnode.parent = null;
+    }
+  };
+}
+
+function mountComponent (
+  vm,
+  el,
+  hydrating
+) {
+  vm.$el = el;
+  if (!vm.$options.render) {
+    vm.$options.render = createEmptyVNode;
+    {
+      /* istanbul ignore if */
+      if ((vm.$options.template && vm.$options.template.charAt(0) !== '#') ||
+        vm.$options.el || el) {
+        warn(
+          'You are using the runtime-only build of Vue where the template ' +
+          'compiler is not available. Either pre-compile the templates into ' +
+          'render functions, or use the compiler-included build.',
+          vm
+        );
+      } else {
+        warn(
+          'Failed to mount component: template or render function not defined.',
+          vm
+        );
+      }
+    }
+  }
+  callHook(vm, 'beforeMount');
+
+  var updateComponent;
+  /* istanbul ignore if */
+  if (config.performance && mark) {
+    updateComponent = function () {
+      var name = vm._name;
+      var id = vm._uid;
+      var startTag = "vue-perf-start:" + id;
+      var endTag = "vue-perf-end:" + id;
+
+      mark(startTag);
+      var vnode = vm._render();
+      mark(endTag);
+      measure(("vue " + name + " render"), startTag, endTag);
+
+      mark(startTag);
+      vm._update(vnode, hydrating);
+      mark(endTag);
+      measure(("vue " + name + " patch"), startTag, endTag);
+    };
+  } else {
+    updateComponent = function () {
+      vm._update(vm._render(), hydrating);
+    };
+  }
+
+  // we set this to vm._watcher inside the watcher's constructor
+  // since the watcher's initial patch may call $forceUpdate (e.g. inside child
+  // component's mounted hook), which relies on vm._watcher being already defined
+  new Watcher(vm, updateComponent, noop, {
+    before: function before () {
+      if (vm._isMounted && !vm._isDestroyed) {
+        callHook(vm, 'beforeUpdate');
+      }
+    }
+  }, true /* isRenderWatcher */);
+  hydrating = false;
+
+  // manually mounted instance, call mounted on self
+  // mounted is called for render-created child components in its inserted hook
+  if (vm.$vnode == null) {
+    vm._isMounted = true;
+    callHook(vm, 'mounted');
+  }
+  return vm
+}
+
+function updateChildComponent (
+  vm,
+  propsData,
+  listeners,
+  parentVnode,
+  renderChildren
+) {
+  {
+    isUpdatingChildComponent = true;
+  }
+
+  // determine whether component has slot children
+  // we need to do this before overwriting $options._renderChildren.
+
+  // check if there are dynamic scopedSlots (hand-written or compiled but with
+  // dynamic slot names). Static scoped slots compiled from template has the
+  // "$stable" marker.
+  var newScopedSlots = parentVnode.data.scopedSlots;
+  var oldScopedSlots = vm.$scopedSlots;
+  var hasDynamicScopedSlot = !!(
+    (newScopedSlots && !newScopedSlots.$stable) ||
+    (oldScopedSlots !== emptyObject && !oldScopedSlots.$stable) ||
+    (newScopedSlots && vm.$scopedSlots.$key !== newScopedSlots.$key)
+  );
+
+  // Any static slot children from the parent may have changed during parent's
+  // update. Dynamic scoped slots may also have changed. In such cases, a forced
+  // update is necessary to ensure correctness.
+  var needsForceUpdate = !!(
+    renderChildren ||               // has new static slots
+    vm.$options._renderChildren ||  // has old static slots
+    hasDynamicScopedSlot
+  );
+
+  vm.$options._parentVnode = parentVnode;
+  vm.$vnode = parentVnode; // update vm's placeholder node without re-render
+
+  if (vm._vnode) { // update child tree's parent
+    vm._vnode.parent = parentVnode;
+  }
+  vm.$options._renderChildren = renderChildren;
+
+  // update $attrs and $listeners hash
+  // these are also reactive so they may trigger child update if the child
+  // used them during render
+  vm.$attrs = parentVnode.data.attrs || emptyObject;
+  vm.$listeners = listeners || emptyObject;
+
+  // update props
+  if (propsData && vm.$options.props) {
+    toggleObserving(false);
+    var props = vm._props;
+    var propKeys = vm.$options._propKeys || [];
+    for (var i = 0; i < propKeys.length; i++) {
+      var key = propKeys[i];
+      var propOptions = vm.$options.props; // wtf flow?
+      props[key] = validateProp(key, propOptions, propsData, vm);
+    }
+    toggleObserving(true);
+    // keep a copy of raw propsData
+    vm.$options.propsData = propsData;
+  }
+
+  // update listeners
+  listeners = listeners || emptyObject;
+  var oldListeners = vm.$options._parentListeners;
+  vm.$options._parentListeners = listeners;
+  updateComponentListeners(vm, listeners, oldListeners);
+
+  // resolve slots + force update if has children
+  if (needsForceUpdate) {
+    vm.$slots = resolveSlots(renderChildren, parentVnode.context);
+    vm.$forceUpdate();
+  }
+
+  {
+    isUpdatingChildComponent = false;
+  }
+}
+
+function isInInactiveTree (vm) {
+  while (vm && (vm = vm.$parent)) {
+    if (vm._inactive) { return true }
+  }
+  return false
+}
+
+function activateChildComponent (vm, direct) {
+  if (direct) {
+    vm._directInactive = false;
+    if (isInInactiveTree(vm)) {
+      return
+    }
+  } else if (vm._directInactive) {
+    return
+  }
+  if (vm._inactive || vm._inactive === null) {
+    vm._inactive = false;
+    for (var i = 0; i < vm.$children.length; i++) {
+      activateChildComponent(vm.$children[i]);
+    }
+    callHook(vm, 'activated');
+  }
+}
+
+function deactivateChildComponent (vm, direct) {
+  if (direct) {
+    vm._directInactive = true;
+    if (isInInactiveTree(vm)) {
+      return
+    }
+  }
+  if (!vm._inactive) {
+    vm._inactive = true;
+    for (var i = 0; i < vm.$children.length; i++) {
+      deactivateChildComponent(vm.$children[i]);
+    }
+    callHook(vm, 'deactivated');
+  }
+}
+
+function callHook (vm, hook) {
+  // #7573 disable dep collection when invoking lifecycle hooks
+  pushTarget();
+  var handlers = vm.$options[hook];
+  var info = hook + " hook";
+  if (handlers) {
+    for (var i = 0, j = handlers.length; i < j; i++) {
+      invokeWithErrorHandling(handlers[i], vm, null, vm, info);
+    }
+  }
+  if (vm._hasHookEvent) {
+    vm.$emit('hook:' + hook);
+  }
+  popTarget();
+}
+
+/*  */
+
+var MAX_UPDATE_COUNT = 100;
+
+var queue = [];
+var activatedChildren = [];
+var has = {};
+var circular = {};
+var waiting = false;
+var flushing = false;
+var index = 0;
+
+/**
+ * Reset the scheduler's state.
+ */
+function resetSchedulerState () {
+  index = queue.length = activatedChildren.length = 0;
+  has = {};
+  {
+    circular = {};
+  }
+  waiting = flushing = false;
+}
+
+// Async edge case #6566 requires saving the timestamp when event listeners are
+// attached. However, calling performance.now() has a perf overhead especially
+// if the page has thousands of event listeners. Instead, we take a timestamp
+// every time the scheduler flushes and use that for all event listeners
+// attached during that flush.
+var currentFlushTimestamp = 0;
+
+// Async edge case fix requires storing an event listener's attach timestamp.
+var getNow = Date.now;
+
+// Determine what event timestamp the browser is using. Annoyingly, the
+// timestamp can either be hi-res (relative to page load) or low-res
+// (relative to UNIX epoch), so in order to compare time we have to use the
+// same timestamp type when saving the flush timestamp.
+// All IE versions use low-res event timestamps, and have problematic clock
+// implementations (#9632)
+if (inBrowser && !isIE) {
+  var performance = window.performance;
+  if (
+    performance &&
+    typeof performance.now === 'function' &&
+    getNow() > document.createEvent('Event').timeStamp
+  ) {
+    // if the event timestamp, although evaluated AFTER the Date.now(), is
+    // smaller than it, it means the event is using a hi-res timestamp,
+    // and we need to use the hi-res version for event listener timestamps as
+    // well.
+    getNow = function () { return performance.now(); };
+  }
+}
+
+/**
+ * Flush both queues and run the watchers.
+ */
+function flushSchedulerQueue () {
+  currentFlushTimestamp = getNow();
+  flushing = true;
+  var watcher, id;
+
+  // Sort queue before flush.
+  // This ensures that:
+  // 1. Components are updated from parent to child. (because parent is always
+  //    created before the child)
+  // 2. A component's user watchers are run before its render watcher (because
+  //    user watchers are created before the render watcher)
+  // 3. If a component is destroyed during a parent component's watcher run,
+  //    its watchers can be skipped.
+  queue.sort(function (a, b) { return a.id - b.id; });
+
+  // do not cache length because more watchers might be pushed
+  // as we run existing watchers
+  for (index = 0; index < queue.length; index++) {
+    watcher = queue[index];
+    if (watcher.before) {
+      watcher.before();
+    }
+    id = watcher.id;
+    has[id] = null;
+    watcher.run();
+    // in dev build, check and stop circular updates.
+    if (has[id] != null) {
+      circular[id] = (circular[id] || 0) + 1;
+      if (circular[id] > MAX_UPDATE_COUNT) {
+        warn(
+          'You may have an infinite update loop ' + (
+            watcher.user
+              ? ("in watcher with expression \"" + (watcher.expression) + "\"")
+              : "in a component render function."
+          ),
+          watcher.vm
+        );
+        break
+      }
+    }
+  }
+
+  // keep copies of post queues before resetting state
+  var activatedQueue = activatedChildren.slice();
+  var updatedQueue = queue.slice();
+
+  resetSchedulerState();
+
+  // call component updated and activated hooks
+  callActivatedHooks(activatedQueue);
+  callUpdatedHooks(updatedQueue);
+
+  // devtool hook
+  /* istanbul ignore if */
+  if (devtools && config.devtools) {
+    devtools.emit('flush');
+  }
+}
+
+function callUpdatedHooks (queue) {
+  var i = queue.length;
+  while (i--) {
+    var watcher = queue[i];
+    var vm = watcher.vm;
+    if (vm._watcher === watcher && vm._isMounted && !vm._isDestroyed) {
+      callHook(vm, 'updated');
+    }
+  }
+}
+
+/**
+ * Queue a kept-alive component that was activated during patch.
+ * The queue will be processed after the entire tree has been patched.
+ */
+function queueActivatedComponent (vm) {
+  // setting _inactive to false here so that a render function can
+  // rely on checking whether it's in an inactive tree (e.g. router-view)
+  vm._inactive = false;
+  activatedChildren.push(vm);
+}
+
+function callActivatedHooks (queue) {
+  for (var i = 0; i < queue.length; i++) {
+    queue[i]._inactive = true;
+    activateChildComponent(queue[i], true /* true */);
+  }
+}
+
+/**
+ * Push a watcher into the watcher queue.
+ * Jobs with duplicate IDs will be skipped unless it's
+ * pushed when the queue is being flushed.
+ */
+function queueWatcher (watcher) {
+  var id = watcher.id;
+  if (has[id] == null) {
+    has[id] = true;
+    if (!flushing) {
+      queue.push(watcher);
+    } else {
+      // if already flushing, splice the watcher based on its id
+      // if already past its id, it will be run next immediately.
+      var i = queue.length - 1;
+      while (i > index && queue[i].id > watcher.id) {
+        i--;
+      }
+      queue.splice(i + 1, 0, watcher);
+    }
+    // queue the flush
+    if (!waiting) {
+      waiting = true;
+
+      if (!config.async) {
+        flushSchedulerQueue();
+        return
+      }
+      nextTick(flushSchedulerQueue);
+    }
+  }
+}
+
+/*  */
+
+
+
+var uid$2 = 0;
+
+/**
+ * A watcher parses an expression, collects dependencies,
+ * and fires callback when the expression value changes.
+ * This is used for both the $watch() api and directives.
+ */
+var Watcher = function Watcher (
+  vm,
+  expOrFn,
+  cb,
+  options,
+  isRenderWatcher
+) {
+  this.vm = vm;
+  if (isRenderWatcher) {
+    vm._watcher = this;
+  }
+  vm._watchers.push(this);
+  // options
+  if (options) {
+    this.deep = !!options.deep;
+    this.user = !!options.user;
+    this.lazy = !!options.lazy;
+    this.sync = !!options.sync;
+    this.before = options.before;
+  } else {
+    this.deep = this.user = this.lazy = this.sync = false;
+  }
+  this.cb = cb;
+  this.id = ++uid$2; // uid for batching
+  this.active = true;
+  this.dirty = this.lazy; // for lazy watchers
+  this.deps = [];
+  this.newDeps = [];
+  this.depIds = new _Set();
+  this.newDepIds = new _Set();
+  this.expression = expOrFn.toString();
+  // parse expression for getter
+  if (typeof expOrFn === 'function') {
+    this.getter = expOrFn;
+  } else {
+    this.getter = parsePath(expOrFn);
+    if (!this.getter) {
+      this.getter = noop;
+      warn(
+        "Failed watching path: \"" + expOrFn + "\" " +
+        'Watcher only accepts simple dot-delimited paths. ' +
+        'For full control, use a function instead.',
+        vm
+      );
+    }
+  }
+  this.value = this.lazy
+    ? undefined
+    : this.get();
+};
+
+/**
+ * Evaluate the getter, and re-collect dependencies.
+ */
+Watcher.prototype.get = function get () {
+  pushTarget(this);
+  var value;
+  var vm = this.vm;
+  try {
+    value = this.getter.call(vm, vm);
+  } catch (e) {
+    if (this.user) {
+      handleError(e, vm, ("getter for watcher \"" + (this.expression) + "\""));
+    } else {
+      throw e
+    }
+  } finally {
+    // "touch" every property so they are all tracked as
+    // dependencies for deep watching
+    if (this.deep) {
+      traverse(value);
+    }
+    popTarget();
+    this.cleanupDeps();
+  }
+  return value
+};
+
+/**
+ * Add a dependency to this directive.
+ */
+Watcher.prototype.addDep = function addDep (dep) {
+  var id = dep.id;
+  if (!this.newDepIds.has(id)) {
+    this.newDepIds.add(id);
+    this.newDeps.push(dep);
+    if (!this.depIds.has(id)) {
+      dep.addSub(this);
+    }
+  }
+};
+
+/**
+ * Clean up for dependency collection.
+ */
+Watcher.prototype.cleanupDeps = function cleanupDeps () {
+  var i = this.deps.length;
+  while (i--) {
+    var dep = this.deps[i];
+    if (!this.newDepIds.has(dep.id)) {
+      dep.removeSub(this);
+    }
+  }
+  var tmp = this.depIds;
+  this.depIds = this.newDepIds;
+  this.newDepIds = tmp;
+  this.newDepIds.clear();
+  tmp = this.deps;
+  this.deps = this.newDeps;
+  this.newDeps = tmp;
+  this.newDeps.length = 0;
+};
+
+/**
+ * Subscriber interface.
+ * Will be called when a dependency changes.
+ */
+Watcher.prototype.update = function update () {
+  /* istanbul ignore else */
+  if (this.lazy) {
+    this.dirty = true;
+  } else if (this.sync) {
+    this.run();
+  } else {
+    queueWatcher(this);
+  }
+};
+
+/**
+ * Scheduler job interface.
+ * Will be called by the scheduler.
+ */
+Watcher.prototype.run = function run () {
+  if (this.active) {
+    var value = this.get();
+    if (
+      value !== this.value ||
+      // Deep watchers and watchers on Object/Arrays should fire even
+      // when the value is the same, because the value may
+      // have mutated.
+      isObject(value) ||
+      this.deep
+    ) {
+      // set new value
+      var oldValue = this.value;
+      this.value = value;
+      if (this.user) {
+        try {
+          this.cb.call(this.vm, value, oldValue);
+        } catch (e) {
+          handleError(e, this.vm, ("callback for watcher \"" + (this.expression) + "\""));
+        }
+      } else {
+        this.cb.call(this.vm, value, oldValue);
+      }
+    }
+  }
+};
+
+/**
+ * Evaluate the value of the watcher.
+ * This only gets called for lazy watchers.
+ */
+Watcher.prototype.evaluate = function evaluate () {
+  this.value = this.get();
+  this.dirty = false;
+};
+
+/**
+ * Depend on all deps collected by this watcher.
+ */
+Watcher.prototype.depend = function depend () {
+  var i = this.deps.length;
+  while (i--) {
+    this.deps[i].depend();
+  }
+};
+
+/**
+ * Remove self from all dependencies' subscriber list.
+ */
+Watcher.prototype.teardown = function teardown () {
+  if (this.active) {
+    // remove self from vm's watcher list
+    // this is a somewhat expensive operation so we skip it
+    // if the vm is being destroyed.
+    if (!this.vm._isBeingDestroyed) {
+      remove(this.vm._watchers, this);
+    }
+    var i = this.deps.length;
+    while (i--) {
+      this.deps[i].removeSub(this);
+    }
+    this.active = false;
+  }
+};
+
+/*  */
+
+var sharedPropertyDefinition = {
+  enumerable: true,
+  configurable: true,
+  get: noop,
+  set: noop
+};
+
+function proxy (target, sourceKey, key) {
+  sharedPropertyDefinition.get = function proxyGetter () {
+    return this[sourceKey][key]
+  };
+  sharedPropertyDefinition.set = function proxySetter (val) {
+    this[sourceKey][key] = val;
+  };
+  Object.defineProperty(target, key, sharedPropertyDefinition);
+}
+
+function initState (vm) {
+  vm._watchers = [];
+  var opts = vm.$options;
+  if (opts.props) { initProps(vm, opts.props); }
+  if (opts.methods) { initMethods(vm, opts.methods); }
+  if (opts.data) {
+    initData(vm);
+  } else {
+    observe(vm._data = {}, true /* asRootData */);
+  }
+  if (opts.computed) { initComputed(vm, opts.computed); }
+  if (opts.watch && opts.watch !== nativeWatch) {
+    initWatch(vm, opts.watch);
+  }
+}
+
+function initProps (vm, propsOptions) {
+  var propsData = vm.$options.propsData || {};
+  var props = vm._props = {};
+  // cache prop keys so that future props updates can iterate using Array
+  // instead of dynamic object key enumeration.
+  var keys = vm.$options._propKeys = [];
+  var isRoot = !vm.$parent;
+  // root instance props should be converted
+  if (!isRoot) {
+    toggleObserving(false);
+  }
+  var loop = function ( key ) {
+    keys.push(key);
+    var value = validateProp(key, propsOptions, propsData, vm);
+    /* istanbul ignore else */
+    {
+      var hyphenatedKey = hyphenate(key);
+      if (isReservedAttribute(hyphenatedKey) ||
+          config.isReservedAttr(hyphenatedKey)) {
+        warn(
+          ("\"" + hyphenatedKey + "\" is a reserved attribute and cannot be used as component prop."),
+          vm
+        );
+      }
+      defineReactive$$1(props, key, value, function () {
+        if (!isRoot && !isUpdatingChildComponent) {
+          warn(
+            "Avoid mutating a prop directly since the value will be " +
+            "overwritten whenever the parent component re-renders. " +
+            "Instead, use a data or computed property based on the prop's " +
+            "value. Prop being mutated: \"" + key + "\"",
+            vm
+          );
+        }
+      });
+    }
+    // static props are already proxied on the component's prototype
+    // during Vue.extend(). We only need to proxy props defined at
+    // instantiation here.
+    if (!(key in vm)) {
+      proxy(vm, "_props", key);
+    }
+  };
+
+  for (var key in propsOptions) loop( key );
+  toggleObserving(true);
+}
+
+function initData (vm) {
+  var data = vm.$options.data;
+  data = vm._data = typeof data === 'function'
+    ? getData(data, vm)
+    : data || {};
+  if (!isPlainObject(data)) {
+    data = {};
+    warn(
+      'data functions should return an object:\n' +
+      'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
+      vm
+    );
+  }
+  // proxy data on instance
+  var keys = Object.keys(data);
+  var props = vm.$options.props;
+  var methods = vm.$options.methods;
+  var i = keys.length;
+  while (i--) {
+    var key = keys[i];
+    {
+      if (methods && hasOwn(methods, key)) {
+        warn(
+          ("Method \"" + key + "\" has already been defined as a data property."),
+          vm
+        );
+      }
+    }
+    if (props && hasOwn(props, key)) {
+      warn(
+        "The data property \"" + key + "\" is already declared as a prop. " +
+        "Use prop default value instead.",
+        vm
+      );
+    } else if (!isReserved(key)) {
+      proxy(vm, "_data", key);
+    }
+  }
+  // observe data
+  observe(data, true /* asRootData */);
+}
+
+function getData (data, vm) {
+  // #7573 disable dep collection when invoking data getters
+  pushTarget();
+  try {
+    return data.call(vm, vm)
+  } catch (e) {
+    handleError(e, vm, "data()");
+    return {}
+  } finally {
+    popTarget();
+  }
+}
+
+var computedWatcherOptions = { lazy: true };
+
+function initComputed (vm, computed) {
+  // $flow-disable-line
+  var watchers = vm._computedWatchers = Object.create(null);
+  // computed properties are just getters during SSR
+  var isSSR = isServerRendering();
+
+  for (var key in computed) {
+    var userDef = computed[key];
+    var getter = typeof userDef === 'function' ? userDef : userDef.get;
+    if (getter == null) {
+      warn(
+        ("Getter is missing for computed property \"" + key + "\"."),
+        vm
+      );
+    }
+
+    if (!isSSR) {
+      // create internal watcher for the computed property.
+      watchers[key] = new Watcher(
+        vm,
+        getter || noop,
+        noop,
+        computedWatcherOptions
+      );
+    }
+
+    // component-defined computed properties are already defined on the
+    // component prototype. We only need to define computed properties defined
+    // at instantiation here.
+    if (!(key in vm)) {
+      defineComputed(vm, key, userDef);
+    } else {
+      if (key in vm.$data) {
+        warn(("The computed property \"" + key + "\" is already defined in data."), vm);
+      } else if (vm.$options.props && key in vm.$options.props) {
+        warn(("The computed property \"" + key + "\" is already defined as a prop."), vm);
+      }
+    }
+  }
+}
+
+function defineComputed (
+  target,
+  key,
+  userDef
+) {
+  var shouldCache = !isServerRendering();
+  if (typeof userDef === 'function') {
+    sharedPropertyDefinition.get = shouldCache
+      ? createComputedGetter(key)
+      : createGetterInvoker(userDef);
+    sharedPropertyDefinition.set = noop;
+  } else {
+    sharedPropertyDefinition.get = userDef.get
+      ? shouldCache && userDef.cache !== false
+        ? createComputedGetter(key)
+        : createGetterInvoker(userDef.get)
+      : noop;
+    sharedPropertyDefinition.set = userDef.set || noop;
+  }
+  if (sharedPropertyDefinition.set === noop) {
+    sharedPropertyDefinition.set = function () {
+      warn(
+        ("Computed property \"" + key + "\" was assigned to but it has no setter."),
+        this
+      );
+    };
+  }
+  Object.defineProperty(target, key, sharedPropertyDefinition);
+}
+
+function createComputedGetter (key) {
+  return function computedGetter () {
+    var watcher = this._computedWatchers && this._computedWatchers[key];
+    if (watcher) {
+      if (watcher.dirty) {
+        watcher.evaluate();
+      }
+      if (Dep.target) {
+        watcher.depend();
+      }
+      return watcher.value
+    }
+  }
+}
+
+function createGetterInvoker(fn) {
+  return function computedGetter () {
+    return fn.call(this, this)
+  }
+}
+
+function initMethods (vm, methods) {
+  var props = vm.$options.props;
+  for (var key in methods) {
+    {
+      if (typeof methods[key] !== 'function') {
+        warn(
+          "Method \"" + key + "\" has type \"" + (typeof methods[key]) + "\" in the component definition. " +
+          "Did you reference the function correctly?",
+          vm
+        );
+      }
+      if (props && hasOwn(props, key)) {
+        warn(
+          ("Method \"" + key + "\" has already been defined as a prop."),
+          vm
+        );
+      }
+      if ((key in vm) && isReserved(key)) {
+        warn(
+          "Method \"" + key + "\" conflicts with an existing Vue instance method. " +
+          "Avoid defining component methods that start with _ or $."
+        );
+      }
+    }
+    vm[key] = typeof methods[key] !== 'function' ? noop : bind(methods[key], vm);
+  }
+}
+
+function initWatch (vm, watch) {
+  for (var key in watch) {
+    var handler = watch[key];
+    if (Array.isArray(handler)) {
+      for (var i = 0; i < handler.length; i++) {
+        createWatcher(vm, key, handler[i]);
+      }
+    } else {
+      createWatcher(vm, key, handler);
+    }
+  }
+}
+
+function createWatcher (
+  vm,
+  expOrFn,
+  handler,
+  options
+) {
+  if (isPlainObject(handler)) {
+    options = handler;
+    handler = handler.handler;
+  }
+  if (typeof handler === 'string') {
+    handler = vm[handler];
+  }
+  return vm.$watch(expOrFn, handler, options)
+}
+
+function stateMixin (Vue) {
+  // flow somehow has problems with directly declared definition object
+  // when using Object.defineProperty, so we have to procedurally build up
+  // the object here.
+  var dataDef = {};
+  dataDef.get = function () { return this._data };
+  var propsDef = {};
+  propsDef.get = function () { return this._props };
+  {
+    dataDef.set = function () {
+      warn(
+        'Avoid replacing instance root $data. ' +
+        'Use nested data properties instead.',
+        this
+      );
+    };
+    propsDef.set = function () {
+      warn("$props is readonly.", this);
+    };
+  }
+  Object.defineProperty(Vue.prototype, '$data', dataDef);
+  Object.defineProperty(Vue.prototype, '$props', propsDef);
+
+  Vue.prototype.$set = set;
+  Vue.prototype.$delete = del;
+
+  Vue.prototype.$watch = function (
+    expOrFn,
+    cb,
+    options
+  ) {
+    var vm = this;
+    if (isPlainObject(cb)) {
+      return createWatcher(vm, expOrFn, cb, options)
+    }
+    options = options || {};
+    options.user = true;
+    var watcher = new Watcher(vm, expOrFn, cb, options);
+    if (options.immediate) {
+      try {
+        cb.call(vm, watcher.value);
+      } catch (error) {
+        handleError(error, vm, ("callback for immediate watcher \"" + (watcher.expression) + "\""));
+      }
+    }
+    return function unwatchFn () {
+      watcher.teardown();
+    }
+  };
+}
+
+/*  */
+
+var uid$3 = 0;
+
+function initMixin (Vue) {
+  Vue.prototype._init = function (options) {
+    var vm = this;
+    // a uid
+    vm._uid = uid$3++;
+
+    var startTag, endTag;
+    /* istanbul ignore if */
+    if (config.performance && mark) {
+      startTag = "vue-perf-start:" + (vm._uid);
+      endTag = "vue-perf-end:" + (vm._uid);
+      mark(startTag);
+    }
+
+    // a flag to avoid this being observed
+    vm._isVue = true;
+    // merge options
+    if (options && options._isComponent) {
+      // optimize internal component instantiation
+      // since dynamic options merging is pretty slow, and none of the
+      // internal component options needs special treatment.
+      initInternalComponent(vm, options);
+    } else {
+      vm.$options = mergeOptions(
+        resolveConstructorOptions(vm.constructor),
+        options || {},
+        vm
+      );
+    }
+    /* istanbul ignore else */
+    {
+      initProxy(vm);
+    }
+    // expose real self
+    vm._self = vm;
+    initLifecycle(vm);
+    initEvents(vm);
+    initRender(vm);
+    callHook(vm, 'beforeCreate');
+    initInjections(vm); // resolve injections before data/props
+    initState(vm);
+    initProvide(vm); // resolve provide after data/props
+    callHook(vm, 'created');
+
+    /* istanbul ignore if */
+    if (config.performance && mark) {
+      vm._name = formatComponentName(vm, false);
+      mark(endTag);
+      measure(("vue " + (vm._name) + " init"), startTag, endTag);
+    }
+
+    if (vm.$options.el) {
+      vm.$mount(vm.$options.el);
+    }
+  };
+}
+
+function initInternalComponent (vm, options) {
+  var opts = vm.$options = Object.create(vm.constructor.options);
+  // doing this because it's faster than dynamic enumeration.
+  var parentVnode = options._parentVnode;
+  opts.parent = options.parent;
+  opts._parentVnode = parentVnode;
+
+  var vnodeComponentOptions = parentVnode.componentOptions;
+  opts.propsData = vnodeComponentOptions.propsData;
+  opts._parentListeners = vnodeComponentOptions.listeners;
+  opts._renderChildren = vnodeComponentOptions.children;
+  opts._componentTag = vnodeComponentOptions.tag;
+
+  if (options.render) {
+    opts.render = options.render;
+    opts.staticRenderFns = options.staticRenderFns;
+  }
+}
+
+function resolveConstructorOptions (Ctor) {
+  var options = Ctor.options;
+  if (Ctor.super) {
+    var superOptions = resolveConstructorOptions(Ctor.super);
+    var cachedSuperOptions = Ctor.superOptions;
+    if (superOptions !== cachedSuperOptions) {
+      // super option changed,
+      // need to resolve new options.
+      Ctor.superOptions = superOptions;
+      // check if there are any late-modified/attached options (#4976)
+      var modifiedOptions = resolveModifiedOptions(Ctor);
+      // update base extend options
+      if (modifiedOptions) {
+        extend(Ctor.extendOptions, modifiedOptions);
+      }
+      options = Ctor.options = mergeOptions(superOptions, Ctor.extendOptions);
+      if (options.name) {
+        options.components[options.name] = Ctor;
+      }
+    }
+  }
+  return options
+}
+
+function resolveModifiedOptions (Ctor) {
+  var modified;
+  var latest = Ctor.options;
+  var sealed = Ctor.sealedOptions;
+  for (var key in latest) {
+    if (latest[key] !== sealed[key]) {
+      if (!modified) { modified = {}; }
+      modified[key] = latest[key];
+    }
+  }
+  return modified
+}
+
+function Vue (options) {
+  if (!(this instanceof Vue)
+  ) {
+    warn('Vue is a constructor and should be called with the `new` keyword');
+  }
+  this._init(options);
+}
+
+initMixin(Vue);
+stateMixin(Vue);
+eventsMixin(Vue);
+lifecycleMixin(Vue);
+renderMixin(Vue);
+
+/*  */
+
+function initUse (Vue) {
+  Vue.use = function (plugin) {
+    var installedPlugins = (this._installedPlugins || (this._installedPlugins = []));
+    if (installedPlugins.indexOf(plugin) > -1) {
+      return this
+    }
+
+    // additional parameters
+    var args = toArray(arguments, 1);
+    args.unshift(this);
+    if (typeof plugin.install === 'function') {
+      plugin.install.apply(plugin, args);
+    } else if (typeof plugin === 'function') {
+      plugin.apply(null, args);
+    }
+    installedPlugins.push(plugin);
+    return this
+  };
+}
+
+/*  */
+
+function initMixin$1 (Vue) {
+  Vue.mixin = function (mixin) {
+    this.options = mergeOptions(this.options, mixin);
+    return this
+  };
+}
+
+/*  */
+
+function initExtend (Vue) {
+  /**
+   * Each instance constructor, including Vue, has a unique
+   * cid. This enables us to create wrapped "child
+   * constructors" for prototypal inheritance and cache them.
+   */
+  Vue.cid = 0;
+  var cid = 1;
+
+  /**
+   * Class inheritance
+   */
+  Vue.extend = function (extendOptions) {
+    extendOptions = extendOptions || {};
+    var Super = this;
+    var SuperId = Super.cid;
+    var cachedCtors = extendOptions._Ctor || (extendOptions._Ctor = {});
+    if (cachedCtors[SuperId]) {
+      return cachedCtors[SuperId]
+    }
+
+    var name = extendOptions.name || Super.options.name;
+    if (name) {
+      validateComponentName(name);
+    }
+
+    var Sub = function VueComponent (options) {
+      this._init(options);
+    };
+    Sub.prototype = Object.create(Super.prototype);
+    Sub.prototype.constructor = Sub;
+    Sub.cid = cid++;
+    Sub.options = mergeOptions(
+      Super.options,
+      extendOptions
+    );
+    Sub['super'] = Super;
+
+    // For props and computed properties, we define the proxy getters on
+    // the Vue instances at extension time, on the extended prototype. This
+    // avoids Object.defineProperty calls for each instance created.
+    if (Sub.options.props) {
+      initProps$1(Sub);
+    }
+    if (Sub.options.computed) {
+      initComputed$1(Sub);
+    }
+
+    // allow further extension/mixin/plugin usage
+    Sub.extend = Super.extend;
+    Sub.mixin = Super.mixin;
+    Sub.use = Super.use;
+
+    // create asset registers, so extended classes
+    // can have their private assets too.
+    ASSET_TYPES.forEach(function (type) {
+      Sub[type] = Super[type];
+    });
+    // enable recursive self-lookup
+    if (name) {
+      Sub.options.components[name] = Sub;
+    }
+
+    // keep a reference to the super options at extension time.
+    // later at instantiation we can check if Super's options have
+    // been updated.
+    Sub.superOptions = Super.options;
+    Sub.extendOptions = extendOptions;
+    Sub.sealedOptions = extend({}, Sub.options);
+
+    // cache constructor
+    cachedCtors[SuperId] = Sub;
+    return Sub
+  };
+}
+
+function initProps$1 (Comp) {
+  var props = Comp.options.props;
+  for (var key in props) {
+    proxy(Comp.prototype, "_props", key);
+  }
+}
+
+function initComputed$1 (Comp) {
+  var computed = Comp.options.computed;
+  for (var key in computed) {
+    defineComputed(Comp.prototype, key, computed[key]);
+  }
+}
+
+/*  */
+
+function initAssetRegisters (Vue) {
+  /**
+   * Create asset registration methods.
+   */
+  ASSET_TYPES.forEach(function (type) {
+    Vue[type] = function (
+      id,
+      definition
+    ) {
+      if (!definition) {
+        return this.options[type + 's'][id]
+      } else {
+        /* istanbul ignore if */
+        if (type === 'component') {
+          validateComponentName(id);
+        }
+        if (type === 'component' && isPlainObject(definition)) {
+          definition.name = definition.name || id;
+          definition = this.options._base.extend(definition);
+        }
+        if (type === 'directive' && typeof definition === 'function') {
+          definition = { bind: definition, update: definition };
+        }
+        this.options[type + 's'][id] = definition;
+        return definition
+      }
+    };
+  });
+}
+
+/*  */
+
+
+
+function getComponentName (opts) {
+  return opts && (opts.Ctor.options.name || opts.tag)
+}
+
+function matches (pattern, name) {
+  if (Array.isArray(pattern)) {
+    return pattern.indexOf(name) > -1
+  } else if (typeof pattern === 'string') {
+    return pattern.split(',').indexOf(name) > -1
+  } else if (isRegExp(pattern)) {
+    return pattern.test(name)
+  }
+  /* istanbul ignore next */
+  return false
+}
+
+function pruneCache (keepAliveInstance, filter) {
+  var cache = keepAliveInstance.cache;
+  var keys = keepAliveInstance.keys;
+  var _vnode = keepAliveInstance._vnode;
+  for (var key in cache) {
+    var cachedNode = cache[key];
+    if (cachedNode) {
+      var name = getComponentName(cachedNode.componentOptions);
+      if (name && !filter(name)) {
+        pruneCacheEntry(cache, key, keys, _vnode);
+      }
+    }
+  }
+}
+
+function pruneCacheEntry (
+  cache,
+  key,
+  keys,
+  current
+) {
+  var cached$$1 = cache[key];
+  if (cached$$1 && (!current || cached$$1.tag !== current.tag)) {
+    cached$$1.componentInstance.$destroy();
+  }
+  cache[key] = null;
+  remove(keys, key);
+}
+
+var patternTypes = [String, RegExp, Array];
+
+var KeepAlive = {
+  name: 'keep-alive',
+  abstract: true,
+
+  props: {
+    include: patternTypes,
+    exclude: patternTypes,
+    max: [String, Number]
+  },
+
+  created: function created () {
+    this.cache = Object.create(null);
+    this.keys = [];
+  },
+
+  destroyed: function destroyed () {
+    for (var key in this.cache) {
+      pruneCacheEntry(this.cache, key, this.keys);
+    }
+  },
+
+  mounted: function mounted () {
+    var this$1 = this;
+
+    this.$watch('include', function (val) {
+      pruneCache(this$1, function (name) { return matches(val, name); });
+    });
+    this.$watch('exclude', function (val) {
+      pruneCache(this$1, function (name) { return !matches(val, name); });
+    });
+  },
+
+  render: function render () {
+    var slot = this.$slots.default;
+    var vnode = getFirstComponentChild(slot);
+    var componentOptions = vnode && vnode.componentOptions;
+    if (componentOptions) {
+      // check pattern
+      var name = getComponentName(componentOptions);
+      var ref = this;
+      var include = ref.include;
+      var exclude = ref.exclude;
+      if (
+        // not included
+        (include && (!name || !matches(include, name))) ||
+        // excluded
+        (exclude && name && matches(exclude, name))
+      ) {
+        return vnode
+      }
+
+      var ref$1 = this;
+      var cache = ref$1.cache;
+      var keys = ref$1.keys;
+      var key = vnode.key == null
+        // same constructor may get registered as different local components
+        // so cid alone is not enough (#3269)
+        ? componentOptions.Ctor.cid + (componentOptions.tag ? ("::" + (componentOptions.tag)) : '')
+        : vnode.key;
+      if (cache[key]) {
+        vnode.componentInstance = cache[key].componentInstance;
+        // make current key freshest
+        remove(keys, key);
+        keys.push(key);
+      } else {
+        cache[key] = vnode;
+        keys.push(key);
+        // prune oldest entry
+        if (this.max && keys.length > parseInt(this.max)) {
+          pruneCacheEntry(cache, keys[0], keys, this._vnode);
+        }
+      }
+
+      vnode.data.keepAlive = true;
+    }
+    return vnode || (slot && slot[0])
+  }
+};
+
+var builtInComponents = {
+  KeepAlive: KeepAlive
+};
+
+/*  */
+
+function initGlobalAPI (Vue) {
+  // config
+  var configDef = {};
+  configDef.get = function () { return config; };
+  {
+    configDef.set = function () {
+      warn(
+        'Do not replace the Vue.config object, set individual fields instead.'
+      );
+    };
+  }
+  Object.defineProperty(Vue, 'config', configDef);
+
+  // exposed util methods.
+  // NOTE: these are not considered part of the public API - avoid relying on
+  // them unless you are aware of the risk.
+  Vue.util = {
+    warn: warn,
+    extend: extend,
+    mergeOptions: mergeOptions,
+    defineReactive: defineReactive$$1
+  };
+
+  Vue.set = set;
+  Vue.delete = del;
+  Vue.nextTick = nextTick;
+
+  // 2.6 explicit observable API
+  Vue.observable = function (obj) {
+    observe(obj);
+    return obj
+  };
+
+  Vue.options = Object.create(null);
+  ASSET_TYPES.forEach(function (type) {
+    Vue.options[type + 's'] = Object.create(null);
+  });
+
+  // this is used to identify the "base" constructor to extend all plain-object
+  // components with in Weex's multi-instance scenarios.
+  Vue.options._base = Vue;
+
+  extend(Vue.options.components, builtInComponents);
+
+  initUse(Vue);
+  initMixin$1(Vue);
+  initExtend(Vue);
+  initAssetRegisters(Vue);
+}
+
+initGlobalAPI(Vue);
+
+Object.defineProperty(Vue.prototype, '$isServer', {
+  get: isServerRendering
+});
+
+Object.defineProperty(Vue.prototype, '$ssrContext', {
+  get: function get () {
+    /* istanbul ignore next */
+    return this.$vnode && this.$vnode.ssrContext
+  }
+});
+
+// expose FunctionalRenderContext for ssr runtime helper installation
+Object.defineProperty(Vue, 'FunctionalRenderContext', {
+  value: FunctionalRenderContext
+});
+
+Vue.version = '2.6.12';
+
+/*  */
+
+// these are reserved for web because they are directly compiled away
+// during template compilation
+var isReservedAttr = makeMap('style,class');
+
+// attributes that should be using props for binding
+var acceptValue = makeMap('input,textarea,option,select,progress');
+var mustUseProp = function (tag, type, attr) {
+  return (
+    (attr === 'value' && acceptValue(tag)) && type !== 'button' ||
+    (attr === 'selected' && tag === 'option') ||
+    (attr === 'checked' && tag === 'input') ||
+    (attr === 'muted' && tag === 'video')
+  )
+};
+
+var isEnumeratedAttr = makeMap('contenteditable,draggable,spellcheck');
+
+var isValidContentEditableValue = makeMap('events,caret,typing,plaintext-only');
+
+var convertEnumeratedValue = function (key, value) {
+  return isFalsyAttrValue(value) || value === 'false'
+    ? 'false'
+    // allow arbitrary string value for contenteditable
+    : key === 'contenteditable' && isValidContentEditableValue(value)
+      ? value
+      : 'true'
+};
+
+var isBooleanAttr = makeMap(
+  'allowfullscreen,async,autofocus,autoplay,checked,compact,controls,declare,' +
+  'default,defaultchecked,defaultmuted,defaultselected,defer,disabled,' +
+  'enabled,formnovalidate,hidden,indeterminate,inert,ismap,itemscope,loop,multiple,' +
+  'muted,nohref,noresize,noshade,novalidate,nowrap,open,pauseonexit,readonly,' +
+  'required,reversed,scoped,seamless,selected,sortable,translate,' +
+  'truespeed,typemustmatch,visible'
+);
+
+var xlinkNS = 'http://www.w3.org/1999/xlink';
+
+var isXlink = function (name) {
+  return name.charAt(5) === ':' && name.slice(0, 5) === 'xlink'
+};
+
+var getXlinkProp = function (name) {
+  return isXlink(name) ? name.slice(6, name.length) : ''
+};
+
+var isFalsyAttrValue = function (val) {
+  return val == null || val === false
+};
+
+/*  */
+
+function genClassForVnode (vnode) {
+  var data = vnode.data;
+  var parentNode = vnode;
+  var childNode = vnode;
+  while (isDef(childNode.componentInstance)) {
+    childNode = childNode.componentInstance._vnode;
+    if (childNode && childNode.data) {
+      data = mergeClassData(childNode.data, data);
+    }
+  }
+  while (isDef(parentNode = parentNode.parent)) {
+    if (parentNode && parentNode.data) {
+      data = mergeClassData(data, parentNode.data);
+    }
+  }
+  return renderClass(data.staticClass, data.class)
+}
+
+function mergeClassData (child, parent) {
+  return {
+    staticClass: concat(child.staticClass, parent.staticClass),
+    class: isDef(child.class)
+      ? [child.class, parent.class]
+      : parent.class
+  }
+}
+
+function renderClass (
+  staticClass,
+  dynamicClass
+) {
+  if (isDef(staticClass) || isDef(dynamicClass)) {
+    return concat(staticClass, stringifyClass(dynamicClass))
+  }
+  /* istanbul ignore next */
+  return ''
+}
+
+function concat (a, b) {
+  return a ? b ? (a + ' ' + b) : a : (b || '')
+}
+
+function stringifyClass (value) {
+  if (Array.isArray(value)) {
+    return stringifyArray(value)
+  }
+  if (isObject(value)) {
+    return stringifyObject(value)
+  }
+  if (typeof value === 'string') {
+    return value
+  }
+  /* istanbul ignore next */
+  return ''
+}
+
+function stringifyArray (value) {
+  var res = '';
+  var stringified;
+  for (var i = 0, l = value.length; i < l; i++) {
+    if (isDef(stringified = stringifyClass(value[i])) && stringified !== '') {
+      if (res) { res += ' '; }
+      res += stringified;
+    }
+  }
+  return res
+}
+
+function stringifyObject (value) {
+  var res = '';
+  for (var key in value) {
+    if (value[key]) {
+      if (res) { res += ' '; }
+      res += key;
+    }
+  }
+  return res
+}
+
+/*  */
+
+var namespaceMap = {
+  svg: 'http://www.w3.org/2000/svg',
+  math: 'http://www.w3.org/1998/Math/MathML'
+};
+
+var isHTMLTag = makeMap(
+  'html,body,base,head,link,meta,style,title,' +
+  'address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
+  'div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,' +
+  'a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby,' +
+  's,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,' +
+  'embed,object,param,source,canvas,script,noscript,del,ins,' +
+  'caption,col,colgroup,table,thead,tbody,td,th,tr,' +
+  'button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,' +
+  'output,progress,select,textarea,' +
+  'details,dialog,menu,menuitem,summary,' +
+  'content,element,shadow,template,blockquote,iframe,tfoot'
+);
+
+// this map is intentionally selective, only covering SVG elements that may
+// contain child elements.
+var isSVG = makeMap(
+  'svg,animate,circle,clippath,cursor,defs,desc,ellipse,filter,font-face,' +
+  'foreignObject,g,glyph,image,line,marker,mask,missing-glyph,path,pattern,' +
+  'polygon,polyline,rect,switch,symbol,text,textpath,tspan,use,view',
+  true
+);
+
+var isPreTag = function (tag) { return tag === 'pre'; };
+
+var isReservedTag = function (tag) {
+  return isHTMLTag(tag) || isSVG(tag)
+};
+
+function getTagNamespace (tag) {
+  if (isSVG(tag)) {
+    return 'svg'
+  }
+  // basic support for MathML
+  // note it doesn't support other MathML elements being component roots
+  if (tag === 'math') {
+    return 'math'
+  }
+}
+
+var unknownElementCache = Object.create(null);
+function isUnknownElement (tag) {
+  /* istanbul ignore if */
+  if (!inBrowser) {
+    return true
+  }
+  if (isReservedTag(tag)) {
+    return false
+  }
+  tag = tag.toLowerCase();
+  /* istanbul ignore if */
+  if (unknownElementCache[tag] != null) {
+    return unknownElementCache[tag]
+  }
+  var el = document.createElement(tag);
+  if (tag.indexOf('-') > -1) {
+    // http://stackoverflow.com/a/28210364/1070244
+    return (unknownElementCache[tag] = (
+      el.constructor === window.HTMLUnknownElement ||
+      el.constructor === window.HTMLElement
+    ))
+  } else {
+    return (unknownElementCache[tag] = /HTMLUnknownElement/.test(el.toString()))
+  }
+}
+
+var isTextInputType = makeMap('text,number,password,search,email,tel,url');
+
+/*  */
+
+/**
+ * Query an element selector if it's not an element already.
+ */
+function query (el) {
+  if (typeof el === 'string') {
+    var selected = document.querySelector(el);
+    if (!selected) {
+      warn(
+        'Cannot find element: ' + el
+      );
+      return document.createElement('div')
+    }
+    return selected
+  } else {
+    return el
+  }
+}
+
+/*  */
+
+function createElement$1 (tagName, vnode) {
+  var elm = document.createElement(tagName);
+  if (tagName !== 'select') {
+    return elm
+  }
+  // false or null will remove the attribute but undefined will not
+  if (vnode.data && vnode.data.attrs && vnode.data.attrs.multiple !== undefined) {
+    elm.setAttribute('multiple', 'multiple');
+  }
+  return elm
+}
+
+function createElementNS (namespace, tagName) {
+  return document.createElementNS(namespaceMap[namespace], tagName)
+}
+
+function createTextNode (text) {
+  return document.createTextNode(text)
+}
+
+function createComment (text) {
+  return document.createComment(text)
+}
+
+function insertBefore (parentNode, newNode, referenceNode) {
+  parentNode.insertBefore(newNode, referenceNode);
+}
+
+function removeChild (node, child) {
+  node.removeChild(child);
+}
+
+function appendChild (node, child) {
+  node.appendChild(child);
+}
+
+function parentNode (node) {
+  return node.parentNode
+}
+
+function nextSibling (node) {
+  return node.nextSibling
+}
+
+function tagName (node) {
+  return node.tagName
+}
+
+function setTextContent (node, text) {
+  node.textContent = text;
+}
+
+function setStyleScope (node, scopeId) {
+  node.setAttribute(scopeId, '');
+}
+
+var nodeOps = /*#__PURE__*/Object.freeze({
+  createElement: createElement$1,
+  createElementNS: createElementNS,
+  createTextNode: createTextNode,
+  createComment: createComment,
+  insertBefore: insertBefore,
+  removeChild: removeChild,
+  appendChild: appendChild,
+  parentNode: parentNode,
+  nextSibling: nextSibling,
+  tagName: tagName,
+  setTextContent: setTextContent,
+  setStyleScope: setStyleScope
+});
+
+/*  */
+
+var ref = {
+  create: function create (_, vnode) {
+    registerRef(vnode);
+  },
+  update: function update (oldVnode, vnode) {
+    if (oldVnode.data.ref !== vnode.data.ref) {
+      registerRef(oldVnode, true);
+      registerRef(vnode);
+    }
+  },
+  destroy: function destroy (vnode) {
+    registerRef(vnode, true);
+  }
+};
+
+function registerRef (vnode, isRemoval) {
+  var key = vnode.data.ref;
+  if (!isDef(key)) { return }
+
+  var vm = vnode.context;
+  var ref = vnode.componentInstance || vnode.elm;
+  var refs = vm.$refs;
+  if (isRemoval) {
+    if (Array.isArray(refs[key])) {
+      remove(refs[key], ref);
+    } else if (refs[key] === ref) {
+      refs[key] = undefined;
+    }
+  } else {
+    if (vnode.data.refInFor) {
+      if (!Array.isArray(refs[key])) {
+        refs[key] = [ref];
+      } else if (refs[key].indexOf(ref) < 0) {
+        // $flow-disable-line
+        refs[key].push(ref);
+      }
+    } else {
+      refs[key] = ref;
+    }
+  }
+}
+
+/**
+ * Virtual DOM patching algorithm based on Snabbdom by
+ * Simon Friis Vindum (@paldepind)
+ * Licensed under the MIT License
+ * https://github.com/paldepind/snabbdom/blob/master/LICENSE
+ *
+ * modified by Evan You (@yyx990803)
+ *
+ * Not type-checking this because this file is perf-critical and the cost
+ * of making flow understand it is not worth it.
+ */
+
+var emptyNode = new VNode('', {}, []);
+
+var hooks = ['create', 'activate', 'update', 'remove', 'destroy'];
+
+function sameVnode (a, b) {
+  return (
+    a.key === b.key && (
+      (
+        a.tag === b.tag &&
+        a.isComment === b.isComment &&
+        isDef(a.data) === isDef(b.data) &&
+        sameInputType(a, b)
+      ) || (
+        isTrue(a.isAsyncPlaceholder) &&
+        a.asyncFactory === b.asyncFactory &&
+        isUndef(b.asyncFactory.error)
+      )
+    )
+  )
+}
+
+function sameInputType (a, b) {
+  if (a.tag !== 'input') { return true }
+  var i;
+  var typeA = isDef(i = a.data) && isDef(i = i.attrs) && i.type;
+  var typeB = isDef(i = b.data) && isDef(i = i.attrs) && i.type;
+  return typeA === typeB || isTextInputType(typeA) && isTextInputType(typeB)
+}
+
+function createKeyToOldIdx (children, beginIdx, endIdx) {
+  var i, key;
+  var map = {};
+  for (i = beginIdx; i <= endIdx; ++i) {
+    key = children[i].key;
+    if (isDef(key)) { map[key] = i; }
+  }
+  return map
+}
+
+function createPatchFunction (backend) {
+  var i, j;
+  var cbs = {};
+
+  var modules = backend.modules;
+  var nodeOps = backend.nodeOps;
+
+  for (i = 0; i < hooks.length; ++i) {
+    cbs[hooks[i]] = [];
+    for (j = 0; j < modules.length; ++j) {
+      if (isDef(modules[j][hooks[i]])) {
+        cbs[hooks[i]].push(modules[j][hooks[i]]);
+      }
+    }
+  }
+
+  function emptyNodeAt (elm) {
+    return new VNode(nodeOps.tagName(elm).toLowerCase(), {}, [], undefined, elm)
+  }
+
+  function createRmCb (childElm, listeners) {
+    function remove$$1 () {
+      if (--remove$$1.listeners === 0) {
+        removeNode(childElm);
+      }
+    }
+    remove$$1.listeners = listeners;
+    return remove$$1
+  }
+
+  function removeNode (el) {
+    var parent = nodeOps.parentNode(el);
+    // element may have already been removed due to v-html / v-text
+    if (isDef(parent)) {
+      nodeOps.removeChild(parent, el);
+    }
+  }
+
+  function isUnknownElement$$1 (vnode, inVPre) {
+    return (
+      !inVPre &&
+      !vnode.ns &&
+      !(
+        config.ignoredElements.length &&
+        config.ignoredElements.some(function (ignore) {
+          return isRegExp(ignore)
+            ? ignore.test(vnode.tag)
+            : ignore === vnode.tag
+        })
+      ) &&
+      config.isUnknownElement(vnode.tag)
+    )
+  }
+
+  var creatingElmInVPre = 0;
+
+  function createElm (
+    vnode,
+    insertedVnodeQueue,
+    parentElm,
+    refElm,
+    nested,
+    ownerArray,
+    index
+  ) {
+    if (isDef(vnode.elm) && isDef(ownerArray)) {
+      // This vnode was used in a previous render!
+      // now it's used as a new node, overwriting its elm would cause
+      // potential patch errors down the road when it's used as an insertion
+      // reference node. Instead, we clone the node on-demand before creating
+      // associated DOM element for it.
+      vnode = ownerArray[index] = cloneVNode(vnode);
+    }
+
+    vnode.isRootInsert = !nested; // for transition enter check
+    if (createComponent(vnode, insertedVnodeQueue, parentElm, refElm)) {
+      return
+    }
+
+    var data = vnode.data;
+    var children = vnode.children;
+    var tag = vnode.tag;
+    if (isDef(tag)) {
+      {
+        if (data && data.pre) {
+          creatingElmInVPre++;
+        }
+        if (isUnknownElement$$1(vnode, creatingElmInVPre)) {
+          warn(
+            'Unknown custom element: <' + tag + '> - did you ' +
+            'register the component correctly? For recursive components, ' +
+            'make sure to provide the "name" option.',
+            vnode.context
+          );
+        }
+      }
+
+      vnode.elm = vnode.ns
+        ? nodeOps.createElementNS(vnode.ns, tag)
+        : nodeOps.createElement(tag, vnode);
+      setScope(vnode);
+
+      /* istanbul ignore if */
+      {
+        createChildren(vnode, children, insertedVnodeQueue);
+        if (isDef(data)) {
+          invokeCreateHooks(vnode, insertedVnodeQueue);
+        }
+        insert(parentElm, vnode.elm, refElm);
+      }
+
+      if (data && data.pre) {
+        creatingElmInVPre--;
+      }
+    } else if (isTrue(vnode.isComment)) {
+      vnode.elm = nodeOps.createComment(vnode.text);
+      insert(parentElm, vnode.elm, refElm);
+    } else {
+      vnode.elm = nodeOps.createTextNode(vnode.text);
+      insert(parentElm, vnode.elm, refElm);
+    }
+  }
+
+  function createComponent (vnode, insertedVnodeQueue, parentElm, refElm) {
+    var i = vnode.data;
+    if (isDef(i)) {
+      var isReactivated = isDef(vnode.componentInstance) && i.keepAlive;
+      if (isDef(i = i.hook) && isDef(i = i.init)) {
+        i(vnode, false /* hydrating */);
+      }
+      // after calling the init hook, if the vnode is a child component
+      // it should've created a child instance and mounted it. the child
+      // component also has set the placeholder vnode's elm.
+      // in that case we can just return the element and be done.
+      if (isDef(vnode.componentInstance)) {
+        initComponent(vnode, insertedVnodeQueue);
+        insert(parentElm, vnode.elm, refElm);
+        if (isTrue(isReactivated)) {
+          reactivateComponent(vnode, insertedVnodeQueue, parentElm, refElm);
+        }
+        return true
+      }
+    }
+  }
+
+  function initComponent (vnode, insertedVnodeQueue) {
+    if (isDef(vnode.data.pendingInsert)) {
+      insertedVnodeQueue.push.apply(insertedVnodeQueue, vnode.data.pendingInsert);
+      vnode.data.pendingInsert = null;
+    }
+    vnode.elm = vnode.componentInstance.$el;
+    if (isPatchable(vnode)) {
+      invokeCreateHooks(vnode, insertedVnodeQueue);
+      setScope(vnode);
+    } else {
+      // empty component root.
+      // skip all element-related modules except for ref (#3455)
+      registerRef(vnode);
+      // make sure to invoke the insert hook
+      insertedVnodeQueue.push(vnode);
+    }
+  }
+
+  function reactivateComponent (vnode, insertedVnodeQueue, parentElm, refElm) {
+    var i;
+    // hack for #4339: a reactivated component with inner transition
+    // does not trigger because the inner node's created hooks are not called
+    // again. It's not ideal to involve module-specific logic in here but
+    // there doesn't seem to be a better way to do it.
+    var innerNode = vnode;
+    while (innerNode.componentInstance) {
+      innerNode = innerNode.componentInstance._vnode;
+      if (isDef(i = innerNode.data) && isDef(i = i.transition)) {
+        for (i = 0; i < cbs.activate.length; ++i) {
+          cbs.activate[i](emptyNode, innerNode);
+        }
+        insertedVnodeQueue.push(innerNode);
+        break
+      }
+    }
+    // unlike a newly created component,
+    // a reactivated keep-alive component doesn't insert itself
+    insert(parentElm, vnode.elm, refElm);
+  }
+
+  function insert (parent, elm, ref$$1) {
+    if (isDef(parent)) {
+      if (isDef(ref$$1)) {
+        if (nodeOps.parentNode(ref$$1) === parent) {
+          nodeOps.insertBefore(parent, elm, ref$$1);
+        }
+      } else {
+        nodeOps.appendChild(parent, elm);
+      }
+    }
+  }
+
+  function createChildren (vnode, children, insertedVnodeQueue) {
+    if (Array.isArray(children)) {
+      {
+        checkDuplicateKeys(children);
+      }
+      for (var i = 0; i < children.length; ++i) {
+        createElm(children[i], insertedVnodeQueue, vnode.elm, null, true, children, i);
+      }
+    } else if (isPrimitive(vnode.text)) {
+      nodeOps.appendChild(vnode.elm, nodeOps.createTextNode(String(vnode.text)));
+    }
+  }
+
+  function isPatchable (vnode) {
+    while (vnode.componentInstance) {
+      vnode = vnode.componentInstance._vnode;
+    }
+    return isDef(vnode.tag)
+  }
+
+  function invokeCreateHooks (vnode, insertedVnodeQueue) {
+    for (var i$1 = 0; i$1 < cbs.create.length; ++i$1) {
+      cbs.create[i$1](emptyNode, vnode);
+    }
+    i = vnode.data.hook; // Reuse variable
+    if (isDef(i)) {
+      if (isDef(i.create)) { i.create(emptyNode, vnode); }
+      if (isDef(i.insert)) { insertedVnodeQueue.push(vnode); }
+    }
+  }
+
+  // set scope id attribute for scoped CSS.
+  // this is implemented as a special case to avoid the overhead
+  // of going through the normal attribute patching process.
+  function setScope (vnode) {
+    var i;
+    if (isDef(i = vnode.fnScopeId)) {
+      nodeOps.setStyleScope(vnode.elm, i);
+    } else {
+      var ancestor = vnode;
+      while (ancestor) {
+        if (isDef(i = ancestor.context) && isDef(i = i.$options._scopeId)) {
+          nodeOps.setStyleScope(vnode.elm, i);
+        }
+        ancestor = ancestor.parent;
+      }
+    }
+    // for slot content they should also get the scopeId from the host instance.
+    if (isDef(i = activeInstance) &&
+      i !== vnode.context &&
+      i !== vnode.fnContext &&
+      isDef(i = i.$options._scopeId)
+    ) {
+      nodeOps.setStyleScope(vnode.elm, i);
+    }
+  }
+
+  function addVnodes (parentElm, refElm, vnodes, startIdx, endIdx, insertedVnodeQueue) {
+    for (; startIdx <= endIdx; ++startIdx) {
+      createElm(vnodes[startIdx], insertedVnodeQueue, parentElm, refElm, false, vnodes, startIdx);
+    }
+  }
+
+  function invokeDestroyHook (vnode) {
+    var i, j;
+    var data = vnode.data;
+    if (isDef(data)) {
+      if (isDef(i = data.hook) && isDef(i = i.destroy)) { i(vnode); }
+      for (i = 0; i < cbs.destroy.length; ++i) { cbs.destroy[i](vnode); }
+    }
+    if (isDef(i = vnode.children)) {
+      for (j = 0; j < vnode.children.length; ++j) {
+        invokeDestroyHook(vnode.children[j]);
+      }
+    }
+  }
+
+  function removeVnodes (vnodes, startIdx, endIdx) {
+    for (; startIdx <= endIdx; ++startIdx) {
+      var ch = vnodes[startIdx];
+      if (isDef(ch)) {
+        if (isDef(ch.tag)) {
+          removeAndInvokeRemoveHook(ch);
+          invokeDestroyHook(ch);
+        } else { // Text node
+          removeNode(ch.elm);
+        }
+      }
+    }
+  }
+
+  function removeAndInvokeRemoveHook (vnode, rm) {
+    if (isDef(rm) || isDef(vnode.data)) {
+      var i;
+      var listeners = cbs.remove.length + 1;
+      if (isDef(rm)) {
+        // we have a recursively passed down rm callback
+        // increase the listeners count
+        rm.listeners += listeners;
+      } else {
+        // directly removing
+        rm = createRmCb(vnode.elm, listeners);
+      }
+      // recursively invoke hooks on child component root node
+      if (isDef(i = vnode.componentInstance) && isDef(i = i._vnode) && isDef(i.data)) {
+        removeAndInvokeRemoveHook(i, rm);
+      }
+      for (i = 0; i < cbs.remove.length; ++i) {
+        cbs.remove[i](vnode, rm);
+      }
+      if (isDef(i = vnode.data.hook) && isDef(i = i.remove)) {
+        i(vnode, rm);
+      } else {
+        rm();
+      }
+    } else {
+      removeNode(vnode.elm);
+    }
+  }
+
+  function updateChildren (parentElm, oldCh, newCh, insertedVnodeQueue, removeOnly) {
+    var oldStartIdx = 0;
+    var newStartIdx = 0;
+    var oldEndIdx = oldCh.length - 1;
+    var oldStartVnode = oldCh[0];
+    var oldEndVnode = oldCh[oldEndIdx];
+    var newEndIdx = newCh.length - 1;
+    var newStartVnode = newCh[0];
+    var newEndVnode = newCh[newEndIdx];
+    var oldKeyToIdx, idxInOld, vnodeToMove, refElm;
+
+    // removeOnly is a special flag used only by <transition-group>
+    // to ensure removed elements stay in correct relative positions
+    // during leaving transitions
+    var canMove = !removeOnly;
+
+    {
+      checkDuplicateKeys(newCh);
+    }
+
+    while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+      if (isUndef(oldStartVnode)) {
+        oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
+      } else if (isUndef(oldEndVnode)) {
+        oldEndVnode = oldCh[--oldEndIdx];
+      } else if (sameVnode(oldStartVnode, newStartVnode)) {
+        patchVnode(oldStartVnode, newStartVnode, insertedVnodeQueue, newCh, newStartIdx);
+        oldStartVnode = oldCh[++oldStartIdx];
+        newStartVnode = newCh[++newStartIdx];
+      } else if (sameVnode(oldEndVnode, newEndVnode)) {
+        patchVnode(oldEndVnode, newEndVnode, insertedVnodeQueue, newCh, newEndIdx);
+        oldEndVnode = oldCh[--oldEndIdx];
+        newEndVnode = newCh[--newEndIdx];
+      } else if (sameVnode(oldStartVnode, newEndVnode)) { // Vnode moved right
+        patchVnode(oldStartVnode, newEndVnode, insertedVnodeQueue, newCh, newEndIdx);
+        canMove && nodeOps.insertBefore(parentElm, oldStartVnode.elm, nodeOps.nextSibling(oldEndVnode.elm));
+        oldStartVnode = oldCh[++oldStartIdx];
+        newEndVnode = newCh[--newEndIdx];
+      } else if (sameVnode(oldEndVnode, newStartVnode)) { // Vnode moved left
+        patchVnode(oldEndVnode, newStartVnode, insertedVnodeQueue, newCh, newStartIdx);
+        canMove && nodeOps.insertBefore(parentElm, oldEndVnode.elm, oldStartVnode.elm);
+        oldEndVnode = oldCh[--oldEndIdx];
+        newStartVnode = newCh[++newStartIdx];
+      } else {
+        if (isUndef(oldKeyToIdx)) { oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx); }
+        idxInOld = isDef(newStartVnode.key)
+          ? oldKeyToIdx[newStartVnode.key]
+          : findIdxInOld(newStartVnode, oldCh, oldStartIdx, oldEndIdx);
+        if (isUndef(idxInOld)) { // New element
+          createElm(newStartVnode, insertedVnodeQueue, parentElm, oldStartVnode.elm, false, newCh, newStartIdx);
+        } else {
+          vnodeToMove = oldCh[idxInOld];
+          if (sameVnode(vnodeToMove, newStartVnode)) {
+            patchVnode(vnodeToMove, newStartVnode, insertedVnodeQueue, newCh, newStartIdx);
+            oldCh[idxInOld] = undefined;
+            canMove && nodeOps.insertBefore(parentElm, vnodeToMove.elm, oldStartVnode.elm);
+          } else {
+            // same key but different element. treat as new element
+            createElm(newStartVnode, insertedVnodeQueue, parentElm, oldStartVnode.elm, false, newCh, newStartIdx);
+          }
+        }
+        newStartVnode = newCh[++newStartIdx];
+      }
+    }
+    if (oldStartIdx > oldEndIdx) {
+      refElm = isUndef(newCh[newEndIdx + 1]) ? null : newCh[newEndIdx + 1].elm;
+      addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx, insertedVnodeQueue);
+    } else if (newStartIdx > newEndIdx) {
+      removeVnodes(oldCh, oldStartIdx, oldEndIdx);
+    }
+  }
+
+  function checkDuplicateKeys (children) {
+    var seenKeys = {};
+    for (var i = 0; i < children.length; i++) {
+      var vnode = children[i];
+      var key = vnode.key;
+      if (isDef(key)) {
+        if (seenKeys[key]) {
+          warn(
+            ("Duplicate keys detected: '" + key + "'. This may cause an update error."),
+            vnode.context
+          );
+        } else {
+          seenKeys[key] = true;
+        }
+      }
+    }
+  }
+
+  function findIdxInOld (node, oldCh, start, end) {
+    for (var i = start; i < end; i++) {
+      var c = oldCh[i];
+      if (isDef(c) && sameVnode(node, c)) { return i }
+    }
+  }
+
+  function patchVnode (
+    oldVnode,
+    vnode,
+    insertedVnodeQueue,
+    ownerArray,
+    index,
+    removeOnly
+  ) {
+    if (oldVnode === vnode) {
+      return
+    }
+
+    if (isDef(vnode.elm) && isDef(ownerArray)) {
+      // clone reused vnode
+      vnode = ownerArray[index] = cloneVNode(vnode);
+    }
+
+    var elm = vnode.elm = oldVnode.elm;
+
+    if (isTrue(oldVnode.isAsyncPlaceholder)) {
+      if (isDef(vnode.asyncFactory.resolved)) {
+        hydrate(oldVnode.elm, vnode, insertedVnodeQueue);
+      } else {
+        vnode.isAsyncPlaceholder = true;
+      }
+      return
+    }
+
+    // reuse element for static trees.
+    // note we only do this if the vnode is cloned -
+    // if the new node is not cloned it means the render functions have been
+    // reset by the hot-reload-api and we need to do a proper re-render.
+    if (isTrue(vnode.isStatic) &&
+      isTrue(oldVnode.isStatic) &&
+      vnode.key === oldVnode.key &&
+      (isTrue(vnode.isCloned) || isTrue(vnode.isOnce))
+    ) {
+      vnode.componentInstance = oldVnode.componentInstance;
+      return
+    }
+
+    var i;
+    var data = vnode.data;
+    if (isDef(data) && isDef(i = data.hook) && isDef(i = i.prepatch)) {
+      i(oldVnode, vnode);
+    }
+
+    var oldCh = oldVnode.children;
+    var ch = vnode.children;
+    if (isDef(data) && isPatchable(vnode)) {
+      for (i = 0; i < cbs.update.length; ++i) { cbs.update[i](oldVnode, vnode); }
+      if (isDef(i = data.hook) && isDef(i = i.update)) { i(oldVnode, vnode); }
+    }
+    if (isUndef(vnode.text)) {
+      if (isDef(oldCh) && isDef(ch)) {
+        if (oldCh !== ch) { updateChildren(elm, oldCh, ch, insertedVnodeQueue, removeOnly); }
+      } else if (isDef(ch)) {
+        {
+          checkDuplicateKeys(ch);
+        }
+        if (isDef(oldVnode.text)) { nodeOps.setTextContent(elm, ''); }
+        addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
+      } else if (isDef(oldCh)) {
+        removeVnodes(oldCh, 0, oldCh.length - 1);
+      } else if (isDef(oldVnode.text)) {
+        nodeOps.setTextContent(elm, '');
+      }
+    } else if (oldVnode.text !== vnode.text) {
+      nodeOps.setTextContent(elm, vnode.text);
+    }
+    if (isDef(data)) {
+      if (isDef(i = data.hook) && isDef(i = i.postpatch)) { i(oldVnode, vnode); }
+    }
+  }
+
+  function invokeInsertHook (vnode, queue, initial) {
+    // delay insert hooks for component root nodes, invoke them after the
+    // element is really inserted
+    if (isTrue(initial) && isDef(vnode.parent)) {
+      vnode.parent.data.pendingInsert = queue;
+    } else {
+      for (var i = 0; i < queue.length; ++i) {
+        queue[i].data.hook.insert(queue[i]);
+      }
+    }
+  }
+
+  var hydrationBailed = false;
+  // list of modules that can skip create hook during hydration because they
+  // are already rendered on the client or has no need for initialization
+  // Note: style is excluded because it relies on initial clone for future
+  // deep updates (#7063).
+  var isRenderedModule = makeMap('attrs,class,staticClass,staticStyle,key');
+
+  // Note: this is a browser-only function so we can assume elms are DOM nodes.
+  function hydrate (elm, vnode, insertedVnodeQueue, inVPre) {
+    var i;
+    var tag = vnode.tag;
+    var data = vnode.data;
+    var children = vnode.children;
+    inVPre = inVPre || (data && data.pre);
+    vnode.elm = elm;
+
+    if (isTrue(vnode.isComment) && isDef(vnode.asyncFactory)) {
+      vnode.isAsyncPlaceholder = true;
+      return true
+    }
+    // assert node match
+    {
+      if (!assertNodeMatch(elm, vnode, inVPre)) {
+        return false
+      }
+    }
+    if (isDef(data)) {
+      if (isDef(i = data.hook) && isDef(i = i.init)) { i(vnode, true /* hydrating */); }
+      if (isDef(i = vnode.componentInstance)) {
+        // child component. it should have hydrated its own tree.
+        initComponent(vnode, insertedVnodeQueue);
+        return true
+      }
+    }
+    if (isDef(tag)) {
+      if (isDef(children)) {
+        // empty element, allow client to pick up and populate children
+        if (!elm.hasChildNodes()) {
+          createChildren(vnode, children, insertedVnodeQueue);
+        } else {
+          // v-html and domProps: innerHTML
+          if (isDef(i = data) && isDef(i = i.domProps) && isDef(i = i.innerHTML)) {
+            if (i !== elm.innerHTML) {
+              /* istanbul ignore if */
+              if (typeof console !== 'undefined' &&
+                !hydrationBailed
+              ) {
+                hydrationBailed = true;
+                console.warn('Parent: ', elm);
+                console.warn('server innerHTML: ', i);
+                console.warn('client innerHTML: ', elm.innerHTML);
+              }
+              return false
+            }
+          } else {
+            // iterate and compare children lists
+            var childrenMatch = true;
+            var childNode = elm.firstChild;
+            for (var i$1 = 0; i$1 < children.length; i$1++) {
+              if (!childNode || !hydrate(childNode, children[i$1], insertedVnodeQueue, inVPre)) {
+                childrenMatch = false;
+                break
+              }
+              childNode = childNode.nextSibling;
+            }
+            // if childNode is not null, it means the actual childNodes list is
+            // longer than the virtual children list.
+            if (!childrenMatch || childNode) {
+              /* istanbul ignore if */
+              if (typeof console !== 'undefined' &&
+                !hydrationBailed
+              ) {
+                hydrationBailed = true;
+                console.warn('Parent: ', elm);
+                console.warn('Mismatching childNodes vs. VNodes: ', elm.childNodes, children);
+              }
+              return false
+            }
+          }
+        }
+      }
+      if (isDef(data)) {
+        var fullInvoke = false;
+        for (var key in data) {
+          if (!isRenderedModule(key)) {
+            fullInvoke = true;
+            invokeCreateHooks(vnode, insertedVnodeQueue);
+            break
+          }
+        }
+        if (!fullInvoke && data['class']) {
+          // ensure collecting deps for deep class bindings for future updates
+          traverse(data['class']);
+        }
+      }
+    } else if (elm.data !== vnode.text) {
+      elm.data = vnode.text;
+=======
+>>>>>>> 728d97eaa9ca80a4a3343e761f6432945cb95e1e
     }
     Set.prototype.has = function has (key) {
       return this.set[key] === true
@@ -72466,5984 +70322,6 @@ module.exports = Vue;
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./vue.common.dev.js */ "./node_modules/vue/dist/vue.common.dev.js")
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-filters/dist/vue2-filters.js":
-/*!********************************************************!*\
-  !*** ./node_modules/vue2-filters/dist/vue2-filters.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(true)
-		module.exports = factory();
-	else { var i, a; }
-})(typeof self !== 'undefined' ? self : this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var string_namespaceObject = {};
-__webpack_require__.r(string_namespaceObject);
-__webpack_require__.d(string_namespaceObject, "capitalize", function() { return string_capitalize; });
-__webpack_require__.d(string_namespaceObject, "uppercase", function() { return string_uppercase; });
-__webpack_require__.d(string_namespaceObject, "lowercase", function() { return string_lowercase; });
-__webpack_require__.d(string_namespaceObject, "placeholder", function() { return string_placeholder; });
-__webpack_require__.d(string_namespaceObject, "truncate", function() { return string_truncate; });
-var other_namespaceObject = {};
-__webpack_require__.r(other_namespaceObject);
-__webpack_require__.d(other_namespaceObject, "currency", function() { return other_currency; });
-__webpack_require__.d(other_namespaceObject, "bytes", function() { return other_bytes; });
-__webpack_require__.d(other_namespaceObject, "pluralize", function() { return other_pluralize; });
-__webpack_require__.d(other_namespaceObject, "ordinal", function() { return other_ordinal; });
-__webpack_require__.d(other_namespaceObject, "number", function() { return other_number; });
-__webpack_require__.d(other_namespaceObject, "percent", function() { return other_percent; });
-
-// CONCATENATED MODULE: ./src/util/index.js
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var ArrayProto = Array.prototype,
-    ObjProto = Object.prototype;
-var slice = ArrayProto.slice,
-    util_toString = ObjProto.toString;
-var util = {};
-
-util.isArray = function (obj) {
-  return Array.isArray(obj);
-};
-
-var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
-
-util.isArrayLike = function (obj) {
-  if (_typeof(obj) !== 'object' || !obj) {
-    return false;
-  }
-
-  var length = obj.length;
-  return typeof length === 'number' && length % 1 === 0 && length >= 0 && length <= MAX_ARRAY_INDEX;
-};
-
-util.isObject = function (obj) {
-  var type = _typeof(obj);
-
-  return type === 'function' || type === 'object' && !!obj;
-};
-
-util.each = function (obj, callback) {
-  var i, len;
-
-  if (util.isArray(obj)) {
-    for (i = 0, len = obj.length; i < len; i++) {
-      if (callback(obj[i], i, obj) === false) {
-        break;
-      }
-    }
-  } else {
-    for (i in obj) {
-      if (callback(obj[i], i, obj) === false) {
-        break;
-      }
-    }
-  }
-
-  return obj;
-};
-
-util.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function (name) {
-  util['is' + name] = function (obj) {
-    return util_toString.call(obj) === '[object ' + name + ']';
-  };
-});
-
-util.toArray = function (list, start) {
-  start = start || 0;
-  var i = list.length - start;
-  var ret = new Array(i);
-
-  while (i--) {
-    ret[i] = list[i + start];
-  }
-
-  return ret;
-};
-
-util.toNumber = function (value) {
-  if (typeof value !== 'string') {
-    return value;
-  } else {
-    var parsed = Number(value);
-    return isNaN(parsed) ? value : parsed;
-  }
-};
-
-util.convertRangeToArray = function (range) {
-  return _toConsumableArray(Array(range + 1).keys()).slice(1);
-};
-
-util.convertArray = function (value) {
-  if (util.isArray(value)) {
-    return value;
-  } else if (util.isPlainObject(value)) {
-    // convert plain object to array.
-    var keys = Object.keys(value);
-    var i = keys.length;
-    var res = new Array(i);
-    var key;
-
-    while (i--) {
-      key = keys[i];
-      res[i] = {
-        $key: key,
-        $value: value[key]
-      };
-    }
-
-    return res;
-  } else {
-    return value || [];
-  }
-};
-
-function multiIndex(obj, is) {
-  // obj,['1','2','3'] -> ((obj['1'])['2'])['3']
-  return is.length ? multiIndex(obj[is[0]], is.slice(1)) : obj;
-}
-
-util.getPath = function (obj, is) {
-  // obj,'1.2.3' -> multiIndex(obj,['1','2','3'])
-  return multiIndex(obj, is.split('.'));
-};
-/**
- * Strict object type check. Only returns true
- * for plain JavaScript objects.
- *
- * @param {*} obj
- * @return {Boolean}
- */
-
-
-var util_toString = Object.prototype.toString;
-var OBJECT_STRING = '[object Object]';
-
-util.isPlainObject = function (obj) {
-  return util_toString.call(obj) === OBJECT_STRING;
-};
-
-util.exist = function (value) {
-  return value !== null && typeof value !== 'undefined';
-};
-
-/* harmony default export */ var src_util = (util);
-// CONCATENATED MODULE: ./src/string/capitalize.js
-/**
- *  Converts a string into Capitalize
- * 
- * 'abc' => 'Abc'
- * 
- * @param {Object} options
- */
-function capitalize(value, options) {
-  var globalOptions = this && this.capitalize ? this.capitalize : {};
-  options = options || globalOptions;
-  var onlyFirstLetter = options.onlyFirstLetter != null ? options.onlyFirstLetter : false;
-  if (!value && value !== 0) return '';
-
-  if (onlyFirstLetter === true) {
-    return value.toString().charAt(0).toUpperCase() + value.toString().slice(1);
-  } else {
-    value = value.toString().toLowerCase().split(' ');
-    return value.map(function (item) {
-      return item.charAt(0).toUpperCase() + item.slice(1);
-    }).join(' ');
-  }
-}
-
-/* harmony default export */ var string_capitalize = (capitalize);
-// CONCATENATED MODULE: ./src/string/uppercase.js
-/**
- * Converts a string to UPPERCASE
- * 
- * 'abc' => 'ABC'
- */
-function uppercase(value) {
-  return value || value === 0 ? value.toString().toUpperCase() : '';
-}
-
-/* harmony default export */ var string_uppercase = (uppercase);
-// CONCATENATED MODULE: ./src/string/lowercase.js
-/**
- * Converts a string to lowercase
- * 
- * 'AbC' => 'abc'
- */
-function lowercase(value) {
-  return value || value === 0 ? value.toString().toLowerCase() : '';
-}
-
-/* harmony default export */ var string_lowercase = (lowercase);
-// CONCATENATED MODULE: ./src/string/placeholder.js
-/**
- *  If the value is missing outputs the placeholder text
- * 
- * '' => {placeholder}
- * 'foo' => 'foo'
- */
-function placeholder(input, property) {
-  return input === undefined || input === '' || input === null ? property : input;
-}
-
-/* harmony default export */ var string_placeholder = (placeholder);
-// CONCATENATED MODULE: ./src/string/truncate.js
-/**
- *  Truncate at the given || default length
- *
- * 'lorem ipsum dolor' => 'lorem ipsum dol...'
- */
-function truncate(value, length) {
-  length = length || 15;
-  if (!value || typeof value !== 'string') return '';
-  if (value.length <= length) return value;
-  return value.substring(0, length) + '...';
-}
-
-/* harmony default export */ var string_truncate = (truncate);
-// CONCATENATED MODULE: ./src/string/index.js
-
-
-
-
-
-
-// CONCATENATED MODULE: ./src/array/limitBy.js
-
-/**
- * Limit filter for arrays
- *
- * @param {Number|Array} arr (If Number, decimal expected)
- * @param {Number} n
- * @param {Number} offset (Decimal expected)
- */
-
-function limitBy(arr, n, offset) {
-  arr = src_util.isArray(arr) ? arr : src_util.convertRangeToArray(arr);
-  offset = offset ? parseInt(offset, 10) : 0;
-  n = src_util.toNumber(n);
-  return typeof n === 'number' ? arr.slice(offset, offset + n) : arr;
-}
-
-/* harmony default export */ var array_limitBy = (limitBy);
-// CONCATENATED MODULE: ./src/array/filterBy.js
-
-/**
- * Filter filter for arrays
- *
- * @param {Array} arr
- * @param {String} prop
- * @param {String|Number} search
- */
-
-function filterBy(arr, search) {
-  var arr = src_util.convertArray(arr);
-
-  if (search == null) {
-    return arr;
-  }
-
-  if (typeof search === 'function') {
-    return arr.filter(search);
-  } // cast to lowercase string
-
-
-  search = ('' + search).toLowerCase();
-  var n = 2; // extract and flatten keys
-
-  var keys = Array.prototype.concat.apply([], src_util.toArray(arguments, n));
-  var res = [];
-  var item, key, val, j;
-
-  for (var i = 0, l = arr.length; i < l; i++) {
-    item = arr[i];
-    val = item && item.$value || item;
-    j = keys.length;
-
-    if (j) {
-      while (j--) {
-        key = keys[j];
-
-        if (key === '$key' && contains(item.$key, search) || contains(src_util.getPath(val, key), search)) {
-          res.push(item);
-          break;
-        }
-      }
-    } else if (contains(item, search)) {
-      res.push(item);
-    }
-  }
-
-  return res;
-}
-
-function contains(val, search) {
-  var i;
-
-  if (src_util.isPlainObject(val)) {
-    var keys = Object.keys(val);
-    i = keys.length;
-
-    while (i--) {
-      if (contains(val[keys[i]], search)) {
-        return true;
-      }
-    }
-  } else if (src_util.isArray(val)) {
-    i = val.length;
-
-    while (i--) {
-      if (contains(val[i], search)) {
-        return true;
-      }
-    }
-  } else if (val != null) {
-    return val.toString().toLowerCase().indexOf(search) > -1;
-  }
-}
-
-/* harmony default export */ var array_filterBy = (filterBy);
-// CONCATENATED MODULE: ./src/array/orderBy.js
-
-/**
- * Filter filter for arrays
- *
- * @param {String|Array<String>|Function} ...sortKeys
- * @param {Number} [order]
- */
-
-function orderBy(arr) {
-  var _comparator = null;
-  var sortKeys;
-  arr = src_util.convertArray(arr); // determine order (last argument)
-
-  var args = src_util.toArray(arguments, 1);
-  var order = args[args.length - 1];
-
-  if (typeof order === 'number') {
-    order = order < 0 ? -1 : 1;
-    args = args.length > 1 ? args.slice(0, -1) : args;
-  } else {
-    order = 1;
-  } // determine sortKeys & comparator
-
-
-  var firstArg = args[0];
-
-  if (!firstArg) {
-    return arr;
-  } else if (typeof firstArg === 'function') {
-    // custom comparator
-    _comparator = function comparator(a, b) {
-      return firstArg(a, b) * order;
-    };
-  } else {
-    // string keys. flatten first
-    sortKeys = Array.prototype.concat.apply([], args);
-
-    _comparator = function comparator(a, b, i) {
-      i = i || 0;
-      return i >= sortKeys.length - 1 ? baseCompare(a, b, i) : baseCompare(a, b, i) || _comparator(a, b, i + 1);
-    };
-  }
-
-  function baseCompare(a, b, sortKeyIndex) {
-    var sortKey = sortKeys[sortKeyIndex];
-
-    if (sortKey) {
-      if (sortKey !== '$key') {
-        if (src_util.isObject(a) && '$value' in a) a = a.$value;
-        if (src_util.isObject(b) && '$value' in b) b = b.$value;
-      }
-
-      a = src_util.isObject(a) ? src_util.getPath(a, sortKey) : a;
-      b = src_util.isObject(b) ? src_util.getPath(b, sortKey) : b;
-      a = typeof a === 'string' ? a.toLowerCase() : a;
-      b = typeof b === 'string' ? b.toLowerCase() : b;
-    }
-
-    return a === b ? 0 : a > b ? order : -order;
-  } // sort on a copy to avoid mutating original array
-
-
-  return arr.slice().sort(_comparator);
-}
-
-/* harmony default export */ var array_orderBy = (orderBy);
-// CONCATENATED MODULE: ./src/array/find.js
-
-/**
- * Get first matching element from a filtered array
- *
- * @param {Array} arr
- * @param {String|Number} search
- * @returns {mixed}
- */
-
-function find(arr, search) {
-  var array = array_filterBy.apply(this, arguments);
-  array.splice(1);
-  return array;
-}
-
-/* harmony default export */ var array_find = (find);
-// CONCATENATED MODULE: ./src/array/index.js
-
-
-
-
-
-// CONCATENATED MODULE: ./src/other/currency.js
-
-/**
- * 
- * 12345 => $12,345.00
- *
- * @param {String} symbol
- * @param {Number} decimals Decimal places
- * @param {Object} options
- */
-
-function currency(value, symbol, decimals, options) {
-  var globalOptions = this && this.currency ? this.currency : {};
-  symbol = src_util.exist(symbol) ? symbol : globalOptions.symbol;
-  decimals = src_util.exist(decimals) ? decimals : globalOptions.decimalDigits;
-  options = options || globalOptions;
-  var thousandsSeparator, symbolOnLeft, spaceBetweenAmountAndSymbol, showPlusSign;
-  var digitsRE = /(\d{3})(?=\d)/g;
-  value = parseFloat(value);
-  if (!isFinite(value) || !value && value !== 0) return '';
-  symbol = typeof symbol !== 'undefined' ? symbol : '$';
-  decimals = typeof decimals !== 'undefined' ? decimals : 2;
-  thousandsSeparator = options.thousandsSeparator != null ? options.thousandsSeparator : ',';
-  symbolOnLeft = options.symbolOnLeft != null ? options.symbolOnLeft : true;
-  spaceBetweenAmountAndSymbol = options.spaceBetweenAmountAndSymbol != null ? options.spaceBetweenAmountAndSymbol : false;
-  showPlusSign = options.showPlusSign != null ? options.showPlusSign : false;
-  var number = Math.abs(value);
-  var stringified = toFixed(number, decimals);
-  stringified = options.decimalSeparator ? stringified.replace('.', options.decimalSeparator) : stringified;
-
-  var _int = decimals ? stringified.slice(0, -1 - decimals) : stringified;
-
-  var i = _int.length % 3;
-  var head = i > 0 ? _int.slice(0, i) + (_int.length > 3 ? thousandsSeparator : '') : '';
-
-  var _float = decimals ? stringified.slice(-1 - decimals) : '';
-
-  symbol = spaceBetweenAmountAndSymbol ? symbolOnLeft ? symbol + ' ' : ' ' + symbol : symbol;
-  symbol = symbolOnLeft ? symbol + head + _int.slice(i).replace(digitsRE, '$1' + thousandsSeparator) + _float : head + _int.slice(i).replace(digitsRE, '$1' + thousandsSeparator) + _float + symbol;
-  var sign = value < 0 ? '-' : '';
-  var plusSign = value > 0 && showPlusSign ? '+' : '';
-  return plusSign + sign + symbol;
-}
-
-function toFixed(num, precision) {
-  return (+(Math.round(+(num + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
-}
-
-/* harmony default export */ var other_currency = (currency);
-// CONCATENATED MODULE: ./src/other/bytes.js
-
-/**
- * 1                => '8 byte'
- * 8                => '8 bytes'
- * 1024             => '1.00 kB'
- * 2000000          => '1.90 MB'
- * 2000000000       => '1.86 GB'
- * 2000000000000    => '1.82 TB'
- *
- * @param {Number} value
- * @param {Number} decimals Decimal places (default: 2)
- */
-
-function bytes(value, decimals) {
-  var globalOptions = this && this.bytes ? this.bytes : {};
-  decimals = src_util.exist(decimals) ? decimals : globalOptions.decimalDigits;
-  decimals = typeof decimals !== 'undefined' ? decimals : 2;
-  value = value === null || isNaN(value) ? 0 : value;
-
-  if (value >= Math.pow(1024, 4)) {
-    // TB
-    return "".concat((value / Math.pow(1024, 4)).toFixed(decimals), " TB");
-  } else if (value >= Math.pow(1024, 3)) {
-    // GB
-    return "".concat((value / Math.pow(1024, 3)).toFixed(decimals), " GB");
-  } else if (value >= Math.pow(1024, 2)) {
-    // MB
-    return "".concat((value / Math.pow(1024, 2)).toFixed(decimals), " MB");
-  } else if (value >= 1024) {
-    // kb
-    return "".concat((value / 1024).toFixed(decimals), " kB");
-  } // byte
-
-
-  return value === 1 ? "".concat(value, " byte") : "".concat(value, " bytes");
-}
-
-/* harmony default export */ var other_bytes = (bytes);
-// CONCATENATED MODULE: ./src/other/pluralize.js
-
-/**
- * 'item' => 'items'
- *
- * @param {String|Array} word
- * @param {Object} options
- *
- */
-
-function pluralize(value, word, options) {
-  var globalOptions = this && this.pluralize ? this.pluralize : {};
-  options = options || globalOptions;
-  var output = '';
-  var includeNumber = options.includeNumber != null ? options.includeNumber : false;
-  if (includeNumber === true) output += value + ' ';
-  if (!value && value !== 0 || !word) return output;
-
-  if (Array.isArray(word)) {
-    output += word[value - 1] || word[word.length - 1];
-  } else {
-    output += word + (value === 1 ? '' : 's');
-  }
-
-  return output;
-}
-
-/* harmony default export */ var other_pluralize = (pluralize);
-// CONCATENATED MODULE: ./src/other/ordinal.js
-
-/**
- * 42 => 'nd'
- *
- * @params {Object} options
- * 
- */
-
-function ordinal(value, options) {
-  var globalOptions = this && this.ordinal ? this.ordinal : {};
-  options = options || globalOptions;
-  var output = '';
-  var includeNumber = options.includeNumber != null ? options.includeNumber : false;
-  if (includeNumber === true) output += value;
-  var j = value % 10,
-      k = value % 100;
-  if (j == 1 && k != 11) output += 'st';else if (j == 2 && k != 12) output += 'nd';else if (j == 3 && k != 13) output += 'rd';else output += 'th';
-  return output;
-}
-
-/* harmony default export */ var other_ordinal = (ordinal);
-// CONCATENATED MODULE: ./src/other/number.js
-
-/**
- * 123456 => '123,456'
- *
- * @params {Object} options
- *
- */
-
-function number_number(value, format, options) {
-  var globalOptions = this && this.number ? this.number : {};
-  format = src_util.exist(format) ? format : globalOptions.format;
-  options = options || globalOptions;
-  var config = parseFormat(format);
-  var number = parseNumber(value);
-  var thousandsSeparator = options.thousandsSeparator != null ? options.thousandsSeparator : ',';
-  var decimalSeparator = options.decimalSeparator != null ? options.decimalSeparator : '.';
-  config.sign = config.sign || number.sign;
-
-  if (config.unit) {
-    var numberWithUnit = addUnit(number.float, config);
-    return config.sign + numberWithUnit;
-  }
-
-  var rounded = number_toFixed(number.float, config.decimals);
-  var output = addSeparators(rounded, config.base, thousandsSeparator, decimalSeparator);
-  return config.sign + output;
-}
-
-Math.sign = function (x) {
-  x = +x;
-
-  if (x === 0 || isNaN(x)) {
-    return x;
-  }
-
-  return x > 0 ? 1 : -1;
-};
-
-function parseNumber(num) {
-  return {
-    float: Math.abs(parseFloat(num)),
-    int: Math.abs(parseInt(num)),
-    sign: Math.sign(num) < 0 ? '-' : ''
-  };
-}
-
-function parseFormat() {
-  var string = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '0';
-  var regex = /([\+\-])?([0-9\,]+)?([\.0-9]+)?([a\s]+)?/;
-  var matches = string ? string.match(regex) : ['', '', '', '', ''];
-  var float = matches[3];
-  var decimals = float ? float.match(/0/g).length : 0;
-  return {
-    sign: matches[1] || '',
-    base: matches[2] || '',
-    decimals: decimals,
-    unit: matches[4] || ''
-  };
-}
-
-function addUnit(num, config) {
-  var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-  var si = [{
-    value: 1,
-    symbol: ''
-  }, {
-    value: 1e3,
-    symbol: 'K'
-  }, {
-    value: 1e6,
-    symbol: 'M'
-  }];
-  var i;
-
-  for (i = si.length - 1; i > 0; i--) {
-    if (num >= si[i].value) {
-      break;
-    }
-  }
-
-  num = (num / si[i].value).toFixed(config.decimals).replace(rx, '$1');
-  return num + config.unit.replace('a', si[i].symbol);
-}
-
-function addSeparators(num, base, thousandsSeparator, decimalSeparator) {
-  var regex = /(\d+)(\d{3})/;
-  var string = num.toString();
-  var x = string.split('.');
-  var x1 = x[0];
-  var x2 = x.length > 1 ? decimalSeparator + x[1] : '';
-
-  switch (base) {
-    case '':
-      x1 = '';
-      break;
-
-    case '0,0':
-      while (regex.test(x1)) {
-        x1 = x1.replace(regex, '$1' + thousandsSeparator + '$2');
-      }
-
-      break;
-  }
-
-  return x1 + x2;
-}
-
-function getFraction(num, decimals, separator) {
-  var fraction = number_toFixed(num, decimals).toString().split('.')[1];
-  return fraction ? separator + fraction : '';
-}
-
-function number_toFixed(num, precision) {
-  return (+(Math.round(+(num + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
-}
-
-/* harmony default export */ var other_number = (number_number);
-// CONCATENATED MODULE: ./src/other/percent.js
-
-/**
- * 1.2              => '120%'
- * -0.2             => '-20%'
- * 100              => '10000%'
- * 1                => '100%'
- * 0.97             => '97%'
- *
- * @param {Number} value
- * @param {Number} decimals Decimal places (default: 2)
- */
-
-function percent(value, decimals, multiplier) {
-  var globalOptions = this && this.percent ? this.percent : {};
-  multiplier = src_util.exist(multiplier) ? multiplier : globalOptions.multiplier;
-  multiplier = typeof multiplier !== 'undefined' ? multiplier : 100;
-  decimals = src_util.exist(decimals) ? decimals : globalOptions.decimalDigits;
-  decimals = typeof decimals !== 'undefined' ? decimals : 0;
-  value = value === null || isNaN(value) ? 0 : value;
-  return "".concat((value * multiplier).toFixed(decimals), "%");
-}
-
-/* harmony default export */ var other_percent = (percent);
-// CONCATENATED MODULE: ./src/other/index.js
-
-
-
-
-
-
-
-// CONCATENATED MODULE: ./src/index.js
-
-
-
-
-var Vue2Filters = {
-  install: function install(Vue, options) {
-    src_util.each(string_namespaceObject, function (value, key) {
-      Vue.filter(key, value.bind(options));
-    });
-    src_util.each(other_namespaceObject, function (value, key) {
-      Vue.filter(key, value.bind(options));
-    });
-  },
-  mixin: {
-    methods: {
-      limitBy: array_limitBy,
-      filterBy: array_filterBy,
-      orderBy: array_orderBy,
-      find: array_find
-    }
-  }
-};
-/* harmony default export */ var src = __webpack_exports__["default"] = (Vue2Filters);
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(Vue2Filters);
-  window.Vue2Filters = Vue2Filters;
-}
-
-/***/ })
-/******/ ]);
-});
-
-/***/ }),
-
-/***/ "./node_modules/vuescroll/dist/vuescroll.js":
-/*!**************************************************!*\
-  !*** ./node_modules/vuescroll/dist/vuescroll.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-    * Vuescroll v4.17.2
-    * (c) 2018-2020 Yi(Yves) Wang
-    * Released under the MIT License
-    * Github: https://github.com/YvesCoding/vuescroll
-    * Website: http://vuescrolljs.yvescoding.org/
-    */
-   
-(function (global, factory) {
-	 true ? module.exports = factory(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js")) :
-	undefined;
-}(this, (function (Vue) { 'use strict';
-
-Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-
-
-
-
-
-
-
-
-
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-
-
-
-
-var defineProperty = function (obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-};
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var toConsumableArray = function (arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-    return arr2;
-  } else {
-    return Array.from(arr);
-  }
-};
-
-function isIE() {
-  /* istanbul ignore if */
-  if (isServer()) return false;
-
-  var agent = navigator.userAgent.toLowerCase();
-  return agent.indexOf('msie') !== -1 || agent.indexOf('trident') !== -1 || agent.indexOf(' edge/') !== -1;
-}
-
-var isIos = function isIos() {
-  /* istanbul ignore if */
-  if (isServer()) return false;
-
-  var u = navigator.userAgent;
-  return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-};
-
-/* istanbul ignore next */
-var isServer = function isServer() {
-  return Vue.prototype.$isServer;
-};
-
-var touchManager = function () {
-  function touchManager() {
-    classCallCheck(this, touchManager);
-  }
-
-  createClass(touchManager, [{
-    key: 'getEventObject',
-    value: function getEventObject(originEvent) {
-      return this.touchObject ? this.isTouch ? originEvent.touches : [originEvent] : null;
-    }
-  }, {
-    key: 'getTouchObject',
-    value: function getTouchObject() /* istanbul ignore next */{
-      if (isServer()) return null;
-
-      this.isTouch = false;
-      var agent = navigator.userAgent,
-          platform = navigator.platform,
-          touchObject = {};
-      touchObject.touch = !!('ontouchstart' in window && !window.opera || 'msmaxtouchpoints' in window.navigator || 'maxtouchpoints' in window.navigator || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
-      touchObject.nonDeskTouch = touchObject.touch && !/win32/i.test(platform) || touchObject.touch && /win32/i.test(platform) && /mobile/i.test(agent);
-
-      touchObject.eventType = 'onmousedown' in window && !touchObject.nonDeskTouch ? 'mouse' : 'ontouchstart' in window ? 'touch' : 'msmaxtouchpoints' in window.navigator || navigator.msMaxTouchPoints > 0 ? 'mstouchpoints' : 'maxtouchpoints' in window.navigator || navigator.maxTouchPoints > 0 ? 'touchpoints' : 'mouse';
-      switch (touchObject.eventType) {
-        case 'mouse':
-          touchObject.touchstart = 'mousedown';
-          touchObject.touchend = 'mouseup';
-          touchObject.touchmove = 'mousemove';
-
-          touchObject.touchenter = 'mouseenter';
-          touchObject.touchmove = 'mousemove';
-          touchObject.touchleave = 'mouseleave';
-          break;
-        case 'touch':
-          touchObject.touchstart = 'touchstart';
-          touchObject.touchend = 'touchend';
-          touchObject.touchmove = 'touchmove';
-          touchObject.touchcancel = 'touchcancel';
-
-          touchObject.touchenter = 'touchstart';
-          touchObject.touchmove = 'touchmove';
-          touchObject.touchleave = 'touchend';
-          this.isTouch = true;
-          break;
-        case 'mstouchpoints':
-          touchObject.touchstart = 'MSPointerDown';
-          touchObject.touchend = 'MSPointerUp';
-          touchObject.touchmove = 'MSPointerMove';
-          touchObject.touchcancel = 'MSPointerCancel';
-
-          touchObject.touchenter = 'MSPointerDown';
-          touchObject.touchmove = 'MSPointerMove';
-          touchObject.touchleave = 'MSPointerUp';
-          break;
-        case 'touchpoints':
-          touchObject.touchstart = 'pointerdown';
-          touchObject.touchend = 'pointerup';
-          touchObject.touchmove = 'pointermove';
-          touchObject.touchcancel = 'pointercancel';
-
-          touchObject.touchenter = 'pointerdown';
-          touchObject.touchmove = 'pointermove';
-          touchObject.touchleave = 'pointerup';
-          break;
-      }
-
-      return this.touchObject = touchObject;
-    }
-  }]);
-  return touchManager;
-}();
-
-function deepCopy(from, to, shallow) {
-  if (shallow && isUndef(to)) {
-    return from;
-  }
-
-  if (isArray(from)) {
-    to = [];
-    from.forEach(function (item, index) {
-      to[index] = deepCopy(item, to[index]);
-    });
-  } else if (from) {
-    if (!isPlainObj(from)) {
-      return from;
-    }
-    to = {};
-    for (var key in from) {
-      to[key] = _typeof(from[key]) === 'object' ? deepCopy(from[key], to[key]) : from[key];
-    }
-  }
-  return to;
-}
-
-function mergeObject(from, to, force, shallow) {
-  if (shallow && isUndef(to)) {
-    return from;
-  }
-
-  to = to || {};
-
-  if (isArray(from)) {
-    if (!isArray(to) && force) {
-      to = [];
-    }
-    if (isArray(to)) {
-      from.forEach(function (item, index) {
-        to[index] = mergeObject(item, to[index], force, shallow);
-      });
-    }
-  } else if (from) {
-    if (!isPlainObj(from)) {
-      if (force) {
-        to = from;
-      }
-    } else {
-      for (var key in from) {
-        if (_typeof(from[key]) === 'object') {
-          if (isUndef(to[key])) {
-            to[key] = deepCopy(from[key], to[key], shallow);
-          } else {
-            mergeObject(from[key], to[key], force, shallow);
-          }
-        } else {
-          if (isUndef(to[key]) || force) to[key] = from[key];
-        }
-      }
-    }
-  }
-
-  return to;
-}
-
-function defineReactive(target, key, source, souceKey) {
-  /* istanbul ignore if */
-  if (!source[key] && typeof source !== 'function') {
-    return;
-  }
-  souceKey = souceKey || key;
-  Object.defineProperty(target, key, {
-    get: function get$$1() {
-      return source[souceKey];
-    },
-
-    configurable: true
-  });
-}
-
-var scrollBarWidth = void 0;
-function getGutter() {
-  /* istanbul ignore next */
-  if (isServer()) return 0;
-  if (scrollBarWidth !== undefined) return scrollBarWidth;
-  var outer = document.createElement('div');
-  outer.style.visibility = 'hidden';
-  outer.style.width = '100px';
-  outer.style.position = 'absolute';
-  outer.style.top = '-9999px';
-  document.body.appendChild(outer);
-
-  var widthNoScroll = outer.offsetWidth;
-  outer.style.overflow = 'scroll';
-
-  var inner = document.createElement('div');
-  inner.style.width = '100%';
-  outer.appendChild(inner);
-
-  var widthWithScroll = inner.offsetWidth;
-  outer.parentNode.removeChild(outer);
-  scrollBarWidth = widthNoScroll - widthWithScroll;
-
-  return scrollBarWidth;
-}
-
-function eventCenter(dom, eventName, hander) {
-  var capture = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  var type = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'on';
-
-  type == 'on' ? dom.addEventListener(eventName, hander, capture) : dom.removeEventListener(eventName, hander, capture);
-}
-
-var error = function error(msg) {
-  console.error('[vuescroll] ' + msg);
-};
-var warn = function warn(msg) {
-  console.warn('[vuescroll] ' + msg);
-};
-
-function isChildInParent(child, parent) {
-  var flag = false;
-  if (!child || !parent) {
-    return flag;
-  }
-  while (child.parentNode !== parent && child.parentNode.nodeType !== 9 && !child.parentNode._isVuescroll) {
-    child = child.parentNode;
-  }
-  if (child.parentNode == parent) {
-    flag = true;
-  }
-  return flag;
-}
-
-function getPrefix(global) {
-  var docStyle = document.documentElement.style;
-  var engine;
-  /* istanbul ignore if */
-  if (global.opera && Object.prototype.toString.call(opera) === '[object Opera]') {
-    engine = 'presto';
-  } /* istanbul ignore next */else if ('MozAppearance' in docStyle) {
-      engine = 'gecko';
-    } else if ('WebkitAppearance' in docStyle) {
-      engine = 'webkit';
-    } /* istanbul ignore next */else if (typeof navigator.cpuClass === 'string') {
-        engine = 'trident';
-      }
-  var vendorPrefix = {
-    trident: 'ms',
-    gecko: 'moz',
-    webkit: 'webkit',
-    presto: 'O'
-  }[engine];
-  return vendorPrefix;
-}
-
-function getComplitableStyle(property, value) {
-  /* istanbul ignore if */
-  if (isServer()) return false;
-
-  var compatibleValue = '-' + getPrefix(window) + '-' + value;
-  var testElm = document.createElement('div');
-  testElm.style[property] = compatibleValue;
-  if (testElm.style[property] == compatibleValue) {
-    return compatibleValue;
-  }
-  /* istanbul ignore next */
-  return false;
-}
-
-/**
- * Insert children into user-passed slot at vnode level
- */
-function insertChildrenIntoSlot(h) {
-  var parentVnode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  var childVNode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-  var data = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-  var swapChildren = arguments[4];
-
-  /* istanbul ignore if */
-  if (parentVnode && parentVnode.length > 1) {
-    return swapChildren ? [].concat(toConsumableArray(childVNode), toConsumableArray(parentVnode)) : [].concat(toConsumableArray(parentVnode), toConsumableArray(childVNode));
-  }
-
-  parentVnode = parentVnode[0];
-
-  var _getVnodeInfo = getVnodeInfo(parentVnode),
-      ch = _getVnodeInfo.ch,
-      tag = _getVnodeInfo.tag,
-      isComponent = _getVnodeInfo.isComponent;
-
-  if (isComponent) {
-    parentVnode.data = mergeObject({ attrs: parentVnode.componentOptions.propsData }, parentVnode.data, false, // force: false
-    true // shallow: true
-    );
-  }
-  ch = swapChildren ? [].concat(toConsumableArray(childVNode), toConsumableArray(ch)) : [].concat(toConsumableArray(ch), toConsumableArray(childVNode));
-  delete parentVnode.data.slot;
-
-  return h(tag, mergeObject(data, parentVnode.data, false, true), ch);
-}
-
-/**
- *  Get the info of a vnode,
- * vnode must be parentVnode
- */
-function getVnodeInfo(vnode) {
-  if (!vnode || vnode.length > 1) return {};
-
-  vnode = vnode[0] ? vnode[0] : vnode;
-  var isComponent = !!vnode.componentOptions;
-  var ch = void 0;
-  var tag = void 0;
-
-  if (isComponent) {
-    ch = vnode.componentOptions.children || [];
-    tag = vnode.componentOptions.tag;
-  } else {
-    ch = vnode.children || [];
-    tag = vnode.tag;
-  }
-
-  return {
-    isComponent: isComponent,
-    ch: ch,
-    tag: tag
-  };
-}
-
-/**
- * Get the vuescroll instance instead of
- * user pass component like slot.
- */
-function getRealParent(ctx) {
-  var parent = ctx.$parent;
-  if (!parent._isVuescrollRoot && parent) {
-    parent = parent.$parent;
-  }
-  return parent;
-}
-
-var isArray = function isArray(_) {
-  return Array.isArray(_);
-};
-var isPlainObj = function isPlainObj(_) {
-  return Object.prototype.toString.call(_) == '[object Object]';
-};
-var isUndef = function isUndef(_) {
-  return typeof _ === 'undefined';
-};
-
-function getNumericValue(distance, size) {
-  var number = void 0;
-  if (!(number = /(-?\d+(?:\.\d+?)?)%$/.exec(distance))) {
-    number = distance - 0;
-  } else {
-    number = number[1] - 0;
-    number = size * number / 100;
-  }
-  return number;
-}
-
-function createStyle(styleId, cssText) {
-  /* istanbul ignore if */
-  if (isServer() || document.getElementById(styleId)) {
-    return;
-  }
-
-  var head = document.head || doc.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-
-  style.id = styleId;
-  style.type = 'text/css';
-
-  /* istanbul ignore if */
-  if (style.styleSheet) {
-    style.styleSheet.cssText = cssText;
-  } else {
-    style.appendChild(document.createTextNode(cssText));
-  }
-
-  head.appendChild(style);
-}
-
-// Hide the ios native scrollbar.
-function createHideBarStyle() {
-  /* istanbul ignore next */
-  {
-    var cssText = '.__hidebar::-webkit-scrollbar {\n      width: 0;\n      height: 0;\n    }';
-
-    createStyle('vuescroll-hide-ios-bar', cssText);
-  }
-}
-
-// create slide mode style
-function createSlideModeStyle() {
-  var cssText = '\n    @-webkit-keyframes loading-rotate {\n      to {\n        -webkit-transform: rotate(1turn);\n        transform: rotate(1turn);\n      }\n    }\n\n    @keyframes loading-rotate {\n      to {\n        -webkit-transform: rotate(1turn);\n        transform: rotate(1turn);\n      }\n    }\n\n    @-webkit-keyframes loading-wipe {\n      0% {\n        stroke-dasharray: 1, 200;\n        stroke-dashoffset: 0;\n      }\n      50% {\n        stroke-dasharray: 90, 150;\n        stroke-dashoffset: -40px;\n      }\n      to {\n        stroke-dasharray: 90, 150;\n        stroke-dashoffset: -120px;\n      }\n    }\n\n    @keyframes loading-wipe {\n      0% {\n        stroke-dasharray: 1, 200;\n        stroke-dashoffset: 0;\n      }\n      50% {\n        stroke-dasharray: 90, 150;\n        stroke-dashoffset: -40px;\n      }\n      to {\n        stroke-dasharray: 90, 150;\n        stroke-dashoffset: -120px;\n      }\n    }\n\n    .__vuescroll .__refresh,\n    .__vuescroll .__load {\n      position: absolute;\n      width: 100%;\n      color: black;\n      height: 50px;\n      line-height: 50px;\n      text-align: center;\n      font-size: 16px;\n    }\n    .__vuescroll .__refresh svg,\n    .__vuescroll .__load svg {\n      margin-right: 10px;\n      width: 25px;\n      height: 25px;\n      vertical-align: sub;\n    }\n    .__vuescroll .__refresh svg.active,\n    .__vuescroll .__load svg.active {\n      transition: all 0.2s;\n    }\n    .__vuescroll .__refresh svg.active.deactive,\n    .__vuescroll .__load svg.active.deactive {\n      transform: rotateZ(180deg);\n    }\n    .__vuescroll .__refresh svg path,\n    .__vuescroll .__refresh svg rect,\n    .__vuescroll .__load svg path,\n    .__vuescroll .__load svg rect {\n      fill: #20a0ff;\n    }\n    .__vuescroll .__refresh svg.start,\n    .__vuescroll .__load svg.start {\n      stroke: #343640;\n      stroke-width: 4;\n      stroke-linecap: round;\n      -webkit-animation: loading-rotate 2s linear infinite;\n      animation: loading-rotate 2s linear infinite;\n    }\n    .__vuescroll .__refresh svg.start .bg-path,\n    .__vuescroll .__load svg.start .bg-path {\n      stroke: #f2f2f2;\n      fill: none;\n    }\n    .__vuescroll .__refresh svg.start .active-path,\n    .__vuescroll .__load svg.start .active-path {\n      stroke: #20a0ff;\n      fill: none;\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: 0;\n      -webkit-animation: loading-wipe 1.5s ease-in-out infinite;\n      animation: loading-wipe 1.5s ease-in-out infinite;\n    }\n  ';
-
-  createStyle('vuescroll-silde-mode-style', cssText);
-}
-
-var api = {
-  mounted: function mounted() {
-    vsInstances[this._uid] = this;
-  },
-  beforeDestroy: function beforeDestroy() {
-    delete vsInstances[this._uid];
-  },
-
-  methods: {
-    // public api
-    scrollTo: function scrollTo(_ref, speed, easing) {
-      var x = _ref.x,
-          y = _ref.y;
-
-      // istanbul ignore if
-      if (speed === true || typeof speed == 'undefined') {
-        speed = this.mergedOptions.scrollPanel.speed;
-      }
-      this.internalScrollTo(x, y, speed, easing);
-    },
-    scrollBy: function scrollBy(_ref2, speed, easing) {
-      var _ref2$dx = _ref2.dx,
-          dx = _ref2$dx === undefined ? 0 : _ref2$dx,
-          _ref2$dy = _ref2.dy,
-          dy = _ref2$dy === undefined ? 0 : _ref2$dy;
-
-      var _getPosition = this.getPosition(),
-          _getPosition$scrollLe = _getPosition.scrollLeft,
-          scrollLeft = _getPosition$scrollLe === undefined ? 0 : _getPosition$scrollLe,
-          _getPosition$scrollTo = _getPosition.scrollTop,
-          scrollTop = _getPosition$scrollTo === undefined ? 0 : _getPosition$scrollTo;
-
-      if (dx) {
-        scrollLeft += getNumericValue(dx, this.scrollPanelElm.scrollWidth - this.$el.clientWidth);
-      }
-      if (dy) {
-        scrollTop += getNumericValue(dy, this.scrollPanelElm.scrollHeight - this.$el.clientHeight);
-      }
-      this.internalScrollTo(scrollLeft, scrollTop, speed, easing);
-    },
-    scrollIntoView: function scrollIntoView(elm) {
-      var animate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-      var parentElm = this.$el;
-
-      if (typeof elm === 'string') {
-        elm = parentElm.querySelector(elm);
-      }
-
-      if (!isChildInParent(elm, parentElm)) {
-        warn('The element or selector you passed is not the element of Vuescroll, please pass the element that is in Vuescroll to scrollIntoView API. ');
-        return;
-      }
-
-      // parent elm left, top
-
-      var _$el$getBoundingClien = this.$el.getBoundingClientRect(),
-          left = _$el$getBoundingClien.left,
-          top = _$el$getBoundingClien.top;
-      // child elm left, top
-
-
-      var _elm$getBoundingClien = elm.getBoundingClientRect(),
-          childLeft = _elm$getBoundingClien.left,
-          childTop = _elm$getBoundingClien.top;
-
-      var diffX = left - childLeft;
-      var diffY = top - childTop;
-
-      this.scrollBy({
-        dx: -diffX,
-        dy: -diffY
-      }, animate);
-    },
-    refresh: function refresh() {
-      this.refreshInternalStatus();
-      // refresh again to keep status is correct
-      this.$nextTick(this.refreshInternalStatus);
-    }
-  }
-};
-
-/** Public Api */
-
-/**
- * Refresh all
- */
-var vsInstances = {};
-function refreshAll() {
-  for (var vs in vsInstances) {
-    vsInstances[vs].refresh();
-  }
-}
-
-var baseConfig = {
-  // vuescroll
-  vuescroll: {
-    // vuescroll's size(height/width) should be a percent(100%)
-    // or be a number that is equal to its parentNode's width or
-    // height ?
-    sizeStrategy: 'percent',
-    /** Whether to detect dom resize or not */
-    detectResize: true,
-    /** Enable locking to the main axis if user moves only slightly on one of them at start */
-    locking: true
-  },
-  scrollPanel: {
-    // when component mounted.. it will automatically scrolls.
-    initialScrollY: false,
-    initialScrollX: false,
-    // feat: #11
-    scrollingX: true,
-    scrollingY: true,
-    speed: 300,
-    easing: undefined,
-    // Sometimes, the nativebar maybe on the left,
-    // See https://github.com/YvesCoding/vuescroll/issues/64
-    verticalNativeBarPos: 'right',
-    maxHeight: undefined,
-    maxWidth: undefined
-  },
-
-  //
-  rail: {
-    background: '#01a99a',
-    opacity: 0,
-    border: 'none',
-    /** Rail's size(Height/Width) , default -> 6px */
-    size: '6px',
-    /** Specify rail's border-radius, or the border-radius of rail and bar will be equal to the rail's size. default -> false **/
-    specifyBorderRadius: false,
-    /** Rail the distance from the two ends of the X axis and Y axis. **/
-    gutterOfEnds: null,
-    /** Rail the distance from the side of container. **/
-    gutterOfSide: '2px',
-    /** Whether to keep rail show or not, default -> false, event content height is not enough */
-    keepShow: false
-  },
-  bar: {
-    /** How long to hide bar after mouseleave, default -> 500 */
-    showDelay: 500,
-    /** Specify bar's border-radius, or the border-radius of rail and bar will be equal to the rail's size. default -> false **/
-    specifyBorderRadius: false,
-    /** Whether to show bar on scrolling, default -> true */
-    onlyShowBarOnScroll: true,
-    /** Whether to keep show or not, default -> false */
-    keepShow: false,
-    /** Bar's background , default -> #00a650 */
-    background: 'rgb(3, 185, 118)',
-    /** Bar's opacity, default -> 1  */
-    opacity: 1,
-    /** bar's size(Height/Width) , default -> 6px */
-
-    size: '6px',
-    minSize: 0,
-    disable: false
-  },
-  scrollButton: {
-    enable: false,
-    background: 'rgb(3, 185, 118)',
-    opacity: 1,
-    step: 180,
-    mousedownStep: 30
-  }
-};
-/**
- * validate the options
- * @export
- * @param {any} ops
- */
-function validateOps(ops) {
-  var renderError = false;
-  var scrollPanel = ops.scrollPanel;
-  var _ops$bar = ops.bar,
-      vBar = _ops$bar.vBar,
-      hBar = _ops$bar.hBar;
-  var _ops$rail = ops.rail,
-      vRail = _ops$rail.vRail,
-      hRail = _ops$rail.hRail;
-
-  // validate scrollPanel
-
-  var initialScrollY = scrollPanel['initialScrollY'];
-  var initialScrollX = scrollPanel['initialScrollX'];
-
-  if (initialScrollY && !String(initialScrollY).match(/^\d+(\.\d+)?(%)?$/)) {
-    warn('The prop `initialScrollY` or `initialScrollX` should be a percent number like `10%` or an exact number that greater than or equal to 0 like `100`.');
-  }
-  if (initialScrollX && !String(initialScrollX).match(/^\d+(\.\d+)?(%)?$/)) {
-    warn('The prop `initialScrollY` or `initialScrollX` should be a percent number like `10%` or an exact number that greater than or equal to 0 like `100`.');
-  }
-
-  // validate deprecated vBar/hBar vRail/hRail
-  if (vBar || hBar || vRail || hRail) {
-    warn('The options: vRail, hRail, vBar, hBar have been deprecated since v4.7.0,' + 'please use corresponing rail/bar instead!');
-  }
-
-  if (_extraValidate) {
-    _extraValidate = [].concat(_extraValidate);
-    _extraValidate.forEach(function (hasError) {
-      if (hasError(ops)) {
-        renderError = true;
-      }
-    });
-  }
-  return renderError;
-}
-
-var _extraValidate = null;
-var extendOpts = function extendOpts(extraOpts, extraValidate) {
-  extraOpts = [].concat(extraOpts);
-  extraOpts.forEach(function (opts) {
-    mergeObject(opts, baseConfig);
-  });
-
-  _extraValidate = extraValidate;
-};
-
-// all modes
-var modes = ['slide', 'native'];
-// do nothing
-var NOOP = function NOOP() {};
-// some small changes.
-var smallChangeArray = ['mergedOptions.vuescroll.pullRefresh.tips', 'mergedOptions.vuescroll.pushLoad.tips', 'mergedOptions.vuescroll.scroller.disable', 'mergedOptions.rail', 'mergedOptions.bar'];
-// refresh/load dom ref/key...
-var __REFRESH_DOM_NAME = 'refreshDom';
-var __LOAD_DOM_NAME = 'loadDom';
-
-var scrollMap = {
-  vertical: {
-    size: 'height',
-    opsSize: 'width',
-    posName: 'top',
-    opposName: 'bottom',
-    sidePosName: 'right',
-    page: 'pageY',
-    scroll: 'scrollTop',
-    scrollSize: 'scrollHeight',
-    offset: 'offsetHeight',
-    client: 'clientY',
-    axis: 'Y',
-    scrollButton: {
-      start: 'top',
-      end: 'bottom'
-    }
-  },
-  horizontal: {
-    size: 'width',
-    opsSize: 'height',
-    posName: 'left',
-    opposName: 'right',
-    sidePosName: 'bottom',
-    page: 'pageX',
-    scroll: 'scrollLeft',
-    scrollSize: 'scrollWidth',
-    offset: 'offsetWidth',
-    client: 'clientX',
-    axis: 'X',
-    scrollButton: {
-      start: 'left',
-      end: 'right'
-    }
-  }
-};
-
-function requestAnimationFrame(global) {
-  // Check for request animation Frame support
-  var requestFrame = global.requestAnimationFrame || global.webkitRequestAnimationFrame || global.mozRequestAnimationFrame || global.oRequestAnimationFrame;
-  var isNative = !!requestFrame;
-
-  if (requestFrame && !/requestAnimationFrame\(\)\s*\{\s*\[native code\]\s*\}/i.test(requestFrame.toString())) {
-    isNative = false;
-  }
-
-  if (isNative) {
-    return function (callback, root) {
-      requestFrame(callback, root);
-    };
-  }
-
-  var TARGET_FPS = 60;
-  var requests = {};
-  var rafHandle = 1;
-  var intervalHandle = null;
-  var lastActive = +new Date();
-
-  return function (callback) {
-    var callbackHandle = rafHandle++;
-
-    // Store callback
-    requests[callbackHandle] = callback;
-
-    // Create timeout at first request
-    if (intervalHandle === null) {
-      intervalHandle = setInterval(function () {
-        var time = +new Date();
-        var currentRequests = requests;
-
-        // Reset data structure before executing callbacks
-        requests = {};
-
-        for (var key in currentRequests) {
-          if (currentRequests.hasOwnProperty(key)) {
-            currentRequests[key](time);
-            lastActive = time;
-          }
-        }
-
-        // Disable the timeout when nothing happens for a certain
-        // period of time
-        if (time - lastActive > 2500) {
-          clearInterval(intervalHandle);
-          intervalHandle = null;
-        }
-      }, 1000 / TARGET_FPS);
-    }
-
-    return callbackHandle;
-  };
-}
-
-var colorCache = {};
-var rgbReg = /rgb\(/;
-var extractRgbColor = /rgb\((.*)\)/;
-
-// Transform a common color int oa `rgbA` color
-function getRgbAColor(color, opacity) {
-  var id = color + '&' + opacity;
-  if (colorCache[id]) {
-    return colorCache[id];
-  }
-
-  var div = document.createElement('div');
-  div.style.background = color;
-  document.body.appendChild(div);
-  var computedColor = window.getComputedStyle(div).backgroundColor;
-  document.body.removeChild(div);
-
-  /* istanbul ignore if */
-  if (!rgbReg.test(computedColor)) {
-    return color;
-  }
-
-  return colorCache[id] = 'rgba(' + extractRgbColor.exec(computedColor)[1] + ', ' + opacity + ')';
-}
-
-var bar = {
-  name: 'bar',
-  props: {
-    ops: Object,
-    state: Object,
-    hideBar: Boolean,
-    otherBarHide: Boolean,
-    type: String
-  },
-  computed: {
-    bar: function bar() {
-      return scrollMap[this.type];
-    },
-    barSize: function barSize() {
-      return Math.max(this.state.size, this.ops.bar.minSize);
-    },
-    barRatio: function barRatio() {
-      return (1 - this.barSize) / (1 - this.state.size);
-    }
-  },
-  render: function render(h) {
-    var _style, _style2, _barStyle;
-
-    var vm = this;
-    /** Get rgbA format background color */
-    var railBackgroundColor = getRgbAColor(vm.ops.rail.background, vm.ops.rail.opacity);
-
-    if (!this.touchManager) {
-      this.touchManager = new touchManager();
-    }
-
-    /** Rail Data */
-    var railSize = vm.ops.rail.size;
-    var endPos = vm.otherBarHide ? 0 : railSize;
-    var touchObj = vm.touchManager.getTouchObject();
-    var rail = {
-      class: '__rail-is-' + vm.type,
-      style: (_style = {
-        position: 'absolute',
-        'z-index': '1',
-
-        borderRadius: vm.ops.rail.specifyBorderRadius || railSize,
-        background: railBackgroundColor,
-        border: vm.ops.rail.border
-      }, defineProperty(_style, vm.bar.opsSize, railSize), defineProperty(_style, vm.bar.posName, vm.ops.rail['gutterOfEnds'] || 0), defineProperty(_style, vm.bar.opposName, vm.ops.rail['gutterOfEnds'] || endPos), defineProperty(_style, vm.bar.sidePosName, vm.ops.rail['gutterOfSide']), _style)
-    };
-
-    if (touchObj) {
-      var _rail$on;
-
-      rail.on = (_rail$on = {}, defineProperty(_rail$on, touchObj.touchenter, function () {
-        vm.setRailHover();
-      }), defineProperty(_rail$on, touchObj.touchleave, function () {
-        vm.setRailLeave();
-      }), _rail$on);
-    }
-
-    // left space for scroll button
-    var buttonSize = vm.ops.scrollButton.enable ? railSize : 0;
-    var barWrapper = {
-      class: '__bar-wrap-is-' + vm.type,
-      style: (_style2 = {
-        position: 'absolute',
-        borderRadius: vm.ops.rail.specifyBorderRadius || railSize
-      }, defineProperty(_style2, vm.bar.posName, buttonSize), defineProperty(_style2, vm.bar.opposName, buttonSize), _style2),
-      on: {}
-    };
-
-    var scrollDistance = vm.state.posValue * vm.state.size;
-    var pos = scrollDistance * vm.barRatio / vm.barSize;
-    var opacity = vm.state.opacity;
-    var parent = getRealParent(this);
-
-    // set class hook
-    parent.setClassHook(this.type == 'vertical' ? 'vBarVisible' : 'hBarVisible', !!opacity);
-
-    /** Scrollbar style */
-    var barStyle = (_barStyle = {
-      cursor: 'pointer',
-      position: 'absolute',
-      margin: 'auto',
-      transition: 'opacity 0.5s',
-      'user-select': 'none',
-      'border-radius': 'inherit'
-
-    }, defineProperty(_barStyle, vm.bar.size, vm.barSize * 100 + '%'), defineProperty(_barStyle, 'background', vm.ops.bar.background), defineProperty(_barStyle, vm.bar.opsSize, vm.ops.bar.size), defineProperty(_barStyle, 'opacity', opacity), defineProperty(_barStyle, 'transform', 'translate' + scrollMap[vm.type].axis + '(' + pos + '%)'), _barStyle);
-    var bar = {
-      style: barStyle,
-      class: '__bar-is-' + vm.type,
-      ref: 'thumb',
-      on: {}
-    };
-
-    if (vm.type == 'vertical') {
-      barWrapper.style.width = '100%';
-      // Let bar to be on the center.
-      bar.style.left = 0;
-      bar.style.right = 0;
-    } else {
-      barWrapper.style.height = '100%';
-      bar.style.top = 0;
-      bar.style.bottom = 0;
-    }
-
-    /* istanbul ignore next */
-    {
-      var _touchObj = this.touchManager.getTouchObject();
-      bar.on[_touchObj.touchstart] = this.createBarEvent();
-      barWrapper.on[_touchObj.touchstart] = this.createTrackEvent();
-    }
-
-    return h(
-      'div',
-      rail,
-      [this.createScrollbarButton(h, 'start'), this.hideBar ? null : h(
-        'div',
-        barWrapper,
-        [h('div', bar)]
-      ), this.createScrollbarButton(h, 'end')]
-    );
-  },
-  data: function data() {
-    return {
-      isBarDragging: false
-    };
-  },
-
-  methods: {
-    setRailHover: function setRailHover() {
-      var parent = getRealParent(this);
-      var state = parent.vuescroll.state;
-
-      if (!state.isRailHover) {
-        state.isRailHover = true;
-        parent.showBar();
-      }
-    },
-    setRailLeave: function setRailLeave() {
-      var parent = getRealParent(this);
-      var state = parent.vuescroll.state;
-
-      state.isRailHover = false;
-      parent.hideBar();
-    },
-    setBarDrag: function setBarDrag(val) /* istanbul ignore next */{
-      this.$emit('setBarDrag', this.isBarDragging = val);
-
-      var parent = getRealParent(this);
-      // set class hook
-      parent.setClassHook(this.type == 'vertical' ? 'vBarDragging' : 'hBarDragging', !!val);
-    },
-    createBarEvent: function createBarEvent() {
-      var ctx = this;
-
-      var parent = getRealParent(ctx);
-      var touchObj = ctx.touchManager.getTouchObject();
-
-      function mousedown(e) /* istanbul ignore next */{
-        var event = ctx.touchManager.getEventObject(e);
-        if (!event) return;
-
-        e.stopImmediatePropagation();
-        e.preventDefault();
-        event = event[0];
-
-        document.onselectstart = function () {
-          return false;
-        };
-        ctx.axisStartPos = event[ctx.bar.client] - ctx.$refs['thumb'].getBoundingClientRect()[ctx.bar.posName];
-
-        // Tell parent that the mouse has been down.
-        ctx.setBarDrag(true);
-        eventCenter(document, touchObj.touchmove, mousemove);
-        eventCenter(document, touchObj.touchend, mouseup);
-      }
-
-      function mousemove(e) /* istanbul ignore next */{
-        if (!ctx.axisStartPos) {
-          return;
-        }
-
-        var event = ctx.touchManager.getEventObject(e);
-        if (!event) return;
-
-        event = event[0];
-
-        var thubmParent = ctx.$refs.thumb.parentNode;
-
-        var delta = event[ctx.bar.client] - thubmParent.getBoundingClientRect()[ctx.bar.posName];
-        delta = delta / ctx.barRatio;
-
-        var percent = (delta - ctx.axisStartPos) / thubmParent[ctx.bar.offset];
-        parent.scrollTo(defineProperty({}, ctx.bar.axis.toLowerCase(), parent.scrollPanelElm[ctx.bar.scrollSize] * percent), false);
-      }
-
-      function mouseup() /* istanbul ignore next */{
-        ctx.setBarDrag(false);
-        parent.hideBar();
-
-        document.onselectstart = null;
-        ctx.axisStartPos = 0;
-
-        eventCenter(document, touchObj.touchmove, mousemove, false, 'off');
-        eventCenter(document, touchObj.touchend, mouseup, false, 'off');
-      }
-
-      return mousedown;
-    },
-    createTrackEvent: function createTrackEvent() {
-      var ctx = this;
-
-      return function handleClickTrack(e) {
-        var parent = getRealParent(ctx);
-
-        var _ctx$bar = ctx.bar,
-            client = _ctx$bar.client,
-            offset = _ctx$bar.offset,
-            posName = _ctx$bar.posName,
-            axis = _ctx$bar.axis;
-
-        var thumb = ctx.$refs['thumb'];
-
-        e.preventDefault();
-        e.stopImmediatePropagation();
-
-        /* istanbul ignore if */
-        if (!thumb) return;
-
-        var barOffset = thumb[offset];
-        var event = ctx.touchManager.getEventObject(e)[0];
-
-        var percent = (event[client] - e.currentTarget.getBoundingClientRect()[posName] - barOffset / 2) / (e.currentTarget[offset] - barOffset);
-
-        parent.scrollTo(defineProperty({}, axis.toLowerCase(), percent * 100 + '%'));
-      };
-    },
-
-
-    // Scrollbuton relative things...
-    createScrollbarButton: function createScrollbarButton(h, type /* start or end  */) {
-      var _style3;
-
-      var barContext = this;
-
-      if (!barContext.ops.scrollButton.enable) {
-        return null;
-      }
-
-      var size = barContext.ops.rail.size;
-      var _barContext$ops$scrol = barContext.ops.scrollButton,
-          opacity = _barContext$ops$scrol.opacity,
-          background = _barContext$ops$scrol.background;
-
-      var borderColor = getRgbAColor(background, opacity);
-
-      var wrapperProps = {
-        class: ['__bar-button', '__bar-button-is-' + barContext.type + '-' + type],
-        style: (_style3 = {}, defineProperty(_style3, barContext.bar.scrollButton[type], 0), defineProperty(_style3, 'width', size), defineProperty(_style3, 'height', size), defineProperty(_style3, 'position', 'absolute'), defineProperty(_style3, 'cursor', 'pointer'), defineProperty(_style3, 'display', 'table'), _style3),
-        ref: type
-      };
-
-      var innerProps = {
-        class: '__bar-button-inner',
-        style: {
-          border: 'calc(' + size + ' / 2.5) solid transparent',
-          width: '0',
-          height: '0',
-          margin: 'auto',
-          position: 'absolute',
-          top: '0',
-          bottom: '0',
-          right: '0',
-          left: '0'
-        },
-        on: {}
-      };
-
-      if (barContext.type == 'vertical') {
-        if (type == 'start') {
-          innerProps.style['border-bottom-color'] = borderColor;
-          innerProps.style['transform'] = 'translateY(-25%)';
-        } else {
-          innerProps.style['border-top-color'] = borderColor;
-          innerProps.style['transform'] = 'translateY(25%)';
-        }
-      } else {
-        if (type == 'start') {
-          innerProps.style['border-right-color'] = borderColor;
-          innerProps.style['transform'] = 'translateX(-25%)';
-        } else {
-          innerProps.style['border-left-color'] = borderColor;
-          innerProps.style['transform'] = 'translateX(25%)';
-        }
-      }
-
-      /* istanbul ignore next */
-      {
-        var touchObj = this.touchManager.getTouchObject();
-        innerProps.on[touchObj.touchstart] = this.createScrollButtonEvent(type, touchObj);
-      }
-
-      return h(
-        'div',
-        wrapperProps,
-        [h('div', innerProps)]
-      );
-    },
-    createScrollButtonEvent: function createScrollButtonEvent(type, touchObj) {
-      var ctx = this;
-      var parent = getRealParent(ctx);
-
-      var _ctx$ops$scrollButton = ctx.ops.scrollButton,
-          step = _ctx$ops$scrollButton.step,
-          mousedownStep = _ctx$ops$scrollButton.mousedownStep;
-
-
-      var stepWithDirection = type == 'start' ? -step : step;
-      var mousedownStepWithDirection = type == 'start' ? -mousedownStep : mousedownStep;
-      var ref = requestAnimationFrame(window);
-
-      // bar props: type
-      var barType = ctx.type;
-
-      var isMouseDown = false;
-      var isMouseout = true;
-      var timeoutId = void 0;
-
-      function start(e) {
-        /* istanbul ignore if */
-
-        if (3 == e.which) {
-          return;
-        }
-
-        // set class hook
-        parent.setClassHook('cliking' + barType + type + 'Button', true);
-
-        e.stopImmediatePropagation();
-        e.preventDefault();
-
-        isMouseout = false;
-
-        parent.scrollBy(defineProperty({}, 'd' + ctx.bar.axis.toLowerCase(), stepWithDirection));
-
-        eventCenter(document, touchObj.touchend, endPress, false);
-
-        if (touchObj.touchstart == 'mousedown') {
-          var elm = ctx.$refs[type];
-          eventCenter(elm, 'mouseenter', enter, false);
-          eventCenter(elm, 'mouseleave', leave, false);
-        }
-
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(function () /* istanbul ignore next */{
-          isMouseDown = true;
-          ref(pressing, window);
-        }, 500);
-      }
-
-      function pressing() /* istanbul ignore next */{
-        if (isMouseDown && !isMouseout) {
-          parent.scrollBy(defineProperty({}, 'd' + ctx.bar.axis.toLowerCase(), mousedownStepWithDirection), false);
-          ref(pressing, window);
-        }
-      }
-
-      function endPress() {
-        clearTimeout(timeoutId);
-        isMouseDown = false;
-        eventCenter(document, touchObj.touchend, endPress, false, 'off');
-
-        if (touchObj.touchstart == 'mousedown') {
-          var elm = ctx.$refs[type];
-          eventCenter(elm, 'mouseenter', enter, false, 'off');
-          eventCenter(elm, 'mouseleave', leave, false, 'off');
-        }
-
-        parent.setClassHook('cliking' + barType + type + 'Button', false);
-      }
-
-      function enter() /* istanbul ignore next */{
-        isMouseout = false;
-        pressing();
-      }
-
-      function leave() /* istanbul ignore next */{
-        isMouseout = true;
-      }
-
-      return start;
-    }
-  }
-};
-
-function getBarData(vm, type) {
-  var axis = scrollMap[type].axis;
-  /** type.charAt(0) = vBar/hBar */
-  var barType = type.charAt(0) + 'Bar';
-
-  var hideBar = !vm.bar[barType].state.size || !vm.mergedOptions.scrollPanel['scrolling' + axis] || vm.refreshLoad && type !== 'vertical' || vm.mergedOptions.bar.disable;
-
-  var keepShowRail = vm.mergedOptions.rail.keepShow;
-
-  if (hideBar && !keepShowRail) {
-    return null;
-  }
-
-  return {
-    hideBar: hideBar,
-    props: {
-      type: type,
-      ops: {
-        bar: vm.mergedOptions.bar,
-        rail: vm.mergedOptions.rail,
-        scrollButton: vm.mergedOptions.scrollButton
-      },
-      state: vm.bar[barType].state,
-      hideBar: hideBar
-    },
-    on: {
-      setBarDrag: vm.setBarDrag
-    },
-    ref: type + 'Bar',
-    key: type
-  };
-}
-
-/**
- * create bars
- *
- * @param {any} size
- * @param {any} type
- */
-function createBar(h, vm) {
-  var verticalBarProps = getBarData(vm, 'vertical');
-  var horizontalBarProps = getBarData(vm, 'horizontal');
-
-  // set class hooks
-  vm.setClassHook('hasVBar', !!(verticalBarProps && !verticalBarProps.hideBar));
-  vm.setClassHook('hasHBar', !!(horizontalBarProps && !horizontalBarProps.hideBar));
-
-  return [verticalBarProps ? h('bar', _extends({}, verticalBarProps, {
-    props: _extends({ otherBarHide: !horizontalBarProps }, verticalBarProps.props)
-  })) : null, horizontalBarProps ? h('bar', _extends({}, horizontalBarProps, {
-    props: _extends({ otherBarHide: !verticalBarProps }, horizontalBarProps.props)
-  })) : null];
-}
-
-/**
- * This is like a HOC, It extracts the common parts of the
- * native-mode, slide-mode and mix-mode.
- * Each mode must implement the following methods:
- * 1. refreshInternalStatus : use to refresh the component
- * 2. destroy : Destroy some registryed events before component destroy.
- * 3. updateBarStateAndEmitEvent: use to update bar states and emit events.
- */
-
-var createComponent = function createComponent(_ref) {
-  var _render = _ref.render,
-      components = _ref.components,
-      mixins = _ref.mixins;
-  return {
-    name: 'vueScroll',
-    props: {
-      ops: { type: Object }
-    },
-    components: components,
-    mixins: [api].concat(toConsumableArray([].concat(mixins))),
-    created: function created() {
-      var _this = this;
-
-      /**
-       * Begin to merge options
-       */
-
-      var _gfc = mergeObject(this.$vuescrollConfig || {}, {});
-      var ops = mergeObject(baseConfig, _gfc);
-
-      this.$options.propsData.ops = this.$options.propsData.ops || {};
-      Object.keys(this.$options.propsData.ops).forEach(function (key) {
-        {
-          defineReactive(_this.mergedOptions, key, _this.$options.propsData.ops);
-        }
-      });
-      // from ops to mergedOptions
-      mergeObject(ops, this.mergedOptions);
-
-      this._isVuescrollRoot = true;
-      this.renderError = validateOps(this.mergedOptions);
-    },
-    render: function render(h) {
-      var vm = this;
-      if (vm.renderError) {
-        return h('div', [[vm.$slots['default']]]);
-      }
-
-      if (!vm.touchManager) vm.touchManager = new touchManager();
-
-      // vuescroll data
-      var data = {
-        style: {
-          height: vm.vuescroll.state.height,
-          width: vm.vuescroll.state.width,
-          padding: 0,
-          position: 'relative',
-          overflow: 'hidden'
-        },
-        class: _extends({ __vuescroll: true }, vm.classHooks)
-      };
-
-      var touchObj = vm.touchManager.getTouchObject();
-      if (touchObj) {
-        var _data$on;
-
-        data.on = (_data$on = {}, defineProperty(_data$on, touchObj.touchenter, function () {
-          vm.vuescroll.state.pointerLeave = false;
-          vm.updateBarStateAndEmitEvent();
-
-          vm.setClassHook('mouseEnter', true);
-        }), defineProperty(_data$on, touchObj.touchleave, function () {
-          vm.vuescroll.state.pointerLeave = true;
-          vm.hideBar();
-
-          vm.setClassHook('mouseEnter', false);
-        }), defineProperty(_data$on, touchObj.touchmove, function () /* istanbul ignore next */{
-          vm.vuescroll.state.pointerLeave = false;
-          vm.updateBarStateAndEmitEvent();
-        }), _data$on);
-      }
-
-      var ch = [_render(h, vm)].concat(toConsumableArray(createBar(h, vm)));
-
-      var _customContainer = this.$slots['scroll-container'];
-      if (_customContainer) {
-        return insertChildrenIntoSlot(h, _customContainer, ch, data);
-      }
-
-      return h(
-        'div',
-        data,
-        [ch]
-      );
-    },
-    mounted: function mounted() {
-      var _this2 = this;
-
-      if (!this.renderError) {
-        this.initVariables();
-        this.initWatchOpsChange();
-        // Call external merged Api
-        this.refreshInternalStatus();
-
-        this.updatedCbs.push(function () {
-          _this2.scrollToAnchor();
-          // need to reflow to deal with the
-          // latest thing.
-          _this2.updateBarStateAndEmitEvent();
-        });
-      }
-    },
-    updated: function updated() {
-      var _this3 = this;
-
-      this.updatedCbs.forEach(function (cb) {
-        cb.call(_this3);
-      });
-      // Clear
-      this.updatedCbs = [];
-    },
-    beforeDestroy: function beforeDestroy() {
-      if (this.destroy) {
-        this.destroy();
-      }
-    },
-
-
-    /** ------------------------------- Computed ----------------------------- */
-    computed: {
-      scrollPanelElm: function scrollPanelElm() {
-        return this.$refs['scrollPanel']._isVue ? this.$refs['scrollPanel'].$el : this.$refs['scrollPanel'];
-      }
-    },
-    data: function data() {
-      return {
-        vuescroll: {
-          state: {
-            isDragging: false,
-            pointerLeave: true,
-            isRailHover: false,
-            /** Default sizeStrategies */
-            height: '100%',
-            width: '100%',
-            // current size strategy
-            currentSizeStrategy: 'percent',
-            currentScrollState: null,
-            currentScrollInfo: null
-          }
-        },
-        bar: {
-          vBar: {
-            state: {
-              posValue: 0,
-              size: 0,
-              opacity: 0
-            }
-          },
-          hBar: {
-            state: {
-              posValue: 0,
-              size: 0,
-              opacity: 0
-            }
-          }
-        },
-        mergedOptions: {
-          vuescroll: {},
-          scrollPanel: {},
-          scrollContent: {},
-          rail: {},
-          bar: {}
-        },
-        updatedCbs: [],
-        renderError: false,
-
-        classHooks: {
-          hasVBar: false,
-          hasHBar: false,
-
-          vBarVisible: false,
-          hBarVisible: false,
-
-          vBarDragging: false,
-          hBarDragging: false,
-
-          clikingVerticalStartButton: false,
-          clikingVerticalEndButton: false,
-          clikingHorizontalStartButton: false,
-          clikingHorizontalEndButton: false,
-
-          mouseEnter: false
-        }
-      };
-    },
-
-    /** ------------------------------- Methods -------------------------------- */
-    methods: {
-      /** ------------------------ Handlers --------------------------- */
-
-      scrollingComplete: function scrollingComplete() {
-        this.updateBarStateAndEmitEvent('handle-scroll-complete');
-      },
-      setBarDrag: function setBarDrag(val) {
-        /* istanbul ignore next */
-        this.vuescroll.state.isDragging = val;
-      },
-      setClassHook: function setClassHook(name, value) {
-        this.classHooks[name] = value;
-      },
-
-
-      /** ------------------------ Some Helpers --------------------------- */
-
-      /*
-       * To have a good ux, instead of hiding bar immediately, we hide bar
-       * after some seconds by using this simple debounce-hidebar method.
-       */
-      showAndDefferedHideBar: function showAndDefferedHideBar(forceHideBar) {
-        var _this4 = this;
-
-        this.showBar();
-
-        if (this.timeoutId) {
-          clearTimeout(this.timeoutId);
-          this.timeoutId = 0;
-        }
-
-        this.timeoutId = setTimeout(function () {
-          _this4.timeoutId = 0;
-          _this4.hideBar(forceHideBar);
-        }, this.mergedOptions.bar.showDelay);
-      },
-      showBar: function showBar() {
-        var opacity = this.mergedOptions.bar.opacity;
-        this.bar.vBar.state.opacity = opacity;
-        this.bar.hBar.state.opacity = opacity;
-      },
-      hideBar: function hideBar(forceHideBar) {
-        var _vuescroll$state = this.vuescroll.state,
-            isDragging = _vuescroll$state.isDragging,
-            isRailHover = _vuescroll$state.isRailHover;
-        /* istanbul ignore next */
-
-        if (isDragging || isRailHover) {
-          return;
-        }
-
-        if (forceHideBar && !this.mergedOptions.bar.keepShow) {
-          this.bar.hBar.state.opacity = 0;
-          this.bar.vBar.state.opacity = 0;
-        }
-
-        // add isDragging condition
-        // to prevent from hiding bar while dragging the bar
-        if (!this.mergedOptions.bar.keepShow && !this.vuescroll.state.isDragging) {
-          this.bar.vBar.state.opacity = 0;
-          this.bar.hBar.state.opacity = 0;
-        }
-      },
-      useNumbericSize: function useNumbericSize() {
-        this.vuescroll.state.currentSizeStrategy = 'number';
-        var _mergedOptions$scroll = this.mergedOptions.scrollPanel,
-            maxHeight = _mergedOptions$scroll.maxHeight,
-            maxWidth = _mergedOptions$scroll.maxWidth;
-        var _$el$parentNode = this.$el.parentNode,
-            parentClientHeight = _$el$parentNode.clientHeight,
-            parentClientWidth = _$el$parentNode.clientWidth;
-        var _scrollPanelElm = this.scrollPanelElm,
-            scrollHeight = _scrollPanelElm.scrollHeight,
-            scrollWidth = _scrollPanelElm.scrollWidth;
-
-        var width = void 0;
-        var height = void 0;
-
-        if (maxHeight || maxWidth) {
-          height = scrollHeight <= maxHeight ? undefined : maxHeight;
-          width = scrollWidth <= maxWidth ? undefined : maxWidth;
-        } else {
-          height = parentClientHeight;
-          width = parentClientWidth;
-        }
-
-        this.vuescroll.state.height = height ? height + 'px' : undefined;
-        this.vuescroll.state.width = width ? width + 'px' : undefined;
-      },
-      usePercentSize: function usePercentSize() {
-        this.vuescroll.state.currentSizeStrategy = 'percent';
-
-        this.vuescroll.state.height = '100%';
-        this.vuescroll.state.width = '100%';
-      },
-
-      // Set its size to be equal to its parentNode
-      setVsSize: function setVsSize() {
-        var sizeStrategy = this.mergedOptions.vuescroll.sizeStrategy;
-        var _mergedOptions$scroll2 = this.mergedOptions.scrollPanel,
-            maxHeight = _mergedOptions$scroll2.maxHeight,
-            maxWidth = _mergedOptions$scroll2.maxWidth;
-        var _scrollPanelElm2 = this.scrollPanelElm,
-            clientHeight = _scrollPanelElm2.clientHeight,
-            clientWidth = _scrollPanelElm2.clientWidth;
-
-        if (sizeStrategy == 'number' || maxHeight && clientHeight > maxHeight || maxWidth && clientWidth > maxWidth) {
-          this.useNumbericSize();
-        } else if (sizeStrategy == 'percent' && clientHeight != maxHeight && clientWidth != maxWidth) {
-          this.usePercentSize();
-        }
-      },
-
-
-      /** ------------------------ Init --------------------------- */
-      initWatchOpsChange: function initWatchOpsChange() {
-        var _this5 = this;
-
-        var watchOpts = {
-          deep: true,
-          sync: true
-        };
-        this.$watch('mergedOptions', function () {
-          setTimeout(function () {
-            if (_this5.isSmallChangeThisTick) {
-              _this5.isSmallChangeThisTick = false;
-              _this5.updateBarStateAndEmitEvent('options-change');
-              return;
-            }
-            _this5.refreshInternalStatus();
-          }, 0);
-        }, watchOpts);
-
-        /**
-         * We also watch `small` changes, and when small changes happen, we send
-         * a signal to vuescroll, to tell it:
-         * 1. we don't need to registry resize
-         * 2. we don't need to registry scroller.
-         */
-        smallChangeArray.forEach(function (opts) {
-          _this5.$watch(opts, function () {
-            _this5.isSmallChangeThisTick = true;
-          }, watchOpts);
-        });
-      },
-
-      // scrollTo hash-anchor while mounted component have mounted.
-      scrollToAnchor: function scrollToAnchor() /* istanbul ignore next */{
-        var validateHashSelector = function validateHashSelector(hash) {
-          return (/^#[a-zA-Z_]\d*$/.test(hash)
-          );
-        };
-
-        var hash = window.location.hash;
-        if (!hash || (hash = hash.slice(hash.lastIndexOf('#'))) && !validateHashSelector(hash)) {
-          return;
-        }
-
-        var elm = document.querySelector(hash);
-        if (!isChildInParent(elm, this.$el) || this.mergedOptions.scrollPanel.initialScrollY || this.mergedOptions.scrollPanel.initialScrollX) {
-          return;
-        }
-
-        this.scrollIntoView(elm);
-      }
-
-      /** ------------------------ Registry Resize --------------------------- */
-
-    }
-  };
-};
-
-// begin importing
-var scrollPanel = {
-  name: 'scrollPanel',
-  props: { ops: { type: Object, required: true } },
-  methods: {
-    // trigger scrollPanel options initialScrollX,
-    // initialScrollY
-    updateInitialScroll: function updateInitialScroll() {
-      var x = 0;
-      var y = 0;
-
-      var parent = getRealParent(this);
-
-      if (this.ops.initialScrollX) {
-        x = this.ops.initialScrollX;
-      }
-      if (this.ops.initialScrollY) {
-        y = this.ops.initialScrollY;
-      }
-      if (x || y) {
-        parent.scrollTo({ x: x, y: y });
-      }
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    setTimeout(function () {
-      if (!_this._isDestroyed) {
-        _this.updateInitialScroll();
-      }
-    }, 0);
-  },
-  render: function render(h) {
-    // eslint-disable-line
-    var data = {
-      class: ['__panel'],
-      style: {
-        position: 'relative',
-        boxSizing: 'border-box'
-      }
-    };
-
-    var parent = getRealParent(this);
-
-    var _customPanel = parent.$slots['scroll-panel'];
-    if (_customPanel) {
-      return insertChildrenIntoSlot(h, _customPanel, this.$slots.default, data);
-    }
-
-    return h(
-      'div',
-      data,
-      [[this.$slots.default]]
-    );
-  }
-};
-
-/**
- * Init following things
- * 1. Component
- * 2. Render
- * 3. Config
- */
-function _install(core, render) {
-  var _components;
-
-  var extraConfigs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-  var extraValidators = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
-
-  var components = (_components = {}, defineProperty(_components, scrollPanel.name, scrollPanel), defineProperty(_components, bar.name, bar), _components);
-
-  var opts = {};
-  opts.components = components;
-  opts.render = render;
-  opts.mixins = core;
-
-  var comp = createComponent(opts);
-
-  // Init Config
-  extendOpts(extraConfigs, extraValidators);
-
-  return comp;
-}
-
-/**
- * Get the children of parent those are in viewport
- */
-function getCurrentViewportDom(parent, container) {
-  var children = parent.children;
-  var domFragment = [];
-
-  var isCurrentview = function isCurrentview(dom) {
-    var _dom$getBoundingClien = dom.getBoundingClientRect(),
-        left = _dom$getBoundingClien.left,
-        top = _dom$getBoundingClien.top,
-        width = _dom$getBoundingClien.width,
-        height = _dom$getBoundingClien.height;
-
-    var _container$getBoundin = container.getBoundingClientRect(),
-        parentLeft = _container$getBoundin.left,
-        parentTop = _container$getBoundin.top,
-        parentHeight = _container$getBoundin.height,
-        parentWidth = _container$getBoundin.width;
-
-    if (left - parentLeft + width > 0 && left - parentLeft < parentWidth && top - parentTop + height > 0 && top - parentTop < parentHeight) {
-      return true;
-    }
-    return false;
-  };
-
-  for (var i = 0; i < children.length; i++) {
-    var dom = children.item(i);
-    if (isCurrentview(dom) && !dom.isResizeElm) {
-      domFragment.push(dom);
-    }
-  }
-  return domFragment;
-}
-
-/**
- *  Compatible to scroller's animation function
- */
-function createEasingFunction(easing, easingPattern) {
-  return function (time) {
-    return easingPattern(easing, time);
-  };
-}
-
-/**
- * Calculate the easing pattern
- * @link https://github.com/cferdinandi/smooth-scroll/blob/master/src/js/smooth-scroll.js
- * modified by wangyi7099
- * @param {String} type Easing pattern
- * @param {Number} time Time animation should take to complete
- * @returns {Number}
- */
-function easingPattern(easing, time) {
-  var pattern = null;
-  /* istanbul ignore next */
-  {
-    // Default Easing Patterns
-    if (easing === 'easeInQuad') pattern = time * time; // accelerating from zero velocity
-    if (easing === 'easeOutQuad') pattern = time * (2 - time); // decelerating to zero velocity
-    if (easing === 'easeInOutQuad') pattern = time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time; // acceleration until halfway, then deceleration
-    if (easing === 'easeInCubic') pattern = time * time * time; // accelerating from zero velocity
-    if (easing === 'easeOutCubic') pattern = --time * time * time + 1; // decelerating to zero velocity
-    if (easing === 'easeInOutCubic') pattern = time < 0.5 ? 4 * time * time * time : (time - 1) * (2 * time - 2) * (2 * time - 2) + 1; // acceleration until halfway, then deceleration
-    if (easing === 'easeInQuart') pattern = time * time * time * time; // accelerating from zero velocity
-    if (easing === 'easeOutQuart') pattern = 1 - --time * time * time * time; // decelerating to zero velocity
-    if (easing === 'easeInOutQuart') pattern = time < 0.5 ? 8 * time * time * time * time : 1 - 8 * --time * time * time * time; // acceleration until halfway, then deceleration
-    if (easing === 'easeInQuint') pattern = time * time * time * time * time; // accelerating from zero velocity
-    if (easing === 'easeOutQuint') pattern = 1 + --time * time * time * time * time; // decelerating to zero velocity
-    if (easing === 'easeInOutQuint') pattern = time < 0.5 ? 16 * time * time * time * time * time : 1 + 16 * --time * time * time * time * time; // acceleration until halfway, then deceleration
-  }
-  return pattern || time; // no easing, no acceleration
-}
-
-function noop() {
-  return true;
-}
-
-/* istanbul ignore next */
-var now = Date.now || function () {
-  return new Date().getTime();
-};
-
-var ScrollControl = function () {
-  function ScrollControl() {
-    classCallCheck(this, ScrollControl);
-
-    this.init();
-
-    this.isRunning = false;
-  }
-
-  createClass(ScrollControl, [{
-    key: 'pause',
-    value: function pause() {
-      /* istanbul ignore if */
-      if (!this.isRunning) return;
-
-      this.isPaused = true;
-    }
-  }, {
-    key: 'stop',
-    value: function stop() {
-      this.isStopped = true;
-    }
-  }, {
-    key: 'continue',
-    value: function _continue() {
-      /* istanbul ignore if */
-      if (!this.isPaused) return;
-
-      this.isPaused = false;
-      this.ts = now() - this.percent * this.spd;
-      this.execScroll();
-    }
-  }, {
-    key: 'startScroll',
-    value: function startScroll(st, ed, spd) {
-      var stepCb = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : noop;
-      var completeCb = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : noop;
-      var vertifyCb = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : noop;
-      var easingMethod = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : noop;
-
-      var df = ed - st;
-      var dir = df > 0 ? -1 : 1;
-      var nt = now();
-
-      if (!this.isRunning) {
-        this.init();
-      }
-
-      if (dir != this.dir || nt - this.ts > 200) {
-        this.ts = nt;
-
-        this.dir = dir;
-        this.st = st;
-        this.ed = ed;
-        this.df = df;
-      } /* istanbul ignore next */else {
-          this.df += df;
-        }
-
-      this.spd = spd;
-
-      this.completeCb = completeCb;
-      this.vertifyCb = vertifyCb;
-      this.stepCb = stepCb;
-      this.easingMethod = easingMethod;
-
-      if (!this.isRunning) this.execScroll();
-    }
-  }, {
-    key: 'execScroll',
-    value: function execScroll() {
-      var _this = this;
-
-      if (!this.df) return;
-
-      var percent = this.percent || 0;
-      this.percent = 0;
-      this.isRunning = true;
-
-      var loop = function loop() {
-        /* istanbul ignore if */
-        if (!_this.isRunning || !_this.vertifyCb(percent) || _this.isStopped) {
-          _this.isRunning = false;
-          return;
-        }
-
-        percent = (now() - _this.ts) / _this.spd;
-
-        if (_this.isPaused) {
-          _this.percent = percent;
-          _this.isRunning = false;
-          return;
-        }
-
-        if (percent < 1) {
-          var value = _this.st + _this.df * _this.easingMethod(percent);
-          _this.stepCb(value);
-          _this.ref(loop);
-        } else {
-          // trigger complete
-          _this.stepCb(_this.st + _this.df);
-          _this.completeCb();
-
-          _this.isRunning = false;
-        }
-      };
-
-      this.ref(loop);
-    }
-  }, {
-    key: 'init',
-    value: function init() {
-      this.st = 0;
-      this.ed = 0;
-      this.df = 0;
-      this.spd = 0;
-      this.ts = 0;
-      this.dir = 0;
-      this.ref = requestAnimationFrame(window);
-
-      this.isPaused = false;
-      this.isStopped = false;
-    }
-  }]);
-  return ScrollControl;
-}();
-
-function scrollTo(elm, x, y) {
-  var speed = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 300;
-  var easing = arguments[4];
-  var scrollingComplete = arguments[5];
-
-  var scrollLeft = void 0,
-      scrollTop = void 0,
-      scrollHeight = void 0,
-      scrollWidth = void 0,
-      clientWidth = void 0,
-      clientHeight = void 0;
-
-  var _elm = elm,
-      nodeType = _elm.nodeType;
-
-  var scrollX = new ScrollControl();
-  var scrollY = new ScrollControl();
-
-  if (!nodeType) {
-    warn('You must pass a dom for the first param, ' + 'for window scrolling, ' + 'you can pass document as the first param.');
-
-    return;
-  }
-
-  if (nodeType == 9) {
-    // document
-    elm = elm.scrollingElement;
-  }
-
-  var _elm2 = elm;
-  scrollLeft = _elm2.scrollLeft;
-  scrollTop = _elm2.scrollTop;
-  scrollHeight = _elm2.scrollHeight;
-  scrollWidth = _elm2.scrollWidth;
-  clientWidth = _elm2.clientWidth;
-  clientHeight = _elm2.clientHeight;
-
-
-  if (typeof x === 'undefined') {
-    x = scrollLeft;
-  } else {
-    x = getNumericValue(x, scrollWidth - clientWidth);
-  }
-  if (typeof y === 'undefined') {
-    y = scrollTop;
-  } else {
-    y = getNumericValue(y, scrollHeight - clientHeight);
-  }
-
-  var easingMethod = createEasingFunction(easing, easingPattern);
-  scrollX.startScroll(scrollLeft, x, speed, function (dx) {
-    elm.scrollLeft = dx;
-  }, scrollingComplete, undefined, easingMethod);
-  scrollY.startScroll(scrollTop, y, speed, function (dy) {
-    elm.scrollTop = dy;
-  }, scrollingComplete, undefined, easingMethod);
-}
-
-var nativeApi = {
-  mounted: function mounted() {
-    // registry scroll
-    this.scrollX = new ScrollControl();
-    this.scrollY = new ScrollControl();
-  },
-
-  methods: {
-    nativeStop: function nativeStop() {
-      this.scrollX.stop();
-      this.scrollY.stop();
-    },
-    nativePause: function nativePause() {
-      this.scrollX.pause();
-      this.scrollY.pause();
-    },
-    nativeContinue: function nativeContinue() {
-      this.scrollX.continue();
-      this.scrollY.continue();
-    },
-    nativeScrollTo: function nativeScrollTo(x, y, speed, easing) {
-      if (speed === false) {
-        
-      } else if (typeof speed === 'undefined') {
-        speed = this.mergedOptions.scrollPanel.speed;
-      }
-      var elm = this.scrollPanelElm;
-      var scrollTop = elm.scrollTop,
-          scrollLeft = elm.scrollLeft,
-          scrollWidth = elm.scrollWidth,
-          clientWidth = elm.clientWidth,
-          scrollHeight = elm.scrollHeight,
-          clientHeight = elm.clientHeight;
-
-      if (typeof x === 'undefined') {
-        x = scrollLeft;
-      } else {
-        x = getNumericValue(x, scrollWidth - clientWidth);
-      }
-      if (typeof y === 'undefined') {
-        y = scrollTop;
-      } else {
-        y = getNumericValue(y, scrollHeight - clientHeight);
-      }
-
-      if (speed) {
-        easing = easing || this.mergedOptions.scrollPanel.easing;
-        var easingMethod = createEasingFunction(easing, easingPattern);
-
-        if (x != scrollLeft) {
-          this.scrollX.startScroll(scrollLeft, x, speed, function (x) {
-            elm.scrollLeft = x;
-          }, this.scrollingComplete.bind(this), undefined, easingMethod);
-        }
-
-        if (y != scrollTop) {
-          this.scrollY.startScroll(scrollTop, y, speed, function (y) {
-            elm.scrollTop = y;
-          }, this.scrollingComplete.bind(this), undefined, easingMethod);
-        }
-      } else {
-        elm.scrollTop = y;
-        elm.scrollLeft = x;
-      }
-    },
-    getCurrentviewDomNative: function getCurrentviewDomNative() {
-      var parent = this.scrollContentElm;
-      var domFragment = getCurrentViewportDom(parent, this.$el);
-      return domFragment;
-    }
-  }
-};
-
-function getPanelData(context) {
-  // scrollPanel data start
-  var data = {
-    ref: 'scrollPanel',
-    style: {
-      height: '100%',
-      overflowY: 'scroll',
-      overflowX: 'scroll'
-    },
-    class: [],
-    nativeOn: {
-      '&scroll': context.handleScroll
-    },
-    props: {
-      ops: context.mergedOptions.scrollPanel
-    }
-  };
-
-  context.scrollYEnable = true;
-  context.scrollXEnable = true;
-
-  data.nativeOn.DOMMouseScroll = data.nativeOn.mousewheel = context.onMouseWheel;
-
-  var _context$mergedOption = context.mergedOptions.scrollPanel,
-      scrollingY = _context$mergedOption.scrollingY,
-      scrollingX = _context$mergedOption.scrollingX;
-
-
-  if (!context.bar.hBar.state.size || !scrollingX) {
-    context.scrollXEnable = false;
-    data.style.overflowX = 'hidden';
-  }
-
-  if (!context.bar.vBar.state.size || !scrollingY) {
-    context.scrollYEnable = false;
-    data.style.overflowY = 'hidden';
-  }
-
-  var gutter = getGutter();
-  /* istanbul ignore if */
-  if (!gutter) {
-    createHideBarStyle();
-    data.class.push('__hidebar');
-    if (isIos()) {
-      data.style['-webkit-overflow-scrolling'] = 'touch';
-    }
-  } else {
-    // hide system bar by use a negative value px
-    // gutter should be 0 when manually disable scrollingX #14
-    if (context.bar.vBar.state.size && context.mergedOptions.scrollPanel.scrollingY) {
-      if (context.mergedOptions.scrollPanel.verticalNativeBarPos == 'right') {
-        data.style.marginRight = '-' + gutter + 'px';
-      } /* istanbul ignore next */else {
-          data.style.marginLeft = '-' + gutter + 'px';
-        }
-    }
-    if (context.bar.hBar.state.size && context.mergedOptions.scrollPanel.scrollingX) {
-      data.style.height = 'calc(100% + ' + gutter + 'px)';
-    }
-  }
-
-  // clear legency styles of slide mode...
-  data.style.transformOrigin = '';
-  data.style.transform = '';
-
-  return data;
-}
-
-/**
- * create a scrollPanel
- *
- * @param {any} size
- * @param {any} context
- * @returns
- */
-function createPanel(h, context) {
-  var data = {};
-
-  data = getPanelData(context);
-
-  return h(
-    'scrollPanel',
-    data,
-    [getPanelChildren(h, context)]
-  );
-}
-
-function getPanelChildren(h, context) {
-  var viewStyle = {
-    position: 'relative',
-    'box-sizing': 'border-box',
-    'min-width': '100%',
-    'min-height': '100%'
-  };
-  var data = {
-    style: viewStyle,
-    ref: 'scrollContent',
-    class: '__view'
-  };
-  var _customContent = context.$slots['scroll-content'];
-
-  if (context.mergedOptions.scrollPanel.scrollingX) {
-    viewStyle.width = getComplitableStyle('width', 'fit-content');
-  } else {
-    data.style['width'] = '100%';
-  }
-
-  if (context.mergedOptions.scrollPanel.padding) {
-    data.style.paddingRight = context.mergedOptions.rail.size;
-  }
-
-  if (_customContent) {
-    return insertChildrenIntoSlot(h, _customContent, context.$slots.default, data);
-  }
-
-  return h(
-    'div',
-    data,
-    [context.$slots.default]
-  );
-}
-
-function getPanelData$1(context) {
-  // scrollPanel data start
-  var data = {
-    ref: 'scrollPanel',
-    style: {
-      'user-select': 'none',
-      '-webkit-user-select': 'none',
-      'min-width': '100%',
-      'min-height': '100%'
-    },
-    class: [],
-    props: {
-      ops: context.mergedOptions.scrollPanel
-    }
-  };
-
-  data.class.push('__slide');
-  /* istanbul ignore if */
-  if (isIos()) {
-    data.style = defineProperty({}, '-webkit-overflow-scrolling', 'touch');
-  }
-
-  if (context.mergedOptions.vuescroll.renderMethod == 'transform') {
-    data.style['transform-origin'] = 'left top 0px';
-  }
-
-  var _context$mergedOption = context.mergedOptions.scrollPanel,
-      scrollingX = _context$mergedOption.scrollingX,
-      scrollingY = _context$mergedOption.scrollingY,
-      padding = _context$mergedOption.padding;
-
-
-  if (scrollingX && !context.refreshLoad) {
-    var width = getComplitableStyle('width', 'fit-content');
-    if (width) {
-      data.style['width'] = width;
-    } /* istanbul ignore next */else {
-        data['display'] = 'inline-block';
-      }
-  }
-
-  /* istanbul ignore if */
-  if (!scrollingX) {
-    data.class.push('x-hidden');
-  }
-  /* istanbul ignore if */
-  if (!scrollingY) {
-    data.class.push('y-hidden');
-  }
-
-  if (padding) {
-    data.style.paddingRight = context.mergedOptions.rail.size;
-  }
-
-  return data;
-}
-
-function getPanelChildren$1(h, context) {
-  var renderChildren = getVnodeInfo(context.$slots['scroll-panel']).ch || context.$slots.default;
-  var finalChildren = [];
-
-  /* istanbul ignore if */
-  if (!renderChildren) {
-    context.$slots.default = renderChildren = [];
-  }
-
-  // handle refresh
-  if (context.mergedOptions.vuescroll.pullRefresh.enable) {
-    finalChildren.push(h(
-      'div',
-      {
-        'class': '__refresh',
-        style: { visibility: context.refrehDomVisiable ? '' : 'hidden' },
-        ref: __REFRESH_DOM_NAME,
-        key: __REFRESH_DOM_NAME
-      },
-      [createTipDom(h, context, 'refresh', context.pullRefreshTip)]
-    ));
-  }
-
-  finalChildren.push(renderChildren);
-
-  // handle load
-  if (context.mergedOptions.vuescroll.pushLoad.enable) {
-    finalChildren.push(h(
-      'div',
-      {
-        ref: __LOAD_DOM_NAME,
-        key: __LOAD_DOM_NAME,
-        'class': '__load',
-        style: { visibility: context.loadDomVisiable ? '' : 'hidden' }
-      },
-      [createTipDom(h, context, 'load', context.pushLoadTip)]
-    ));
-  }
-
-  return finalChildren;
-}
-
-// Create load or refresh tip dom of each stages
-function createTipDom(h, context, type, tip) {
-  var stage = context.vuescroll.state[type + 'Stage'];
-  var dom = null;
-  // Return user specified animation dom
-  /* istanbul ignore if */
-  if (dom = context.$slots[type + '-' + stage]) {
-    return dom;
-  }
-
-  switch (stage) {
-    // The dom will show at deactive stage
-    case 'deactive':
-    case 'active':
-      {
-        var className = 'active';
-        if (stage == 'deactive') {
-          className += ' deactive';
-        }
-
-        dom = h(
-          'svg',
-          {
-            'class': className,
-            attrs: { version: '1.1',
-              xmlns: 'http://www.w3.org/2000/svg',
-              xmlnsXlink: 'http://www.w3.org/1999/xlink',
-              x: '0px',
-              y: '0px',
-              viewBox: '0 0 1000 1000',
-              'enable-background': 'new 0 0 1000 1000',
-              xmlSpace: 'preserve'
-            }
-          },
-          [h('metadata', [' Svg Vector Icons : http://www.sfont.cn ']), h('g', [h(
-            'g',
-            {
-              attrs: { transform: 'matrix(1 0 0 -1 0 1008)' }
-            },
-            [h('path', {
-              attrs: { d: 'M10,543l490,455l490-455L885,438L570,735.5V18H430v717.5L115,438L10,543z' }
-            })]
-          )])]
-        );
-      }
-      break;
-    case 'start':
-      dom = h(
-        'svg',
-        {
-          attrs: { viewBox: '0 0 50 50' },
-          'class': 'start' },
-        [h('circle', {
-          attrs: { stroke: 'true', cx: '25', cy: '25', r: '20' },
-          'class': 'bg-path' }), h('circle', {
-          attrs: { cx: '25', cy: '25', r: '20' },
-          'class': 'active-path' })]
-      );
-      break;
-    case 'beforeDeactive':
-      dom = h(
-        'svg',
-        {
-          attrs: {
-            viewBox: '0 0 1024 1024',
-            version: '1.1',
-            xmlns: 'http://www.w3.org/2000/svg',
-            'p-id': '3562'
-          }
-        },
-        [h('path', {
-          attrs: {
-            d: 'M512 0C229.706831 0 0 229.667446 0 512s229.667446 512 512 512c282.293169 0 512-229.667446 512-512S794.332554 0 512 0z m282.994215 353.406031L433.2544 715.145846a31.484062 31.484062 0 0 1-22.275938 9.231754h-0.4096a31.586462 31.586462 0 0 1-22.449231-9.814646L228.430769 546.327631a31.507692 31.507692 0 0 1 45.701908-43.386093l137.4208 144.785724L750.442338 308.854154a31.507692 31.507692 0 1 1 44.551877 44.551877z',
-            fill: '',
-            'p-id': '3563'
-          }
-        })]
-      );
-      break;
-  }
-  return [dom, tip];
-}
-
-/**
- * create a scrollPanel
- *
- * @param {any} size
- * @param {any} context
- * @returns
- */
-function createPanel$1(h, context) {
-  var data = getPanelData$1(context);
-
-  return h(
-    'scrollPanel',
-    data,
-    [getPanelChildren$1(h, context)]
-  );
-}
-
-// begin importing
-/**
- * create a scrollPanel
- *
- * @param {any} size
- * @param {any} vm
- * @returns
- */
-function createPanel$2(h, vm) {
-  if (vm.mode == 'native') {
-    return createPanel(h, vm);
-  } else if (vm.mode == 'slide') {
-    return createPanel$1(h, vm);
-  }
-}
-
-// detect content size change
-function installResizeDetection(element, callback) {
-  return injectObject(element, callback);
-}
-
-function injectObject(element, callback) {
-  if (element.hasResized) {
-    return;
-  }
-
-  var OBJECT_STYLE = 'display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; padding: 0; margin: 0; opacity: 0; z-index: -1000; pointer-events: none;';
-  // define a wrap due to ie's zIndex bug
-  var objWrap = document.createElement('div');
-  objWrap.style.cssText = OBJECT_STYLE;
-  var object = document.createElement('object');
-  object.style.cssText = OBJECT_STYLE;
-  object.type = 'text/html';
-  object.tabIndex = -1;
-
-  object.onload = function () {
-    eventCenter(object.contentDocument.defaultView, 'resize', callback);
-  };
-  // https://github.com/wnr/element-resize-detector/blob/aafe9f7ea11d1eebdab722c7c5b86634e734b9b8/src/detection-strategy/object.js#L159
-  if (!isIE()) {
-    object.data = 'about:blank';
-  }
-  objWrap.isResizeElm = true;
-  objWrap.appendChild(object);
-  element.appendChild(objWrap);
-  if (isIE()) {
-    object.data = 'about:blank';
-  }
-  return function destroy() {
-    if (object.contentDocument) {
-      eventCenter(object.contentDocument.defaultView, 'resize', callback, 'off');
-    }
-    element.removeChild(objWrap);
-    element.hasResized = false;
-  };
-}
-
-var slideApi = {
-  methods: {
-    slideScrollTo: function slideScrollTo(x, y, speed, easing) {
-      var _getPosition = this.getPosition(),
-          scrollLeft = _getPosition.scrollLeft,
-          scrollTop = _getPosition.scrollTop;
-
-      x = getNumericValue(x || scrollLeft, this.scroller.__maxScrollLeft);
-      y = getNumericValue(y || scrollTop, this.scroller.__maxScrollTop);
-
-      this.scroller.scrollTo(x, y, speed > 0, undefined, false, speed, easing);
-    },
-    zoomBy: function zoomBy(factor, animate, originLeft, originTop, callback) {
-      if (!this.scroller) {
-        warn('zoomBy and zoomTo are only for slide mode!');
-        return;
-      }
-      this.scroller.zoomBy(factor, animate, originLeft, originTop, callback);
-    },
-    zoomTo: function zoomTo(level) {
-      var animate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var originLeft = arguments[2];
-      var originTop = arguments[3];
-      var callback = arguments[4];
-
-      if (!this.scroller) {
-        warn('zoomBy and zoomTo are only for slide mode!');
-        return;
-      }
-      this.scroller.zoomTo(level, animate, originLeft, originTop, callback);
-    },
-    getCurrentPage: function getCurrentPage() {
-      if (!this.scroller || !this.mergedOptions.vuescroll.paging) {
-        warn('getCurrentPage and goToPage are only for slide mode and paging is enble!');
-        return;
-      }
-      return this.scroller.getCurrentPage();
-    },
-    goToPage: function goToPage(dest) {
-      var animate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-      if (!this.scroller || !this.mergedOptions.vuescroll.paging) {
-        warn('getCurrentPage and goToPage are only for slide mode and paging is enble!');
-        return;
-      }
-      this.scroller.goToPage(dest, animate);
-    },
-    triggerRefreshOrLoad: function triggerRefreshOrLoad(type) {
-      if (!this.scroller) {
-        warn('You can only use triggerRefreshOrLoad in slide mode!');
-        return;
-      }
-
-      var isRefresh = this.mergedOptions.vuescroll.pullRefresh.enable;
-      var isLoad = this.mergedOptions.vuescroll.pushLoad.enable;
-
-      if (type == 'refresh' && !isRefresh) {
-        warn('refresh must be enabled!');
-        return;
-      } else if (type == 'load' && !isLoad) {
-        warn('load must be enabled and content\'s height > container\'s height!');
-        return;
-      } else if (type !== 'refresh' && type !== 'load') {
-        warn('param must be one of load and refresh!');
-        return;
-      }
-
-      /* istanbul ignore if */
-      if (this.vuescroll.state[type + 'Stage'] == 'start') {
-        return;
-      }
-
-      this.scroller.triggerRefreshOrLoad(type);
-      return true;
-    },
-    getCurrentviewDomSlide: function getCurrentviewDomSlide() {
-      var parent = this.scrollPanelElm;
-      var domFragment = getCurrentViewportDom(parent, this.$el);
-      return domFragment;
-    }
-  }
-};
-
-var api$1 = {
-  // mix slide and nitive modes apis.
-  mixins: [slideApi, nativeApi],
-  methods: {
-    // private api
-    internalScrollTo: function internalScrollTo(destX, destY, speed, easing) {
-      if (this.mode == 'native') {
-        this.nativeScrollTo(destX, destY, speed, easing);
-      }
-      // for non-native we use scroller's scorllTo
-      else if (this.mode == 'slide') {
-          this.slideScrollTo(destX, destY, speed, easing);
-        }
-    },
-    stop: function stop() {
-      this.nativeStop();
-    },
-    pause: function pause() {
-      this.nativePause();
-    },
-    continue: function _continue() {
-      this.nativeContinue();
-    },
-    getCurrentviewDom: function getCurrentviewDom() {
-      return this.mode == 'slide' ? this.getCurrentviewDomSlide() : this.getCurrentviewDomNative();
-    }
-  }
-};
-
-/*
- * Scroller
- * http://github.com/zynga/scroller
- *
- * Copyright 2011, Zynga Inc.
- * Licensed under the MIT License.
- * https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
- *
- * Based on the work of: Unify Project (unify-project.org)
- * http://unify-project.org
- * Copyright 2011, Deutsche Telekom AG
- * License: MIT + Apache (V2)
- */
-
-/**
- * Generic animation class with support for dropped frames both optional easing and duration.
- *
- * Optional duration is useful when the lifetime is defined by another condition than time
- * e.g. speed of an animating object, etc.
- *
- * Dropped frame logic allows to keep using the same updater logic independent from the actual
- * rendering. This eases a lot of cases where it might be pretty complex to break down a state
- * based on the pure time difference.
- */
-var time = Date.now || function () {
-  return +new Date();
-};
-var desiredFrames = 60;
-var millisecondsPerSecond = 1000;
-var running = {};
-var counter = 1;
-
-var core = { effect: {} };
-var global$1 = null;
-
-if (typeof window !== 'undefined') {
-  global$1 = window;
-} else {
-  global$1 = {};
-}
-
-core.effect.Animate = {
-  /**
-   * A requestAnimationFrame wrapper / polyfill.
-   *
-   * @param callback {Function} The callback to be invoked before the next repaint.
-   * @param root {HTMLElement} The root element for the repaint
-   */
-  requestAnimationFrame: requestAnimationFrame(global$1),
-  /**
-   * Stops the given animation.
-   *
-   * @param id {Integer} Unique animation ID
-   * @return {Boolean} Whether the animation was stopped (aka, was running before)
-   */
-  stop: function stop(id) {
-    var cleared = running[id] != null;
-    if (cleared) {
-      running[id] = null;
-    }
-
-    return cleared;
-  },
-
-  /**
-   * Whether the given animation is still running.
-   *
-   * @param id {Integer} Unique animation ID
-   * @return {Boolean} Whether the animation is still running
-   */
-  isRunning: function isRunning(id) {
-    return running[id] != null;
-  },
-
-  /**
-   * Start the animation.
-   *
-   * @param stepCallback {Function} Pointer to function which is executed on every step.
-   *   Signature of the method should be `function(percent, now, virtual) { return continueWithAnimation; }`
-   * @param verifyCallback {Function} Executed before every animation step.
-   *   Signature of the method should be `function() { return continueWithAnimation; }`
-   * @param completedCallback {Function}
-   *   Signature of the method should be `function(droppedFrames, finishedAnimation) {}`
-   * @param duration {Integer} Milliseconds to run the animation
-   * @param easingMethod {Function} Pointer to easing function
-   *   Signature of the method should be `function(percent) { return modifiedValue; }`
-   * @param root {Element ? document.body} Render root, when available. Used for internal
-   *   usage of requestAnimationFrame.
-   * @return {Integer} Identifier of animation. Can be used to stop it any time.
-   */
-  start: function start(stepCallback, verifyCallback, completedCallback, duration, easingMethod, root) {
-    var start = time();
-    var lastFrame = start;
-    var percent = 0;
-    var dropCounter = 0;
-    var id = counter++;
-
-    if (!root) {
-      root = document.body;
-    }
-
-    // Compacting running db automatically every few new animations
-    if (id % 20 === 0) {
-      var newRunning = {};
-      for (var usedId in running) {
-        newRunning[usedId] = true;
-      }
-      running = newRunning;
-    }
-
-    // This is the internal step method which is called every few milliseconds
-    var step = function step(virtual) {
-      // Normalize virtual value
-      var render = virtual !== true;
-
-      // Get current time
-      var now = time();
-
-      // Verification is executed before next animation step
-      if (!running[id] || verifyCallback && !verifyCallback(id)) {
-        running[id] = null;
-        completedCallback && completedCallback(desiredFrames - dropCounter / ((now - start) / millisecondsPerSecond), id, false);
-        return;
-      }
-
-      // For the current rendering to apply let's update omitted steps in memory.
-      // This is important to bring internal state variables up-to-date with progress in time.
-      if (render) {
-        var droppedFrames = Math.round((now - lastFrame) / (millisecondsPerSecond / desiredFrames)) - 1;
-        for (var j = 0; j < Math.min(droppedFrames, 4); j++) {
-          step(true);
-          dropCounter++;
-        }
-      }
-
-      if (!running[id]) {
-        return;
-      }
-
-      // Compute percent value
-      if (duration) {
-        percent = (now - start) / duration;
-        if (percent > 1) {
-          percent = 1;
-        }
-      }
-
-      // Execute step callback, then...
-      var value = easingMethod ? easingMethod(percent) : percent;
-      if ((stepCallback(value, now, render) === false || percent === 1) && render) {
-        running[id] = null;
-        completedCallback && completedCallback(desiredFrames - dropCounter / ((now - start) / millisecondsPerSecond), id, percent === 1 || duration == null);
-      } else if (render) {
-        lastFrame = now;
-        core.effect.Animate.requestAnimationFrame(step, root);
-      }
-    };
-
-    // Mark as running
-    running[id] = true;
-
-    // Init first step
-    core.effect.Animate.requestAnimationFrame(step, root);
-
-    // Return unique animation ID
-    return id;
-  }
-};
-
-/*
- * Scroller
- * http://github.com/zynga/scroller
- *
- * modified by wangyi7099
- *
- * Copyright 2011, Zynga Inc.
- * Licensed under the MIT License.
- * https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
- *
- * Based on the work of: Unify Project (unify-project.org)
- * http://unify-project.org
- * Copyright 2011, Deutsche Telekom AG
- * License: MIT + Apache (V2)
- */
-var animatingMethod = null;
-
-var noAnimatingMethod = null;
-
-function Scroller(callback, options) {
-  this.__callback = callback;
-
-  this.options = {
-    /** Enable scrolling on x-axis */
-    scrollingX: true,
-
-    /** Enable scrolling on y-axis */
-    scrollingY: true,
-
-    /** Enable animations for deceleration, snap back, zooming and scrolling */
-    animating: true,
-
-    /** duration for animations triggered by scrollTo/zoomTo */
-    animationDuration: 250,
-
-    /** Enable bouncing (content can be slowly moved outside and jumps back after releasing) */
-    bouncing: {
-      top: 100,
-      bottom: 100,
-      left: 100,
-      right: 100
-    },
-
-    /** Enable locking to the main axis if user moves only slightly on one of them at start */
-    locking: true,
-
-    /** Enable pagination mode (switching between full page content panes) */
-    paging: false,
-
-    /** Enable snapping of content to a configured pixel grid */
-    snapping: false,
-
-    /** Enable zooming of content via API, fingers and mouse wheel */
-    zooming: false,
-
-    /** Minimum zoom level */
-    minZoom: 0.5,
-
-    /** Maximum zoom level */
-    maxZoom: 3,
-
-    /** Multiply or decrease scrolling speed **/
-    speedMultiplier: 1,
-
-    /** Callback that is fired on the later of touch end or deceleration end,
-    provided that another scrolling action has not begun. Used to know
-    when to fade out a scrollbar. */
-    scrollingComplete: NOOP,
-
-    animatingEasing: 'easeOutCubic',
-
-    noAnimatingEasing: 'easeInOutCubic',
-
-    /** This configures the amount of change applied to deceleration when reaching boundaries  **/
-    penetrationDeceleration: 0.03,
-
-    /** This configures the amount of change applied to acceleration when reaching boundaries  **/
-    penetrationAcceleration: 0.08
-  };
-
-  for (var key in options) {
-    this.options[key] = options[key];
-  }
-
-  animatingMethod = createEasingFunction(this.options.animatingEasing, easingPattern);
-  noAnimatingMethod = createEasingFunction(this.options.noAnimatingEasing, easingPattern);
-}
-
-var members = {
-  /*
-  ---------------------------------------------------------------------------
-  INTERNAL FIELDS :: STATUS
-  ---------------------------------------------------------------------------
-  */
-
-  /** {Boolean} Whether only a single finger is used in touch handling */
-  __isSingleTouch: false,
-
-  /** {Boolean} Whether a touch event sequence is in progress */
-  __isTracking: false,
-
-  /** {Boolean} Whether a deceleration animation went to completion. */
-  __didDecelerationComplete: false,
-
-  /**
-   * {Boolean} Whether a gesture zoom/rotate event is in progress. Activates when
-   * a gesturestart event happens. This has higher priority than dragging.
-   */
-  __isGesturing: false,
-
-  /**
-   * {Boolean} Whether the user has moved by such a distance that we have enabled
-   * dragging mode. Hint: It's only enabled after some pixels of movement to
-   * not interrupt with clicks etc.
-   */
-  __isDragging: false,
-
-  /**
-   * {Boolean} Not touching and dragging anymore, and smoothly animating the
-   * touch sequence using deceleration.
-   */
-  __isDecelerating: false,
-
-  /**
-   * {Boolean} Smoothly animating the currently configured change
-   */
-  __isAnimating: false,
-
-  /*
-  ---------------------------------------------------------------------------
-  INTERNAL FIELDS :: DIMENSIONS
-  ---------------------------------------------------------------------------
-  */
-
-  /** {Integer} Available outer left position (from document perspective) */
-  __clientLeft: 0,
-
-  /** {Integer} Available outer top position (from document perspective) */
-  __clientTop: 0,
-
-  /** {Integer} Available outer width */
-  __clientWidth: 0,
-
-  /** {Integer} Available outer height */
-  __clientHeight: 0,
-
-  /** {Integer} Outer width of content */
-  __contentWidth: 0,
-
-  /** {Integer} Outer height of content */
-  __contentHeight: 0,
-
-  /** {Integer} Snapping width for content */
-  __snapWidth: 100,
-
-  /** {Integer} Snapping height for content */
-  __snapHeight: 100,
-
-  /** {Integer} Height to assign to refresh area */
-  __refreshHeight: null,
-  /** {Integer} Height to assign to refresh area */
-  __loadHeight: null,
-  /** {Boolean} Whether the refresh process is enabled when the event is released now */
-  __refreshActive: false,
-
-  /** {Function} Callback to execute on activation. This is for signalling the user about a refresh is about to happen when he release */
-  __refreshActivate: null,
-
-  __refreshBeforeDeactivate: null,
-
-  /** {Function} Callback to execute on deactivation. This is for signalling the user about the refresh being cancelled */
-  __refreshDeactivate: null,
-
-  /** {Function} Callback to execute to start the actual refresh. Call {@link #refreshFinish} when done */
-  __refreshStart: null,
-
-  __loadActive: null,
-
-  __loadActivate: null,
-
-  __loadBeforeDeactivate: null,
-
-  __loadDeactivate: null,
-
-  __loadStart: null,
-  /** {Number} Zoom level */
-  __zoomLevel: 1,
-
-  /** {Number} Scroll position on x-axis */
-  __scrollLeft: 0,
-
-  /** {Number} Scroll position on y-axis */
-  __scrollTop: 0,
-
-  /** {Integer} Maximum allowed scroll position on x-axis */
-  __maxScrollLeft: 0,
-
-  /** {Integer} Maximum allowed scroll position on y-axis */
-  __maxScrollTop: 0,
-
-  /* {Number} Scheduled left position (final position when animating) */
-  __scheduledLeft: 0,
-
-  /* {Number} Scheduled top position (final position when animating) */
-  __scheduledTop: 0,
-
-  /* {Number} Scheduled zoom level (final scale when animating) */
-  __scheduledZoom: 0,
-
-  /**
-   * current page
-   */
-  __currentPageX: null,
-
-  __currentPageY: null,
-
-  /**
-   * total page
-   */
-  __totalXPage: null,
-
-  __totalYPage: null,
-  /*
-  ---------------------------------------------------------------------------
-  INTERNAL FIELDS :: LAST POSITIONS
-  ---------------------------------------------------------------------------
-  */
-  /** whether the scroller is disabled or not */
-  __disable: false,
-  /** {Number} Left position of finger at start */
-  __lastTouchLeft: null,
-
-  /** {Number} Top position of finger at start */
-  __lastTouchTop: null,
-
-  /** {Date} Timestamp of last move of finger. Used to limit tracking range for deceleration speed. */
-  __lastTouchMove: null,
-
-  /** {Array} List of positions, uses three indexes for each state: left, top, timestamp */
-  __positions: null,
-
-  /*
-  ---------------------------------------------------------------------------
-  INTERNAL FIELDS :: DECELERATION SUPPORT
-  ---------------------------------------------------------------------------
-  */
-
-  /** {Integer} Minimum left scroll position during deceleration */
-  __minDecelerationScrollLeft: null,
-
-  /** {Integer} Minimum top scroll position during deceleration */
-  __minDecelerationScrollTop: null,
-
-  /** {Integer} Maximum left scroll position during deceleration */
-  __maxDecelerationScrollLeft: null,
-
-  /** {Integer} Maximum top scroll position during deceleration */
-  __maxDecelerationScrollTop: null,
-
-  /** {Number} Current factor to modify horizontal scroll position with on every step */
-  __decelerationVelocityX: null,
-
-  /** {Number} Current factor to modify vertical scroll position with on every step */
-  __decelerationVelocityY: null,
-
-  /*
-  ---------------------------------------------------------------------------
-  PUBLIC API
-  ---------------------------------------------------------------------------
-  */
-
-  /**
-   * Configures the dimensions of the client (outer) and content (inner) elements.
-   * Requires the available space for the outer element and the outer size of the inner element.
-   * All values which are falsy (null or zero etc.) are ignored and the old value is kept.
-   *
-   * @param clientWidth {Integer ? null} Inner width of outer element
-   * @param clientHeight {Integer ? null} Inner height of outer element
-   * @param contentWidth {Integer ? null} Outer width of inner element
-   * @param contentHeight {Integer ? null} Outer height of inner element
-   */
-  setDimensions: function setDimensions(clientWidth, clientHeight, contentWidth, contentHeight, animate) {
-    var noScroll = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
-
-    var self = this;
-
-    // Only update values which are defined
-    if (clientWidth === +clientWidth) {
-      self.__clientWidth = clientWidth;
-    }
-
-    if (clientHeight === +clientHeight) {
-      self.__clientHeight = clientHeight;
-    }
-
-    if (contentWidth === +contentWidth) {
-      self.__contentWidth = contentWidth;
-    }
-
-    if (contentHeight === +contentHeight) {
-      self.__contentHeight = contentHeight;
-    }
-
-    // Refresh maximums
-    self.__computeScrollMax();
-
-    if (!noScroll) {
-      // Refresh scroll position
-      self.scrollTo(self.__scrollLeft, self.__scrollTop, animate);
-    }
-  },
-
-  /**
-   * Sets the client coordinates in relation to the document.
-   *
-   * @param left {Integer ? 0} Left position of outer element
-   * @param top {Integer ? 0} Top position of outer element
-   */
-  setPosition: function setPosition(left, top) {
-    var self = this;
-
-    self.__clientLeft = left || 0;
-    self.__clientTop = top || 0;
-  },
-
-  /**
-   * Configures the snapping (when snapping is active)
-   *
-   * @param width {Integer} Snapping width
-   * @param height {Integer} Snapping height
-   */
-  setSnapSize: function setSnapSize(width, height) {
-    var self = this;
-
-    self.__snapWidth = width;
-    self.__snapHeight = height;
-  },
-
-  /**
-   * Activates pull-to-refresh. A special zone on the top of the list to start a list refresh whenever
-   * the user event is released during visibility of this zone. This was introduced by some apps on iOS like
-   * the official Twitter client.
-   *
-   * @param height {Integer} Height of pull-to-refresh zone on top of rendered list
-   * @param activateCallback {Function} Callback to execute on activation. This is for signalling the user about a refresh is about to happen when he release.
-   * @param deactivateCallback {Function} Callback to execute on deactivation. This is for signalling the user about the refresh being cancelled.
-   * @param startCallback {Function} Callback to execute to start the real async refresh action. Call {@link #finishPullToRefresh} after finish of refresh.
-   */
-  activatePullToRefresh: function activatePullToRefresh(height, _ref) {
-    var activateCallback = _ref.activateCallback,
-        deactivateCallback = _ref.deactivateCallback,
-        startCallback = _ref.startCallback,
-        beforeDeactivateCallback = _ref.beforeDeactivateCallback,
-        beforeDeactiveEnd = _ref.beforeDeactiveEnd;
-
-    var self = this;
-
-    self.__refreshHeight = height;
-    self.__refreshActivate = activateCallback;
-    self.__refreshBeforeDeactivate = beforeDeactivateCallback;
-    self.__refreshBeforeDeactiveEnd = beforeDeactiveEnd;
-    self.__refreshDeactivate = deactivateCallback;
-    self.__refreshStart = startCallback;
-  },
-  activatePushToLoad: function activatePushToLoad(height, _ref2) {
-    var activateCallback = _ref2.activateCallback,
-        deactivateCallback = _ref2.deactivateCallback,
-        startCallback = _ref2.startCallback,
-        beforeDeactivateCallback = _ref2.beforeDeactivateCallback,
-        beforeDeactiveEnd = _ref2.beforeDeactiveEnd;
-
-    var self = this;
-
-    self.__loadHeight = height;
-    self.__loadActivate = activateCallback;
-    self.__loadBeforeDeactivate = beforeDeactivateCallback;
-    self.__loadBeforeDeactiveEnd = beforeDeactiveEnd;
-    self.__loadDeactivate = deactivateCallback;
-    self.__loadStart = startCallback;
-  },
-
-  /**
-   * Starts pull-to-refresh manually.
-   */
-  triggerRefreshOrLoad: function triggerRefreshOrLoad() {
-    var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'refresh';
-
-    var wasDecelerating = this.__isDecelerating;
-    if (wasDecelerating) {
-      core.effect.Animate.stop(wasDecelerating);
-      this.__isDecelerating = false;
-    }
-    // Use publish instead of scrollTo to allow scrolling to out of boundary position
-    // We don't need to normalize scrollLeft, zoomLevel, etc. here because we only y-scrolling when pull-to-refresh is enabled
-    if (type == 'refresh') {
-      if (this.__refreshActive || this.__refreshBeforeDeactiveStarted) return;
-
-      this.__publish(this.__scrollLeft, -this.__refreshHeight, this.__zoomLevel, true);
-      if (this.__refreshStart) {
-        this.__refreshStart();
-        this.__refreshActive = true;
-      }
-    } else if (type == 'load') {
-      if (this.__loadActive || this.__loadBeforeDeactiveStarted) return;
-
-      this.__publish(this.__scrollLeft, this.__maxScrollTop + this.__loadHeight, this.__zoomLevel, true);
-      if (this.__loadStart) {
-        this.__loadStart();
-        this.__loadActive = true;
-      }
-    }
-  },
-
-  /**
-   * Signalizes that pull-to-refresh is finished.
-   */
-  finishRefreshOrLoad: function finishRefreshOrLoad() {
-    var self = this;
-
-    if (self.__refreshActive) {
-      self.__refreshActive = false;
-      var endRefreshActive = function endRefreshActive() {
-        if (self.__refreshBeforeDeactiveEnd) {
-          self.__refreshBeforeDeactiveEnd();
-        }
-        self.__refreshBeforeDeactiveStarted = true;
-        self.scrollTo(self.__scrollLeft, self.__scrollTop, true);
-      };
-
-      if (self.__refreshBeforeDeactivate) {
-        self.__refreshBeforeDeactivate(endRefreshActive);
-      } else {
-        endRefreshActive();
-      }
-    }
-
-    if (self.__loadActive) {
-      self.__loadActive = false;
-      var endLoadActive = function endLoadActive() {
-        if (self.__loadBeforeDeactiveEnd) {
-          self.__loadBeforeDeactiveEnd();
-        }
-        self.__loadBeforeDeactiveStarted = true;
-        self.scrollTo(self.__scrollLeft, self.__scrollTop, true);
-      };
-
-      if (self.__loadBeforeDeactivate) {
-        self.__loadBeforeDeactivate(endLoadActive);
-      } else {
-        endLoadActive();
-      }
-    }
-  },
-
-  /**
-   * Returns the scroll position and zooming values
-   *
-   * @return {Map} `left` and `top` scroll position and `zoom` level
-   */
-  getValues: function getValues() {
-    var self = this;
-
-    return {
-      left: self.__scrollLeft,
-      top: self.__scrollTop,
-      zoom: self.__zoomLevel
-    };
-  },
-
-  /**
-   * Returns the maximum scroll values
-   *
-   * @return {Map} `left` and `top` maximum scroll values
-   */
-  getScrollMax: function getScrollMax() {
-    var self = this;
-
-    return {
-      left: self.__maxScrollLeft,
-      top: self.__maxScrollTop
-    };
-  },
-
-  /**
-   * Zooms to the given level. Supports optional animation. Zooms
-   * the center when no coordinates are given.
-   *
-   * @param level {Number} Level to zoom to
-   * @param animate {Boolean ? false} Whether to use animation
-   * @param originLeft {Number ? null} Zoom in at given left coordinate
-   * @param originTop {Number ? null} Zoom in at given top coordinate
-   * @param callback {Function ? null} A callback that gets fired when the zoom is complete.
-   */
-  zoomTo: function zoomTo(level, animate, originLeft, originTop, callback) {
-    var self = this;
-
-    if (!self.options.zooming) {
-      throw new Error('Zooming is not enabled!');
-    }
-
-    // Add callback if exists
-    if (callback) {
-      self.__zoomComplete = callback;
-    }
-
-    // Stop deceleration
-    if (self.__isDecelerating) {
-      core.effect.Animate.stop(self.__isDecelerating);
-      self.__isDecelerating = false;
-    }
-
-    var oldLevel = self.__zoomLevel;
-
-    // Normalize input origin to center of viewport if not defined
-    if (originLeft == null) {
-      originLeft = self.__clientWidth / 2;
-    }
-
-    if (originTop == null) {
-      originTop = self.__clientHeight / 2;
-    }
-
-    // Limit level according to configuration
-    level = Math.max(Math.min(level, self.options.maxZoom), self.options.minZoom);
-
-    // Recompute maximum values while temporary tweaking maximum scroll ranges
-    self.__computeScrollMax(level);
-
-    // Recompute left and top coordinates based on new zoom level
-    var left = (originLeft + self.__scrollLeft) * level / oldLevel - originLeft;
-    var top = (originTop + self.__scrollTop) * level / oldLevel - originTop;
-
-    // Limit x-axis
-    if (left > self.__maxScrollLeft) {
-      left = self.__maxScrollLeft;
-    } else if (left < 0) {
-      left = 0;
-    }
-
-    // Limit y-axis
-    if (top > self.__maxScrollTop) {
-      top = self.__maxScrollTop;
-    } else if (top < 0) {
-      top = 0;
-    }
-
-    // Push values out
-    self.__publish(left, top, level, animate);
-  },
-
-  /**
-   * Zooms the content by the given factor.
-   *
-   * @param factor {Number} Zoom by given factor
-   * @param animate {Boolean ? false} Whether to use animation
-   * @param originLeft {Number ? 0} Zoom in at given left coordinate
-   * @param originTop {Number ? 0} Zoom in at given top coordinate
-   * @param callback {Function ? null} A callback that gets fired when the zoom is complete.
-   */
-  zoomBy: function zoomBy(factor, animate, originLeft, originTop, callback) {
-    var self = this;
-
-    self.zoomTo(self.__zoomLevel * factor, animate, originLeft, originTop, callback);
-  },
-
-  /**
-   * Scrolls to the given position. Respect limitations and snapping automatically.
-   *
-   * @param left {Number?null} Horizontal scroll position, keeps current if value is <code>null</code>
-   * @param top {Number?null} Vertical scroll position, keeps current if value is <code>null</code>
-   * @param animate {Boolean?false} Whether the scrolling should happen using an animation
-   * @param zoom {Number?null} Zoom level to go to
-   */
-  scrollTo: function scrollTo(left, top, animate, zoom, force, speed, easing) {
-    var self = this;
-
-    // Stop deceleration
-    if (self.__isDecelerating) {
-      core.effect.Animate.stop(self.__isDecelerating);
-      self.__isDecelerating = false;
-    }
-
-    // Correct coordinates based on new zoom level
-    if (zoom != null && zoom !== self.__zoomLevel) {
-      if (!self.options.zooming) {
-        throw new Error('Zooming is not enabled!');
-      }
-
-      left *= zoom;
-      top *= zoom;
-
-      // Recompute maximum values while temporary tweaking maximum scroll ranges
-      self.__computeScrollMax(zoom);
-    } else {
-      // Keep zoom when not defined
-      zoom = self.__zoomLevel;
-    }
-
-    if (!self.options.scrollingX && !force) {
-      left = self.__scrollLeft;
-    } else {
-      if (self.options.paging) {
-        left = Math.round(left / self.__clientWidth) * self.__clientWidth;
-      } else if (self.options.snapping) {
-        left = Math.round(left / self.__snapWidth) * self.__snapWidth;
-      }
-    }
-
-    if (!self.options.scrollingY && !force) {
-      top = self.__scrollTop;
-    } else {
-      if (self.options.paging) {
-        top = Math.round(top / self.__clientHeight) * self.__clientHeight;
-      } else if (self.options.snapping) {
-        top = Math.round(top / self.__snapHeight) * self.__snapHeight;
-      }
-    }
-
-    if (!force) {
-      // Limit for allowed ranges
-      left = Math.max(Math.min(self.__maxScrollLeft, left), 0);
-      top = Math.max(Math.min(self.__maxScrollTop, top), 0);
-    }
-
-    // Don't animate when no change detected, still call publish to make sure
-    // that rendered position is really in-sync with internal data
-    if (left === self.__scrollLeft && top === self.__scrollTop) {
-      animate = false;
-    }
-
-    // Publish new values
-    if (!self.__isTracking) {
-      self.__publish(left, top, zoom, animate, speed, easing);
-    }
-  },
-
-  /**
-   * Scroll by the given offset
-   *
-   * @param left {Number ? 0} Scroll x-axis by given offset
-   * @param top {Number ? 0} Scroll x-axis by given offset
-   * @param animate {Boolean ? false} Whether to animate the given change
-   */
-  scrollBy: function scrollBy(left, top, animate) {
-    var self = this;
-
-    var startLeft = self.__isAnimating ? self.__scheduledLeft : self.__scrollLeft;
-    var startTop = self.__isAnimating ? self.__scheduledTop : self.__scrollTop;
-
-    self.scrollTo(startLeft + (left || 0), startTop + (top || 0), animate);
-  },
-  getCurrentPage: function getCurrentPage() {
-    this.__computePage();
-    return {
-      x: this.__currentPageX,
-      y: this.__currentPageY
-    };
-  },
-  goToPage: function goToPage(_ref3, animate) {
-    var x = _ref3.x,
-        y = _ref3.y;
-
-    if (isNaN(x)) {
-      x = 1;
-    }
-    if (isNaN(y)) {
-      y = 1;
-    }
-    this.scrollTo((x - 1) * this.__clientWidth, (y - 1) * this.__clientHeight, animate);
-  },
-
-
-  /*
-  ---------------------------------------------------------------------------
-  EVENT CALLBACKS
-  ---------------------------------------------------------------------------
-  */
-
-  /**
-   * Mouse wheel handler for zooming support
-   */
-  doMouseZoom: function doMouseZoom(wheelDelta, timeStamp, pageX, pageY) {
-    var self = this;
-    var change = wheelDelta > 0 ? 0.97 : 1.03;
-
-    return self.zoomTo(self.__zoomLevel * change, false, pageX - self.__clientLeft, pageY - self.__clientTop);
-  },
-
-  /**
-   * Touch start handler for scrolling support
-   */
-  doTouchStart: function doTouchStart(touches, timeStamp) {
-    // Array-like check is enough here
-    if (touches.length == null) {
-      throw new Error('Invalid touch list: ' + touches);
-    }
-
-    if (timeStamp instanceof Date) {
-      timeStamp = timeStamp.valueOf();
-    }
-    if (typeof timeStamp !== 'number') {
-      throw new Error('Invalid timestamp value: ' + timeStamp);
-    }
-
-    var self = this;
-
-    // Reset interruptedAnimation flag
-    self.__interruptedAnimation = true;
-
-    // Stop deceleration
-    if (self.__isDecelerating) {
-      core.effect.Animate.stop(self.__isDecelerating);
-      self.__isDecelerating = false;
-      self.__interruptedAnimation = true;
-    }
-
-    // Stop animation
-    if (self.__isAnimating) {
-      core.effect.Animate.stop(self.__isAnimating);
-      self.__isAnimating = false;
-      self.__interruptedAnimation = true;
-    }
-
-    // Use center point when dealing with two fingers
-    var currentTouchLeft, currentTouchTop;
-    var isSingleTouch = touches.length === 1;
-    if (isSingleTouch) {
-      currentTouchLeft = touches[0].pageX;
-      currentTouchTop = touches[0].pageY;
-    } else {
-      currentTouchLeft = Math.abs(touches[0].pageX + touches[1].pageX) / 2;
-      currentTouchTop = Math.abs(touches[0].pageY + touches[1].pageY) / 2;
-    }
-
-    // Store initial positions
-    self.__initialTouchLeft = currentTouchLeft;
-    self.__initialTouchTop = currentTouchTop;
-
-    // Store current zoom level
-    self.__zoomLevelStart = self.__zoomLevel;
-
-    // Store initial touch positions
-    self.__lastTouchLeft = currentTouchLeft;
-    self.__lastTouchTop = currentTouchTop;
-
-    // Store initial move time stamp
-    self.__lastTouchMove = timeStamp;
-
-    // Reset initial scale
-    self.__lastScale = 1;
-
-    // Reset locking flags
-    self.__enableScrollX = !isSingleTouch && self.options.scrollingX;
-    self.__enableScrollY = !isSingleTouch && self.options.scrollingY;
-
-    // Reset tracking flag
-    self.__isTracking = true;
-
-    // Reset deceleration complete flag
-    self.__didDecelerationComplete = false;
-
-    // Dragging starts directly with two fingers, otherwise lazy with an offset
-    self.__isDragging = !isSingleTouch;
-
-    // Some features are  in multi touch scenarios
-    self.__isSingleTouch = isSingleTouch;
-
-    // Clearing data structure
-    self.__positions = [];
-  },
-
-  /**
-   * Touch move handler for scrolling support
-   */
-  doTouchMove: function doTouchMove(touches, timeStamp, scale) {
-    // Array-like check is enough here
-    if (touches.length == null) {
-      throw new Error('Invalid touch list: ' + touches);
-    }
-
-    if (timeStamp instanceof Date) {
-      timeStamp = timeStamp.valueOf();
-    }
-    if (typeof timeStamp !== 'number') {
-      throw new Error('Invalid timestamp value: ' + timeStamp);
-    }
-
-    var self = this;
-
-    // Ignore event when tracking is not enabled (event might be outside of element)
-    if (!self.__isTracking) {
-      return;
-    }
-
-    var currentTouchLeft, currentTouchTop;
-
-    // Compute move based around of center of fingers
-    if (touches.length === 2) {
-      currentTouchLeft = Math.abs(touches[0].pageX + touches[1].pageX) / 2;
-      currentTouchTop = Math.abs(touches[0].pageY + touches[1].pageY) / 2;
-    } else {
-      currentTouchLeft = touches[0].pageX;
-      currentTouchTop = touches[0].pageY;
-    }
-
-    var positions = self.__positions;
-
-    // Are we already is dragging mode?
-    if (self.__isDragging) {
-      // Compute move distance
-      var moveX = currentTouchLeft - self.__lastTouchLeft;
-      var moveY = currentTouchTop - self.__lastTouchTop;
-
-      // Read previous scroll position and zooming
-      var scrollLeft = self.__scrollLeft;
-      var scrollTop = self.__scrollTop;
-      var level = self.__zoomLevel;
-
-      // Work with scaling
-      if (scale != null && self.options.zooming) {
-        var oldLevel = level;
-
-        // Recompute level based on previous scale and new scale
-        level = level / self.__lastScale * scale;
-
-        // Limit level according to configuration
-        level = Math.max(Math.min(level, self.options.maxZoom), self.options.minZoom);
-
-        // Only do further compution when change happened
-        if (oldLevel !== level) {
-          // Compute relative event position to container
-          var currentTouchLeftRel = currentTouchLeft - self.__clientLeft;
-          var currentTouchTopRel = currentTouchTop - self.__clientTop;
-
-          // Recompute left and top coordinates based on new zoom level
-          scrollLeft = (currentTouchLeftRel + scrollLeft) * level / oldLevel - currentTouchLeftRel;
-          scrollTop = (currentTouchTopRel + scrollTop) * level / oldLevel - currentTouchTopRel;
-
-          // Recompute max scroll values
-          self.__computeScrollMax(level);
-        }
-      }
-
-      var bouncing = self.options.bouncing;
-
-      if (self.__enableScrollX) {
-        scrollLeft -= moveX * this.options.speedMultiplier;
-        var maxScrollLeft = self.__maxScrollLeft;
-
-        if (scrollLeft > maxScrollLeft || scrollLeft < 0) {
-          scrollLeft += moveX / 2 * this.options.speedMultiplier;
-
-          // fix scrollLeft
-          scrollLeft = Math.min(Math.max(-bouncing.left, scrollLeft), maxScrollLeft + bouncing.right);
-        }
-      }
-
-      // Compute new vertical scroll position
-      if (self.__enableScrollY) {
-        scrollTop -= moveY * this.options.speedMultiplier;
-        var maxScrollTop = self.__maxScrollTop;
-
-        if (scrollTop > maxScrollTop || scrollTop < 0) {
-          scrollTop += moveY / 2 * this.options.speedMultiplier;
-
-          // fix scrollTop
-          scrollTop = Math.min(Math.max(-bouncing.top, scrollTop), maxScrollTop + bouncing.bottom);
-
-          // Trigger pull to refresh or push to load
-          if (!self.__enableScrollX && (self.__refreshHeight != null || self.__loadHeight != null)) {
-            if (!self.__refreshActive && scrollTop <= -self.__refreshHeight) {
-              self.__refreshActive = true;
-              if (self.__refreshActivate) {
-                self.__refreshActivate();
-              }
-            } else if (self.__refreshActive && scrollTop > -self.__refreshHeight) {
-              self.__refreshActive = false;
-              if (self.__refreshDeactivate) {
-                self.__refreshDeactivate();
-              }
-            }
-            // handle for push-load
-            else if (!self.__loadActive && scrollTop >= self.__maxScrollTop + self.__loadHeight && self.__loadHeight > 0) {
-                self.__loadActive = true;
-                if (self.__loadActivate) {
-                  self.__loadActivate();
-                }
-              } else if (self.__loadActive && scrollTop < self.__maxScrollTop + self.__loadHeight) {
-                self.__loadActive = false;
-                if (self.__loadDeactivate) {
-                  self.__loadDeactivate();
-                }
-              }
-          }
-        }
-      }
-
-      // Keep list from growing infinitely (holding min 10, max 20 measure points)
-      if (positions.length > 60) {
-        positions.splice(0, 30);
-      }
-
-      // Track scroll movement for decleration
-      positions.push(scrollLeft, scrollTop, timeStamp);
-
-      // Sync scroll position
-      self.__publish(scrollLeft, scrollTop, level);
-
-      // Otherwise figure out whether we are switching into dragging mode now.
-    } else {
-      var minimumTrackingForScroll = self.options.locking ? 3 : 0;
-      var minimumTrackingForDrag = 5;
-
-      var distanceX = Math.abs(currentTouchLeft - self.__initialTouchLeft);
-      var distanceY = Math.abs(currentTouchTop - self.__initialTouchTop);
-
-      self.__enableScrollX = self.options.scrollingX && distanceX >= minimumTrackingForScroll;
-      self.__enableScrollY = self.options.scrollingY && distanceY >= minimumTrackingForScroll;
-
-      positions.push(self.__scrollLeft, self.__scrollTop, timeStamp);
-
-      self.__isDragging = (self.__enableScrollX || self.__enableScrollY) && (distanceX >= minimumTrackingForDrag || distanceY >= minimumTrackingForDrag);
-      if (self.__isDragging) {
-        self.__interruptedAnimation = false;
-      }
-    }
-
-    // Update last touch positions and time stamp for next event
-    self.__lastTouchLeft = currentTouchLeft;
-    self.__lastTouchTop = currentTouchTop;
-    self.__lastTouchMove = timeStamp;
-    self.__lastScale = scale;
-  },
-
-  /**
-   * Touch end handler for scrolling support
-   */
-  doTouchEnd: function doTouchEnd(timeStamp) {
-    if (timeStamp instanceof Date) {
-      timeStamp = timeStamp.valueOf();
-    }
-    if (typeof timeStamp !== 'number') {
-      throw new Error('Invalid timestamp value: ' + timeStamp);
-    }
-
-    var self = this;
-
-    // Ignore event when tracking is not enabled (no touchstart event on element)
-    // This is required as this listener ('touchmove') sits on the document and not on the element itself.
-    if (!self.__isTracking) {
-      return;
-    }
-
-    // Not touching anymore (when two finger hit the screen there are two touch end events)
-    self.__isTracking = false;
-
-    // Be sure to reset the dragging flag now. Here we also detect whether
-    // the finger has moved fast enough to switch into a deceleration animation.
-    if (self.__isDragging) {
-      // Reset dragging flag
-      self.__isDragging = false;
-
-      // Start deceleration
-      // Verify that the last move detected was in some relevant time frame
-      if (self.__isSingleTouch && self.options.animating && timeStamp - self.__lastTouchMove <= 100) {
-        // Then figure out what the scroll position was about 100ms ago
-        var positions = self.__positions;
-        var endPos = positions.length - 1;
-        var startPos = endPos;
-
-        // Move pointer to position measured 100ms ago
-        for (var i = endPos; i > 0 && positions[i] > self.__lastTouchMove - 100; i -= 3) {
-          startPos = i;
-        }
-
-        // If start and stop position is identical in a 100ms timeframe,
-        // we cannot compute any useful deceleration.
-        if (startPos !== endPos) {
-          // Compute relative movement between these two points
-          var timeOffset = positions[endPos] - positions[startPos];
-          var movedLeft = self.__scrollLeft - positions[startPos - 2];
-          var movedTop = self.__scrollTop - positions[startPos - 1];
-
-          // Based on 50ms compute the movement to apply for each render step
-          self.__decelerationVelocityX = movedLeft / timeOffset * (1000 / 60);
-          self.__decelerationVelocityY = movedTop / timeOffset * (1000 / 60);
-
-          // How much velocity is required to start the deceleration
-          var minVelocityToStartDeceleration = self.options.paging || self.options.snapping ? 4 : 1;
-
-          // Verify that we have enough velocity to start deceleration
-          if (Math.abs(self.__decelerationVelocityX) > minVelocityToStartDeceleration || Math.abs(self.__decelerationVelocityY) > minVelocityToStartDeceleration) {
-            // Deactivate pull-to-refresh when decelerating
-            if (!self.__refreshActive && !self.__loadActive) {
-              self.__startDeceleration(timeStamp);
-            }
-          } else {
-            self.__scrollComplete();
-          }
-        } else {
-          self.__scrollComplete();
-        }
-      } else if (timeStamp - self.__lastTouchMove > 100) {
-        self.__scrollComplete();
-      }
-    }
-
-    // If this was a slower move it is per default non decelerated, but this
-    // still means that we want snap back to the bounds which is done here.
-    // This is placed outside the condition above to improve edge case stability
-    // e.g. touchend fired without enabled dragging. This should normally do not
-    // have modified the scroll positions or even showed the scrollbars though.
-    if (!self.__isDecelerating) {
-      if (self.__refreshActive && self.__refreshStart) {
-        // Use publish instead of scrollTo to allow scrolling to out of boundary position
-        // We don't need to normalize scrollLeft, zoomLevel, etc. here because we only y-scrolling when pull-to-refresh is enabled
-        self.__publish(self.__scrollLeft, -self.__refreshHeight, self.__zoomLevel, true);
-
-        if (self.__refreshStart) {
-          self.__refreshStart();
-        }
-      } else if (self.__loadActive && self.__loadStart) {
-        // Use publish instead of scrollTo to allow scrolling to out of boundary position
-        // We don't need to normalize scrollLeft, zoomLevel, etc. here because we only y-scrolling when pull-to-refresh is enabled
-        self.__publish(self.__scrollLeft, self.__maxScrollTop + self.__loadHeight, self.__zoomLevel, true);
-
-        if (self.__loadStart) {
-          self.__loadStart();
-        }
-      } else {
-        if (self.__interruptedAnimation || self.__isDragging) {
-          self.__scrollComplete();
-        }
-        self.scrollTo(self.__scrollLeft, self.__scrollTop, true, self.__zoomLevel);
-
-        // Directly signalize deactivation (nothing todo on refresh?)
-        if (self.__refreshActive) {
-          self.__refreshActive = false;
-          if (self.__refreshDeactivate) {
-            self.__refreshDeactivate();
-          }
-        } else if (self.__loadActive) {
-          self.__loadActive = false;
-          if (self.__loadDeactivate) {
-            self.__loadDeactivate();
-          }
-        }
-      }
-    }
-
-    // Fully cleanup list
-    self.__positions.length = 0;
-  },
-
-  /** Handle for scroll/publish */
-  onScroll: NOOP,
-
-  stop: function stop() {
-    var self = this;
-
-    self.__disable = true;
-  },
-  start: function start() {
-    var self = this;
-
-    self.__disable = true;
-  },
-  /*
-  ---------------------------------------------------------------------------
-  PRIVATE API
-  ---------------------------------------------------------------------------
-  */
-
-  /**
-   * Applies the scroll position to the content element
-   *
-   * @param left {Number} Left scroll position
-   * @param top {Number} Top scroll position
-   * @param animate {Boolean?false} Whether animation should be used to move to the new coordinates
-   */
-  __publish: function __publish(left, top, zoom, animate, speed, easing) {
-    var self = this;
-    if (self.__disable) {
-      return;
-    }
-    if (isNaN(left)) {
-      left = this.__scrollLeft;
-    }
-    if (isNaN(top)) {
-      top = this.__scrollTop;
-    }
-    // Remember whether we had an animation, then we try to continue based on the current "drive" of the animation
-    var wasAnimating = self.__isAnimating;
-    if (wasAnimating) {
-      core.effect.Animate.stop(wasAnimating);
-      self.__isAnimating = false;
-    }
-
-    if (animate && (self.options.animating || speed)) {
-      // Keep scheduled positions for scrollBy/zoomBy functionality
-      self.__scheduledLeft = left;
-      self.__scheduledTop = top;
-      self.__scheduledZoom = zoom;
-
-      var oldLeft = self.__scrollLeft;
-      var oldTop = self.__scrollTop;
-      var oldZoom = self.__zoomLevel;
-
-      var diffLeft = left - oldLeft;
-      var diffTop = top - oldTop;
-      var diffZoom = zoom - oldZoom;
-
-      var step = function step(percent, now, render) {
-        if (render) {
-          self.__scrollLeft = oldLeft + diffLeft * percent;
-          self.__scrollTop = oldTop + diffTop * percent;
-          self.__zoomLevel = oldZoom + diffZoom * percent;
-
-          // Push values out
-          if (self.__callback) {
-            self.__callback(self.__scrollLeft, self.__scrollTop, self.__zoomLevel);
-            self.onScroll();
-          }
-        }
-      };
-
-      var verify = function verify(id) {
-        return self.__isAnimating === id;
-      };
-
-      var completed = function completed(renderedFramesPerSecond, animationId, wasFinished) {
-        if (animationId === self.__isAnimating) {
-          self.__isAnimating = false;
-        }
-        if (self.__didDecelerationComplete || wasFinished) {
-          self.__scrollComplete();
-        }
-
-        if (self.options.zooming) {
-          self.__computeScrollMax();
-          if (self.__zoomComplete) {
-            self.__zoomComplete();
-            self.__zoomComplete = null;
-          }
-        }
-
-        if (self.__refreshBeforeDeactiveStarted) {
-          self.__refreshBeforeDeactiveStarted = false;
-          if (self.__refreshDeactivate) self.__refreshDeactivate();
-        }
-
-        if (self.__loadBeforeDeactiveStarted) {
-          self.__loadBeforeDeactiveStarted = false;
-          if (self.__loadDeactivate) self.__loadDeactivate();
-        }
-      };
-
-      var easingFunction = animatingMethod;
-      if (easing) {
-        easingFunction = createEasingFunction(easing, easingPattern);
-      }
-
-      // When continuing based on previous animation we choose an ease-out animation instead of ease-in-out
-      self.__isAnimating = core.effect.Animate.start(step, verify, completed, speed || self.options.animationDuration, wasAnimating ? easingFunction : noAnimatingMethod);
-    } else {
-      self.__scheduledLeft = self.__scrollLeft = left;
-      self.__scheduledTop = self.__scrollTop = top;
-      self.__scheduledZoom = self.__zoomLevel = zoom;
-
-      // Push values out
-      if (self.__callback) {
-        self.__callback(left, top, zoom);
-        self.onScroll();
-      }
-
-      // Fix max scroll ranges
-      if (self.options.zooming) {
-        self.__computeScrollMax();
-        if (self.__zoomComplete) {
-          self.__zoomComplete();
-          self.__zoomComplete = null;
-        }
-      }
-
-      if (self.__refreshBeforeDeactiveStarted) {
-        self.__refreshBeforeDeactiveStarted = false;
-        if (self.__refreshDeactivate) self.__refreshDeactivate();
-      }
-
-      if (self.__loadBeforeDeactiveStarted) {
-        self.__loadBeforeDeactiveStarted = false;
-        if (self.__loadDeactivate) self.__loadDeactivate();
-      }
-    }
-  },
-
-  /**
-   * Recomputes scroll minimum values based on client dimensions and content dimensions.
-   */
-  __computeScrollMax: function __computeScrollMax(zoomLevel) {
-    var self = this;
-
-    if (zoomLevel == null) {
-      zoomLevel = self.__zoomLevel;
-    }
-
-    self.__maxScrollLeft = Math.max(self.__contentWidth * zoomLevel - self.__clientWidth, 0);
-    self.__maxScrollTop = Math.max(self.__contentHeight * zoomLevel - self.__clientHeight, 0);
-  },
-  /** compute current page total page */
-  __computePage: function __computePage() {
-    var self = this;
-    var clientWidth = self.__clientWidth;
-    var clientHeight = self.__clientHeight;
-    var left = self.__scrollLeft;
-    var top = self.__scrollTop;
-    self.__totalXPage = Math.ceil(self.__contentWidth / clientWidth);
-    self.__currentPageX = Math.ceil(left / clientWidth + 1);
-    self.__totalYPage = Math.ceil(self.__contentHeight / clientHeight);
-    self.__currentPageY = Math.ceil(top / clientHeight + 1);
-  },
-  /** complete scroll*/
-  __scrollComplete: function __scrollComplete() {
-    var self = this;
-    self.options.scrollingComplete();
-  },
-  /*
-  ---------------------------------------------------------------------------
-  ANIMATION (DECELERATION) SUPPORT
-  ---------------------------------------------------------------------------
-  */
-
-  /**
-   * Called when a touch sequence end and the speed of the finger was high enough
-   * to switch into deceleration mode.
-   */
-  __startDeceleration: function __startDeceleration() {
-    var self = this;
-
-    if (self.options.paging) {
-      var scrollLeft = Math.max(Math.min(self.__scrollLeft, self.__maxScrollLeft), 0);
-      var scrollTop = Math.max(Math.min(self.__scrollTop, self.__maxScrollTop), 0);
-      var clientWidth = self.__clientWidth;
-      var clientHeight = self.__clientHeight;
-
-      // We limit deceleration not to the min/max values of the allowed range, but to the size of the visible client area.
-      // Each page should have exactly the size of the client area.
-      self.__minDecelerationScrollLeft = Math.floor(scrollLeft / clientWidth) * clientWidth;
-      self.__minDecelerationScrollTop = Math.floor(scrollTop / clientHeight) * clientHeight;
-      self.__maxDecelerationScrollLeft = Math.ceil(scrollLeft / clientWidth) * clientWidth;
-      self.__maxDecelerationScrollTop = Math.ceil(scrollTop / clientHeight) * clientHeight;
-    } else {
-      self.__minDecelerationScrollLeft = 0;
-      self.__minDecelerationScrollTop = 0;
-      self.__maxDecelerationScrollLeft = self.__maxScrollLeft;
-      self.__maxDecelerationScrollTop = self.__maxScrollTop;
-    }
-
-    // Wrap class method
-    var step = function step(percent, now, render) {
-      self.__stepThroughDeceleration(render);
-    };
-
-    // How much velocity is required to keep the deceleration running
-    var minVelocityToKeepDecelerating = self.options.snapping ? 4 : 0.001;
-
-    // Detect whether it's still worth to continue animating steps
-    // If we are already slow enough to not being user perceivable anymore, we stop the whole process here.
-    var verify = function verify() {
-      var shouldContinue = Math.abs(self.__decelerationVelocityX) >= minVelocityToKeepDecelerating || Math.abs(self.__decelerationVelocityY) >= minVelocityToKeepDecelerating;
-      if (!shouldContinue) {
-        self.__didDecelerationComplete = true;
-      }
-      return shouldContinue;
-    };
-
-    var completed = function completed() {
-      if (!self.__isDecelerating) {
-        return;
-      }
-      self.__isDecelerating = false;
-      if (self.__didDecelerationComplete) {
-        self.__scrollComplete();
-      }
-
-      // Animate to grid when snapping is active, otherwise just fix out-of-boundary positions
-      self.scrollTo(self.__scrollLeft, self.__scrollTop, self.options.snapping);
-    };
-
-    // Start animation and switch on flag
-    self.__isDecelerating = core.effect.Animate.start(step, verify, completed);
-  },
-
-  /**
-   * Called on every step of the animation
-   *
-   * @param inMemory {Boolean?false} Whether to not render the current step, but keep it in memory only. Used internally only!
-   */
-  __stepThroughDeceleration: function __stepThroughDeceleration(render) {
-    var self = this;
-    var bouncing = self.options.bouncing;
-    var minLeft = self.__minDecelerationScrollLeft;
-    var maxLeft = self.__maxDecelerationScrollLeft;
-    var minTop = self.__minDecelerationScrollTop;
-    var maxTop = self.__maxDecelerationScrollTop;
-    // Add deceleration to scroll position
-    var scrollLeft = self.__scrollLeft + self.__decelerationVelocityX;
-    var scrollTop = self.__scrollTop + self.__decelerationVelocityY;
-
-    var bounceX = scrollLeft < minLeft || scrollLeft > maxLeft;
-    var bounceY = scrollTop < minTop || scrollTop > maxTop;
-
-    // fix scrollLeft and scrollTop
-    var fixedScrollLeft = Math.min(Math.max(minLeft - bouncing.left, scrollLeft), maxLeft + bouncing.right);
-
-    var fixedScrollTop = Math.min(Math.max(minTop - bouncing.top, scrollTop), maxTop + bouncing.bottom);
-
-    //
-    // UPDATE SCROLL POSITION
-    //
-    if (render) {
-      self.__publish(fixedScrollLeft, fixedScrollTop, self.__zoomLevel);
-    } else {
-      self.__scrollLeft = scrollLeft;
-      self.__scrollTop = scrollTop;
-    }
-
-    //
-    // SLOW DOWN
-    //
-
-    // Slow down velocity on every iteration
-    if (!self.options.paging) {
-      // This is the factor applied to every iteration of the animation
-      // to slow down the process. This should emulate natural behavior where
-      // objects slow down when the initiator of the movement is removed
-      var frictionFactor = 0.95;
-
-      self.__decelerationVelocityX *= frictionFactor;
-      self.__decelerationVelocityY *= frictionFactor;
-    }
-
-    //
-    // BOUNCING SUPPORT
-    //
-
-    var scrollOutsideX = 0;
-    var scrollOutsideY = 0;
-
-    // This configures the amount of change applied to deceleration/acceleration when reaching boundaries
-    var penetrationDeceleration = self.options.penetrationDeceleration;
-    var penetrationAcceleration = self.options.penetrationAcceleration;
-
-    if (bounceX) {
-      // Check limits
-      if (scrollLeft < self.__minDecelerationScrollLeft) {
-        scrollOutsideX = self.__minDecelerationScrollLeft - scrollLeft;
-      } else if (scrollLeft > self.__maxDecelerationScrollLeft) {
-        scrollOutsideX = self.__maxDecelerationScrollLeft - scrollLeft;
-      }
-    }
-
-    if (bounceY) {
-      if (scrollTop < self.__minDecelerationScrollTop) {
-        scrollOutsideY = self.__minDecelerationScrollTop - scrollTop;
-      } else if (scrollTop > self.__maxDecelerationScrollTop) {
-        scrollOutsideY = self.__maxDecelerationScrollTop - scrollTop;
-      }
-    }
-
-    if (scrollOutsideX !== 0) {
-      if (scrollOutsideX * self.__decelerationVelocityX <= 0) {
-        self.__decelerationVelocityX += scrollOutsideX * penetrationDeceleration;
-        if (scrollOutsideX < 0 && -scrollOutsideX >= bouncing.right && self.__decelerationVelocityX > 0) {
-          self.__decelerationVelocityX = -bouncing.right / 2;
-        }
-        if (scrollOutsideX > 0 && scrollOutsideX >= bouncing.left && self.__decelerationVelocityX < 0) {
-          self.__decelerationVelocityX = bouncing.left / 2;
-        }
-      } else {
-        self.__decelerationVelocityX = scrollOutsideX * penetrationAcceleration;
-      }
-    }
-
-    if (scrollOutsideY !== 0) {
-      if (scrollOutsideY * self.__decelerationVelocityY <= 0) {
-        self.__decelerationVelocityY += scrollOutsideY * penetrationDeceleration;
-        if (scrollOutsideY < 0 && -scrollOutsideY >= bouncing.bottom && self.__decelerationVelocityY > 0) {
-          self.__decelerationVelocityY = -bouncing.bottom / 2;
-        }
-        if (scrollOutsideY > 0 && scrollOutsideY >= bouncing.top && self.__decelerationVelocityY < 0) {
-          self.__decelerationVelocityY = bouncing.top / 2;
-        }
-      } else {
-        self.__decelerationVelocityY = scrollOutsideY * penetrationAcceleration / 2;
-      }
-    }
-  }
-};
-
-// Copy over members to prototype
-for (var key in members) {
-  Scroller.prototype[key] = members[key];
-}
-
-/* DOM-based rendering (Uses 3D when available, falls back on margin when transform not available) */
-function render(content, global, suffix, type) {
-  if (type == 'position') {
-    return function (left, top) {
-      content.style.left = -left + 'px';
-      content.style.top = -top + 'px';
-    };
-  }
-
-  var vendorPrefix = getPrefix(global);
-
-  var helperElem = document.createElement('div');
-  var undef;
-
-  var perspectiveProperty = vendorPrefix + 'Perspective';
-  var transformProperty = 'transform'; //vendorPrefix + 'Transform';
-
-  if (helperElem.style[perspectiveProperty] !== undef) {
-    return function (left, top, zoom) {
-      content.style[transformProperty] = 'translate3d(' + -left + suffix + ',' + -top + suffix + ',0) scale(' + zoom + ')';
-    };
-  } else if (helperElem.style[transformProperty] !== undef) {
-    return function (left, top, zoom) {
-      content.style[transformProperty] = 'translate(' + -left + suffix + ',' + -top + suffix + ') scale(' + zoom + ')';
-    };
-  }
-}
-
-var touch = new touchManager();
-function listenContainer(container, scroller, eventCallback, zooming, preventDefault, preventDefaultOnMove) {
-  var destroy = null;
-  var mousedown = false;
-  var touchObj = touch.getTouchObject();
-
-  function touchstart(e) {
-    var event = touch.getEventObject(e);
-    // Don't react if initial down happens on a form element
-    if (event[0] && event[0].target && event[0].target.tagName.match(/input|textarea|select/i) || scroller.__disable) {
-      return;
-    }
-    eventCallback('mousedown');
-    mousedown = true;
-    scroller.doTouchStart(event, e.timeStamp);
-
-    if (preventDefault) {
-      e.preventDefault();
-    }
-    e.stopPropagation();
-
-    // here , we want to manully prevent default, so we
-    // set passive to false
-    // see https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
-    document.addEventListener(touchObj.touchmove, touchmove, {
-      passive: false
-    });
-  }
-
-  function touchmove(e) {
-    if (scroller.__disable || !mousedown) return;
-
-    var event = touch.getEventObject(e);
-    eventCallback('mousemove');
-    scroller.doTouchMove(event, e.timeStamp, e.scale);
-    if (preventDefaultOnMove) {
-      e.preventDefault();
-    }
-  }
-
-  function touchend(e) {
-    eventCallback('mouseup');
-    mousedown = false;
-    scroller.doTouchEnd(e.timeStamp);
-    document.removeEventListener(touchObj.touchmove, touchmove);
-  }
-  function touchcancel(e) {
-    scroller.doTouchEnd(e.timeStamp);
-  }
-
-  function zoomHandle(e) {
-    scroller.doMouseZoom(e.detail ? e.detail * -120 : e.wheelDelta, e.timeStamp, e.pageX, e.pageY);
-  }
-
-  container.addEventListener(touchObj.touchstart, touchstart, false);
-
-  document.addEventListener(touchObj.touchend, touchend, false);
-  document.addEventListener(touchObj.touchcancel, touchcancel, false);
-
-  if (zooming && !touch.isTouch) {
-    container.addEventListener(navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScroll' : 'mousewheel', zoomHandle, false);
-  }
-
-  destroy = function destroy() {
-    container.removeEventListener(touchObj.touchstart, touchstart, false);
-
-    document.removeEventListener(touchObj.touchend, touchend, false);
-    document.removeEventListener(touchObj.touchcancel, touchcancel, false);
-
-    container.removeEventListener(navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScroll' : 'mousewheel', zoomHandle, false);
-  };
-
-  // handle __publish event
-  scroller.onScroll = function () {
-    eventCallback('onscroll');
-  };
-  return destroy;
-}
-
-/**
- * These mixes is exclusive for slide mode
- */
-
-createSlideModeStyle();
-/**
- * @description refresh and load callback
- */
-function createStateCallbacks(type, stageType, vm, tipDom) {
-  var listeners = vm.$listeners;
-
-  var activateCallback = function activateCallback() {
-    vm.vuescroll.state[stageType] = 'active';
-    vm.$emit(type + '-activate', vm, tipDom);
-  };
-
-  var deactivateCallback = function deactivateCallback() {
-    vm.vuescroll.state[stageType] = 'deactive';
-    vm.$emit(type + '-deactivate', vm, tipDom);
-  };
-
-  var beforeDeactiveEnd = function beforeDeactiveEnd() {
-    vm.vuescroll.state[stageType] = 'beforeDeactiveEnd';
-    vm.$emit(type + '-before-deactivate-end', vm, tipDom);
-  };
-
-  var startCallback = function startCallback() {
-    vm.vuescroll.state[stageType] = 'start';
-    setTimeout(function () {
-      vm.scroller.finishRefreshOrLoad();
-    }, 2000); // Default start stage duration
-  };
-
-  // let beforeDeactivateCallback = done => {
-  //   vm.vuescroll.state[stageType] = 'beforeDeactive';
-  //   setTimeout(function() {
-  //     done();
-  //   }, 500); // Default before-deactivated stage duration
-  // };
-  var beforeDeactivateCallback = void 0;
-
-  /* istanbul ignore if */
-  if (listeners[type + '-before-deactivate']) {
-    beforeDeactivateCallback = function beforeDeactivateCallback(done) {
-      vm.vuescroll.state[stageType] = 'beforeDeactive';
-      vm.$emit(type + '-before-deactivate', vm, tipDom, done.bind(vm.scroller));
-    };
-  }
-
-  /* istanbul ignore if */
-  if (listeners[type + '-start']) {
-    startCallback = function startCallback() {
-      vm.vuescroll.state[stageType] = 'start';
-      vm.$emit(type + '-start', vm, tipDom, vm.scroller.finishRefreshOrLoad.bind(vm.scroller));
-    };
-  }
-
-  return {
-    activateCallback: activateCallback,
-    deactivateCallback: deactivateCallback,
-    startCallback: startCallback,
-    beforeDeactivateCallback: beforeDeactivateCallback,
-    beforeDeactiveEnd: beforeDeactiveEnd
-  };
-}
-
-var slideMix = {
-  mounted: function mounted() {
-    this.vsMounted = true;
-  },
-
-  computed: {
-    pullRefreshTip: function pullRefreshTip() {
-      return this.mergedOptions.vuescroll.pullRefresh.tips[this.vuescroll.state.refreshStage];
-    },
-    pushLoadTip: function pushLoadTip() {
-      return this.mergedOptions.vuescroll.pushLoad.tips[this.vuescroll.state.loadStage];
-    },
-    refreshLoad: function refreshLoad() {
-      return this.mergedOptions.vuescroll.pullRefresh.enable || this.mergedOptions.vuescroll.pushLoad.enable;
-    },
-    refrehDomVisiable: function refrehDomVisiable() {
-      return this.vsMounted && this.outTheTopBoundary;
-    },
-    loadDomVisiable: function loadDomVisiable() {
-      return this.vsMounted && this.outTheBottomBoundary;
-    }
-  },
-  data: function data() {
-    return {
-      vuescroll: {
-        state: {
-          /** Default tips of refresh and load */
-          refreshStage: 'deactive',
-          loadStage: 'deactive'
-        }
-      },
-      vsMounted: false,
-      outTheTopBoundary: false,
-      outTheBottomBoundary: false
-    };
-  },
-
-  methods: {
-    // Update:
-    // 1. update height/width
-    // 2. update refresh or load
-    updateScroller: function updateScroller() {
-      this.updateDimesion();
-      this.registryRefreshLoad();
-    },
-    updateDimesion: function updateDimesion() {
-      var clientWidth = this.$el.clientWidth;
-      var clientHeight = this.$el.clientHeight;
-      var contentWidth = this.scrollPanelElm.scrollWidth;
-      var contentHeight = this.scrollPanelElm.scrollHeight;
-      var refreshHeight = 0;
-      var loadHeight = 0;
-      // If the refresh option is true,let's  give a "margin-top" style to
-      // the refresh-tip dom. let it to be invisible when doesn't trigger
-      // refresh.
-      if (this.mergedOptions.vuescroll.pullRefresh.enable) {
-        if (this.vsMounted) {
-          var refreshDom = this.$refs[__REFRESH_DOM_NAME].elm || this.$refs[__REFRESH_DOM_NAME];
-          refreshHeight = refreshDom.offsetHeight;
-          refreshDom.style.marginTop = -refreshHeight + 'px';
-        }
-      }
-      if (this.mergedOptions.vuescroll.pushLoad.enable) {
-        if (this.vsMounted) {
-          var loadDom = this.$refs[__LOAD_DOM_NAME].elm || this.$refs[__LOAD_DOM_NAME];
-          loadHeight = loadDom.offsetHeight;
-          contentHeight -= loadHeight;
-          loadDom.style.bottom = '-' + loadHeight + 'px';
-        }
-      }
-      if (this.scroller) {
-        this.scroller.setDimensions(clientWidth, clientHeight, contentWidth, contentHeight, false);
-      }
-    },
-    registryRefreshLoad: function registryRefreshLoad() {
-      // registry refresh
-      if (this.mergedOptions.vuescroll.pullRefresh.enable) {
-        this.registryEvent('refresh');
-      }
-      // registry load
-      if (this.mergedOptions.vuescroll.pushLoad.enable) {
-        this.registryEvent('load');
-      }
-    },
-    registryScroller: function registryScroller() {
-      var _this = this;
-
-      var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          _ref$left = _ref.left,
-          left = _ref$left === undefined ? 0 : _ref$left,
-          _ref$top = _ref.top,
-          top = _ref$top === undefined ? 0 : _ref$top,
-          _ref$zoom = _ref.zoom,
-          zoom = _ref$zoom === undefined ? 1 : _ref$zoom;
-
-      var _mergedOptions$vuescr = this.mergedOptions.vuescroll.scroller,
-          preventDefault = _mergedOptions$vuescr.preventDefault,
-          preventDefaultOnMove = _mergedOptions$vuescr.preventDefaultOnMove;
-      var _mergedOptions$vuescr2 = this.mergedOptions.vuescroll,
-          paging = _mergedOptions$vuescr2.paging,
-          snapping = _mergedOptions$vuescr2.snapping.enable,
-          renderMethod = _mergedOptions$vuescr2.renderMethod,
-          zooming = _mergedOptions$vuescr2.zooming,
-          locking = _mergedOptions$vuescr2.locking;
-      // disale zooming when refresh or load enabled
-
-      zooming = !this.refreshLoad && !paging && !snapping && zooming;
-      var _mergedOptions$scroll = this.mergedOptions.scrollPanel,
-          scrollingY = _mergedOptions$scroll.scrollingY,
-          scrollingX = _mergedOptions$scroll.scrollingX;
-
-
-      var scrollingComplete = this.scrollingComplete.bind(this);
-
-      // Initialize Scroller
-      this.scroller = new Scroller(render(this.scrollPanelElm, window, 'px', renderMethod), _extends({}, this.mergedOptions.vuescroll.scroller, {
-        zooming: zooming,
-        scrollingY: scrollingY,
-        scrollingX: scrollingX && !this.refreshLoad,
-        animationDuration: this.mergedOptions.scrollPanel.speed,
-        paging: paging,
-        snapping: snapping,
-        scrollingComplete: scrollingComplete,
-        locking: locking
-      }));
-
-      this.scroller.__disable = this.mergedOptions.vuescroll.scroller.disable;
-      this.scroller.__scrollLeft = left;
-      this.scroller.__scrollTop = top;
-      this.scroller.__zoomLevel = zoom;
-
-      // Set snap
-      if (snapping) {
-        this.scroller.setSnapSize(this.mergedOptions.vuescroll.snapping.width, this.mergedOptions.vuescroll.snapping.height);
-      }
-      var rect = this.$el.getBoundingClientRect();
-      this.scroller.setPosition(rect.left + this.$el.clientLeft, rect.top + this.$el.clientTop);
-
-      // Get destroy callback
-      var cb = listenContainer(this.$el, this.scroller, function (eventType) {
-        // Thie is to dispatch the event from the scroller.
-        // to let vuescroll refresh the dom
-        switch (eventType) {
-          case 'mousedown':
-            _this.vuescroll.state.isDragging = true;
-            break;
-          case 'onscroll':
-            {
-              /**
-                 * Trigger auto load
-                 */
-              var stage = _this.vuescroll.state['loadStage'];
-              var _mergedOptions$vuescr3 = _this.mergedOptions.vuescroll.pushLoad,
-                  enable = _mergedOptions$vuescr3.enable,
-                  auto = _mergedOptions$vuescr3.auto,
-                  autoLoadDistance = _mergedOptions$vuescr3.autoLoadDistance;
-              var _scroller = _this.scroller,
-                  __scrollTop = _scroller.__scrollTop,
-                  __maxScrollTop = _scroller.__maxScrollTop;
-
-              if (stage != 'start' && enable && auto && !_this.lockAutoLoad && // auto load debounce
-              autoLoadDistance >= __maxScrollTop - __scrollTop && __scrollTop > 0) {
-                _this.lockAutoLoad = true;
-                _this.triggerRefreshOrLoad('load');
-              }
-
-              if (autoLoadDistance < __maxScrollTop - __scrollTop) {
-                _this.lockAutoLoad = false;
-              }
-
-              _this.handleScroll(false);
-            }
-
-            break;
-          case 'mouseup':
-            _this.vuescroll.state.isDragging = false;
-            break;
-        }
-      }, zooming, preventDefault, preventDefaultOnMove);
-
-      this.updateScroller();
-
-      return cb;
-    },
-    updateSlideModeBarState: function updateSlideModeBarState() {
-      // update slide mode scrollbars' state
-      var heightPercentage = void 0,
-          widthPercentage = void 0;
-      var vuescroll = this.$el;
-      var scroller = this.scroller;
-
-      var outerLeft = 0;
-      var outerTop = 0;
-
-      var _$el = this.$el,
-          clientWidth = _$el.clientWidth,
-          clientHeight = _$el.clientHeight;
-
-
-      var contentWidth = clientWidth + this.scroller.__maxScrollLeft;
-      var contentHeight = clientHeight + this.scroller.__maxScrollTop;
-
-      // We should add the the height or width that is
-      // out of horizontal bountry  to the total length
-
-      /* istanbul ignore if */
-      if (scroller.__scrollLeft < 0) {
-        outerLeft = -scroller.__scrollLeft;
-      } /* istanbul ignore next */else if (scroller.__scrollLeft > scroller.__maxScrollLeft) {
-          outerLeft = scroller.__scrollLeft - scroller.__maxScrollLeft;
-        }
-
-      // out of vertical bountry
-      if (scroller.__scrollTop < 0) {
-        outerTop = -scroller.__scrollTop;
-        this.outTheBottomBoundary = false;
-        this.outTheTopBoundary = true;
-      } else if (scroller.__scrollTop > scroller.__maxScrollTop) {
-        outerTop = scroller.__scrollTop - scroller.__maxScrollTop;
-        this.outTheTopBoundary = false;
-        this.outTheBottomBoundary = true;
-      } else {
-        this.outTheTopBoundary = this.outTheBottomBoundary = false;
-      }
-
-      heightPercentage = clientHeight / (contentHeight + outerTop);
-      widthPercentage = clientWidth / (contentWidth + outerLeft);
-
-      var scrollTop = Math.min(Math.max(0, scroller.__scrollTop), scroller.__maxScrollTop);
-      var scrollLeft = Math.min(Math.max(0, scroller.__scrollLeft), scroller.__maxScrollLeft);
-
-      this.bar.vBar.state.posValue = (scrollTop + outerTop) * 100 / vuescroll.clientHeight;
-      this.bar.hBar.state.posValue = (scrollLeft + outerLeft) * 100 / vuescroll.clientWidth;
-
-      /* istanbul ignore if */
-      if (scroller.__scrollLeft < 0) {
-        this.bar.hBar.state.posValue = 0;
-      }
-      if (scroller.__scrollTop < 0) {
-        this.bar.vBar.state.posValue = 0;
-      }
-
-      this.bar.vBar.state.size = heightPercentage < 1 ? heightPercentage : 0;
-      this.bar.hBar.state.size = widthPercentage < 1 ? widthPercentage : 0;
-    },
-    registryEvent: function registryEvent(type) {
-      var domName = type == 'refresh' ? __REFRESH_DOM_NAME : __LOAD_DOM_NAME;
-      var activateFunc = type == 'refresh' ? this.scroller.activatePullToRefresh : this.scroller.activatePushToLoad;
-      var stageType = type == 'refresh' ? 'refreshStage' : 'loadStage';
-      var tipDom = this.$refs[domName].elm || this.$refs[domName];
-      var cbs = createStateCallbacks(type, stageType, this, tipDom);
-      var height = tipDom.offsetHeight;
-
-      activateFunc.bind(this.scroller)(height, cbs);
-    },
-    getSlidePosition: function getSlidePosition() {
-      return {
-        scrollLeft: this.scroller.__scrollLeft,
-        scrollTop: this.scroller.__scrollTop
-      };
-    }
-  }
-};
-
-/**
- * These mixes is exclusive for native mode
- */
-
-var nativeMix = {
-  methods: {
-    updateNativeModeBarState: function updateNativeModeBarState() {
-      var container = this.scrollPanelElm;
-      var isPercent = this.vuescroll.state.currentSizeStrategy == 'percent';
-      var _vuescroll$state = this.vuescroll.state,
-          width = _vuescroll$state.width,
-          height = _vuescroll$state.height;
-
-      var clientWidth = isPercent || !width ? container.clientWidth : width.slice(0, -2); // xxxpx ==> xxx
-      var clientHeight = isPercent || !height ? container.clientHeight : height.slice(0, -2);
-
-      var heightPercentage = clientHeight / container.scrollHeight;
-      var widthPercentage = clientWidth / container.scrollWidth;
-
-      this.bar.vBar.state.posValue = container.scrollTop * 100 / clientHeight;
-      this.bar.hBar.state.posValue = container.scrollLeft * 100 / clientWidth;
-
-      this.bar.vBar.state.size = heightPercentage < 1 ? heightPercentage : 0;
-      this.bar.hBar.state.size = widthPercentage < 1 ? widthPercentage : 0;
-    },
-    getNativePosition: function getNativePosition() {
-      return {
-        scrollTop: this.scrollPanelElm.scrollTop,
-        scrollLeft: this.scrollPanelElm.scrollLeft
-      };
-    },
-    css: function css(dom, style) /* istanbul ignore next */{
-      return window.getComputedStyle(dom)[style];
-    },
-    checkScrollable: function checkScrollable(e, deltaX, deltaY) /* istanbul ignore next */{
-      var scrollable = false;
-
-      // check mouse point scrollable.
-      var dom = e.target ? e.target : e;
-      while (dom && dom.nodeType == 1 && dom !== this.scrollPanelElm.parentNode && !/^BODY|HTML/.test(dom.nodeName)) {
-        var ov = this.css(dom, 'overflow') || '';
-        if (/scroll|auto/.test(ov)) {
-          var _getScrollProcess = this.getScrollProcess(dom),
-              v = _getScrollProcess.v,
-              h = _getScrollProcess.h;
-
-          if (deltaX < 0 && h > 0 || deltaX > 0 && h < 1 || deltaY < 0 && v > 0 || deltaY > 0 && v < 1) {
-            scrollable = dom == this.scrollPanelElm;
-            break;
-          }
-        }
-        dom = dom.parentNode ? dom.parentNode : false;
-      }
-
-      return scrollable;
-    },
-    onMouseWheel: function onMouseWheel(event) /* istanbul ignore next */{
-      var _mergedOptions$vuescr = this.mergedOptions.vuescroll,
-          isReverse = _mergedOptions$vuescr.wheelDirectionReverse,
-          duration = _mergedOptions$vuescr.wheelScrollDuration,
-          checkShiftKey = _mergedOptions$vuescr.checkShiftKey,
-          locking = _mergedOptions$vuescr.locking;
-
-
-      var deltaX = void 0;
-      var deltaY = void 0;
-      if (event.wheelDelta) {
-        if (event.deltaY || event.deltaX) {
-          deltaX = event.deltaX;
-          deltaY = event.deltaY;
-          if (locking) {
-            if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-              deltaY = 0;
-            } else {
-              deltaX = 0;
-            }
-          }
-        } else {
-          deltaX = 0;
-          deltaY = -1 * event.wheelDelta / 2;
-        }
-      } else if (event.detail) {
-        deltaY = deltaX = event.detail * 16;
-        // horizontal scroll
-        if (event.axis == 1) {
-          deltaY = 0;
-        } else if (event.axis == 2) {
-          // vertical scroll
-          deltaX = 0;
-        }
-      }
-
-      if (checkShiftKey && event.shiftKey) {
-        // swap value
-        deltaX ^= deltaY;
-        deltaY ^= deltaX;
-        deltaX ^= deltaY;
-      }
-
-      if (isReverse) {
-        deltaX ^= deltaY;
-        deltaY ^= deltaX;
-        deltaX ^= deltaY;
-      }
-
-      if (this.checkScrollable(event, deltaX, deltaY)) {
-        event.stopPropagation();
-        event.preventDefault();
-        this.scrollBy({ dx: deltaX, dy: deltaY }, duration);
-      }
-    }
-  },
-  computed: {
-    scrollContentElm: function scrollContentElm() {
-      return this.$refs['scrollContent']._isVue ? this.$refs['scrollContent'].$el : this.$refs['scrollContent'];
-    }
-  }
-};
-
-var update = [slideMix, nativeMix];
-
-var mixins = [api$1].concat(toConsumableArray(update));
-
-var core$1 = {
-  mixins: mixins,
-  mounted: function mounted() {
-    if (!this._isDestroyed && !this.renderError) {
-      if (this.mode == 'slide') {
-        this.updatedCbs.push(this.updateScroller);
-      }
-
-      this.$watch('mergedOptions.vuescroll.scroller.disable', {
-        sync: true,
-        handler: function handler(newVal) {
-          if (this.scroller) {
-            this.scroller.__disable = newVal;
-          }
-        }
-      });
-    }
-  },
-
-  computed: {
-    mode: function mode() {
-      return this.mergedOptions.vuescroll.mode;
-    }
-  },
-  methods: {
-    destroy: function destroy() {
-      if (this.destroyScroller) {
-        this.scroller.stop();
-        this.destroyScroller();
-        this.destroyScroller = null;
-      }
-
-      /* istanbul ignore next */
-      if (this.destroyResize) {
-        this.destroyResize();
-      }
-    },
-    handleScroll: function handleScroll(nativeEvent) {
-      this.updateBarStateAndEmitEvent('handle-scroll', nativeEvent);
-    },
-    updateBarStateAndEmitEvent: function updateBarStateAndEmitEvent(eventType) {
-      var nativeEvent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-      if (this.mode == 'native') {
-        this.updateNativeModeBarState();
-      } else if (this.mode == 'slide') {
-        /* istanbul ignore if */
-        if (!this.scroller) {
-          return;
-        }
-
-        this.updateSlideModeBarState();
-      }
-      if (eventType) {
-        this.emitEvent(eventType, nativeEvent);
-      }
-      if (this.mergedOptions.bar.onlyShowBarOnScroll) {
-        if (eventType == 'handle-scroll' || eventType == 'handle-resize' || eventType == 'refresh-status' || eventType == 'window-resize' || eventType == 'options-change') {
-          this.showAndDefferedHideBar(true /* forceHideBar: true */);
-        }
-      } else {
-        this.showAndDefferedHideBar();
-      }
-    },
-    getScrollProcess: function getScrollProcess() {
-      var _scrollPanelElm = this.scrollPanelElm,
-          scrollHeight = _scrollPanelElm.scrollHeight,
-          scrollWidth = _scrollPanelElm.scrollWidth,
-          clientHeight = _scrollPanelElm.clientHeight,
-          clientWidth = _scrollPanelElm.clientWidth,
-          scrollTop = _scrollPanelElm.scrollTop,
-          scrollLeft = _scrollPanelElm.scrollLeft;
-
-
-      if (this.mode == 'slide') {
-        scrollHeight = this.scroller.__contentHeight;
-        scrollWidth = this.scroller.__contentWidth;
-        scrollTop = this.scroller.__scrollTop;
-        scrollLeft = this.scroller.__scrollLeft;
-        clientHeight = this.$el.clientHeight;
-        clientWidth = this.$el.clientWidth;
-      }
-
-      var v = Math.min(scrollTop / (scrollHeight - clientHeight || 1), 1);
-      var h = Math.min(scrollLeft / (scrollWidth - clientWidth || 1), 1);
-
-      return {
-        v: v,
-        h: h
-      };
-    },
-    emitEvent: function emitEvent(eventType) {
-      var nativeEvent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var _scrollPanelElm2 = this.scrollPanelElm,
-          scrollTop = _scrollPanelElm2.scrollTop,
-          scrollLeft = _scrollPanelElm2.scrollLeft;
-
-
-      var vertical = {
-        type: 'vertical'
-      };
-      var horizontal = {
-        type: 'horizontal'
-      };
-
-      var _getScrollProcess = this.getScrollProcess(),
-          v = _getScrollProcess.v,
-          h = _getScrollProcess.h;
-
-      vertical['process'] = v;
-      horizontal['process'] = h;
-
-      vertical['barSize'] = this.bar.vBar.state.size;
-      horizontal['barSize'] = this.bar.hBar.state.size;
-      vertical['scrollTop'] = scrollTop;
-      horizontal['scrollLeft'] = scrollLeft;
-
-      this.$emit(eventType, vertical, horizontal, nativeEvent);
-    },
-    initVariables: function initVariables() {
-      this.lastMode = this.mode;
-      this.$el._isVuescroll = true;
-    },
-    refreshMode: function refreshMode() {
-      var initPos = void 0;
-      if (this.scroller) {
-        initPos = this.scroller.getValues();
-      }
-
-      if (this.destroyScroller) {
-        this.scroller.stop();
-        this.destroyScroller();
-        this.destroyScroller = null;
-      }
-
-      if (this.mode == 'slide') {
-        this.destroyScroller = this.registryScroller(initPos);
-      } else if (this.mode == 'native') {
-        // remove the legacy transform style attribute
-        this.scrollPanelElm.style.transform = '';
-        this.scrollPanelElm.style.transformOrigin = '';
-      }
-    },
-    refreshInternalStatus: function refreshInternalStatus() {
-      // 1.set vuescroll height or width according to
-      // sizeStrategy
-      this.setVsSize();
-      // 2. registry resize event
-      this.registryResize();
-      // 3. registry scroller if mode is 'slide'
-      // or remove 'transform origin' is the mode is not `slide`
-      this.refreshMode();
-      // 4. update scrollbar's height/width
-      this.updateBarStateAndEmitEvent('refresh-status');
-    },
-    registryResize: function registryResize() {
-      var _this = this;
-
-      var resizeEnable = this.mergedOptions.vuescroll.detectResize;
-      var modeChanged = false;
-
-      if (this.lastMode != this.mode) {
-        modeChanged = true;
-        this.lastMode = this.mode;
-      }
-
-      /* istanbul ignore next */
-      if (this.destroyResize && resizeEnable && !modeChanged) {
-        return;
-      }
-
-      if (this.destroyResize) {
-        this.destroyResize();
-      }
-
-      if (!resizeEnable) {
-        return;
-      }
-
-      var contentElm = null;
-      if (this.mode == 'slide') {
-        contentElm = this.scrollPanelElm;
-      } else if (this.mode == 'native') {
-        // scrollContent maybe a vue-component or a pure-dom
-        contentElm = this.scrollContentElm;
-      }
-
-      var vm = this;
-      var handleWindowResize = function handleWindowResize() /* istanbul ignore next */{
-        vm.updateBarStateAndEmitEvent('window-resize');
-        if (vm.mode == 'slide') {
-          vm.updatedCbs.push(vm.updateScroller);
-          vm.$forceUpdate();
-        }
-      };
-
-      var handleDomResize = function handleDomResize() {
-        var currentSize = {};
-        if (_this.mode == 'slide') {
-          currentSize['width'] = _this.scroller.__contentWidth;
-          currentSize['height'] = _this.scroller.__contentHeight;
-          _this.updateBarStateAndEmitEvent('handle-resize', currentSize);
-          // update scroller should after rendering
-          _this.updatedCbs.push(_this.updateScroller);
-          _this.$forceUpdate();
-        } else if (_this.mode == 'native') {
-          currentSize['width'] = _this.scrollPanelElm.scrollWidth;
-          currentSize['height'] = _this.scrollPanelElm.scrollHeight;
-          _this.updateBarStateAndEmitEvent('handle-resize', currentSize);
-        }
-
-        // Since content sie changes, we should tell parent to set
-        // correct size to fit content's size
-        _this.setVsSize();
-      };
-      window.addEventListener('resize', handleWindowResize, false);
-
-      var destroyDomResize = installResizeDetection(contentElm, handleDomResize);
-
-      var destroyWindowResize = function destroyWindowResize() {
-        window.removeEventListener('resize', handleWindowResize, false);
-      };
-
-      this.destroyResize = function () {
-        destroyWindowResize();
-        destroyDomResize();
-
-        _this.destroyResize = null;
-      };
-    },
-    getPosition: function getPosition() {
-      if (this.mode == 'slide') {
-        return this.getSlidePosition();
-      } else if (this.mode == 'native') {
-        return this.getNativePosition();
-      }
-    }
-  }
-};
-
-/**
- * The slide mode config
- */
-var config = {
-  // vuescroll
-  vuescroll: {
-    // position or transform
-    renderMethod: 'transform',
-    // pullRefresh or pushLoad is only for the slide mode...
-    pullRefresh: {
-      enable: false,
-      tips: {
-        deactive: 'Pull to Refresh',
-        active: 'Release to Refresh',
-        start: 'Refreshing...',
-        beforeDeactive: 'Refresh Successfully!'
-      }
-    },
-    pushLoad: {
-      enable: false,
-      tips: {
-        deactive: 'Push to Load',
-        active: 'Release to Load',
-        start: 'Loading...',
-        beforeDeactive: 'Load Successfully!'
-      },
-      auto: false,
-      autoLoadDistance: 0
-    },
-    paging: false,
-    zooming: true,
-    snapping: {
-      enable: false,
-      width: 100,
-      height: 100
-    },
-    /* some scroller options */
-    scroller: {
-      /** Enable bouncing (content can be slowly moved outside and jumps back after releasing) */
-      bouncing: {
-        top: 100,
-        bottom: 100,
-        left: 100,
-        right: 100
-      },
-      /** Minimum zoom level */
-      minZoom: 0.5,
-      /** Maximum zoom level */
-      maxZoom: 3,
-      /** Multiply or decrease scrolling speed **/
-      speedMultiplier: 1,
-      /** This configures the amount of change applied to deceleration when reaching boundaries  **/
-      penetrationDeceleration: 0.03,
-      /** This configures the amount of change applied to acceleration when reaching boundaries  **/
-      penetrationAcceleration: 0.08,
-      /** Whether call e.preventDefault event when sliding the content or not */
-      preventDefault: false,
-      /** Whether call preventDefault when (mouse/touch)move*/
-      preventDefaultOnMove: true,
-      disable: false
-    }
-  }
-};
-/**
- * validate the options
- * @export
- * @param {any} ops
- */
-function configValidator(ops) {
-  var renderError = false;
-  var vuescroll = ops.vuescroll;
-
-  // validate pushLoad, pullReresh, snapping
-
-  if (vuescroll.paging == vuescroll.snapping.enable && vuescroll.paging && (vuescroll.pullRefresh || vuescroll.pushLoad)) {
-    error('paging, snapping, (pullRefresh with pushLoad) can only one of them to be true.');
-  }
-
-  return renderError;
-}
-
-var config$1 = {
-  vuescroll: {
-    wheelScrollDuration: 0,
-    wheelDirectionReverse: false,
-    checkShiftKey: true
-  }
-};
-
-var config$2 = {
-  // vuescroll
-  vuescroll: {
-    mode: 'native'
-  }
-};
-/**
- * validate the options
- * @export
- * @param {any} ops
- */
-function configValidator$1(ops) {
-  var renderError = false;
-  var vuescroll = ops.vuescroll;
-
-  // validate modes
-
-  if (!~modes.indexOf(vuescroll.mode)) {
-    error('Unknown mode: ' + vuescroll.mode + ',the vuescroll\'s option "mode" should be one of the ' + modes);
-    renderError = true;
-  }
-
-  return renderError;
-}
-
-var configs = [config$2, config, config$1];
-var configValidators = [configValidator$1, configValidator];
-
-var component = _install(core$1, createPanel$2, configs, configValidators);
-
-function install(Vue$$1) {
-  var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-  Vue$$1.component(opts.name || component.name, component);
-  Vue$$1.prototype.$vuescrollConfig = opts.ops || {};
-}
-
-var Vuescroll = _extends({
-  install: install,
-  version: '4.17.2',
-  refreshAll: refreshAll,
-  scrollTo: scrollTo
-}, component);
-
-/* istanbul ignore if */
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(Vuescroll);
-}
-
-return Vuescroll;
-
-})));
 
 
 /***/ }),
@@ -124421,19 +116299,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./node_modules/window-resize-subject/dist/index.common.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/window-resize-subject/dist/index.common.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports,"__esModule",{value:!0});var e=function(){function e(e){this._observers=new Map,this._subscribed=!1;var t=(null!=e?e:{}).delay,i=void 0===t?33:t;this._delay=i,this._handler=this._handleResize.bind(this)}return e.prototype.addObserver=function(e,t){return this._observers.set(e,t),t(this._getEvent()),this},e.prototype.deleteObserver=function(e){return this._observers.delete(e),this},e.prototype.deleteObservers=function(){return this._observers.clear(),this},e.prototype.notifyObservers=function(e){return this._observers.forEach((function(t){t(e)})),this},e.prototype.subscribe=function(){return"undefined"==typeof window||this._subscribed||(window.addEventListener("resize",this._handler),window.addEventListener("orientationchange",this._handler),this._subscribed=!0),this},e.prototype.unsubscribe=function(){return this._subscribed?(window.removeEventListener("resize",this._handler),window.removeEventListener("orientationchange",this._handler),this._subscribed=!1,this):this},e.prototype.setDelay=function(e){return this._delay=e,this},e.prototype.hasObserver=function(){return this._observers.size>0},e.prototype._getEvent=function(){return"undefined"==typeof window?{width:0,height:0}:{width:window.innerWidth,height:window.innerHeight}},e.prototype._update=function(){var e=this._getEvent();this.notifyObservers(e)},e.prototype._handleResize=function(){var e=this;clearTimeout(this._timer),this._timer=setTimeout((function(){e._update()}),this._delay)},e}();exports.WindowResizeSubject=e;
-
-
-/***/ }),
-
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -124571,14 +116436,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_window_size__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-window-size */ "./node_modules/vue-window-size/dist/index.common.js");
-/* harmony import */ var vue_window_size__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_window_size__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
-/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _moment_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./moment.js */ "./resources/js/moment.js");
-/* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
-/* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _views_Auth_LoginComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/Auth/LoginComponent */ "./resources/js/views/Auth/LoginComponent.vue");
+/* harmony import */ var _views_Auth_LoginComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Auth/LoginComponent */ "./resources/js/views/Auth/LoginComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -124588,15 +116446,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
+ // import VueWindowSize from 'vue-window-size';
+// import vuescroll from 'vuescroll';
+// import moment from './moment.js';
+// import Vue2Filters from 'vue2-filters'
+// Vue.use(Vue2Filters)
+// Vue.use(moment);
+// Vue.use(vuescroll);
+// Vue.use(VueWindowSize);
 
-
-
-
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_5___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_moment_js__WEBPACK_IMPORTED_MODULE_4__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuescroll__WEBPACK_IMPORTED_MODULE_3___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_window_size__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
   theme: {
@@ -124624,38 +116482,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webp
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#login-vue-component',
   components: {
-    Login: _views_Auth_LoginComponent__WEBPACK_IMPORTED_MODULE_6__["default"]
+    Login: _views_Auth_LoginComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   vuetify: vuetify
 });
-
-/***/ }),
-
-/***/ "./resources/js/moment.js":
-/*!********************************!*\
-  !*** ./resources/js/moment.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return install; });
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-// plugins/moment.js
-
-moment__WEBPACK_IMPORTED_MODULE_0___default.a.locale('id');
-function install(Vue) {
-  Object.defineProperties(Vue.prototype, {
-    $moment: {
-      get: function get() {
-        return moment__WEBPACK_IMPORTED_MODULE_0___default.a;
-      }
-    }
-  });
-} // main.js
-// use this.$moment in your components
 
 /***/ }),
 
@@ -124728,14 +116558,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 2:
+/***/ 8:
 /*!****************************************!*\
   !*** multi ./resources/js/mhsLogin.js ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\pemrograman\APK\Web-Root\PPS-PMB\resources\js\mhsLogin.js */"./resources/js/mhsLogin.js");
+=======
+module.exports = __webpack_require__(/*! D:\Programming\Projects\Web\PPS-PMB\resources\js\mhsLogin.js */"./resources/js/mhsLogin.js");
+>>>>>>> 728d97eaa9ca80a4a3343e761f6432945cb95e1e
 
 
 /***/ })

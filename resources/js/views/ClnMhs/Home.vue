@@ -95,10 +95,15 @@
               :elevation="hover?12:5"
               @click="goToPendaftaran(item)"
             >
+
               <v-card-subtitle
                 class="pb-0"
                 :class="setColor(item) + ' text-white'"
               >
+                <p
+                  class=""
+                  v-if="index==0"
+                >Pendaftaran terbaru anda</p>
                 <h3 class="mb-0">
                   {{item.jurusan.nama}}
                 </h3>
@@ -144,10 +149,7 @@
               </v-card-text>
             </v-card>
           </v-hover>
-          <p
-            class="mt-3 text-muted"
-            v-if="index==0"
-          >Pendaftaran terbaru anda</p>
+
         </v-col>
       </v-row>
     </v-container>
@@ -225,7 +227,18 @@ export default {
         this.dialogEmpty = true;
         return 0;
       }
+      var isPeriodeIsInRange = this.isInRange(
+        this.activePeriode.awal_periode,
+        this.activePeriode.akhir_periode
+      );
+      if (!isPeriodeIsInRange) {
+        this.dialogEmpty = true;
+        return 0;
+      }
       this.$router.push({ name: "Pendaftaran Baru" });
+    },
+    isInRange(start, end) {
+      return this.$moment(this.now).isBetween(start, end);
     },
     checkPeriode(ujian) {
       var today = new Date();

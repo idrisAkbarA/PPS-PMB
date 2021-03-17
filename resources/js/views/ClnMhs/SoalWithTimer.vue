@@ -42,7 +42,10 @@
         ></v-progress-linear>
         <v-card-title>
 
-          <v-row class="mx-0">
+          <v-row
+            class="mx-0"
+            v-if="soal"
+          >
             <span class="mr-2">Jumlah soal terjawab </span>
             <v-chip
               color="green darken-2"
@@ -132,7 +135,9 @@
         <v-card-title>
           <span v-if="isSemuaSoalTerjawab">
             Semua soal telah dikerjakan!
-          </span><span v-else>Waktu mengerjakan soal sudah habis!</span>
+          </span>
+          <span v-else-if="isInRange(startTime,endTime)">Maaf jatah soal sudah habis!</span>
+          <span v-else>Waktu mengerjakan soal sudah habis!</span>
         </v-card-title>
 
         <v-card-text v-if="soalReview">
@@ -264,10 +269,26 @@
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
+  watch: {
+    currentSoal(v) {
+      var currentIndex = localStorage.getItem("last_soal_index");
+      localStorage.setItem("last_soal_index", v);
+      console.log("index:", v, "length:", this.soal.length);
+      if (this.soal) {
+        if (v == this.soal.length) {
+          endCallBack();
+        }
+      }
+    },
+    shortCountDownSeconds(v) {
+      localStorage.setItem("last_soal_time", v);
+    },
+  },
   methods: {
-    shortCountDown() {
+    shortCountDown(durasiSoal = null) {
+      console.log("durasi", durasiSoal);
       let milliseconds = 1000;
-      let interval = this.durasiSoal; // in seconds
+      let interval = durasiSoal ? durasiSoal : this.durasiSoal; // in seconds
       let soalTimer = setInterval(() => {
         if (this.shortCountDownValue <= 30) {
           this.shortCountDownColor = "red";
@@ -282,6 +303,10 @@ export default {
           this.shortCountDownSeconds = this.durasiSoal;
           this.shortCountDown();
         } else {
+          if (durasiSoal > 0) {
+            this.shortCountDownSeconds = durasiSoal;
+            durasiSoal = null;
+          }
           this.shortCountDownValue -= 100 / interval;
           this.shortCountDownSeconds -= 1;
         }
@@ -301,20 +326,21 @@ export default {
           this.isLulus = response.data.status_lulus;
           this.dialogHasil = true;
           this.dialog = false;
-
+          localStorage.setItem("last_soal_index", 0);
+          localStorage.setItem("last_soal_time", 0);
           console.log(response.data);
         })
         .catch((error) => {});
     },
-    calcSoalRemaining() {
-      var jumlah_soal = this.soal.length;
+    calcSoalRemaining(vm = this) {
+      var jumlah_soal = vm.soal.length;
       var terjawab = 0;
-      this.soal.forEach((element) => {
+      vm.soal.forEach((element) => {
         if (element.jawaban) {
           terjawab += 1;
         }
       });
-      this.belum_terjawab = jumlah_soal - terjawab;
+      vm.belum_terjawab = jumlah_soal - terjawab;
     },
     setNomorColor(soal, index) {
       if (soal.ragu && this.currentSoal == index) return "yellow darken-2";
@@ -341,12 +367,18 @@ export default {
           console.log(response.data);
         })
         .catch((error) => {});
-      setTimeout(() => {
-        this.isNewlySelected = true;
-        this.shortCountDownValue = 100;
-        this.shortCountDownSeconds = this.durasiSoal;
-        if (soal.length != this.currentSoal + 1) this.currentSoal += 1;
-      }, 1000);
+      if (this.currentSoal + 1 == this.soal.length) {
+        this.endCallBack();
+      } else {
+        setTimeout(() => {
+          this.isNewlySelected = true;
+          this.shortCountDownValue = 100;
+          this.shortCountDownColor = "blue";
+          this.shortCountDownSeconds = this.durasiSoal;
+          var currentSoalIndex = parseInt(this.currentSoal);
+          this.currentSoal = currentSoalIndex + 1;
+        }, 1000);
+      }
     },
     initData(vm) {
       // get paramater from url segments
@@ -358,6 +390,15 @@ export default {
       vm.soal_id = segments[segments.length - 1];
       vm.ujian_id = segments[segments.length - 2];
       vm.type = segments[segments.length - 3];
+
+      // set index soal, continue where did the user left
+      // or if it is a new exam then set to 0
+      var soalIndex = localStorage.getItem("last_soal_index");
+      if (soalIndex > 0) {
+        vm.currentSoal = soalIndex;
+      } else {
+        vm.currentSoal = 0;
+      }
     },
     initSoal(vm) {
       // this method called if the page get reloaded or direct access via url
@@ -371,24 +412,40 @@ export default {
       vm.getSoal(payload).then((response) => {
         console.log(response.data.durasi_soal);
         vm.shortCountDownSeconds = response.data.durasi_soal;
-        vm.shortCountDown();
+        var durasiSoal = localStorage.getItem("last_soal_time");
+        if (durasiSoal > 0) {
+          vm.shortCountDown(durasiSoal);
+        } else {
+          vm.shortCountDown();
+        }
+        // if (vm.isSoalNewlyCreated) {
+        //   localStorage.setItem("last_soal_index", 0);
+        // }
       });
     },
     skipSoal() {
       this.isNotSkipped = false;
-      setTimeout(() => {
-        this.isNotSkipped = true;
-        this.shortCountDownValue = 100;
-        this.shortCountDownSeconds = this.durasiSoal;
-        this.currentSoal += 1;
-      }, 500);
-      console.log(this.soal[this.currentSoal].jawaban);
+      if (this.currentSoal + 1 == this.soal.length) {
+        this.endCallBack();
+      } else {
+        setTimeout(() => {
+          this.isNotSkipped = true;
+          this.shortCountDownValue = 100;
+          this.shortCountDownSeconds = this.durasiSoal;
+          var currentSoalIndex = parseInt(this.currentSoal);
+          this.currentSoal = currentSoalIndex + 1;
+        }, 500);
+      }
+      // console.log(this.soal[this.currentSoal].jawaban);
     },
     goToPendaftaran() {
       this.$router.replace({
         name: "Pendaftaran",
         params: { id: this.ujian_id },
       });
+    },
+    isInRange(start, end) {
+      return this.$moment(this.now).isBetween(start, end);
     },
     startCallBack(data) {},
     endCallBack(data) {
@@ -438,7 +495,16 @@ export default {
     } else {
       next((vm) => {
         vm.shortCountDownSeconds = vm.durasiSoal;
-        vm.shortCountDown(vm);
+        // vm.shortCountDown();
+        var durasiSoal = localStorage.getItem("last_soal_time");
+        if (durasiSoal > 0) {
+          vm.shortCountDown(durasiSoal);
+        } else {
+          vm.shortCountDown();
+        }
+        // if (vm.isSoalNewlyCreated) {
+        //   localStorage.setItem("last_soal_index", 0);
+        // }
       });
     }
   },
@@ -448,6 +514,7 @@ export default {
   },
   computed: {
     ...mapState([
+      "isSoalNewlyCreated",
       "soal",
       "durasi",
       "jumlahSoal",
