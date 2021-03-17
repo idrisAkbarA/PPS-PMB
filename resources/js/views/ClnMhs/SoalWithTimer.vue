@@ -135,7 +135,9 @@
         <v-card-title>
           <span v-if="isSemuaSoalTerjawab">
             Semua soal telah dikerjakan!
-          </span><span v-else>Waktu mengerjakan soal sudah habis!</span>
+          </span>
+          <span v-else-if="isInRange(startTime,endTime)">Maaf jatah soal sudah habis!</span>
+          <span v-else>Waktu mengerjakan soal sudah habis!</span>
         </v-card-title>
 
         <v-card-text v-if="soalReview">
@@ -271,6 +273,7 @@ export default {
     currentSoal(v) {
       var currentIndex = localStorage.getItem("last_soal_index");
       localStorage.setItem("last_soal_index", v);
+      console.log("index:", v, "length:", this.soal.length);
       if (this.soal) {
         if (v == this.soal.length) {
           endCallBack();
@@ -364,15 +367,18 @@ export default {
           console.log(response.data);
         })
         .catch((error) => {});
-      setTimeout(() => {
-        this.isNewlySelected = true;
-        this.shortCountDownValue = 100;
-        this.shortCountDownColor = "blue";
-        this.shortCountDownSeconds = this.durasiSoal;
-        var currentSoalIndex = parseInt(this.currentSoal);
-        if (soal.length != this.currentSoal + 1)
+      if (this.currentSoal + 1 == this.soal.length) {
+        this.endCallBack();
+      } else {
+        setTimeout(() => {
+          this.isNewlySelected = true;
+          this.shortCountDownValue = 100;
+          this.shortCountDownColor = "blue";
+          this.shortCountDownSeconds = this.durasiSoal;
+          var currentSoalIndex = parseInt(this.currentSoal);
           this.currentSoal = currentSoalIndex + 1;
-      }, 1000);
+        }, 1000);
+      }
     },
     initData(vm) {
       // get paramater from url segments
@@ -419,13 +425,17 @@ export default {
     },
     skipSoal() {
       this.isNotSkipped = false;
-      setTimeout(() => {
-        this.isNotSkipped = true;
-        this.shortCountDownValue = 100;
-        this.shortCountDownSeconds = this.durasiSoal;
-        var currentSoalIndex = parseInt(this.currentSoal);
-        this.currentSoal = currentSoalIndex + 1;
-      }, 500);
+      if (this.currentSoal + 1 == this.soal.length) {
+        this.endCallBack();
+      } else {
+        setTimeout(() => {
+          this.isNotSkipped = true;
+          this.shortCountDownValue = 100;
+          this.shortCountDownSeconds = this.durasiSoal;
+          var currentSoalIndex = parseInt(this.currentSoal);
+          this.currentSoal = currentSoalIndex + 1;
+        }, 500);
+      }
       // console.log(this.soal[this.currentSoal].jawaban);
     },
     goToPendaftaran() {
@@ -433,6 +443,9 @@ export default {
         name: "Pendaftaran",
         params: { id: this.ujian_id },
       });
+    },
+    isInRange(start, end) {
+      return this.$moment(this.now).isBetween(start, end);
     },
     startCallBack(data) {},
     endCallBack(data) {
