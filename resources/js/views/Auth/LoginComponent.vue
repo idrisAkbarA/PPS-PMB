@@ -50,6 +50,9 @@
               <span>
                 Belum memiliki akun? Daftar <a href="/pendaftaran">di sini</a>.
               </span>
+              <span>
+                <a href="/lupa-password">Lupa Password?</a>
+              </span>
             </v-col>
           </v-row>
         </v-container>

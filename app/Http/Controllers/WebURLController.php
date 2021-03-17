@@ -22,6 +22,14 @@ class WebURLController extends Controller
         $is_login= true;
         return view("login", ['is_login'=>$is_login]);
     }
+    public function lupaPassword(){
+        $is_login= true;
+        return view("lupaPassword", ['is_login'=>$is_login]);
+    }
+    public function resetPassword(){
+        $is_login= true;
+        return view("resetPassword", ['is_login'=>$is_login]);
+    }
     public function loginPetugas(){
         $is_login= true;
         return view("login-petugas", ['is_login'=>$is_login]);

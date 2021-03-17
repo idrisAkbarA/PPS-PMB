@@ -38,6 +38,8 @@ Route::middleware('auth:cln_mahasiswa')->post('/ujian/get-pendaftaran', 'UjianCo
 Route::post('/ujian/test', 'UjianController@test');
 Route::get('/ujian/laporan', 'UjianController@laporan');
 Route::get('/ujian/dashboard', 'UjianController@dashboard');
+Route::post('/forget-password', 'ForgotPasswordController@postEmail');
+Route::post('/reset-password', 'ResetPasswordController@updatePassword');
 
 // Petugas Routes
 Route::prefix('petugas')->name('petugas.')->group(function () {

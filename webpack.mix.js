@@ -16,5 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
 mix.js('resources/js/nonSPA.js', 'public/js')
     .sass('resources/sass/nonSPA.scss', 'public/css');
 mix.js('resources/js/mhsLogin.js', 'public/js');
+mix.js('resources/js/lupaPassword.js', 'public/js');
+mix.js('resources/js/resetPassword.js', 'public/js');
 mix.js('resources/js/pendaftaran.js', 'public/js');
 mix.sass('resources/sass/pendaftaran.scss', 'public/css');

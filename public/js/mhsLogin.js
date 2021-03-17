@@ -2075,6 +2075,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
@@ -60323,6 +60326,12 @@ var render = function() {
                                 _vm._v("di sini")
                               ]),
                               _vm._v(".\n            ")
+                            ]),
+                            _vm._v(" "),
+                            _c("span", [
+                              _c("a", { attrs: { href: "/lupa-password" } }, [
+                                _vm._v("Lupa Password?")
+                              ])
                             ])
                           ])
                         : _vm._e()
@@ -124726,7 +124735,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\WebDev\PPS-PMB\resources\js\mhsLogin.js */"./resources/js/mhsLogin.js");
+module.exports = __webpack_require__(/*! C:\pemrograman\APK\Web-Root\PPS-PMB\resources\js\mhsLogin.js */"./resources/js/mhsLogin.js");
 
 
 /***/ })

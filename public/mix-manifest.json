@@ -3,7 +3,9 @@
     "/css/app.css": "/css/app.css",
     "/css/nonSPA.css": "/css/nonSPA.css",
     "/css/pendaftaran.css": "/css/pendaftaran.css",
+    "/js/lupaPassword.js": "/js/lupaPassword.js",
     "/js/mhsLogin.js": "/js/mhsLogin.js",
     "/js/nonSPA.js": "/js/nonSPA.js",
-    "/js/pendaftaran.js": "/js/pendaftaran.js"
+    "/js/pendaftaran.js": "/js/pendaftaran.js",
+    "/js/resetPassword.js": "/js/resetPassword.js"
 }

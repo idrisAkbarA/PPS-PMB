@@ -26,6 +26,8 @@ Route::get('/pendaftaran', 'WebURLController@pendaftaran');
 Route::get('/tentang', 'WebURLController@tentang');
 Route::get('/petunjuk', 'WebURLController@petunjuk');
 Route::get('/login', 'WebURLController@login')->name('login');
+Route::get('/lupa-password', 'WebURLController@lupaPassword');
+Route::get('/reset-password/{token}', 'WebURLController@resetPassword');
 Route::get('/login-petugas', 'WebURLController@loginPetugas');
 Route::post('/authenticate/{role}', 'AuthController@login'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/daftar', 'AuthController@register')->name('register');
