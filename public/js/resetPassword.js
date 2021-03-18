@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -122646,14 +122646,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 4:
+/***/ 10:
 /*!*********************************************!*\
   !*** multi ./resources/js/resetPassword.js ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\pemrograman\APK\Web-Root\PPS-PMB\resources\js\resetPassword.js */"./resources/js/resetPassword.js");
+module.exports = __webpack_require__(/*! D:\Programming\Projects\Web\PPS-PMB\resources\js\resetPassword.js */"./resources/js/resetPassword.js");
 
 
 /***/ })

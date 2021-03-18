@@ -9,7 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vue from 'vue'
 import Vuetify from 'vuetify';
-// import VueWindowSize from 'vue-window-size';
+import VueWindowSize from 'vue-window-size';
 // import vuescroll from 'vuescroll';
 // import moment from './moment.js';
 // import Vue2Filters from 'vue2-filters'
@@ -17,7 +17,7 @@ import Vuetify from 'vuetify';
 // Vue.use(Vue2Filters)
 // Vue.use(moment);
 // Vue.use(vuescroll);
-// Vue.use(VueWindowSize);
+Vue.use(VueWindowSize);
 Vue.use(Vuetify);
 
 const vuetify = new Vuetify(

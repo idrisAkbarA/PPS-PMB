@@ -60,25 +60,6 @@ lang=en);@import url(https://fonts.googleapis.com/icon?family=Material+Icons);@i
   justify-content: center;
 }
 
-@media (max-width: 767px) {  
-  .parent{
-    display: block;
-    height: 100vh;
-  }                
-  .left-image {
-     display: none;
-  }
-  /* .left-menu {
-     display: none;
-  } */
-  /* .left-content {
-     display: none;
-  } */
-  /* .left-no-shadow {
-     display: none;
-  } */
-}
-
 .logo-uin {
   /* flex-grow: 1; */
   display: flex;

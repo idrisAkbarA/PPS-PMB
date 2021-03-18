@@ -1,32 +1,72 @@
-@extends('layouts.base')
-@push('styles')
-<meta name="description" content="Pendaftaran mahasiswa pascasarjana UIN SUSKA RIAU">
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<link rel="stylesheet" href="{{ asset('css/pendaftaran.css') }}">
-@endpush
-@push('js')
-<script src="{{ mix('js/pendaftaran.js') }}"></script>
-@endpush
-@section('content-left')
-<div>
-    {{-- <h4 style="margin-top:0px !important; color: white">Silahkan mendaftar!</h4> --}}
-    <p style="font-weight: bold; color: white">
-    </p>
-    <div>
+<!doctype html>
+<html lang="en">
 
-        {{-- <span style="margin-right: 1em; color:white">
-            Sudah mendaftar? <a href="#">Login disini</a>
-        </span> --}}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Pendaftaran mahasiswa pascasarjana UIN SUSKA RIAU">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pendaftaran.css') }}">
+    <link rel="icon" href="{{ asset('/images/LogoUIN.png') }}">
+    @stack('styles')
+    <title>Pascasarjana UIN Suska Riau</title>
+</head>
 
+<body>
+    <div id="app-landing">
+        <v-app id="pendaftaran-vue-component">
+            <div class="i-container">
+                <div class="left">
+                    <div class="left-menu">
+                        <div class="logo-uin">
+                            <img src="{{ asset('images/LogoUIN.png') }}" alt="logo uin suska" height="40px">
+                        </div>
+
+                        <div class="menu-link">
+                            <div>
+                                <a href="/">
+                                    <h6>
+                                        Home
+                                    </h6>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="/login">
+                                    <h6>
+                                        Login
+                                    </h6>
+                                </a>
+                            </div>
+                            <div>
+                                <h6>
+                                    Tentang
+                                </h6>
+                            </div>
+                            <div>
+                                <a href="/pendaftaran">
+                                    <h6>
+                                        Pendaftaran
+                                    </h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <v-container fluid fill-height>
+                        <Pendaftaran v-if="windowWidth <= 600" url-pendaftaran="{{ route('register') }}">
+                        </Pendaftaran>
+                    </v-container>
+                </div>
+                <div class="right">
+                    <v-container fluid fill-height>
+                        <Pendaftaran url-pendaftaran="{{ route('register') }}"></Pendaftaran>
+                    </v-container>
+                </div>
+            </div>
+        </v-app>
     </div>
-</div>
-@endsection
-@section('content-right')
-<div id="pendaftaran-vue-component">
-    <v-app>
-        <Pendaftaran
-        url-pendaftaran="{{route('register')}}"
-        ></Pendaftaran>
-    </v-app>
-</div>
-@endsection
+    <script src="{{ mix('js/pendaftaran.js') }}"></script>
+    @stack('js')
+</body>
+
+</html>

@@ -6,7 +6,7 @@
     <v-card
       class="mx-auto"
       flat
-      width="65%"
+      :width="windowWidth<=600?'90%':'65%'"
     >
       <v-card-text>
         <v-container>
@@ -81,7 +81,7 @@
             align="center"
             dense
           >
-            <v-col cols="3">
+            <v-col cols="6">
               <v-btn
                 :loading="loading"
                 @click="submit"
@@ -89,9 +89,11 @@
                 dark
               >Daftar</v-btn>
             </v-col>
-            <v-col>
+            <v-col :cols="windowWidth<=600?12:6">
               <span>
-                Sudah memiliki akun? Login
+                Sudah memiliki akun?
+                <br v-if="windowWidth<=600">
+                Login
                 <a href="/login">di sini</a>.
               </span>
             </v-col>

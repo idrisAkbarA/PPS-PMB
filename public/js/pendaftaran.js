@@ -81,11 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-<<<<<<< HEAD
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
-=======
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
->>>>>>> 728d97eaa9ca80a4a3343e761f6432945cb95e1e
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1986,6 +1982,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -38532,7 +38530,10 @@ var render = function() {
     [
       _c(
         "v-card",
-        { staticClass: "mx-auto", attrs: { flat: "", width: "65%" } },
+        {
+          staticClass: "mx-auto",
+          attrs: { flat: "", width: _vm.windowWidth <= 600 ? "90%" : "65%" }
+        },
         [
           _c(
             "v-card-text",
@@ -38722,7 +38723,7 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "3" } },
+                        { attrs: { cols: "6" } },
                         [
                           _c(
                             "v-btn",
@@ -38740,17 +38741,23 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c("v-col", [
-                        _c("span", [
-                          _vm._v(
-                            "\n              Sudah memiliki akun? Login\n              "
-                          ),
-                          _c("a", { attrs: { href: "/login" } }, [
-                            _vm._v("di sini")
-                          ]),
-                          _vm._v(".\n            ")
-                        ])
-                      ])
+                      _c(
+                        "v-col",
+                        { attrs: { cols: _vm.windowWidth <= 600 ? 12 : 6 } },
+                        [
+                          _c("span", [
+                            _vm._v(
+                              "\n              Sudah memiliki akun?\n              "
+                            ),
+                            _vm.windowWidth <= 600 ? _c("br") : _vm._e(),
+                            _vm._v("\n              Login\n              "),
+                            _c("a", { attrs: { href: "/login" } }, [
+                              _vm._v("di sini")
+                            ]),
+                            _vm._v(".\n            ")
+                          ])
+                        ]
+                      )
                     ],
                     1
                   )
@@ -38883,6 +38890,20 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-window-size/dist/index.common.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vue-window-size/dist/index.common.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {Object.defineProperty(exports,"__esModule",{value:!0});var e=__webpack_require__(/*! window-resize-subject */ "./node_modules/window-resize-subject/dist/index.common.js");function t(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}var i=t(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js")),n=new e.WindowResizeSubject,u=function(e){var t="function"==typeof i.default.observable?i.default.observable({width:800,height:600}):new i.default({data:{width:800,height:600}});return e.addObserver("option",(function(e){var i=e.width,n=e.height;t.width=i,t.height=n})).subscribe(),{computed:{windowWidth:function(){return t.width},windowHeight:function(){return t.height}}}}(n),o=function(e){return{setDelay:function(t){e.setDelay(t)},init:function(){e.subscribe()},destroy:function(){e.unsubscribe()}}}(n),d={installed:!1};var r={install:function(e,t){var i=(void 0===t?{}:t).delay,o=void 0===i?33:i;d.installed||(d.installed=!0,n.setDelay(o),e.mixin({mixins:[u]}))}},s=null;"undefined"!=typeof window?s=window.Vue:"undefined"!=typeof global&&(s=global.Vue),s&&s.use(r),exports.default=r,exports.vueWindowSize=o,exports.vueWindowSizeMixin=u;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -96845,6 +96866,19 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./node_modules/window-resize-subject/dist/index.common.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/window-resize-subject/dist/index.common.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports,"__esModule",{value:!0});var e=function(){function e(e){this._observers=new Map,this._subscribed=!1;var t=(null!=e?e:{}).delay,i=void 0===t?33:t;this._delay=i,this._handler=this._handleResize.bind(this)}return e.prototype.addObserver=function(e,t){return this._observers.set(e,t),t(this._getEvent()),this},e.prototype.deleteObserver=function(e){return this._observers.delete(e),this},e.prototype.deleteObservers=function(){return this._observers.clear(),this},e.prototype.notifyObservers=function(e){return this._observers.forEach((function(t){t(e)})),this},e.prototype.subscribe=function(){return"undefined"==typeof window||this._subscribed||(window.addEventListener("resize",this._handler),window.addEventListener("orientationchange",this._handler),this._subscribed=!0),this},e.prototype.unsubscribe=function(){return this._subscribed?(window.removeEventListener("resize",this._handler),window.removeEventListener("orientationchange",this._handler),this._subscribed=!1,this):this},e.prototype.setDelay=function(e){return this._delay=e,this},e.prototype.hasObserver=function(){return this._observers.size>0},e.prototype._getEvent=function(){return"undefined"==typeof window?{width:0,height:0}:{width:window.innerWidth,height:window.innerHeight}},e.prototype._update=function(){var e=this._getEvent();this.notifyObservers(e)},e.prototype._handleResize=function(){var e=this;clearTimeout(this._timer),this._timer=setTimeout((function(){e._update()}),this._delay)},e}();exports.WindowResizeSubject=e;
+
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -96913,7 +96947,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _views_Auth_PendaftaranComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Auth/PendaftaranComponent */ "./resources/js/views/Auth/PendaftaranComponent.vue");
+/* harmony import */ var vue_window_size__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-window-size */ "./node_modules/vue-window-size/dist/index.common.js");
+/* harmony import */ var vue_window_size__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_window_size__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _views_Auth_PendaftaranComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Auth/PendaftaranComponent */ "./resources/js/views/Auth/PendaftaranComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -96923,15 +96959,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
- // import VueWindowSize from 'vue-window-size';
-// import vuescroll from 'vuescroll';
+
+ // import vuescroll from 'vuescroll';
 // import moment from './moment.js';
 // import Vue2Filters from 'vue2-filters'
 // Vue.use(Vue2Filters)
 // Vue.use(moment);
 // Vue.use(vuescroll);
-// Vue.use(VueWindowSize);
 
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_window_size__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
   theme: {
@@ -96959,7 +96995,7 @@ var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#pendaftaran-vue-component',
   components: {
-    Pendaftaran: _views_Auth_PendaftaranComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Pendaftaran: _views_Auth_PendaftaranComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   vuetify: vuetify
 });
@@ -97035,22 +97071,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 5:
-=======
-/***/ 9:
->>>>>>> 728d97eaa9ca80a4a3343e761f6432945cb95e1e
+/***/ 11:
 /*!*******************************************!*\
   !*** multi ./resources/js/pendaftaran.js ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\pemrograman\APK\Web-Root\PPS-PMB\resources\js\pendaftaran.js */"./resources/js/pendaftaran.js");
-=======
 module.exports = __webpack_require__(/*! D:\Programming\Projects\Web\PPS-PMB\resources\js\pendaftaran.js */"./resources/js/pendaftaran.js");
->>>>>>> 728d97eaa9ca80a4a3343e761f6432945cb95e1e
 
 
 /***/ })
