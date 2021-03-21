@@ -18,7 +18,9 @@ import moment from './moment.js';
 import Vue2Filters from 'vue2-filters'
 import VueCountdownTimer from 'vuejs-countdown-timer';
 import VueMask from 'v-mask';
+import VueHtml2Canvas from 'vue-html2canvas';
 
+Vue.use(VueHtml2Canvas);
 Vue.use(VueMask);
 Vue.use(VueCountdownTimer);
 Vue.use(Vue2Filters)

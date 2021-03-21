@@ -100,45 +100,78 @@
       </v-stepper-step>
 
       <v-stepper-content step="2">
-        <v-card
-          color="grey lighten-4"
-          class="mb-12 ml-2 mt-2 mr-2"
-          elevation="5"
+        <div ref="kode_bayar">
+          <v-card
+            color="grey lighten-4"
+            class="mb-5 ml-2 mt-2 mr-2"
+            elevation="5"
+          >
+            <!-- v-if="!ujian.kode_bayar" -->
+            <v-card-title>Lakukan Pembayaran</v-card-title>
+            <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
+              masuk</v-card-subtitle>
+            <v-card-text>
+              <v-btn
+                block
+                large
+                dark
+                :loading="isLoading"
+                color="green darken-3"
+                v-if="!kodePembayaran"
+                @click="generateCode()"
+              >Dapatkan Kode Pembayaran</v-btn>
+              <div v-if="kodePembayaran && !isPembayaranLunas">
+                <span> Segera membayar dengan kode berikut </span>
+                <h1>{{ kodePembayaran }}</h1>
+              </div>
+              <div v-if="isPembayaranLunas">
+                <h1>Pembayaran Berhasil!</h1>
+                <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
+              </div>
+            </v-card-text>
+          </v-card>
+        </div>
+        <v-btn
+          :loading="isLoading"
+          v-if="kodePembayaran"
+          color="green"
+          class="text-white mb-12 ml-2 mr-2"
+          text
+          block
+          @click="downloadKodeBayar"
         >
-          <!-- v-if="!ujian.kode_bayar" -->
-          <v-card-title>Lakukan Pembayaran</v-card-title>
-          <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
-            masuk</v-card-subtitle>
-          <v-card-text>
-            <v-btn
-              block
-              large
-              dark
-              :loading="isLoading"
-              color="green darken-3"
-              v-if="!kodePembayaran"
-              @click="generateCode()"
-            >Dapatkan Kode Pembayaran</v-btn>
-            <div v-if="kodePembayaran && !isPembayaranLunas">
-              <span> Segera membayar dengan kode berikut </span>
-              <h1>{{ kodePembayaran }}</h1>
-            </div>
-            <div v-if="isPembayaranLunas">
-              <h1>Pembayaran Berhasil!</h1>
-              <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
-            </div>
-          </v-card-text>
-        </v-card>
+          <v-icon left>mdi-download</v-icon> Download Kode Bayar
+        </v-btn>
       </v-stepper-content>
     </v-stepper>
   </v-sheet>
 </template>
 
 <script>
+const FileDownload = require("js-file-download");
 import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   methods: {
     ...mapMutations(["setUser", "setUser", "setJurusan", "setUjianSelected"]),
+    downloadKodeBayar: async function () {
+      this.isLoading = true;
+      const el = this.$refs.kode_bayar;
+      console.log(el);
+      // add option type to get the image version
+      // if not provided the promise will return
+      // the canvas.
+      const options = {
+        type: "blob",
+      };
+      await this.$html2canvas(el).then(function (canvas) {
+        canvas.toBlob(function (blob) {
+          // saveAs(blob, "wholePage.png");
+          FileDownload(blob, "kode_bayar.png");
+        });
+      });
+
+      this.isLoading = false;
+    },
     goToHome() {
       this.$router.push({ name: "Home Calon Mahasiswa" });
     },
