@@ -335,11 +335,11 @@ export default {
           title: "Laporan Ujian",
           to: `/admin/${petugas}/laporan-ujian`,
         },
-        {
-          icon: "mdi-tools",
-          title: "Setting Ujian",
-          to: `/admin/${petugas}/setting-ujian`,
-        },
+        // {
+        //   icon: "mdi-tools",
+        //   title: "Setting Ujian",
+        //   to: `/admin/${petugas}/setting-ujian`,
+        // },
         // {
         //   icon: "mdi-file-document",
         //   title: "Hasil Ujian",

@@ -44,4 +44,11 @@ class Pembayaran
       }
       return $value;
    }
+   public function reset($idUjian)
+   {
+      $ujian = Ujian::find($idUjian);
+      $ujian->is_lunas = false;
+      $ujian->lunas_at = null;
+      $ujian->save();
+   }
 }

@@ -33,6 +33,8 @@ Route::middleware('auth:cln_mahasiswa')->post('/ujian/generate-pembayaran', 'Uji
 Route::middleware('auth:cln_mahasiswa')->put('/user/update', 'UserClnMhsController@selfUpdate');
 Route::middleware('auth:cln_mahasiswa')->post('/user/store-file', 'UserClnMhsController@storeFile');
 Route::post('/ujian/pay', 'UjianController@pay');
+Route::get('/ujian/reset-payment/{id_ujian}', 'UjianController@resetPayment');
+Route::get('/ujian/reset-ujian/{id_ujian}', 'UjianController@resetUjian');
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/check-pembayaran', 'UjianController@checkPembayaran');
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/get-pendaftaran', 'UjianController@getPendaftaran');
 Route::post('/ujian/test', 'UjianController@test');

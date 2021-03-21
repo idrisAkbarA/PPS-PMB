@@ -201,6 +201,20 @@ class SoalUjian
         $soal->save();
         return ['status' => true, 'message' => 'New Jawaban received by server'];
     }
+    public function reset($id)
+    {
+        // reset ujian
+        $ujian = Ujian::find($id);
+        $ujian->soal_id = null;
+        $ujian->start_tka = null;
+        $ujian->start_tkj = null;
+        $ujian->tka_ended = null;
+        $ujian->tkj_ended = null;
+        $ujian->is_lulus_tka = null;
+        $ujian->is_lulus_tkj = null;
+        $ujian->lulus_at = null;
+        $ujian->save();
+    }
     public function setLulus($idUjian, $type)
     {
         $periodeObject = 'min_lulus_' . $type;

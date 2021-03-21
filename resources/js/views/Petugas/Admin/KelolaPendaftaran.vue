@@ -259,6 +259,60 @@
       </template>
     </v-snackbar>
     <v-dialog
+      width="400"
+      v-model="dialogResetUjian"
+      v-if="mhsSelected"
+    >
+      <v-card>
+        <v-card-title>Konfirmasi Reset Ujian</v-card-title>
+        <v-card-text>
+          Apakah anda yakin akan mereset ujian
+          <strong>
+            {{mhsSelected.nama}}?
+          </strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            color="green"
+            class="text-white"
+            :loading="isLoading"
+            @click="resetUjian()"
+          >Iya</v-btn>
+          <v-btn
+            text
+            @click="dialogResetUjian = false"
+          >batal</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      v-if="mhsSelected"
+      width="400"
+      v-model="dialogResetPembayaran"
+    >
+      <v-card>
+        <v-card-title>Konfirmasi Reset Pembayaran</v-card-title>
+        <v-card-text>
+          Apakah anda yakin akan mereset pembayaran
+          <strong>
+            {{mhsSelected.nama}}?
+          </strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            color="green"
+            class="text-white"
+            :loading="isLoading"
+            @click="resetPembayaran()"
+          >Iya</v-btn>
+          <v-btn
+            text
+            @click="dialogResetPembayaran = false"
+          >batal</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog
       scrollable
       width="400"
       v-model="dialogDetail"
@@ -472,6 +526,19 @@
             </v-row>
           </v-container>
         </v-card-text>
+        <v-card-actions>
+          <v-btn
+            color="green"
+            class="text-white"
+            @click="dialogResetPembayaran = true"
+          >Reset Pembayaran</v-btn>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green"
+            class="text-white"
+            @click="dialogResetUjian = true"
+          >Reset Ujian</v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </v-container>
@@ -482,6 +549,8 @@ import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
+      dialogResetPembayaran: false,
+      dialogResetUjian: false,
       dialogDetail: false,
       jk: ["Laki-laki", "Perempuan"],
       mhsSelected: null,
@@ -554,6 +623,36 @@ export default {
   },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    resetPembayaran() {
+      this.isLoading = true;
+      var id = this.mhsSelected.ujianID;
+      var url = "/api/ujian/reset-payment/" + id;
+      axios.get(url).then((response) => {
+        console.log(response.data);
+        if (response.data.status == 1 || response.data.status == true) {
+          this.dialogResetPembayaran = false;
+          this.snackbar.message = response.data.message;
+          this.snackbar.color = "green";
+          this.snackbar.show = true;
+        }
+        this.isLoading = false;
+      });
+    },
+    resetUjian() {
+      this.isLoading = true;
+      var id = this.mhsSelected.ujianID;
+      var url = "/api/ujian/reset-ujian/" + id;
+      axios.get(url).then((response) => {
+        console.log(response.data);
+        if (response.data.status == 1 || response.data.status == true) {
+          this.dialogResetUjian = false;
+          this.snackbar.message = response.data.message;
+          this.snackbar.color = "green";
+          this.snackbar.show = true;
+        }
+        this.isLoading = false;
+      });
+    },
     link(url) {
       var a = "/" + url;
       var link = a.replace(" ", "%20");
@@ -561,6 +660,7 @@ export default {
     },
     show(item) {
       this.mhsSelected = item.user_cln_mhs;
+      this.mhsSelected["ujianID"] = item.id;
       this.dialogDetail = true;
     },
     getPendaftaran(params = {}) {

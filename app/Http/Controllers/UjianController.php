@@ -12,6 +12,7 @@ use App\Library\ReportUjian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Library\SoalUjian;
+use Faker\Provider\ar_SA\Payment;
 use Illuminate\Support\Facades\Auth;
 
 class UjianController extends Controller
@@ -185,6 +186,16 @@ class UjianController extends Controller
         $ujian->save();
 
         return response()->json(['status' => true, 'message' => 'Kode bayar berhasil dibuat', 'code' => $code]);
+    }
+    public function resetPayment($id_ujian)
+    {
+        $payment = (new Pembayaran())->reset($id_ujian);
+        return response()->json(['status' => true, 'message' => 'Pembayaran berhasil di reset']);
+    }
+    public function resetUjian($id_ujian)
+    {
+        $soalUjian = (new SoalUjian())->reset($id_ujian);
+        return response()->json(['status' => true, 'message' => 'Ujian berhasil di reset']);
     }
     public function pay(Request $request)
     {
