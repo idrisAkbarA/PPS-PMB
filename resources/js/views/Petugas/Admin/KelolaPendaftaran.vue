@@ -329,6 +329,16 @@
                 filled
                 readonly
                 prepend-inner-icon="mdi-account"
+                label="Kode Bayar"
+                v-model="mhsSelected.kode_bayar"
+              ></v-text-field>
+            </v-row>
+            <v-row>
+              <v-text-field
+                color="green"
+                filled
+                readonly
+                prepend-inner-icon="mdi-account"
                 label="Nama Lengkap"
                 v-model="mhsSelected.nama"
               ></v-text-field>
@@ -661,6 +671,7 @@ export default {
     show(item) {
       this.mhsSelected = item.user_cln_mhs;
       this.mhsSelected["ujianID"] = item.id;
+      this.mhsSelected["kode_bayar"] = item.kode_bayar;
       this.dialogDetail = true;
     },
     getPendaftaran(params = {}) {
