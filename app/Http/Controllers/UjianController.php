@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Library\SoalUjian;
 use Faker\Provider\ar_SA\Payment;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\pendaftaranExport;
 use Illuminate\Support\Facades\Auth;
 
 class UjianController extends Controller
@@ -89,9 +91,7 @@ class UjianController extends Controller
         $jurusan_id = $request->jurusan;
         $pembayaran = $request->pembayaran;
         $status = $request->status;
-
-
-        return response()->json($request);
+        return Excel::download(new pendaftaranExport($jurusan_id, $periode_id, $pembayaran, $status), 'template.xlsx');
     }
     public function getPendaftaran(Request $request)
     {
@@ -103,7 +103,6 @@ class UjianController extends Controller
             "user" => $user,
             "jurusan" => $jurusan,
             "ujian" => $ujian
-
         ]);
     }
 

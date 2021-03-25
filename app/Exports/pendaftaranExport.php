@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Periode;
+use App\Jurusan;
 use App\Ujian;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -15,10 +16,14 @@ class pendaftaranExport implements FromView, ShouldAutoSize
 
     public function __construct(
         $jurusan_id = null,
-        $periode_id = null
+        $periode_id = null,
+        $pembayaran = null,
+        $status = null
     ) {
         $this->jurusan_id = $jurusan_id;
         $this->periode_id = $periode_id;
+        $this->pembayaran = $pembayaran;
+        $this->status     = $status;
     }
 
     public function view(): View
@@ -43,7 +48,7 @@ class pendaftaranExport implements FromView, ShouldAutoSize
             $data['periode'] = $periode;
         }
         if ($this->jurusan_id) {
-            $jurusan = Periode::select('nama')->find($this->jurusan_id);
+            $jurusan = Jurusan::find($this->jurusan_id);
             $data['jurusan'] = $jurusan;
         }
         return view('pendaftaranExcel', ['data' => $data]);

@@ -561,6 +561,7 @@
 
 <script>
 import { mapMutations, mapState } from "vuex";
+const FileDownload = require("js-file-download");
 export default {
   data() {
     return {
@@ -640,13 +641,17 @@ export default {
     ...mapMutations(["toggleBottomSheet"]),
     downloadExcel() {
       var url = "/api/ujian/export";
-      var payload = {
-        jurusan_id: this.filter.jurusan,
-        periode_id: this.filter.periode,
-      };
-      axios.post(url, payload).then((response) => {
-        console.log(response);
-      });
+      this.downloadLoading = true;
+      var params = this.filter;
+      axios
+        .get(url, {
+          params,
+          responseType: "blob",
+        })
+        .then((response) => {
+          FileDownload(response.data, "report.xlsx");
+          this.downloadLoading = false;
+        });
     },
     resetPembayaran() {
       this.isLoading = true;
