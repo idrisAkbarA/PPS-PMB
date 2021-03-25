@@ -38526,7 +38526,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "ma-5", attrs: { "fill-height": "" } },
+    { attrs: { "fill-height": "" } },
     [
       _c(
         "v-card",

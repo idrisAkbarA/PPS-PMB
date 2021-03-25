@@ -1,7 +1,7 @@
 <template>
   <v-container
     fill-height
-    class="ma-5"
+    
   >
     <v-card
       class="mx-auto"

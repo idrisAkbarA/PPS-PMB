@@ -83,7 +83,16 @@ class UjianController extends Controller
         $periode = periode::orderBy('id', 'DESC')->with("ujian")->get();
         return response()->json($periode);
     }
+    public function export(Request $request)
+    {
+        $periode_id = $request->periode;
+        $jurusan_id = $request->jurusan;
+        $pembayaran = $request->pembayaran;
+        $status = $request->status;
 
+
+        return response()->json($request);
+    }
     public function getPendaftaran(Request $request)
     {
         $user = Auth::guard('cln_mahasiswa')->user();

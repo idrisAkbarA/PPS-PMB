@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </div>
-                    <v-container fluid fill-height>
+                    <v-container class="mx-0 px-0" fluid fill-height>
                         <Login v-if="windowWidth <= 600">
                         </Login>
                     </v-container>

@@ -65,6 +65,11 @@
           single-line
           hide-details
         ></v-text-field>
+        <v-btn
+          color="green"
+          class="text-white ml-2"
+          @click="downloadExcel()"
+        >Download Excel</v-btn>
       </v-card-title>
       <v-data-table
         :headers="headers"
@@ -633,6 +638,16 @@ export default {
   },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    downloadExcel() {
+      var url = "/api/ujian/export";
+      var payload = {
+        jurusan_id: this.filter.jurusan,
+        periode_id: this.filter.periode,
+      };
+      axios.post(url, payload).then((response) => {
+        console.log(response);
+      });
+    },
     resetPembayaran() {
       this.isLoading = true;
       var id = this.mhsSelected.ujianID;

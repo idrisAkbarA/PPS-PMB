@@ -1,12 +1,9 @@
 <template>
-  <v-container
-    fill-height
-    class="ma-5"
-  >
+  <v-container fill-height>
     <v-card
       class="mx-auto"
       flat
-      width="65%"
+      :width="windowWidth<=600?'90%':'65%'"
     >
       <v-card-text>
         <v-container>

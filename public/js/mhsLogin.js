@@ -2096,9 +2096,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
@@ -38617,11 +38614,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "ma-5", attrs: { "fill-height": "" } },
+    { attrs: { "fill-height": "" } },
     [
       _c(
         "v-card",
-        { staticClass: "mx-auto", attrs: { flat: "", width: "65%" } },
+        {
+          staticClass: "mx-auto",
+          attrs: { flat: "", width: _vm.windowWidth <= 600 ? "90%" : "65%" }
+        },
         [
           _c(
             "v-card-text",
