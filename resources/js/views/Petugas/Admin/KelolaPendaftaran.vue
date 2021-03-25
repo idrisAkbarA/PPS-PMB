@@ -66,8 +66,10 @@
           hide-details
         ></v-text-field>
         <v-btn
+          :block="windowWidth<600?true:false"
           color="green"
-          class="text-white ml-2"
+          class="text-white ml-2 mr-2"
+          :loading="downloadLoading"
           @click="downloadExcel()"
         >Download Excel</v-btn>
       </v-card-title>
@@ -565,6 +567,7 @@ const FileDownload = require("js-file-download");
 export default {
   data() {
     return {
+      downloadLoading: false,
       dialogResetPembayaran: false,
       dialogResetUjian: false,
       dialogDetail: false,

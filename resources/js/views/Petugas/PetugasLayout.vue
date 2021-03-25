@@ -23,7 +23,7 @@
             max-width="70"
             :src="'/images/LogoUIN.png'"
           ></v-img>
-          <v-card-text>Aplikasi Beasiswa UIN Suska Riau</v-card-text>
+          <v-card-text>Aplikasi PMB Pascasarjana</v-card-text>
         </v-card>
         <v-card
           v-if="windowWidth <= 600"

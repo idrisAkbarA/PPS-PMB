@@ -1071,6 +1071,7 @@
       overlay-color="green darken-4"
       v-model="loadingSheet.toggle"
       inset
+      persistent
     >
       <v-card tile>
         <v-progress-linear

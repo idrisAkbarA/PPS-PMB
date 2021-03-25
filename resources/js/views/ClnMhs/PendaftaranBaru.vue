@@ -1003,6 +1003,7 @@
       </v-stepper-content>
     </v-stepper>
     <v-bottom-sheet
+      persistent
       eager
       overlay-color="green darken-4"
       v-model="loadingSheet.toggle"
