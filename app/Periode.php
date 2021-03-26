@@ -91,17 +91,27 @@ class Periode extends Model
     }
     public function getKelas($jurusan_id = null)
     {
+        $jurusan_ids = Jurusan::all();
         $kelas = $this->kelas()->with('jurusan')->when($jurusan_id, function ($q) use ($jurusan_id) {
             return $q->where('jurusan_id', $jurusan_id);
         })->get();
 
         $result = [];
-        foreach ($kelas as $key => $value) {
+
+        foreach ($jurusan_ids as $key => $value) {
+            $newValue = $kelas->filter(function ($val) use ($value) {
+                if ($val['jurusan']['id'] == $value['id']) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
             $result[] = [
-                'jurusan' => $value['jurusan']['nama'],
-                'detail' => $value
+                'jurusan' => $value['nama'],
+                'kelas' => $newValue
             ];
         }
+
         return $result;
     }
 

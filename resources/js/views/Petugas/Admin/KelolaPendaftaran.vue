@@ -145,6 +145,50 @@
         </template>
       </v-data-table>
     </v-card>
+    <p class="mt-5">
+      Daftar Kelas
+    </p>
+    <v-expansion-panels>
+      <v-expansion-panel
+        v-for="(kelas,i) in kelases"
+        :key="i"
+      >
+        <v-expansion-panel-header>
+          {{kelas.jurusan}}
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <v-row>
+            <v-col v-if="kelas.kelas.length<1">
+              <p class="mt-5 text-center">
+                Belum ada kelas
+              </p>
+            </v-col>
+            <v-col
+              cols="4"
+              v-for="(k,key,index) in kelas.kelas"
+              :key="index"
+            >
+              <v-card
+                outlined
+                color="green lighten-5"
+              >
+                <v-card-title>Kelas {{String.fromCharCode(65+index)}}</v-card-title>
+                <v-card-text>
+                  <v-list-item
+                    v-for="(mhs,i2) in k.cln_mhs"
+                    :key="i2"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title>{{mhs.nama}}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
     <!-- Bottom Sheet -->
     <v-bottom-sheet
       scrollable
@@ -567,6 +611,7 @@ const FileDownload = require("js-file-download");
 export default {
   data() {
     return {
+      kelases: null,
       downloadLoading: false,
       dialogResetPembayaran: false,
       dialogResetUjian: false,
@@ -706,6 +751,7 @@ export default {
         .then((response) => {
           this.filter.periode = response.data.currentPeriode?.id;
           this.pendaftaran = response.data.pendaftaran;
+          this.kelases = response.data.kelas;
         })
         .catch((err) => {
           console.error(err);
