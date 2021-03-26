@@ -10,4 +10,12 @@ class Kelas extends Model
     protected $casts = [
         'cln_mhs' => 'object',
     ];
+    public function Periode()
+    {
+        return $this->belongsTo('App\Periode');
+    }
+    public function Jurusan()
+    {
+        return $this->belongsTo('App\Jurusan');
+    }
 }

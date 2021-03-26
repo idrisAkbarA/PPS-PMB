@@ -120,11 +120,13 @@ class UjianController extends Controller
 
         if (!is_null($currentPeriode)) {
             $pendaftaran = $currentPeriode->getUjian($jurusan_id, $pembayaran, $status);
+            $kelas = $currentPeriode->getKelas($jurusan_id);
         }
 
         $reply = [
             'currentPeriode' => $currentPeriode,
-            'pendaftaran' => $pendaftaran ?? []
+            'pendaftaran' => $pendaftaran ?? [],
+            'kelas' => $kelas ?? []
         ];
         return response()->json($reply, 200);
     }

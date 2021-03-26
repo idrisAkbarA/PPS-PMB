@@ -89,6 +89,21 @@ class Periode extends Model
                 return $q->whereNull(['tka_ended', 'tkj_ended']);
             })->get();
     }
+    public function getKelas($jurusan_id = null)
+    {
+        $kelas = $this->kelas()->with('jurusan')->when($jurusan_id, function ($q) use ($jurusan_id) {
+            return $q->where('jurusan_id', $jurusan_id);
+        })->get();
+
+        $result = [];
+        foreach ($kelas as $key => $value) {
+            $result[] = [
+                'jurusan' => $value['jurusan']['nama'],
+                'detail' => $value
+            ];
+        }
+        return $result;
+    }
 
     public function getTemuRamah()
     {
@@ -180,5 +195,9 @@ class Periode extends Model
     public function temu_ramah()
     {
         return $this->hasMany('App\JadwalTR');
+    }
+    public function kelas()
+    {
+        return $this->hasMany('App\Kelas');
     }
 }
