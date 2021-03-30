@@ -242,6 +242,7 @@ class UjianController extends Controller
             $soalUjian = new SoalUjian;
             $batas_ujian = $soalUjian->calcDeadline($ujian->id, $ujian->lunas_at);
             $ujian->batas_ujian = $batas_ujian;
+            $ujian->save();
             return response()->json([
                 'status' => true,
                 "message" => 'Pembayaran sudah lunas',
