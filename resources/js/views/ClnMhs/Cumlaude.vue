@@ -126,7 +126,7 @@
               </div>
               <div v-if="isPembayaranLunas">
                 <h1>Pembayaran Berhasil!</h1>
-                <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
+                <span>Selamat anda lulus.</span>
               </div>
             </v-card-text>
           </v-card>

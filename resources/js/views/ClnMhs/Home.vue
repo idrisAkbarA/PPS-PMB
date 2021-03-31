@@ -114,6 +114,18 @@
                 <v-container class="mt-4">
                   <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
                   <p v-else-if="!isBiodataFilled || !item.is_agree">Lengkapi biodata diri</p>
+                  <p v-else-if="item.is_jalur_cumlaude ==1">
+                    <span v-if="item.is_lulus_tka == null">
+                      Mohon menunggu verifikasi
+                    </span>
+                    <span v-else-if="item.lunas_at">Pembayaran berhasil! Selamat anda lulus.</span>
+                    <span v-else-if="
+                    item.is_lulus_tka == true && item.is_lulus_tkj == true
+                  ">
+                      Anda lulus verifikasi, silahkan Lakukan Pembayaran
+                    </span>
+                    <span v-else>Maaf, anda tidak lulus verifikasi</span>
+                  </p>
                   <p v-else-if="item.lunas_at == null">
                     Mohon selesaikan pembayaran
                   </p>
@@ -222,6 +234,15 @@ export default {
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
     ...mapMutations(["setUjianSelected"]),
+    isVerifiedJalurCumlaude(item) {
+      if (item.is_jalur_cumlaude) {
+        if (item.is_lulus_tka || item.is_lulus_tkj) {
+          return true;
+        }
+        return false;
+      }
+      return false;
+    },
     buatPendaftaran() {
       if (!this.activePeriode) {
         this.dialogEmpty = true;
