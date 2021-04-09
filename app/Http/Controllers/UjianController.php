@@ -219,6 +219,9 @@ class UjianController extends Controller
         $ujian = Ujian::where(['kode_bayar' => $kode_bayar])->first();
         $batas_ujian = $soalUjian->calcDeadline($ujian->id);
         $ujian->lunas_at = Carbon::now();
+        if ($ujian->is_jalur_cumlaude == 1) {
+            $ujian->lulus_at = Carbon::now();
+        }
         $ujian->batas_ujian = $batas_ujian;
         $ujian->save();
         return response()->json([
