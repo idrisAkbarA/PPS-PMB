@@ -85,7 +85,7 @@ class Cumlaude
             }
             $value['link_transkip'] = $value['user_cln_mhs']['transkip'];
             unset($value['is_lulus_tka']);
-            unset($value['user_cln_mhs']);
+            // unset($value['user_cln_mhs']);
             unset($value['status_kelulusan']);
             unset($value['is_lulus_tkj']);
         }
