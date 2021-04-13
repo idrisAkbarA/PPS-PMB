@@ -477,6 +477,11 @@ export default {
         return "60%";
       }
     },
+    link(url) {
+      var a = "/" + url;
+      var link = a.replace(" ", "%20");
+      window.open(link, "_blank");
+    },
   },
   created() {
     this.initData();
