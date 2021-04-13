@@ -11,7 +11,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Vuetify from 'vuetify';
 import store from './store/store'
-import router from './router/router'
+import router from './router/routerMHS'
 import VueWindowSize from 'vue-window-size';
 import vuescroll from 'vuescroll';
 import moment from './moment.js';

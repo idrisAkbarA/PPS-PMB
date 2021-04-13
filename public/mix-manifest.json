@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/appPetugas.js": "/js/appPetugas.js",
     "/css/app.css": "/css/app.css",
     "/css/nonSPA.css": "/css/nonSPA.css",
     "/css/pendaftaran.css": "/css/pendaftaran.css",

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2149,7 +2149,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           password: this.password
         };
         url = "cln_mahasiswa";
-        redirectUrl = "cln-mhs/home";
+        redirectUrl = "/user/cln-mhs/home";
       } else {
         redirectUrl = "";
         payload = {
@@ -2175,15 +2175,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           if (role == 1) {
             //role == admin
-            redirectUrl += "admin/" + userNamePetugas + "/dashboard";
+            redirectUrl += "/petugas/admin/" + userNamePetugas + "/dashboard";
           } else if (role == 2) {
-            redirectUrl += "temu-ramah/" + userNamePetugas + "/home";
+            redirectUrl += "/petugas/temu-ramah/" + userNamePetugas + "/home";
           }
         } catch (error) {
           console.log(error);
         }
 
-        window.location.replace("user/" + redirectUrl);
+        window.location.replace(redirectUrl);
       })["catch"](function (err) {
         _this2.isLoading = false;
         _this2.error = "Maaf terjadi kesalahan, coba lagi dalam beberapa saat";
@@ -97175,7 +97175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /*!****************************************!*\
   !*** multi ./resources/js/mhsLogin.js ***!
   \****************************************/

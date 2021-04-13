@@ -107,7 +107,7 @@ export default {
       if (this.loginUrl == "login") {
         payload = { email: this.username, password: this.password };
         url = "cln_mahasiswa";
-        redirectUrl = "cln-mhs/home";
+        redirectUrl = "/user/cln-mhs/home";
       } else {
         redirectUrl = "";
         payload = { username: this.username, password: this.password };
@@ -129,14 +129,14 @@ export default {
             var userNamePetugas = response.data.user.username;
             if (role == 1) {
               //role == admin
-              redirectUrl += "admin/" + userNamePetugas + "/dashboard";
+              redirectUrl += "/petugas/admin/" + userNamePetugas + "/dashboard";
             } else if (role == 2) {
-              redirectUrl += "temu-ramah/" + userNamePetugas + "/home";
+              redirectUrl += "/petugas/temu-ramah/" + userNamePetugas + "/home";
             }
           } catch (error) {
             console.log(error);
           }
-          window.location.replace("user/" + redirectUrl);
+          window.location.replace(redirectUrl);
         })
         .catch((err) => {
           this.isLoading = false;
