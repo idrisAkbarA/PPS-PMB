@@ -21,9 +21,10 @@ class Cumlaude
         )->with('user_cln_mhs')
             ->where([
                 'periode_id' => $periode_active->id,
-                'is_jalur_cumlaude' => 1
+                'is_jalur_cumlaude' => 1,
+                'is_agree' => 1
             ])
-            ->get();
+            ->orderBy('id', 'DESC')->get();
         $desiredData = self::setData($cumlaudes);
         return $desiredData;
     }
@@ -31,7 +32,8 @@ class Cumlaude
     {
         $where = [
             'periode_id' => $periode_id,
-            'is_jalur_cumlaude' => 1
+            'is_jalur_cumlaude' => 1,
+            'is_agree' => 1
         ];
         if ($jurusan_id != 'all') {
             $where['jurusan_id'] = $jurusan_id;
@@ -45,6 +47,7 @@ class Cumlaude
             'is_lulus_tkj'
         )->with('user_cln_mhs')
             ->where($where)
+            ->orderBy('id', 'DESC')
             ->get();
         $desiredData = self::setData($cumlaudes);
         return $desiredData;
