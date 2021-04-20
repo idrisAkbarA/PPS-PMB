@@ -26,10 +26,27 @@ class Pembayaran
          ->whereNotNull('kode_bayar')
          ->get();
 
+      $urutan = 1;
       $periode_number = self::appendZeroes($ujian->periode_id, 3);
       $jurusan_number = self::appendZeroes($ujian->jurusan_id, 3);
-      $urutan_number = self::appendZeroes(count($ujianHasKodeBayar) + 1, 4);
-      return '991' . $periode_number . $jurusan_number . $urutan_number;
+      $urutan_number = self::appendZeroes(count($ujianHasKodeBayar) + $urutan, 4);
+      $payment_number = '991' . $periode_number . $jurusan_number . $urutan_number;
+      $is_payment_number_valid = false;
+      // do check if the generated payment number is valid
+      while (!$is_payment_number_valid) {
+         $payment = Ujian::where(['kode_bayar' => $payment_number])->first();
+         if (!$payment) {
+            // if payment with the generated number isn't exist yet,
+            // set the payment number
+            $is_payment_number_valid = true;
+         } else {
+            // if the payment exist, then add 1 to urutan
+            $urutan += 1;
+            $urutan_number = self::appendZeroes(count($ujianHasKodeBayar) + $urutan, 4);
+            $payment_number = '991' . $periode_number . $jurusan_number . $urutan_number;
+         }
+      }
+      return $payment_number;
       //    old code
       //    $faker = $faker = Faker::create("id_ID");
       //    return strtoupper($ujian_id . $faker->bothify('?#?#'));
