@@ -1,21 +1,23 @@
 <template>
   <v-container v-if="periode">
     <v-row justify="space-between">
-      <v-col>
+      <v-col cols="12">
         <v-card
           dark
-          :height="100*1.2"
-          :width="200*1.2"
+          :width="'100%'"
         >
           <v-img
             gradient="to top right, rgba(58, 231, 87, 0.33), rgba(25,32,72,.7)"
-            :src="'https://picsum.photos/200/100?random=5'"
+            cover
           >
             <v-card-title>
               <span class="body 2">Periode Terbaru</span>
             </v-card-title>
             <v-card-text>
               <h1>{{periode.nama}}</h1>
+              <p>Awal Periode: {{parseDate(periode.awal_periode)}} <br>
+                Akhir Periode: {{parseDate(periode.akhir_periode)}}
+              </p>
             </v-card-text>
           </v-img>
         </v-card>
@@ -24,11 +26,11 @@
         <v-card
           dark
           :height="100*1.2"
-          :width="200*1.2"
+          :width="'100%'"
         >
           <v-img
             gradient="to top right, rgba(58, 231, 87, 0.33), rgba(25,32,72,.7)"
-            :src="'https://picsum.photos/200/100?random=5'"
+            :src="'https://picsum.photos/200/100?random=3'"
           >
             <v-card-title>
               <span class="body 2">Total Pendaftaran</span>
@@ -43,11 +45,11 @@
         <v-card
           dark
           :height="100*1.2"
-          :width="200*1.2"
+          :width="'100%'"
         >
           <v-img
             gradient="to top right, rgba(58, 231, 87, 0.33), rgba(25,32,72,.7)"
-            :src="'https://picsum.photos/200/100?random=5'"
+            :src="'https://picsum.photos/200/100?random=2'"
           >
             <v-card-title>
               <span class="body 2">Total Lulus</span>
@@ -62,11 +64,11 @@
         <v-card
           dark
           :height="100*1.2"
-          :width="200*1.2"
+          :width="'100%'"
         >
           <v-img
             gradient="to top right, rgba(58, 231, 87, 0.33), rgba(25,32,72,.7)"
-            :src="'https://picsum.photos/200/100?random=5'"
+            :src="'https://picsum.photos/200/100?random=1'"
           >
             <v-card-title>
               <span class="body 2">Total Gagal</span>
@@ -79,7 +81,7 @@
       </v-col>
     </v-row>
     <!-- Tabel -->
-    <v-card class="mt-5">
+    <v-card class="mt-10">
       <v-data-table
         :headers="headers"
         :items="final_data"
@@ -100,6 +102,9 @@ export default {
   },
   computed: {},
   methods: {
+    parseDate(date) {
+      return this.$moment(date, "YYYY-MM-DD").format("Do MMMM YYYY");
+    },
     getData() {
       axios
         .get("/api/ujian/dashboard")
