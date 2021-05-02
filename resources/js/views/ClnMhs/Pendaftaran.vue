@@ -613,7 +613,7 @@
                   block
                   x-large
                   dark
-                  @click="link(user.ktp)"
+                  @click="link(user.kartu_keluarga)"
                   color="green darken-2"
                 >lihat File Anda
                 </v-btn>
