@@ -100,6 +100,7 @@ class UjianController extends Controller
                     }
                 }
                 $result[$key]['ujian'] = $temp;
+                $result[$key]['record_found'] = $count;
             }
         }
         // return response()->json($name);

@@ -16,7 +16,17 @@
           v-for="(data,index) in periode"
           :key="index"
         >
-          <v-expansion-panel-header>{{data.nama}}</v-expansion-panel-header>
+          <v-expansion-panel-header>
+            <v-row align="center">
+              {{data.nama}}
+              <v-spacer></v-spacer>
+              <v-chip
+                color="primary"
+                v-if="data.record_found"
+              > {{data.record_found}} Data ditemukan</v-chip>
+
+            </v-row>
+          </v-expansion-panel-header>
           <v-expansion-panel-content class="mt-2">
             <v-data-table
               :headers="headers"
