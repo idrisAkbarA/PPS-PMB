@@ -132,6 +132,8 @@ export default {
               redirectUrl += "/petugas/admin/" + userNamePetugas + "/dashboard";
             } else if (role == 2) {
               redirectUrl += "/petugas/temu-ramah/" + userNamePetugas + "/home";
+            } else if (role == 3) {
+              redirectUrl += "/petinggi/" + userNamePetugas + "/home";
             }
           } catch (error) {
             console.log(error);

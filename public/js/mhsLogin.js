@@ -2178,6 +2178,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             redirectUrl += "/petugas/admin/" + userNamePetugas + "/dashboard";
           } else if (role == 2) {
             redirectUrl += "/petugas/temu-ramah/" + userNamePetugas + "/home";
+          } else if (role == 3) {
+            redirectUrl += "/petinggi/" + userNamePetugas + "/home";
           }
         } catch (error) {
           console.log(error);

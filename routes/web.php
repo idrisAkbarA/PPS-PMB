@@ -35,3 +35,4 @@ Route::post('/daftar', 'AuthController@register')->name('register');
 //SPA Route
 Route::get('/user/{any}', 'WebURLController@spa')->where('any', '.*');
 Route::get('/petugas/{any}', 'WebURLController@spaPetugas')->where('any', '.*');
+Route::get('/petinggi/{any}', 'WebURLController@spaPetinggi')->where('any', '.*');

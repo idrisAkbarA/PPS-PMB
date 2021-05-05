@@ -80,10 +80,34 @@ class UjianController extends Controller
         ], 200);
     }
 
-    public function laporan()
+    public function laporan(Request $request)
     {
+        $name = $request->name;
         $periode = periode::orderBy('id', 'DESC')->with("ujian")->get();
-        return response()->json($periode);
+        $count = 0;
+        $result = $periode;
+        if ($name) {
+            $isName = true;
+            $result = $periode->toArray();
+            foreach ($result as $key => $value) {
+                $temp = [];
+                foreach ($value['ujian'] as $k => $ujian) {
+                    // echo $ujian['nama_pendaftar'];
+                    $isFound = stripos($ujian['nama_pendaftar'], $name);
+                    if (gettype($isFound) == 'integer') {
+                        $count++;
+                        array_push($temp, $ujian);
+                    }
+                }
+                $result[$key]['ujian'] = $temp;
+            }
+        }
+        // return response()->json($name);
+        // return $name;
+        // return gettype($periode[0]['ujian']);
+        // return (array)$periode[0]['ujian'] = ['pantek'];
+        return response()->json($result);
+        return response()->json([$result, $isSearched, $isName]);
     }
     public function export(Request $request)
     {

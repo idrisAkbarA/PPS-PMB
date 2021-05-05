@@ -15,6 +15,10 @@ class WebURLController extends Controller
     {
         return view("layouts.app-petugas");
     }
+    public function spaPetinggi()
+    {
+        return view("layouts.app-petinggi");
+    }
     public function landingPage()
     {
         $is_landing_page = true;
