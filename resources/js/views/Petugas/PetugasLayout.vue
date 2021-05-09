@@ -60,6 +60,18 @@
             </v-list-item-content>
           </v-list-item>
           <v-list-item
+            :to="`/admin/${$route.params.petugas}/ganti-password`"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>mdi-lock</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Ganti Password</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
             :to="`/admin/${$route.params.petugas}/kelola-petugas`"
             router
             exact

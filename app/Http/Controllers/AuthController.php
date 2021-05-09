@@ -83,13 +83,13 @@ class AuthController extends Controller
 
         // validate the old password
         if (!Hash::check($request->old_password, $user->password)) {
-            return response()->json(['status' => false, 'message' => $user->nama . "'s" . ' old password not matched.']);
+            return response()->json(['status' => false, 'message' => 'Password lama tidak valid']);
         }
 
         $user->password = $request->new_password;
         $user->save();
 
-        return response()->json(['status' => true, 'message' => 'Password changed succesfully.']);
+        return response()->json(['status' => true, 'message' => 'Password berhasil diubah.']);
     }
     public function register(Request $request)
     {

@@ -16,6 +16,7 @@ import KelolaKategori from "../views/Petugas/Admin/KelolaKategori.vue";
 import KelolaJalurCumlaude from "../views/Petugas/Admin/KelolaJalurCumlaude.vue";
 import LaporanUjian from "../views/Petugas/Admin/LaporanUjian.vue";
 import Setting from "../views/Petugas/Admin/Setting.vue";
+import GantiPassword from "../views/Petugas/Admin/GantiPassword.vue";
 
 import HomeTemuRamah from "../views/Petugas/TemuRamah/Home.vue";
 
@@ -29,6 +30,11 @@ const routes = [
                 path: "dashboard",
                 name: "Dashboard Petugas",
                 component: DashboardPetugas
+            },
+            {
+                path: "ganti-password",
+                name: "Ganti Password",
+                component: GantiPassword
             },
             {
                 path: "kelola-petugas",
