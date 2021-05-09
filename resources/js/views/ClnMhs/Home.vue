@@ -1,7 +1,10 @@
 <template>
   <v-container fluid>
-    <div style="height:340px">
-      <h1 class="text-white mt-6">
+    <div
+      style="height:340px"
+      :class="windowWidth <= 600?'small-screen':''"
+    >
+      <h1 :class="windowWidth <= 600?'text-white mt-n1':'text-white mt-6'">
         Selamat Datang, <span v-if="user">{{ user.nama}}</span>
         <br>
         di Aplikasi Pendaftaran Pascasarjana
@@ -213,6 +216,11 @@
     </v-btn>
   </v-container>
 </template>
+<style>
+.small-screen {
+  transform: scale(0.85);
+}
+</style>
 
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
