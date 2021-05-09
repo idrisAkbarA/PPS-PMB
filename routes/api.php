@@ -26,6 +26,7 @@ Route::post('/authenticate/{role}', 'AuthController@login'); // roles are 'cln_m
 Route::post('/auth-is-login/{role}', 'AuthController@isLogin'); // roles are 'cln_mahasiswa' and 'petugas'
 Route::post('/logout-petugas', 'AuthController@logoutPetugas');
 Route::post('/logout', 'AuthController@logout');
+Route::put('/change-password', 'AuthController@changePassword');
 Route::middleware('auth:petugas,cln_mahasiswa')->get('/user/{role}', 'AuthController@user');
 Route::middleware('auth:cln_mahasiswa')->get('/data/init-data-cln-mhs', 'UjianController@initAllDataClnMhs');
 Route::middleware('auth:cln_mahasiswa')->post('/ujian/init', 'UjianController@initUjian');

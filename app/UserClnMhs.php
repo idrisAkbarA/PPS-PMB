@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -53,6 +54,10 @@ class UserClnMhs extends Authenticatable
     public function setIsVerifiedAttribute($value)
     {
         $this->attributes['is_verified'] = $value;
+    }
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
     }
 
     // Relations

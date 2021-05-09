@@ -64,7 +64,33 @@ class AuthController extends Controller
             'value' => false
         ]);
     }
+    public function changePassword(Request $request)
+    {
+        // check if it is mahasiswa or petugas
+        // mahasiswa is using email as login identity
+        // petugas is using username
+        $user = null;
+        if (filter_var($request->username, FILTER_VALIDATE_EMAIL)) {
+            $user = UserClnMhs::where('email', $request->username)->first();
+        } else {
+            $user = UserPetugas::where('username', $request->username)->first();
+        }
 
+        //check if user exist
+        if (!$user) {
+            return response()->json(['status' => false, 'message' => 'User not found.']);
+        }
+
+        // validate the old password
+        if (!Hash::check($request->old_password, $user->password)) {
+            return response()->json(['status' => false, 'message' => $user->nama . "'s" . ' old password not matched.']);
+        }
+
+        $user->password = $request->new_password;
+        $user->save();
+
+        return response()->json(['status' => true, 'message' => 'Password changed succesfully.']);
+    }
     public function register(Request $request)
     {
         $form = $this->validate($request, [
@@ -74,7 +100,6 @@ class AuthController extends Controller
             'password2' => 'required|string',
         ]);
 
-        $form['password'] = Hash::make($request->password);
         $user = UserClnMhs::create($form);
 
         Auth::guard('cln_mahasiswa')->login($user);
