@@ -61,6 +61,7 @@
       <!-- -->
     </v-app-bar>
     <v-navigation-drawer
+      v-if="windowWidth<=600"
       :src="'/images/drawer-bg.jpg'"
       v-model="drawer"
       app
