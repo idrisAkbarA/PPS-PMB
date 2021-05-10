@@ -45,7 +45,7 @@
             outlined
             color="green darken-2"
           >
-            <v-container>
+            <v-container :class="windowWidth <= 600?'small-screen':''">
               <v-row
                 align="center"
                 justify="center"
@@ -55,7 +55,7 @@
                   md="6"
                   lg="6"
                 >
-                  <div class="ml-10">
+                  <div :class="windowWidth <= 600?'ml-1':'ml-10'">
                     <h1 class="text-white">
                       Hmm.. Sepertinya anda belum mendaftar
                     </h1>

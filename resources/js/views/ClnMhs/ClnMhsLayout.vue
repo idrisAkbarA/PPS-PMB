@@ -7,6 +7,11 @@
       hide-on-scroll
       dense
     >
+      <v-app-bar-nav-icon
+        v-if="windowWidth <= 600"
+        @click.stop="toggleDrawer(windowWidth <= 600)"
+      >
+      </v-app-bar-nav-icon>
       <template
         v-if="offsetTop > 0"
         v-slot:img="{ props }"
@@ -36,6 +41,16 @@
         </v-toolbar-title>
       </div>
       <v-btn
+        v-if="windowWidth>=600"
+        small
+        dark
+        text
+        @click="dialogGantiPassword = true"
+      >
+        <v-icon left>mdi-lock</v-icon>ganti password
+      </v-btn>
+      <v-btn
+        v-if="windowWidth>=600"
         small
         dark
         text
@@ -45,6 +60,80 @@
       </v-btn>
       <!-- -->
     </v-app-bar>
+    <v-navigation-drawer
+      :src="'/images/drawer-bg.jpg'"
+      v-model="drawer"
+      app
+      clipped
+      :floating="true"
+      :permanent="false"
+      :expand-on-hover="false"
+      :mini-variant="false"
+      dark
+    >
+      <vue-scroll :ops="scrollOps">
+
+        <v-card
+          v-if="windowWidth <= 600"
+          class="d-flex justify-center pt-4 pr-2 pl-2"
+          flat
+          tile
+        >
+          <v-img
+            max-width="70"
+            :src="'/images/LogoUIN.png'"
+          ></v-img>
+          <v-card-text>Aplikasi PMB Pascasarjana</v-card-text>
+        </v-card>
+        <v-card
+          v-if="windowWidth <= 600"
+          class="d-flex justify-center pr-2 pl-2"
+          flat
+          tile
+        >
+          <v-card-text>
+            Selamat datang <span v-if="user">{{ user.nama}}</span>
+            <br />
+            <v-btn
+              class="mt-2"
+              outlined
+              color="green darken-2"
+              small
+              block
+              @click="logout"
+            >
+              <v-icon>mdi-logout-variant</v-icon>keluar
+            </v-btn>
+          </v-card-text>
+        </v-card>
+        <v-list dense>
+          <v-list-item
+            @click="dialogGantiPassword=true"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>mdi-lock</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Ganti Password</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <!-- <v-list-item
+            :to="`/admin/${$route.params.petugas}/kelola-petugas`"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>mdi-account-multiple</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Petugas</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item> -->
+        </v-list>
+      </vue-scroll>
+    </v-navigation-drawer>
     <div class="ribbon"></div>
 
     <!-- Sizes your content based upon application components -->
@@ -58,6 +147,13 @@
         <router-view></router-view>
       </v-container>
     </v-main>
+    <v-dialog
+      width="600"
+      v-model="dialogGantiPassword"
+      v-if="user"
+    >
+      <ganti-password-component :email="user.email"></ganti-password-component>
+    </v-dialog>
     <v-footer
       dark
       color="green darken-4"
@@ -68,18 +164,57 @@
     </v-footer>
   </v-app>
 </template>
+<style>
+a {
+  text-decoration: none !important;
+}
+</style>
 
 <script>
+import { mapState } from "vuex";
+import GantiPasswordComponent from "../Components/GantiPasswordComponent";
 export default {
-  mounted() {
-    console.log(this.$vuetify);
+  components: {
+    GantiPasswordComponent,
+  },
+  computed: {
+    ...mapState(["user"]),
   },
   data() {
     return {
+      dialogGantiPassword: false,
+      dialogBiodataPassword: false,
       offsetTop: 0,
+      drawer: false,
+      permanent: true,
+      miniVariant: true,
+      expandOnHover: true,
+      scrollOps: {
+        scrollPanel: {
+          easing: "easeInQuad",
+          speed: 800,
+          scrollingX: false,
+        },
+        bar: {
+          background: "#FFEBEE",
+        },
+        vuescroll: {
+          mode: "native",
+          wheelScrollDuration: 0,
+          locking: true,
+        },
+      },
     };
   },
   methods: {
+    toggleDrawer(bool) {
+      if (!bool) {
+        this.miniVariant = !this.miniVariant;
+        this.expandOnHover = !this.expandOnHover;
+      } else {
+        this.drawer = !this.drawer;
+      }
+    },
     onScroll(e) {
       this.offsetTop = e.target.scrollingElement.scrollTop;
       // console.log(this.offsetTop);
