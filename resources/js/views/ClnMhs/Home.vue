@@ -94,75 +94,85 @@
         >
           <v-hover v-slot="{ hover }">
 
-            <v-card
-              :elevation="hover?12:5"
-              @click="goToPendaftaran(item)"
-            >
-
-              <v-card-subtitle
-                class="pb-0"
-                :class="setColor(item) + ' text-white'"
+            <div>
+              <v-card
+                :elevation="hover?12:5"
+                @click="goToPendaftaran(item)"
               >
-                <p
-                  class=""
-                  v-if="index==0"
-                >Pendaftaran terbaru anda</p>
-                <h3 class="mb-0">
-                  {{item.jurusan.nama}}
-                </h3>
-              </v-card-subtitle>
-              <v-card-subtitle :class="setColor(item) + ' text-white'">Periode {{ item.periode.nama }}<br />Klik untuk melihat
-                rincian</v-card-subtitle>
-              <v-card-text>
-                <v-container class="mt-4">
-                  <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
-                  <p v-else-if="!isBiodataFilled || !item.is_agree">Lengkapi biodata diri</p>
-                  <p v-else-if="item.is_jalur_cumlaude ==1">
-                    <span v-if="item.is_lulus_tka == null">
-                      Mohon menunggu verifikasi
-                    </span>
-                    <span v-else-if="item.lunas_at">Pembayaran berhasil! Selamat anda lulus.</span>
-                    <span v-else-if="
+
+                <v-card-subtitle
+                  class="pb-0"
+                  :class="setColor(item) + ' text-white'"
+                >
+                  <p
+                    class=""
+                    v-if="index==0"
+                  >Pendaftaran terbaru anda</p>
+                  <h3 class="mb-0">
+                    {{item.jurusan.nama}}
+                  </h3>
+                </v-card-subtitle>
+                <v-card-subtitle :class="setColor(item) + ' text-white'">Periode {{ item.periode.nama }}<br />Klik untuk melihat
+                  rincian</v-card-subtitle>
+                <v-card-text>
+                  <v-container class="mt-4">
+                    <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
+                    <p v-else-if="!isBiodataFilled || !item.is_agree">Lengkapi biodata diri</p>
+                    <p v-else-if="item.is_jalur_cumlaude ==1">
+                      <span v-if="item.is_lulus_tka == null">
+                        Mohon menunggu verifikasi
+                      </span>
+                      <span v-else-if="item.lunas_at">Pembayaran berhasil! Selamat anda lulus.</span>
+                      <span v-else-if="
                     item.is_lulus_tka == true && item.is_lulus_tkj == true
                   ">
-                      Anda lulus verifikasi, silahkan Lakukan Pembayaran
-                    </span>
-                    <span v-else>Maaf, anda tidak lulus verifikasi</span>
-                  </p>
-                  <p v-else-if="item.lunas_at == null">
-                    Mohon selesaikan pembayaran
-                  </p>
-                  <v-row v-else-if="isStillUjian(item)">
-                    <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
-                    <span>
-                      <!-- :end-label="''" -->
-                      <vue-countdown-timer
-                        @start_callback="startCallBack('event started')"
-                        @end_callback="endCallBack('event ended')"
-                        :start-time="now"
-                        :end-time="item.batas_ujian + ' 23:59:59'"
-                        :interval="1000"
-                        :start-label="'Until start:'"
-                        label-position="begin"
-                        :end-text="'Event ended!'"
-                        :day-txt="'hari'"
-                        :hour-txt="'jam'"
-                        :minutes-txt="'menit'"
-                        :seconds-txt="'detik'"
-                      >
-                      </vue-countdown-timer>
-                    </span>
-                  </v-row>
-                  <p v-else-if="
+                        Anda lulus verifikasi, silahkan Lakukan Pembayaran
+                      </span>
+                      <span v-else>Maaf, anda tidak lulus verifikasi</span>
+                    </p>
+                    <p v-else-if="item.lunas_at == null">
+                      Mohon selesaikan pembayaran
+                    </p>
+                    <v-row v-else-if="isStillUjian(item)">
+                      <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
+                      <span>
+                        <!-- :end-label="''" -->
+                        <vue-countdown-timer
+                          @start_callback="startCallBack('event started')"
+                          @end_callback="endCallBack('event ended')"
+                          :start-time="now"
+                          :end-time="item.batas_ujian + ' 23:59:59'"
+                          :interval="1000"
+                          :start-label="'Until start:'"
+                          label-position="begin"
+                          :end-text="'Event ended!'"
+                          :day-txt="'hari'"
+                          :hour-txt="'jam'"
+                          :minutes-txt="'menit'"
+                          :seconds-txt="'detik'"
+                        >
+                        </vue-countdown-timer>
+                      </span>
+                    </v-row>
+                    <p v-else-if="
                     item.is_lulus_tka == true && item.is_lulus_tkj == true
                   ">
-                    Silakan tentukan temu ramah
-                  </p>
-                  <p v-else>Maaf, anda gagal ujian</p>
-                  <!-- <p v-else-if="!item.is_lulus_tka">Maaf, anda gagal ujian</p> -->
-                </v-container>
-              </v-card-text>
-            </v-card>
+                      Silakan tentukan temu ramah
+                    </p>
+                    <p v-else>Maaf, anda gagal ujian</p>
+                    <!-- <p v-else-if="!item.is_lulus_tka">Maaf, anda gagal ujian</p> -->
+                  </v-container>
+                </v-card-text>
+
+              </v-card>
+
+              <v-btn
+                v-if="hover"
+                @click="openBiodata(item.periode_id,item.jurusan_id)"
+                class="mx-auto mt-4"
+              >Perbarui Biodata</v-btn>
+
+            </div>
           </v-hover>
 
         </v-col>
@@ -214,6 +224,16 @@
     >
       <v-icon left>mdi-plus</v-icon>Buat Pendaftaran Baru
     </v-btn>
+    <v-dialog
+      width="600"
+      v-model="dialogBiodata"
+      v-if="user"
+    >
+      <biodata-component
+        :periodeID="periodeID"
+        :jurusanID="jurusanID"
+      ></biodata-component>
+    </v-dialog>
   </v-container>
 </template>
 <style>
@@ -225,6 +245,7 @@
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
 import DaftarComponent from "../Components/DaftarComponent";
+import BiodataComponent from "../Components/BiodataComponent";
 export default {
   created() {
     console.log(this.now);
@@ -241,7 +262,13 @@ export default {
   },
   methods: {
     ...mapActions(["getUser", "initAllDataClnMhs"]),
-    ...mapMutations(["setUjianSelected"]),
+    ...mapMutations(["setUjianSelected", "updateUser"]),
+    openBiodata(periodeID, jurusanID) {
+      console.log(periodeID, jurusanID);
+      this.periodeID = periodeID;
+      this.jurusanID = jurusanID;
+      this.dialogBiodata = true;
+    },
     isVerifiedJalurCumlaude(item) {
       if (item.is_jalur_cumlaude) {
         if (item.is_lulus_tka || item.is_lulus_tkj) {
@@ -416,6 +443,9 @@ export default {
   },
   data() {
     return {
+      dialogBiodata: false,
+      periodeID: null,
+      jurusanID: null,
       dialogEmpty: null,
       dialogTambah: null,
       item: null,
@@ -425,6 +455,7 @@ export default {
     };
   },
   components: {
+    BiodataComponent,
     DaftarComponent,
   },
 };

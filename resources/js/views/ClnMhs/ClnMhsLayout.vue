@@ -40,6 +40,15 @@
           </span>
         </v-toolbar-title>
       </div>
+      <!-- <v-btn
+        v-if="windowWidth>=600"
+        small
+        dark
+        text
+        @click="dialogBiodata = true"
+      >
+        <v-icon left>mdi-bio</v-icon>Perbarui Biodata
+      </v-btn> -->
       <v-btn
         v-if="windowWidth>=600"
         small
@@ -121,6 +130,19 @@
             </v-list-item-content>
           </v-list-item>
           <!-- <v-list-item
+            @click="dialogBiodata=true"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>mdi-bio</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Biodata</v-list-item-title>
+              <v-list-item-subtitle>Isi atau perbarui biodata</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item> -->
+          <!-- <v-list-item
             :to="`/admin/${$route.params.petugas}/kelola-petugas`"
             router
             exact
@@ -150,6 +172,13 @@
     </v-main>
     <v-dialog
       width="600"
+      v-model="dialogBiodata"
+      v-if="user"
+    >
+      <biodata-component></biodata-component>
+    </v-dialog>
+    <v-dialog
+      width="600"
       v-model="dialogGantiPassword"
       v-if="user"
     >
@@ -174,9 +203,11 @@ a {
 <script>
 import { mapState } from "vuex";
 import GantiPasswordComponent from "../Components/GantiPasswordComponent";
+import BiodataComponent from "../Components/BiodataComponent";
 export default {
   components: {
     GantiPasswordComponent,
+    BiodataComponent,
   },
   computed: {
     ...mapState(["user"]),
@@ -184,7 +215,7 @@ export default {
   data() {
     return {
       dialogGantiPassword: false,
-      dialogBiodataPassword: false,
+      dialogBiodata: false,
       offsetTop: 0,
       drawer: false,
       permanent: true,
