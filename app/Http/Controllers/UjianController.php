@@ -220,6 +220,9 @@ class UjianController extends Controller
         $ujian->kode_bayar = $code;
         $ujian->save();
 
+        //SET FINAL ID
+        $soalUjian = new SoalUjian;
+        $soalUjian->setFinalID($ujian_id);
         return response()->json(['status' => true, 'message' => 'Kode bayar berhasil dibuat', 'code' => $code]);
     }
     public function resetPayment($id_ujian)

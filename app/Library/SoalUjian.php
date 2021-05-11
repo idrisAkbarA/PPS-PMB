@@ -15,6 +15,15 @@ use Illuminate\Support\Collection;
 class SoalUjian
 {
     public $id = null;
+    public function setFinalID($ujian_id)
+    {
+        $ujian = Ujian::find($ujian_id);
+        //remove the first 3 digits of kode bayar,
+        //that 3 digits are code given from the bank (991)
+        $finalID = substr($ujian->kode_bayar, 3);
+        $ujian->final_id = $finalID;
+        $ujian->save();
+    }
     public function generate($jurusan_id, $komposisi_tka, $komposisi_tkj, $jumlah_tka, $jumlah_tkj, $ujian_id)
     {
         $final_soal = [];
