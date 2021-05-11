@@ -81,6 +81,7 @@ class PeriodeController extends Controller
 
         // try {
         // Create periode
+        // $periode->update($request->all());
         $periode->update($request->all());
         // Setting jurusan per periode
         $periode->setJurusan($request->jurusan);

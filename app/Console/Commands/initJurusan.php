@@ -54,6 +54,7 @@ class initJurusan extends Command
             $jurusan->nama = $key;
             $jurusan->kode_jurusan = $value;
             $jurusan->kuota_kelas_default = 10;
+            $jurusan->nominal_bayar_default = 400000;
             $jurusan->save();
         }
         echo "Jurusan Stored\n";

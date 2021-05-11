@@ -13,6 +13,10 @@ class Periode extends Model
         'jadwal_ujian' => 'array'
     ];
 
+    protected $appends = [
+        'jurusans_detail'
+    ];
+
     public static function boot()
     {
         parent::boot();
@@ -46,6 +50,29 @@ class Periode extends Model
     }
 
     // Getters
+    public function getJurusansDetailAttribute()
+    {
+        $jurusan = Jurusan::getAll();
+        $kategori = $this->getKategori();
+        $kuota = $this->getKuotaKelas();
+        $nominal = $this->getNominal();
+
+        $mapped = $jurusan->map(function ($item, $key) use ($kuota, $kategori, $nominal) {
+            $kuota_temp = $kuota->firstWhere('jurusan_id', $item['id']);
+            $nominal_temp = $nominal->firstWhere('jurusan_id', $item['id']);
+            $kategori_temp = $kategori->firstWhere('jurusan_id', $item['id']);
+
+            $newValues = [
+                'komposisi_tka' => $kategori_temp['komposisi_tka'],
+                'komposisi_tkj' => $kategori_temp['komposisi_tkj'],
+                'kuota_kelas' => $kuota_temp['kuota'],
+                'nominal_bayar' => $nominal_temp['nominal'],
+            ];
+            return array_merge($item->toArray(), $newValues);
+        });
+        return $mapped;
+    }
+
     public static function getActive()
     {
         $currentPeriode = self::with('kategori')
@@ -61,6 +88,22 @@ class Periode extends Model
     {
         // Get categories of periode object
         return $this->kategori()
+            ->when($jurusan_id, function ($q) use ($jurusan_id) {
+                return $q->where('jurusan_id', $jurusan_id);
+            })->get();
+    }
+    public function getKuotaKelas($jurusan_id = null)
+    {
+        // Get categories of periode object
+        return $this->kuota_kelas()
+            ->when($jurusan_id, function ($q) use ($jurusan_id) {
+                return $q->where('jurusan_id', $jurusan_id);
+            })->get();
+    }
+    public function getNominal($jurusan_id = null)
+    {
+        // Get categories of periode object
+        return $this->nominal()
             ->when($jurusan_id, function ($q) use ($jurusan_id) {
                 return $q->where('jurusan_id', $jurusan_id);
             })->get();
@@ -163,7 +206,7 @@ class Periode extends Model
                 [
 
                     'jurusan_id' => $item['id'],
-                    'kuota' => $item['kuota_kelas']
+                    'kuota' => $item['kuota_kelas'] ?? $item['kuota_kelas_default']
                 ]
             );
 
@@ -175,7 +218,7 @@ class Periode extends Model
                 [
 
                     'jurusan_id' => $item['id'],
-                    'nominal' => $item['nominal_bayar']
+                    'nominal' => $item['nominal_bayar'] ?? $item['nominal_bayar_default']
                 ]
             );
         }

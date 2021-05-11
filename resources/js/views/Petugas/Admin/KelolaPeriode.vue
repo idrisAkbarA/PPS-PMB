@@ -44,7 +44,13 @@
           >
             <v-icon>mdi-information</v-icon>
           </v-btn>
-          <v-btn icon x-small class="mr-2" title="Edit" @click="edit(item)">
+          <v-btn
+            icon
+            x-small
+            class="mr-2"
+            title="Edit"
+            @click="edit(item)"
+          >
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
           <v-btn
@@ -74,8 +80,16 @@
         <v-card-title>
           <span>Periode</span>
           <v-spacer></v-spacer>
-          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
-          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
+          <v-btn
+            text
+            class="mr-2"
+            @click="bottomSheet = false"
+          >batal</v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="submit"
+          >Simpan</v-btn>
         </v-card-title>
         <v-card-text>
           <vue-scroll :ops="scrollOps">
@@ -147,7 +161,10 @@
                     </v-date-picker>
                   </v-menu>
                 </v-col>
-                <v-col cols="12" class="pb-0">
+                <v-col
+                  cols="12"
+                  class="pb-0"
+                >
                   <p class="overline text-muted mb-0">Setting Ujian</p>
                 </v-col>
                 <v-col cols="6">
@@ -304,7 +321,10 @@
                   ></v-switch>
                 </v-col>
                 <v-expand-transition>
-                  <v-col v-if="isJadwal" cols="12">
+                  <v-col
+                    v-if="isJadwal"
+                    cols="12"
+                  >
                     <v-row>
                       <v-card width="100%">
                         <v-card-text>
@@ -337,13 +357,20 @@
                                 </v-text-field>
                               </v-col>
                               <v-col cols="2">
-                                <v-btn icon @click="removeJadwal(index)">
+                                <v-btn
+                                  icon
+                                  @click="removeJadwal(index)"
+                                >
                                   <v-icon> mdi-close </v-icon>
                                 </v-btn>
                               </v-col>
                             </v-row>
                             <v-row justify="center">
-                              <v-btn icon class="green" @click="addJadwal">
+                              <v-btn
+                                icon
+                                class="green"
+                                @click="addJadwal"
+                              >
                                 <v-icon class="text-white"> mdi-plus </v-icon>
                               </v-btn>
                             </v-row>
@@ -421,13 +448,15 @@
                     :to="{ name: 'Kelola Jurusan' }"
                     @click="bottomSheet = false"
                   >
-                    Kelola Jurusan</router-link
-                  >
+                    Kelola Jurusan</router-link>
                 </p>
               </v-row>
               <v-row class="px-3">
                 <v-expansion-panels focusable>
-                  <v-expansion-panel v-for="(item, i) in form.jurusan" :key="i">
+                  <v-expansion-panel
+                    v-for="(item, i) in form.jurusan"
+                    :key="i"
+                  >
                     <v-expansion-panel-header v-slot="{ open }">
                       <v-row no-gutters>
                         <v-col cols="4">
@@ -435,12 +464,17 @@
                             {{ item.nama }}
                           </strong>
                         </v-col>
-                        <v-col cols="8" class="text--secondary">
+                        <v-col
+                          cols="8"
+                          class="text--secondary"
+                        >
                           <v-fade-transition leave-absolute>
-                            <span v-if="open"
-                              >Tetapkan komposisi soal dan kuota</span
+                            <span v-if="open">Tetapkan komposisi soal dan kuota</span>
+                            <v-row
+                              v-else
+                              no-gutters
+                              style="width: 100%"
                             >
-                            <v-row v-else no-gutters style="width: 100%">
                               <v-col cols="4">
                                 <span v-if="item.kategori">
                                   <strong> TKA: </strong>
@@ -482,7 +516,10 @@
                     <v-expansion-panel-content>
                       <v-container>
                         <v-row>
-                          <v-col cols="6" v-if="item.kategori">
+                          <v-col
+                            cols="6"
+                            v-if="item.kategori"
+                          >
                             <p class="overline text-muted mb-0">
                               Komposisi TKA
                             </p>
@@ -504,7 +541,10 @@
                             </v-row>
                           </v-col>
                           <!-- <v-divider vertical></v-divider> -->
-                          <v-col cols="6" v-if="item.kategori">
+                          <v-col
+                            cols="6"
+                            v-if="item.kategori"
+                          >
                             <p class="overline text-muted mb-0">
                               Komposisi TKJ
                             </p>
@@ -528,7 +568,10 @@
                         </v-row>
                         <v-divider> </v-divider>
                         <v-row class="px-3">
-                          <v-row align="center" justify="center">
+                          <v-row
+                            align="center"
+                            justify="center"
+                          >
                             <v-col cols="6">
                               <p class="overline text-muted mb-0">
                                 Kuota per Kelas
@@ -547,7 +590,10 @@
                           </v-row>
                         </v-row>
                         <v-row class="px-3">
-                          <v-row align="center" justify="center">
+                          <v-row
+                            align="center"
+                            justify="center"
+                          >
                             <v-col cols="6">
                               <p class="overline text-muted mb-0">Nominal</p>
                             </v-col>
@@ -575,7 +621,10 @@
       </v-card>
     </v-bottom-sheet>
     <!-- Dialog datetime picker -->
-    <v-dialog v-model="dialogDateTime" width="800">
+    <v-dialog
+      v-model="dialogDateTime"
+      width="800"
+    >
       <v-card>
         <v-card-title> Tetapkan Tanggal dan Waktu </v-card-title>
         <v-card-text>
@@ -583,33 +632,46 @@
             <v-row justify="space-between">
               <v-col cols="6">
                 <p>Tetapkan Tanggal</p>
-                <v-date-picker color="green" v-model="dateTemp"></v-date-picker>
+                <v-date-picker
+                  color="green"
+                  v-model="dateTemp"
+                ></v-date-picker>
               </v-col>
               <v-col cols="6">
                 <p>Tetapkan Waktu</p>
-                <v-time-picker color="green" v-model="timeTemp"></v-time-picker>
+                <v-time-picker
+                  color="green"
+                  v-model="timeTemp"
+                ></v-time-picker>
               </v-col>
             </v-row>
             <v-row v-if="dateTemp">
               <p>
                 Tanggal <strong>{{ parseDate(dateTemp) }}</strong>
-                <span class="ml-1" v-if="timeTemp">
-                  Pukul <strong>{{ parseDateNTime(timeTemp) }}</strong></span
+                <span
+                  class="ml-1"
+                  v-if="timeTemp"
                 >
+                  Pukul <strong>{{ parseDateNTime(timeTemp) }}</strong></span>
               </p>
             </v-row>
           </v-container>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="green" class="text-white" @click="saveDateTime()"
-            >Simpan</v-btn
-          >
+          <v-btn
+            color="green"
+            class="text-white"
+            @click="saveDateTime()"
+          >Simpan</v-btn>
           <v-btn text>Batal</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
     <!-- Dialog Show -->
-    <v-dialog v-model="dialogShow" width="500">
+    <v-dialog
+      v-model="dialogShow"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -666,7 +728,10 @@
       </v-card>
     </v-dialog>
     <!-- Dialog Delete -->
-    <v-dialog v-model="dialogDelete" width="500">
+    <v-dialog
+      v-model="dialogDelete"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -681,9 +746,16 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
+          <v-btn
+            text
+            @click="dialogDelete = false"
+          > Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="destroy"
+          > Ya </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -715,6 +787,7 @@ import { mapMutations, mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
+      bottomSheetEdit: false,
       dateSelected: 0,
       dateObjSelected: null,
       jadwals: [],
@@ -779,6 +852,7 @@ export default {
     },
     bottomSheet(val) {
       if (!val) {
+        console.log(val);
         this.form = {};
       } else {
         this.form.jurusan = _.cloneDeep(this.jurusan);
@@ -799,6 +873,7 @@ export default {
             item.nominal_bayar = item.nominal_bayar_default ?? 0;
           });
         } else {
+          this.form.jurusan = _.cloneDeep(this.form.jurusans_detail);
           this.form.jurusan.forEach((item) => {
             item.kategori.forEach((el) => {
               const jurusan = this.form.kategori.filter((elem) => {
@@ -865,7 +940,9 @@ export default {
       axios
         .get(this.urlPeriode)
         .then((response) => {
-          this.periode = response.data;
+          this.periode = response.data.sort((a, b) => {
+            return b.id - a.id;
+          });
         })
         .catch((err) => {
           console.error(err);
@@ -888,6 +965,7 @@ export default {
       this.form = _.clone(item);
       this.jadwals = this.form.jadwal_ujian;
       this.bottomSheet = true;
+      this.bottomSheetEdit = true;
     },
     submit() {
       const form = this.form;
