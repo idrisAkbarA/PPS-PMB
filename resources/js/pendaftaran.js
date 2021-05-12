@@ -49,5 +49,14 @@ import Pendaftaran from './views/Auth/PendaftaranComponent';
 const app = new Vue({
     el: '#pendaftaran-vue-component',
     components: { Pendaftaran },
-    vuetify
+    vuetify,
+    mounted() {
+
+        this.$refs.spinner.style.display = 'none'
+        this.$refs.welcometext.style.display = ''
+
+        console.log(
+            this.$refs.spinner.style.display
+        );
+    },
 });

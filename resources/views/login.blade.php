@@ -16,6 +16,9 @@
 <body>
     <div id="app-landing">
         <v-app id="login-vue-component">
+            <div ref="spinner" class="loading-container">
+                <div class="loading"></div>
+            </div>
             <div class="i-container">
                 <div class="left">
                     <div class="left-menu">
@@ -57,7 +60,7 @@
                         </Login>
                     </v-container>
                 </div>
-                <div class="right">
+                <div ref="welcometext" class="right">
                     <v-container fluid fill-height>
                         <Login>
                         </Login>

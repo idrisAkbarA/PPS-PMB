@@ -96965,7 +96965,12 @@ var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app-landing',
-  vuetify: vuetify
+  vuetify: vuetify,
+  mounted: function mounted() {
+    this.$refs.spinner.style.display = 'none';
+    this.$refs.welcometext.style.display = '';
+    console.log(this.$refs.spinner.style.display);
+  }
 });
 
 /***/ }),

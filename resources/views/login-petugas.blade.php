@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Login mahasiswa pascasarjana UIN SUSKA RIAU">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pendaftaran.css') }}">
@@ -16,6 +15,9 @@
 <body>
     <div id="app-landing">
         <v-app id="login-vue-component">
+            <div ref="spinner" class="loading-container">
+                <div class="loading"></div>
+            </div>
             <div class="i-container">
                 <div class="left">
                     <div class="left-menu">
@@ -57,7 +59,7 @@
                         </Login>
                     </v-container>
                 </div>
-                <div class="right">
+                <div ref="welcometext" class="right">
                     <v-container fluid fill-height>
                         <Login>
                         </Login>

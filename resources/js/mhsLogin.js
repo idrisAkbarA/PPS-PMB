@@ -49,5 +49,14 @@ import Login from './views/Auth/LoginComponent';
 const app = new Vue({
     el: '#login-vue-component',
     components: { Login },
-    vuetify
+    vuetify,
+    mounted() {
+
+        this.$refs.spinner.style.display = 'none'
+        this.$refs.welcometext.style.display = ''
+
+        console.log(
+            this.$refs.spinner.style.display
+        );
+    },
 });

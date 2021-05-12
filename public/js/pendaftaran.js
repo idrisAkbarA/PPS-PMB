@@ -96997,7 +96997,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   components: {
     Pendaftaran: _views_Auth_PendaftaranComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  vuetify: vuetify
+  vuetify: vuetify,
+  mounted: function mounted() {
+    this.$refs.spinner.style.display = 'none';
+    this.$refs.welcometext.style.display = '';
+    console.log(this.$refs.spinner.style.display);
+  }
 });
 
 /***/ }),

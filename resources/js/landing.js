@@ -48,5 +48,14 @@ import Pendaftaran from './views/Auth/PendaftaranComponent';
 
 const app = new Vue({
     el: '#app-landing',
-    vuetify
+    vuetify,
+    mounted() {
+
+        this.$refs.spinner.style.display = 'none'
+        this.$refs.welcometext.style.display = ''
+
+        console.log(
+            this.$refs.spinner.style.display
+        );
+    },
 });

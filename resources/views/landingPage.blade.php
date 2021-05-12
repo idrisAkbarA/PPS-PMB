@@ -16,6 +16,9 @@
 <body>
     <div id="app-landing">
         <v-app id="app">
+            <div ref="spinner" class="loading-container">
+                <div class="loading"></div>
+            </div>
             <div class="i-container">
                 <div class="left">
                     <div class="left-menu">
@@ -52,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <v-container fluid fill-height>
+                    <v-container ref="welcometext" style="display: none" fluid fill-height>
 
                         <v-layout align-center justify-center>
                             <v-flex class="mt-n16" xs12 sm12 md6 align-center>
@@ -65,7 +68,7 @@
                         </v-layout>
                     </v-container>
                 </div>
-                <div class="right" style="background-color:#066AFE">
+                <div class="right" style="background-color:#12A50A">
                     <v-container fluid fill-height>
                         <v-layout align-center justify-center>
                             <v-flex xs12 sm12 md6>
