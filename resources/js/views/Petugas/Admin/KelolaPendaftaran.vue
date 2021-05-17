@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <p class="text-muted">
-      Mengolola pendaftaran pada Penerimaan Mahasiswa Baru
+      Mengelola pendaftaran pada Penerimaan Mahasiswa Baru
     </p>
     <v-card class="mb-3">
       <v-expansion-panels>
@@ -73,55 +73,62 @@
           @click="downloadExcel()"
         >Download Excel</v-btn>
       </v-card-title>
-      <v-data-table
-        :headers="headers"
-        :items="pendaftaran"
-        :items-per-page="10"
-        :search="search"
-        :loading="isLoading"
-        class="elevation-1"
-      >
-        <template v-slot:[`item.nama`]="{ item }">
-          {{ item.user_cln_mhs.nama }}
-        </template>
-        <template v-slot:[`item.jurusan`]="{ item }">
-          {{ item.jurusan.nama }}
-        </template>
-        <template v-slot:[`item.pembayaran`]="{ item }">
-          <v-chip
-            outlined
-            class="ma-2"
-            :color="item.lunas_at ? 'success' : 'red'"
-          >
-            {{ item.lunas_at ? "Lunas" : "Belum Lunas" }}
-          </v-chip>
-        </template>
-        <template v-slot:[`item.kelulusan`]="{ item }">
-          <v-chip
-            outlined
-            class="ma-2"
-            :color="
+
+      <v-skeleton-loader
+        v-if="isLoading"
+        width="100%"
+        type="table"
+      ></v-skeleton-loader>
+      <div v-if="!isLoading">
+
+        <v-data-table
+          :headers="headers"
+          :items="pendaftaran"
+          :items-per-page="10"
+          :search="search"
+          class="elevation-1"
+        >
+          <template v-slot:[`item.nama`]="{ item }">
+            {{ item.user_cln_mhs.nama }}
+          </template>
+          <template v-slot:[`item.jurusan`]="{ item }">
+            {{ item.jurusan.nama }}
+          </template>
+          <template v-slot:[`item.pembayaran`]="{ item }">
+            <v-chip
+              outlined
+              class="ma-2"
+              :color="item.lunas_at ? 'success' : 'red'"
+            >
+              {{ item.lunas_at ? "Lunas" : "Belum Lunas" }}
+            </v-chip>
+          </template>
+          <template v-slot:[`item.kelulusan`]="{ item }">
+            <v-chip
+              outlined
+              class="ma-2"
+              :color="
               item.status_kelulusan == 'Lulus'
                 ? 'success'
                 : item.status_kelulusan == 'Tidak Lulus'
                 ? 'red'
                 : 'warning'
             "
-          >
-            {{ item.status_kelulusan }}
-          </v-chip>
-        </template>
-        <template v-slot:[`item.actions`]="{ item }">
-          <v-btn
-            icon
-            x-small
-            class="mr-2"
-            title="Detail"
-            @click="show(item)"
-          >
-            <v-icon>mdi-information</v-icon>
-          </v-btn>
-          <!-- <v-btn
+            >
+              {{ item.status_kelulusan }}
+            </v-chip>
+          </template>
+          <template v-slot:[`item.actions`]="{ item }">
+            <v-btn
+              icon
+              x-small
+              class="mr-2"
+              title="Detail"
+              @click="show(item)"
+            >
+              <v-icon>mdi-information</v-icon>
+            </v-btn>
+            <!-- <v-btn
             icon
             x-small
             class="mr-2"
@@ -142,8 +149,9 @@
           >
             <v-icon>mdi-delete</v-icon>
           </v-btn> -->
-        </template>
-      </v-data-table>
+          </template>
+        </v-data-table>
+      </div>
     </v-card>
     <p class="mt-5">
       Daftar Kelas
@@ -624,7 +632,7 @@ export default {
       pendaftaran: [],
       form: {},
       filter: {},
-      isLoading: false,
+      isLoading: true,
       dialogDelete: false,
       snackbar: { show: false },
       scrollOps: {
@@ -744,6 +752,7 @@ export default {
     },
     getPendaftaran(params = {}) {
       this.isLoading = true;
+      console.log("loading", this.isLoading);
       axios
         .get(this.urlPendaftaran, {
           params: params,
@@ -752,11 +761,11 @@ export default {
           this.filter.periode = response.data.currentPeriode?.id;
           this.pendaftaran = response.data.pendaftaran;
           this.kelases = response.data.kelas;
+          this.isLoading = false;
         })
         .catch((err) => {
           console.error(err);
-        })
-        .then((this.isLoading = false));
+        });
     },
     getPeriode() {
       this.isLoading = true;

@@ -59,9 +59,9 @@ class Cumlaude
             $ujian = Ujian::find($id);
             $ujian->is_lulus_tka = $is_lulus;
             $ujian->is_lulus_tkj = $is_lulus;
-            // if ($is_lulus) {
-            //     $ujian->lulus_at = Carbon::now();
-            // }
+            if ($is_lulus) {
+                $ujian->lulus_at = Carbon::now();
+            }
             $ujian->save();
 
             return ['status' => true, 'message' => "Status berhasil di simpan!"];
