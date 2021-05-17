@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -41895,7 +41895,7 @@ __webpack_require__(/*! ./material */ "./resources/js/material.js");
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /*!**************************************!*\
   !*** multi ./resources/js/nonSPA.js ***!
   \**************************************/

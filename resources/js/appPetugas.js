@@ -56,6 +56,19 @@ import App from './views/App';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// Vue.directive('thousands', {
+//   twoWay: true, // this transformation applies back to the vm
+//   bind: function () {
+//     this.handler = function () {
+//       this.set(this.el.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+//     }.bind(this);
+//     this.el.addEventListener('input', this.handler);
+//   },
+//   unbind: function () {
+//     this.el.removeEventListener('input', this.handler);
+//   }
+// });
+
 Vue.mixin({
   methods: {
     checkFileType(file, extensions) {

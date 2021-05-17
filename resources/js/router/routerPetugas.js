@@ -85,7 +85,8 @@ const routes = [
                 path: "laporan-ujian",
                 name: "Laporan Ujian",
                 component: LaporanUjian
-            }, {
+            },
+            {
                 path: "setting-ujian",
                 name: "Setting Ujian",
                 component: Setting

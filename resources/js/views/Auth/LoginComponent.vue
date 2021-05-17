@@ -133,7 +133,7 @@ export default {
             } else if (role == 2) {
               redirectUrl += "/petugas/temu-ramah/" + userNamePetugas + "/home";
             } else if (role == 3) {
-              redirectUrl += "/petinggi/" + userNamePetugas + "/home";
+              redirectUrl += "/petinggi/" + userNamePetugas + "/dashboard";
             }
           } catch (error) {
             console.log(error);

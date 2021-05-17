@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/appPetugas.js', 'public/js');
+mix.js('resources/js/appPetinggi.js', 'public/js');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 mix.js('resources/js/nonSPA.js', 'public/js')

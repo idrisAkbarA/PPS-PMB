@@ -22,12 +22,22 @@
         class="elevation-1"
       >
         <template v-slot:[`item.role`]="{ item }">
-          <v-chip outlined class="ma-2" :color="roles[item.role - 1].color">
+          <v-chip
+            outlined
+            class="ma-2"
+            :color="roles[item.role - 1].color"
+          >
             {{ roles[item.role - 1].nama }}
           </v-chip>
         </template>
         <template v-slot:[`item.actions`]="{ item }">
-          <v-btn icon x-small class="mr-2" title="Detail" @click="show(item)">
+          <v-btn
+            icon
+            x-small
+            class="mr-2"
+            title="Detail"
+            @click="show(item)"
+          >
             <v-icon>mdi-information</v-icon>
           </v-btn>
           <v-btn
@@ -66,12 +76,23 @@
         <v-card-title>
           <span>Petugas</span>
           <v-spacer></v-spacer>
-          <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
-          <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
+          <v-btn
+            text
+            class="mr-2"
+            @click="bottomSheet = false"
+          >batal</v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="submit"
+          >Simpan</v-btn>
         </v-card-title>
         <v-card-text>
           <v-card-text>
-            <v-row align="center" v-if="!form.id">
+            <v-row
+              align="center"
+              v-if="!form.id"
+            >
               <v-col cols="6">
                 <v-text-field
                   color="#2C3E50"
@@ -184,7 +205,10 @@
       </v-card>
     </v-dialog> -->
     <!-- Dialog Delete -->
-    <v-dialog v-model="dialogDelete" width="500">
+    <v-dialog
+      v-model="dialogDelete"
+      width="500"
+    >
       <v-card>
         <v-card-title class="headline">
           <v-icon>mdi-trash</v-icon>
@@ -199,9 +223,16 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn text @click="dialogDelete = false"> Batal </v-btn>
+          <v-btn
+            text
+            @click="dialogDelete = false"
+          > Batal </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="#2C3E50" dark @click="destroy"> Ya </v-btn>
+          <v-btn
+            color="#2C3E50"
+            dark
+            @click="destroy"
+          > Ya </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -242,8 +273,9 @@ export default {
       dialogDelete: false,
       snackbar: { show: false },
       roles: [
-        { id: 1, nama: "Administrator", color: "success" },
+        { id: 1, nama: "Administrator", color: "green darken-2" },
         { id: 2, nama: "Petugas Temu Ramah", color: "purple" },
+        { id: 3, nama: "Petinggi", color: "indigo" },
       ],
       headers: [
         {

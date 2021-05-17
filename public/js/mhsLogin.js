@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2179,7 +2179,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           } else if (role == 2) {
             redirectUrl += "/petugas/temu-ramah/" + userNamePetugas + "/home";
           } else if (role == 3) {
-            redirectUrl += "/petinggi/" + userNamePetugas + "/home";
+            redirectUrl += "/petinggi/" + userNamePetugas + "/dashboard";
           }
         } catch (error) {
           console.log(error);
@@ -97182,7 +97182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 9:
+/***/ 10:
 /*!****************************************!*\
   !*** multi ./resources/js/mhsLogin.js ***!
   \****************************************/

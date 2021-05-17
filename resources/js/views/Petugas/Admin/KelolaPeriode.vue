@@ -603,7 +603,6 @@
                                 type="number"
                                 color="#2C3E50"
                                 prefix="Rp."
-                                label=""
                                 v-model="item.nominal_bayar"
                               ></v-text-field>
                             </v-col>
