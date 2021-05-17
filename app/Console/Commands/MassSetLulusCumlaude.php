@@ -45,6 +45,7 @@ class MassSetLulusCumlaude extends Command
             'is_jalur_cumlaude' => 1,
             'is_lulus_tka' => 1,
             'is_lulus_tkj' => 1,
+            'is_lunas' => 1
         ])
             ->whereNull('lulus_at')
             ->get();

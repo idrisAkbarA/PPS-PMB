@@ -24,6 +24,7 @@ class SetLulusCumlaudeCountTest extends TestCase
             'is_jalur_cumlaude' => 1,
             'is_lulus_tka' => 1,
             'is_lulus_tkj' => 1,
+            'is_lunas' => 1
         ]);
         Ujian::create([
             'periode_id' => 1,
@@ -32,6 +33,7 @@ class SetLulusCumlaudeCountTest extends TestCase
             'is_jalur_cumlaude' => 1,
             'is_lulus_tka' => 1,
             'is_lulus_tkj' => 1,
+            'is_lunas' => 1
         ]);
         Ujian::create([
             'periode_id' => 1,
@@ -40,6 +42,7 @@ class SetLulusCumlaudeCountTest extends TestCase
             'is_jalur_cumlaude' => 1,
             'is_lulus_tka' => 0,
             'is_lulus_tkj' => 0,
+            'is_lunas' => 1
         ]);
         $this->assertCount(3, Ujian::all());
         $this->artisan('massSetLulusCumlaude');
