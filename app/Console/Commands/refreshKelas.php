@@ -3,19 +3,18 @@
 namespace App\Console\Commands;
 
 use App\Http\Controllers\KelasController;
-use App\Ujian;
-use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
+use App\Kelas;
+use App\Ujian;
 
-class MassSetLulusCumlaude extends Command
+class refreshKelas extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'massSetLulusCumlaude';
+    protected $signature = 'refreshKelas { periode_id : id periode }';
 
     /**
      * The console command description.
@@ -41,34 +40,17 @@ class MassSetLulusCumlaude extends Command
      */
     public function handle()
     {
-        echo "Setting new value... \n";
-
+        Kelas::where('periode_id', $this->argument('periode_id'))->update(['cln_mhs' => "[]"]);
         $ujians = Ujian::where([
-            'is_jalur_cumlaude' => 1,
             'is_lulus_tka' => 1,
             'is_lulus_tkj' => 1,
             'is_lunas' => 1
         ])
-            ->whereNull('lulus_at')
+            ->whereNotNull('lulus_at')
             ->get();
         foreach ($ujians as $key => $value) {
-            $ujian = Ujian::find($value->id);
-            $ujian->lulus_at = Carbon::now();
-            $ujian->save();
             $kelas = new KelasController;
             $kelas->addNewStudent($value->periode_id, $value->jurusan_id, $value->user_cln_mhs_id);
         }
-
-        // Ujian::where([
-        //     'is_jalur_cumlaude' => 1,
-        //     'is_lulus_tka' => 1,
-        //     'is_lulus_tkj' => 1,
-        // ])
-        //     ->whereNotNull('lulus_at')
-        //     ->update(['lulus_at' => Carbon::now()]);
-
-
-        echo count($ujians) . " records changed.. Done!\n";
-        Log::info(count($ujians) . "cumlaude records changed.. Done!\n");
     }
 }
