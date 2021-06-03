@@ -28,7 +28,12 @@ class UjianController extends Controller
     {
         // $periode = Periode::latest()->first();
         $periode = Periode::getActive();
-        $periode_id = $periode->id;
+        try {
+            $periode_id = $periode->id;
+        } catch (\Throwable $th) {
+            $periode = Periode::latest()->first();
+            $periode_id = $periode->id;
+        }
         $ujian = Ujian::where(['periode_id' => $periode_id])->get();
         $total_pendaftaran = count($ujian);
         $total_lulus = count(Ujian::where(['periode_id' => $periode_id])->where("lulus_at", "!=", null)->get());
@@ -144,6 +149,10 @@ class UjianController extends Controller
         }
 
         if (!is_null($currentPeriode)) {
+            $pendaftaran = $currentPeriode->getUjian($jurusan_id, $pembayaran, $status);
+            $kelas = $currentPeriode->getKelas($jurusan_id);
+        } else {
+            $currentPeriode = Periode::latest()->first();
             $pendaftaran = $currentPeriode->getUjian($jurusan_id, $pembayaran, $status);
             $kelas = $currentPeriode->getKelas($jurusan_id);
         }

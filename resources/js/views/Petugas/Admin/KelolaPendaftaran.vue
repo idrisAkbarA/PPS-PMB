@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <v-progress-linear indeterminate></v-progress-linear>
+    </v-card>
     <p class="text-muted">
       Mengelola pendaftaran pada Penerimaan Mahasiswa Baru
     </p>
@@ -681,6 +683,9 @@ export default {
     },
   },
   watch: {
+    isLoading(val) {
+      console.log("loading ", val);
+    },
     bottomSheet(val) {
       if (!val) {
         this.form = {};
@@ -765,7 +770,8 @@ export default {
     },
     getPendaftaran(params = {}) {
       this.isLoading = true;
-      console.log("loading", this.isLoading);
+      this.$forceUpdate();
+      // console.log("loading", this.isLoading);
       axios
         .get(this.urlPendaftaran, {
           params: params,
