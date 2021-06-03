@@ -27,9 +27,15 @@
                 <th style="font-weight: bold">Jurusan</th>
             @endif
             <th style="font-weight: bold">Nama</th>
+            <th style="font-weight: bold">No. HP</th>
             <th style="font-weight: bold">Pembayaran</th>
             <th style="font-weight: bold">Jalur Masuk</th>
             <th style="font-weight: bold">Status Kelulusan</th>
+            <th style="font-weight: bold">Nilai TKA</th>
+            <th style="font-weight: bold">Nilai TKJ</th>
+            <th style="font-weight: bold">Tanggal Bayar</th>
+            <th style="font-weight: bold">Tanggal Ujian TKA</th>
+            <th style="font-weight: bold">Tanggal Ujian TKJ</th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +46,7 @@
                     <td>{{ $value['jurusan']['nama'] }}</td>
                 @endif
                 <td>{{ $value['user_cln_mhs']['nama'] }}</td>
+                <td>{{ $value['user_cln_mhs']['hp'] }}</td>
                 <td>
                     @if ($value['lunas_at'] == null)
                         Belum Lunas
@@ -53,7 +60,7 @@
                     </td>
                     @if ($value['is_lulus_tka'] == 1)
                         Lulus
-                    @elseif ($value['is_lulus_tka'] == 0)
+                    @elseif ($value['is_lulus_tka'] === 0)
                         Tidak Lulus
                     @else
                         Belum Verifikasi
@@ -69,6 +76,21 @@
                         {{ $value['status_kelulusan'] }}
                     </td>
                 @endif
+                <td>
+                    {{ $value['nilai_tka'] }}
+                </td>
+                <td>
+                    {{ $value['nilai_tkj'] }}
+                </td>
+                <td>
+                    {{ $value['lunas_at'] }}
+                </td>
+                <td>
+                    {{ $value['start_tka'] }}
+                </td>
+                <td>
+                    {{ $value['start_tkj'] }}
+                </td>
 
             </tr>
         @endforeach

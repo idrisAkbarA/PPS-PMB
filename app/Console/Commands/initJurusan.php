@@ -46,8 +46,8 @@ class initJurusan extends Command
             "Ekonomi Syariah S2"            => 60102,
             "Hukum Keluarga S2"             => 74130,
             "Studi Bahasa Arab S2"          => 86111,
-            "Konsentrasi Bahasa Inggris"    => null,
-            "Konsentrasi Tafsir Hadist"     => null
+            "Konsentrasi Bahasa Inggris"    => 86108,
+            "Konsentrasi Tafsir Hadist"     => 74130
         ];
         foreach ($program as $key => $value) {
             $jurusan = new Jurusan;

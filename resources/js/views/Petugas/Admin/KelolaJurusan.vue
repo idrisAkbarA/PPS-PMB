@@ -385,6 +385,10 @@ export default {
           text: "Kuota per Kelas Default",
           value: "kuota_kelas_default",
         },
+        {
+          text: "Nominal Bayar Default",
+          value: "nominal_bayar_default",
+        },
         { text: "Actions", value: "actions" },
       ],
     };

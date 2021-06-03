@@ -91,6 +91,9 @@
           <template v-slot:[`item.nama`]="{ item }">
             {{ item.user_cln_mhs.nama }}
           </template>
+          <template v-slot:[`item.is_jalur_cumlaude`]="{ item }">
+            {{ parseJalur(item.is_jalur_cumlaude) }}
+          </template>
           <template v-slot:[`item.jurusan`]="{ item }">
             {{ item.jurusan.nama }}
           </template>
@@ -654,6 +657,7 @@ export default {
           value: "nama_pendaftar",
         },
         { text: "Jurusan", value: "jurusan" },
+        { text: "Jalur", value: "is_jalur_cumlaude" },
         { text: "Pembayaran", value: "pembayaran" },
         { text: "Kelulusan", value: "kelulusan" },
         { text: "Actions", value: "actions" },
@@ -695,6 +699,15 @@ export default {
   },
   methods: {
     ...mapMutations(["toggleBottomSheet"]),
+    parseJalur(jalurID) {
+      if (jalurID === null) {
+        return "Belum memilih";
+      } else if (jalurID === true) {
+        return "Cumlaude";
+      } else {
+        return "Reguler";
+      }
+    },
     downloadExcel() {
       var url = "/api/ujian/export";
       this.downloadLoading = true;
