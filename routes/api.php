@@ -132,3 +132,6 @@ Route::prefix('cumlaude')->name('cumlaude')->group(function () {
     Route::get('/init-data', 'CumlaudeController@initData')->name('initData');
     Route::post('/update', 'CumlaudeController@update')->name('show');
 });
+Route::prefix('export')->name('export')->group(function () {
+    Route::get('/{periode_id}', 'ExportDataController@index')->name('regular');
+});
