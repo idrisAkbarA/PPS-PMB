@@ -17,6 +17,7 @@ import KelolaJalurCumlaude from "../views/Petugas/Admin/KelolaJalurCumlaude.vue"
 import LaporanUjian from "../views/Petugas/Admin/LaporanUjian.vue";
 import Setting from "../views/Petugas/Admin/Setting.vue";
 import GantiPassword from "../views/Petugas/Admin/GantiPassword.vue";
+import Export from "../views/Petugas/Admin/Export.vue";
 
 import HomeTemuRamah from "../views/Petugas/TemuRamah/Home.vue";
 
@@ -90,6 +91,11 @@ const routes = [
                 path: "setting-ujian",
                 name: "Setting Ujian",
                 component: Setting
+            },
+            {
+                path: "export",
+                name: "Export Data",
+                component: Export
             },
         ]
     },

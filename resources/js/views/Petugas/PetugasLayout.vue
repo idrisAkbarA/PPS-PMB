@@ -327,6 +327,11 @@ export default {
           title: "Temu Ramah",
           to: `/admin/${petugas}/kelola-temu-ramah`,
         },
+        {
+          icon: "mdi-file-export",
+          title: "Export Data",
+          to: `/admin/${petugas}/export`,
+        },
       ];
     },
     CATpages() {
