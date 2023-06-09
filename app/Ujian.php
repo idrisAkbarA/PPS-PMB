@@ -67,6 +67,7 @@ class Ujian extends Model
             $this->attributes['lulus_at'] = today();
         }
         $this->attributes['is_lulus_tka'] = $value;
+        $this->attributes['tka_ended'] = today();
     }
 
     public function setIsLulusTkj($value)
@@ -75,6 +76,7 @@ class Ujian extends Model
             $this->attributes['lulus_at'] = today();
         }
         $this->attributes['is_lulus_tkj'] = $value;
+        $this->attributes['tkj_ended'] = today();
     }
 
     // Relations

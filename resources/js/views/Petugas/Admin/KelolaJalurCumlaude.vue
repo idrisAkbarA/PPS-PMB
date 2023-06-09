@@ -86,7 +86,7 @@
               <v-icon
                 small
                 class="mr-2"
-                @click="editItem(item)"
+                @click="openVerificationDialog(item)"
               >
                 mdi-pencil
               </v-icon>
@@ -232,17 +232,10 @@
                     v-model="mhsSelected.alamat"
                   ></v-textarea>
                 </v-row>
-                <v-row>
+                <v-row v-if="selectedPeriode.syarat_bhs_inggris">
                   <v-text-field
                     color="green"
                     filled
-                    @change="
-                validationNilai(
-                  { obj: mhsSelected, id: 4 },
-                  'inggris',
-                  mhsSelected.nilai_bhs_inggris
-                )
-              "
                     prepend-inner-icon="mdi-attachment"
                     type="number"
                     label="Nilai Bahasa Inggris"
@@ -250,7 +243,7 @@
                   ></v-text-field>
                 </v-row>
 
-                <v-row>
+                <v-row v-if="selectedPeriode.syarat_bhs_arab">
                   <v-text-field
                     color="green"
                     type="number"
@@ -274,7 +267,7 @@
                   ></v-text-field>
                   <!-- @change="sendUser(mhsSelected,6)" -->
                 </v-row>
-                <v-row>
+                <v-row v-if="selectedPeriode.syarat_bhs_arab">
                   <v-btn
                     block
                     x-large
@@ -284,7 +277,7 @@
                   > Sertifikat Bahasa arab
                   </v-btn>
                 </v-row>
-                <v-row>
+                <v-row v-if="selectedPeriode.syarat_bhs_inggris">
                   <v-btn
                     block
                     x-large
@@ -485,12 +478,6 @@ export default {
   },
   created() {
     this.initData();
-    axios
-      .get("/api/cumlaude")
-      .then((response) => {
-        this.cumlaudes = response.data;
-      })
-      .catch();
   },
   computed: {
     belumVerifikasi() {
@@ -509,6 +496,13 @@ export default {
         return item.status_code != 2;
       });
     },
+  },
+  watch: {
+    periode_id(val){
+        if (val){
+            this.selectedPeriode = this.periode.find(f => f.id == val);
+        }
+    }
   },
   data() {
     return {
@@ -535,6 +529,7 @@ export default {
       cumlaudes: [],
       originalCumlaudes: [],
       periode: [],
+      selectedPeriode: null,
       jurusan: [{ nama: "Semua Jurusan", id: "all" }],
       jurusan_id: "all",
       periode_id: null,

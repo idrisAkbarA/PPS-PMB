@@ -312,7 +312,7 @@ export default {
         },
         {
           icon: "mdi-book-plus",
-          title: "Temu Ramah",
+          title: "Wawancara",
           to: `/admin/${petugas}/kelola-temu-ramah`,
         },
       ];

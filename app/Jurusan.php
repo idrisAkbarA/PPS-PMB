@@ -57,6 +57,10 @@ class Jurusan extends Model
             foreach ($categories as $category) {
                 $category->delete();
             }
+            $kat_periode = $model->kat_periode()->get();
+            foreach ($kat_periode as $category) {
+                $category->delete();
+            }
         });
     }
 
@@ -126,6 +130,11 @@ class Jurusan extends Model
     public function kategori()
     {
         return $this->hasMany('App\Kategori');
+    }
+
+    public function kat_periode()
+    {
+        return $this->hasMany('App\KatJurusanPerPeriode');
     }
 
     public function tkj_default()

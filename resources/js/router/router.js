@@ -179,10 +179,9 @@ router.beforeEach(async (to, from, next) => {
         var rootPath = to.matched[0].path;
         var isLoggedIn = async (role) => {
             var value = null;
-            await axios.post('/api/auth-is-login/' + role).then(response => {
-                value = response.data.value;
-                console.log('check');
-            })
+            const response = await axios.post('/api/auth-is-login/' + role)
+            value = response.data.value;
+            console.log(response);
             return value;
         }
         switch (rootPath) {

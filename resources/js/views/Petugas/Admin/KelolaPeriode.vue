@@ -151,6 +151,18 @@
                   <p class="overline text-muted mb-0">Setting Ujian</p>
                 </v-col>
                 <v-col cols="6">
+                  <label class="text-dark">Syarat Bahasa (TOEFL/TOAFL)</label>
+                </v-col>
+                <v-col cols="6">
+                  <v-switch
+                    inset
+                    hide-details="auto"
+                    color="green"
+                    v-model="isSyaratBahasa"
+                    :label="isSyaratBahasa ? 'Iya' : 'Tidak'"
+                  ></v-switch>
+                </v-col>
+                <v-col cols="6">
                   <label class="text-dark">Syarat Mengikuti Ujian</label>
                 </v-col>
                 <v-col cols="2">
@@ -171,6 +183,7 @@
                     color="#2C3E50"
                     min="0"
                     label="Bahasa Inggris"
+                    :disabled="!isSyaratBahasa"
                     v-model="form.syarat_bhs_inggris"
                   >
                   </v-text-field>
@@ -181,6 +194,7 @@
                     color="#2C3E50"
                     min="0"
                     label="Bahasa Arab"
+                    :disabled="!isSyaratBahasa"
                     v-model="form.syarat_bhs_arab"
                   >
                   </v-text-field>
@@ -365,7 +379,7 @@
                         readonly
                         color="#2C3E50"
                         prepend-icon="mdi-calendar"
-                        label="Awal Temu Ramah"
+                        label="Awal Wawancara"
                         v-bind="attrs"
                         v-on="on"
                         v-model="form.awal_temu_ramah"
@@ -392,7 +406,7 @@
                         readonly
                         color="#2C3E50"
                         prepend-icon="mdi-calendar"
-                        label="Akhir Temu Ramah"
+                        label="Akhir Wawancara"
                         v-bind="attrs"
                         v-on="on"
                         v-model="form.akhir_temu_ramah"
@@ -472,7 +486,7 @@
                                   <strong> Kelas </strong>
                                 </span>
                                 <tr></tr>
-                                {{ item.kuota_kelas_default }} Mahasiswa/Kelas
+                                {{ item.kuota_kelas ? item.kuota_kelas : item.kuota_kelas_default }} Mahasiswa/Kelas
                               </v-col>
                             </v-row>
                           </v-fade-transition>
@@ -654,7 +668,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Temu Ramah</td>
+                  <td>Wawancara</td>
                   <td>
                     {{ `${form.awal_temu_ramah} - ${form.akhir_temu_ramah}` }}
                   </td>
@@ -721,6 +735,7 @@ export default {
       dateTemp: null,
       timeTemp: null,
       isJadwal: false,
+      isSyaratBahasa: false,
       search: "",
       periode: [],
       form: {},
@@ -777,6 +792,15 @@ export default {
         this.jadwals = [];
       }
     },
+    isSyaratBahasa(val) {
+        if (!val) {
+            this.form.syarat_bhs_arab = null;
+            this.form.syarat_bhs_inggris = null;
+        } else {
+            this.form.syarat_bhs_arab = this.form.syarat_bhs_arab ?? 0;
+            this.form.syarat_bhs_inggris = this.form.syarat_bhs_inggris ?? 0;
+        }
+    },
     bottomSheet(val) {
       if (!val) {
         this.form = {};
@@ -799,6 +823,7 @@ export default {
             item.nominal_bayar = item.nominal_bayar_default ?? 0;
           });
         } else {
+          this.isSyaratBahasa = (this.form.syarat_bhs_arab || this.form.syarat_bhs_inggris);
           this.form.jurusan.forEach((item) => {
             item.kategori.forEach((el) => {
               const jurusan = this.form.kategori.filter((elem) => {
@@ -815,6 +840,12 @@ export default {
               })[0];
               el.jumlah_tkj = kategori ? kategori.jumlah : 0;
             });
+            item.kuota_kelas = this.form.kuota_kelas.find((elem) => {
+                return elem.jurusan_id == item.id;
+            }).kuota;
+            item.nominal_bayar = this.form.nominal.find((elem) => {
+                return elem.jurusan_id == item.id;
+            }).nominal;
           });
         }
       }

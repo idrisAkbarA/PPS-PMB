@@ -6,9 +6,10 @@
   >
     <v-card>
       <v-card-title>Pendaftaran</v-card-title>
-      <v-card-subtitle>Tahap {{ stepper }} dari 5</v-card-subtitle>
+      <v-card-subtitle>Tahap {{ stepper }} dari 6</v-card-subtitle>
     </v-card>
     <v-stepper
+      v-if="activePeriode"
       non-linear
       vertical
       v-model="stepper"
@@ -194,7 +195,7 @@
               v-model="user.alamat"
             ></v-textarea>
           </v-row>
-          <v-row>
+          <v-row v-if="activePeriode.syarat_bhs_inggris">
             <v-text-field
               color="green"
               filled
@@ -214,7 +215,192 @@
               :rules="ruleBahasaInggrisValidation"
             ></v-text-field>
           </v-row>
+          <v-row v-if="activePeriode.syarat_bhs_arab">
+            <v-text-field
+              color="green"
+              type="number"
+              filled
+              :loading="biodata.field5"
+              :disabled="biodataDisabled.field5"
+              @change="
+                validationNilai(
+                  { obj: user, id: 5 },
+                  'arab',
+                  user.nilai_bhs_arab
+                )
+              "
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai Bahasa Arab"
+              :rules="ruleBahasaArabValidation"
+              v-model="user.nilai_bhs_arab"
+            ></v-text-field>
+          </v-row>
           <v-row>
+            <v-text-field
+              required
+              :loading="biodata.field6"
+              :disabled="biodataDisabled.field6"
+              color="green"
+              filled
+              @change="
+                validationNilai({ obj: user, id: 6 }, 'ipk', user.nilai_ipk)
+              "
+              :rules="ruleIPKValidation"
+              prepend-inner-icon="mdi-attachment"
+              label="Nilai IPK"
+              type="number"
+              v-model="user.nilai_ipk"
+            ></v-text-field>
+            <!-- @change="sendUser(user,6)" -->
+          </v-row>
+          <v-row v-if="ujianSelected">
+            <v-card color="grey lighten-4">
+              <v-card-title>Pilih Jalur Masuk</v-card-title>
+              <v-card-subtitle>
+                Silahkan pilih jalur masuk sesuai yang anda inginkan.
+              </v-card-subtitle>
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-card :color="ujianSelected.is_jalur_cumlaude === true?'white':'grey lighten-3'">
+                      <v-card-title>
+                        Jalur Cumlaude <span v-if="ujianSelected.is_jalur_cumlaude === true"> - Pilihan anda</span>
+                      </v-card-title>
+                      <v-card-text>
+                        Anda dapat melaksanakan pendaftaran tanpa melalui tes
+                        ujian jika anda terbukti lulus dengan predikat Cumlaude.
+                        <v-btn
+                          :color="ujianSelected.is_jalur_cumlaude === true?'green':'grey'"
+                          class="text-white"
+                          block
+                          @click="setCumlaude()"
+                        >Daftar jalur cumlaude</v-btn>
+                      </v-card-text>
+                    </v-card>
+                  </v-row>
+                  <v-row class="mt-10">
+                    <v-card :color="ujianSelected.is_jalur_cumlaude === false?'white':'grey lighten-3'">
+                      <v-card-title>
+                        Jalur Reguler <span v-if="ujianSelected.is_jalur_cumlaude === false">- Pilihan anda</span>
+                      </v-card-title>
+                      <v-card-text>
+                        Anda dapat melaksanakan pendaftaran melalui tes
+                        ujian dan sesi wawancara akademik.
+                        <v-btn
+                          :color="ujianSelected.is_jalur_cumlaude === false?'green':'grey'"
+                          class="text-white"
+                          block
+                          @click="setReguler()"
+                        >Daftar jalur Reguler</v-btn>
+                      </v-card-text>
+                    </v-card>
+                  </v-row>
+                </v-container>
+              </v-card-text>
+            </v-card>
+          </v-row>
+          <v-row v-if="ujianSelected">
+            <v-checkbox
+              @click="setTnC()"
+              v-model="ujianSelected.is_agree"
+              color="green"
+              label="Setuju dengan syarat dan ketentuan pendaftaran Pascasarjana UIN Suska Riau"
+            ></v-checkbox>
+          </v-row>
+        </v-container>
+        <v-btn
+          :disabled="!isTnCAgreednBiodataFilled"
+          color="green darken-2"
+          class="text-white"
+          @click="selanjutnyaBio()"
+          :loading="biodataLoading"
+        >
+          Selanjutnya
+        </v-btn>
+      </v-stepper-content>
+
+      <v-stepper-step
+        :editable="isBiodataFilled ? true : false"
+        color="green"
+        :complete="stepper > 3"
+        step="3"
+        :rules="rulePembayaran"
+        v-if="stepper == 3"
+      >
+        Pembayaran
+        <strong
+          class="text-red"
+          v-if="isBiodataFilled ? false : true"
+        >Lengkapi biodata terlebih dahulu.</strong>
+      </v-stepper-step>
+
+      <v-stepper-content step="3">
+        <div ref="kode_bayar">
+          <v-card
+            color="grey lighten-4"
+            class="mb-5 ml-2 mt-2 mr-2"
+            elevation="5"
+          >
+            <!-- v-if="!ujian.kode_bayar" -->
+            <v-card-title>Lakukan Pembayaran</v-card-title>
+            <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
+              masuk</v-card-subtitle>
+            <v-card-text>
+              <v-btn
+                block
+                large
+                dark
+                :loading="isLoading"
+                color="green darken-3"
+                v-if="!kodePembayaran"
+                @click="generateCode()"
+              >Dapatkan Kode Pembayaran</v-btn>
+              <div v-if="kodePembayaran && !isPembayaranLunas">
+                <span> Segera membayar dengan kode berikut </span>
+                <h1>{{ kodePembayaran }}</h1>
+              </div>
+              <div v-if="isPembayaranLunas">
+                <h1>Pembayaran Berhasil!</h1>
+                <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
+              </div>
+            </v-card-text>
+          </v-card>
+        </div>
+        <v-btn
+          :loading="isLoading"
+          v-if="kodePembayaran"
+          color="green"
+          class="text-white mb-12 ml-2 mr-2"
+          text
+          block
+          @click="downloadKodeBayar"
+        >
+          <v-icon left>mdi-download</v-icon> Download Kode Bayar
+        </v-btn>
+        <v-btn
+          :disabled="isPembayaranLunas ? false : true"
+          color="green darken-2"
+          class="text-white"
+          @click="stepper = 4"
+        >
+          Selanjutnya
+        </v-btn>
+      </v-stepper-content>
+
+      <v-stepper-step
+        :complete="stepper > 4"
+        :editable="!isLulusUjian"
+        color="green"
+        step="4"
+        :rules="ruleUjian"
+        v-if="stepper == 4"
+      >
+        Kelengkapan Berkas
+        <!-- <strong v-if="isLulusUjian">Ujian lulus!</strong> -->
+      </v-stepper-step>
+      <v-stepper-content step="4">
+        <v-container>
+          <v-row v-if="activePeriode.syarat_bhs_inggris">
             <v-text-field
               v-if="!user.sertifikat_bhs_inggris"
               color="green"
@@ -260,27 +446,7 @@
               v-model="file.toefl"
             ></v-file-input>
           </v-row>
-          <v-row>
-            <v-text-field
-              color="green"
-              type="number"
-              filled
-              :loading="biodata.field5"
-              :disabled="biodataDisabled.field5"
-              @change="
-                validationNilai(
-                  { obj: user, id: 5 },
-                  'arab',
-                  user.nilai_bhs_arab
-                )
-              "
-              prepend-inner-icon="mdi-attachment"
-              label="Nilai Bahasa Arab"
-              :rules="ruleBahasaArabValidation"
-              v-model="user.nilai_bhs_arab"
-            ></v-text-field>
-          </v-row>
-          <v-row>
+          <v-row v-if="activePeriode.syarat_bhs_arab">
             <v-text-field
               v-if="!user.sertifikat_bhs_arab"
               color="green"
@@ -325,24 +491,6 @@
               accept=".pdf"
               v-model="file.toafl"
             ></v-file-input>
-          </v-row>
-          <v-row>
-            <v-text-field
-              required
-              :loading="biodata.field6"
-              :disabled="biodataDisabled.field6"
-              color="green"
-              filled
-              @change="
-                validationNilai({ obj: user, id: 6 }, 'ipk', user.nilai_ipk)
-              "
-              :rules="ruleIPKValidation"
-              prepend-inner-icon="mdi-attachment"
-              label="Nilai IPK"
-              type="number"
-              v-model="user.nilai_ipk"
-            ></v-text-field>
-            <!-- @change="sendUser(user,6)" -->
           </v-row>
           <v-row>
             <v-text-field
@@ -622,136 +770,15 @@
               v-model="file.kartu_keluarga"
             ></v-file-input>
           </v-row>
-          <v-row v-if="ujianSelected">
-            <v-card color="grey lighten-4">
-              <v-card-title>Pilih Jalur Masuk</v-card-title>
-              <v-card-subtitle>
-                Silahkan pilih jalur masuk sesuai yang anda inginkan.
-              </v-card-subtitle>
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-card :color="ujianSelected.is_jalur_cumlaude === true?'white':'grey lighten-3'">
-                      <v-card-title>
-                        Jalur Cumlaude <span v-if="ujianSelected.is_jalur_cumlaude === true"> - Pilihan anda</span>
-                      </v-card-title>
-                      <v-card-text>
-                        Anda dapat melaksanakan pendaftaran tanpa melalui tes
-                        ujian jika anda terbukti lulus dengan predikat Cumlaude.
-                        <v-btn
-                          :color="ujianSelected.is_jalur_cumlaude === true?'green':'grey'"
-                          class="text-white"
-                          block
-                          @click="setCumlaude()"
-                        >Daftar jalur cumlaude</v-btn>
-                      </v-card-text>
-                    </v-card>
-                  </v-row>
-                  <v-row class="mt-10">
-                    <v-card :color="ujianSelected.is_jalur_cumlaude === false?'white':'grey lighten-3'">
-                      <v-card-title>
-                        Jalur Reguler <span v-if="ujianSelected.is_jalur_cumlaude === false">- Pilihan anda</span>
-                      </v-card-title>
-                      <v-card-text>
-                        Anda dapat melaksanakan pendaftaran melalui tes
-                        ujian dan sesi temu ramah akademik.
-                        <v-btn
-                          :color="ujianSelected.is_jalur_cumlaude === false?'green':'grey'"
-                          class="text-white"
-                          block
-                          @click="setReguler()"
-                        >Daftar jalur Reguler</v-btn>
-                      </v-card-text>
-                    </v-card>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-            </v-card>
-          </v-row>
-          <v-row v-if="ujianSelected">
-            <v-checkbox
-              @click="setTnC()"
-              v-model="ujianSelected.is_agree"
-              color="green"
-              label="Setuju dengan syarat dan ketentuan pendaftaran Pascasarjana UIN Suska Riau"
-            ></v-checkbox>
-          </v-row>
         </v-container>
         <v-btn
-          :disabled="!isTnCAgreednBiodataFilled"
+          :disabled="!isBerkasFilled"
           color="green darken-2"
           class="text-white"
-          @click="selanjutnyaBio()"
           :loading="biodataLoading"
+          @click="stepper = 5"
         >
-          Selanjutnya
-        </v-btn>
-      </v-stepper-content>
-
-      <v-stepper-step
-        :editable="isBiodataFilled ? true : false"
-        color="green"
-        :complete="stepper > 3"
-        step="3"
-        :rules="rulePembayaran"
-        v-if="stepper == 3"
-      >
-        Pembayaran
-        <strong
-          class="text-red"
-          v-if="isBiodataFilled ? false : true"
-        >Lengkapi biodata terlebih dahulu.</strong>
-      </v-stepper-step>
-
-      <v-stepper-content step="3">
-        <div ref="kode_bayar">
-          <v-card
-            color="grey lighten-4"
-            class="mb-5 ml-2 mt-2 mr-2"
-            elevation="5"
-          >
-            <!-- v-if="!ujian.kode_bayar" -->
-            <v-card-title>Lakukan Pembayaran</v-card-title>
-            <v-card-subtitle>Lakukan pembayaran untuk dapat mengikuti ujian
-              masuk</v-card-subtitle>
-            <v-card-text>
-              <v-btn
-                block
-                large
-                dark
-                :loading="isLoading"
-                color="green darken-3"
-                v-if="!kodePembayaran"
-                @click="generateCode()"
-              >Dapatkan Kode Pembayaran</v-btn>
-              <div v-if="kodePembayaran && !isPembayaranLunas">
-                <span> Segera membayar dengan kode berikut </span>
-                <h1>{{ kodePembayaran }}</h1>
-              </div>
-              <div v-if="isPembayaranLunas">
-                <h1>Pembayaran Berhasil!</h1>
-                <span>Silahkan melakukan ujian masuk pada tahap selanjutnya</span>
-              </div>
-            </v-card-text>
-          </v-card>
-        </div>
-        <v-btn
-          :loading="isLoading"
-          v-if="kodePembayaran"
-          color="green"
-          class="text-white mb-12 ml-2 mr-2"
-          text
-          block
-          @click="downloadKodeBayar"
-        >
-          <v-icon left>mdi-download</v-icon> Download Kode Bayar
-        </v-btn>
-        <v-btn
-          :disabled="isPembayaranLunas ? false : true"
-          color="green darken-2"
-          class="text-white"
-          @click="stepper = 4"
-        >
+          <!-- @click="stepper = 3" -->
           Selanjutnya
         </v-btn>
       </v-stepper-content>
@@ -759,9 +786,9 @@
       <v-stepper-step
         :editable="isPembayaranLunas"
         color="green"
-        step="4"
+        step="5"
         :rules="ruleUjian"
-        v-if="stepper == 4"
+        v-if="stepper == 5"
       >
         Ujian
         <strong
@@ -769,7 +796,7 @@
           v-if="isPembayaranLunas ? false : true"
         >Lakukan pembayaran terlebih dahulu.</strong>
       </v-stepper-step>
-      <v-stepper-content step="4">
+      <v-stepper-content step="5">
         <v-card
           v-if="ujianSelected"
           color="grey lighten-4"
@@ -979,18 +1006,18 @@
       <v-stepper-step
         :editable="isLulusUjian ? true : false"
         color="green"
-        step="5"
+        step="6"
         :rules="ruleTemuRamah"
-        v-if="stepper == 5"
+        v-if="stepper == 6"
       >
-        Temu Ramah
+        Wawancara
         <strong
           class="text-red"
           v-if="isLulusUjian ? false : true"
-        >Anda dapat masuk pada tahap Temu Ramah setelah lulus ujian TKA dan
+        >Anda dapat masuk pada tahap Wawancara setelah lulus ujian TKA dan
           TKJ.</strong>
       </v-stepper-step>
-      <v-stepper-content step="5">
+      <v-stepper-content step="6">
         <v-card
           color="grey lighten-1"
           class="mb-12"
@@ -1002,6 +1029,11 @@
         > Selanjutnya </v-btn>
       </v-stepper-content>
     </v-stepper>
+    <v-card v-else>
+      <v-card-text>
+        <v-progress-circular indeterminate></v-progress-circular>
+      </v-card-text>
+    </v-card>
     <v-bottom-sheet
       persistent
       eager
@@ -1238,21 +1270,22 @@ export default {
       });
     },
     checkBiodata(v) {
-      Object.keys(v).every((element) => {
-        if (element == "email_verified_at") {
-          return true;
+        if(!this.activePeriode){
+            return;
         }
-        if (element == "is_verified") {
-          return true;
+        const biodata = ["nama", "email", "hp", "wa", "alamat", "jenis_kelamin", "tgl_lahir", "tempat_lahir", "nik", "nilai_ipk"];
+        const berkas = ["ijazah", "surat_rekomendasi", "kartu_keluarga", "ktp", "pas_photo", "transkip"];
+        if(this.activePeriode.syarat_bhs_inggris || this.activePeriode.syarat_bhs_arab){
+            berkas.push("sertifikat_bhs_inggris", "sertifikat_bhs_arab");
+            biodata.push("nilai_bhs_inggris", "nilai_bhs_arab");
         }
-        if (v[element] == null || v[element] == "") {
-          this.isBiodataFilled = false;
-          return false;
-        }
-        this.isBiodataFilled = true;
-        return true;
-      });
-      console.log("biodata", this.isBiodataFilled);
+        this.isBiodataFilled = Object.keys(v).filter(f => biodata.includes(f)).every((el) => {
+            return v[el];
+        });
+        this.isBerkasFilled = Object.keys(v).filter(f => berkas.includes(f)).every((el) => {
+            return v[el];
+        });
+        console.log("TRIGGERED", this.isBiodataFilled, this.isBerkasFilled);
     },
     generateCode() {
       // this method generate payment code
@@ -1758,6 +1791,7 @@ export default {
       isPembayaranLunas: false,
       isLulusUjian: false,
       isBiodataFilled: false,
+      isBerkasFilled: false,
       ruleTemuRamah: [() => this.isLulusUjian != false],
       ruleUjian: [() => this.isPembayaranLunas != false],
       rulePembayaran: [

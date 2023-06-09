@@ -31,7 +31,7 @@ class Periode extends Model
             }
         });
 
-        // Delete category in periode
+        // Delete category and the pivot in periode
         self::deleting(function ($model) {
             $categories = $model->kategori()->get();
             foreach ($categories as $category) {

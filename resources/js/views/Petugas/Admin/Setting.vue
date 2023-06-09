@@ -232,7 +232,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Temu Ramah</td>
+                  <td>Wawancara</td>
                   <td>
                     {{ `${form.awal_temu_ramah} - ${form.akhir_temu_ramah}` }}
                   </td>

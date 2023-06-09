@@ -10,6 +10,7 @@ class Cumlaude
 {
     public function all()
     {
+        $berkas = ["ijazah", "sertifikat_bhs_inggris", "sertifikat_bhs_arab", "surat_rekomendasi", "kartu_keluarga", "ktp", "pas_photo", "transkip"];
         $periode_active = Periode::getActive();
         $cumlaudes = Ujian::select(
             'id',
@@ -24,6 +25,9 @@ class Cumlaude
                 'is_jalur_cumlaude' => 1,
                 'is_agree' => 1
             ])
+            ->whereHas('user_cln_mhs', function($q) use ($berkas){
+                $q->whereNotNull($berkas);
+            })
             ->orderBy('id', 'DESC')->get();
         $desiredData = self::setData($cumlaudes);
         return $desiredData;
@@ -59,9 +63,7 @@ class Cumlaude
             $ujian = Ujian::find($id);
             $ujian->is_lulus_tka = $is_lulus;
             $ujian->is_lulus_tkj = $is_lulus;
-            // if ($is_lulus) {
-            //     $ujian->lulus_at = Carbon::now();
-            // }
+            $ujian->lulus_at = $is_lulus ? Carbon::now() : null;
             $ujian->save();
 
             return ['status' => true, 'message' => "Status berhasil di simpan!"];

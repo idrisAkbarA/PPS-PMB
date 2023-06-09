@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <p class="text-muted">
-      Mengolola Temu Ramah pada setiap periode pada Penerimaan Mahasiswa Baru
+      Mengolola Wawancara pada setiap periode pada Penerimaan Mahasiswa Baru
     </p>
     <v-card class="mb-3">
       <v-expansion-panels>
@@ -93,7 +93,7 @@
     >
       <v-card color="#ecf0f1">
         <v-card-title>
-          <span>Jadwal Temu Ramah</span>
+          <span>Jadwal Wawancara</span>
           <v-spacer></v-spacer>
           <v-btn text class="mr-2" @click="bottomSheet = false">batal</v-btn>
           <v-btn color="#2C3E50" dark @click="submit">Simpan</v-btn>
@@ -198,7 +198,7 @@
                 <v-divider class="mt-0"></v-divider>
               </v-list>
               <p class="text-center mt-2" v-else>
-                Belum ada peserta temu ramah
+                Belum ada peserta wawancara
               </p>
             </v-col>
           </v-row>

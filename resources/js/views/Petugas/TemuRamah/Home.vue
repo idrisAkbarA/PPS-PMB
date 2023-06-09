@@ -109,7 +109,7 @@
                   </template>
                 </v-list>
                 <p class="text-center mt-2" v-if="!row.ids_cln_mhs.length">
-                  Belum ada peserta temu ramah
+                  Belum ada peserta wawancara
                 </p>
               </v-col>
             </v-row>

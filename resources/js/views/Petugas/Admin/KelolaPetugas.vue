@@ -243,7 +243,7 @@ export default {
       snackbar: { show: false },
       roles: [
         { id: 1, nama: "Administrator", color: "success" },
-        { id: 2, nama: "Petugas Temu Ramah", color: "purple" },
+        { id: 2, nama: "Petugas Wawancara", color: "purple" },
       ],
       headers: [
         {

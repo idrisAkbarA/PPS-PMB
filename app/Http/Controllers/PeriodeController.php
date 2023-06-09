@@ -83,7 +83,9 @@ class PeriodeController extends Controller
         // Create periode
         $periode->update($request->all());
         // Setting jurusan per periode
-        $periode->setJurusan($request->jurusan);
+        if($request->jurusan){
+            $periode->setJurusan($request->jurusan);
+        }
 
         // DB::commit();
 

@@ -28,38 +28,40 @@ class UjianController extends Controller
     {
         // $periode = Periode::latest()->first();
         $periode = Periode::getActive();
-        $periode_id = $periode->id;
-        $ujian = Ujian::where(['periode_id' => $periode_id])->get();
-        $total_pendaftaran = count($ujian);
-        $total_lulus = count(Ujian::where(['periode_id' => $periode_id])->where("lulus_at", "!=", null)->get());
-        $jurusan = Jurusan::all();
-        $total_gagal = 0;
-        $final_data = [];
-        foreach ($jurusan as $key => $value) {
-            $dataJurusan = Ujian::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->get();
-            $jumlah_pendaftar = count($dataJurusan);
-            $jumlah_lulus =  count(Ujian::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->whereNotNull('lulus_at')->get());
-            $jumlah_kelas_terisi = count(Kelas::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->get());
-            $jumlah_gagal = (new ReportUjian())->totalGagal($dataJurusan);
-            $total_gagal += $jumlah_gagal;
-            $jumlah_belum_ujian = $jumlah_pendaftar - ($jumlah_lulus + $jumlah_gagal);
-            $array_temp =  [
-                'nama_jurusan' => $value->nama,
-                'jumlah_pendaftar' => $jumlah_pendaftar,
-                'jumlah_lulus' => $jumlah_lulus,
-                'jumlah_kelas_terisi' => $jumlah_kelas_terisi,
-                'jumlah_gagal' => $jumlah_gagal,
-                'jumlah_belum_ujian' => $jumlah_belum_ujian
-            ];
-            array_push($final_data, $array_temp);
+        if($periode){
+            $periode_id = $periode->id;
+            $ujian = Ujian::where(['periode_id' => $periode_id])->get();
+            $total_pendaftaran = count($ujian);
+            $total_lulus = count(Ujian::where(['periode_id' => $periode_id])->where("lulus_at", "!=", null)->get());
+            $jurusan = Jurusan::all();
+            $total_gagal = 0;
+            $final_data = [];
+            foreach ($jurusan as $key => $value) {
+                $dataJurusan = Ujian::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->get();
+                $jumlah_pendaftar = count($dataJurusan);
+                $jumlah_lulus =  count(Ujian::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->whereNotNull('lulus_at')->get());
+                $jumlah_kelas_terisi = count(Kelas::where(['jurusan_id' => $value->id, 'periode_id' => $periode_id])->get());
+                $jumlah_gagal = (new ReportUjian())->totalGagal($dataJurusan);
+                $total_gagal += $jumlah_gagal;
+                $jumlah_belum_ujian = $jumlah_pendaftar - ($jumlah_lulus + $jumlah_gagal);
+                $array_temp =  [
+                    'nama_jurusan' => $value->nama,
+                    'jumlah_pendaftar' => $jumlah_pendaftar,
+                    'jumlah_lulus' => $jumlah_lulus,
+                    'jumlah_kelas_terisi' => $jumlah_kelas_terisi,
+                    'jumlah_gagal' => $jumlah_gagal,
+                    'jumlah_belum_ujian' => $jumlah_belum_ujian
+                ];
+                array_push($final_data, $array_temp);
+            }
         }
         return response()->json(
             [
                 "periode" => $periode,
-                "total_pendaftaran" => $total_pendaftaran,
-                "total_lulus" => $total_lulus,
-                "total_gagal" => $total_gagal,
-                "final_data" => $final_data,
+                "total_pendaftaran" => $total_pendaftaran ?? 0,
+                "total_lulus" => $total_lulus ?? 0,
+                "total_gagal" => $total_gagal ?? 0,
+                "final_data" => $final_data ?? 0,
             ]
         );
     }

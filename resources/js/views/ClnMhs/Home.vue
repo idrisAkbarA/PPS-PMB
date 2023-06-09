@@ -9,17 +9,26 @@
       <h4 class="text-white font-weight-light">
         Universitas Islam Negeri Sultan Syarif Kasim Riau
       </h4>
-      <h4 class="mt-10 text-white font-weight-light">
-        Lihat panduan pendaftaran serta syarat dan ketentuan
-        <a
+    </div>
+    <v-alert
+        v-if="activePeriode"
+        text
+        outlined
+        color="primary"
+        type="info"
+    >Lihat panduan pendaftaran serta syarat dan ketentuan <a
           href="#"
-          class="font-weight-black text-white"
+          class="font-weight-black"
           style="text-decoration: none"
           @click="$router.push({ name: 'Panduan Pendaftaran' })"
-        >DI SINI</a>. Harap baca dengan teliti!
-
-      </h4>
-    </div>
+        >DI SINI</a>. Harap baca dengan teliti!</v-alert>
+    <v-alert
+        v-if="activePeriode && ujian && ujian.some(f => checkPeriode(f))"
+        text
+        outlined
+        color="deep-orange"
+        type="warning"
+    >Dimohon untuk menyelesaikan pendaftaran sebelum periode pendaftaran ditutup. Periode pendaftaran akan ditutup pada {{ $moment(activePeriode.akhir_periode).format("DD MMMM YYYY HH:mm") }}</v-alert>
     <div>
       <h4 class="font-weight-light">Riwayat pendaftaran anda</h4>
     </div>
@@ -94,6 +103,7 @@
             <v-card
               :elevation="hover?12:5"
               @click="goToPendaftaran(item)"
+              height="100%"
             >
 
               <v-card-subtitle
@@ -114,20 +124,25 @@
                 <v-container class="mt-4">
                   <p v-if="!checkPeriode(item)">Periode Sudah Berakhir</p>
                   <p v-else-if="!isBiodataFilled || !item.is_agree">Lengkapi biodata diri</p>
-                  <p v-else-if="item.is_jalur_cumlaude ==1">
+                  <p v-else-if="item.is_jalur_cumlaude == 1 && item.lunas_at != null && isBerkasFilled">
                     <span v-if="item.is_lulus_tka == null">
                       Mohon menunggu verifikasi
                     </span>
-                    <span v-else-if="item.lunas_at">Pembayaran berhasil! Selamat anda lulus.</span>
                     <span v-else-if="
                     item.is_lulus_tka == true && item.is_lulus_tkj == true
                   ">
-                      Anda lulus verifikasi, silahkan Lakukan Pembayaran
+                      Anda lulus tahap verifikasi
                     </span>
-                    <span v-else>Maaf, anda tidak lulus verifikasi</span>
+                    <span v-else>Maaf, anda tidak lulus tahap verifikasi</span>
                   </p>
                   <p v-else-if="item.lunas_at == null">
                     Mohon selesaikan pembayaran
+                  </p>
+                  <p v-else-if="!isBerkasFilled">Lengkapi berkas</p>
+                  <p v-else-if="
+                    item.is_lulus_tka == true && item.is_lulus_tkj == true
+                  ">
+                    Selamat anda lulus! silahkan cek jadwal wawancara
                   </p>
                   <v-row v-else-if="isStillUjian(item)">
                     <p>Waktu tersisa untuk menyelesaikan ujian TKA dan TKK</p>
@@ -150,12 +165,7 @@
                       </vue-countdown-timer>
                     </span>
                   </v-row>
-                  <p v-else-if="
-                    item.is_lulus_tka == true && item.is_lulus_tkj == true
-                  ">
-                    Silakan tentukan temu ramah
-                  </p>
-                  <p v-else>Maaf, anda gagal ujian</p>
+                  <p v-else-if="!item.is_lulus_tka || !item.is_lulus_tkj">Maaf, anda gagal ujian</p>
                   <!-- <p v-else-if="!item.is_lulus_tka">Maaf, anda gagal ujian</p> -->
                 </v-container>
               </v-card-text>
@@ -200,7 +210,7 @@
       </v-card>
     </v-dialog>
     <v-btn
-      v-if="ujian"
+      v-if="activePeriode && ujian && ujian.every(e => !e.is_lulus_tka && !e.is_lulus_tkj)"
       rounded
       class="floating-button"
       color="green darken-2"
@@ -266,7 +276,7 @@ export default {
       var batas_ujian = new Date();
       var akhir_periode = new Date(ujian.periode.akhir_periode);
 
-      if (today > akhir_periode) {
+      if (today > akhir_periode || !ujian.periode.is_active) {
         return false;
         // return false;
       }
@@ -314,21 +324,20 @@ export default {
       if (ujian.lunas_at == null) {
         return "deep-orange lighten-3";
       }
-      // cek apakah lulus ujian tka
-      // jika gagal ujian tka, card merah
-      if (ujian.is_lulus_tka == false) {
-        return "red darken";
+      // jika berkas belum lengkap card warna ungu
+      if (!this.isBerkasFilled) {
+        return "purple darken";
       }
-      // cek apakah lulus ujian tkj
-      // jika gagal ujian tkj, card merah
-      if (ujian.is_lulus_tkj == false) {
+      // cek apakah lulus ujian tka/tkj
+      // jika gagal ujian tka/tkj, card merah
+      if (ujian.is_lulus_tka == false || ujian.is_lulus_tkj == false) {
         return "red darken";
       }
       // jika lulus ujian tka & tkj
       // card warna hijau
       if (ujian.is_lulus_tka == true && ujian.is_lulus_tkj == true) {
         return "green darken-1";
-      } else if (!isUjianInRange) {
+      } else if (!isUjianInRange && !ujian.is_jalur_cumlaude) {
         return "red";
       } else {
         return "yellow darken-3";
@@ -338,21 +347,22 @@ export default {
     // jika sudah terisi bernilai true,
     // jika masih ada yg null bernilai false
     checkBiodata(v) {
-      Object.keys(v).every((element) => {
-        if (element == "email_verified_at") {
-          return true;
+        if(!this.activePeriode){
+            return;
         }
-        if (element == "is_verified") {
-          return true;
+        const biodata = ["nama", "email", "hp", "wa", "alamat", "jenis_kelamin", "tgl_lahir", "tempat_lahir", "nik", "nilai_ipk"];
+        const berkas = ["ijazah", "surat_rekomendasi", "kartu_keluarga", "ktp", "pas_photo", "transkip"];
+        if(this.activePeriode.syarat_bhs_inggris || this.activePeriode.syarat_bhs_arab){
+            berkas.push("sertifikat_bhs_inggris", "sertifikat_bhs_arab");
+            biodata.push("nilai_bhs_inggris", "nilai_bhs_arab");
         }
-        if (v[element] == null) {
-          this.isBiodataFilled = false;
-          return false;
-        }
-        this.isBiodataFilled = true;
-        return true;
-      });
-      console.log(this.isBiodataFilled);
+        this.isBiodataFilled = Object.keys(v).filter(f => biodata.includes(f)).every((el) => {
+            return v[el];
+        });
+        this.isBerkasFilled = Object.keys(v).filter(f => berkas.includes(f)).every((el) => {
+            return v[el];
+        });
+        console.log(this.isBiodataFilled, this.isBerkasFilled);
     },
     link() {},
     goToPendaftaran(item) {
@@ -413,6 +423,7 @@ export default {
       item: null,
       form: {},
       isBiodataFilled: false,
+      isBerkasFilled: false,
       isPeriode: false,
     };
   },
@@ -441,7 +452,7 @@ export default {
 }
 .bg-with-overlay {
   background: rgb(0, 36, 15);
-  background: 
+  background:
   /* linear-gradient(
       0deg,
       rgb(5, 94, 42) 0%,
