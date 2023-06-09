@@ -59,7 +59,7 @@
             </tr>
             <tr>
               <td>4. </td>
-              <td> Surat rekomendasi. Format surat rekomendasi dapat didownload <a href="#" class="font-weight-black">DISINI</a></td>
+              <td> Surat rekomendasi. Format surat rekomendasi dapat didownload <a href="#" @click="downloadTemplate" class="font-weight-black">DISINI</a></td>
             </tr>
             <tr v-if="currentPeriode.syarat_bhs_inggris || currentPeriode.syarat_bhs_arab">
               <td>5. </td>
@@ -113,6 +113,10 @@ export default {
   },
   methods: {
     ...mapActions(["getCurrentPeriode"]),
+    downloadTemplate() {
+        console.log(window.location.origin);
+        window.location.href = window.location.origin + '/Surat Rekomendasi PMB.docx'
+    },
     width() {
       if (this.windowWidth <= 600) {
         return "100%";
