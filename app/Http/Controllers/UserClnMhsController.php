@@ -152,6 +152,11 @@ class UserClnMhsController extends Controller
         $userInstance->save();
     }
 
+    public function generateTemplate()
+    {
+        return Excel::download(new templateExport, 'template.xlsx');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
