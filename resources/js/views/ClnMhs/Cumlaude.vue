@@ -522,6 +522,11 @@
 
       </v-stepper-content>
     </v-stepper>
+    <v-card v-else-if="activePeriode.id != ujian.periode_id">
+        <v-card-text>
+            Maap periode telah ditutup.
+        </v-card-text>
+    </v-card>
     <v-card v-else>
       <v-card-text>
         <v-progress-circular indeterminate></v-progress-circular>
