@@ -189,11 +189,14 @@ class UjianController extends Controller
     public function generatePembayaran(Request $request)
     {
         $ujian_id = $request->ujian_id;
+        $ujian = Ujian::find($ujian_id);
+        if ($ujian->kode_bayar){
+            return response()->json(['status' => false, 'message' => 'Kode bayar sudah ada!']);
+        }
         $pembayaran = new Pembayaran;
         $code = $pembayaran->generate($ujian_id);
 
         //save kode bayar
-        $ujian = Ujian::find($ujian_id);
         $ujian->kode_bayar = $code;
         $ujian->save();
 

@@ -210,7 +210,7 @@
       </v-card>
     </v-dialog>
     <v-btn
-      v-if="activePeriode && ujian && ujian.every(e => !e.is_lulus_tka && !e.is_lulus_tkj)"
+      v-if="activePeriode && ujian && ujian.every(e => e.is_lulus_tka != null && e.is_lulus_tkj != null)"
       rounded
       class="floating-button"
       color="green darken-2"
