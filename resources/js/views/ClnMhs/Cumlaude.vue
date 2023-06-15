@@ -522,9 +522,9 @@
 
       </v-stepper-content>
     </v-stepper>
-    <v-card v-else-if="activePeriode.id != ujian.periode_id">
+    <v-card v-else-if="!activePeriode || activePeriode.id != ujian.periode_id">
         <v-card-text>
-            Maap periode telah ditutup.
+            Maaf periode telah ditutup.
         </v-card-text>
     </v-card>
     <v-card v-else>
